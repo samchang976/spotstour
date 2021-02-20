@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
+//@Entity
 @Table(name="item_type")
 public class Item_typeBean implements Serializable {
 	private static final long serialVersionUID = 1L;

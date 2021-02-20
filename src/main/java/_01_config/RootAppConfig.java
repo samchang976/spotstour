@@ -23,14 +23,14 @@ public class RootAppConfig {
 		ComboPooledDataSource ds = new ComboPooledDataSource();
 		//請變更自定義資料庫帳號密碼
 		ds.setUser("root");
-		ds.setPassword("10191234");
+		ds.setPassword("0000");
 		try {ds.setDriverClass("com.mysql.cj.jdbc.Driver");
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		ds.setJdbcUrl("jdbc:mysql://localhost:3306/java_15_05_demo?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Taipei&allowPublicKeyRetrieval=true");
+		ds.setJdbcUrl("jdbc:mysql://localhost:3306/spotstourDB?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Taipei&allowPublicKeyRetrieval=true");
 		ds.setInitialPoolSize(4);
 		ds.setMaxPoolSize(8);
 		return ds;
