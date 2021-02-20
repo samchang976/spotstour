@@ -32,8 +32,8 @@
             </div>
             <!-- 搜尋 -->
                   <div class="col">
-                      <form class="d-flex" action="PortfolioSearchServlet" method="get">
-                        <input class="form-control me-2" type="text" name="searchword" placeholder="Search" aria-label="Search">
+                      <form class="d-flex" action="SearchResult" method="get">
+                        <input class="form-control me-2" type="text" name="searchWord" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">
                         <i class="fas fa-search"></i>
                         </button>
