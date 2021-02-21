@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,7 +117,6 @@
         </div>
         <!-- 第4欄 -->
         <div class="col-1 C_SpCre">
-            <br>
             <br>
             <br>
             <div>紀念品照片3</div>

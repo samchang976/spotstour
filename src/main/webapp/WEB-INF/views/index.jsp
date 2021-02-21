@@ -216,6 +216,10 @@ a, i:hover {
 			// 顯示MsgOK.InsertOK後，就要立刻移除，以免每次回到首 頁都會顯示新增成功的訊息
 		session.removeAttribute("MsgOK");
 		%>
+		<div>
+			<a href="test">
+			test</a>
+		</div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
 	</div>
 </body>
