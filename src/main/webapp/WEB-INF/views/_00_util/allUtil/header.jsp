@@ -67,11 +67,11 @@ a, i:hover {
 	<div class='menuOuter'
 		style="border-bottom: 1px solid black; text-align: center;">
 		<div id='option1'>
-			<a href="<c:url value='/index.jsp' />" target="_parent"> <i
+			<a href="<c:url value='/' />" target="_parent"> <i
 				class="fas fa-globe-americas fa-spin fa-3x"></i>
 			</a>
 		</div>
-		<a href="<c:url value='/index.jsp' />" target="_parent">
+		<a href="<c:url value='/' />" target="_parent">
 			<div id="SPOTTOUR">SPOTS-TOUR</div>
 		</a>
 		<div id='option2'>
@@ -113,7 +113,7 @@ a, i:hover {
 						</c:if>
 						<c:if test="${ funcName != 'IND' }">
 							<li><a class="dropdown-item"
-								href="<c:url value='/index.jsp' />">回首頁</a></li>
+								href="<c:url value='/' />">回首頁</a></li>
 						</c:if>
 					</ul></li>
 
