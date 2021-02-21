@@ -23,8 +23,8 @@
 			您已經登出<BR> </font>
 	</c:set>
 
-<%-- 	<jsp:useBean id='logoutBean' class='_02_login.model.LogoutBean' --%>
-<%-- 		scope='page' /> --%>
+	<%-- 	<jsp:useBean id='logoutBean' class='_02_login.model.LogoutBean' --%>
+	<%-- 		scope='page' /> --%>
 
 	<c:set target='${logoutBean}' property='session'
 		value='${pageContext.session}' />

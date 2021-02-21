@@ -67,7 +67,7 @@ a, i:hover {
 	<div class='menuOuter'
 		style="border-bottom: 1px solid black; text-align: center;">
 		<div id='option1'>
-			<a href="<c:url value='/index.jsp' />" target="_parent"> <i
+			<a href="worldMap" target="_parent"> <i
 				class="fas fa-globe-americas fa-spin fa-3x"></i>
 			</a>
 		</div>
@@ -121,15 +121,17 @@ a, i:hover {
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="merchandiseIndex">購物商城</a></li>
+						<li><a class="dropdown-item" href="merchandiseIndex">購物商城首頁</a></li>
 						<li><a class="dropdown-item" href="shoppingCart">購物車</a></li>
 						<li><a class="dropdown-item" href="aboutMerchandise">關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="myOrderList">我的訂單</a></li>
+						<li><a class="dropdown-item" href="aboutMerchandise">我的訂單</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="merchandiseModify">管理商城</a></li>
 						<li><a class="dropdown-item" href="activityList">管理活動列表</a></li>
 						<li><a class="dropdown-item" href="activityModify">管理活動快訊</a></li>
 						<li><a class="dropdown-item" href="aboutMerchandiseModify">編輯關於商品資訊</a></li>
-						<li><a class="dropdown-item" href="manageMerchandiseReport">編輯關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="manageMerchandiseReport">管理退貨商品列表</a></li>
 						<li><a class="dropdown-item" href="manageVideoReport">管理檢舉影片</a></li>
 
 					</ul></li>
@@ -156,6 +158,7 @@ a, i:hover {
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="aboutUs">關於我們</a></li>
 						<li><a class="dropdown-item" href="contactUs">聯絡我們</a></li>
+						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="aboutUsModify">編輯關於我們</a></li>
 						<li><a class="dropdown-item" href="contactUsModify">編輯聯絡我們</a></li>
 					</ul></li>
