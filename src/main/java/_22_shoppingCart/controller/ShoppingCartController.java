@@ -10,5 +10,4 @@ public class ShoppingCartController {
 	public String shoppingCart() {
 		return "_21_shoppingMall/ShoppingCart";
 	}
-	
 }

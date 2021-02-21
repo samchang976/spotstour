@@ -16,4 +16,19 @@ public class MerchandiseController {
 		return "_21_shoppingMall/AboutMerchandise";
 	}
 	
+	@RequestMapping("/activityDetail")
+	public String activityDetail() {
+		return "_21_shoppingMall/ActivityDetail";
+	}
+	
+	@RequestMapping("merchandiseDetail")
+	public String merchandiseDetail() {
+		return "_21_shoppingMall/MerchandiseDetail";
+	}
+	
+	@RequestMapping("merchandiseSearchResult")
+	public String merchandiseSearchResult() {
+		return "_21_shoppingMall/MerchandiseSearchResult";
+	}
+	
 }
