@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MerchandiseController {
 
 	@RequestMapping("/merchandiseIndex")
-	public String AddMerchandise() {
+	public String searchMerchandise() {
 		return "_21_shoppingMall/MerchandiseIndex";
+	}
+
+	@RequestMapping("/aboutMerchandise")
+	public String aboutMerchandise() {
+		return "_21_shoppingMall/AboutMerchandise";
 	}
 	
 }

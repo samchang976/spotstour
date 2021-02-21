@@ -71,7 +71,7 @@ a, i:hover {
 				class="fas fa-globe-americas fa-spin fa-3x"></i>
 			</a>
 		</div>
-		<a href="<c:url value='/WEB-INF/views/index.jsp' />" target="_parent">
+		<a href="index" target="_parent">
 			<div id="SPOTTOUR">SPOTS-TOUR</div>
 		</a>
 		<div id='option2'>
