@@ -1,14 +1,14 @@
-package _21_merchandiseSearch.controller;
+package _91_managerMart.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class MerchandiseController {
+public class ManagerController {
 
-	@RequestMapping("/merchandiseIndex")
+	@RequestMapping("/merchandiseModify")
 	public String AddMerchandise() {
-		return "_21_shoppingMall/MerchandiseIndex";
+		return "_91_manageMart/MerchandiseModify";
 	}
 	
 }

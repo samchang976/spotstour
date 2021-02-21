@@ -71,7 +71,7 @@ a, i:hover {
 				class="fas fa-globe-americas fa-spin fa-3x"></i>
 			</a>
 		</div>
-		<a href="<c:url value='/index.jsp' />" target="_parent">
+		<a href="<c:url value='/WEB-INF/views/index.jsp' />" target="_parent">
 			<div id="SPOTTOUR">SPOTS-TOUR</div>
 		</a>
 		<div id='option2'>
@@ -83,13 +83,13 @@ a, i:hover {
         </div> -->
 
 			<ul class="nav nav-tabs">
-				
-				<c:if test="${! empty LoginOK }">
-						<img height='40px' width='30px'
-							src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.memberId}'>
 
-					</c:if>
-					
+				<c:if test="${! empty LoginOK }">
+					<img height='40px' width='30px'
+						src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.memberId}'>
+
+				</c:if>
+
 				<li class="nav-item dropdown"><a class="fas fa-file-alt fa-2x"
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
@@ -121,37 +121,43 @@ a, i:hover {
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item"
-							href="<c:url value='/_11_merchandiseSearch/Merchandise.do' />">購物商城</a></li>
-						<li><a class="dropdown-item" href="#">購物車</a></li>
-						<li><a class="dropdown-item" href="#">關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="merchandiseIndex">購物商城</a></li>
+						<li><a class="dropdown-item" href="shoppingCart">購物車</a></li>
+						<li><a class="dropdown-item" href="aboutMerchandise">關於商品資訊</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="merchandiseModify">管理商城</a></li>
+						<li><a class="dropdown-item" href="activityList">管理活動列表</a></li>
+						<li><a class="dropdown-item" href="activityModify">管理活動快訊</a></li>
+						<li><a class="dropdown-item" href="aboutMerchandiseModify">編輯關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="manageMerchandiseReport">編輯關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="manageVideoReport">管理檢舉影片</a></li>
+
 					</ul></li>
 				<li class="nav-item dropdown"><a class="fas fa-user-alt fa-2x"
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
 						<c:if test="${ funcName != 'REG' }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_01_register/register.jsp' />">註冊</a></li>
+							<li><a class="dropdown-item" href="memberRegister">註冊會員</a></li>
 						</c:if>
 						<c:if test="${ empty LoginOK }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_02_login/login.jsp' />">登入</a></li>
+							<li><a class="dropdown-item" href="login">登入</a></li>
 						</c:if>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">編輯個人資料</a></li>
-						<li><a class="dropdown-item" href="#">個人作品</a></li>
-						<li><a class="dropdown-item" href="#">收藏的影片</a></li>
+						<li><a class="dropdown-item" href="memberDetailModify">會員個人資料</a></li>
+						<li><a class="dropdown-item" href="personalVideo">個人作品</a></li>
+						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item"
-							href="<c:url value='/_02_login/logout.jsp' />">登出</a></li>
+						<li><a class="dropdown-item" href="logout">登出</a></li>
 					</ul></li>
 				<li class="nav-item dropdown"><a
 					class="fas fa-align-justify fa-2x" data-bs-toggle="dropdown"
 					href="#" role="button" aria-expanded="false"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">聯絡我們</a></li>
-						<li><a class="dropdown-item" href="#">關於我們</a></li>
+						<li><a class="dropdown-item" href="aboutUs">關於我們</a></li>
+						<li><a class="dropdown-item" href="contactUs">聯絡我們</a></li>
+						<li><a class="dropdown-item" href="aboutUsModify">編輯關於我們</a></li>
+						<li><a class="dropdown-item" href="contactUsModify">編輯聯絡我們</a></li>
 					</ul></li>
 			</ul>
 		</div>
