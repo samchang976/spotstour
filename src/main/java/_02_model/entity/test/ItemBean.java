@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Entity
+//@Entity
 @Table(name="Item")
 public class ItemBean implements Serializable {
 	private static final long serialVersionUID = 1L;
