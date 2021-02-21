@@ -2,7 +2,7 @@ package _21_merchandiseSearch.dao;
 
 import java.util.List;
 
-import _02_model.entity.test.Item_typeBean;
+import _02_model.entity.Item_typeBean;
 
 
 public interface Item_typeDao {

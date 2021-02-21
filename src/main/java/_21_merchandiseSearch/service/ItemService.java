@@ -1,6 +1,6 @@
 package _21_merchandiseSearch.service;
 
-import _02_model.entity.test.ItemBean;
+import _02_model.entity.ItemBean;
 
 public interface ItemService {
 	// 依itemId來刪除單筆記錄

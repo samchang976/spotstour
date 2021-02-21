@@ -127,7 +127,7 @@ a, i:hover {
 	<!-- 設定變數funcName的值為"IND", top.jsp會使用此變數-->
 	<c:set var="funcName" value="IND" scope="session" />
 	<!-- 引入共同的頁首 -->
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/topMVC.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
 	<div align='center'>
 		<!-- 		<h1> -->
 		<%-- 					歡迎光臨<br> <font color='RED'>${AppName}</font><br> --%>
@@ -216,6 +216,7 @@ a, i:hover {
 			// 顯示MsgOK.InsertOK後，就要立刻移除，以免每次回到首 頁都會顯示新增成功的訊息
 		session.removeAttribute("MsgOK");
 		%>
+		
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
 	</div>
 </body>

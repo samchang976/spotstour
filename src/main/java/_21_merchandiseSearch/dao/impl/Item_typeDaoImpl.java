@@ -8,7 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import _02_model.entity.test.Item_typeBean;
+import _02_model.entity.Item_typeBean;
 import _21_merchandiseSearch.dao.Item_typeDao;
 
 

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import _02_model.entity.test.ItemBean;
+import _02_model.entity.ItemBean;
 import _21_merchandiseSearch.dao.ItemDao;
 import _21_merchandiseSearch.service.ItemService;
 
@@ -23,7 +23,7 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public ItemBean getItem(int itemId) {
 		ItemBean itembean = null;
-		itembean = dao.getItem(itemId);
+		itembean = dao.getItemByItemId(itemId);
 		return itembean;
 	}
 
