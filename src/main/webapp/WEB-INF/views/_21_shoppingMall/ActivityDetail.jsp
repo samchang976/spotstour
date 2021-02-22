@@ -21,7 +21,7 @@
 	<!-- header -->
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
 	<!--search -->
-	<jsp:include page="/WEB-INF/views/_00_util/shoppingMallUtil/search.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 
 	<!-- 優惠標題 -->
 	<div class="container">

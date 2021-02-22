@@ -16,7 +16,8 @@
 <!-- icon cdn -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-<link rel="stylesheet" href="button.css">
+<link rel="stylesheet"
+	href="WEB-INF/views/_00_util/shoppingMallUtil/css/button.css">
 
 <title>編輯商品</title>
 
@@ -60,6 +61,7 @@ img {
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+
 	<div class="container-fluid">
 		<!-- 欄位敘述 -->
 		<div class="row">
@@ -98,7 +100,34 @@ img {
 		</div>
 	</div>
 	<!-- 間隔 -->
+	<hr>
 	<br>
+	<div>
+		<form method="POST" action="*" enctype='multipart/form-data'>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="itemHeader">標頭：</label> <input type="text"
+						name="itemHeader" value="" class="form-control" placeholder="XXX">
+					<font color="red" size="-1"></font>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="itemPrice">價錢：</label> <input type="text"
+						name="itemPrice" value="" class="form-control" placeholder="120">
+					<font color="red" size="-1"></font>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="itemQty">數量：</label> <input type="text"
+						name="itemQty" value="" class="form-control" placeholder="50">
+					<font color="red" size="-1"></font>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="itemDes">描述：</label> <input type="text"
+						name="itemDes" value="" class="form-control" placeholder="XXXXXXXXXXX">
+					<font color="red" size="-1"></font>
+				</div>
+		</form>
+	</div>
+
 	<!--第二列  -->
 	<div class="row R_SpCre">
 		<!-- 第1欄 -->
@@ -138,7 +167,7 @@ img {
 		<!-- 第6欄 -->
 		<div class="col-1 C_SpCre">
 			<br>
-			<div>商品定價:100圓</div>
+			<div>商品定價:100元</div>
 			<br>
 			<div>商品剩餘:50個</div>
 		</div>
@@ -146,12 +175,10 @@ img {
 		<div class="col-1 C_SpCre">
 			<br>
 			<div>
-				<input type="button" value="上傳照片">
+				<Button>上傳照片</Button>
 			</div>
 			<br>
-			<div>
-				<input type="button" value="刪除商品">
-			</div>
+
 		</div>
 	</div>
 	<br>

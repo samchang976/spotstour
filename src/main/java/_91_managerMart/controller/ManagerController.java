@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ManagerController {
 
 	@RequestMapping("/merchandiseModify")
-	public String merchandiseModify() {
+	public String addeMrchandise() {
 		return "_91_manageMart/MerchandiseModify";
 	}
 	

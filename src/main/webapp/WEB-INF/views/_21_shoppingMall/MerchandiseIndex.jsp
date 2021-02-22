@@ -40,7 +40,7 @@
 		
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
 	
-	<jsp:include page="/WEB-INF/views/_00_util/shoppingMallUtil/search.jsp" />
+<jsp:include page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 
 	<!-- 活動快訊 -->
 	<div class="container" id="news_container">
