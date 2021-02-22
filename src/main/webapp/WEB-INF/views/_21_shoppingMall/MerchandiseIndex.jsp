@@ -177,8 +177,8 @@
 		<div class="row g-5">
 				<div class="col-12 col-md-3">
 					<div>
-						<a href="03_MerchandiseSearchResult.html"> <img
-							src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						<a href="MerchandiseSearchResult"> 
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							class="w-100">
 						</a>
 					</div>

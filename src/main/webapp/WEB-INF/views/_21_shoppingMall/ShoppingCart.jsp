@@ -89,10 +89,14 @@
 			<div class="subtotalBlock">
 				共<span id="items">0</span>商品，總金額 : <span id="subtotal">0</span>元
 			</div>
-			<button id="BtcheckNow" class="Bt_black " type="submit">立即結帳</button>
-			<!-- onclick="window.open('06_SelectPayment.html')" -->
+			<button id="BtcheckNow" class="Bt_black " type="submit"
+			onclick="window.open('SelectPayment')"
+			>立即結帳</button>
+			
 		</div>
 	</div>
+	
+	
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script

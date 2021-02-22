@@ -25,7 +25,7 @@
 	<!-- header -->
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />>
 	<!--search -->
-	<jsp:include page="/WEB-INF/views/_00_util/shoppingMallUtil/search.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 
 	<!--商品  -->
 	<c:forEach var="entry" items="${products}">
@@ -44,7 +44,7 @@
 
 			<div class="col ">
 				<div class="itemImageBorder">
-					<a href='04_MerchandiseDetail.html'> <img
+					<a href='MerchandiseDetail'> <img
 						src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 						class="w-100">
 					</a>

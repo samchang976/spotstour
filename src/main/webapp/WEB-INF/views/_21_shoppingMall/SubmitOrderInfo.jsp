@@ -153,10 +153,12 @@
 					共<span id="items">3</span>商品，總金額 : <span id="subtotal">250</span>元
 				</div>
 				<button id="OrSubmit" type="submit" class="Bt_black"
-					onclick="window.open('08_PurchaseSuccess.html') ">送出訂單</button>
+					onclick="window.open('PurchaseSuccess') ">送出訂單</button>
 			</div>
 		</div>
 	</div>
+	
+	
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
