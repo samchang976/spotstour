@@ -39,7 +39,6 @@ public class ManagerItem_typeServiceImpl implements Serializable, ManagerItem_ty
 		return bean;
 	}
 
-
 	public int getItemId() {
 		return dao.getItemId();
 	}

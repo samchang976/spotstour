@@ -1,6 +1,9 @@
 package _91_managerMart.dao;
 
+import java.util.List;
+
 import _02_model.entity.ItemBean;
+import _02_model.entity.Item_typeBean;
 
 public interface ManagerItemDao {
 	
@@ -13,4 +16,11 @@ public interface ManagerItemDao {
 	boolean deleteItem(int itemId);
 	
 	boolean updateItem(ItemBean itemBean);
+	
+	public void addItem(ItemBean itemBean);
+	
+	public Item_typeBean getItem_TypeById(int itId); 
+	
+	List<Item_typeBean> getItem_TypeList();
+	
 }

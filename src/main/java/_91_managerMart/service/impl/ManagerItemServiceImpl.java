@@ -1,11 +1,14 @@
 package _91_managerMart.service.impl;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import _02_model.entity.ItemBean;
+import _02_model.entity.Item_typeBean;
 import _91_managerMart.dao.ManagerItemDao;
 import _91_managerMart.service.ManagerItemService;
 
@@ -51,5 +54,25 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 			return n = 0;
 		}
 	}
+
+	@Transactional
+	@Override
+	public void addItem(ItemBean itemBean) {
+		dao.addItem(itemBean);
+	}
+
+	@Transactional
+	@Override
+	public Item_typeBean getItem_TypeById(int itId) {
+		return dao.getItem_TypeById(itId);
+	}
+
+	@Transactional
+	@Override
+	public List<Item_typeBean> getItem_TypeList() {
+		return dao.getItem_TypeList();
+	}
+	
+	
 
 }

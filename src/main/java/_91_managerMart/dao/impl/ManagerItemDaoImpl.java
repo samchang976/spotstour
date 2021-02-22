@@ -1,6 +1,7 @@
 package _91_managerMart.dao.impl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -65,5 +66,30 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	public boolean updateItem(ItemBean itemBean) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	@Override
+	public void addItem(ItemBean itemBean) {
+		Session session = factory.getCurrentSession();
+		Item_typeBean itb = getItem_TypeById((itemBean.getItId())); 
+		itemBean.setItem_typeBean(itb);
+		session.save(itemBean);
+	}
+
+	@Override
+	public Item_typeBean getItem_TypeById(int itId) {
+		Item_typeBean itb = null;
+		Session session = factory.getCurrentSession();
+		itb = session.get(Item_typeBean.class, itId);
+		return itb;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Item_typeBean> getItem_TypeList() {
+		String hql = "FROM Product_sort";
+		Session session = factory.getCurrentSession();
+		List<Item_typeBean> list = session.createQuery(hql).getResultList();
+		return list;
 	}
 }
