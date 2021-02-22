@@ -30,185 +30,189 @@
 <title>商城首頁</title>
 
 <style>
+.position {
+	position: relative;
+	top: 35px;
+}
 </style>
 </head>
 
 <body>
 	<div
-		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px;">
-
+		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
 	</div>
 
-	<jsp:include
-		page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
-	<!-- 活動快訊 -->
-	<div class="container" id="news_container">
-		<div class="row">
-			<div class="col-12">
-				<div id="news-text">活動快訊</div>
-				<!-- ------------------------------------------------------- -->
-				<a href="ActivityDetail"> <!-- 日期 -->
-					<div class="block">
-						<div class="float-left">
-							<div class="date">2021/01/01</div>
+	<div class="position">
+		<jsp:include
+			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
+		<!-- 活動快訊 -->
+		<div class="container" id="news_container">
+			<div class="row">
+				<div class="col-12">
+					<div id="news-text">活動快訊</div>
+					<!-- ------------------------------------------------------- -->
+					<a href="ActivityDetail"> <!-- 日期 -->
+						<div class="block">
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
 						</div>
-						<!-- 優惠內容 -->
-						<div class="float-left ">
-							<div class="discount">新春特惠，全館免運!</div>
+					</a>
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
 						</div>
-						<div class="clear-block"></div>
-					</div>
-				</a>
-			<!--------------------------------------------------------------->
-			<a href="ActivityDetail">
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/01</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-			</a>
-			<!--------------------------------------------------------------->
-			<a href="ActivityDetail">
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/01</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-			</a>
-			<!--------------------------------------------------------------->
-			<a href="ActivityDetail">
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/01</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-			</a>
-			<!--------------------------------------------------------------->
-			<a href="ActivityDetail">
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/01</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-			</a>
+					</a>
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
 
-			<!--------------------------------------------------------------->
-			<a href="ActivityDetail">
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/01</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-			</a>
-			<!--------------------------------------------------------------->
-			<a href="ActivityDetail">
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/01</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-			</a>
-			<!--------------------------------------------------------------->
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
 
 
-			<a href="ActivityDetail">
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/01</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-			</a>
-			<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
 
 
 
+				</div>
+			</div>
 		</div>
-	</div>
-	</div>
-
+	
 
 
 	<!-- ============================================================= -->
 	<!-- 地區搜尋 -->
 	<div class="container" id="area_search">
 		<div class="row g-5">
-				<div class="col-12 col-md-3">
-					<div>
-						<a href="MerchandiseSearchResult"> 
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							class="w-100">
-						</a>
-					</div>
+			<div class="col-12 col-md-3">
+				<div>
+					<a href="MerchandiseSearchResult"> <img
+						src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						class="w-100">
+					</a>
 				</div>
+			</div>
 
-				<div class="col-12 col-md-3">
-					<div>
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							class="w-100">
-					</div>
+			<div class="col-12 col-md-3">
+				<div>
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						class="w-100">
 				</div>
+			</div>
 
-				<div class="col-12 col-md-3">
-					<div>
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							class="w-100">
-					</div>
+			<div class="col-12 col-md-3">
+				<div>
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						class="w-100">
 				</div>
+			</div>
 
-				<div class="col-12 col-md-3">
-					<div>
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							class="w-100">
-					</div>
+			<div class="col-12 col-md-3">
+				<div>
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						class="w-100">
 				</div>
+			</div>
 		</div>
 	</div>
 
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
-
+</div>
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
