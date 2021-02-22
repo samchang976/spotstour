@@ -87,7 +87,7 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Item_typeBean> getItem_TypeList() {
-		String hql = "FROM Product_sort";
+		String hql = "FROM Item_type";
 		Session session = factory.getCurrentSession();
 		List<Item_typeBean> list = session.createQuery(hql).getResultList();
 		return list;

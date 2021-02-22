@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,29 +106,82 @@ img {
 	<hr>
 	<br>
 	<div>
-		<form method="POST" action="*" enctype='multipart/form-data'>
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<label for="itemHeader">標頭：</label> <input type="text"
-						name="itemHeader" value="" class="form-control" placeholder="XXX">
-					<font color="red" size="-1"></font>
+		<!-- 		<form method="POST" action="*" enctype='multipart/form-data' modelAttribute='itemBean'> -->
+		<!-- 			<div class="form-row"> -->
+		<!-- 				<div class="form-group col-md-6"> -->
+		<!-- 					<label for="itemHeader">標頭：</label> <input type="text" -->
+		<!-- 						name="itemHeader" value="" class="form-control" placeholder="XXX"> -->
+		<!-- 					<font color="red" size="-1"></font> -->
+		<!-- 				</div> -->
+		<!-- 				<div class="form-group col-md-6"> -->
+		<!-- 					<label for="itemPrice">價錢：</label> <input type="text" -->
+		<!-- 						name="itemPrice" value="" class="form-control" placeholder="120"> -->
+		<!-- 					<font color="red" size="-1"></font> -->
+		<!-- 				</div> -->
+		<!-- 				<div class="form-group col-md-6"> -->
+		<!-- 					<label for="itemQty">數量：</label> <input type="text" -->
+		<!-- 						name="itemQty" value="" class="form-control" placeholder="50"> -->
+		<!-- 					<font color="red" size="-1"></font> -->
+		<!-- 				</div> -->
+		<!-- 				<div class="form-group col-md-6"> -->
+		<!-- 					<label for="itemDes">描述：</label> <input type="text" -->
+		<!-- 						name="itemDes" value="" class="form-control" placeholder="XXXXXXXXXXX"> -->
+		<!-- 					<font color="red" size="-1"></font> -->
+		<!-- 				</div> -->
+		<!-- 		</form> -->
+
+		<form:form method='POST' modelAttribute='itemBean'>
+			<div class="form-group row">
+				<label for="productName" class="col-sm-2 col-form-label">標頭</label>
+				<div class="col-sm-10">
+					<form:input type="text" path="itemHeader" class="form-control"
+						id="itemHeader" />
 				</div>
-				<div class="form-group col-md-6">
-					<label for="itemPrice">價錢：</label> <input type="text"
-						name="itemPrice" value="" class="form-control" placeholder="120">
-					<font color="red" size="-1"></font>
+			</div>
+			<div class="form-group row">
+				<label for="productInfo" class="col-sm-2 col-form-label">價錢</label>
+				<div class="col-sm-10">
+					<form:input type="text" path="itemPrice" class="form-control"
+						id="itemPrice" />
 				</div>
-				<div class="form-group col-md-6">
-					<label for="itemQty">數量：</label> <input type="text"
-						name="itemQty" value="" class="form-control" placeholder="50">
-					<font color="red" size="-1"></font>
+			</div>
+			<div class="form-group row">
+				<label for="productPrice" class="col-sm-2 col-form-label">數量</label>
+				<div class="col-sm-10">
+					<form:input type="number" path="itemQty" min="0"
+						class="form-control" id="itemQty" />
 				</div>
-				<div class="form-group col-md-6">
-					<label for="itemDes">描述：</label> <input type="text"
-						name="itemDes" value="" class="form-control" placeholder="XXXXXXXXXXX">
-					<font color="red" size="-1"></font>
+			</div>
+			<div class="form-group row">
+				<label for="productStock" class="col-sm-2 col-form-label">描述</label>
+				<div class="col-sm-10">
+					<form:input type="text" path="itemDes" min="0" class="form-control"
+						id="itemDes" />
 				</div>
-		</form>
+			</div>
+
+			<div class="form-group row">
+				<label for="itId" class="col-sm-2 col-form-label">商品種類</label>
+				<div class="mb-3 col-10">
+					<form:select path="itId" class="custom-select">
+						<form:option value="-1" label="請選擇" />
+						<form:options items="${item_TypeMap}" />
+					</form:select>
+				</div>
+			</div>
+
+
+			<div class="form-group row  d-flex justify-content-end mt-5">
+				<!-- 				<div> -->
+				<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
+				<!-- 				</div> -->
+				<div>
+					<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
+				</div>
+			</div>
+
+
+		</form:form>
 	</div>
 
 	<!--第二列  -->
@@ -211,5 +267,16 @@ img {
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<!-- 	<script -->
+	<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" -->
+	<!-- 		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" -->
+	<!-- 		crossorigin="anonymous"></script> -->
 </body>
 </html>
