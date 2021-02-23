@@ -24,7 +24,12 @@
     
     </style>
 </head>
+	<div
+		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px;">
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
+	</div>
 <body>
+	
     <input type="button" value="全選">
     <input type="button" value="全選刪除收藏的影片">
     <br>
