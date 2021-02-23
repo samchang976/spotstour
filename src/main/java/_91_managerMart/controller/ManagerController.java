@@ -36,7 +36,7 @@ public class ManagerController {
 	@PostMapping("/merchandiseModify")
 	public String processAddNewMrchandiseForm(@ModelAttribute("itemBean") ItemBean ib) {
 		managerItemService.addItem(ib);  
-		return "redirect:/merchandiseModify";
+		return "redirect:/_91_manageMart/MerchandiseModify";
 	}
 	
 	@RequestMapping("/activityList")
