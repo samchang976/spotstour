@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _91_managerMart.dao.ManagerItemDao;
@@ -67,9 +68,17 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 		return managetItemDao.getItem_TypeById(itId);
 	}
 
+	//取得item_type list
 	@Transactional
 	@Override
 	public List<Item_typeBean> getItem_TypeList() {
 		return managetItemDao.getItem_TypeList();
+	}
+	
+	//取得country list
+	@Transactional
+	@Override
+	public List<CountryBean> getCountryList() {
+		return managetItemDao.getCountryList();
 	}
 }
