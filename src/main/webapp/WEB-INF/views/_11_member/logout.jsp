@@ -8,7 +8,7 @@
 <title>登出</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<!-- 先將使用者名稱取出 -->
 	<c:set var="memberName" value="${ LoginOK.mName }" />
 	<!-- 移除放在session物件內的屬性物件 -->
@@ -31,6 +31,6 @@
 
 	${ logoutBean.logout }
 
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 </body>
 </html>

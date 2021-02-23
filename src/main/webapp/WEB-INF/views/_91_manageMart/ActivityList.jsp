@@ -36,7 +36,7 @@ h2 {
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<div id="first">
 		<h2>編輯文章標題</h2>
 		<form>
@@ -67,6 +67,6 @@ h2 {
 
 		</form>
 	</div>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 </body>
 </html>

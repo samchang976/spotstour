@@ -46,7 +46,7 @@
 			value="<font color='red'>${sessionScope.timeOut}</font>" />
 	</c:if>
 	<!-- 引入共同的頁首 -->
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 
 	<Form action="<c:url value='login.do' />" method="POST"
 		name="loginForm">
@@ -110,6 +110,6 @@
 			</Table>
 		</div>
 	</Form>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 </body>
 </html>
