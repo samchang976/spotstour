@@ -39,7 +39,7 @@ body {
     } */
 </style>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<div id="form">
 		<div>關於商品資訊</div>
 		<div>&nbsp;&nbsp;&nbsp;&nbsp;退換貨</div>
@@ -65,6 +65,6 @@ body {
 		</div>
 
 	</div>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 </body>
 </html>

@@ -126,7 +126,7 @@
 =======
 	<div
 		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
-		<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
 
 	<div class="position">
@@ -298,7 +298,7 @@
 		</div>
 	</div>
 
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 </div>
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

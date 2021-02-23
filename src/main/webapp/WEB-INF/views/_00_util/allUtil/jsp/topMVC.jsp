@@ -10,7 +10,7 @@
 <script src="${pageContext.request.contextPath}/javascript/eDM.js"></script>
 
 <c:set var='debug' value='true' scope='application' />
-<%-- <jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" /> --%>
+<%-- <jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" /> --%>
 	
 <%-- <iframe src="${pageContext.request.contextPath}/fragment/header.jsp" frameborder="0" width="100%" --%>
 <!-- 		height="67px" scrolling="no" -->

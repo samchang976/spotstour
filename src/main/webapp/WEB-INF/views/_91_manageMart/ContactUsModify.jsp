@@ -37,7 +37,7 @@ input {
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<div id="form">
 		<div>
 			<div>姓名:</div>
@@ -60,6 +60,6 @@ input {
 		</div>
 		<button style="margin-top: 15px; width: 60px;">送出</button>
 	</div>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 </body>
 </html>

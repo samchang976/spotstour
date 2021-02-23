@@ -19,17 +19,19 @@
 	crossorigin="anonymous">
 
 <style>
-/*         body{ */
-/*         	height: 200px; */
-/*             background: rgb(208, 199, 199); */
-/*         } */
-a, i {
-	text-decoration: none;
-	color: #000;
-	font-size: 12px;
+
+/* ¨ú®øulªº©³½u */
+ul.nav.nav-tabs {
+	border-bottom: none;
 }
 
-a, i:hover {
+.menuOuter .fas {
+	text-decoration: none;
+	color: #000;
+	font-size: 30px;
+}
+
+.menuOuter .fas:hover {
 	color: #ddd;
 }
 
@@ -50,7 +52,7 @@ a, i:hover {
 
 #SPOTTOUR {
 	display: inline-block;
-	font-size: 32px;
+	font-size: 24px;
 	font-family: Tahoma;
 	color: #000;
 }
@@ -68,14 +70,14 @@ a, i:hover {
 		style="border-bottom: 1px solid black; text-align: center;">
 		<div id='option1'>
 			<a href="<c:url value='/index.jsp' />" target="_parent"> <i
-				class="fas fa-globe-americas fa-spin fa-3x"></i>
+				class="fas fa-globe-americas fa-spin "></i>
 			</a>
 		</div>
-		<a href="<c:url value='/index.jsp' />" target="_parent">
+		<a href="<c:url value='/' />" target="_parent">
 			<div id="SPOTTOUR">SPOTS-TOUR</div>
 		</a>
 		<div id='option2'>
-			<!-- å…§åµŒç¶²ç«™æŠŠé€£çµå°Žå‘çˆ¶å±¤ -->
+			<!-- ¤º´Oºô¯¸§â³sµ²¾É¦V¤÷¼h -->
 			<!-- <div>
             <a href="01_MerchandiseIndex.html" target="_parent"> <i
                 class="fas fa-cart-plus fa-3x"></i>
@@ -83,75 +85,83 @@ a, i:hover {
         </div> -->
 
 			<ul class="nav nav-tabs">
-				
+				<!-- ·|­û¹Ï¤ù -->
 				<c:if test="${! empty LoginOK }">
-						<img height='40px' width='30px'
-							src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.memberId}'>
+					<img height='40px' width='30px'
+						src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.memberId}'>
 
-					</c:if>
-					
-				<li class="nav-item dropdown"><a class="fas fa-file-alt fa-2x"
+				</c:if>
+
+				<li class="nav-item dropdown"><a class="fas fa-file-alt"
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 
 					<ul class="dropdown-menu">
 						<c:if test="${ funcName != 'SHO' }">
 							<li><a class="dropdown-item"
-								href="<c:url value='/_03_listBooks/DisplayPageProducts' />">è³¼ç‰©</a></li>
+								href="<c:url value='/_03_listBooks/DisplayPageProducts' />">ÁÊª«</a></li>
 						</c:if>
 						<c:if test="${ funcName != 'CHE' }">
 							<li><a class="dropdown-item"
-								href="<c:url value='/_04_ShoppingCart/ShowCartContent.jsp' />">çµå¸³</a></li>
+								href="<c:url value='/_04_ShoppingCart/ShowCartContent.jsp' />">µ²±b</a></li>
 						</c:if>
 						<c:if test="${ funcName != 'ORD' }">
 							<li><a class="dropdown-item"
-								href="<c:url value='/_05_orderProcess/orderList.do' />">è¨‚å–®</a></li>
+								href="<c:url value='/_05_orderProcess/orderList.do' />">­q³æ</a></li>
 						</c:if>
 						<c:if test="${ funcName != 'BMT' }">
 							<li><a class="dropdown-item"
-								href="<c:url value='/_20_productMaintain/DisplayPageProducts' />">ç¶­è­·</a></li>
+								href="<c:url value='/_20_productMaintain/DisplayPageProducts' />">ºûÅ@</a></li>
 						</c:if>
 						<c:if test="${ funcName != 'IND' }">
 							<li><a class="dropdown-item"
-								href="<c:url value='/index.jsp' />">å›žé¦–é </a></li>
+								href="<c:url value='/index.jsp' />">¦^­º­¶</a></li>
 						</c:if>
 					</ul></li>
 
-				<li class="nav-item dropdown"><a class="fas fa-cart-plus fa-2x"
+				<li class="nav-item dropdown"><a class="fas fa-cart-plus "
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item"
-							href="<c:url value='/_11_merchandiseSearch/Merchandise.do' />">è³¼ç‰©å•†åŸŽ</a></li>
-						<li><a class="dropdown-item" href="#">è³¼ç‰©è»Š</a></li>
-						<li><a class="dropdown-item" href="#">é—œæ–¼å•†å“è³‡è¨Š</a></li>
-					</ul></li>
-				<li class="nav-item dropdown"><a class="fas fa-user-alt fa-2x"
+						<li><a class="dropdown-item" href="merchandiseIndex">ÁÊª«°Ó«°</a></li>
+						<li><a class="dropdown-item" href="shoppingCart">ÁÊª«¨®</a></li>
+						<li><a class="dropdown-item" href="aboutMerchandise">Ãö©ó°Ó«~¸ê°T</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="merchandiseModify">ºÞ²z°Ó«°</a></li>
+						<li><a class="dropdown-item" href="activityList">ºÞ²z¬¡°Ê¦Cªí</a></li>
+						<li><a class="dropdown-item" href="activityModify">ºÞ²z¬¡°Ê§Ö°T</a></li>
+						<li><a class="dropdown-item" href="aboutMerchandiseModify">½s¿èÃö©ó°Ó«~¸ê°T</a></li>
+						<li><a class="dropdown-item" href="manageMerchandiseReport">½s¿èÃö©ó°Ó«~¸ê°T</a></li>
+						<li><a class="dropdown-item" href="manageVideoReport">ºÞ²zÀËÁ|¼v¤ù</a></li>
+
+					</ul>
+				</li>
+				<li class="nav-item dropdown"><a class="fas fa-user-alt "
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
 						<c:if test="${ funcName != 'REG' }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_01_register/register.jsp' />">è¨»å†Š</a></li>
+							<li><a class="dropdown-item" href="memberRegister">µù¥U·|­û</a></li>
 						</c:if>
 						<c:if test="${ empty LoginOK }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_02_login/login.jsp' />">ç™»å…¥</a></li>
+							<li><a class="dropdown-item" href="login">µn¤J</a></li>
 						</c:if>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">ç·¨è¼¯å€‹äººè³‡æ–™</a></li>
-						<li><a class="dropdown-item" href="#">å€‹äººä½œå“</a></li>
-						<li><a class="dropdown-item" href="#">æ”¶è—çš„å½±ç‰‡</a></li>
+						<li><a class="dropdown-item" href="memberDetailModify">·|­û­Ó¤H¸ê®Æ</a></li>
+						<li><a class="dropdown-item" href="personalVideo">­Ó¤H§@«~</a></li>
+						<li><a class="dropdown-item" href="collectVideo">¦¬ÂÃªº¼v¤ù</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item"
-							href="<c:url value='/_02_login/logout.jsp' />">ç™»å‡º</a></li>
-					</ul></li>
-				<li class="nav-item dropdown"><a
-					class="fas fa-align-justify fa-2x" data-bs-toggle="dropdown"
-					href="#" role="button" aria-expanded="false"></a>
+						<li><a class="dropdown-item" href="logout">µn¥X</a></li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown"><a class="fas fa-align-justify "
+					data-bs-toggle="dropdown" href="#" role="button"
+					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">è¯çµ¡æˆ‘å€‘</a></li>
-						<li><a class="dropdown-item" href="#">é—œæ–¼æˆ‘å€‘</a></li>
+						<li><a class="dropdown-item" href="aboutUs">Ãö©ó§Ú­Ì</a></li>
+						<li><a class="dropdown-item" href="contactUs">Ápµ¸§Ú­Ì</a></li>
+						<li><a class="dropdown-item" href="aboutUsModify">½s¿èÃö©ó§Ú­Ì</a></li>
+						<li><a class="dropdown-item" href="contactUsModify">½s¿èÁpµ¸§Ú­Ì</a></li>
 					</ul></li>
 			</ul>
 		</div>
