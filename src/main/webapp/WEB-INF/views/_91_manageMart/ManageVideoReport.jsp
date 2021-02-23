@@ -58,8 +58,9 @@ button { /*按鈕的樣式*/
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
-	<div class="container">
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<div class="container-fluid">
+		<!-- 欄位敘述 -->
 		<div class="row">
 			<div class="col">
 				<div>
@@ -115,7 +116,6 @@ button { /*按鈕的樣式*/
 		</div>
 		<br>
 	</div>
-	<hr>
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

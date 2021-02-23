@@ -25,7 +25,7 @@
 <body>
 
 	<!-- header -->
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<div class="container">
 		<!--訂單編號  -->
 		<div class="row">
@@ -139,7 +139,7 @@
 
 
 	</div>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
