@@ -1,0 +1,41 @@
+.container{
+    text-align:center;
+}
+.row{
+    margin-bottom: 10px;
+}
+/* 訂單編號 */
+.orderNumber{
+    text-align: left;
+    font-size: 20px;
+    margin: 10px 0px;
+  }     
+/* 商品清單區 */
+.fieldDescription_10{
+    border: 1px solid rgb(65, 65, 65);
+    background: rgb(133, 133, 133);
+/* line-height:25px; */
+    min-width: 60px;
+}
+.col-1,.col-2{
+      min-width: 60px;
+  }
+i{
+    float:right;
+}
+img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.W-SuOdIt{
+    border-bottom: 1px solid slategrey;
+    padding: 0px 0px 10px 0px;
+    display: flex;
+    align-items: center 
+}
+
+.subtotalBlock_10{
+    /* float: right ; */
+    text-align: right;
+}
