@@ -12,6 +12,7 @@
 <style>
 body {
 	margin: 0px;
+	font-size: 20px;
 }
 
 #first { /*最外層的div，包含所有*/
@@ -22,15 +23,20 @@ body {
 	width: 60%;
 }
 
-h2 {
-	
-}
 /* #scoend{   div，檢舉類型選單
            border: rgb(32, 4, 4) solid 1px;
            height: 30px;
            text-align: left;
         }*/
-#button { /*確定、送出的按鈕排版*/
+button { /*確定、送出的按鈕排版*/
+	padding: 10px;
+	color: rgb(24, 24, 168);
+	border: 1px rgb(24, 24, 168) solid;
+	background-color: rgb(245, 241, 242);
+	border-radius: 5px;
+}
+
+#confirm {
 	text-align: right;
 }
 </style>
@@ -59,7 +65,7 @@ h2 {
                     </form>
                 </div>   -->
 
-				<div id="button" style="background: #fff;">
+				<div id="confirm" style="background: #fff;">
 					<button>儲存</button>
 					<button>返回</button>
 				</div>

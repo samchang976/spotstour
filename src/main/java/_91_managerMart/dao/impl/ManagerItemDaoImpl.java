@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _91_managerMart.dao.ManagerItemDao;
@@ -64,14 +65,16 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 
 	@Override
 	public boolean updateItem(ItemBean itemBean) {
+		Session session = factory.getCurrentSession();
 		// TODO Auto-generated method stub
 		return false;
 	}
 	
 	@Override
 	public void addItem(ItemBean itemBean) {
-		Session session = factory.getCurrentSession();
-		Item_typeBean itb = getItem_TypeById((itemBean.getItId())); 
+//		Session session = factory.getCurrentSession();
+		Session session = factory.openSession();
+		Item_typeBean itb = getItem_TypeById(itemBean.getItId()); 
 		itemBean.setItem_typeBean(itb);
 		session.save(itemBean);
 	}
@@ -79,7 +82,8 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	@Override
 	public Item_typeBean getItem_TypeById(int itId) {
 		Item_typeBean itb = null;
-		Session session = factory.getCurrentSession();
+//		Session session = factory.getCurrentSession();
+		Session session = factory.openSession();
 		itb = session.get(Item_typeBean.class, itId);
 		return itb;
 	}
@@ -87,9 +91,20 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Item_typeBean> getItem_TypeList() {
-		String hql = "FROM Item_type";
-		Session session = factory.getCurrentSession();
+		String hql = "FROM Item_typeBean";
+//		Session session = factory.getCurrentSession();
+		Session session = factory.openSession();		
 		List<Item_typeBean> list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CountryBean> getCountryList() {
+		String hql = "FROM CountryBean";
+//		Session session = factory.getCurrentSession();
+		Session session = factory.openSession();		
+		List<CountryBean> list = session.createQuery(hql).getResultList();
 		return list;
 	}
 }

@@ -4,10 +4,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Required meta tags -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+<!-- icon cdn -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <title>編輯關於我們</title>
 <style>
+body {
+	font-size: 20px;
+	text-align: center;
+}
+
 .value {
 	font-size: 48px;
 	color: #0e9e01;
@@ -26,10 +41,11 @@
 	display: inline-block;
 }
 
-.content {
+.content_row {
 	width: 650px;
 	display: inline-block;
 	font-family: sans-serif;
+	text-align: left;
 }
 
 .circle {
@@ -43,24 +59,25 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
-	<div class="content" id="facts">
-		<div class="item">
+	<br>
+	<div class="content_row" id="facts">
+		<div class="item col-1-2">
 			<div class="circle"></div>
 			<span class="value">4247</span> <span class="text">PANORAMAS</span>
 		</div>
-		<div class="item">
+		<div class="item col-2-2">
 			<div class="circle"></div>
 			<span class="value">155</span> <span class="text">360° VIDEO</span>
 		</div>
-		<div class="item">
+		<div class="item col-3-2">
 			<div class="circle"></div>
 			<span class="value">1</span> <span class="text">A NEW </span>
 		</div>
-		<div class="item">
+		<div class="item col-4-2">
 			<div class="circle"></div>
 			<span class="value">2012</span> <span class="text">THIS YEAR"</span>
 		</div>
-		<div class="item">
+		<div class="item col-5-2">
 			<div class="circle"></div>
 			<span class="value">386</span> <span class="text">FAMOUS</span>
 		</div>
@@ -96,5 +113,10 @@
 	<br>
 	<br>
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
 </body>
 </html>

@@ -25,6 +25,15 @@
 <title>編輯商品</title>
 
 <style>
+body {
+	font-size: 20ox;
+	text-align: center;
+}
+
+.container {
+	text-align: left;
+}
+
 .container-fluid {
 	text-align: center;
 }
@@ -56,6 +65,14 @@ img {
 .C_SpCre {
 	min-width: 60px;
 }
+
+button { /*按鈕的樣式*/
+	padding: 10px;
+	color: rgb(24, 24, 168);
+	border: 1px rgb(24, 24, 168) solid;
+	background-color: rgb(245, 241, 242);
+	border-radius: 5px;
+}
 /* .form-check-input{
         
         align-content: center;
@@ -64,202 +81,142 @@ img {
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
-	<div class="container-fluid">
-		<!-- 欄位敘述 -->
+
+	<div class="container">
 		<div class="row">
-			<div class="col-1">
-				<!-- 選擇欄 -->
-			</div>
-			<div class="col-4 de"></div>
-			<!-- 商品照片 -->
-			<!-- <div class="col"></div> -->
-
-			<div class="col-1 de"></div>
-			<div class="col-1 de"></div>
-			<div class="col-1 de"></div>
-			<div class="col-1 de"></div>
-			<div class="col-1 de"></div>
-			<div class="col-1 de"></div>
-			<div class="col-1 de"></div>
-			<!-- 刪除鈕區塊 -->
-			<!-- <div class="col-1 de"></div> -->
-		</div>
-		<!-- 功能按鈕 -->
-		<!-- 第一列 -->
-		<div class="row R_SpCre">
-			<!-- 選擇欄 -->
-			<div class="col-1 C_SpCre">
+			<div class="col">
 				<div>
-					<i class="fas fa-plus"></i> <input type="button" value="新增商品">
+					<i class="fas fa-plus"></i>
+					<button id="newM">新增商品</button>
+					<button id="selectA">全選</button>
+					<button id="save">儲存變更</button>
 				</div>
-			</div>
-			<div class="col-1 C_SpCre">
-				<input type="button" value="全選">
-			</div>
-			<div class="col-1 C_SpCre">
-				<input type="button" value="儲存變更">
 			</div>
 		</div>
 	</div>
-	<!-- 間隔 -->
-	<hr>
+
 	<br>
-	<div>
-		<!-- 		<form method="POST" action="*" enctype='multipart/form-data' modelAttribute='itemBean'> -->
-		<!-- 			<div class="form-row"> -->
-		<!-- 				<div class="form-group col-md-6"> -->
-		<!-- 					<label for="itemHeader">標頭：</label> <input type="text" -->
-		<!-- 						name="itemHeader" value="" class="form-control" placeholder="XXX"> -->
-		<!-- 					<font color="red" size="-1"></font> -->
-		<!-- 				</div> -->
-		<!-- 				<div class="form-group col-md-6"> -->
-		<!-- 					<label for="itemPrice">價錢：</label> <input type="text" -->
-		<!-- 						name="itemPrice" value="" class="form-control" placeholder="120"> -->
-		<!-- 					<font color="red" size="-1"></font> -->
-		<!-- 				</div> -->
-		<!-- 				<div class="form-group col-md-6"> -->
-		<!-- 					<label for="itemQty">數量：</label> <input type="text" -->
-		<!-- 						name="itemQty" value="" class="form-control" placeholder="50"> -->
-		<!-- 					<font color="red" size="-1"></font> -->
-		<!-- 				</div> -->
-		<!-- 				<div class="form-group col-md-6"> -->
-		<!-- 					<label for="itemDes">描述：</label> <input type="text" -->
-		<!-- 						name="itemDes" value="" class="form-control" placeholder="XXXXXXXXXXX"> -->
-		<!-- 					<font color="red" size="-1"></font> -->
-		<!-- 				</div> -->
-		<!-- 		</form> -->
 
-		<form:form method='POST' modelAttribute='itemBean'>
-			<div class="form-group row">
-				<label for="productName" class="col-sm-2 col-form-label">標頭</label>
-				<div class="col-sm-10">
-					<form:input type="text" path="itemHeader" class="form-control"
-						id="itemHeader" />
-				</div>
+	<form:form method='POST' modelAttribute='itemBean'>
+		<div class="form-group row">
+			<label for="productName" class="col-sm-2 col-form-label">標頭</label>
+			<div class="col-sm-10">
+				<form:input type="text" path="itemHeader" class="form-control"
+					id="itemHeader" />
 			</div>
-			<div class="form-group row">
-				<label for="productInfo" class="col-sm-2 col-form-label">價錢</label>
-				<div class="col-sm-10">
-					<form:input type="text" path="itemPrice" class="form-control"
-						id="itemPrice" />
-				</div>
+		</div>
+		<div class="form-group row">
+			<label for="productInfo" class="col-sm-2 col-form-label">價錢</label>
+			<div class="col-sm-10">
+				<form:input type="text" path="itemPrice" class="form-control"
+					id="itemPrice" />
 			</div>
-			<div class="form-group row">
-				<label for="productPrice" class="col-sm-2 col-form-label">數量</label>
-				<div class="col-sm-10">
-					<form:input type="number" path="itemQty" min="0"
-						class="form-control" id="itemQty" />
-				</div>
+		</div>
+		<div class="form-group row">
+			<label for="productPrice" class="col-sm-2 col-form-label">數量</label>
+			<div class="col-sm-10">
+				<form:input type="number" path="itemQty" min="0"
+					class="form-control" id="itemQty" />
 			</div>
-			<div class="form-group row">
-				<label for="productStock" class="col-sm-2 col-form-label">描述</label>
-				<div class="col-sm-10">
-					<form:input type="text" path="itemDes" min="0" class="form-control"
-						id="itemDes" />
-				</div>
+		</div>
+		<div class="form-group row">
+			<label for="productStock" class="col-sm-2 col-form-label">描述</label>
+			<div class="col-sm-10">
+				<form:input type="text" path="itemDes" min="0" class="form-control"
+					id="itemDes" />
 			</div>
+		</div>
 
-			<div class="form-group row">
-				<label for="itId" class="col-sm-2 col-form-label">商品種類</label>
-				<div class="mb-3 col-10">
-					<form:select path="itId" class="custom-select">
-						<form:option value="-1" label="請選擇" />
-						<form:options items="${item_TypeMap}" />
-					</form:select>
-				</div>
+		<div class="form-group row">
+			<label for="itId" class="col-sm-2 col-form-label">商品類型</label>
+			<div class="mb-3 col-10">
+				<form:select path="itId" class="custom-select">
+					<form:option value="-1" label="請選擇商品類型" />
+					<form:options items="${item_TypeMap}" />
+				</form:select>
 			</div>
-
-
-			<div class="form-group row  d-flex justify-content-end mt-5">
-				<!-- 				<div> -->
-				<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
-				<!-- 				</div> -->
-				<div>
-					<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
-				</div>
+		</div>
+ 	
+		<div class="form-group row">
+			<label for="countryId" class="col-sm-2 col-form-label">國家</label>
+			<div class="mb-3 col-10">
+				<form:select path="countryId" class="custom-select">
+					<form:option value="-1" label="請選擇國家" />
+					<form:options items="${countryMap}" />
+				</form:select>
 			</div>
+		</div>
 
 
-		</form:form>
-	</div>
-
-	<!--第二列  -->
-	<div class="row R_SpCre">
-		<!-- 第1欄 -->
-		<div class="col-1 C_SpCre">
-			<input class="form-check-input" type="checkbox" id="checkboxNoLabel"
-				value="" aria-label="...">
-		</div>
-		<!-- 第2欄 -->
-		<div class="col-1 C_SpCre">
-			<div>商品編號:A1001</div>
-			<br>
-			<div>紀念品照片1</div>
-			<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-				class="w-100">
-		</div>
-		<!-- 第3欄 -->
-		<div class="col-1 C_SpCre">
-			<div>點擊次數:555次</div>
-			<br>
-			<div>紀念品照片2</div>
-			<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-				class="w-100">
-		</div>
-		<!-- 第4欄 -->
-		<div class="col-1 C_SpCre">
-			<br> <br>
-			<div>紀念品照片3</div>
-			<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-				class="w-100">
-		</div>
-		<!-- 第5欄 -->
-		<div class="col-2 C_SpCre">
-			<br>
-			<div>商品描述:</div>
-			<input type="text" style="height: 150px; width: 250px;"><br>
-		</div>
-		<!-- 第6欄 -->
-		<div class="col-1 C_SpCre">
-			<br>
-			<div>商品定價:100元</div>
-			<br>
-			<div>商品剩餘:50個</div>
-		</div>
-		<!-- 第7欄 -->
-		<div class="col-1 C_SpCre">
-			<br>
+		<div class="form-group row  d-flex justify-content-end mt-5">
+			<!-- 				<div> -->
+			<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
+			<!-- 				</div> -->
 			<div>
-				<Button>上傳照片</Button>
+				<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
 			</div>
-			<br>
-
 		</div>
-	</div>
-	<br>
+	</form:form>
 
-	<hr>
-	<!-- <tr><i class="fas fa-plus"></i></tr>
-            <tr><input type="button" value="新增商品"></tr>
-            <tr><input type="button" value="全選"></tr>
-            <tr><input type="button" value="儲存變更"></tr>
-   
-              <tr>商品編號:A1001</tr>
-              <tr>點擊次數:555次</tr>
-              <tr>商品定價:100圓</tr>
-              <tr><input type="button" value="上傳照片"></tr>
-              <tr></tr>
-          </td>  
-        
-        
-            <td>
-                <tr><input type="checkbox" name="history" ></tr>
-                <tr>紀念品照片1</tr>
-                <tr><img src="https://fakeimg.pl/350x350/?text=World&font=lobster" class="w-100"></tr>
-                <tr>紀念品照片2</tr>
-                <tr></tr>
-                <tr>紀念品照片3</tr> -->
+
+	<div class="container-fluid">
+		<div class="row R_SpCre">
+
+			<div class="col col-1 C_SpCre">
+				<input class="form-check-input" type="checkbox" id="checkboxNoLabel"
+					value="" aria-label="...">
+			</div>
+
+			<div class="col col-2-1 C_SpCre">
+				<div>商品編號:A1001</div>
+				<br>
+				<div>紀念品照片1</div>
+				<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+					class="w-100">
+			</div>
+
+			<div class=" col col-3-1 C_SpCre">
+				<div>點擊次數:555次</div>
+				<br>
+				<div>紀念品照片2</div>
+				<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+					class="w-100">
+			</div>
+
+			<div class="col col-4-1 C_SpCre">
+				<br> <br>
+				<div>紀念品照片3</div>
+				<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+					class="w-100">
+			</div>
+
+			<div class="col col-5-1 C_SpCre">
+				<br>
+				<div>商品描述:</div>
+				<input type="text" style="height: 150px; width: 250px;"><br>
+			</div>
+
+			<div class=" col col-6-1 C_SpCre">
+				<br>
+				<div>商品定價:100圓</div>
+				<br>
+				<div>商品剩餘:50個</div>
+			</div>
+
+			<div class="col col-7-1 C_SpCre">
+				<br>
+				<div>
+					<button id="updateP">上傳照片</button>
+				</div>
+				<br>
+				<div>
+					<button id="deleteM">刪除商品</button>
+				</div>
+			</div>
+		</div>
+		<br>
 	</div>
+	<hr>
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	<script

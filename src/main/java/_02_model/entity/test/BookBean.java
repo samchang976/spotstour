@@ -13,13 +13,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.web.multipart.MultipartFile;
+
 // 本類別封裝單筆書籍資料
 @Entity
 @Table(name="Book")
 public class BookBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer bookId;
 	private String title;
 	private String author;
@@ -36,20 +38,15 @@ public class BookBean implements Serializable {
 	@Transient
 	private String discountStr;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="FK_CompanyBean_Id")
+	@ManyToOne(cascade=CascadeType.ALL)    // javax.persistence.CascadeType;
+	@JoinColumn(name="companyId")  
 	private CompanyBean companyBean;
+
+	@Transient
+	MultipartFile productImage;
 	
-	public CompanyBean getCompanyBean() {
-		return companyBean;
-	}
-
-	public void setCompanyBean(CompanyBean companyBean) {
-		this.companyBean = companyBean;
-	}
-
 	public BookBean(Integer bookId, String title, String author, Double listPrice, Double discount, String fileName, String bookNo, Blob coverImage,
-			Integer companyId, String category) {
+			int companyId, String category) {
 		this.bookId = bookId;
 		this.title = title;
 		this.author = author;
@@ -90,7 +87,6 @@ public class BookBean implements Serializable {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
 	@Transient
 	private String priceStr = null;
 
@@ -193,4 +189,21 @@ public class BookBean implements Serializable {
 				+ getAuthor().substring(0, Math.min(3, getAuthor().length())) + " " 
 				+ getTitle();
 	}
+	
+	public CompanyBean getCompanyBean() {
+		return companyBean;
+	}
+
+	public void setCompanyBean(CompanyBean companyBean) {
+		this.companyBean = companyBean;
+	}
+
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
+	
 }

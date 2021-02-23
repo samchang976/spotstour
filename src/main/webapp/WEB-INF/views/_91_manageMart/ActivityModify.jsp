@@ -19,6 +19,10 @@
 
 <title>活動快訊管理</title>
 <style>
+body {
+	font-size: 20px;
+}
+
 .news {
 	padding: 5px;
 	/* border: 1px solid slateblue; */
@@ -49,6 +53,14 @@
 #want {
 	/* border: solid 1px slategrey; */
 	font-size: 20px;
+}
+
+button { /*按鈕的樣式*/
+	padding: 10px;
+	color: rgb(24, 24, 168);
+	border: 1px rgb(24, 24, 168) solid;
+	background-color: rgb(245, 241, 242);
+	border-radius: 5px;
 }
 </style>
 
@@ -315,11 +327,8 @@
 					</div>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
-
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script

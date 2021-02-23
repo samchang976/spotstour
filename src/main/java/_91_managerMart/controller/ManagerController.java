@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _91_managerMart.service.ManagerItemService;
@@ -36,7 +37,8 @@ public class ManagerController {
 	@PostMapping("/merchandiseModify")
 	public String processAddNewMrchandiseForm(@ModelAttribute("itemBean") ItemBean ib) {
 		managerItemService.addItem(ib);  
-		return "redirect:/_91_manageMart/MerchandiseModify";
+//		return "redirect:/_91_manageMart/MerchandiseModify";
+		return "redirect:/merchandiseModify";
 	}
 	
 	@RequestMapping("/activityList")
@@ -64,19 +66,34 @@ public class ManagerController {
 		return "_91_manageMart/ContactUsModify";
 	}
 	
-//	@ModelAttribute("item_TypeMap") 
-//	public Map<Integer, String> getSortList() {
-//		Map<Integer, String> item_TypeMap = new HashMap<>();
-//		List<Item_typeBean> list = managerItemService.getItem_TypeList();
-//		for(Item_typeBean itb : list) {  
-//			item_TypeMap.put(itb.getItId(), itb.getItemType());
-//		}
-//		return item_TypeMap; 
-//	}
-//	
-//	@ModelAttribute("Item_TypeList")   
-//	public List<Item_typeBean> getItem_TypeList() {
-//	    return managerItemService.getItem_TypeList();
-//	}
-//	
+	@ModelAttribute("item_TypeMap") 
+	public Map<Integer, String> getItem_TypeMap() {
+		Map<Integer, String> item_TypeMap = new HashMap<>();
+		List<Item_typeBean> list = managerItemService.getItem_TypeList();
+		for(Item_typeBean itb : list) {  
+			item_TypeMap.put(itb.getItId(), itb.getItemType());
+		}
+		return item_TypeMap; 
+	}
+	
+	@ModelAttribute("Item_TypeList")   
+	public List<Item_typeBean> getItem_TypeList() {
+	    return managerItemService.getItem_TypeList();
+	}
+	
+	@ModelAttribute("countryMap") 
+	public Map<Integer, String> getCountryMap() {
+		Map<Integer, String> countryMap = new HashMap<>();
+		List<CountryBean> list = managerItemService.getCountryList();
+		for(CountryBean itb : list) {  
+			countryMap.put(itb.getCountryId(), itb.getCountryName());
+		}
+		return countryMap; 
+	}
+	
+	@ModelAttribute("CountryList")   
+	public List<CountryBean> getCountryList() {
+	    return managerItemService.getCountryList();
+	}
+	
 }

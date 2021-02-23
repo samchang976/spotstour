@@ -2,6 +2,7 @@ package _91_managerMart.dao;
 
 import java.util.List;
 
+import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 
@@ -22,5 +23,7 @@ public interface ManagerItemDao {
 	public Item_typeBean getItem_TypeById(int itId); 
 	
 	List<Item_typeBean> getItem_TypeList();
+	
+	List<CountryBean> getCountryList();
 	
 }
