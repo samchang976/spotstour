@@ -1,0 +1,59 @@
+/* 文字水平置中 */
+  .container{
+    text-align: center;
+    /* background: #000; */
+    align-items: center ;
+  }
+
+/*上方按鈕區  */
+  .buttonsBlock{
+    text-align: left
+}
+
+/* 欄位敘述 */
+  .fieldDescription{
+   border: 1px solid rgb(65, 65, 65);
+   background: rgb(133, 133, 133);
+   /* line-height:25px; */
+    min-width: 70px;
+ }
+ .row{
+    margin-bottom: 10px;
+    align-items: center ;
+ }
+ 
+ /* 商品清單區 */
+ img{
+     max-width: 200px;
+     min-width: 80px;
+ }
+ 
+.C_SpCre{
+    min-width: 65px;
+}
+
+input[type="number"]{
+    width: 40px;
+}
+
+/* 結帳列 */
+.subtotalBlock{
+    /* float: right ; */
+    display: inline;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+   .float-right{
+      float: right;
+  }
+  .clear-block{
+    clear: both;  
+    }
+
+
+ 
+ 
+
+
+

@@ -169,10 +169,14 @@
 
 			<!--送出  -->
 			<div class="col-12">
-				<button type="submit" id="SP_Summit" class="Bt_black">確定送出</button>
+				<button type="submit" id="SP_Summit" class="Bt_black"
+				onclick="window.open('PurchaseSuccess') "
+				>確定送出</button>
 			</div>
 		</form>
 	</div>
+	
+	
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
