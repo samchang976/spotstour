@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc 
-@ComponentScan({ "_10_home", "_11_register", "_12_login", "_21_merchandiseSearch", "_22_shoppingCart", "_23_submitOrder", "_32_portfolioSearch", "_32_portfolioSearch.service","_37_portfolioManage", "_91_managerMart" })
+@ComponentScan({ "_10_home", "_11_register", "_12_login", "_21_merchandiseSearch", "_22_shoppingCart", "_23_submitOrder", "_24_contactUs","_32_portfolioSearch", "_32_portfolioSearch.service","_37_portfolioManage", "_91_managerMart" })
 public class WebAppConfig implements WebMvcConfigurer {
 	
 	@Bean
