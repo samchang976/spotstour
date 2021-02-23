@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@EnableWebMvc
+@EnableWebMvc 
 @ComponentScan({ "_10_home", "_11_register", "_12_login", "_21_merchandiseSearch", "_22_shoppingCart", "_23_submitOrder", "_32_portfolioSearch", "_32_portfolioSearch.service", "_91_managerMart" })
 public class WebAppConfig implements WebMvcConfigurer {
 
@@ -25,9 +25,15 @@ public class WebAppConfig implements WebMvcConfigurer {
 	//讓前端瀏覽器向後端要求靜態資源之設定
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/images/**").addResourceLocations("/images/");
-		registry.addResourceHandler("/css/**").addResourceLocations("/css/");
-		registry.addResourceHandler("/javascript/**").addResourceLocations("/javascript/");
+		//addResourceHandler:新增對應路徑，addResourceLocations:真實路徑
+		registry.addResourceHandler("/_00_util/allUtil/css/**").addResourceLocations("/WEB-INF/views/_00_util/allUtil/css/");
+		registry.addResourceHandler("/_00_util/managerUtil/css/**").addResourceLocations("/WEB-INF/views/_00_util/managerUtil/css/");
+		registry.addResourceHandler("/_00_util/memberUtil/css/**").addResourceLocations("/WEB-INF/views/_00_util/memberUtil/css/");
+		registry.addResourceHandler("/_00_util/portfolioUtil/css/**").addResourceLocations("/WEB-INF/views/_00_util/portfolioUtil/css/");
+		registry.addResourceHandler("/_00_util/shoppingMallUtil/css/**").addResourceLocations("/WEB-INF/views/_00_util/shoppingMallUtil/css/");
+		
+//		registry.addResourceHandler("/image/**").addResourceLocations("\");
+		//registry.addResourceHandler("/javascript/**").addResourceLocations("/javascript/");
 	}
 
 }

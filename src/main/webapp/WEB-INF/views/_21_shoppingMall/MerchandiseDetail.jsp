@@ -26,7 +26,11 @@
 </head>
 <body>
 	<!-- header -->
+<<<<<<< HEAD
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />>
+=======
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+>>>>>>> 90ec5991ce18f04f67922ec98a0b863b8d57ef8f
 	<!--search -->
 	<jsp:include page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 
@@ -83,7 +87,7 @@
 							<option value="3">3</option>
 						</select>
 						<button class="btn btn-outline-secondary" type="button"
-							onclick="window.open('05_ShoppingCart.html')">加入購物車</button>
+							onclick="window.open('ShoppingCart')">加入購物車</button>
 					</div>
 
 				</div>

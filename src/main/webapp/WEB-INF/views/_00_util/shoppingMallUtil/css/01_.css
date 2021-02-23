@@ -1,0 +1,56 @@
+/*活動快訊外層容器*/
+#news_container{
+    /* border: 1px solid slateblue; */
+       padding: 0px;
+       margin-bottom: 40px;
+       max-height: 330px;
+
+    }
+
+    /* 活動快訊標題 */
+    #news-text{
+        border-bottom: 1px solid rgb(224, 224, 224);
+        background: rgb(240, 240, 240);
+        padding: 10px;
+    }
+    .block{
+    color: #000;
+    }
+    .block:hover{
+    color: #5555;
+    }
+
+    /* 裝優惠日期+資訊的block */
+    .block{
+      /* background: #000; */
+      border-bottom: 1px solid rgb(224, 224, 224);
+      padding: 5px;
+      
+    }
+
+    /* 發布日期 */
+    .date{
+        /* border:1px solid  rgb(73, 147, 221) ; */
+        margin-right: 5px;
+    }
+
+    /* 優惠資訊 */
+    .discount{
+        /* border:1px solid  rgb(36, 112, 189) ; */
+    }
+    
+    .float-left{
+     float: left;
+     margin-right: 10px;
+    }
+    
+  
+     .clear-block{
+     clear: both;  
+     }
+    
+    /* 地區搜尋 */
+    #area_search{
+        padding: 0px;
+    }
+

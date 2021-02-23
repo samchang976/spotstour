@@ -21,13 +21,24 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
+
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/_00_util/shoppingMallUtil/css/01_.css"> --%>
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/01_.css'></c:url>">
+
+
 <title>商城首頁</title>
 
-<link rel="stylesheet" href="./01_.css">
-
+<style>
+.position {
+	position: relative;
+	top: 35px;
+}
+</style>
 </head>
 
 <body>
+<<<<<<< HEAD
 	<!--內嵌header  -->
 <%-- 	<iframe src="${pageContext.request.contextPath}/fragment/header.jsp" --%>
 <!-- 		frameborder="0" width="100%" height="67px" scrolling="no" -->
@@ -112,115 +123,183 @@
 					</div>
 					<div class="clear-block"></div>
 				</div>
+=======
+	<div
+		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	</div>
 
-				<!--------------------------------------------------------------->
+	<div class="position">
+		<jsp:include
+			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
+		<!-- 活動快訊 -->
+		<div class="container" id="news_container">
+			<div class="row">
+				<div class="col-12">
+					<div id="news-text">活動快訊</div>
+					<!-- ------------------------------------------------------- -->
+					<a href="ActivityDetail"> <!-- 日期 -->
+						<div class="block">
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
 
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/10</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
 
-				<!--------------------------------------------------------------->
 
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/10</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
+					<a href="ActivityDetail">
+						<div class="block">
+							<!-- 日期 -->
+							<div class="float-left">
+								<div class="date">2021/01/01</div>
+							</div>
+							<!-- 優惠內容 -->
+							<div class="float-left ">
+								<div class="discount">新春特惠，全館免運!</div>
+							</div>
+							<div class="clear-block"></div>
+						</div>
+					</a>
+					<!--------------------------------------------------------------->
+>>>>>>> 90ec5991ce18f04f67922ec98a0b863b8d57ef8f
 
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/10</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
+
+
 				</div>
 			</div>
 		</div>
-	</div>
-
+	
 
 
 	<!-- ============================================================= -->
 	<!-- 地區搜尋 -->
 	<div class="container" id="area_search">
 		<div class="row g-5">
-			<c:if test="${not empty itemHeader1}">
-				<div class="col-12 col-md-3">
-					<div>名稱 : ${itemHeader1}</div>
-					<div>
-						<a href="03_MerchandiseSearchResult.html"> <img
-							src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							class="w-100">
-						</a>
-					</div>
-					<div>價錢 : ${itemPrice1}</div>
-					<div>產地 : ${countryId1}</div>
-					<div>剩餘數量 : ${itemQty1}</div>
-					<div>剩餘數量 : ${count}</div>
+			<div class="col-12 col-md-3">
+				<div>
+					<a href="MerchandiseSearchResult"> <img
+						src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						class="w-100">
+					</a>
 				</div>
-			</c:if>
+			</div>
 
-			<c:if test="${not empty itemHeader2}">
-				<div class="col-12 col-md-3">
-					<div>名稱 : ${itemHeader2}</div>
-					<div>
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							class="w-100">
-					</div>
-					<div>價錢 : ${itemPrice2}</div>
-					<div>產地 : ${countryId2}</div>
-					<div>剩餘數量 : ${itemQty2}</div>
+			<div class="col-12 col-md-3">
+				<div>
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						class="w-100">
 				</div>
-			</c:if>
+			</div>
 
-			<c:if test="${not empty itemHeader3}">
-				<div class="col-12 col-md-3">
-					<div>名稱 : ${itemHeader3}</div>
-					<div>
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							class="w-100">
-					</div>
-					<div>價錢 : ${itemPrice3}</div>
-					<div>產地 : ${countryId3}</div>
-					<div>剩餘數量 : ${itemQty3}</div>
+			<div class="col-12 col-md-3">
+				<div>
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						class="w-100">
 				</div>
-			</c:if>
+			</div>
 
-			<c:if test="${not empty itemHeader4}">
-				<div class="col-12 col-md-3">
-					<div>名稱 : ${itemHeader4}</div>
-					<div>
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							class="w-100">
-					</div>
-					<div>價錢 : ${itemPrice4}</div>
-					<div>產地 : ${countryId4}</div>
-					<div>剩餘數量 : ${itemQty4}</div>
+			<div class="col-12 col-md-3">
+				<div>
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						class="w-100">
 				</div>
-			</c:if>
+			</div>
 		</div>
 	</div>
-	
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
 
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+</div>
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

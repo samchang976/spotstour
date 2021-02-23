@@ -120,7 +120,7 @@
         <div class="row">
             <div class="col">
                 <button class="Bt_black"
-                onclick="window.open('01_MerchandiseIndex.html') ">回商城首頁</button>
+                onclick="window.open('MerchandiseIndex') ">回商城首頁</button>
             </div>
         </div>
     </div>

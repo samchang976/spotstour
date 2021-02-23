@@ -44,7 +44,7 @@
 
 			<div class="col ">
 				<div class="itemImageBorder">
-					<a href='04_MerchandiseDetail.html'> <img
+					<a href='MerchandiseDetail'> <img
 						src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 						class="w-100">
 					</a>

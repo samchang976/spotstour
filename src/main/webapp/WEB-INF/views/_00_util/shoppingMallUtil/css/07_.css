@@ -1,0 +1,66 @@
+
+/* 商品清單區 */ 
+ .container_product{
+    text-align: center;
+    /* background: #000; */
+    /* align-items: center ; */
+  }
+/* 訂單編號 */
+.orderNumber{
+    text-align: left;
+    font-size: 20px;
+    margin: 10px 0px;
+
+}
+.row{
+    margin-bottom: 10px;
+}
+
+/* 欄位敘述 */
+  .fieldDescription_07{
+    border: 1px solid rgb(65, 65, 65);
+    background: rgb(133, 133, 133);
+    /* line-height:25px; */
+    min-width: 60px;
+}
+
+/* 商品清單 */
+img{
+    width: 100%;
+    border-radius: 10px;
+}
+.col-1,.col-2{
+    min-width: 60px;
+
+}
+.W-SuOdIt{
+    border-bottom: 1px solid slategrey;
+    padding: 0px 0px 10px 0px;
+    /* background: rgb(153, 153, 162); */
+    display: flex;
+    align-items: center 
+}
+
+
+
+  /* 付款資訊區 */
+  .container_Orderer{
+    text-align: left;
+  }
+
+  .Pay_txt_title{
+    font-size: 20px;
+    text-decoration:underline;
+ }  
+
+ /* 送出訂單 */
+ .container_Submit{
+    text-align: right;
+
+ }
+ .subtotalBlock{
+    /* float: right ; */
+    display: inline;
+    margin-right: 10px;
+    padding: 10px;
+}

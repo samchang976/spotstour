@@ -59,7 +59,7 @@
       <div id="thanks">謝謝您!歡迎下次再光臨</div>
           
           <button class="Bt_blue"
-          onclick="window.open('09_MyOrderList.html') ">我的訂單</button>
+          onclick="window.open('MyOrderList') ">我的訂單</button>
 
     </div>
     

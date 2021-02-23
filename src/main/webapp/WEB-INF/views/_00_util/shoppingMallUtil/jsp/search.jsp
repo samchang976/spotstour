@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<<<<<<< HEAD
+=======
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+>>>>>>> 90ec5991ce18f04f67922ec98a0b863b8d57ef8f
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +34,13 @@
 
 #want {
 	font-size: 25px;
+<<<<<<< HEAD
 }
+=======
+	
+}
+
+>>>>>>> 90ec5991ce18f04f67922ec98a0b863b8d57ef8f
 </style>
 </head>
 <body>
@@ -38,6 +49,12 @@
 			<div class="col">
 				<div style="display: inline-flex;">
 					<span id="want">想買什麼?</span>
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 90ec5991ce18f04f67922ec98a0b863b8d57ef8f
 					<form class="d-flex">
 						<input class="form-control me-2" type="search"
 							placeholder="Search" aria-label="Search">
@@ -45,6 +62,11 @@
 							<i class="fas fa-search"></i>
 						</button>
 					</form>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 90ec5991ce18f04f67922ec98a0b863b8d57ef8f
 				</div>
 			</div>
 
