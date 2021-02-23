@@ -36,7 +36,8 @@ public class ManagerController {
 	@PostMapping("/merchandiseModify")
 	public String processAddNewMrchandiseForm(@ModelAttribute("itemBean") ItemBean ib) {
 		managerItemService.addItem(ib);  
-		return "redirect:/_91_manageMart/MerchandiseModify";
+//		return "redirect:/_91_manageMart/MerchandiseModify";
+		return "redirect:/merchandiseModify";
 	}
 	
 	@RequestMapping("/activityList")
@@ -64,19 +65,19 @@ public class ManagerController {
 		return "_91_manageMart/ContactUsModify";
 	}
 	
-//	@ModelAttribute("item_TypeMap") 
-//	public Map<Integer, String> getSortList() {
-//		Map<Integer, String> item_TypeMap = new HashMap<>();
-//		List<Item_typeBean> list = managerItemService.getItem_TypeList();
-//		for(Item_typeBean itb : list) {  
-//			item_TypeMap.put(itb.getItId(), itb.getItemType());
-//		}
-//		return item_TypeMap; 
-//	}
-//	
-//	@ModelAttribute("Item_TypeList")   
-//	public List<Item_typeBean> getItem_TypeList() {
-//	    return managerItemService.getItem_TypeList();
-//	}
-//	
+	@ModelAttribute("item_TypeMap") 
+	public Map<Integer, String> getitem_TypeList() {
+		Map<Integer, String> item_TypeMap = new HashMap<>();
+		List<Item_typeBean> list = managerItemService.getItem_TypeList();
+		for(Item_typeBean itb : list) {  
+			item_TypeMap.put(itb.getItId(), itb.getItemType());
+		}
+		return item_TypeMap; 
+	}
+	
+	@ModelAttribute("Item_TypeList")   
+	public List<Item_typeBean> getItem_TypeList() {
+	    return managerItemService.getItem_TypeList();
+	}
+	
 }

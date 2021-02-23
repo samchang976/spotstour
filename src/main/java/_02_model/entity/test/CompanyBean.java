@@ -5,7 +5,6 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,20 +16,14 @@ import javax.persistence.Table;
 public class CompanyBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id ;
 	private String  name;
 	private String  address;
 	private String  url;
-	@OneToMany(mappedBy = "companyBean")
+	@OneToMany(mappedBy="companyBean")
 	private Set<BookBean> books = new LinkedHashSet<>();
 	
-	public Set<BookBean> getBooks() {
-		return books;
-	}
-	public void setBooks(Set<BookBean> books) {
-		this.books = books;
-	}
 	public CompanyBean(Integer id, String name, String address, String url) {
 		this.id = id;
 		this.name = name;
@@ -71,4 +64,10 @@ public class CompanyBean implements Serializable {
 		this.url = url;
 	}	
 	
+	public Set<BookBean> getBooks() {
+		return books;
+	}
+	public void setBooks(Set<BookBean> books) {
+		this.books = books;
+	}
 }

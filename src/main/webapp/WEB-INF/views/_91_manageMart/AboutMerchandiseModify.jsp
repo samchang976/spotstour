@@ -39,7 +39,7 @@ body {
     } */
 </style>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<div id="form">
 		<div>關於商品資訊</div>
 		<div>&nbsp;&nbsp;&nbsp;&nbsp;退換貨</div>
@@ -57,14 +57,14 @@ body {
 
 		<div id="rule">
 			<ul>
-				<li>・於商品到達簽收後「7日內」商品,並與我們聯繫退貨服務。</li>
-				<li>・以本公司判斷為基準,符合「未使用商品」。</li>
-				<li>・於商品到達簽收後「10日內」寄回之商品。</li>
-				<li>・商品頁面中記載「不可退貨」商品,在此情況下不得退貨。</li>
+				<li>於商品到達簽收後「7日內」商品,並與我們聯繫退貨服務。</li>
+				<li>以本公司判斷為基準,符合「未使用商品」。</li>
+				<li>於商品到達簽收後「10日內」寄回之商品。</li>
+				<li>商品頁面中記載「不可退貨」商品,在此情況下不得退貨。</li>
 			</ul>
 		</div>
 
 	</div>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 </body>
 </html>

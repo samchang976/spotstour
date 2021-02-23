@@ -33,8 +33,8 @@ public class ItemBean implements Serializable {
 	@Transient
 	private Integer countryId;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "countryId")
+//	@ManyToOne(cascade = CascadeType.PERSIST)
+//	@JoinColumn(name = "countryId")
 	private CountryBean countryBean;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)

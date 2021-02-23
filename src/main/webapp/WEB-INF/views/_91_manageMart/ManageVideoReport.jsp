@@ -21,7 +21,12 @@
 <title>管理影片檢舉</title>
 
 <style>
-.container-fluid {
+body {
+	text-align: center;
+	font-size: 20px;
+}
+
+.container {
 	text-align: center;
 }
 
@@ -29,120 +34,89 @@
 	margin-bottom: 10px;
 }
 
-/* 欄位敘述區 */
-.de {
-	/* border: 1px solid rgb(65, 65, 65); */
-	/* background: rgb(133, 133, 133); */
-	/* line-height:25px; */
-	min-width: 60px;
-}
-
-/* 商品清單區 */
 .video {
 	max-width: 200px;
 	min-width: 80px;
 }
 
-.R_SpCre {
-	/* background: rgb(184, 181, 181); */
-	display: flex;
-	align-items: center
+.first {
+	text-align: center;
 }
 
-.C_SpCre {
-	min-width: 60px;
+.col-3-2 {
+	text-align: left;
 }
-/* .form-check-input{
-        
-        align-content: center;
-    } */
+
+button { /*按鈕的樣式*/
+	padding: 10px;
+	color: rgb(24, 24, 168);
+	border: 1px rgb(24, 24, 168) solid;
+	background-color: rgb(245, 241, 242);
+	border-radius: 5px;
+	float: left;
+}
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
-	<div class="container-fluid">
-		<!-- 欄位敘述 -->
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
+	<div class="container">
 		<div class="row">
-			<div class="col-1">
-				<!-- 選擇欄 -->
-			</div>
-			<div class="col-4 de"></div>
-			<!-- 商品照片 -->
-			<!-- <div class="col"></div> -->
-
-			<div class="col-1 de"></div>
-			<div class="col-1 de"></div>
-			<div class="col-1 de"></div>
-			<div class="col-1 de"></div>
-			<div class="col-1 de"></div>
-
-			<!-- 刪除鈕區塊 -->
-			<!-- <div class="col-1 de"></div> -->
-		</div>
-		<!-- 功能按鈕 -->
-		<!-- 第一列 -->
-		<div class="row R_SpCre">
-			<!-- 選擇欄 -->
-			<div class="col-1 C_SpCre">
+			<div class="col">
 				<div>
-
-					<input type="button" value="全選">
+					<button>全選</button>
 				</div>
 			</div>
 
 		</div>
 	</div>
 
-	<!-- 間隔 -->
+
 	<br>
-	<!--第二列  -->
-	<div class="row R_SpCre">
-		<!-- 第1欄 -->
-		<div class="col-1 C_SpCre">
-			<input class="form-check-input" type="checkbox" id="checkboxNoLabel"
-				value="" aria-label="...">
-		</div>
-		<!-- 第2欄 -->
-		<div class="col-2 C_SpCre">
-			<br>
-			<div>影片編號:A1001</div>
-			<br> <br> <input type="video" id="video"></input>
-		</div>
+	<div class="container">
 
-
-		<!-- 第3欄 -->
-		<div class="col-2 C_SpCre">
-			<br>
-			<div>檢舉人:</div>
-			<br>
-			<div>檢舉編號:</div>
-
-		</div>
-		<!-- 第4欄 -->
-		<div class="col-2 C_SpCre">
-			<br>
-			<div>檢舉內容:</div>
-			<input type="text" style="height: 150px; width: 250px;"><br>
-		</div>
-
-		<!-- 第5欄 -->
-		<div class="col-2 C_SpCre">
-			<br>
-			<div>
-				<input type="button" value="確認檢舉內容">
+		<div class="row">
+			<div class="col first">
+				<input class="form-check-input" type="checkbox" id="checkboxNoLabel"
+					value="" aria-label="...">
 			</div>
-			<br>
-			<div>
-				<input type="button" value="略過檢舉內容">
+
+			<div class="col col-2-2">
+				<br>
+				<div>影片編號:A1001</div>
+				<br> <br> <input type="video" id="video"></input>
+			</div>
+
+
+
+			<div class="col col-3-2">
+				<br>
+				<div>檢舉人:</div>
+				<br>
+				<div>檢舉編號:</div>
+			</div>
+
+			<div class="col col-4-2">
+				<br>
+				<div>檢舉內容:</div>
+				<input type="text" style="height: 150px; width: 250px;"><br>
+			</div>
+
+
+			<div class="col col-5-2">
+				<br>
+				<div>
+					<input type="button" value="確認檢舉內容">
+				</div>
+				<br>
+				<div>
+					<input type="button" value="略過檢舉內容">
+				</div>
 			</div>
 		</div>
+		<br>
 	</div>
-	<br>
-
 	<hr>
-
-	</div>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
