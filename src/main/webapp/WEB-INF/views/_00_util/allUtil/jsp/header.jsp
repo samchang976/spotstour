@@ -131,7 +131,7 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="activityList">管理活動列表</a></li>
 						<li><a class="dropdown-item" href="activityModify">管理活動快訊</a></li>
 						<li><a class="dropdown-item" href="aboutMerchandiseModify">編輯關於商品資訊</a></li>
-						<li><a class="dropdown-item" href="manageMerchandiseReport">編輯關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="manageMerchandiseReport">管理退貨商品列表</a></li>
 						<li><a class="dropdown-item" href="manageVideoReport">管理檢舉影片</a></li>
 
 					</ul>

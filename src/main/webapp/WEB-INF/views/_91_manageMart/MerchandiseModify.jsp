@@ -136,7 +136,7 @@ button { /*按鈕的樣式*/
 				</form:select>
 			</div>
 		</div>
- 	
+
 		<div class="form-group row">
 			<label for="countryId" class="col-sm-2 col-form-label">國家</label>
 			<div class="mb-3 col-10">
@@ -198,7 +198,7 @@ button { /*按鈕的樣式*/
 
 			<div class=" col col-6-1 C_SpCre">
 				<br>
-				<div>商品定價:100圓</div>
+				<div>商品定價:100元</div>
 				<br>
 				<div>商品剩餘:50個</div>
 			</div>
@@ -217,8 +217,8 @@ button { /*按鈕的樣式*/
 		<br>
 	</div>
 	<hr>
-	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"

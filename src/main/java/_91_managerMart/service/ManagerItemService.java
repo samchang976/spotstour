@@ -19,6 +19,8 @@ public interface ManagerItemService {
 	public void addItem(ItemBean itemBean);
 
 	public Item_typeBean getItem_TypeById(int itId);
+	
+	public CountryBean getCountryById(int countryId);
 
 	List<Item_typeBean> getItem_TypeList();
 	
