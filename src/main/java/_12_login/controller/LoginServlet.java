@@ -107,7 +107,7 @@ public class LoginServlet extends HttpServlet {
 		MemberBean mb = null;
 		try {
 			// 呼叫 loginService物件的 checkIDPassword()，傳入userid與password兩個參數
-			mb = memberService.checkIdPassword(userId, password);
+			mb = memberService.checkmANmPw(userId, password);
 			if (mb != null) {
 				// OK, 登入成功, 將mb物件放入Session範圍內，識別字串為"LoginOK"
 				session.setAttribute("LoginOK", mb);
