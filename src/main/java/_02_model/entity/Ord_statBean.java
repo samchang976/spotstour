@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 //@Entity
-@Table(name="ord_stat")
+@Table(name="ordstat")
 public class Ord_statBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
