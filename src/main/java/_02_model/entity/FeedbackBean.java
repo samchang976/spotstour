@@ -29,7 +29,7 @@ public class FeedbackBean implements Serializable {
 	private Integer itemId;
 	
 	@Column(columnDefinition = "INT Default 1")
-	private Boolean fb_freeze;
+	private Integer fb_freeze;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "itemId")
