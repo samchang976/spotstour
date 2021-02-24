@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 
 //@Entity
-@Table(name="shopping_Cart")
+@Table(name="shoppingcart")
 public class ShoppingCartBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -30,7 +30,7 @@ public class ShoppingCartBean implements Serializable {
  	private MemberBean member;
  	
  	@OneToMany(cascade= { CascadeType.PERSIST})
-    @JoinColumn(name="fk_item_id", referencedColumnName="sc_id", nullable = true)    
+    @JoinColumn(name="itemId", referencedColumnName="scId", nullable = true)    
     private Set<ItemBean> item = new LinkedHashSet<>();
 
 	public Integer getScId() {

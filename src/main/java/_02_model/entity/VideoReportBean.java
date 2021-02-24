@@ -14,21 +14,21 @@ import javax.persistence.Table;
 
 
 //@Entity
-@Table(name="video_Report")
+@Table(name="videoreport")
 public class VideoReportBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "report_id", unique = true, nullable = false)
+	@Column(name = "reportId", unique = true, nullable = false)
 	private Integer reportId;
-	@Column(name = "video_id")
+	@Column(name = "videoId")
 	private Integer videoId;
 	private String reportText;
-	@Column(name = "rt_id")
+	@Column(name = "rtId")
 	private Integer rtId;
 	
 	@ManyToOne
-	@JoinColumn(name="fk_video_id", nullable=false)  
+	@JoinColumn(name="videoId", nullable=false)  
 	private VideoBean video;
 	
 	@ManyToOne(cascade = CascadeType.ALL)

@@ -16,17 +16,17 @@ import javax.persistence.Table;
 
 
 //@Entity
-@Table(name="report_Type")
+@Table(name="reporttype")
 public class Report_TypeBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "rt_id", unique = true, nullable = false)
+	@Column(name = "rtId", unique = true, nullable = false)
 	private Integer rtId;
  	private String reportType;
 	
  	@OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
- 	@JoinColumn(name = "fk_rt_id", referencedColumnName = "rtId")
+ 	@JoinColumn(name = "rtId", referencedColumnName = "rtId")
  	private Set<VideoBean> videos = new LinkedHashSet<>();
 
 	public Integer getRtId() {

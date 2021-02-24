@@ -18,19 +18,19 @@ public class RecordBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "record_id", unique = true, nullable = false)	
+	@Column(name = "recordId", unique = true, nullable = false)	
 	private Integer recordId;
-	@Column(name = "portfolio_id")
+	@Column(name = "portfolioId")
 	private Integer portfolioId;
 	@Column(name = "type")
 	private String type;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_type")
+	@JoinColumn(name = "type")
 	private ParamsBean Params;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_portfolio_id")
+	@JoinColumn(name = "portfolioId")
 	private PorfolioBean porfolio;
 
 	public Integer getRecordId() {

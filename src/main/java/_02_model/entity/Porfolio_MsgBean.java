@@ -14,21 +14,21 @@ import javax.persistence.Table;
 
 
 //@Entity
-@Table(name="porfolio_Msg")
+@Table(name="porfoliomsg")
 public class Porfolio_MsgBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "portfolioMsg_id", unique = true, nullable = false)
+	@Column(name = "portfolioMsgId", unique = true, nullable = false)
 	private Integer portfolioMsgId;
-	@Column(name = "portfolio_id")
+	@Column(name = "portfolioId")
 	private Integer portfolioId;
 	private String msgText;
 	private Timestamp pm_createTime;     
 	private String pMsg_freeze;
 	
 	@ManyToOne 
-	@JoinColumn(name="fk_portfolio_id", nullable=false)  
+	@JoinColumn(name="portfolioId", nullable=false)  
 	private PorfolioBean porfolios;
 
 	public Integer getPortfolioMsgId() {

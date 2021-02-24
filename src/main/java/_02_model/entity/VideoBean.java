@@ -22,11 +22,11 @@ public class VideoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "video_id", unique = true, nullable = false)
+	@Column(name = "videoId", unique = true, nullable = false)
 	private Integer videoId;
 	private Blob videoFile;
 	private Blob videoPic;
-	@Column(name = "portfolio_id")
+	@Column(name = "portfolioId")
 	private Integer portfolioId;  
 	private Blob v_freeze;
 	

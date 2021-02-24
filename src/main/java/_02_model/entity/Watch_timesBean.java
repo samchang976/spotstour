@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 //@Entity
-@Table(name="watch_times")
+@Table(name="watchtimes")
 public class Watch_timesBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -23,7 +23,7 @@ public class Watch_timesBean implements Serializable {
 	private Timestamp wt_createTime;
 	
 	@ManyToOne  
-	@JoinColumn(name="portfolio_id")  
+	@JoinColumn(name="portfolioId")  
 	private PorfolioBean porfolio;
 
 	public Integer getViewsId() {
