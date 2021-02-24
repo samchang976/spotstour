@@ -23,7 +23,7 @@ public class RootAppConfig {
 		ComboPooledDataSource ds = new ComboPooledDataSource();
 		//請變更自定義資料庫帳號密碼
 		ds.setUser("root");
-		ds.setPassword("JonGy9299");
+		ds.setPassword("0000");
 		try {ds.setDriverClass("com.mysql.cj.jdbc.Driver");
 			
 		} catch (Exception e) {
