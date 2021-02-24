@@ -29,7 +29,10 @@ public class ManagerController {
 		ib.setItemHeader("AA");
 		ib.setItemPrice(20);
 		ib.setItemQty(10);
-		ib.setItemDes("AA");
+		ib.setItemDes("AAAA");
+		ib.setItemPic1("null");
+		ib.setItemPic2("null");
+		ib.setItemPic3("null");
 		model.addAttribute("itemBean",ib);
 		return "_91_manageMart/MerchandiseModify";
 	}
