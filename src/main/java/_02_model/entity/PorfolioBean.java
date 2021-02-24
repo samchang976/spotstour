@@ -25,7 +25,7 @@ public class PorfolioBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "portfolio_id", unique = true, nullable = false)
+	@Column(name = "portfolioId", unique = true, nullable = false)
  	private Integer portfolioId;
 	@Column(name="cityId")
 	private Integer cityId;

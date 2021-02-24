@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 //@Entity
-@Table(name="ord_detail")
+@Table(name="orddetail")
 public class Ord_detailBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -26,7 +26,7 @@ public class Ord_detailBean implements Serializable {
 	private ItemBean itemBean;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ord_Id")
+	@JoinColumn(name = "ordId")
 	private OrdBean ordBean;
 
 	public Ord_detailBean() {
