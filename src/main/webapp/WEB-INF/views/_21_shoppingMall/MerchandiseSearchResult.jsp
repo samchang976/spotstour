@@ -23,20 +23,20 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />>
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<!--search -->
 	<jsp:include page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 
 	<!--商品  -->
-	<c:forEach var="entry" items="${products}">
+<%-- 	<c:forEach var="entry" items="${products}"> --%>
 
-		<img height='100' width='80'
-			src='${pageContext.servletContext.contextPath}/_00_init/getBookImage?id=${entry.value.bookId}'>
-      	<div>商品名稱 : ${itemHeader1}</div>
-      	<div>價錢 : ${itemPrice}</div>
-		<div>產地 : ${countryId}</div>
-		<div>庫存數量 : ${itemQty}</div>
-	</c:forEach>
+<!-- 		<img height='100' width='80' -->
+<%-- 			src='${pageContext.servletContext.contextPath}/_00_init/getBookImage?id=${entry.value.bookId}'> --%>
+<%--       	<div>商品名稱 : ${itemHeader1}</div> --%>
+<%--       	<div>價錢 : ${itemPrice}</div> --%>
+<%-- 		<div>產地 : ${countryId}</div> --%>
+<%-- 		<div>庫存數量 : ${itemQty}</div> --%>
+<%-- 	</c:forEach> --%>
 
 
 	<div class="container text_center">
