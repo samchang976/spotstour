@@ -41,6 +41,10 @@ public class MemberBean implements Serializable {
 	private String mPic;
 	
 	private Integer mPid;
+	//新增該項的get&set&constructor
+	//信箱是否驗證
+	private Integer m_verify;
+	
 	
 	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
 	private Set<ShoppingCartBean> shoppingCartBeans = new LinkedHashSet<>();
@@ -59,11 +63,10 @@ public class MemberBean implements Serializable {
 	public MemberBean() {
 	}
 
-
 	public MemberBean(Integer mId, String mAN, String mPw, String mGender, String mName, String mUid, Date mBDay,
 			String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, String mPic, Integer mPid,
-			Set<ShoppingCartBean> shoppingCartBeans, Member_permBean member_perm, Set<OrdBean> orderBeans,
-			Set<PorfolioBean> porfolioBeans) {
+			Integer m_verify, Set<ShoppingCartBean> shoppingCartBeans,
+			Member_permBean member_perm, Set<OrdBean> orderBeans, Set<PorfolioBean> porfolioBeans) {
 		super();
 		this.mId = mId;
 		this.mAN = mAN;
@@ -78,12 +81,12 @@ public class MemberBean implements Serializable {
 		this.m_createTime = m_createTime;
 		this.mPic = mPic;
 		this.mPid = mPid;
+		this.m_verify = m_verify;		
 		this.shoppingCartBeans = shoppingCartBeans;
 		this.member_perm = member_perm;
 		this.orderBeans = orderBeans;
 		this.porfolioBeans = porfolioBeans;
 	}
-
 
 	public Integer getmId() {
 		return mId;
@@ -165,22 +168,6 @@ public class MemberBean implements Serializable {
 		this.d_mAddress = d_mAddress;
 	}
 
-	public Integer getmPid() {
-		return mPid;
-	}
-
-	public void setmPid(Integer mPid) {
-		this.mPid = mPid;
-	}
-
-	public Member_permBean getMember_perm() {
-		return member_perm;
-	}
-
-	public void setMember_perm(Member_permBean member_perm) {
-		this.member_perm = member_perm;
-	}
-
 	public Timestamp getM_createTime() {
 		return m_createTime;
 	}
@@ -197,12 +184,36 @@ public class MemberBean implements Serializable {
 		this.mPic = mPic;
 	}
 
+	public Integer getmPid() {
+		return mPid;
+	}
+
+	public void setmPid(Integer mPid) {
+		this.mPid = mPid;
+	}
+
+	public Integer getM_verify() {
+		return m_verify;
+	}
+
+	public void setM_verify(Integer m_verify) {
+		this.m_verify = m_verify;
+	}
+
 	public Set<ShoppingCartBean> getShoppingCartBeans() {
 		return shoppingCartBeans;
 	}
 
 	public void setShoppingCartBeans(Set<ShoppingCartBean> shoppingCartBeans) {
 		this.shoppingCartBeans = shoppingCartBeans;
+	}
+
+	public Member_permBean getMember_perm() {
+		return member_perm;
+	}
+
+	public void setMember_perm(Member_permBean member_perm) {
+		this.member_perm = member_perm;
 	}
 
 	public Set<OrdBean> getOrderBeans() {
@@ -220,4 +231,7 @@ public class MemberBean implements Serializable {
 	public void setPorfolioBeans(Set<PorfolioBean> porfolioBeans) {
 		this.porfolioBeans = porfolioBeans;
 	}
+
+
+	
 }
