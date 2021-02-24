@@ -19,17 +19,19 @@
 	crossorigin="anonymous">
 
 <style>
-/*         body{ */
-/*         	height: 200px; */
-/*             background: rgb(208, 199, 199); */
-/*         } */
-a, i {
-	text-decoration: none;
-	color: #000;
-	font-size: 12px;
+
+/* 取消ul的底線 */
+ul.nav.nav-tabs {
+	border-bottom: none;
 }
 
-a, i:hover {
+.menuOuter .fas {
+	text-decoration: none;
+	color: #000;
+	font-size: 30px;
+}
+
+.menuOuter .fas:hover {
 	color: #ddd;
 }
 
@@ -50,7 +52,7 @@ a, i:hover {
 
 #SPOTTOUR {
 	display: inline-block;
-	font-size: 32px;
+	font-size: 24px;
 	font-family: Tahoma;
 	color: #000;
 }
@@ -68,10 +70,10 @@ a, i:hover {
 		style="border-bottom: 1px solid black; text-align: center;">
 		<div id='option1'>
 			<a href="<c:url value='/index.jsp' />" target="_parent"> <i
-				class="fas fa-globe-americas fa-spin fa-3x"></i>
+				class="fas fa-globe-americas fa-spin "></i>
 			</a>
 		</div>
-		<a href="<c:url value='/index.jsp' />" target="_parent">
+		<a href="<c:url value='/' />" target="_parent">
 			<div id="SPOTTOUR">SPOTS-TOUR</div>
 		</a>
 		<div id='option2'>
@@ -83,75 +85,83 @@ a, i:hover {
         </div> -->
 
 			<ul class="nav nav-tabs">
-				
+				<!-- 會員圖片 -->
 				<c:if test="${! empty LoginOK }">
-						<img height='40px' width='30px'
-							src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.memberId}'>
+					<img height='40px' width='30px'
+						src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.memberId}'>
 
-					</c:if>
-					
-				<li class="nav-item dropdown"><a class="fas fa-file-alt fa-2x"
+				</c:if>
+
+				<li class="nav-item dropdown"><a class="fas fa-file-alt"
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 
 					<ul class="dropdown-menu">
-						<c:if test="${ funcName != 'SHO' }">
+<%-- 						<c:if test="${ funcName != 'SHO' }"> --%>
 							<li><a class="dropdown-item"
-								href="<c:url value='/_03_listBooks/DisplayPageProducts' />">購物</a></li>
-						</c:if>
-						<c:if test="${ funcName != 'CHE' }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_04_ShoppingCart/ShowCartContent.jsp' />">結帳</a></li>
-						</c:if>
-						<c:if test="${ funcName != 'ORD' }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_05_orderProcess/orderList.do' />">訂單</a></li>
-						</c:if>
-						<c:if test="${ funcName != 'BMT' }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_20_productMaintain/DisplayPageProducts' />">維護</a></li>
-						</c:if>
-						<c:if test="${ funcName != 'IND' }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/index.jsp' />">回首頁</a></li>
-						</c:if>
+								href="<c:url value='/_03_listBooks/DisplayPageProducts' />">老師範例</a></li>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${ funcName != 'CHE' }"> --%>
+<!-- 							<li><a class="dropdown-item" -->
+<%-- 								href="<c:url value='/_04_ShoppingCart/ShowCartContent.jsp' />">結帳</a></li> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${ funcName != 'ORD' }"> --%>
+<!-- 							<li><a class="dropdown-item" -->
+<%-- 								href="<c:url value='/_05_orderProcess/orderList.do' />">訂單</a></li> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${ funcName != 'BMT' }"> --%>
+<!-- 							<li><a class="dropdown-item" -->
+<%-- 								href="<c:url value='/_20_productMaintain/DisplayPageProducts' />">維護</a></li> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${ funcName != 'IND' }"> --%>
+<!-- 							<li><a class="dropdown-item" -->
+<%-- 								href="<c:url value='/index.jsp' />">回首頁</a></li> --%>
+<%-- 						</c:if> --%>
 					</ul></li>
 
-				<li class="nav-item dropdown"><a class="fas fa-cart-plus fa-2x"
+				<li class="nav-item dropdown"><a class="fas fa-cart-plus "
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item"
-							href="<c:url value='/_11_merchandiseSearch/Merchandise.do' />">購物商城</a></li>
-						<li><a class="dropdown-item" href="#">購物車</a></li>
-						<li><a class="dropdown-item" href="#">關於商品資訊</a></li>
-					</ul></li>
-				<li class="nav-item dropdown"><a class="fas fa-user-alt fa-2x"
+						<li><a class="dropdown-item" href="merchandiseIndex">購物商城</a></li>
+						<li><a class="dropdown-item" href="shoppingCart">購物車</a></li>
+						<li><a class="dropdown-item" href="aboutMerchandise">關於商品資訊</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="merchandiseModify">管理商城</a></li>
+						<li><a class="dropdown-item" href="activityList">管理活動列表</a></li>
+						<li><a class="dropdown-item" href="activityModify">管理活動快訊</a></li>
+						<li><a class="dropdown-item" href="aboutMerchandiseModify">編輯關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="manageMerchandiseReport">編輯關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="manageVideoReport">管理檢舉影片</a></li>
+
+					</ul>
+				</li>
+				<li class="nav-item dropdown"><a class="fas fa-user-alt "
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
 						<c:if test="${ funcName != 'REG' }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_01_register/register.jsp' />">註冊</a></li>
+							<li><a class="dropdown-item" href="memberRegister">註冊會員</a></li>
 						</c:if>
 						<c:if test="${ empty LoginOK }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_02_login/login.jsp' />">登入</a></li>
+							<li><a class="dropdown-item" href="login">登入</a></li>
 						</c:if>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">編輯個人資料</a></li>
-						<li><a class="dropdown-item" href="#">個人作品</a></li>
-						<li><a class="dropdown-item" href="#">收藏的影片</a></li>
+						<li><a class="dropdown-item" href="memberDetailModify">會員個人資料</a></li>
+						<li><a class="dropdown-item" href="personalVideo">個人作品</a></li>
+						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item"
-							href="<c:url value='/_02_login/logout.jsp' />">登出</a></li>
-					</ul></li>
-				<li class="nav-item dropdown"><a
-					class="fas fa-align-justify fa-2x" data-bs-toggle="dropdown"
-					href="#" role="button" aria-expanded="false"></a>
+						<li><a class="dropdown-item" href="logout">登出</a></li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown"><a class="fas fa-align-justify "
+					data-bs-toggle="dropdown" href="#" role="button"
+					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">聯絡我們</a></li>
-						<li><a class="dropdown-item" href="#">關於我們</a></li>
+						<li><a class="dropdown-item" href="aboutUs">關於我們</a></li>
+						<li><a class="dropdown-item" href="contactUs">聯絡我們</a></li>
+						<li><a class="dropdown-item" href="aboutUsModify">編輯關於我們</a></li>
+						<li><a class="dropdown-item" href="contactUsModify">編輯聯絡我們</a></li>
 					</ul></li>
 			</ul>
 		</div>

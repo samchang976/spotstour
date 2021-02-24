@@ -97,26 +97,26 @@ ul.nav.nav-tabs {
 					aria-expanded="false"></a>
 
 					<ul class="dropdown-menu">
-						<c:if test="${ funcName != 'SHO' }">
+<%-- 						<c:if test="${ funcName != 'SHO' }"> --%>
 							<li><a class="dropdown-item"
-								href="<c:url value='/_03_listBooks/DisplayPageProducts' />">購物</a></li>
-						</c:if>
-						<c:if test="${ funcName != 'CHE' }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_04_ShoppingCart/ShowCartContent.jsp' />">結帳</a></li>
-						</c:if>
-						<c:if test="${ funcName != 'ORD' }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_05_orderProcess/orderList.do' />">訂單</a></li>
-						</c:if>
-						<c:if test="${ funcName != 'BMT' }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/_20_productMaintain/DisplayPageProducts' />">維護</a></li>
-						</c:if>
-						<c:if test="${ funcName != 'IND' }">
-							<li><a class="dropdown-item"
-								href="<c:url value='/index.jsp' />">回首頁</a></li>
-						</c:if>
+								href="<c:url value='/_03_listBooks/DisplayPageProducts' />">老師範例</a></li>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${ funcName != 'CHE' }"> --%>
+<!-- 							<li><a class="dropdown-item" -->
+<%-- 								href="<c:url value='/_04_ShoppingCart/ShowCartContent.jsp' />">結帳</a></li> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${ funcName != 'ORD' }"> --%>
+<!-- 							<li><a class="dropdown-item" -->
+<%-- 								href="<c:url value='/_05_orderProcess/orderList.do' />">訂單</a></li> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${ funcName != 'BMT' }"> --%>
+<!-- 							<li><a class="dropdown-item" -->
+<%-- 								href="<c:url value='/_20_productMaintain/DisplayPageProducts' />">維護</a></li> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${ funcName != 'IND' }"> --%>
+<!-- 							<li><a class="dropdown-item" -->
+<%-- 								href="<c:url value='/index.jsp' />">回首頁</a></li> --%>
+<%-- 						</c:if> --%>
 					</ul></li>
 
 				<li class="nav-item dropdown"><a class="fas fa-cart-plus "

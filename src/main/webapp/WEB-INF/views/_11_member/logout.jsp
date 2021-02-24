@@ -8,7 +8,7 @@
 <title>登出</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<!-- 先將使用者名稱取出 -->
 	<c:set var="memberName" value="${ LoginOK.mName }" />
 	<!-- 移除放在session物件內的屬性物件 -->
@@ -26,11 +26,23 @@
 <%-- 	<jsp:useBean id='logoutBean' class='_02_login.model.LogoutBean' --%>
 <%-- 		scope='page' /> --%>
 
-	<c:set target='${logoutBean}' property='session'
-		value='${pageContext.session}' />
+<%-- 	<c:set target='${logoutBean}' property='session' --%>
+<%-- 		value='${pageContext.session}' /> --%>
 
-	${ logoutBean.logout }
+<%-- 	${ logoutBean.logout } --%>
 
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+<form name="form1" action="" method="post">
+<table width="200" border="1">
+    <tr>
+        <td colspan="2">已登出</td>
+   
+    <tr>
+        <td colspan="2"><input type="submit" name="submit"
+            value="回首頁"></td>
+    </tr>
+</table>
+</form>
+
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 </body>
 </html>

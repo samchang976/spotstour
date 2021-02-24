@@ -38,95 +38,9 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-	<!--內嵌header  -->
-<%-- 	<iframe src="${pageContext.request.contextPath}/fragment/header.jsp" --%>
-<!-- 		frameborder="0" width="100%" height="67px" scrolling="no" -->
-<!-- 		sandbox="allow-top-navigation-by-user-activation"></iframe> -->
-
-	<!-- 搜尋 -->
-<%-- 	<iframe src="${pageContext.request.contextPath}/fragment/search.jsp" --%>
-<!-- 		frameborder="0" width="100%" height="67px" scrolling="no" -->
-<!-- 		sandbox="allow-top-navigation-by-user-activation"></iframe> -->
-		
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
-	
-<jsp:include page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
-
-	<!-- 活動快訊 -->
-	<div class="container" id="news_container">
-		<div class="row">
-			<div class="col-12">
-				<div id="news-text">活動快訊</div>
-				<!-- ------------------------------------------------------- -->
-				<div class="block"
-					onclick="location.href=
-                        '02_ActivityDetail.html'">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/01</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-				<!--------------------------------------------------------------->
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/10</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-				<!--------------------------------------------------------------->
-
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/10</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-				<!--------------------------------------------------------------->
-
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/10</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-				<!--------------------------------------------------------------->
-
-				<div class="block">
-					<!-- 日期 -->
-					<div class="float-left">
-						<div class="date">2021/01/10</div>
-					</div>
-					<!-- 優惠內容 -->
-					<div class="float-left ">
-						<div class="discount">新春特惠，全館免運!</div>
-					</div>
-					<div class="clear-block"></div>
-				</div>
-=======
 	<div
 		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
-		<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
 
 	<div class="position">
@@ -252,7 +166,6 @@
 						</div>
 					</a>
 					<!--------------------------------------------------------------->
->>>>>>> 90ec5991ce18f04f67922ec98a0b863b8d57ef8f
 
 
 
@@ -298,7 +211,7 @@
 		</div>
 	</div>
 
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 </div>
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -15,6 +15,17 @@ body {
 	text-align: center;
 }
 
+#form {
+	margin: 50px auto;
+	padding: 20px;
+	text-align: left;
+	/* border: 1px solid #cccccc; */
+	width: 500px;
+	height: 600px;
+	font-size: 20px;
+}
+
+
 #pnumber {
 	display: none;
 }
@@ -30,11 +41,26 @@ body {
 #rule {
 	text-align: left;
 }
+
+
+
+
+.auto {
+	line-height: 20px;
+	text-align: left;
+	padding: 20px;
+	margin: 5px;
+	border: #ccc 1px solid;
+	font-size: 20px;
+}
+/* .auto:nth-child(1){
+        margin-bottom: 10px;
+    } */
 </style>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<form id="label">
-		<dspan>關於商品資訊</span>
+		<span>關於商品資訊</span>
 		<br>
 		<span>退換貨</span>
 		<br>

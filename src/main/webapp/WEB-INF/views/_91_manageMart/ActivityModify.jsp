@@ -19,6 +19,10 @@
 
 <title>活動快訊管理</title>
 <style>
+body {
+	font-size: 20px;
+}
+
 .news {
 	padding: 5px;
 	/* border: 1px solid slateblue; */
@@ -50,11 +54,19 @@
 	/* border: solid 1px slategrey; */
 	font-size: 20px;
 }
+
+button { /*按鈕的樣式*/
+	padding: 10px;
+	color: rgb(24, 24, 168);
+	border: 1px rgb(24, 24, 168) solid;
+	background-color: rgb(245, 241, 242);
+	border-radius: 5px;
+}
 </style>
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<!-- 搜尋列 -->
 	<div class="container" style="margin: 10px;">
 		<div class="row">
@@ -315,12 +327,9 @@
 					</div>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
-
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

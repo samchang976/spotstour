@@ -23,7 +23,7 @@
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />>
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />>
 	<!--search -->
 	<jsp:include page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 
@@ -109,7 +109,7 @@
 
 
 
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 
 </body>
 </html>

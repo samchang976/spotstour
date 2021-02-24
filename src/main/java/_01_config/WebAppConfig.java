@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -11,9 +12,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc 
-@ComponentScan({ "_10_home", "_11_register", "_12_login", "_21_merchandiseSearch", "_22_shoppingCart", "_23_submitOrder", "_32_portfolioSearch", "_32_portfolioSearch.service", "_91_managerMart" })
+@ComponentScan({ "_10_home", "_11_register", "_12_login", "_21_merchandiseSearch", "_22_shoppingCart", "_23_submitOrder", "_24_contactUs","_32_portfolioSearch", "_32_portfolioSearch.service","_37_portfolioManage", "_91_managerMart" })
 public class WebAppConfig implements WebMvcConfigurer {
-
+	
 	@Bean
 	public ViewResolver internalResourceViewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -34,6 +35,16 @@ public class WebAppConfig implements WebMvcConfigurer {
 		
 //		registry.addResourceHandler("/image/**").addResourceLocations("\");
 		//registry.addResourceHandler("/javascript/**").addResourceLocations("/javascript/");
+		
+		registry.addResourceHandler("/_00_util/allUtil/javascript/**").addResourceLocations("/WEB-INF/views/_00_util/allUtil/javascript/");
+		registry.addResourceHandler("/_00_util/managerUtil/javascript/**").addResourceLocations("/WEB-INF/views/_00_util/managerUtil/javascript/");
+		registry.addResourceHandler("/_00_util/memberUtil/javascript/**").addResourceLocations("/WEB-INF/views/_00_util/memberUtil/javascript/");
+		registry.addResourceHandler("/_00_util/portfolioUtil/javascript/**").addResourceLocations("/WEB-INF/views/_00_util/portfolioUtil/javascript/");
+		registry.addResourceHandler("/_00_util/shoppingMallUtil/javascript/**").addResourceLocations("/WEB-INF/views/_00_util/shoppingMallUtil/javascript/");
 	}
 
+	@Override
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+		configurer.enable();
+	}
 }
