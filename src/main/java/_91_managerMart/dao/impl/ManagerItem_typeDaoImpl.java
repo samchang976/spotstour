@@ -34,8 +34,7 @@ public class ManagerItem_typeDaoImpl implements Serializable, ManagerItem_typeDa
 	public List<Item_typeBean> getItem_type() {
 		String hql = "FROM Item_typeBean";
 		Session session = factory.getCurrentSession();
-		List<Item_typeBean> list = session.createQuery(hql)
-										.getResultList();
+		List<Item_typeBean> list = session.createQuery(hql).getResultList();
 		return list;
 	}
 	

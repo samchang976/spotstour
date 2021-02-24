@@ -2,6 +2,7 @@ package _91_managerMart.service;
 
 import java.util.List;
 
+import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 
@@ -18,7 +19,11 @@ public interface ManagerItemService {
 	public void addItem(ItemBean itemBean);
 
 	public Item_typeBean getItem_TypeById(int itId);
+	
+	public CountryBean getCountryById(int countryId);
 
 	List<Item_typeBean> getItem_TypeList();
+	
+	List<CountryBean> getCountryList();
 
 }

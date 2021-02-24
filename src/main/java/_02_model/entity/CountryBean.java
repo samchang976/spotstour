@@ -1,8 +1,11 @@
 package _02_model.entity;
 
 import java.io.Serializable;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -29,6 +32,9 @@ public class CountryBean implements Serializable{
 	
 	@OneToMany(mappedBy = "countryBean" , fetch = FetchType.EAGER)
 	private List<CityBean> cityList;
+	
+	@OneToMany(mappedBy = "countryBean", cascade = CascadeType.ALL)
+	private Set<ItemBean> items = new LinkedHashSet<>();
 
 	public int getCountryId() {
 		return countryId;
@@ -62,5 +68,12 @@ public class CountryBean implements Serializable{
 		this.cityList = cityList;
 	}
 	
+	public Set<ItemBean> getItems() {
+		return items;
+	}
+
+	public void setItems(Set<ItemBean> items) {
+		this.items = items;
+	}
 	
 }

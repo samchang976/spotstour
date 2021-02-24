@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="font.css">
 <style>
 body {
+	font-size: 20px;
 	text-align: center;
 }
 

@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 //@Entity
-@Table(name="ship_Type")
+@Table(name="shiptype")
 public class Ship_TypeBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
