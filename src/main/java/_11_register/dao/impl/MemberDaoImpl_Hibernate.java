@@ -1,9 +1,7 @@
 package _11_register.dao.impl;
 
-import java.sql.Connection;
 
 import javax.persistence.NoResultException;
-
 import org.hibernate.NonUniqueResultException;
 //import org.hibernate.Query;
 import org.hibernate.Session;
@@ -40,13 +38,13 @@ public class MemberDaoImpl_Hibernate implements MemberDao {
 	public boolean mANExists(String mAN) {
 		boolean exist = false;
 		Session session = factory.getCurrentSession();
-		String hql = "FROM MemberBean m WHERE m.memberId = :mid";
+		String hql = "FROM MemberBean m WHERE m.mAN = :mAN";
 //		Query<MemberBean> query = session.createQuery(hql);
 //		query = query.setParameter("mid", mAN);
 //		MemberBean mb = query.getSingleResult();
 		try {
 			MemberBean mb = (MemberBean) session.createQuery(hql)
-												.setParameter("mid", mAN)
+												.setParameter("mAN", mAN)
 												.getSingleResult();
 			if (mb != null) {
 				exist = true;
@@ -62,13 +60,13 @@ public class MemberDaoImpl_Hibernate implements MemberDao {
 	// 由參數 id (會員帳號) 到Member表格中 取得某個會員的所有資料，傳回值為一個MemberBean物件，
 	// 如果找不到對應的會員資料，傳回值為null。
 	@Override
-	public MemberBean queryMember(String id) {
+	public MemberBean queryMember(String mAN) {
 		MemberBean mb = null;
 		Session session = factory.getCurrentSession();
-		String hql = "FROM MemberBean m WHERE m.memberId = :mid";
+		String hql = "FROM MemberBean m WHERE m.mAN = :mAN";
 		try {
 			mb = (MemberBean) session.createQuery(hql)
-									 .setParameter("mid", id)
+									 .setParameter("mAN", mAN)
 									 .getSingleResult();
 		} catch (NoResultException ex) {
 			;
@@ -78,14 +76,14 @@ public class MemberDaoImpl_Hibernate implements MemberDao {
 	// 檢查使用者在登入時輸入的帳號與密碼是否正確。如果正確，傳回該帳號所對應的MemberBean物件，
 	// 否則傳回 null。
 	@Override
-	public MemberBean checkIdPassword(String userId, String password) {
+	public MemberBean checkmANmPw(String mAN, String mPw) {
 		MemberBean mb = null;
 		Session session = factory.getCurrentSession();
-		String hql = "FROM MemberBean m WHERE m.memberId = :mid and m.mPw = :mPw";
+		String hql = "FROM MemberBean m WHERE m.mAN = :mAN and m.mPw = :mPw";
 		try {
 			mb = (MemberBean) session.createQuery(hql)
-									 .setParameter("mid", userId)
-									 .setParameter("mPw", password)
+									 .setParameter("mAN", mAN)
+									 .setParameter("mPw", mPw)
 									 .getSingleResult();
 		} catch (NoResultException ex) {
 			;
@@ -93,13 +91,4 @@ public class MemberDaoImpl_Hibernate implements MemberDao {
 		return mb;
 	}
 	
-	@Override
-	public void setConnection(Connection conn) {
-       throw new RuntimeException("本程式不支援setConnection(Connection conn)");
-	}
 }
-
-
-
-
-
