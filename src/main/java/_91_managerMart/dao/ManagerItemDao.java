@@ -22,6 +22,8 @@ public interface ManagerItemDao {
 	
 	public Item_typeBean getItem_TypeById(int itId); 
 	
+	public CountryBean getCountryById(int countryId);
+	
 	List<Item_typeBean> getItem_TypeList();
 	
 	List<CountryBean> getCountryList();

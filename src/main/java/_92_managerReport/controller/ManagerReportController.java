@@ -9,7 +9,7 @@ public class ManagerReportController {
 	@RequestMapping("/manageMerchandiseReport")
 	public String manageMerchandiseReport() {
 		return "_91_manageMart/ManageMerchandiseReport";
-	}
+	}                        
 	
 	@RequestMapping("/manageVideoReport")
 	public String manageVideoReport() {

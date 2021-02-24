@@ -13,6 +13,7 @@
 <style>
 body {
 	text-align: center;
+	font-size: 20px;
 }
 
 #form {
@@ -24,26 +25,6 @@ body {
 	height: 600px;
 	font-size: 20px;
 }
-
-
-#pnumber {
-	display: none;
-}
-
-#pname {
-	display: none;
-}
-
-#label {
-	text-align: center;
-}
-
-#rule {
-	text-align: left;
-}
-
-
-
 
 .auto {
 	line-height: 20px;
@@ -59,27 +40,30 @@ body {
 </style>
 <body>
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
-	<form id="label">
-		<span>關於商品資訊</span>
-		<br>
-		<span>退換貨</span>
-		<br>
-		<span>配送方式</span>
-		<br>
+	<div id="form">
+		<div>關於商品資訊</div>
+		<div>&nbsp;&nbsp;&nbsp;&nbsp;退換貨</div>
+		<div>&nbsp;&nbsp;&nbsp;&nbsp;配送方式</div>
 
+		<!-- 從DB抓資料填上 -->
+		<div class="auto">
+			<input type="hidden" id="pnumber" name="商品編號">
+		</div>
 		<br>
-		<span><input type="text" id="pnumber"></span>
-		<br>
-		<span><input type="text" id="pname"></span> <br>
+		<!-- 從DB抓資料填上 -->
+		<div class="auto">
+			<input type="hidden" id="pname" name="商品名稱">
+		</div>
+
 		<div id="rule">
 			<ul>
-				<li>・於商品到達簽收後「7日內」商品,並與我們聯繫退貨服務。</li>
-				<li>・以本公司判斷為基準,符合「未使用商品」。</li>
-				<li>・於商品到達簽收後「10日內」寄回之商品。</li>
-				<li>・商品頁面中記載「不可退貨」商品,在此情況下不得退貨。</li>
+				<li>於商品到達簽收後「7日內」商品,並與我們聯繫退貨服務。</li>
+				<li>以本公司判斷為基準,符合「未使用商品」。</li>
+				<li>於商品到達簽收後「10日內」寄回之商品。</li>
+				<li>商品頁面中記載「不可退貨」商品,在此情況下不得退貨。</li>
 			</ul>
 		</div>
-	</form>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/footer.jsp" />
+	</div>
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 </body>
 </html>

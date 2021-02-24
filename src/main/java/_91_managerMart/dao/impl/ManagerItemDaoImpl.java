@@ -75,7 +75,9 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 //		Session session = factory.getCurrentSession();
 		Session session = factory.openSession();
 		Item_typeBean itb = getItem_TypeById(itemBean.getItId()); 
+		CountryBean cb = getCountryById(itemBean.getCountryId());
 		itemBean.setItem_typeBean(itb);
+		itemBean.setCountryBean(cb);
 		session.save(itemBean);
 	}
 
@@ -96,6 +98,15 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 		Session session = factory.openSession();		
 		List<Item_typeBean> list = session.createQuery(hql).getResultList();
 		return list;
+	}
+	
+	@Override
+	public CountryBean getCountryById(int countryId) {
+		CountryBean cb = null;
+//		Session session = factory.getCurrentSession();
+		Session session = factory.openSession();
+		cb = session.get(CountryBean.class, countryId);
+		return cb;
 	}
 	
 	@SuppressWarnings("unchecked")

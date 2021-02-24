@@ -76,5 +76,4 @@ public class CountryBean implements Serializable{
 		this.items = items;
 	}
 	
-	
 }

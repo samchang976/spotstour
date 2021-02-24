@@ -55,7 +55,7 @@ public class ManagerController {
 	public String aboutMerchandiseModify() {
 		return "_91_manageMart/AboutMerchandiseModify";
 	}
-	
+							   
 	@RequestMapping("/aboutUsModify")
 	public String aboutUsModify() {
 		return "_91_manageMart/AboutUsModify";

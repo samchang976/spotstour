@@ -67,6 +67,12 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 	public Item_typeBean getItem_TypeById(int itId) {
 		return managetItemDao.getItem_TypeById(itId);
 	}
+	
+	@Transactional
+	@Override
+	public CountryBean getCountryById(int countryId) {
+		return managetItemDao.getCountryById(countryId);
+	}
 
 	//取得item_type list
 	@Transactional
