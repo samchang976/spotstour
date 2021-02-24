@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 //@Entity
-@Table(name="memberperm")
+@Table(name="member_perm")
 public class Member_permBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -23,7 +23,7 @@ public class Member_permBean implements Serializable {
 	Integer mPid;
  	String mPermissions;
  	
- 	@OneToMany(mappedBy = "memberperm", cascade = CascadeType.ALL)
+ 	@OneToMany(mappedBy = "member_perm", cascade = CascadeType.ALL)
  	Set<MemberBean> memberBeans = new LinkedHashSet<>();
  	
 	public Integer getmPid() {

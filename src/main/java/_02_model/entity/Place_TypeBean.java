@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 
 //@Entity
-@Table(name="placetype")
+@Table(name="place_type")
 public class Place_TypeBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 
 //@Entity
-@Table(name="porfoliomsg")
+@Table(name="porfolio_Msg")
 public class Porfolio_MsgBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
