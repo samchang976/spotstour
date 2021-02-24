@@ -8,8 +8,7 @@ import _02_model.entity.test.MemberBean;
 import _11_register.dao.MemberDao;
 import _11_register.service.MemberService;
 
-
-
+@Transactional
 @Service
 public class MemberServiceImpl implements MemberService {
 	
@@ -18,36 +17,32 @@ public class MemberServiceImpl implements MemberService {
 
 	public MemberServiceImpl() {
 	}
-
-	@Transactional
+	
 	@Override
 	public int saveMember(MemberBean mb) {
 		int n = 0;
-			dao.saveMember(mb);
-			n++;
+		dao.saveMember(mb);
+		n++;
 		return n;
-	}
+	}	
 	
-	@Transactional
 	@Override
-	public boolean mANExists(String id) {
+	public boolean mANExists(String mAN) {
 		boolean exist = false;
-			exist = dao.mANExists(id);
+		exist = dao.mANExists(mAN);
 		return exist;
 	}
-
-	@Transactional
+	
 	@Override
-	public MemberBean queryMember(String id) {
+	public MemberBean queryMember(String mAN) {
 		MemberBean mb = null;
-			mb = dao.queryMember(id);
+		mb = dao.queryMember(mAN);
 		return mb;
 	}
-
-	@Transactional
-	public MemberBean checkIdPassword(String userId, String password) {
+	@Override
+	public MemberBean checkmANmPw(String mAN, String mPw) {
 		MemberBean mb = null;
-			mb = dao.checkIdPassword(userId, password);
+		mb = dao.checkmANmPw(mAN, mPw);
 		return mb;
 	}
 }
