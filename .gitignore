@@ -2,6 +2,8 @@
 **/target/**
 **/Servers/**
 **/.settings/**
+**/logback/**
+/src/main/resources/logback.xml
 .project
 .classpath
-
+logback
