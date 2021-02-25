@@ -62,5 +62,6 @@ input {
 		<button style="margin-top: 15px; width: 60px;">送出</button>
 	</div>
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+
 </body>
 </html>

@@ -7,33 +7,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>管理退貨商品列表</title>
-<link rel="stylesheet" href="button.css">
-<link rel="stylesheet" href="font.css">
+
 </head>
 <style>
-body {
-	text-align: center;
-	font-size: 20px;
-}
+/* body { */
+/* 	text-align: center; */
+/* 	font-size: 20px; */
+/* } */
 
-#form {
-	margin: 50px auto;
-	padding: 20px;
-	text-align: left;
-	/* border: 1px solid #cccccc; */
-	width: 500px;
-	height: 600px;
-	font-size: 20px;
-}
+/* #form { */
+/* 	margin: 50px auto; */
+/* 	padding: 20px; */
+/* 	text-align: left; */
+/* 	/* border: 1px solid #cccccc; */ 
+/* 	width: 500px; */
+/* 	height: 600px; */
+/* 	font-size: 20px; */
+/* } */
 
-.auto {
-	line-height: 20px;
-	text-align: left;
-	padding: 20px;
-	margin: 5px;
-	border: #ccc 1px solid;
-	font-size: 20px;
-}
+/* .auto { */
+/* 	line-height: 20px; */
+/* 	text-align: left; */
+/* 	padding: 20px; */
+/* 	margin: 5px; */
+/* 	border: #ccc 1px solid; */
+/* 	font-size: 20px; */
+/* } */
 /* .auto:nth-child(1){
         margin-bottom: 10px;
     } */
@@ -65,5 +64,7 @@ body {
 		</div>
 	</div>
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+	
+	
 </body>
 </html>

@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="font.css"> -->
 </head>
 <style>
-body {
-	text-align: center;
-	font-size: 20px;
-}
+/* body { */
+/* 	text-align: center; */
+/* 	font-size: 20px; */
+/* } */
 
 #form {
 	margin: 50px auto;
@@ -39,7 +39,10 @@ body {
     } */
 </style>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
+	<div
+		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
+	</div>
 	<div id="form">
 		<div>關於商品資訊</div>
 		<div>&nbsp;&nbsp;&nbsp;&nbsp;退換貨</div>
@@ -66,5 +69,7 @@ body {
 
 	</div>
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+	
+
 </body>
 </html>

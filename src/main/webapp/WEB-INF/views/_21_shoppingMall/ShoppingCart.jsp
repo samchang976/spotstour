@@ -14,13 +14,16 @@
 <!-- icon cdn -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-<link rel="stylesheet" href="../css/05_.css">
-<link rel="stylesheet" href="../css/button.css">
+<!-- <link rel="stylesheet" href="../css/05_.css"> -->
+<!-- <link rel="stylesheet" href="../css/button.css"> -->
 
 <title>購物車</title>
 </head>
 <body>
 	<!-- header -->
+	
+	
+	
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	
 	<div class="container">
@@ -31,10 +34,10 @@
 			</div>
 
 		</div>
-		<!-- 欄位敘述 -->
+<!-- 		<!-- 欄位敘述 --> 
 		<div class="row">
 			<div class="col-1">
-				<!-- 選擇欄 -->
+				選擇欄
 			</div>
 			<div class="col-4 fieldDescription">
 				<div>商品名稱</div>
@@ -48,7 +51,7 @@
 		<!-- 商品清單 ，動態新增-->
 		<!-- 第一列 -->
 		<div class="row">
-			<!-- 選擇欄  -->
+<!-- 			<!-- 選擇欄  --> 
 			<div class="col-1 C_SpCre">
 				<div>
 					<input class="form-check-input" type="checkbox"
@@ -97,14 +100,14 @@
 	</div>
 	
 	
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	<!-- Option 1: Bootstrap Bundle with Popper -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-		crossorigin="anonymous"></script>
+<!-- 	<script -->
+<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" -->
+<!-- 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" -->
+<!-- 		crossorigin="anonymous"></script> -->
 
 
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 
 
 </body>
