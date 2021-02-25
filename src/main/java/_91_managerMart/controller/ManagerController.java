@@ -48,8 +48,8 @@ public class ManagerController {
 	}
 	
 	//凍結產品價格
-	@RequestMapping("/merchandiseModify/Id={itemId}")
-	public String updatePrice(@ModelAttribute("itemId") Integer itemId, Model model) {
+	@RequestMapping("/merchandiseModify/delete/Id={itemId}")
+	public String freezeItem(@ModelAttribute("itemId") Integer itemId, Model model) {
 		managerItemService.freezeItem(itemId);
 		return "redirect:/merchandiseModify";  
 	} 
