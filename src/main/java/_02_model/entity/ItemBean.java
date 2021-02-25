@@ -3,6 +3,7 @@
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,10 @@ public class ItemBean implements Serializable {
 	private String itemPic1;
 	private String itemPic2;
 	private String itemPic3;
+	
+	//0 為顯示商品
+	@Column(nullable = false, columnDefinition="INT default 0")
+	private Integer item_freeze = 0;
 	
 	@Transient
 	private Integer itId;
@@ -157,4 +162,14 @@ public class ItemBean implements Serializable {
 	public void setItem_typeBean(Item_typeBean item_typeBean) {
 		this.item_typeBean = item_typeBean;
 	}
+
+	public Integer getItem_freeze() {
+		return item_freeze;
+	}
+
+	public void setItem_freeze(Integer item_freeze) {
+		this.item_freeze = item_freeze;
+	}
+	
+	
 }

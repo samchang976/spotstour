@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 <!DOCTYPE html>
@@ -36,6 +37,9 @@ body {
 
 .container-fluid {
 	text-align: center;
+	border: 1px solid black;
+	margin: 10px;
+	padding-top: 10px;
 }
 
 .row {
@@ -80,8 +84,9 @@ button { /*按鈕的樣式*/
 </style>
 </head>
 <body>
+	<!-- 引入header -->
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
-
+	<%-- 	<jsp:include page="<c:url value='${pageContext.request.contextPath}/WEB-INF/views/_00_util/allUtil/jsp/header.jsp'/>" /> --%>
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -90,6 +95,7 @@ button { /*按鈕的樣式*/
 					<button id="newM">新增商品</button>
 					<button id="selectA">全選</button>
 					<button id="save">儲存變更</button>
+					<button id="updateP">上傳照片</button>
 				</div>
 			</div>
 		</div>
@@ -158,64 +164,68 @@ button { /*按鈕的樣式*/
 		</div>
 	</form:form>
 
+	<c:forEach var='item' items='${items}'>
+		<div class="container-fluid">
+			<div class="row R_SpCre">
 
-	<div class="container-fluid">
-		<div class="row R_SpCre">
-
-			<div class="col col-1 C_SpCre">
-				<input class="form-check-input" type="checkbox" id="checkboxNoLabel"
-					value="" aria-label="...">
-			</div>
-
-			<div class="col col-2-1 C_SpCre">
-				<div>商品編號:A1001</div>
-				<br>
-				<div>紀念品照片1</div>
-				<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-					class="w-100">
-			</div>
-
-			<div class=" col col-3-1 C_SpCre">
-				<div>點擊次數:555次</div>
-				<br>
-				<div>紀念品照片2</div>
-				<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-					class="w-100">
-			</div>
-
-			<div class="col col-4-1 C_SpCre">
-				<br> <br>
-				<div>紀念品照片3</div>
-				<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-					class="w-100">
-			</div>
-
-			<div class="col col-5-1 C_SpCre">
-				<br>
-				<div>商品描述:</div>
-				<input type="text" style="height: 150px; width: 250px;"><br>
-			</div>
-
-			<div class=" col col-6-1 C_SpCre">
-				<br>
-				<div>商品定價:100元</div>
-				<br>
-				<div>商品剩餘:50個</div>
-			</div>
-
-			<div class="col col-7-1 C_SpCre">
-				<br>
-				<div>
-					<button id="updateP">上傳照片</button>
+				<div class="col col-1 C_SpCre">
+					<input class="form-check-input" type="checkbox"
+						id="checkboxNoLabel" value="" aria-label="...">
 				</div>
-				<br>
-				<div>
-					<button id="deleteM">刪除商品</button>
+
+				<div class="col col-2-1 C_SpCre">
+					<div>商品編號:${item.itemId}</div>
+					<br>
+					<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						class="w-100">
+				</div>
+
+				<div class=" col col-3-1 C_SpCre">
+					<div>商品類別:${item.item_typeBean.itemType}</div>
+					<br>
+					<%-- 					<div>紀念品照片2${item.Pic2}</div> --%>
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						class="w-100">
+				</div>
+
+				<div class="col col-4-1 C_SpCre">
+					<div>商品國家:${item.countryBean.countryName}</div>
+					<br>
+					<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						class="w-100">
+				</div>
+
+				<div class="col col-5-1 C_SpCre">
+					<br>
+					<div>
+						商品描述:<br> <br> ${item.itemDes}
+					</div>
+				</div>
+
+				<div class=" col col-6-1 C_SpCre">
+					<br>
+					<div>商品定價:${item.itemPrice}</div>
+					<br>
+					<div>商品剩餘:${item.itemQty}</div>
+				</div>
+
+				<div class="col col-7-1 C_SpCre">
+					<br>
+
+					<div>
+						<button id="editM">編輯商品</button>
+					</div>
+					<br>
+					<div>
+						<button id="deleteM">刪除商品</button>
+					</div>
 				</div>
 			</div>
+			<br>
 		</div>
-		<br>
-	</div>
+	</c:forEach>
 	<hr>
 	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	<!-- Option 1: Bootstrap Bundle with Popper -->

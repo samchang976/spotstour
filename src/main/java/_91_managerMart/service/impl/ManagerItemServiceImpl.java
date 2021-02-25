@@ -33,15 +33,8 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 
 	@Transactional
 	@Override
-	public int deleteItem(int itemId) {
-		int n = 0;
-		boolean b = managetItemDao.deleteItem(itemId);
-		if(b = true) {
-			return n = 1;
-		}else {
-			return n = 0;
-		}
-
+	public void freezeItem(int itemId) {
+		managetItemDao.freezeItem(itemId);
 	}
 
 	@Transactional
@@ -55,6 +48,13 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 			return n = 0;
 		}
 	}
+	
+	@Transactional
+	@Override
+	public List<ItemBean> getAllItems() {
+		return managetItemDao.getAllItems();
+	}
+	
 
 	@Transactional
 	@Override

@@ -54,14 +54,19 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	}
 	
 	@Override
-	public boolean deleteItem(int itemId) {
-		boolean b = false;
+	public void freezeItem(int itemId) {
+		String hql= "UPDATE ItemBean SET item_freeze = :freeze WHERE itemId = :id";
 		Session session = factory.getCurrentSession();
-		ItemBean bookbean = new ItemBean();
-		bookbean.setItemId(itemId);
-		session.delete(bookbean);
-		return b = true;
+//		ItemBean bookbean = new ItemBean();
+//		bookbean.setItemId(itemId);
+//		session.delete(bookbean);
+		int freeze = 1;
+		session.createQuery(hql)
+		   .setParameter("freeze", freeze)
+		   .setParameter("id", itemId)
+		   .executeUpdate();
 	}
+	
 
 	@Override
 	public boolean updateItem(ItemBean itemBean) {
@@ -70,10 +75,19 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 		return false;
 	}
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ItemBean> getAllItems() {
+		String hql = "FROM ItemBean WHERE item_freeze = 0 ORDER BY itemId DESC";
+		Session session = factory.getCurrentSession();
+		List<ItemBean> list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	
 	@Override
 	public void addItem(ItemBean itemBean) {
-//		Session session = factory.getCurrentSession();
-		Session session = factory.openSession();
+		Session session = factory.getCurrentSession();
+//		Session session = factory.openSession();
 		Item_typeBean itb = getItem_TypeById(itemBean.getItId()); 
 		CountryBean cb = getCountryById(itemBean.getCountryId());
 		itemBean.setItem_typeBean(itb);
@@ -84,9 +98,10 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	@Override
 	public Item_typeBean getItem_TypeById(int itId) {
 		Item_typeBean itb = null;
-//		Session session = factory.getCurrentSession();
-		Session session = factory.openSession();
+		Session session = factory.getCurrentSession();
+//		Session session = factory.openSession();
 		itb = session.get(Item_typeBean.class, itId);
+		System.out.println(itb);
 		return itb;
 	}
 
@@ -94,8 +109,8 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	@Override
 	public List<Item_typeBean> getItem_TypeList() {
 		String hql = "FROM Item_typeBean";
-//		Session session = factory.getCurrentSession();
-		Session session = factory.openSession();		
+		Session session = factory.getCurrentSession();
+//		Session session = factory.openSession();		
 		List<Item_typeBean> list = session.createQuery(hql).getResultList();
 		return list;
 	}
@@ -103,8 +118,8 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	@Override
 	public CountryBean getCountryById(int countryId) {
 		CountryBean cb = null;
-//		Session session = factory.getCurrentSession();
-		Session session = factory.openSession();
+		Session session = factory.getCurrentSession();
+//		Session session = factory.openSession();
 		cb = session.get(CountryBean.class, countryId);
 		return cb;
 	}
@@ -113,8 +128,8 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	@Override
 	public List<CountryBean> getCountryList() {
 		String hql = "FROM CountryBean";
-//		Session session = factory.getCurrentSession();
-		Session session = factory.openSession();		
+		Session session = factory.getCurrentSession();
+//		Session session = factory.openSession();		
 		List<CountryBean> list = session.createQuery(hql).getResultList();
 		return list;
 	}

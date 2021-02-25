@@ -58,7 +58,7 @@ button { /*按鈕的樣式*/
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/header.jsp" />
+	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<div class="container-fluid">
 		<!-- 欄位敘述 -->
 		<div class="row">
