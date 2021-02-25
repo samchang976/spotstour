@@ -33,7 +33,10 @@ public class ManagerController {
 		ib.setItemPic1("null");
 		ib.setItemPic2("null");
 		ib.setItemPic3("null");
+		ib.setItem_freeze(0);
 		model.addAttribute("itemBean",ib);
+		List<ItemBean> list = managerItemService.getAllItems();
+		model.addAttribute("items", list);
 		return "_91_manageMart/MerchandiseModify";
 	}
 	
@@ -43,6 +46,13 @@ public class ManagerController {
 //		return "redirect:/_91_manageMart/MerchandiseModify";
 		return "redirect:/merchandiseModify";
 	}
+	
+	//凍結產品價格
+	@RequestMapping("/merchandiseModify/Id={itemId}")
+	public String updatePrice(@ModelAttribute("itemId") Integer itemId, Model model) {
+		managerItemService.freezeItem(itemId);
+		return "redirect:/merchandiseModify";  
+	} 
 	
 	@RequestMapping("/activityList")
 	public String activityList() {
@@ -98,5 +108,7 @@ public class ManagerController {
 	public List<CountryBean> getCountryList() {
 	    return managerItemService.getCountryList();
 	}
+	
+
 	
 }

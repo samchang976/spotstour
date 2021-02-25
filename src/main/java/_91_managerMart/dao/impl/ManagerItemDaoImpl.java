@@ -54,20 +54,34 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	}
 	
 	@Override
-	public boolean deleteItem(int itemId) {
-		boolean b = false;
+	public void freezeItem(int itemId) {
+		String hql= "UPDATE ItemBean SET item_freeze = :freeze WHERE itemId = :id";
 		Session session = factory.getCurrentSession();
-		ItemBean bookbean = new ItemBean();
-		bookbean.setItemId(itemId);
-		session.delete(bookbean);
-		return b = true;
+//		ItemBean bookbean = new ItemBean();
+//		bookbean.setItemId(itemId);
+//		session.delete(bookbean);
+		int freeze = 1;
+		session.createQuery(hql)
+		   .setParameter("freeze", freeze)
+		   .setParameter("id", itemId)
+		   .executeUpdate();
 	}
+	
 
 	@Override
 	public boolean updateItem(ItemBean itemBean) {
 		Session session = factory.getCurrentSession();
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ItemBean> getAllItems() {
+		String hql = "FROM ItemBean WHERE item_freeze = 0 ORDER BY itemId DESC";
+		Session session = factory.getCurrentSession();
+		List<ItemBean> list = session.createQuery(hql).getResultList();
+		return list;
 	}
 	
 	@Override

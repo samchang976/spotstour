@@ -21,17 +21,17 @@ USE `spotstourdb`;
 DROP TABLE IF EXISTS `city`;
 
 CREATE TABLE `city` (
-  `cityId` INT NOT NULL AUTO_INCREMENT,
-  `cityName` VARCHAR(20) NOT NULL,
-  `countryId` INT NOT NULL,
+  `cityId` int NOT NULL AUTO_INCREMENT,
+  `cityName` varchar(20) NOT NULL,
+  `countryId` int NOT NULL,
   PRIMARY KEY (`cityId`),
   KEY `city_countryId_fk` (`countryId`),
   CONSTRAINT `city_countryId_fk` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`)
-) ENGINE=INNODB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 
 /*Data for the table `city` */
 
-INSERT  INTO `city`(`cityId`,`cityName`,`countryId`) VALUES 
+insert  into `city`(`cityId`,`cityName`,`countryId`) values 
 (1,'台北',1),
 (2,'台中',1),
 (3,'高雄',1),
@@ -96,35 +96,37 @@ INSERT  INTO `city`(`cityId`,`cityName`,`countryId`) VALUES
 DROP TABLE IF EXISTS `continent`;
 
 CREATE TABLE `continent` (
-  `continentId` INT NOT NULL AUTO_INCREMENT,
-  `continentName` VARCHAR(15) NOT NULL,
+  `continentId` int NOT NULL AUTO_INCREMENT,
+  `continentName` varchar(15) NOT NULL,
   PRIMARY KEY (`continentId`)
-) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `continent` */
 
-INSERT  INTO `continent`(`continentId`,`continentName`) VALUES 
+insert  into `continent`(`continentId`,`continentName`) values 
 (1,'亞洲'),
 (2,'美洲'),
 (3,'歐洲'),
-(4,'大洋洲');
+(4,'非洲'),
+(5,'大洋洲'),
+(6,'南極洲');
 
 /*Table structure for table `country` */
 
 DROP TABLE IF EXISTS `country`;
 
 CREATE TABLE `country` (
-  `countryId` INT NOT NULL AUTO_INCREMENT,
-  `countryName` VARCHAR(20) NOT NULL,
-  `continentId` INT NOT NULL,
+  `countryId` int NOT NULL AUTO_INCREMENT,
+  `countryName` varchar(20) NOT NULL,
+  `continentId` int NOT NULL,
   PRIMARY KEY (`countryId`),
   KEY `country_continentId_fk` (`continentId`),
   CONSTRAINT `country_continentId_fk` FOREIGN KEY (`continentId`) REFERENCES `continent` (`continentId`)
-) ENGINE=INNODB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 /*Data for the table `country` */
 
-INSERT  INTO `country`(`countryId`,`countryName`,`continentId`) VALUES 
+insert  into `country`(`countryId`,`countryName`,`continentId`) values 
 (1,'台灣',1),
 (2,'日本',1),
 (3,'中國',1),
@@ -169,127 +171,127 @@ INSERT  INTO `country`(`countryId`,`countryName`,`continentId`) VALUES
 DROP TABLE IF EXISTS `feedback`;
 
 CREATE TABLE `feedback` (
-  `feedbackId` INT NOT NULL AUTO_INCREMENT,
-  `feedbackText` VARCHAR(100) NOT NULL,
-  `f_createTime` DATETIME NOT NULL,
-  `fb_freeze` TINYINT NOT NULL DEFAULT '0',
-  `itemId` INT NOT NULL,
+  `feedbackId` int NOT NULL AUTO_INCREMENT,
+  `feedbackText` varchar(100) NOT NULL,
+  `f_createTime` datetime NOT NULL,
+  `fb_freeze` tinyint NOT NULL DEFAULT '0',
+  `itemId` int NOT NULL,
   PRIMARY KEY (`feedbackId`),
   KEY `feedback_itemId_fk` (`itemId`),
   CONSTRAINT `feedback_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `feedback` */
-
-/*Table structure for table `item_type` */
-
-DROP TABLE IF EXISTS `item_type`;
-
-CREATE TABLE `item_type` (
-  `itId` INT NOT NULL AUTO_INCREMENT,
-  `itemType` VARCHAR(10) NOT NULL,
-  PRIMARY KEY (`itId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
-
-/*Data for the table `item_type` */
-
-INSERT  INTO `item_type`(`itId`,`itemType`) VALUES 
-(1,'水果'),
-(2,'蔬菜'),
-(3,'其他');
 
 /*Table structure for table `item` */
 
 DROP TABLE IF EXISTS `item`;
 
 CREATE TABLE `item` (
-  `itemId` INT NOT NULL AUTO_INCREMENT,
-  `itemHeader` VARCHAR(40) NOT NULL,
-  `itemPrice` INT NOT NULL,
-  `itemQty` INT NOT NULL,
-  `itemDes` VARCHAR(100) NOT NULL,
-  `itId` INT NOT NULL,
-  `itemPic1` VARCHAR(7000) DEFAULT NULL,
-  `itemPic2` VARCHAR(7000) DEFAULT NULL,
-  `itemPic3` VARCHAR(7000) DEFAULT NULL,
-  `countryId` INT NOT NULL,
+  `itemId` int NOT NULL AUTO_INCREMENT,
+  `itemHeader` varchar(40) NOT NULL,
+  `itemPrice` int NOT NULL,
+  `itemQty` int NOT NULL,
+  `itemDes` varchar(100) NOT NULL,
+  `itId` int NOT NULL,
+  `itemPic1` varchar(7000) DEFAULT NULL,
+  `itemPic2` varchar(7000) DEFAULT NULL,
+  `itemPic3` varchar(7000) DEFAULT NULL,
+  `item_freeze` tinyint NOT NULL DEFAULT '0',
+  `countryId` int NOT NULL,
   PRIMARY KEY (`itemId`),
+  KEY `item_itId_fk` (`itId`),
   KEY `item_countryId_fk` (`countryId`),
-  KEY `FKtk3yc6xaj4aovx4t4h5k02a6d` (`itId`),
-  CONSTRAINT `FKtk3yc6xaj4aovx4t4h5k02a6d` FOREIGN KEY (`itId`) REFERENCES `item_type` (`itId`),
   CONSTRAINT `item_countryId_fk` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`),
   CONSTRAINT `item_itId_fk` FOREIGN KEY (`itId`) REFERENCES `item_type` (`itId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
-
-INSERT  INTO `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`,`itemPic1`,`itemPic2`,`itemPic3`,`countryId`) VALUES 
-(1,'蘋果',100,50,'蘋果蘋果',1,NULL,NULL,NULL,1),
-(2,'橘子',50,20,'橘子橘子',2,NULL,NULL,NULL,1),
-(3,'奇異果',20,100,'奇異果奇異果',1,NULL,NULL,NULL,4),
-(4,'水蜜桃',120,30,'水蜜桃水蜜桃',1,NULL,NULL,NULL,1);
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `item` */
+
+insert  into `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`,`itemPic1`,`itemPic2`,`itemPic3`,`item_freeze`,`countryId`) values 
+(1,'MAMA泰國泡麵',10,35,'最常見的泰式泡麵，結合打拋豬肉和豬骨湯，口味偏清淡，三大品牌都有出這口味，但是最推MAMA的！',1,NULL,NULL,NULL,0,6),
+(2,'紫玉酥禮盒(6入)',250,100,'台中大甲裕珍馨人氣商品！以大甲芋頭及優質米為開發概念，酥、鬆、Q多重口感在口中綻放！',1,NULL,NULL,NULL,0,1),
+(3,'Press Butter Sand焦糖奶油餅',264,20,'當前東京最受矚目、最夯排隊伴手禮，焦糖奶油夾心餅，超級無敵有夠好吃！\r\n特製烤模壓製，餅乾酥香硬脆口感創舉大突破，內餡爆漿牽絲的奶油焦糖雙餡更是完美迷人不甜膩。',1,NULL,NULL,NULL,0,2),
+(4,'Panasonic水離子吹風機(EH-NA99)',4750,5,'同樣讓人用過後就回不去的日本神器，吹頭髮同時保濕、護法，實在是很厲害～。從EH-NA97型號到EH-NA99(最新)，使用者高達95%滿意！',4,NULL,NULL,NULL,0,2);
+
+/*Table structure for table `item_type` */
+
+DROP TABLE IF EXISTS `item_type`;
+
+CREATE TABLE `item_type` (
+  `itId` int NOT NULL AUTO_INCREMENT,
+  `itemType` varchar(10) NOT NULL,
+  PRIMARY KEY (`itId`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+/*Data for the table `item_type` */
+
+insert  into `item_type`(`itId`,`itemType`) values 
+(1,'食品'),
+(2,'生活家居'),
+(3,'美妝保養'),
+(4,'家電3C'),
+(5,'服飾配件');
 
 /*Table structure for table `member` */
 
 DROP TABLE IF EXISTS `member`;
 
 CREATE TABLE `member` (
-  `mId` INT NOT NULL AUTO_INCREMENT,
-  `mAN` VARCHAR(15) NOT NULL,
-  `mPw` VARCHAR(15) NOT NULL,
-  `mGender` VARCHAR(10) NOT NULL,
-  `mName` VARCHAR(10) NOT NULL,
-  `mUid` VARCHAR(10) NOT NULL,
-  `mBDay` DATETIME NOT NULL,
-  `mEmail` VARCHAR(30) NOT NULL,
-  `mPhone` VARCHAR(10) NOT NULL,
-  `d_mAddress` VARCHAR(40) NOT NULL,
-  `m_createTime` DATETIME NOT NULL,
-  `mPic` VARCHAR(10000) DEFAULT NULL,
-  `m_verify` TINYINT NOT NULL DEFAULT '0',
-  `mPid` INT NOT NULL,
-  `fileName` VARCHAR(255) DEFAULT NULL,
-  `memberId` VARCHAR(255) DEFAULT NULL,
+  `mId` int NOT NULL AUTO_INCREMENT,
+  `mAN` varchar(15) NOT NULL,
+  `mPw` varchar(15) NOT NULL,
+  `mGender` varchar(10) NOT NULL,
+  `mName` varchar(10) NOT NULL,
+  `mUid` varchar(10) NOT NULL,
+  `mBDay` datetime NOT NULL,
+  `mEmail` varchar(30) NOT NULL,
+  `mPhone` varchar(10) NOT NULL,
+  `d_mAddress` varchar(40) NOT NULL,
+  `m_createTime` datetime NOT NULL,
+  `mPic` varchar(10000) DEFAULT NULL,
+  `m_verify` tinyint NOT NULL DEFAULT '0',
+  `mPid` int NOT NULL,
   PRIMARY KEY (`mId`),
   KEY `member_mPid_fk` (`mPid`),
   CONSTRAINT `member_mPid_fk` FOREIGN KEY (`mPid`) REFERENCES `member_perm` (`mPid`)
-) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `member` */
 
-INSERT  INTO `member`(`mId`,`mAN`,`mPw`,`mGender`,`mName`,`mUid`,`mBDay`,`mEmail`,`mPhone`,`d_mAddress`,`m_createTime`,`mPic`,`m_verify`,`mPid`,`fileName`,`memberId`) VALUES 
-(1,'gust01505','0000','男','諸葛村夫','F120097463','0000-00-00 00:00:00','gust01505@gmail.com','0983774652','台北市天龍區民權西路天橋下','0000-00-00 00:00:00','0',0,1,NULL,NULL);
+insert  into `member`(`mId`,`mAN`,`mPw`,`mGender`,`mName`,`mUid`,`mBDay`,`mEmail`,`mPhone`,`d_mAddress`,`m_createTime`,`mPic`,`m_verify`,`mPid`) values 
+(1,'spotstour','0000','男','諸葛村夫','F123456789','1987-08-07 00:00:00','spotstour@gmail.com','0912345678','台北市天龍區民權西路天橋下','2021-02-25 00:00:00',NULL,1,2);
 
 /*Table structure for table `member_perm` */
 
 DROP TABLE IF EXISTS `member_perm`;
 
 CREATE TABLE `member_perm` (
-  `mPid` INT NOT NULL,
-  `mPermissions` VARCHAR(10) NOT NULL,
+  `mPid` int NOT NULL AUTO_INCREMENT,
+  `mPermissions` varchar(10) NOT NULL,
   PRIMARY KEY (`mPid`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `member_perm` */
 
-INSERT  INTO `member_perm`(`mPid`,`mPermissions`) VALUES 
-(0,'停權中'),
+insert  into `member_perm`(`mPid`,`mPermissions`) values 
 (1,'管理員'),
-(2,'會員');
+(2,'會員'),
+(3,'停權中');
 
 /*Table structure for table `ord` */
 
 DROP TABLE IF EXISTS `ord`;
 
 CREATE TABLE `ord` (
-  `ord_Id` INT NOT NULL AUTO_INCREMENT,
-  `mId` INT NOT NULL,
-  `oSid` INT NOT NULL,
-  `s_createTime` DATETIME NOT NULL,
-  `o_createTime` DATETIME NOT NULL,
-  `s_mAddress` VARCHAR(40) NOT NULL,
-  `receiptTypeId` INT NOT NULL,
-  `shipTypeId` INT NOT NULL,
+  `ord_Id` int NOT NULL AUTO_INCREMENT,
+  `mId` int NOT NULL,
+  `oSid` int NOT NULL,
+  `s_createTime` datetime NOT NULL,
+  `o_createTime` datetime NOT NULL,
+  `s_mAddress` varchar(40) NOT NULL,
+  `receiptTypeId` int NOT NULL,
+  `shipTypeId` int NOT NULL,
   PRIMARY KEY (`ord_Id`),
   KEY `ord_mId_fk` (`mId`),
   KEY `ord_oSid_fk` (`oSid`),
@@ -299,7 +301,7 @@ CREATE TABLE `ord` (
   CONSTRAINT `ord_oSid_fk` FOREIGN KEY (`oSid`) REFERENCES `ord_stat` (`oSid`),
   CONSTRAINT `ord_receiptTypeId_fk` FOREIGN KEY (`receiptTypeId`) REFERENCES `receipt_type` (`receiptTypeId`),
   CONSTRAINT `ord_shipTypeId_fk` FOREIGN KEY (`shipTypeId`) REFERENCES `ship_type` (`shipTypeId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord` */
 
@@ -308,16 +310,16 @@ CREATE TABLE `ord` (
 DROP TABLE IF EXISTS `ord_deatail`;
 
 CREATE TABLE `ord_deatail` (
-  `ord_dId` INT NOT NULL AUTO_INCREMENT,
-  `ord_Id` INT NOT NULL,
-  `ordQty` INT NOT NULL,
-  `itemId` INT NOT NULL,
+  `ord_dId` int NOT NULL AUTO_INCREMENT,
+  `ord_Id` int NOT NULL,
+  `ordQty` int NOT NULL,
+  `itemId` int NOT NULL,
   PRIMARY KEY (`ord_dId`),
   KEY `ord_deatail_ord_Id_fk` (`ord_Id`),
   KEY `ord_deatail_itemId_fk` (`itemId`),
   CONSTRAINT `ord_deatail_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`),
   CONSTRAINT `ord_deatail_ord_Id_fk` FOREIGN KEY (`ord_Id`) REFERENCES `ord` (`ord_Id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord_deatail` */
 
@@ -326,64 +328,22 @@ CREATE TABLE `ord_deatail` (
 DROP TABLE IF EXISTS `ord_stat`;
 
 CREATE TABLE `ord_stat` (
-  `oSid` INT NOT NULL AUTO_INCREMENT,
-  `ordStat` VARCHAR(10) NOT NULL,
+  `oSid` int NOT NULL AUTO_INCREMENT,
+  `ordStat` varchar(10) NOT NULL,
   PRIMARY KEY (`oSid`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord_stat` */
-
-/*Table structure for table `orderitems` */
-
-DROP TABLE IF EXISTS `orderitems`;
-
-CREATE TABLE `orderitems` (
-  `seqno` INT NOT NULL AUTO_INCREMENT,
-  `author` VARCHAR(255) DEFAULT NULL,
-  `bookId` INT DEFAULT NULL,
-  `companyName` VARCHAR(255) DEFAULT NULL,
-  `description` VARCHAR(255) DEFAULT NULL,
-  `discount` DOUBLE DEFAULT NULL,
-  `orderNo` INT DEFAULT NULL,
-  `quantity` INT DEFAULT NULL,
-  `title` VARCHAR(255) DEFAULT NULL,
-  `unitPrice` DOUBLE DEFAULT NULL,
-  `FK_OrderBean_orderNo` INT DEFAULT NULL,
-  PRIMARY KEY (`seqno`),
-  KEY `FKeyhchb4i8iurymhbh38wsudis` (`FK_OrderBean_orderNo`),
-  CONSTRAINT `FKeyhchb4i8iurymhbh38wsudis` FOREIGN KEY (`FK_OrderBean_orderNo`) REFERENCES `orders` (`orderNo`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
-
-/*Data for the table `orderitems` */
-
-/*Table structure for table `orders` */
-
-DROP TABLE IF EXISTS `orders`;
-
-CREATE TABLE `orders` (
-  `orderNo` INT NOT NULL AUTO_INCREMENT,
-  `bno` VARCHAR(255) DEFAULT NULL,
-  `cancelTag` VARCHAR(255) DEFAULT NULL,
-  `invoiceTitle` VARCHAR(255) DEFAULT NULL,
-  `memberId` VARCHAR(255) DEFAULT NULL,
-  `orderDate` DATETIME(6) DEFAULT NULL,
-  `shippingAddress` VARCHAR(255) DEFAULT NULL,
-  `shippingDate` DATETIME(6) DEFAULT NULL,
-  `totalAmount` DOUBLE DEFAULT NULL,
-  PRIMARY KEY (`orderNo`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
-
-/*Data for the table `orders` */
 
 /*Table structure for table `params` */
 
 DROP TABLE IF EXISTS `params`;
 
 CREATE TABLE `params` (
-  `type` VARCHAR(5) NOT NULL,
-  `typeName` VARCHAR(10) NOT NULL,
+  `type` varchar(10) NOT NULL,
+  `typeName` varchar(10) NOT NULL,
   PRIMARY KEY (`type`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `params` */
 
@@ -392,14 +352,14 @@ CREATE TABLE `params` (
 DROP TABLE IF EXISTS `place_type`;
 
 CREATE TABLE `place_type` (
-  `placeTypeId` INT NOT NULL AUTO_INCREMENT,
-  `placeType` VARCHAR(20) NOT NULL,
+  `placeTypeId` int NOT NULL AUTO_INCREMENT,
+  `placeType` varchar(20) NOT NULL,
   PRIMARY KEY (`placeTypeId`)
-) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `place_type` */
 
-INSERT  INTO `place_type`(`placeTypeId`,`placeType`) VALUES 
+insert  into `place_type`(`placeTypeId`,`placeType`) values 
 (1,'景點'),
 (2,'餐廳'),
 (3,'旅館');
@@ -409,16 +369,16 @@ INSERT  INTO `place_type`(`placeTypeId`,`placeType`) VALUES
 DROP TABLE IF EXISTS `portfolio`;
 
 CREATE TABLE `portfolio` (
-  `portfolioId` INT NOT NULL AUTO_INCREMENT,
-  `portfolioName` VARCHAR(50) NOT NULL,
-  `portfolioText` VARCHAR(255) NOT NULL,
-  `p_createTime` DATETIME NOT NULL,
-  `pAddress` VARCHAR(40) NOT NULL,
-  `longitude` VARCHAR(10) NOT NULL,
-  `latitude` VARCHAR(10) NOT NULL,
-  `cityId` INT NOT NULL,
-  `mId` INT NOT NULL,
-  `placeTypeId` INT NOT NULL,
+  `portfolioId` int NOT NULL AUTO_INCREMENT,
+  `portfolioName` varchar(50) NOT NULL,
+  `portfolioText` varchar(255) NOT NULL,
+  `p_createTime` datetime NOT NULL,
+  `pAddress` varchar(40) NOT NULL,
+  `longitude` varchar(10) NOT NULL,
+  `latitude` varchar(10) NOT NULL,
+  `cityId` int NOT NULL,
+  `mId` int NOT NULL,
+  `placeTypeId` int NOT NULL,
   PRIMARY KEY (`portfolioId`),
   KEY `portfolio_cityId_fk` (`cityId`),
   KEY `portfolio_mId_fk` (`mId`),
@@ -426,24 +386,29 @@ CREATE TABLE `portfolio` (
   CONSTRAINT `portfolio_cityId_fk` FOREIGN KEY (`cityId`) REFERENCES `city` (`cityId`),
   CONSTRAINT `portfolio_mId_fk` FOREIGN KEY (`mId`) REFERENCES `member` (`mId`),
   CONSTRAINT `portfolio_placeTypeId_fk` FOREIGN KEY (`placeTypeId`) REFERENCES `place_type` (`placeTypeId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `portfolio` */
+
+insert  into `portfolio`(`portfolioId`,`portfolioName`,`portfolioText`,`p_createTime`,`pAddress`,`longitude`,`latitude`,`cityId`,`mId`,`placeTypeId`) values 
+(1,'台北101','位於臺灣臺北市信義區的摩天大樓，樓高508米（1,667英尺），地上101層、地下5層，總樓地板面積37萬1千平方公尺。','2021-02-25 00:00:00','台北市信義區市府路45號','121.564','25.033',1,1,1),
+(2,'龍虎塔','位於台灣高雄市左營區蓮花湖的一座寺廟。這座寺廟建於1976年。其中一座塔是虎塔，另一座是龍塔。','2021-01-22 00:00:00','高雄市左營區蓮潭路9號','120.292','22.680',3,1,1),
+(3,'武陵農場','位於台灣台中市和平區平等里，是親近雪霸國家公園的重要遊憩據點，海拔1750公尺至2200公尺，為中華民國國軍退除役官兵輔導委員會所經營之公有事業。','2020-11-16 00:00:00','台中市和平區武陵路3-1號','121.308','24.345',2,1,1);
 
 /*Table structure for table `portfoliomsg` */
 
 DROP TABLE IF EXISTS `portfoliomsg`;
 
 CREATE TABLE `portfoliomsg` (
-  `portfolioMsgId` INT NOT NULL AUTO_INCREMENT,
-  `portfolioId` INT NOT NULL,
-  `msgText` VARCHAR(200) NOT NULL,
-  `pm_createTime` DATETIME NOT NULL,
-  `pmsg_freeze` TINYINT NOT NULL DEFAULT '0',
+  `portfolioMsgId` int NOT NULL AUTO_INCREMENT,
+  `portfolioId` int NOT NULL,
+  `msgText` varchar(200) NOT NULL,
+  `pm_createTime` datetime NOT NULL,
+  `pmsg_freeze` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`portfolioMsgId`),
   KEY `portfolioMsg_portfolioId_fk` (`portfolioId`),
   CONSTRAINT `portfolioMsg_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `portfoliomsg` */
 
@@ -452,10 +417,10 @@ CREATE TABLE `portfoliomsg` (
 DROP TABLE IF EXISTS `receipt_type`;
 
 CREATE TABLE `receipt_type` (
-  `receiptTypeId` INT NOT NULL AUTO_INCREMENT,
-  `receiptType` VARCHAR(15) NOT NULL,
+  `receiptTypeId` int NOT NULL AUTO_INCREMENT,
+  `receiptType` varchar(15) NOT NULL,
   PRIMARY KEY (`receiptTypeId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `receipt_type` */
 
@@ -464,15 +429,15 @@ CREATE TABLE `receipt_type` (
 DROP TABLE IF EXISTS `record`;
 
 CREATE TABLE `record` (
-  `recordId` INT NOT NULL AUTO_INCREMENT,
-  `portfolioId` INT NOT NULL,
-  `type` VARCHAR(5) NOT NULL,
+  `recordId` int NOT NULL AUTO_INCREMENT,
+  `portfolioId` int NOT NULL,
+  `type` varchar(10) NOT NULL,
   PRIMARY KEY (`recordId`),
   KEY `record_portfolioId_fk` (`portfolioId`),
   KEY `record_type_fk` (`type`),
   CONSTRAINT `record_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`),
   CONSTRAINT `record_type_fk` FOREIGN KEY (`type`) REFERENCES `params` (`type`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `record` */
 
@@ -481,10 +446,10 @@ CREATE TABLE `record` (
 DROP TABLE IF EXISTS `report_type`;
 
 CREATE TABLE `report_type` (
-  `rtId` INT NOT NULL AUTO_INCREMENT,
-  `reportType` VARCHAR(20) NOT NULL,
+  `rtId` int NOT NULL AUTO_INCREMENT,
+  `reportType` varchar(20) NOT NULL,
   PRIMARY KEY (`rtId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `report_type` */
 
@@ -493,28 +458,35 @@ CREATE TABLE `report_type` (
 DROP TABLE IF EXISTS `ship_type`;
 
 CREATE TABLE `ship_type` (
-  `shipTypeId` INT NOT NULL AUTO_INCREMENT,
-  `shipType` VARCHAR(15) NOT NULL,
+  `shipTypeId` int NOT NULL AUTO_INCREMENT,
+  `shipType` varchar(15) NOT NULL,
   PRIMARY KEY (`shipTypeId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ship_type` */
+
+insert  into `ship_type`(`shipTypeId`,`shipType`) values 
+(1,'宅配'),
+(2,'郵寄'),
+(3,'7-11門市取貨'),
+(4,'全家門市取貨'),
+(5,'萊爾富門市取貨');
 
 /*Table structure for table `shoppingcart` */
 
 DROP TABLE IF EXISTS `shoppingcart`;
 
 CREATE TABLE `shoppingcart` (
-  `sc_Id` INT NOT NULL AUTO_INCREMENT,
-  `mId` INT NOT NULL,
-  `itemId` INT NOT NULL,
-  `s_ordQty` INT NOT NULL,
+  `sc_Id` int NOT NULL AUTO_INCREMENT,
+  `mId` int NOT NULL,
+  `itemId` int NOT NULL,
+  `s_ordQty` int NOT NULL,
   PRIMARY KEY (`sc_Id`),
   KEY `shoppingCart_mId_fk` (`mId`),
   KEY `shoppingCart_itemId_fk` (`itemId`),
   CONSTRAINT `shoppingCart_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`),
   CONSTRAINT `shoppingCart_mId_fk` FOREIGN KEY (`mId`) REFERENCES `member` (`mId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `shoppingcart` */
 
@@ -523,15 +495,15 @@ CREATE TABLE `shoppingcart` (
 DROP TABLE IF EXISTS `video`;
 
 CREATE TABLE `video` (
-  `videoId` INT NOT NULL AUTO_INCREMENT,
-  `videoFile` VARCHAR(100) NOT NULL,
-  `videoPic` VARCHAR(20000) NOT NULL,
-  `v_freeze` TINYINT NOT NULL DEFAULT '0',
-  `portfolioId` INT NOT NULL,
+  `videoId` int NOT NULL AUTO_INCREMENT,
+  `videoFile` varchar(100) NOT NULL,
+  `videoPic` varchar(20000) NOT NULL,
+  `v_freeze` tinyint NOT NULL DEFAULT '0',
+  `portfolioId` int NOT NULL,
   PRIMARY KEY (`videoId`),
   KEY `video_portfolioId_fk` (`portfolioId`),
   CONSTRAINT `video_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `video` */
 
@@ -540,16 +512,16 @@ CREATE TABLE `video` (
 DROP TABLE IF EXISTS `video_report`;
 
 CREATE TABLE `video_report` (
-  `reportId` INT NOT NULL AUTO_INCREMENT,
-  `reportText` VARCHAR(100) NOT NULL,
-  `rtId` INT NOT NULL,
-  `videoId` INT NOT NULL,
+  `reportId` int NOT NULL AUTO_INCREMENT,
+  `reportText` varchar(100) NOT NULL,
+  `rtId` int NOT NULL,
+  `videoId` int NOT NULL,
   PRIMARY KEY (`reportId`),
   KEY `video_Report_videoId_fk` (`videoId`),
   KEY `video_Report_rtId_fk` (`rtId`),
   CONSTRAINT `video_Report_rtId_fk` FOREIGN KEY (`rtId`) REFERENCES `report_type` (`rtId`),
   CONSTRAINT `video_Report_videoId_fk` FOREIGN KEY (`videoId`) REFERENCES `video` (`videoId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `video_report` */
 
@@ -558,13 +530,13 @@ CREATE TABLE `video_report` (
 DROP TABLE IF EXISTS `watch_times`;
 
 CREATE TABLE `watch_times` (
-  `viewsId` INT NOT NULL AUTO_INCREMENT,
-  `portfolioId` INT NOT NULL,
-  `wt_createTime` DATETIME NOT NULL,
+  `viewsId` int NOT NULL AUTO_INCREMENT,
+  `portfolioId` int NOT NULL,
+  `wt_createTime` datetime NOT NULL,
   PRIMARY KEY (`viewsId`),
   KEY `watch_times_portfolioId_fk` (`portfolioId`),
   CONSTRAINT `watch_times_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `watch_times` */
 
