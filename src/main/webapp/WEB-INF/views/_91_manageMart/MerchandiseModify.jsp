@@ -184,17 +184,17 @@ button { /*按鈕的樣式*/
 					<button id="updateP">上傳照片3</button>
 				</div>
 			</div>
+			<div class="form-group row  d-flex justify-content-end mt-5">
+				<!-- 				<div> -->
+				<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
+				<!-- 				</div> -->
+				<div>
+					<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
+				</div>
+			</div>
 		</form:form>
 	</div>
 
-	<div class="form-group row  d-flex justify-content-end mt-5">
-		<!-- 				<div> -->
-		<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
-		<!-- 				</div> -->
-		<div>
-			<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
-		</div>
-	</div>
 
 
 	<c:forEach var='item' items='${items}'>
