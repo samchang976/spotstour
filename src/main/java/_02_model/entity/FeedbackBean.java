@@ -29,7 +29,7 @@ public class FeedbackBean implements Serializable {
 	private Integer itemId;
 	
 	@Column(columnDefinition = "INT Default 1")
-	private Boolean fb_freeze;
+	private Integer fb_freeze;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "itemId")
@@ -39,7 +39,7 @@ public class FeedbackBean implements Serializable {
 		super();
 	}
 
-	public FeedbackBean(Integer feedbackId, Integer itemId, String feedbackText, Timestamp f_createTime, Boolean fb_freeze,
+	public FeedbackBean(Integer feedbackId, Integer itemId, String feedbackText, Timestamp f_createTime, Integer fb_freeze,
 			ItemBean itemBean) {
 		super();
 		this.feedbackId = feedbackId;
@@ -82,11 +82,11 @@ public class FeedbackBean implements Serializable {
 		this.f_createTime = f_createTime;
 	}
 
-	public Boolean getFb_freeze() {
+	public Integer getFb_freeze() {
 		return fb_freeze;
 	}
 
-	public void setFb_freeze(Boolean fb_freeze) {
+	public void setFb_freeze(Integer fb_freeze) {
 		this.fb_freeze = fb_freeze;
 	}
 
