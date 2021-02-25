@@ -145,7 +145,7 @@ ul.nav.nav-tabs {
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
 						<c:if test="${ funcName != 'REG' }">
-							<li><a class="dropdown-item" href="memberRegister">註冊會員</a></li>
+							<li><a class="dropdown-item" href="register">註冊會員</a></li>
 						</c:if>
 						<c:if test="${ empty LoginOK }">
 							<li><a class="dropdown-item" href="login">登入</a></li>

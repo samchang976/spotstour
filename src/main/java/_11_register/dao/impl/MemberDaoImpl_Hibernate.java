@@ -2,6 +2,7 @@ package _11_register.dao.impl;
 
 
 import javax.persistence.NoResultException;
+
 import org.hibernate.NonUniqueResultException;
 //import org.hibernate.Query;
 import org.hibernate.Session;
@@ -9,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import _02_model.entity.test.MemberBean;
+import _02_model.entity.MemberBean;
 import _11_register.dao.MemberDao;
 
 

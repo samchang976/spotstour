@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="spring" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +53,7 @@
 
 
 					<form method="POST"
-						action="<c:url value='/_01_register/register.do' />"
+						modelAttribute="memberBean"
 						enctype='multipart/form-data'>
 						<div class="form-row">
 							<div class="form-group col-md-6">
