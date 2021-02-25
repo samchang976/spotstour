@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 //@Entity
-@Table(name="memberperm")
+@Table(name="member_perm")
 public class Member_permBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id

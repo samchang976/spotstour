@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 //@Entity
-@Table(name="orddetail")
+@Table(name="ord_detail")
 public class Ord_detailBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
