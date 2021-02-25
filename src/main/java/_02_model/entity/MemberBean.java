@@ -19,6 +19,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 //@Entity
 @Table(name="member")
@@ -27,9 +30,11 @@ public class MemberBean implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer mId;
-	private String mAN;
-	private String mPw;	
+	private Integer mId;//編號
+	private String mAN;//帳號
+	private String mPw;	//密碼
+	@Transient
+	private String mPw1;//確認密碼
 	private String mGender;		
 	private String mName;	
 	private String mUid;	
@@ -38,8 +43,33 @@ public class MemberBean implements Serializable {
 	private String mPhone;	
 	private String d_mAddress;	
 	private Timestamp m_createTime;	
-	private String mPic;
+//	private String mPic;
+	private Blob mPic;
 	
+	@Transient
+	String fileName;
+	public String getFileName() {
+		return fileName;
+	}
+
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	@Transient
+	MultipartFile mMultipartFile;
+	
+	
+	public Blob getmPic() {
+		return mPic;
+	}
+
+
+	public void setmPic(Blob mPic) {
+		this.mPic = mPic;
+	}
+
 	private Integer mPid;
 	
 	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
@@ -60,10 +90,36 @@ public class MemberBean implements Serializable {
 	}
 
 
+//	public MemberBean(Integer mId, String mAN, String mPw, String mGender, String mName, String mUid, Date mBDay,
+//			String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, String mPic, Integer mPid,
+//			Set<ShoppingCartBean> shoppingCartBeans, Member_permBean member_perm, Set<OrdBean> orderBeans,
+//			Set<PorfolioBean> porfolioBeans) {
+//		super();
+//		this.mId = mId;
+//		this.mAN = mAN;
+//		this.mPw = mPw;
+//		this.mGender = mGender;
+//		this.mName = mName;
+//		this.mUid = mUid;
+//		this.mBDay = mBDay;
+//		this.mEmail = mEmail;
+//		this.mPhone = mPhone;
+//		this.d_mAddress = d_mAddress;
+//		this.m_createTime = m_createTime;
+//		this.mPic = mPic;
+//		this.mPid = mPid;
+//		this.shoppingCartBeans = shoppingCartBeans;
+//		this.member_perm = member_perm;
+//		this.orderBeans = orderBeans;
+//		this.porfolioBeans = porfolioBeans;
+//	}
+	
+	
+
+
 	public MemberBean(Integer mId, String mAN, String mPw, String mGender, String mName, String mUid, Date mBDay,
-			String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, String mPic, Integer mPid,
-			Set<ShoppingCartBean> shoppingCartBeans, Member_permBean member_perm, Set<OrdBean> orderBeans,
-			Set<PorfolioBean> porfolioBeans) {
+			String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, Blob mPic, Integer mPid,
+			Member_permBean member_perm) {
 		super();
 		this.mId = mId;
 		this.mAN = mAN;
@@ -78,10 +134,7 @@ public class MemberBean implements Serializable {
 		this.m_createTime = m_createTime;
 		this.mPic = mPic;
 		this.mPid = mPid;
-		this.shoppingCartBeans = shoppingCartBeans;
 		this.member_perm = member_perm;
-		this.orderBeans = orderBeans;
-		this.porfolioBeans = porfolioBeans;
 	}
 
 
@@ -189,13 +242,13 @@ public class MemberBean implements Serializable {
 		this.m_createTime = m_createTime;
 	}
 
-	public String getmPic() {
-		return mPic;
-	}
-
-	public void setmPic(String mPic) {
-		this.mPic = mPic;
-	}
+//	public String getmPic() {
+//		return mPic;
+//	}
+//
+//	public void setmPic(String mPic) {
+//		this.mPic = mPic;
+//	}
 
 	public Set<ShoppingCartBean> getShoppingCartBeans() {
 		return shoppingCartBeans;
@@ -220,4 +273,27 @@ public class MemberBean implements Serializable {
 	public void setPorfolioBeans(Set<PorfolioBean> porfolioBeans) {
 		this.porfolioBeans = porfolioBeans;
 	}
+
+
+	public String getmPw1() {
+		return mPw1;
+	}
+
+
+	public void setmPw1(String mPw1) {
+		this.mPw1 = mPw1;
+	}
+
+
+	public MultipartFile getmMultipartFile() {
+		return mMultipartFile;
+	}
+
+
+	public void setmMultipartFile(MultipartFile mMultipartFile) {
+		this.mMultipartFile = mMultipartFile;
+	}
+	
+	
+	
 }

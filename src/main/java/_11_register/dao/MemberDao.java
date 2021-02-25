@@ -1,6 +1,6 @@
 package _11_register.dao;
 
-import _02_model.entity.test.MemberBean;
+import _02_model.entity.MemberBean;
 
 public interface MemberDao {
 	
