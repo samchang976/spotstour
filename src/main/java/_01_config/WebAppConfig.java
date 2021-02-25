@@ -1,20 +1,33 @@
 package _01_config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import _00_util.Interceptor.MemberInterceptor;
 
 @Configuration
 @EnableWebMvc 
 @ComponentScan({"_01_config", "_10_home", "_11_register", "_12_login", "_21_merchandiseSearch", "_22_shoppingCart", "_23_submitOrder", "_24_contactUs", "_32_portfolioSearch", "_32_portfolioSearch.service","_37_portfolioManage", "_91_managerMart", "_92_managerReport" })
 public class WebAppConfig implements WebMvcConfigurer {
 	
+	//注入攔截器
+	@Autowired
+	private MemberInterceptor memberInterceptor;
+	//註冊memberInterceptor攔截器,設置需要攔截的url請求路徑
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(memberInterceptor).addPathPatterns("/");
+	}
+
 	@Bean
 	public ViewResolver internalResourceViewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
