@@ -29,6 +29,7 @@ public class ItemBean implements Serializable {
 	private String itemPic3;
 	
 	//0 為顯示商品
+//	@Column(nullable = false, columnDefinition="INT default 0")
 	@Column(nullable = false, columnDefinition="INT default 0")
 	private Integer item_freeze = 0;
 	

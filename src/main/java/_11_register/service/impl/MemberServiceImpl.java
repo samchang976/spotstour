@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import _02_model.entity.test.MemberBean;
+import _02_model.entity.MemberBean;
 import _11_register.dao.MemberDao;
 import _11_register.service.MemberService;
 
