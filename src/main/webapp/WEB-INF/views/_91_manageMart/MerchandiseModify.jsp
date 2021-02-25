@@ -116,28 +116,28 @@ button { /*按鈕的樣式*/
 	<div id="addSquare">
 		<form:form method='POST' modelAttribute='itemBean'>
 			<div class="form-group row">
-				<label for="productName" class="col-sm-2 col-form-label">標頭</label>
+				<label for="itemHeader" class="col-sm-2 col-form-label">標頭</label>
 				<div class="col-sm-10">
 					<form:input type="text" path="itemHeader" class="form-control"
 						id="itemHeader" />
 				</div>
 			</div>
 			<div class="form-group row">
-				<label for="productInfo" class="col-sm-2 col-form-label">價錢</label>
+				<label for="itemPrice" class="col-sm-2 col-form-label">價錢</label>
 				<div class="col-sm-10">
 					<form:input type="text" path="itemPrice" class="form-control"
 						id="itemPrice" />
 				</div>
 			</div>
 			<div class="form-group row">
-				<label for="productPrice" class="col-sm-2 col-form-label">數量</label>
+				<label for="itemQty" class="col-sm-2 col-form-label">數量</label>
 				<div class="col-sm-10">
 					<form:input type="number" path="itemQty" min="0"
 						class="form-control" id="itemQty" />
 				</div>
 			</div>
 			<div class="form-group row">
-				<label for="productStock" class="col-sm-2 col-form-label">描述</label>
+				<label for="itemDes" class="col-sm-2 col-form-label">描述</label>
 				<div class="col-sm-10">
 					<form:input type="text" path="itemDes" min="0" class="form-control"
 						id="itemDes" />
@@ -185,17 +185,17 @@ button { /*按鈕的樣式*/
 					<button id="updateP">上傳照片3</button>
 				</div>
 			</div>
+			<div class="form-group row  d-flex justify-content-end mt-5">
+				<!-- 				<div> -->
+				<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
+				<!-- 				</div> -->
+				<div>
+					<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
+				</div>
+			</div>
 		</form:form>
 	</div>
 
-	<div class="form-group row  d-flex justify-content-end mt-5">
-		<!-- 				<div> -->
-		<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
-		<!-- 				</div> -->
-		<div>
-			<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
-		</div>
-	</div>
 
 
 	<c:forEach var='item' items='${items}'>

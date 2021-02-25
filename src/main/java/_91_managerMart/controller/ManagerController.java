@@ -108,7 +108,4 @@ public class ManagerController {
 	public List<CountryBean> getCountryList() {
 	    return managerItemService.getCountryList();
 	}
-	
-
-	
 }
