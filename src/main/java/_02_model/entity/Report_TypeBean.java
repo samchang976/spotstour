@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 
 //@Entity
-@Table(name="reporttype")
+@Table(name="report_Type")
 public class Report_TypeBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
