@@ -12,17 +12,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Bootstrap CSS -->
-<!-- <link -->
-<!-- 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" -->
-<!-- 	rel="stylesheet" -->
-<!-- 	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" -->
-<!-- 	crossorigin="anonymous"> -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+crossorigin="anonymous"> 
+
 <!-- icon cdn -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/_00_util/shoppingMallUtil/css/01_.css"> --%>
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/01_.css'></c:url>">
 
@@ -211,12 +210,9 @@
 		</div>
 	</div>
 
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 </div>
-	<!-- jQuery -->
-<!-- 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" -->
-<!-- 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" -->
-<!-- 		crossorigin="anonymous"></script> -->
+
+<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 
 <!-- 	Option 1: Bootstrap Bundle with Popper -->
 	<script
