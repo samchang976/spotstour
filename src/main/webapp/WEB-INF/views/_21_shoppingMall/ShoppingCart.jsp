@@ -1,14 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-<%
-	request.setCharacterEncoding("UTF-8");
-%>
-=======
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
->>>>>>> 2c19ba7d04ac360c4c6dbb1dbc5f11a4d4be772e
 <!DOCTYPE html>
 <html lang="en">
 <head>
