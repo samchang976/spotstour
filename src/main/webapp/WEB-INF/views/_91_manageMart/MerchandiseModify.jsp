@@ -107,7 +107,7 @@ button { /*按鈕的樣式*/
 					<!-- 					<button id="newM">新增商品</button> -->
 					<div>
 						<button id="newM" value="/Id=${itemId}"
-							onclick="location.href='merchandiseModify'">新增商品</button>
+							onclick="location.href='merchandiseModify'"><span class="fas fa-plus"></span>新增商品</button>
 					</div>
 					<button id="selectA">全選</button>
 					<button id="save">儲存變更</button>
