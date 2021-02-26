@@ -1,17 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>編輯聯絡我們</title>
-<link rel="stylesheet" href="button.css">
-<link rel="stylesheet" href="font.css">
+<!-- Required meta tags------------------------------------------------------------------------------------- -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap CSS ----------------------------------------------------------------------------------------- -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+<!-- icon cdn----------------------------------------------------------------------------------------------- -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<!-- css連結------------------------------------------------------------------------------------------------ -->
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/managerLayout.css'></c:url>">
 <style>
 body {
 	font-size: 20px;
@@ -41,30 +57,38 @@ input {
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
-	<div id="form">
-		<div>
-			<div>姓名:</div>
-			<label for="name"> </label> <input type="text" name="name" id="name">
-		</div>
-		<div>
-			<div>連絡電話:</div>
-			<label for="phone"> </label> <input type="text" name="phone"
-				id="phone">
-		</div>
-		<div>
-			<div>Email:</div>
-			<label for="email"> </label> <input type="email" name="emailadd"
-				id="email">
-		</div>
-		<div>
-			<div>訊息:</div>
-			<label for="message"> </label> <input type="text" name="message"
-				id="message">
-		</div>
-		<button style="margin-top: 15px; width: 60px;">送出</button>
+	<!--內嵌header  -->
+	<div
+		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
-
+	<div class="container">
+		<div id="form">
+			<div>
+				<div>姓名:</div>
+				<label for="name"> </label> <input type="text" name="name" id="name">
+			</div>
+			<div>
+				<div>連絡電話:</div>
+				<label for="phone"> </label> <input type="text" name="phone"
+					id="phone">
+			</div>
+			<div>
+				<div>Email:</div>
+				<label for="email"> </label> <input type="email" name="emailadd"
+					id="email">
+			</div>
+			<div>
+				<div>訊息:</div>
+				<label for="message"> </label> <input type="text" name="message"
+					id="message">
+			</div>
+			<button style="margin-top: 15px; width: 60px;">送出</button>
+		</div>
+	</div>
+	<!--內嵌footer  -->
+	<div>
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+	</div>
 </body>
 </html>

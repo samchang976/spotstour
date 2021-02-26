@@ -61,17 +61,20 @@
 				</div>
 			</div>
 
-			<!-- 地區搜尋 ----------------------------------------------------------------------------->
-			<div class="row g-5 area_search">
-				<div class="col-12 col-md-3">
-					<a href="03_MerchandiseSearchResult.html"> <img
-						src="https://fakeimg.pl/350x350/?text=World&font=lobster">
-					</a>
+				<!-- 地區搜尋 ----------------------------------------------------------------------------->
+				<div class="row g-5 area_search">
+					<div class="col-12 col-md-3">
+						<a href="03_MerchandiseSearchResult.html"> <img
+							src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+	<!--內嵌footer  -->
+	<div>
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
@@ -79,5 +82,4 @@
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 		crossorigin="anonymous"></script>
 </body>
-
 </html>

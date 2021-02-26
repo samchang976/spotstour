@@ -1,0 +1,41 @@
+.BodyPosition {
+	position: relative;
+	top: 35px;
+}
+
+
+/* MerchandiseIndex */
+/*活動快訊外層容器*/
+#container_news{
+    /* border: 1px solid slateblue; */
+       padding: 0px;
+       margin-bottom: 40px;
+       max-height: 330px;
+    }
+
+/* 活動快訊標題 */
+#news-text{
+   border-bottom: 1px solid rgb(224, 224, 224);
+   background: rgb(240, 240, 240);
+   padding: 10px;
+}
+
+   /* 裝優惠日期+資訊的block */
+#container_news .block{
+   /* background: #000; */
+   border-bottom: 1px solid rgb(224, 224, 224);
+   padding: 5px;
+}
+   /* 發布日期 */
+#container_news .date{
+      /* border:1px solid  rgb(73, 147, 221) ; */
+      margin-right: 15px;
+}
+
+   /* 地區搜尋的圖片*/
+#container_news .area_search img{
+   border-radius: 50px;
+   border: 1px solid black;
+   width: 100%;
+  }
+
