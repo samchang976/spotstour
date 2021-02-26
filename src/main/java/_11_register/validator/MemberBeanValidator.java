@@ -28,11 +28,11 @@ public class MemberBeanValidator implements Validator{
 		if (mb.getmAN().length()<6) {
 			errors.rejectValue("memberId","", "帳號欄不能小於六個字元");
 		}		
-		if (! mb.getmPw().equals(mb.getmPw1())) {
-			errors.rejectValue("password","", "密碼欄與確認密碼不一致");
-		}
-		if (mb.getmMultipartFile().getSize() == 0) {
-			errors.rejectValue("memberMultipartFile", "", "必須挑選圖片");
-		}	
+//		if (! mb.getmPw().equals(mb.getmPw1())) {
+//			errors.rejectValue("password","", "密碼欄與確認密碼不一致");
+//		}
+//		if (mb.getmMultipartFile().getSize() == 0) {
+//			errors.rejectValue("memberMultipartFile", "", "必須挑選圖片");
+//		}	
 	}
 }

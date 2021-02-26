@@ -43,8 +43,8 @@ public class MemberBean implements Serializable {
 	private String mPhone;	
 	private String d_mAddress;	
 	private Timestamp m_createTime;	
-//	private String mPic;
-	private Blob mPic;
+	private String mPic;
+//	private Blob mPic;
 	
 	@Transient
 	String fileName;
@@ -61,12 +61,12 @@ public class MemberBean implements Serializable {
 	MultipartFile mMultipartFile;
 	
 	
-	public Blob getmPic() {
+	public String getmPic() {
 		return mPic;
 	}
 
 
-	public void setmPic(Blob mPic) {
+	public void setmPic(String mPic) {
 		this.mPic = mPic;
 	}
 
