@@ -27,7 +27,7 @@
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
 
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/portfolioLayout.css'></c:url>">
+	href="<c:url value='/_00_util/portfolioUtil/css/portfolioLayout.css'></c:url>">
 <title>個人作品</title>
 </head>
 <body>

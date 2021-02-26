@@ -8,12 +8,12 @@ public class LoginController {
 
 	@RequestMapping("/login")
 	public String login() {
-		return "_11_member/login";
+		return "_11_member/Login";
 	}
 	
 	@RequestMapping("/logout")
 	public String logout() {
-		return "_11_member/logout";
+		return "_11_member/Logout";
 	}
 	
 }
