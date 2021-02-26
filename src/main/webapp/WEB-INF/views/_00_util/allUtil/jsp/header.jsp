@@ -8,14 +8,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>header</title>
-<!-- icon cdn -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
 	integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
 	crossorigin="anonymous" />
-
-<!-- boostrap css -->
-
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -93,36 +89,69 @@ ul.nav.nav-tabs {
 				<c:if test="${! empty LoginOK }">
 					<img height='40px' width='30px'
 						src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.memberId}'>
-
 				</c:if>
 
-				<li class="nav-item dropdown"><a class="fas fa-file-alt"
+				
+				<li class="nav-item dropdown"><a class="fas fa-user" style="color:green"
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
-
 					<ul class="dropdown-menu">
-<%-- 						<c:if test="${ funcName != 'SHO' }"> --%>
-							<li><a class="dropdown-item"
-								href="<c:url value='/_03_listBooks/DisplayPageProducts' />">老師範例</a></li>
-<%-- 						</c:if> --%>
-<%-- 						<c:if test="${ funcName != 'CHE' }"> --%>
-<!-- 							<li><a class="dropdown-item" -->
-<%-- 								href="<c:url value='/_04_ShoppingCart/ShowCartContent.jsp' />">結帳</a></li> --%>
-<%-- 						</c:if> --%>
-<%-- 						<c:if test="${ funcName != 'ORD' }"> --%>
-<!-- 							<li><a class="dropdown-item" -->
-<%-- 								href="<c:url value='/_05_orderProcess/orderList.do' />">訂單</a></li> --%>
-<%-- 						</c:if> --%>
-<%-- 						<c:if test="${ funcName != 'BMT' }"> --%>
-<!-- 							<li><a class="dropdown-item" -->
-<%-- 								href="<c:url value='/_20_productMaintain/DisplayPageProducts' />">維護</a></li> --%>
-<%-- 						</c:if> --%>
-<%-- 						<c:if test="${ funcName != 'IND' }"> --%>
-<!-- 							<li><a class="dropdown-item" -->
-<%-- 								href="<c:url value='/index.jsp' />">回首頁</a></li> --%>
-<%-- 						</c:if> --%>
+						<li><a class="dropdown-item" href="index">首頁</a></li>
+						<li><a class="dropdown-item" href="login">登入會員</a></li>
+						<li><a class="dropdown-item" href="worldMap">世界地圖</a></li>
+						<li><a class="dropdown-item" href="videoPlayer">影片播放</a></li>
+						<li><a class="dropdown-item" href="memberRegister">註冊會員</a></li>
+						<li><a class="dropdown-item" href="memberRegisterSuccess">註冊成功</a></li>
+						<li><a class="dropdown-item" href="loginSuccess">登入成功</a></li>
+						<li><a class="dropdown-item" href="shoppingCart">購物車</a></li>
+						<li><a class="dropdown-item" href="aboutMerchandise">關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="forgetPassword">忘記密碼</a></li>
+						<li><a class="dropdown-item" href="confirmEmail">Email確認</a></li>
+						<li><a class="dropdown-item" href="aboutUs">關於我們</a></li>
+						<li><a class="dropdown-item" href="contactUs">聯絡我們</a></li>
 					</ul></li>
 
+				<li class="nav-item dropdown"><a class="fas fa-user-secret " style="color:green"
+					data-bs-toggle="dropdown" href="#" role="button"
+					aria-expanded="false"></a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="memberDetailModify">會員個人資料</a></li>
+						<li><a class="dropdown-item" href="historyList">觀看紀錄</a></li>
+						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
+						<li><a class="dropdown-item" href="personalVideo">個人作品</a></li>
+						<li><a class="dropdown-item" href="videoModify">編輯影片</a></li>
+						<li><a class="dropdown-item" href="videoCreate">新增影片頁面</a></li>
+						<li><a class="dropdown-item" href="previewVideo">播放預覽頁面_播放頁預覽</a></li>
+						<li><a class="dropdown-item" href="previewVideo_world">播放預覽頁面_世界地圖預覽</a></li>
+						<li><a class="dropdown-item" href="videoSearchResult">影片搜尋結果</a></li>
+						<li><a class="dropdown-item" href="videoReport">檢舉影片</a></li>
+						<li><a class="dropdown-item" href="merchandiseIndex">商城首頁</a></li>
+						<li><a class="dropdown-item" href="activityDetail">商城活動快訊詳細</a></li>
+						<li><a class="dropdown-item" href="merchandiseSearchResult">商品搜尋結果</a></li>
+						<li><a class="dropdown-item" href="merchandiseDetail">商品詳細</a></li>
+						<li><a class="dropdown-item" href="checkPayment">結帳頁面</a></li>
+						<li><a class="dropdown-item" href="selectPayment">訂購資訊</a></li>
+						<li><a class="dropdown-item" href="submitOrderInfo">提交訂單資訊</a></li>
+						<li><a class="dropdown-item" href="purchaseSuccess">購買成功</a></li>
+						<li><a class="dropdown-item" href="myOrderList">我的訂單</a></li>
+						<li><a class="dropdown-item" href="orderDetail">訂單明細</a></li>
+						<li><a class="dropdown-item" href="logOut">登出</a></li>
+					</ul></li>
+
+				<li class="nav-item dropdown"><a class="fas fa-user-tie" style="color:green"
+					data-bs-toggle="dropdown" href="#" role="button"
+					aria-expanded="false"></a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="merchandiseModify">編輯商品</a></li>
+						<li><a class="dropdown-item" href="activityList">管理活動列表</a></li>
+						<li><a class="dropdown-item" href="activityModify">管理活動快訊</a></li>
+						<li><a class="dropdown-item" href="aboutUsModify">編輯關於我們</a></li>
+						<li><a class="dropdown-item" href="contactUsModify">編輯聯絡我們</a></li>
+						<li><a class="dropdown-item" href="aboutMerchandiseModify">編輯關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="manageMerchandiseReport">管理退貨商品列表</a></li>
+						<li><a class="dropdown-item" href="manageVideoReport">管理檢舉影片</a></li>
+					</ul></li>
+					
 				<li class="nav-item dropdown"><a class="fas fa-cart-plus "
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
@@ -137,15 +166,14 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="aboutMerchandiseModify">編輯關於商品資訊</a></li>
 						<li><a class="dropdown-item" href="manageMerchandiseReport">管理退貨商品列表</a></li>
 						<li><a class="dropdown-item" href="manageVideoReport">管理檢舉影片</a></li>
-
-					</ul>
-				</li>
+					</ul></li>
+					
 				<li class="nav-item dropdown"><a class="fas fa-user-alt "
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
 						<c:if test="${ funcName != 'REG' }">
-							<li><a class="dropdown-item" href="register">註冊會員</a></li>
+							<li><a class="dropdown-item" href="memberRegister">註冊會員</a></li>
 						</c:if>
 						<c:if test="${ empty LoginOK }">
 							<li><a class="dropdown-item" href="login">登入</a></li>
@@ -156,8 +184,8 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="logout">登出</a></li>
-					</ul>
-				</li>
+					</ul></li>
+					
 				<li class="nav-item dropdown"><a class="fas fa-align-justify "
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
@@ -172,12 +200,21 @@ ul.nav.nav-tabs {
 	</div>
 
 
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
 
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 		crossorigin="anonymous"></script>
+
+	<!-- 	<script -->
+	<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" -->
+	<!-- 		integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" -->
+	<!-- 		crossorigin="anonymous"></script> -->
 
 
 </body>

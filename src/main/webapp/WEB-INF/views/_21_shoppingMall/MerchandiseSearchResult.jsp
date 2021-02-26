@@ -28,110 +28,116 @@
 <title>商品搜尋結果</title>
 </head>
 <body>
-	<!-- header -->
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
-	<!--search -->
-	<jsp:include
-		page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
+	<!--內嵌header  -->
+	<div
+		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
+	</div>
+	<!-- 搜尋 ----------------------------------------------------------------------------->
+	<div class="BodyPosition">
+		<jsp:include
+			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
+		<!--商品  -->
+		<%-- 	<c:forEach var="entry" items="${products}"> --%>
 
-	<!--商品  -->
-	<%-- 	<c:forEach var="entry" items="${products}"> --%>
-
-	<!-- 		<img height='100' width='80' -->
-	<%-- 			src='${pageContext.servletContext.contextPath}/_00_init/getBookImage?id=${entry.value.bookId}'> --%>
-	<%--       	<div>商品名稱 : ${itemHeader1}</div> --%>
-	<%--       	<div>價錢 : ${itemPrice}</div> --%>
-	<%-- 		<div>產地 : ${countryId}</div> --%>
-	<%-- 		<div>庫存數量 : ${itemQty}</div> --%>
-	<%-- 	</c:forEach> --%>
+		<!-- 		<img height='100' width='80' -->
+		<%-- 			src='${pageContext.servletContext.contextPath}/_00_init/getBookImage?id=${entry.value.bookId}'> --%>
+		<%--       	<div>商品名稱 : ${itemHeader1}</div> --%>
+		<%--       	<div>價錢 : ${itemPrice}</div> --%>
+		<%-- 		<div>產地 : ${countryId}</div> --%>
+		<%-- 		<div>庫存數量 : ${itemQty}</div> --%>
+		<%-- 	</c:forEach> --%>
 
 
-	<div class="container text_center">
-		<div class="row row-cols-1 row-cols-md-4 ">
+		<div class="container text_center">
+			<div class="row row-cols-1 row-cols-md-4 ">
 
-			<div class="col ">
-				<div class="itemImageBorder">
-					<a href='MerchandiseDetail'> <img
-						src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-						class="w-100">
-					</a>
+				<div class="col ">
+					<div class="itemImageBorder">
+						<a href='MerchandiseDetail'> <img
+							src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+							class="w-100">
+						</a>
 
+					</div>
+					<div class="itemName">韓國餅乾泡麵</div>
+					<div class="itemPrice">$120</div>
+					<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input
+						type="hidden" value="韓國餅乾泡麵|照片名稱|120">
+					</i>
 				</div>
-				<div class="itemName">韓國餅乾泡麵</div>
-				<div class="itemPrice">$120</div>
-				<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input
-					type="hidden" value="韓國餅乾泡麵|照片名稱|120">
-				</i>
-			</div>
 
-<%-- 			<form:form method='POST' modelAttribute='itemBean'> --%>
-<!-- 				<div class="itemImageBorder"> -->
-<!-- 					<label for="itemHeader" class="col-sm-2 col-form-label">標頭</label> -->
-<!-- 					<div class="col-sm-10"> -->
-<%-- 						<form:input type="text" path="itemHeader" class="form-control" --%>
-<%-- 							id="itemHeader" /> --%>
-<!-- 					</div> -->
-<!-- 				</div> -->
-<%-- 			</form:form> --%>
+				<%-- 			<form:form method='POST' modelAttribute='itemBean'> --%>
+				<!-- 				<div class="itemImageBorder"> -->
+				<!-- 					<label for="itemHeader" class="col-sm-2 col-form-label">標頭</label> -->
+				<!-- 					<div class="col-sm-10"> -->
+				<%-- 						<form:input type="text" path="itemHeader" class="form-control" --%>
+				<%-- 							id="itemHeader" /> --%>
+				<!-- 					</div> -->
+				<!-- 				</div> -->
+				<%-- 			</form:form> --%>
 
-<%-- 			<form:form method='POST' modelAttribute='itemBean'> --%>
-<!-- 				<div class="col"> -->
-<!-- 					<div class="itemImageBorder"> -->
-<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
-<!-- 							class="w-100"> -->
-<!-- 					</div> -->
-<!-- 					<div class="itemName">韓國夾心餅乾</div> -->
-<!-- 					<div class="itemPrice">$80</div> -->
-<!-- 					<i class="fas fa-cart-arrow-down addButton" id="A1002"> <input -->
-<!-- 						type="hidden" value="韓國夾心餅乾|照片名稱|80"> -->
-<!-- 					</i> -->
-<!-- 				</div> -->
+				<%-- 			<form:form method='POST' modelAttribute='itemBean'> --%>
+				<!-- 				<div class="col"> -->
+				<!-- 					<div class="itemImageBorder"> -->
+				<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+				<!-- 							class="w-100"> -->
+				<!-- 					</div> -->
+				<!-- 					<div class="itemName">韓國夾心餅乾</div> -->
+				<!-- 					<div class="itemPrice">$80</div> -->
+				<!-- 					<i class="fas fa-cart-arrow-down addButton" id="A1002"> <input -->
+				<!-- 						type="hidden" value="韓國夾心餅乾|照片名稱|80"> -->
+				<!-- 					</i> -->
+				<!-- 				</div> -->
 
-<%-- 			</form:form> --%>
+				<%-- 			</form:form> --%>
 
-			<div class="col">
-				<div class="itemImageBorder">
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-						class="w-100">
+				<div class="col">
+					<div class="itemImageBorder">
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+							class="w-100">
+					</div>
+					<div class="itemName">韓國香蕉巧克力</div>
+					<div class="itemPrice">$99</div>
+					<i class="fas fa-cart-arrow-down addButton" id="A1003"> <input
+						type="hidden" value="韓國香蕉巧克力|照片名稱|99">
+					</i>
 				</div>
-				<div class="itemName">韓國香蕉巧克力</div>
-				<div class="itemPrice">$99</div>
-				<i class="fas fa-cart-arrow-down addButton" id="A1003"> <input
-					type="hidden" value="韓國香蕉巧克力|照片名稱|99">
-				</i>
-			</div>
 
-			<div class="col">
-				<div class="itemImageBorder">
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-						class="w-100">
+				<div class="col">
+					<div class="itemImageBorder">
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+							class="w-100">
+					</div>
+					<div class="itemName">韓國草莓派</div>
+					<div class="itemPrice">$150</div>
+					<i class="fas fa-cart-arrow-down addButton" id="A1004"> <input
+						type="hidden" value="韓國草莓派|照片名稱|150">
+					</i>
 				</div>
-				<div class="itemName">韓國草莓派</div>
-				<div class="itemPrice">$150</div>
-				<i class="fas fa-cart-arrow-down addButton" id="A1004"> <input
-					type="hidden" value="韓國草莓派|照片名稱|150">
-				</i>
-			</div>
 
-			<div class="col">
-				<div class="itemImageBorder">
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-						class="w-100">
+				<div class="col">
+					<div class="itemImageBorder">
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+							class="w-100">
+					</div>
+					<div class="itemName">泰國香蕉巧克力棒</div>
+					<div class="itemPrice">$120</div>
+					<i class="fas fa-cart-arrow-down addButton" id="A1004"> <input
+						type="hidden" value="泰國香蕉巧克力棒|照片名稱|120">
+					</i>
 				</div>
-				<div class="itemName">泰國香蕉巧克力棒</div>
-				<div class="itemPrice">$120</div>
-				<i class="fas fa-cart-arrow-down addButton" id="A1004"> <input
-					type="hidden" value="泰國香蕉巧克力棒|照片名稱|120">
-				</i>
 			</div>
 		</div>
+
+
+
 	</div>
-
-
-
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
-
-<!-- 	Option 1: Bootstrap Bundle with Popper -->
+		<!--內嵌footer  -->
+	<div>
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+	</div>
+	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"

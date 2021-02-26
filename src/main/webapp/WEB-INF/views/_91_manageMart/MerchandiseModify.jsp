@@ -1,29 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<!-- Required meta tags -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap CSS -->
+<!-- Required meta tags------------------------------------------------------------------------------------- -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap CSS ----------------------------------------------------------------------------------------- -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 	crossorigin="anonymous">
-<!-- icon cdn -->
+<!-- icon cdn----------------------------------------------------------------------------------------------- -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
+<!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
-	href="WEB-INF/views/_00_util/shoppingMallUtil/css/button.css">
+	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
 
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/managerLayout.css'></c:url>">
 <title>編輯商品</title>
 
 <style>
@@ -96,8 +100,11 @@ button { /*按鈕的樣式*/
 </style>
 </head>
 <body>
-	<!-- 引入header -->
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
+	<!--內嵌header  -->
+	<div
+		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
+	</div>
 	<%-- 	<jsp:include page="<c:url value='${pageContext.request.contextPath}/WEB-INF/views/_00_util/allUtil/jsp/header.jsp'/>" /> --%>
 	<div class="container">
 		<div class="row">
@@ -107,7 +114,9 @@ button { /*按鈕的樣式*/
 					<!-- 					<button id="newM">新增商品</button> -->
 					<div>
 						<button id="newM" value="/Id=${itemId}"
-							onclick="location.href='merchandiseModify'"><span class="fas fa-plus"></span>新增商品</button>
+							onclick="location.href='merchandiseModify'">
+							<span class="fas fa-plus"></span>新增商品
+						</button>
 					</div>
 					<button id="selectA">全選</button>
 					<button id="save">儲存變更</button>
@@ -291,7 +300,9 @@ button { /*按鈕的樣式*/
 	</c:forEach>
 
 	<hr>
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
-
+	<!--內嵌footer  -->
+	<div>
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+	</div>
 </body>
 </html>

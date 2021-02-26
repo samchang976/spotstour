@@ -23,9 +23,11 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 <!-- css連結------------------------------------------------------------------------------------------------ -->
-<link rel="stylesheet" href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-													
-<link rel="stylesheet" href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
 
 
 <title>商城首頁</title>
@@ -68,12 +70,16 @@
 					</div>
 				</div>
 			</div>
-
-			<!-- Option 1: Bootstrap Bundle with Popper -->
-			<script
-				src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-				integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-				crossorigin="anonymous"></script>
+		</div>
+	</div>
+	<!--內嵌footer  -->
+	<div>
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+	</div>
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
 </body>
-
 </html>

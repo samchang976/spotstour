@@ -124,10 +124,13 @@ a, i:hover {
 </style>
 </head>
 <body>
+	<!--內嵌header  -->
+	<div
+		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
+	</div>
 	<!-- 設定變數funcName的值為"IND", top.jsp會使用此變數-->
 	<c:set var="funcName" value="IND" scope="session" />
-	<!-- 引入共同的頁首 -->
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	<div align='center'>
 		<!-- 		<h1> -->
 		<%-- 					歡迎光臨<br> <font color='RED'>${AppName}</font><br> --%>
