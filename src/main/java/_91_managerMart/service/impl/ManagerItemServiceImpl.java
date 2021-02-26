@@ -25,7 +25,7 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 
 	@Transactional
 	@Override
-	public ItemBean getItem(int itemId) {
+	public ItemBean getItemByItemId(int itemId) {
 		ItemBean itembean = null;
 		itembean = managetItemDao.getItemByItemId(itemId);
 		return itembean;
@@ -33,8 +33,14 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 
 	@Transactional
 	@Override
-	public void freezeItem(int itemId) {
-		managetItemDao.freezeItem(itemId);
+	public void freezeItemByItemId(int itemId) {
+		managetItemDao.freezeItemByItemId(itemId);
+	}
+	
+	@Transactional
+	@Override
+	public void editItemByItemId(int itemId) {
+		managetItemDao.editItemByItemId(itemId);
 	}
 
 	@Transactional
