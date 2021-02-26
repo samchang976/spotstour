@@ -82,6 +82,7 @@ button { /*按鈕的樣式*/
 		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
+
 	<!-- 搜尋列 -->
 	<div class="container" style="margin: 10px;">
 		<div class="row">
