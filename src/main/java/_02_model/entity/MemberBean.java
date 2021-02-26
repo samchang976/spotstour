@@ -43,8 +43,13 @@ public class MemberBean implements Serializable {
 	private String mPhone;	
 	private String d_mAddress;	
 	private Timestamp m_createTime;	
+<<<<<<< HEAD
 //	private String mPic;
 	private String mPic;
+=======
+	private String mPic;
+//	private Blob mPic;
+>>>>>>> main
 	
 	@Transient
 	String fileName;
