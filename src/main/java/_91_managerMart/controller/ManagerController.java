@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,93 +20,133 @@ import _91_managerMart.service.ManagerItemService;
 
 @Controller
 public class ManagerController {
-	
+
 	@Autowired
 	ManagerItemService managerItemService;
 
-	@GetMapping("/merchandiseModify")
-	public String addeMrchandise(Model model) {
-		ItemBean ib = new ItemBean();
-		ib.setItemHeader("AA");
-		ib.setItemPrice(20);
-		ib.setItemQty(10);
-		ib.setItemDes("AAAA");
-		ib.setItemPic1("null");
-		ib.setItemPic2("null");
-		ib.setItemPic3("null");
-		ib.setItem_freeze(0);
-		model.addAttribute("itemBean",ib);
+//	@GetMapping("/merchandiseModify")
+//	public String addeMrchandise(Model model) {
+	@GetMapping({"/merchandiseModify","/merchandiseModify/get/Id={itemId}"})
+		public String addeMrchandise(@PathVariable(value="itemId", required = false) Integer itemId, Model model) {
+		
+//		ItemBean ib = new ItemBean();
+//		ib.setItemHeader("AA");
+//		ib.setItemPrice(20);
+//		ib.setItemQty(10);
+//		ib.setItemDes("AAAA");
+//		ib.setItemPic1("null");
+//		ib.setItemPic2("null");
+//		ib.setItemPic3("null");
+//		ib.setItem_freeze(0);
+//		model.addAttribute("itemBean", ib);
 		List<ItemBean> list = managerItemService.getAllItems();
 		model.addAttribute("items", list);
 		return "_91_manageMart/MerchandiseModify";
 	}
-	
+
 	@PostMapping("/merchandiseModify")
-	public String processAddNewMrchandiseForm(@ModelAttribute("itemBean") ItemBean ib) {
-		managerItemService.addItem(ib);  
-//		return "redirect:/_91_manageMart/MerchandiseModify";
+	public String processAddNewMrchandiseForm(@ModelAttribute("itemBean") ItemBean ib, Model model) {
+		managerItemService.addItem(ib);
+//		model.getAttribute("itemBean1");
 		return "redirect:/merchandiseModify";
 	}
-	
-	//凍結產品價格
+
+	// 凍結商品
 	@RequestMapping("/merchandiseModify/delete/Id={itemId}")
 	public String freezeItem(@ModelAttribute("itemId") Integer itemId, Model model) {
-		managerItemService.freezeItem(itemId);
-		return "redirect:/merchandiseModify";  
-	} 
-	
+		managerItemService.freezeItemByItemId(itemId);
+		return "redirect:/merchandiseModify";
+	}
+
+//	// 得到商品
+//	@RequestMapping("/merchandiseModify/get/Id={itemId}")
+//	public String getItem(@PathVariable("itemId") Integer itemId, Model model) {
+////		ItemBean ib1 = managerItemService.getItemByItemId(itemId);
+////		model.addAttribute("itemBean1", ib1);
+//		return "redirect:/merchandiseModify";
+//	}
+
+//	// 編輯商品
+//	@RequestMapping("/merchandiseModify/edit/Id={itemId}")
+//	public String editItem(@ModelAttribute("itemId") Integer itemId, Model model) {
+//		managerItemService.editItemByItemId(itemId);
+//		return "redirect:/merchandiseModify";
+//	}
+
 	@RequestMapping("/activityList")
 	public String activityList() {
 		return "_91_manageMart/ActivityList";
 	}
-	
+
 	@RequestMapping("/activityModify")
 	public String activityModify() {
 		return "_91_manageMart/ActivityModify";
 	}
-	
+
 	@RequestMapping("/aboutMerchandiseModify")
 	public String aboutMerchandiseModify() {
 		return "_91_manageMart/AboutMerchandiseModify";
 	}
-							   
+
 	@RequestMapping("/aboutUsModify")
 	public String aboutUsModify() {
 		return "_91_manageMart/AboutUsModify";
 	}
-	
+
 	@RequestMapping("/contactUsModify")
 	public String contactUsModify() {
 		return "_91_manageMart/ContactUsModify";
 	}
-	
-	@ModelAttribute("item_TypeMap") 
+
+	@ModelAttribute("item_TypeMap")
 	public Map<Integer, String> getItem_TypeMap() {
 		Map<Integer, String> item_TypeMap = new HashMap<>();
 		List<Item_typeBean> list = managerItemService.getItem_TypeList();
-		for(Item_typeBean itb : list) {  
+		for (Item_typeBean itb : list) {
 			item_TypeMap.put(itb.getItId(), itb.getItemType());
 		}
-		return item_TypeMap; 
+		return item_TypeMap;
 	}
-	
-	@ModelAttribute("Item_TypeList")   
+
+	@ModelAttribute("item_TypeList")
 	public List<Item_typeBean> getItem_TypeList() {
-	    return managerItemService.getItem_TypeList();
+		return managerItemService.getItem_TypeList();
 	}
-	
-	@ModelAttribute("countryMap") 
+
+	@ModelAttribute("countryMap")
 	public Map<Integer, String> getCountryMap() {
 		Map<Integer, String> countryMap = new HashMap<>();
 		List<CountryBean> list = managerItemService.getCountryList();
-		for(CountryBean itb : list) {  
+		for (CountryBean itb : list) {
 			countryMap.put(itb.getCountryId(), itb.getCountryName());
 		}
-		return countryMap; 
+		return countryMap;
 	}
-	
-	@ModelAttribute("CountryList")   
+
+	@ModelAttribute("countryList")
 	public List<CountryBean> getCountryList() {
-	    return managerItemService.getCountryList();
+		return managerItemService.getCountryList();
+	}
+
+	@ModelAttribute
+	public ItemBean getItemBean(@PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
+		ItemBean ib = null;
+		if (itemId != null) {
+			ib = managerItemService.getItemByItemId(itemId);
+			System.out.println("======================================== itemId = " + itemId);
+		} else {
+			ib = new ItemBean();
+			ib.setItemHeader("AA");
+			ib.setItemPrice(20);
+			ib.setItemQty(10);
+			ib.setItemDes("AAAA");
+			ib.setItemPic1("null");
+			ib.setItemPic2("null");
+			ib.setItemPic3("null");
+			ib.setItem_freeze(0);
+			model.addAttribute("itemBean", ib);
+			System.out.println("======================================== itemId = " + itemId);
+		}
+		return ib;
 	}
 }

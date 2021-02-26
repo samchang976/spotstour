@@ -14,7 +14,9 @@ public interface ManagerItemDao {
 	boolean saveItem(ItemBean itembean);
 	
 	// 依itemId來刪除單筆記錄
-	void freezeItem(int itemId);
+	void freezeItemByItemId(int itemId);
+	
+	void editItemByItemId(int itemId);
 	
 	boolean updateItem(ItemBean itemBean);
 	
