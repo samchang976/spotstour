@@ -107,6 +107,7 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="aboutMerchandise">關於商品資訊</a></li>
 						<li><a class="dropdown-item" href="forgetPassword">忘記密碼</a></li>
 						<li><a class="dropdown-item" href="confirmEmail">Email確認</a></li>
+						<li><a class="dropdown-item" href="emailVerificationSuccess">Email核對成功</a></li>
 						<li><a class="dropdown-item" href="aboutUs">關於我們</a></li>
 						<li><a class="dropdown-item" href="contactUs">聯絡我們</a></li>
 					</ul></li>

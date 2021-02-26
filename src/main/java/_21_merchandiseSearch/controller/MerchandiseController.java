@@ -10,11 +10,6 @@ public class MerchandiseController {
 	public String searchMerchandise() {
 		return "_21_shoppingMall/MerchandiseIndex";
 	}
-
-	@RequestMapping("/aboutMerchandise")
-	public String aboutMerchandise() {
-		return "_21_shoppingMall/AboutMerchandise";
-	}
 	
 	@RequestMapping("/activityDetail")
 	public String activityDetail() {

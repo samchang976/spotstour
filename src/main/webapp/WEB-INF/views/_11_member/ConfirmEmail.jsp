@@ -28,35 +28,9 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/memberUtil/css/memberLayout.css'></c:url>">
-<title>聯絡我們</title>
-<link rel="stylesheet" href="button.css">
-<link rel="stylesheet" href="font.css">
-<style>
-body {
-	text-align: center;
-}
-
-#form {
-	margin: 50px auto;
-	padding: 20px;
-	text-align: left;
-	border: 1px solid #cccccc;
-	width: 500px;
-	height: 600px;
-}
-
-div {
-	margin-bottom: 5px;
-}
-
-input {
-	width: 98%;
-}
-
-#message {
-	padding-bottom: 200px;
-}
-</style>
+<title>ConfirmEmail</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
 	<!--內嵌header  -->
@@ -67,29 +41,14 @@ input {
 
 	<!--  -->
 	<div class="container">
-
-		<div id="form">
-			<div>
-				<div>姓名:</div>
-				<label for="name"> </label> <input type="text" name="name" id="name">
-			</div>
-			<div>
-				<div>連絡電話:</div>
-				<label for="phone"> </label> <input type="text" name="phone"
-					id="phone">
-			</div>
-			<div>
-				<div>Email:</div>
-				<label for="email"> </label> <input type="email" name="emailadd"
-					id="email">
-			</div>
-			<div>
-				<div>訊息:</div>
-				<label for="message"> </label> <input type="text" name="message"
-					id="message">
-			</div>
-			<button style="margin-top: 15px; width: 60px;">送出</button>
-		</div>
+		<h1>
+			<p>
+				<i class="fas fa-check-circle"></i> 註冊成功！！
+			</p>
+		</h1>
+		<p>
+			請至信箱確認並登入<br>
+		</p>
 	</div>
 	<!--內嵌footer  -->
 	<div>

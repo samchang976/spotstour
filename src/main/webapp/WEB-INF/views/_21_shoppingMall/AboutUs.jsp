@@ -27,7 +27,7 @@
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
 
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/memberUtil/css/memberLayout.css'></c:url>">
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
 <title>關於我們</title>
 <style>
 .value {
@@ -121,7 +121,7 @@
 
 		</div>
 	</div>
-		<!--內嵌footer  -->
+	<!--內嵌footer  -->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>

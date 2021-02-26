@@ -8,11 +8,16 @@ public class AboutUsController {
 
 	@RequestMapping("aboutUs")
 	public String getAboutUs() {
-		return "_11_member/AboutUs";
+		return "_21_shoppingMall/AboutUs";
 	}
 	
 	@RequestMapping("contactUs")
 	public String getContactUs() {
-		return "_11_member/ContactUs";
+		return "_21_shoppingMall/ContactUs";
+	}
+	
+	@RequestMapping("aboutMerchandise")
+	public String aboutMerchandise() {
+		return "_21_shoppingMall/AboutMerchandise";
 	}
 }

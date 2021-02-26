@@ -50,7 +50,7 @@
 	}
 </script>
 </head>
-<body onLoad="setFocusToUserId()" style="background: #EBFFEB;">
+<body onLoad="setFocusToUserId()"">
 	<!--內嵌header  -->
 	<div
 		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
