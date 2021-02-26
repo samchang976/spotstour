@@ -67,8 +67,6 @@
 			<c:set var="msg"
 				value="<font color='red'>${sessionScope.timeOut}</font>" />
 		</c:if>
-		<!-- 引入共同的頁首 -->
-		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 
 		<Form action="<c:url value='login.do' />" method="POST"
 			name="loginForm">

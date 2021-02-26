@@ -41,9 +41,32 @@
         }
     </style>-->
 
-<title>編輯影片</title>
-</head>
+<title>檢舉影片</title>
+<link rel="stylesheet" href="button.css">
+<link rel="stylesheet" href="font.css">
+<style>
+body {
+	margin: 0px;
+}
 
+#first { /*最外層的div，包含所有*/
+	/* border: rgb(219, 67, 67) solid 1px; */
+	text-align: center;
+	margin: auto;
+	width: 60%;
+}
+
+#scoend { /*div，檢舉類型選單*/
+	/* border: rgb(32, 4, 4) solid 1px; */
+	height: 30px;
+	text-align: left;
+}
+
+#button { /*確定、送出的按鈕排版*/
+	text-align: right;
+}
+</style>
+</head>
 <body>
 	<!--內嵌header  -->
 	<div
@@ -51,64 +74,33 @@
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
 	<div class="container">
-		<!-- 編輯影片 -->
-		<div class="row">
-			<div class="col">
-				<div class="title">編輯影片</div>
-			</div>
-		</div>
 
-		<div class="row row-cols-1 row-cols-md-2">
-			<div class="col"></div>
-			<div class="col">
-				<div id="viedo_name">枕頭山</div>
-			</div>
-		</div>
-
-		<div class="row row-cols-1 row-cols-md-2">
-			<div class="col">
-				觀看次數 :<span>123456</span>次 <i class="fas fa-bookmark"></i> 收藏(<span>1234</span>次)
-
-			</div>
-			<div class="col">
-				<i class="fas fa-map-marker-alt"></i> 位置: <span>732臺灣臺南市白河區</span>
-			</div>
-		</div>
-
-		<div class="row row row-cols-1 row-cols-md-2">
-			<div class="col">
-				<video src="/a.mp4" controls class="w-100"></video>
-			</div>
-			<div class="col">
-				<div>影片描述:</div>
+		<div id="first">
+			<h2>影片標題 : 原來真的有枕頭山 上傳者 :多拉A 先生</h2>
+			<form>
 				<div>
-					<form action="">
-						<textarea name="" id="" rows="10">
-只要從白河或附近的沖積平原往關仔嶺 
-方向遠眺,就可以看到一座形狀像枕頭一樣的山頭,
-那就是枕頭山啦~
-由於開礦與雨水沖刷的因素,
-使得枕頭山崖面上呈現出三條大而明顯的沖刷痕跡,
-因此,有些人把這些沖刷痕跡稱作為「三條龍」。</textarea>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="row ">
-			<div class="col-md-6"></div>
-			<div class="col">
-				<select class="form-select" aria-label="Default select example">
-					<option selected>選擇預覽方式</option>
-					<option value="time">預覽</option>
-					<option value="look">播放頁預覽</option>
-					<option value="good">世界地圖資訊預覽</option>
-				</select>
-			</div>
-			<div class="col">
-				<button class="Bt_blue" type="submit">儲存</button>
-				<button class="Bt_blue" type="reset">取消</button>
+					<input type="text" name="Reportdescription" placeholder="請輸入內容"
+						style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;">
 
-			</div>
+
+					<div id="scoend">
+						<form>
+							<select name="Report" id="Report"
+								style="background-color: rgb(208, 210, 212); border-radius: 3px; border: 1px solid rgb(0, 0, 0);">
+								<option value="violence">血腥暴力</option>
+								<option value="pornography">色情內容</option>
+								<option value="ImproperPofit">不當營利</option>
+							</select>
+						</form>
+					</div>
+
+					<div id="button">
+						<button>取消</button>
+						<button>確定送出</button>
+					</div>
+				</div>
+
+			</form>
 		</div>
 	</div>
 
@@ -121,5 +113,6 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 		crossorigin="anonymous"></script>
+
 </body>
 </html>
