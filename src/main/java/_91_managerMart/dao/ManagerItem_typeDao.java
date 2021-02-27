@@ -11,7 +11,7 @@ public interface ManagerItem_typeDao {
 
 	Item_typeBean getItem_typeById() ;
 
-	int getItemId();
+	int getItId();
 	
-	void setItemId(int id);
+	void setItId(int ItId);
 }

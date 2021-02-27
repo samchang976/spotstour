@@ -12,8 +12,8 @@ public interface ManagerItem_typeService {
 
 	Item_typeBean getItem_typeById();
 
-	int getItemId();
+	int getItId();
 	
-	void setItemId(int id);
+	void setItId(int ItIdd);
 
 }

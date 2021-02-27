@@ -98,6 +98,7 @@ button { /*按鈕的樣式*/
 	padding: 10px;
 }
 </style>
+
 </head>
 <body>
 	<!--內嵌header  -->
@@ -198,21 +199,21 @@ button { /*按鈕的樣式*/
 					<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
 					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 						class="w-100">
-					<button id="updateP">上傳照片1</button>
+					<button id="updateP1">上傳照片1</button>
 				</div>
 
 				<div class=" col col-3-1 C_SpCre">
 					<%-- 					<div>紀念品照片2${item.Pic2}</div> --%>
 					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 						class="w-100">
-					<button id="updateP">上傳照片2</button>
+					<button id="updateP2">上傳照片2</button>
 				</div>
 
 				<div class="col col-4-1 C_SpCre">
 					<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
 					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 						class="w-100">
-					<button id="updateP">上傳照片3</button>
+					<button id="updateP3">上傳照片3</button>
 				</div>
 			</div>
 			<div class="form-group row  d-flex justify-content-end mt-5">
@@ -222,7 +223,21 @@ button { /*按鈕的樣式*/
 				<div>
 					<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
 				</div>
+				<!-- 				<div> -->
+				<!-- 					<button type="submit" id="btnEdit" class="btn btn-primary">儲存變更</button> -->
+				<!-- 				</div> -->
+
 			</div>
+			<div>
+				<button type="submit" id="editM" class="btn btn-primary"
+					onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">儲存變更</button>
+			</div>
+			<!-- 			<div> -->
+			<%-- 				<button type="submit" id="editM" value="/Id=${itemId}" --%>
+			<%-- 					onclick="location.href='merchandiseModify/update/Id=${item.itemId}'">儲存變更</button> --%>
+			<!-- 			</div> -->
+
+
 		</form:form>
 	</div>
 

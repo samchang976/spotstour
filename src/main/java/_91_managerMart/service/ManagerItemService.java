@@ -15,8 +15,8 @@ public interface ManagerItemService {
 	// 依itemId來查詢單筆記錄
 	ItemBean getItemByItemId(int itemId);
 
-	// 新增一筆記錄
-	int saveItem(ItemBean itembean);
+//	// 新增一筆記錄
+//	int saveItem(ItemBean itembean);
 	
 	public List<ItemBean> getAllItems();
 
@@ -29,5 +29,7 @@ public interface ManagerItemService {
 	List<Item_typeBean> getItem_TypeList();
 	
 	List<CountryBean> getCountryList();
+	
+	public void updateItem(ItemBean itemBean);
 
 }

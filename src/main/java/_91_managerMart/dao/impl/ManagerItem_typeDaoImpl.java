@@ -17,7 +17,7 @@ import _91_managerMart.dao.ManagerItem_typeDao;
 public class ManagerItem_typeDaoImpl implements Serializable, ManagerItem_typeDao {
 	private static final long serialVersionUID = 1L;
 	
-	private int itemId = 0;
+	private int itId = 0;
 
 	@Autowired
 	SessionFactory factory = null;
@@ -25,7 +25,7 @@ public class ManagerItem_typeDaoImpl implements Serializable, ManagerItem_typeDa
 	@Override
 	public Item_typeBean getItem_typeById() {
         Session session = factory.getCurrentSession();
-        Item_typeBean cb = session.get(Item_typeBean.class, itemId);
+        Item_typeBean cb = session.get(Item_typeBean.class, itId);
 		return cb;
 	}
 
@@ -39,13 +39,13 @@ public class ManagerItem_typeDaoImpl implements Serializable, ManagerItem_typeDa
 	}
 	
 	@Override
-	public int getItemId() {
-		return itemId;
+	public int getItId() {
+		return itId;
 	}
 
 	@Override
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
+	public void setItId(int itId) {
+		this.itId = itId;
 	}
 	
 	

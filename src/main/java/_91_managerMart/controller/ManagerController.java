@@ -28,17 +28,6 @@ public class ManagerController {
 //	public String addeMrchandise(Model model) {
 	@GetMapping({"/merchandiseModify","/merchandiseModify/get/Id={itemId}"})
 		public String addeMrchandise(@PathVariable(value="itemId", required = false) Integer itemId, Model model) {
-		
-//		ItemBean ib = new ItemBean();
-//		ib.setItemHeader("AA");
-//		ib.setItemPrice(20);
-//		ib.setItemQty(10);
-//		ib.setItemDes("AAAA");
-//		ib.setItemPic1("null");
-//		ib.setItemPic2("null");
-//		ib.setItemPic3("null");
-//		ib.setItem_freeze(0);
-//		model.addAttribute("itemBean", ib);
 		List<ItemBean> list = managerItemService.getAllItems();
 		model.addAttribute("items", list);
 		return "_91_manageMart/MerchandiseModify";
@@ -47,7 +36,6 @@ public class ManagerController {
 	@PostMapping("/merchandiseModify")
 	public String processAddNewMrchandiseForm(@ModelAttribute("itemBean") ItemBean ib, Model model) {
 		managerItemService.addItem(ib);
-//		model.getAttribute("itemBean1");
 		return "redirect:/merchandiseModify";
 	}
 
@@ -66,12 +54,16 @@ public class ManagerController {
 //		return "redirect:/merchandiseModify";
 //	}
 
-//	// 編輯商品
-//	@RequestMapping("/merchandiseModify/edit/Id={itemId}")
-//	public String editItem(@ModelAttribute("itemId") Integer itemId, Model model) {
-//		managerItemService.editItemByItemId(itemId);
-//		return "redirect:/merchandiseModify";
-//	}
+	// 編輯及更新商品
+	@PostMapping("/merchandiseModify/get/Id={itemId}")
+	public String updateItem(@ModelAttribute(value="itemId") Integer itemId, Model model) {
+		System.out.println("=========ABCDEF");
+		
+		ItemBean itemBean= managerItemService.getItemByItemId(itemId);
+		System.out.println("=========ABCDE"+itemBean);
+		managerItemService.updateItem(itemBean);
+		return "redirect:/merchandiseModify";
+	}
 
 	@RequestMapping("/activityList")
 	public String activityList() {
@@ -133,7 +125,7 @@ public class ManagerController {
 		ItemBean ib = null;
 		if (itemId != null) {
 			ib = managerItemService.getItemByItemId(itemId);
-			System.out.println("======================================== itemId = " + itemId);
+			System.out.println("=========ABC"+ib);
 		} else {
 			ib = new ItemBean();
 			ib.setItemHeader("AA");
@@ -145,7 +137,6 @@ public class ManagerController {
 			ib.setItemPic3("null");
 			ib.setItem_freeze(0);
 			model.addAttribute("itemBean", ib);
-			System.out.println("======================================== itemId = " + itemId);
 		}
 		return ib;
 	}

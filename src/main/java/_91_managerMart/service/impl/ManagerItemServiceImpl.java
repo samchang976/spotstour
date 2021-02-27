@@ -43,17 +43,17 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 		managetItemDao.editItemByItemId(itemId);
 	}
 
-	@Transactional
-	@Override
-	public int saveItem(ItemBean itembean) {
-		int n = 0;
-		boolean b = managetItemDao.saveItem(itembean);
-		if(b = true) {
-			return n = 1;
-		}else {
-			return n = 0;
-		}
-	}
+//	@Transactional
+//	@Override
+//	public int saveItem(ItemBean itembean) {
+//		int n = 0;
+//		boolean b = managetItemDao.saveItem(itembean);
+//		if (b = true) {
+//			return n = 1;
+//		} else {
+//			return n = 0;
+//		}
+//	}
 	
 	@Transactional
 	@Override
@@ -92,5 +92,12 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 	@Override
 	public List<CountryBean> getCountryList() {
 		return managetItemDao.getCountryList();
+	}
+	
+	//編輯及更新商品
+	@Transactional
+	@Override
+	public void updateItem(ItemBean itemBean) {
+		managetItemDao.updateItem(itemBean);
 	}
 }
