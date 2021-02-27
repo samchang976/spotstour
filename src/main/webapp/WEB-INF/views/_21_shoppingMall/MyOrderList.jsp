@@ -21,8 +21,15 @@
     <title>我的訂單</title>
 </head>
 <body>
-<!-- header -->
-	<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
+	<!--header  -->
+	<div class="HeaderPostition">
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
+	</div>
+	<!-- 搜尋 ----------------------------------------------------------------------------->
+	<div class="BodyPosition">
+		<jsp:include
+			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
+	
 
     <!-- 欄位敘述 -->
     <div class="container " >

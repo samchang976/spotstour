@@ -53,7 +53,7 @@
 
 				<div class="block"
 					onclick="location.href=
-                        '02_ActivityDetail.html'">
+                        'ActivityDetail'">
 					<!-- 日期 -->
 					<span class="date">2021/01/01</span>
 					<!-- 優惠內容 -->
@@ -62,13 +62,39 @@
 			</div>
 
 			<!-- 地區搜尋 ----------------------------------------------------------------------------->
-			<div class="row g-5 area_search">
-				<div class="col-12 col-md-3">
-					<a href="03_MerchandiseSearchResult.html"> <img
+			<div class="row row-cols-md-4 area_search g-5">
+				<div class="col-12 searchBlock">
+					<a href="MerchandiseSearchResult"> 
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+					</a>
+					<div class="mask">
+						<h2>韓國</h2>
+					</div>
+				</div>
+				
+				
+				<div class="col-12 searchBlock">
+					<a href="MerchandiseSearchResult"> <img
+						src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+					</a>
+				</div>
+				
+				
+				<div class="col-12 searchBlock">
+					<a href="MerchandiseSearchResult"> <img
+						src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+					</a>
+				</div>
+				
+				
+				<div class="col-12 searchBlock">
+					<a href="MerchandiseSearchResult"> <img
 						src="https://fakeimg.pl/350x350/?text=World&font=lobster">
 					</a>
 				</div>
 			</div>
+<!-- 			-------------------------------------------------------------------------------------- -->
+			
 		</div>
 	</div>
 	
