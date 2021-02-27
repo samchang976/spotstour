@@ -28,10 +28,10 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/memberUtil/css/memberLayout.css'></c:url>">
+<!-- --------------------------------------------------------------------------------------------------------->
+
 <title>EmailVerificationSuccess</title>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-</head>
+
 <body>
 <!--header=================================================================================  -->
 	<div class="HeaderPostition">

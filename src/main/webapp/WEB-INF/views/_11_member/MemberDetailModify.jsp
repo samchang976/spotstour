@@ -28,9 +28,10 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/memberUtil/css/memberLayout.css'></c:url>">
+<!-- --------------------------------------------------------------------------------------------------------->
+
 <title>會員個人資料</title>
-<link rel="stylesheet" href="button.css">
-<link rel="stylesheet" href="font.css">
+
 <style>
 #phto {
 	/* border: solid 1px slategrey; */
