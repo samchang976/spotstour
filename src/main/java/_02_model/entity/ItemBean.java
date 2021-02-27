@@ -33,10 +33,10 @@ public class ItemBean implements Serializable {
 	private Integer item_freeze = 0;
 	
 	@Transient
-	private Integer itId;
+	private Integer itTId;
 	
 	@Transient
-	private Integer countryId;
+	private Integer countryTId;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "countryId")
@@ -51,7 +51,7 @@ public class ItemBean implements Serializable {
 	}
 
 	public ItemBean(Integer itemId, String itemHeader, Integer itemPrice, Integer itemQty, String itemDes,
-			String itemPic1, String itemPic2, String itemPic3, Integer itId, Integer countryId, CountryBean countryBean,
+			String itemPic1, String itemPic2, String itemPic3, Integer itTId, Integer countryTId, CountryBean countryBean,
 			Item_typeBean item_typeBean) {
 		super();
 		this.itemId = itemId;
@@ -62,8 +62,8 @@ public class ItemBean implements Serializable {
 		this.itemPic1 = itemPic1;
 		this.itemPic2 = itemPic2;
 		this.itemPic3 = itemPic3;
-		this.itId = itId;
-		this.countryId = countryId;
+		this.itTId = itTId;
+		this.countryTId = countryTId;
 		this.countryBean = countryBean;
 		this.item_typeBean = item_typeBean;
 	}
@@ -91,20 +91,20 @@ public class ItemBean implements Serializable {
 		this.itemPic3 = itemPic3;
 	}
 
-	public Integer getItId() {
-		return itId;
+	public Integer getItTId() {
+		return itTId;
 	}
 
-	public void setItId(Integer itId) {
-		this.itId = itId;
+	public void setItTId(Integer itTId) {
+		this.itTId = itTId;
 	}
 
-	public Integer getCountryId() {
-		return countryId;
+	public Integer getCountryTId() {
+		return countryTId;
 	}
 
-	public void setCountryId(Integer countryId) {
-		this.countryId = countryId;
+	public void setCountryTId(Integer countryTId) {
+		this.countryTId = countryTId;
 	}
 
 	public CountryBean getCountryBean() {

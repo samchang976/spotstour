@@ -100,8 +100,8 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 	public void updateItem(ItemBean itemBeanN) {
 		ItemBean itemBeanO = managetItemDao.getItemByItemId(itemBeanN.getItemId());
 		
-		itemBeanO.setCountryId(itemBeanN.getCountryId());
-		itemBeanO.setItId(itemBeanN.getItId());
+		itemBeanO.setCountryTId(itemBeanN.getCountryTId());
+		itemBeanO.setItTId(itemBeanN.getItTId());
 		itemBeanO.setItemDes(itemBeanN.getItemDes());
 		itemBeanO.setItemHeader(itemBeanN.getItemHeader());
 		itemBeanO.setItemPrice(itemBeanN.getItemPrice());

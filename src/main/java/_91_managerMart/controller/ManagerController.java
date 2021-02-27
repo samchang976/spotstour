@@ -50,14 +50,6 @@ public class ManagerController {
 		return "redirect:/merchandiseModify";
 	}
 
-//	// 得到商品
-//	@RequestMapping("/merchandiseModify/get/Id={itemId}")
-//	public String getItem(@PathVariable("itemId") Integer itemId, Model model) {
-////		ItemBean ib1 = managerItemService.getItemByItemId(itemId);
-////		model.addAttribute("itemBean1", ib1);
-//		return "redirect:/merchandiseModify";
-//	}
-
 	// 編輯及更新商品
 //	@PostMapping("/merchandiseModify/get/Id={itemId}")
 	@PostMapping("/Id={itemId}")
@@ -139,9 +131,6 @@ public class ManagerController {
 			itemBean.setItemPrice(20);
 			itemBean.setItemQty(10);
 			itemBean.setItemDes("AAAA");
-			itemBean.setItemPic1("null");
-			itemBean.setItemPic2("null");
-			itemBean.setItemPic3("null");
 			itemBean.setItem_freeze(0);
 			model.addAttribute("itemBean", itemBean);
 		}

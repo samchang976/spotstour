@@ -178,10 +178,10 @@ button { /*按鈕的樣式*/
 			</div>
 
 			<div class="form-group row">
-				<label for="itId" class="col-sm-2 col-form-label">商品類型</label>
+				<label for="itTId" class="col-sm-2 col-form-label">商品類型</label>
 				<div class="mb-3 col-10">
 					<c:if test="${itemId==null}">
-						<form:select path="itId" class="custom-select">
+						<form:select path="itTId" class="custom-select">
 							<form:option value="-1" label="請選擇商品類型" />
 							<form:options items="${item_TypeMap}" />
 						</form:select>
@@ -196,10 +196,10 @@ button { /*按鈕的樣式*/
 			</div>
 
 			<div class="form-group row">
-				<label for="countryId" class="col-sm-2 col-form-label">國家</label>
+				<label for="countryTId" class="col-sm-2 col-form-label">國家</label>
 				<c:if test="${itemId==null}">
 					<div class="mb-3 col-10">
-						<form:select path="countryId" class="custom-select">
+						<form:select path="countryTId" class="custom-select">
 							<form:option value="-1" label="請選擇國家" />
 							<form:options items="${countryMap}" />
 						</form:select>
@@ -267,8 +267,6 @@ button { /*按鈕的樣式*/
 		</form:form>
 	</div>
 
-
-
 	<!-- 陳列商品 -->
 	<h3>陳列商品</h3>
 	<c:forEach var='item' items='${items}'>
@@ -281,7 +279,7 @@ button { /*按鈕的樣式*/
 				</div>
 
 				<div class="col col-2-1 C_SpCre">
-					<div>商品編號:${item.itemId}</div>
+					<div>${item.itemId}商品標頭:${item.itemHeader}</div>
 					<br>
 					<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
 					<div>
