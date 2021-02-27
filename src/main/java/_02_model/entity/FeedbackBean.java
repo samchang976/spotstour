@@ -23,63 +23,45 @@ public class FeedbackBean implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer feedbackId;
 	private String feedbackText;            
-	private Timestamp f_createTime;
-	
+	private Timestamp f_createTime;	
 	@Transient
-	private Integer itemId;
-	
-	@Column(columnDefinition = "INT Default 1")
+	private Integer itemTId;  //確認
 	private Integer fb_freeze;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "itemId")
 	private ItemBean itemBean;
-	
-	public FeedbackBean() {
-		super();
-	}
 
-	public FeedbackBean(Integer feedbackId, Integer itemId, String feedbackText, Timestamp f_createTime, Integer fb_freeze,
-			ItemBean itemBean) {
-		super();
-		this.feedbackId = feedbackId;
-		this.itemId = itemId;
-		this.feedbackText = feedbackText;
-		this.f_createTime = f_createTime;
-		this.fb_freeze = fb_freeze;
-		this.itemBean = itemBean;
-	}
-	
 	public Integer getFeedbackId() {
 		return feedbackId;
 	}
-	
+
 	public void setFeedbackId(Integer feedbackId) {
 		this.feedbackId = feedbackId;
 	}
-	
-	public Integer getItemId() {
-		return itemId;
-	}
-	
-	public void setItemId(Integer itemId) {
-		this.itemId = itemId;
-	}
-	
+
 	public String getFeedbackText() {
 		return feedbackText;
 	}
-	
+
 	public void setFeedbackText(String feedbackText) {
 		this.feedbackText = feedbackText;
 	}
-	
+
 	public Timestamp getF_createTime() {
 		return f_createTime;
 	}
 
 	public void setF_createTime(Timestamp f_createTime) {
 		this.f_createTime = f_createTime;
+	}
+
+	public Integer getItemTId() {
+		return itemTId;
+	}
+
+	public void setItemTId(Integer itemTId) {
+		this.itemTId = itemTId;
 	}
 
 	public Integer getFb_freeze() {
@@ -97,6 +79,7 @@ public class FeedbackBean implements Serializable {
 	public void setItemBean(ItemBean itemBean) {
 		this.itemBean = itemBean;
 	}
+	
 
 	
 }

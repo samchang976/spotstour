@@ -56,8 +56,14 @@ public class MemberBean implements Serializable {
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "mPid")
-	private Member_permBean member_perm;
+	private Member_permBean memberPermBean;
 	
+	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
+	private Set<OrdBean> orderBeans = new LinkedHashSet<>();
+
+	@OneToMany(mappedBy="memberBean", cascade={CascadeType.ALL}) 
+	private Set<PorfolioBean> porfolioBeans = new LinkedHashSet<>();
+
 	public Integer getmId() {
 		return mId;
 	}
@@ -178,12 +184,12 @@ public class MemberBean implements Serializable {
 		this.shoppingCartBeans = shoppingCartBeans;
 	}
 
-	public Member_permBean getMember_perm() {
-		return member_perm;
+	public Member_permBean getMemberPermBean() {
+		return memberPermBean;
 	}
 
-	public void setMember_perm(Member_permBean member_perm) {
-		this.member_perm = member_perm;
+	public void setMemberPermBean(Member_permBean memberPermBean) {
+		this.memberPermBean = memberPermBean;
 	}
 
 	public Set<OrdBean> getOrderBeans() {
@@ -201,12 +207,6 @@ public class MemberBean implements Serializable {
 	public void setPorfolioBeans(Set<PorfolioBean> porfolioBeans) {
 		this.porfolioBeans = porfolioBeans;
 	}
-
-	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
-	private Set<OrdBean> orderBeans = new LinkedHashSet<>();
-
-	@OneToMany(mappedBy="memberBean", cascade={CascadeType.ALL}) 
-	private Set<PorfolioBean> porfolioBeans = new LinkedHashSet<>();
 
 	
 	

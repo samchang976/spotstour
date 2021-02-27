@@ -1,6 +1,7 @@
 ﻿package _02_model.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -29,7 +31,6 @@ public class ItemBean implements Serializable {
 	private String itemPic3;
 	
 	//0 為顯示商品
-//	@Column(nullable = false, columnDefinition="INT default 0")
 	@Column(nullable = false, columnDefinition="INT default 0")
 	private Integer item_freeze = 0;
 	
@@ -46,6 +47,9 @@ public class ItemBean implements Serializable {
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "itId")
 	private Item_typeBean item_typeBean;
+	
+	@OneToMany(mappedBy = "itemBean" , cascade = CascadeType.ALL)
+	private List<Ord_detailBean> ord_details;
 
 	public ItemBean() {
 		super();
@@ -170,6 +174,14 @@ public class ItemBean implements Serializable {
 
 	public void setItem_freeze(Integer item_freeze) {
 		this.item_freeze = item_freeze;
+	}
+
+	public List<Ord_detailBean> getOrd_details() {
+		return ord_details;
+	}
+
+	public void setOrd_details(List<Ord_detailBean> ord_details) {
+		this.ord_details = ord_details;
 	}
 	
 	

@@ -23,8 +23,8 @@ public class Member_permBean implements Serializable {
 	Integer mPid;
  	String mPermissions;
  	
-// 	@OneToMany(mappedBy = "memberperm", cascade = CascadeType.ALL)
-// 	Set<MemberBean> memberBeans = new LinkedHashSet<>();
+ 	@OneToMany(mappedBy = "memberPermBean", cascade = CascadeType.ALL)
+ 	Set<MemberBean> memberBeans = new LinkedHashSet<>();
  	
 	public Integer getmPid() {
 		return mPid;
