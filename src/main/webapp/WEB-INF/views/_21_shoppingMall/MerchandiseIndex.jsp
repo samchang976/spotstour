@@ -42,28 +42,27 @@
 	<div class="BodyPosition">
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
-	
-	
-	
-	<!-- 活動快訊 ---------------------------------------------------------------------------->
-	<div class="container" id="container_news">
-		<div class="row">
-			<div class="col-12">
-				<div id="news-text">活動快訊</div>
 
-				<div class="block"
-					onclick="location.href=
+		<!-- 活動快訊 ---------------------------------------------------------------------------->
+		<div class="container" id="container_news">
+			<div class="row newsBlock">
+				<div class="col-12">
+					<div id="news-text">活動快訊</div>
+
+					<div class="block"
+						onclick="location.href=
                         'ActivityDetail'">
-					<!-- 日期 -->
-					<span class="date">2021/01/01</span>
-					<!-- 優惠內容 -->
-					<span class="discount"> 新春特惠，全館免運!</span>
+						<!-- 日期 -->
+						<span class="date">2021/01/01</span>
+						<!-- 優惠內容 -->
+						<span class="discount"> 新春特惠，全館免運!</span>
+					</div>
 				</div>
 			</div>
-
 			<!-- 地區搜尋 ----------------------------------------------------------------------------->
-			<div class="row row-cols-md-4 area_search g-5">
-				<div class="col-12 searchBlock">
+			<div class="row area_search">
+				<div class="col-12 col-md-3">
+
 					<a href="MerchandiseSearchResult"> 
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
 					</a>
@@ -71,33 +70,42 @@
 						<h2>韓國</h2>
 					</div>
 				</div>
-				
-				
-				<div class="col-12 searchBlock">
-					<a href="MerchandiseSearchResult"> <img
-						src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+
+
+				<div class="col-12 col-md-3">
+					<a href="MerchandiseSearchResult" > 
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
 					</a>
+					<div class="mask">
+						<h2>韓國</h2>
+					</div>
 				</div>
-				
-				
-				<div class="col-12 searchBlock">
+
+
+				<div class="col-12 col-md-3">
 					<a href="MerchandiseSearchResult"> <img
 						src="https://fakeimg.pl/350x350/?text=World&font=lobster">
 					</a>
+					<div class="mask">
+						<h2>韓國</h2>
+					</div>
 				</div>
-				
-				
-				<div class="col-12 searchBlock">
+
+
+				<div class="col-12 col-md-3">
 					<a href="MerchandiseSearchResult"> <img
 						src="https://fakeimg.pl/350x350/?text=World&font=lobster">
 					</a>
+					<div class="mask">
+						<h2>韓國</h2>
+					</div>
 				</div>
 			</div>
-<!-- 			-------------------------------------------------------------------------------------- -->
-			
+			<!-- 			-------------------------------------------------------------------------------------- -->
+
+
 		</div>
-	</div>
-	
+
 	</div>
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
