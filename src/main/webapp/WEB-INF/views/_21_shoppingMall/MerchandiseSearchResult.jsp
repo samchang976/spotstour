@@ -4,10 +4,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%
-	request.setCharacterEncoding("UTF-8");
-%>
-
 <!DOCTYPE html>
 
 <html>
@@ -28,17 +24,18 @@
 <title>商品搜尋結果</title>
 </head>
 <body>
-	<!--內嵌header  -->
-	<div
-		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+	<!--header  -->
+	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
 	<!-- 搜尋 ----------------------------------------------------------------------------->
 	<div class="BodyPosition">
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
-		<!--商品  -->
-		<%-- 	<c:forEach var="entry" items="${products}"> --%>
+	
+
+	<!--商品  -->
+	<%-- 	<c:forEach var="entry" items="${products}"> --%>
 
 		<!-- 		<img height='100' width='80' -->
 		<%-- 			src='${pageContext.servletContext.contextPath}/_00_init/getBookImage?id=${entry.value.bookId}'> --%>
