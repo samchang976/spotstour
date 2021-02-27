@@ -100,7 +100,7 @@ public class MemberBean implements Serializable {
 
 	public MemberBean(Integer mId, String mAN, String mPw, String mGender, String mName, String mUid, Date mBDay,
 			String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, String mPic, Integer mPid,
-			Set<ShoppingCartBean> shoppingCartBeans, Member_permBean member_perm, Set<OrdBean> orderBeans,
+			ShoppingCartBean shoppingCartBeans, Member_permBean member_perm, Set<OrdBean> orderBeans,
 			Set<PorfolioBean> porfolioBeans) {
 		super();
 		this.mId = mId;
@@ -232,11 +232,11 @@ public class MemberBean implements Serializable {
 		this.m_verify = m_verify;
 	}
 
-	public Set<ShoppingCartBean> getShoppingCartBeans() {
+	public ShoppingCartBean getShoppingCartBeans() {
 		return shoppingCartBeans;
 	}
 
-	public void setShoppingCartBeans(Set<ShoppingCartBean> shoppingCartBeans) {
+	public void setShoppingCartBeans(ShoppingCartBean shoppingCartBeans) {
 		this.shoppingCartBeans = shoppingCartBeans;
 	}
 

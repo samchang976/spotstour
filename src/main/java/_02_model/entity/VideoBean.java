@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -24,17 +26,16 @@ public class VideoBean implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "videoId", unique = true, nullable = false)
 	private Integer videoId;
-	private Blob videoFile;
-	private Blob videoPic;
-	@Column(name = "portfolioId")
-	private Integer portfolioId;  
-	private Blob v_freeze;
+	private String videoFile;
+	private String videoPic;
+	private int v_freeze;
 	
-	@OneToMany(mappedBy = "videoBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
+	@OneToMany(mappedBy = "videoBeans", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
 	private Set<VideoReportBean> videoReports = new LinkedHashSet<>();
 	
-	@OneToOne(mappedBy="VideoBean")
-	private PorfolioBean profolio;
+	@ManyToOne
+	@JoinColumn(name = "portfolioId")
+	private PorfolioBean porfolioBean;
 
 	public Integer getVideoId() {
 		return videoId;
@@ -44,35 +45,27 @@ public class VideoBean implements Serializable {
 		this.videoId = videoId;
 	}
 
-	public Blob getVideoFile() {
+	public String getVideoFile() {
 		return videoFile;
 	}
 
-	public void setVideoFile(Blob videoFile) {
+	public void setVideoFile(String videoFile) {
 		this.videoFile = videoFile;
 	}
 
-	public Blob getVideoPic() {
+	public String getVideoPic() {
 		return videoPic;
 	}
 
-	public void setVideoPic(Blob videoPic) {
+	public void setVideoPic(String videoPic) {
 		this.videoPic = videoPic;
 	}
 
-	public Integer getPortfolioId() {
-		return portfolioId;
-	}
-
-	public void setPortfolioId(Integer portfolioId) {
-		this.portfolioId = portfolioId;
-	}
-
-	public Blob getV_freeze() {
+	public int getV_freeze() {
 		return v_freeze;
 	}
 
-	public void setV_freeze(Blob v_freeze) {
+	public void setV_freeze(int v_freeze) {
 		this.v_freeze = v_freeze;
 	}
 
@@ -84,25 +77,15 @@ public class VideoBean implements Serializable {
 		this.videoReports = videoReports;
 	}
 
-	public PorfolioBean getProfolio() {
-		return profolio;
+	public PorfolioBean getPorfolioBean() {
+		return porfolioBean;
 	}
 
-	public void setProfolio(PorfolioBean profolio) {
-		this.profolio = profolio;
+	public void setPorfolioBean(PorfolioBean porfolioBean) {
+		this.porfolioBean = porfolioBean;
 	}
 
-	public VideoBean(Integer videoId, Blob videoFile, Blob videoPic, Integer portfolioId, Blob v_freeze,
-			Set<VideoReportBean> videoReports, PorfolioBean profolio) {
-		super();
-		this.videoId = videoId;
-		this.videoFile = videoFile;
-		this.videoPic = videoPic;
-		this.portfolioId = portfolioId;
-		this.v_freeze = v_freeze;
-		this.videoReports = videoReports;
-		this.profolio = profolio;
-	}
+
 	
 	
 }

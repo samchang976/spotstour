@@ -25,7 +25,7 @@ public class CountryBean implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int countryId;
 	private String countryName;
-//	private int continentId;
+
 	@ManyToOne
 	@JoinColumn(name = "continentId")
 	private ContinentBean continentBean;

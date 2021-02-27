@@ -21,15 +21,13 @@ public class Porfolio_MsgBean implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "portfolioMsgId", unique = true, nullable = false)
 	private Integer portfolioMsgId;
-	@Column(name = "portfolioId")
-	private Integer portfolioId;
 	private String msgText;
 	private Timestamp pm_createTime;     
 	private String pMsg_freeze;
 	
 	@ManyToOne 
 	@JoinColumn(name="portfolioId", nullable=false)  
-	private PorfolioBean porfolios;
+	private PorfolioBean porfolioBean;
 
 	public Integer getPortfolioMsgId() {
 		return portfolioMsgId;
@@ -72,22 +70,22 @@ public class Porfolio_MsgBean implements Serializable {
 	}
 
 	public PorfolioBean getPorfolios() {
-		return porfolios;
+		return porfolioBean;
 	}
 
-	public void setPorfolios(PorfolioBean porfolios) {
-		this.porfolios = porfolios;
+	public void setPorfolios(PorfolioBean porfolioBean) {
+		this.porfolioBean = porfolioBean;
 	}
 
 	public Porfolio_MsgBean(Integer portfolioMsgId, Integer portfolioId, String msgText, Timestamp pm_createTime,
-			String pMsg_freeze, PorfolioBean porfolios) {
+			String pMsg_freeze, PorfolioBean porfolioBean) {
 		super();
 		this.portfolioMsgId = portfolioMsgId;
 		this.portfolioId = portfolioId;
 		this.msgText = msgText;
 		this.pm_createTime = pm_createTime;
 		this.pMsg_freeze = pMsg_freeze;
-		this.porfolios = porfolios;
+		this.porfolioBean = porfolioBean;
 	}
 	
 	

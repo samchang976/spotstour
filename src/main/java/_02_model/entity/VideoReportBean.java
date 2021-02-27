@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="videoreport")
+@Table(name="video_report")
 public class VideoReportBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -29,7 +29,7 @@ public class VideoReportBean implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="videoId", nullable=false)  
-	private VideoBean video;
+	private VideoBean videoBeans;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "rtId")
@@ -68,11 +68,11 @@ public class VideoReportBean implements Serializable {
 	}
 
 	public VideoBean getVideo() {
-		return video;
+		return videoBeans;
 	}
 
-	public void setVideo(VideoBean video) {
-		this.video = video;
+	public void setVideo(VideoBean videoBeans) {
+		this.videoBeans = videoBeans;
 	}
 
 	public Report_TypeBean getReport_Type() {
@@ -83,14 +83,14 @@ public class VideoReportBean implements Serializable {
 		this.report_Type = reportType;
 	}
 
-	public VideoReportBean(Integer reportId, Integer videoId, String reportText, Integer rtId, VideoBean video,
+	public VideoReportBean(Integer reportId, Integer videoId, String reportText, Integer rtId, VideoBean videoBeans,
 			Report_TypeBean report_Type) {
 		super();
 		this.reportId = reportId;
 		this.videoId = videoId;
 		this.reportText = reportText;
 		this.rtId = rtId;
-		this.video = video;
+		this.videoBeans = videoBeans;
 		this.report_Type = report_Type;
 	}
 	

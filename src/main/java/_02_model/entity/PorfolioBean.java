@@ -46,15 +46,14 @@ public class PorfolioBean implements Serializable {
 	@OneToMany(mappedBy = "porfolio", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
 	private Set<Watch_timesBean> watch_times = new LinkedHashSet<>();
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "fk_video_id")
-	private VideoBean video;
+	@OneToMany(mappedBy = "porfolioBean" ,cascade = CascadeType.PERSIST)
+	private Set<VideoBean> videos = new LinkedHashSet<>();
 	
 	@ManyToOne 
-	@JoinColumn(name="fk_placeType_id", nullable=false)  
-	private Place_TypeBean place_Type; 
+	@JoinColumn(name="placeTypeId", nullable=false)  
+	private Place_TypeBean place_TypeBean; 
 	
-	@OneToMany(mappedBy = "porfolio", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
+	@OneToMany(mappedBy = "porfolioBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
 	private Set<Porfolio_MsgBean> portfolio_Msgs = new LinkedHashSet<>();
 	
 	@ManyToOne
@@ -161,20 +160,20 @@ public class PorfolioBean implements Serializable {
 		this.watch_times = watch_times;
 	}
 
-	public VideoBean getVideo() {
-		return video;
+	public Set<VideoBean> getVideos() {
+		return videos;
 	}
 
-	public void setVideo(VideoBean video) {
-		this.video = video;
+	public void setVideos(Set<VideoBean> videos) {
+		this.videos = videos;
 	}
 
-	public Place_TypeBean getPlace_Type() {
-		return place_Type;
+	public Place_TypeBean getPlace_TypeBean() {
+		return place_TypeBean;
 	}
 
-	public void setPlace_Type(Place_TypeBean place_Type) {
-		this.place_Type = place_Type;
+	public void setPlace_TypeBean(Place_TypeBean place_TypeBean) {
+		this.place_TypeBean = place_TypeBean;
 	}
 
 	public Set<Porfolio_MsgBean> getPortfolio_Msgs() {
@@ -201,29 +200,7 @@ public class PorfolioBean implements Serializable {
 		this.member = member;
 	}
 
-	public PorfolioBean(Integer portfolioId, Integer cityId, String portfolioName, String portfolioText,
-			Integer placeTypeId, Timestamp p_createTime, Integer mId, String pAddress, Float longitude, Float latitude,
-			Set<RecordBean> records, Set<Watch_timesBean> watch_times, VideoBean video, Place_TypeBean place_Type,
-			Set<Porfolio_MsgBean> portfolio_Msgs, CityBean city, MemberBean member) {
-		super();
-		this.portfolioId = portfolioId;
-		this.cityId = cityId;
-		this.portfolioName = portfolioName;
-		this.portfolioText = portfolioText;
-		this.placeTypeId = placeTypeId;
-		this.p_createTime = p_createTime;
-		this.mId = mId;
-		this.pAddress = pAddress;
-		this.longitude = longitude;
-		this.latitude = latitude;
-		this.records = records;
-		this.watch_times = watch_times;
-		this.video = video;
-		this.place_Type = place_Type;
-		this.portfolio_Msgs = portfolio_Msgs;
-		this.city = city;
-		this.member = member;
-	}
+
 	
 	
 	

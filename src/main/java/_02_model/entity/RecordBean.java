@@ -27,7 +27,7 @@ public class RecordBean implements Serializable {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "type")
-	private ParamsBean Params;
+	private ParamsBean paramsBean;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "portfolioId")
@@ -58,11 +58,11 @@ public class RecordBean implements Serializable {
 	}
 
 	public ParamsBean getParams() {
-		return Params;
+		return paramsBean;
 	}
 
-	public void setParams(ParamsBean params) {
-		Params = params;
+	public void setParams(ParamsBean paramsBean) {
+		this.paramsBean = paramsBean;
 	}
 
 	public PorfolioBean getPorfolio() {
@@ -73,12 +73,12 @@ public class RecordBean implements Serializable {
 		this.porfolio = porfolio;
 	}
 
-	public RecordBean(Integer recordId, Integer portfolioId, String type, ParamsBean params, PorfolioBean porfolio) {
+	public RecordBean(Integer recordId, Integer portfolioId, String type, ParamsBean paramsBean, PorfolioBean porfolio) {
 		super();
 		this.recordId = recordId;
 		this.portfolioId = portfolioId;
 		this.type = type;
-		Params = params;
+		this.paramsBean = paramsBean;
 		this.porfolio = porfolio;
 	}
 	

@@ -23,14 +23,14 @@ public class ParamsBean implements Serializable {
 	private String type;
 	private String typeName;
 	
-	@OneToMany(mappedBy = "ParamsBean", cascade = CascadeType.ALL)
-	Set<ParamsBean> set = new HashSet<>();
+	@OneToMany(mappedBy = "paramsBean", cascade = CascadeType.ALL)
+	Set<RecordBean> recordBeans = new HashSet<>();
 
-	public ParamsBean(String type, String typeName, Set<ParamsBean> set) {
+	public ParamsBean(String type, String typeName, Set<RecordBean> recordBeans) {
 		super();
 		this.type = type;
 		this.typeName = typeName;
-		this.set = set;
+		this.recordBeans = recordBeans;
 	}
 
 	public String getType() {
@@ -49,12 +49,12 @@ public class ParamsBean implements Serializable {
 		this.typeName = typeName;
 	}
 
-	public Set<ParamsBean> getSet() {
-		return set;
+	public Set<RecordBean> getSet() {
+		return recordBeans;
 	}
 
-	public void setSet(Set<ParamsBean> set) {
-		this.set = set;
+	public void setSet(Set<RecordBean> recordBeans) {
+		this.recordBeans = recordBeans;
 	}
 	
 	

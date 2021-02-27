@@ -24,8 +24,8 @@ public class Place_TypeBean implements Serializable {
 	Integer placeTypeId;
  	String placeType;
  	
- 	@OneToMany(mappedBy = "placeType", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
- 	private Set<PorfolioBean> porfolioes = new LinkedHashSet<>();
+ 	@OneToMany(mappedBy = "place_TypeBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
+ 	private Set<PorfolioBean> porfolioBeans = new LinkedHashSet<>();
 
 	public Integer getPlaceTypeId() {
 		return placeTypeId;
@@ -44,18 +44,18 @@ public class Place_TypeBean implements Serializable {
 	}
 
 	public Set<PorfolioBean> getPorfolioes() {
-		return porfolioes;
+		return porfolioBeans;
 	}
 
-	public void setPorfolioes(Set<PorfolioBean> porfolioes) {
-		this.porfolioes = porfolioes;
+	public void setPorfolioes(Set<PorfolioBean> porfolioBeans) {
+		this.porfolioBeans = porfolioBeans;
 	}
 
-	public Place_TypeBean(Integer placeTypeId, String placeType, Set<PorfolioBean> porfolioes) {
+	public Place_TypeBean(Integer placeTypeId, String placeType, Set<PorfolioBean> porfolioBeans) {
 		super();
 		this.placeTypeId = placeTypeId;
 		this.placeType = placeType;
-		this.porfolioes = porfolioes;
+		this.porfolioBeans = porfolioBeans;
 	}
 	
 }
