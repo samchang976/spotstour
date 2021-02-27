@@ -24,7 +24,6 @@ public class VideoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "videoId", unique = true, nullable = false)
 	private Integer videoId;
 	private String videoFile;
 	private String videoPic;

@@ -19,27 +19,14 @@ public class Watch_timesBean implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer viewsId;
-	private Integer portfolioId;
 	private Timestamp wt_createTime;
 	
-	@ManyToOne  
-	@JoinColumn(name="portfolioId")  
-	private PorfolioBean porfolio;
-
 	public Integer getViewsId() {
 		return viewsId;
 	}
 
 	public void setViewsId(Integer viewsId) {
 		this.viewsId = viewsId;
-	}
-
-	public Integer getPortfolioId() {
-		return portfolioId;
-	}
-
-	public void setPortfolioId(Integer portfolioId) {
-		this.portfolioId = portfolioId;
 	}
 
 	public Timestamp getWt_createTime() {
@@ -50,21 +37,19 @@ public class Watch_timesBean implements Serializable {
 		this.wt_createTime = wt_createTime;
 	}
 
-	public PorfolioBean getPorfolio() {
-		return porfolio;
+	public PorfolioBean getPorfolioBean() {
+		return porfolioBean;
 	}
 
-	public void setPorfolio(PorfolioBean porfolio) {
-		this.porfolio = porfolio;
+	public void setPorfolioBean(PorfolioBean porfolioBean) {
+		this.porfolioBean = porfolioBean;
 	}
 
-	public Watch_timesBean(Integer viewsId, Integer portfolioId, Timestamp wt_createTime, PorfolioBean porfolio) {
-		super();
-		this.viewsId = viewsId;
-		this.portfolioId = portfolioId;
-		this.wt_createTime = wt_createTime;
-		this.porfolio = porfolio;
-	}
+	@ManyToOne  
+	@JoinColumn(name="portfolioId")  
+	private PorfolioBean porfolioBean;
+
+
 	
 	
 }

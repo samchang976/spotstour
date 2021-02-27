@@ -18,12 +18,8 @@ public class RecordBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "recordId", unique = true, nullable = false)	
 	private Integer recordId;
-	@Column(name = "portfolioId")
-	private Integer portfolioId;
-	@Column(name = "type")
-	private String type;
+
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "type")
@@ -31,7 +27,7 @@ public class RecordBean implements Serializable {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "portfolioId")
-	private PorfolioBean porfolio;
+	private PorfolioBean porfolioBean;
 
 	public Integer getRecordId() {
 		return recordId;
@@ -41,46 +37,22 @@ public class RecordBean implements Serializable {
 		this.recordId = recordId;
 	}
 
-	public Integer getPortfolioId() {
-		return portfolioId;
-	}
-
-	public void setPortfolioId(Integer portfolioId) {
-		this.portfolioId = portfolioId;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public ParamsBean getParams() {
+	public ParamsBean getParamsBean() {
 		return paramsBean;
 	}
 
-	public void setParams(ParamsBean paramsBean) {
+	public void setParamsBean(ParamsBean paramsBean) {
 		this.paramsBean = paramsBean;
 	}
 
-	public PorfolioBean getPorfolio() {
-		return porfolio;
+	public PorfolioBean getPorfolioBean() {
+		return porfolioBean;
 	}
 
-	public void setPorfolio(PorfolioBean porfolio) {
-		this.porfolio = porfolio;
+	public void setPorfolioBean(PorfolioBean porfolioBean) {
+		this.porfolioBean = porfolioBean;
 	}
 
-	public RecordBean(Integer recordId, Integer portfolioId, String type, ParamsBean paramsBean, PorfolioBean porfolio) {
-		super();
-		this.recordId = recordId;
-		this.portfolioId = portfolioId;
-		this.type = type;
-		this.paramsBean = paramsBean;
-		this.porfolio = porfolio;
-	}
-	
+
 	
 }

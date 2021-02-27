@@ -30,11 +30,11 @@ public class MemberBean implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer mId;//編號
-	private String mAN;//帳號
-	private String mPw;	//密碼
+	private Integer mId; //編號
+	private String mAN;  //帳號
+	private String mPw;	 //密碼
 	@Transient
-	private String mPw1;//確認密碼
+	private String mTPw; //確認密碼
 	private String mGender;		
 	private String mName;	
 	private String mUid;	
@@ -43,41 +43,12 @@ public class MemberBean implements Serializable {
 	private String mPhone;	
 	private String d_mAddress;	
 	private Timestamp m_createTime;	
-
-//	private String mPic;
 	private String mPic;
-
-
-	
-	@Transient
-	String fileName;
-	public String getFileName() {
-		return fileName;
-	}
-
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-
-	@Transient
-	MultipartFile mMultipartFile;
-	
-	
-	public String getmPic() {
-		return mPic;
-	}
-
-
-	public void setmPic(String mPic) {
-		this.mPic = mPic;
-	}
-
-	private Integer mPid;
-	//新增該項的get&set&constructor
 	//信箱是否驗證
 	private Integer m_verify;
-	
+
+//	@Transient
+//	private MultipartFile multipartFile;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "mId")
@@ -87,39 +58,6 @@ public class MemberBean implements Serializable {
 	@JoinColumn(name = "mPid")
 	private Member_permBean member_perm;
 	
-	
-	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
-	private Set<OrdBean> orderBeans = new LinkedHashSet<>();
-
-	@OneToMany(mappedBy="mId", cascade={CascadeType.ALL}) 
-	private Set<PorfolioBean> porfolioBeans = new LinkedHashSet<>();
-
-	public MemberBean() {
-	}
-
-
-	public MemberBean(Integer mId, String mAN, String mPw, String mGender, String mName, String mUid, Date mBDay,
-			String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, String mPic, Integer mPid,
-			ShoppingCartBean shoppingCartBeans, Member_permBean member_perm, Set<OrdBean> orderBeans,
-			Set<PorfolioBean> porfolioBeans) {
-		super();
-		this.mId = mId;
-		this.mAN = mAN;
-		this.mPw = mPw;
-		this.mGender = mGender;
-		this.mName = mName;
-		this.mUid = mUid;
-		this.mBDay = mBDay;
-		this.mEmail = mEmail;
-		this.mPhone = mPhone;
-		this.d_mAddress = d_mAddress;
-		this.m_createTime = m_createTime;
-		this.mPic = mPic;
-		this.mPid = mPid;
-		this.shoppingCartBeans = shoppingCartBeans;
-		this.member_perm = member_perm;
-	}
-
 	public Integer getmId() {
 		return mId;
 	}
@@ -142,6 +80,14 @@ public class MemberBean implements Serializable {
 
 	public void setmPw(String mPw) {
 		this.mPw = mPw;
+	}
+
+	public String getmTPw() {
+		return mTPw;
+	}
+
+	public void setmTPw(String mTPw) {
+		this.mTPw = mTPw;
 	}
 
 	public String getmGender() {
@@ -208,20 +154,12 @@ public class MemberBean implements Serializable {
 		this.m_createTime = m_createTime;
 	}
 
-//	public String getmPic() {
-//		return mPic;
-//	}
-//
-//	public void setmPic(String mPic) {
-//		this.mPic = mPic;
-//	}
-
-	public Integer getmPid() {
-		return mPid;
+	public String getmPic() {
+		return mPic;
 	}
 
-	public void setmPid(Integer mPid) {
-		this.mPid = mPid;
+	public void setmPic(String mPic) {
+		this.mPic = mPic;
 	}
 
 	public Integer getM_verify() {
@@ -263,4 +201,13 @@ public class MemberBean implements Serializable {
 	public void setPorfolioBeans(Set<PorfolioBean> porfolioBeans) {
 		this.porfolioBeans = porfolioBeans;
 	}
+
+	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
+	private Set<OrdBean> orderBeans = new LinkedHashSet<>();
+
+	@OneToMany(mappedBy="memberBean", cascade={CascadeType.ALL}) 
+	private Set<PorfolioBean> porfolioBeans = new LinkedHashSet<>();
+
+	
+	
 }

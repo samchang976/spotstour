@@ -25,25 +25,18 @@ public class PorfolioBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "portfolioId", unique = true, nullable = false)
  	private Integer portfolioId;
-	@Column(name="cityId")
-	private Integer cityId;
 	private String portfolioName;
 	private String portfolioText;
-	@Column(name="placeTypeId")
-	private Integer placeTypeId;
 	private Timestamp p_createTime;
-	@Column(name="mId")
-	private Integer mId;
 	private String pAddress;
 	private Float longitude;
 	private Float latitude;
 	
-	@OneToMany(mappedBy = "porfolio", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
+	@OneToMany(mappedBy = "porfolioBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
 	private Set<RecordBean> records = new LinkedHashSet<>();
 	
-	@OneToMany(mappedBy = "porfolio", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
+	@OneToMany(mappedBy = "porfolioBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
 	private Set<Watch_timesBean> watch_times = new LinkedHashSet<>();
 	
 	@OneToMany(mappedBy = "porfolioBean" ,cascade = CascadeType.PERSIST)
@@ -57,27 +50,15 @@ public class PorfolioBean implements Serializable {
 	private Set<Porfolio_MsgBean> portfolio_Msgs = new LinkedHashSet<>();
 	
 	@ManyToOne
-	@JoinColumn(name="fk_city_id", nullable=false)  
-	private CityBean city;
+	@JoinColumn(name="cityId", nullable=false)  
+	private CityBean cityBeans;
 	
-	@ManyToOne
-	@JoinColumn(name="mId", nullable=false)
-	private MemberBean member;
-
 	public Integer getPortfolioId() {
 		return portfolioId;
 	}
 
 	public void setPortfolioId(Integer portfolioId) {
 		this.portfolioId = portfolioId;
-	}
-
-	public Integer getCityId() {
-		return cityId;
-	}
-
-	public void setCityId(Integer cityId) {
-		this.cityId = cityId;
 	}
 
 	public String getPortfolioName() {
@@ -96,28 +77,12 @@ public class PorfolioBean implements Serializable {
 		this.portfolioText = portfolioText;
 	}
 
-	public Integer getPlaceTypeId() {
-		return placeTypeId;
-	}
-
-	public void setPlaceTypeId(Integer placeTypeId) {
-		this.placeTypeId = placeTypeId;
-	}
-
 	public Timestamp getP_createTime() {
 		return p_createTime;
 	}
 
 	public void setP_createTime(Timestamp p_createTime) {
 		this.p_createTime = p_createTime;
-	}
-
-	public Integer getmId() {
-		return mId;
-	}
-
-	public void setmId(Integer mId) {
-		this.mId = mId;
 	}
 
 	public String getpAddress() {
@@ -184,24 +149,26 @@ public class PorfolioBean implements Serializable {
 		this.portfolio_Msgs = portfolio_Msgs;
 	}
 
-	public CityBean getCity() {
-		return city;
+	public CityBean getCityBeans() {
+		return cityBeans;
 	}
 
-	public void setCity(CityBean city) {
-		this.city = city;
+	public void setCityBeans(CityBean cityBeans) {
+		this.cityBeans = cityBeans;
 	}
 
-	public MemberBean getMember() {
-		return member;
+	public MemberBean getMemberBean() {
+		return memberBean;
 	}
 
-	public void setMember(MemberBean member) {
-		this.member = member;
+	public void setMemberBean(MemberBean memberBean) {
+		this.memberBean = memberBean;
 	}
 
+	@ManyToOne
+	@JoinColumn(name="mId", nullable=false)
+	private MemberBean memberBean;
 
-	
-	
+
 	
 }	

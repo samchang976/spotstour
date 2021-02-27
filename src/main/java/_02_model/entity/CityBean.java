@@ -1,13 +1,16 @@
 package _02_model.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,11 +22,13 @@ public class CityBean implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cityId;
 	private String cityName;
-//	private int countryId;
 	
 	@ManyToOne
 	@JoinColumn(name = "countryId")
 	private CountryBean countryBean;
+	
+	@OneToMany(mappedBy = "cityBeans" , fetch = FetchType.EAGER)
+	private List<PorfolioBean> porfolioBeans;
 
 	public int getCityId() {
 		return cityId;
@@ -48,6 +53,15 @@ public class CityBean implements Serializable{
 	public void setCountryBean(CountryBean countryBean) {
 		this.countryBean = countryBean;
 	}
-	
+
+	public List<PorfolioBean> getPorfolioBeans() {
+		return porfolioBeans;
+	}
+
+	public void setPorfolioBeans(List<PorfolioBean> porfolioBeans) {
+		this.porfolioBeans = porfolioBeans;
+	}
+
+
 	
 }

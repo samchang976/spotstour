@@ -37,14 +37,6 @@ public class Porfolio_MsgBean implements Serializable {
 		this.portfolioMsgId = portfolioMsgId;
 	}
 
-	public Integer getPortfolioId() {
-		return portfolioId;
-	}
-
-	public void setPortfolioId(Integer portfolioId) {
-		this.portfolioId = portfolioId;
-	}
-
 	public String getMsgText() {
 		return msgText;
 	}
@@ -69,24 +61,15 @@ public class Porfolio_MsgBean implements Serializable {
 		this.pMsg_freeze = pMsg_freeze;
 	}
 
-	public PorfolioBean getPorfolios() {
+	public PorfolioBean getPorfolioBean() {
 		return porfolioBean;
 	}
 
-	public void setPorfolios(PorfolioBean porfolioBean) {
+	public void setPorfolioBean(PorfolioBean porfolioBean) {
 		this.porfolioBean = porfolioBean;
 	}
 
-	public Porfolio_MsgBean(Integer portfolioMsgId, Integer portfolioId, String msgText, Timestamp pm_createTime,
-			String pMsg_freeze, PorfolioBean porfolioBean) {
-		super();
-		this.portfolioMsgId = portfolioMsgId;
-		this.portfolioId = portfolioId;
-		this.msgText = msgText;
-		this.pm_createTime = pm_createTime;
-		this.pMsg_freeze = pMsg_freeze;
-		this.porfolioBean = porfolioBean;
-	}
+	
 	
 	
 }
