@@ -15,13 +15,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name="ord")
 public class OrdBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private Integer ord_id;	
+	private Integer ord_Id;	
 	private Timestamp s_createTime;
 	private Timestamp o_createTime;
 	private String s_mAddress;
@@ -49,11 +49,11 @@ public class OrdBean implements Serializable {
 		super();
 	}
 
-	public OrdBean(Integer ord_id, Timestamp s_createTime, Timestamp o_createTime, String s_mAddress,
+	public OrdBean(Integer ord_Id, Timestamp s_createTime, Timestamp o_createTime, String s_mAddress,
 			Set<Ord_detailBean> ord_details, MemberBean memberBean, Receipt_TypeBean receipt_TypeBean,
 			Ship_TypeBean ship_TypeBean, Ord_statBean ord_statBean) {
 		super();
-		this.ord_id = ord_id;
+		this.ord_Id = ord_Id;
 		this.s_createTime = s_createTime;
 		this.o_createTime = o_createTime;
 		this.s_mAddress = s_mAddress;
@@ -64,12 +64,12 @@ public class OrdBean implements Serializable {
 		this.ord_statBean = ord_statBean;
 	}
 
-	public Integer getOrd_id() {
-		return ord_id;
+	public Integer getord_Id() {
+		return ord_Id;
 	}
 
-	public void setOrd_id(Integer ord_id) {
-		this.ord_id = ord_id;
+	public void setord_Id(Integer ord_Id) {
+		this.ord_Id = ord_Id;
 	}
 
 	public Timestamp getS_createTime() {

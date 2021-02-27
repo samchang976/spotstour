@@ -23,7 +23,7 @@ import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
-//@Entity
+@Entity
 @Table(name="member")
 public class MemberBean implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -43,13 +43,11 @@ public class MemberBean implements Serializable {
 	private String mPhone;	
 	private String d_mAddress;	
 	private Timestamp m_createTime;	
-<<<<<<< HEAD
+
 //	private String mPic;
 	private String mPic;
-=======
-	private String mPic;
-//	private Blob mPic;
->>>>>>> main
+
+
 	
 	@Transient
 	String fileName;
@@ -81,8 +79,9 @@ public class MemberBean implements Serializable {
 	private Integer m_verify;
 	
 	
-	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
-	private Set<ShoppingCartBean> shoppingCartBeans = new LinkedHashSet<>();
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "mId")
+	private ShoppingCartBean shoppingCartBeans;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "mPid")
@@ -92,7 +91,7 @@ public class MemberBean implements Serializable {
 	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
 	private Set<OrdBean> orderBeans = new LinkedHashSet<>();
 
-	@OneToMany(mappedBy="memberBean", cascade={CascadeType.ALL}) 
+	@OneToMany(mappedBy="mId", cascade={CascadeType.ALL}) 
 	private Set<PorfolioBean> porfolioBeans = new LinkedHashSet<>();
 
 	public MemberBean() {

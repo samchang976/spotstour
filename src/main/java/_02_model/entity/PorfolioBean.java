@@ -19,7 +19,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
-//@Entity
+@Entity
 @Table(name="porfolio")
 public class PorfolioBean implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -34,7 +34,7 @@ public class PorfolioBean implements Serializable {
 	@Column(name="placeTypeId")
 	private Integer placeTypeId;
 	private Timestamp p_createTime;
-	@Column(name="mid")
+	@Column(name="mId")
 	private Integer mId;
 	private String pAddress;
 	private Float longitude;
@@ -62,7 +62,7 @@ public class PorfolioBean implements Serializable {
 	private CityBean city;
 	
 	@ManyToOne
-	@JoinColumn(name="mid", nullable=false)
+	@JoinColumn(name="mId", nullable=false)
 	private MemberBean member;
 
 	public Integer getPortfolioId() {

@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name="receipt_Type")
 public class Receipt_TypeBean implements Serializable {
 	private static final long serialVersionUID = 1L;

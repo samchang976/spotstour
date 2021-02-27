@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name="record")
 public class RecordBean implements Serializable {
 	private static final long serialVersionUID = 1L;

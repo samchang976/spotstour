@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 //本類別封裝單筆訂單資料
-@Entity
+//@Entity
 @Table(name="OrderItems")
 public class OrderItemBean {
 	@Id

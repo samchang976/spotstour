@@ -16,7 +16,7 @@ import javax.persistence.Transient;
 import org.springframework.web.multipart.MultipartFile;
 
 // 本類別封裝單筆書籍資料
-@Entity
+//@Entity
 @Table(name="Book")
 public class BookBean implements Serializable {
 	private static final long serialVersionUID = 1L;

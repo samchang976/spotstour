@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-//@Entity
+@Entity
 @Table(name="report_Type")
 public class Report_TypeBean implements Serializable {
 	private static final long serialVersionUID = 1L;

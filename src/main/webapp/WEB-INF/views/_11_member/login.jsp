@@ -74,7 +74,7 @@
 				<tr>
 					<TD width="180" align="right">帳號：</TD>
 					<TD width="180" colspan='2' align="LEFT"><input type="text"
-						name="userId" size="10"
+						name="mAN" size="10"
 						value="${requestScope.user}${param.userId}"> &nbsp;<small><Font
 							color='red' size="-3">${requestScope.ErrorMsgKey.AccountEmptyError}
 						</Font></small></TD>

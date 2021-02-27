@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 // 本類別存放訂單資料
-@Entity
+//@Entity
 @Table(name="Orders")
 public class OrderBean {
 	@Id

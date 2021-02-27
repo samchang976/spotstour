@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 
 
-//@Entity
+@Entity
 @Table(name="shoppingcart")
 public class ShoppingCartBean implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,7 +26,7 @@ public class ShoppingCartBean implements Serializable {
 	private String mId;
 	private Integer itemid;
 	private Integer sOrdQty;
- 	@OneToOne(mappedBy = "shoppingCart")
+ 	@OneToOne(mappedBy = "shoppingCartBeans")
  	private MemberBean member;
  	
  	@OneToMany(cascade= { CascadeType.PERSIST})

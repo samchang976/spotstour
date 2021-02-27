@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+//@Entity
 @Table(name="Member")
 public class MemberBean implements Serializable {
 	private static final long serialVersionUID = 1L;

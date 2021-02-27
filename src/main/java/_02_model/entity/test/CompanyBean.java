@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 // 本類別封裝單筆出版社資料
-@Entity
+//@Entity
 @Table(name="BookCompany")
 public class CompanyBean implements Serializable {
 	private static final long serialVersionUID = 1L;
