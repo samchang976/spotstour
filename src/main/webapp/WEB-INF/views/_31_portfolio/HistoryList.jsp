@@ -28,9 +28,8 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+<!-- --------------------------------------------------------------------------------------------------------->
 
-<link rel="stylesheet" href="../css/button.css">
-<link rel="stylesheet" href="../css/04_.css">
 <title>HistoryList觀看紀錄</title>
 <style>
 hr {

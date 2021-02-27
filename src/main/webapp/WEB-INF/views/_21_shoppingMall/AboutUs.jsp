@@ -28,6 +28,8 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+<!-- --------------------------------------------------------------------------------------------------------->
+
 <title>關於我們</title>
 <style>
 .value {

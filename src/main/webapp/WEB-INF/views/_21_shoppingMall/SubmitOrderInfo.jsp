@@ -28,9 +28,7 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
-
-<link rel="stylesheet" href="../css/07_.css">
-<link rel="stylesheet" href="../css/button.css">
+<!-- --------------------------------------------------------------------------------------------------------->
 <title>提交訂單資訊</title>
 
 </head>

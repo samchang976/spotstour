@@ -27,7 +27,9 @@
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
 
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/portfolioUtil/css/portfolioLayout.css'></c:url>">
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+<!-- --------------------------------------------------------------------------------------------------------->
+
 <title>播放預覽</title>
 
 <!-- <style>
@@ -45,11 +47,13 @@ textarea {
 
 
 <body>
-	<!--內嵌header  -->
-	<div
-		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+<!--header=================================================================================  -->
+	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
+<!-----------定位----------------------------------------------------------------------------->
+	<div class="BodyPosition">
+<!------------------------------------------------------------------------------------------->	
 	<div class="container-flud">
 		<div class="row">
 			<div class="col">
@@ -122,11 +126,13 @@ textarea {
 		</div>
 	</div>
 
-	<!--內嵌footer  -->
+<!-----------定位----------------------------------------------------------------------------->       
+      </div>	
+<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-
+<!-- --------------------------------------------------------------------------------------->
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

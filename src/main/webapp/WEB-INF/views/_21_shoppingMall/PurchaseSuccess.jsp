@@ -28,11 +28,7 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
-
-
-<link rel="stylesheet" href="../css/button.css">
-
-<link rel="stylesheet" href="../css/08_.css">
+<!-- --------------------------------------------------------------------------------------------------------->
 
 <title>訂購成功</title>
 </head>
@@ -77,11 +73,6 @@
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 <!------------------------------------------------------------------------------------------->	
-	<!-- Option 1: Bootstrap Bundle with Popper -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-		crossorigin="anonymous"></script>
 
 </body>
 </html>

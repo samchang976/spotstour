@@ -98,15 +98,15 @@ ul.nav.nav-tabs {
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="index">首頁</a></li>
 						<li>_11_member</li>
-						<li><a class="dropdown-item" href="confirmEmail">Email確認</a></li>
+						<li><a class="dropdown-item" href="confirmEmail">Email確認(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="emailVerificationSuccess">Email核對成功</a></li>
 						<li><a class="dropdown-item" href="forgetPassword">忘記密碼</a></li>
 						<li><a class="dropdown-item" href="login">登入會員</a></li>
-						<li><a class="dropdown-item" href="memberRegisterSuccess">註冊成功</a></li>
-						<li><a class="dropdown-item" href="logOut">登出</a></li>
+						<li><a class="dropdown-item" href="loginSuccess">登入成功(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="logOut">登出(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="memberDetailModify">會員個人資料</a></li>
-						<li><a class="dropdown-item" href="memberRegister">註冊會員</a></li>
-						<li><a class="dropdown-item" href="loginSuccess">登入成功</a></li>
+						<li><a class="dropdown-item" href="memberRegister">註冊會員(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="memberRegisterSuccess">註冊成功(連結找不到)</a></li>
 					</ul></li>
 
 				<li class="nav-item dropdown"><a class="fas fa-user" style="color:green"
@@ -126,7 +126,7 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="purchaseSuccess">購買成功</a></li>
 						<li><a class="dropdown-item" href="selectPayment">訂購資訊</a></li>
 						<li><a class="dropdown-item" href="shoppingCart">購物車</a></li>
-						<li><a class="dropdown-item" href="submitOrderInfo">提交訂單資訊</a></li>
+						<li><a class="dropdown-item" href="submitOrderInfo">提交訂單資訊(連結找不到)</a></li>
 						<li>_還沒有</li>
 						<li><a class="dropdown-item" href="checkPayment">結帳頁面</a></li>
 					</ul></li>
@@ -139,20 +139,19 @@ ul.nav.nav-tabs {
 					<ul class="dropdown-menu">
 						<li>_31_portfolio</li>
 						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
-						<li><a class="dropdown-item" href="historyList">觀看紀錄</a></li>
+						<li><a class="dropdown-item" href="historyList">觀看紀錄(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="personalVideo">個人作品</a></li>
-						<li><a class="dropdown-item" href="previewVideo">播放預覽頁面_播放頁預覽</a></li>
-						<li><a class="dropdown-item" href="videoCreate">新增影片頁面</a></li>
-						<li><a class="dropdown-item" href="videoModify">編輯影片</a></li>
-						<li><a class="dropdown-item" href="videoReport">檢舉影片</a></li>
+						<li><a class="dropdown-item" href="PortfolioSearchResult">影片搜尋結果(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="previewVideo">播放預覽頁面_播放頁預覽(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="videoCreate">新增影片頁面(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="videoModify">編輯影片(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="videoReport">檢舉影片(連結找不到)</a></li>
 						
 						<li>_還沒有</li>
 						<li><a class="dropdown-item" href="worldMap">世界地圖</a></li>
 						<li><a class="dropdown-item" href="videoPlayer">影片播放</a></li>
 						<li><a class="dropdown-item" href="previewVideo_world">播放預覽頁面_世界地圖預覽</a></li>
 						
-						<li>_和檔案名稱不太一樣</li>
-						<li><a class="dropdown-item" href="videoSearchResult">影片搜尋結果</a></li>
 					</ul></li>
 
 				<li class="nav-item dropdown"><a class="fas fa-user-tie" style="color:green"

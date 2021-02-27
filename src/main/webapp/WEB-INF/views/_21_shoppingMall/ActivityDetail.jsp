@@ -22,9 +22,13 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-<link rel="stylesheet" href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-													
-<link rel="stylesheet" href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+<!-- css連結------------------------------------------------------------------------------------------------ -->
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+<!-- --------------------------------------------------------------------------------------------------------->
 
 <title>商城活動快訊詳細</title>
 </head>

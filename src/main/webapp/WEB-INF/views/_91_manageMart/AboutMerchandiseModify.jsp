@@ -27,7 +27,9 @@
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
 
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/managerLayout.css'></c:url>">
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+<!-- --------------------------------------------------------------------------------------------------------->
+	
 <title>管理退貨商品列表</title>
 <!-- <link rel="stylesheet" href="button.css">
     <link rel="stylesheet" href="font.css"> -->

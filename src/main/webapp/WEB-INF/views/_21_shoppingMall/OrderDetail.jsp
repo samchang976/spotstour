@@ -28,9 +28,8 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+<!-- --------------------------------------------------------------------------------------------------------->
 
-<link rel="stylesheet" href="../css/button.css">
-<link rel="stylesheet" href="../css/10_.css">
 <title>訂單明細</title>
 </head>
 <body>
@@ -152,7 +151,7 @@
 		<!-- 回商城首頁 -->
 		<div class="col">
 			<button class="Bt_black "
-				onclick="window.open('01_MerchandiseIndex.html') ">回商城首頁</button>
+				onclick="window.open('ShoppingCart')">回商城首頁</button>
 		</div>
 
 
@@ -164,11 +163,6 @@
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 <!------------------------------------------------------------------------------------------->
-	
-	<!-- Option 1: Bootstrap Bundle with Popper -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-		crossorigin="anonymous"></script>
+
 </body>
 </html>
