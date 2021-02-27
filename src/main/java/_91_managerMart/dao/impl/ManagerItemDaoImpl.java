@@ -85,16 +85,16 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	public void updateItem(ItemBean itemBean) {
 		ItemBean ib2 = null;
 		Session session = factory.getCurrentSession();
-		ib2 = session.get(ItemBean.class, itemBean.getItemId());
+//		ib2 = session.get(ItemBean.class, itemBean.getItemId());
 		
-		itemBean.setCountryId(ib2.getCountryId());
-		itemBean.setItId(ib2.getItId());
-		itemBean.setItemDes(ib2.getItemDes());
-		itemBean.setItemHeader(ib2.getItemHeader());
-		itemBean.setItemPrice(ib2.getItemPrice());
-		itemBean.setItemQty(ib2.getItemQty());
-		System.out.println("+++++ABCDE+++++");
-		session.evict(ib2);
+//		itemBean.setCountryId(ib2.getCountryId());
+//		itemBean.setItId(ib2.getItId());
+//		itemBean.setItemDes(ib2.getItemDes());
+//		itemBean.setItemHeader(ib2.getItemHeader());
+//		itemBean.setItemPrice(ib2.getItemPrice());
+//		itemBean.setItemQty(ib2.getItemQty());
+//		System.out.println("+++++ABCDE+++++");
+//		session.evict(ib2);
 		session.saveOrUpdate(itemBean);
 	}
 	

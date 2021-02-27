@@ -26,20 +26,24 @@ public class ManagerController {
 
 //	@GetMapping("/merchandiseModify")
 //	public String addeMrchandise(Model model) {
-	@GetMapping({"/merchandiseModify","/merchandiseModify/get/Id={itemId}"})
+//	@GetMapping({"/merchandiseModify","/merchandiseModify/get/Id={itemId}"})
+	
+	// 陳列商品
+	@GetMapping({"/merchandiseModify","/Id={itemId}"})
 		public String addeMrchandise(@PathVariable(value="itemId", required = false) Integer itemId, Model model) {
 		List<ItemBean> list = managerItemService.getAllItems();
 		model.addAttribute("items", list);
 		return "_91_manageMart/MerchandiseModify";
 	}
 
+	// 新增商品
 	@PostMapping("/merchandiseModify")
 	public String processAddNewMrchandiseForm(@ModelAttribute("itemBean") ItemBean ib, Model model) {
 		managerItemService.addItem(ib);
 		return "redirect:/merchandiseModify";
 	}
 
-	// 凍結商品
+	// 凍結商品(刪除)
 	@RequestMapping("/merchandiseModify/delete/Id={itemId}")
 	public String freezeItem(@ModelAttribute("itemId") Integer itemId, Model model) {
 		managerItemService.freezeItemByItemId(itemId);
@@ -55,13 +59,11 @@ public class ManagerController {
 //	}
 
 	// 編輯及更新商品
-	@PostMapping("/merchandiseModify/get/Id={itemId}")
-	public String updateItem(@ModelAttribute(value="itemId") Integer itemId, Model model) {
-		System.out.println("=========ABCDEF");
+//	@PostMapping("/merchandiseModify/get/Id={itemId}")
+	@PostMapping("/Id={itemId}")
+	public String updateItem(@ModelAttribute(value="itemId") Integer itemId, @ModelAttribute("itemBean") ItemBean itemBeanN, Model model) {
 		
-		ItemBean itemBean= managerItemService.getItemByItemId(itemId);
-		System.out.println("=========ABCDE"+itemBean);
-		managerItemService.updateItem(itemBean);
+		managerItemService.updateItem(itemBeanN);
 		return "redirect:/merchandiseModify";
 	}
 
@@ -120,24 +122,29 @@ public class ManagerController {
 		return managerItemService.getCountryList();
 	}
 
+	// 取得商品
 	@ModelAttribute
 	public ItemBean getItemBean(@PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
-		ItemBean ib = null;
+		ItemBean itemBean = null;
 		if (itemId != null) {
-			ib = managerItemService.getItemByItemId(itemId);
-			System.out.println("=========ABC"+ib);
+			itemBean = managerItemService.getItemByItemId(itemId);
+			Item_typeBean item_typeBean = itemBean.getItem_typeBean();
+			CountryBean countryBean = itemBean.getCountryBean();
+			model.addAttribute("item_typeBean", item_typeBean);
+			model.addAttribute("countryBean", countryBean);
+			
 		} else {
-			ib = new ItemBean();
-			ib.setItemHeader("AA");
-			ib.setItemPrice(20);
-			ib.setItemQty(10);
-			ib.setItemDes("AAAA");
-			ib.setItemPic1("null");
-			ib.setItemPic2("null");
-			ib.setItemPic3("null");
-			ib.setItem_freeze(0);
-			model.addAttribute("itemBean", ib);
+			itemBean = new ItemBean();
+			itemBean.setItemHeader("AA");
+			itemBean.setItemPrice(20);
+			itemBean.setItemQty(10);
+			itemBean.setItemDes("AAAA");
+			itemBean.setItemPic1("null");
+			itemBean.setItemPic2("null");
+			itemBean.setItemPic3("null");
+			itemBean.setItem_freeze(0);
+			model.addAttribute("itemBean", itemBean);
 		}
-		return ib;
+		return itemBean;
 	}
 }

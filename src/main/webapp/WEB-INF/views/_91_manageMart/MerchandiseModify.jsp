@@ -88,8 +88,6 @@ button { /*按鈕的樣式*/
     } */
 #addItem {
 	display: flex;
-	/* 	justify-content: flex-start; */
-	/* 	align-content: flex-start; */
 }
 
 #addSquare {
@@ -111,28 +109,33 @@ button { /*按鈕的樣式*/
 		<div class="row">
 			<div class="col">
 				<div>
-					<i class="fas fa-plus"></i>
-					<!-- 					<button id="newM">新增商品</button> -->
+					<br> <br>
 					<div>
-						<button id="newM" value="/Id=${itemId}"
-							onclick="location.href='merchandiseModify'">
+						<button id="newM" onclick="location.href='merchandiseModify'">
 							<span class="fas fa-plus"></span>新增商品
 						</button>
+						<button id="selectA">全選</button>
+						<button id="save">儲存變更</button>
 					</div>
-					<button id="selectA">全選</button>
-					<button id="save">儲存變更</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- 	新增商品和編輯商品 -->
 
-	<br>
-	<!-- 	新增商品 -->
-	<h3>新增商品</h3>
+	<c:if test="${itemId==null}">
+		<h3>新增商品</h3>
+	</c:if>
+
+
+	<c:if test="${itemId!=null}">
+		<h3>編輯商品</h3>
+	</c:if>
+
 	<div id="addSquare">
 		<form:form method='POST' modelAttribute='itemBean'>
 
-			<c:if test="${null!=itemId}">
+			<c:if test="${itemId!=null}">
 				<div class="form-group row">
 					<label for="itemId" class="col-sm-2 col-form-label">商品編號</label>
 					<div class="col-sm-10">
@@ -177,21 +180,39 @@ button { /*按鈕的樣式*/
 			<div class="form-group row">
 				<label for="itId" class="col-sm-2 col-form-label">商品類型</label>
 				<div class="mb-3 col-10">
-					<form:select path="itId" class="custom-select">
-						<form:option value="-1" label="請選擇商品類型" />
-						<form:options items="${item_TypeMap}" />
-					</form:select>
+					<c:if test="${itemId==null}">
+						<form:select path="itId" class="custom-select">
+							<form:option value="-1" label="請選擇商品類型" />
+							<form:options items="${item_TypeMap}" />
+						</form:select>
+					</c:if>
+					<c:if test="${itemId!=null}">
+						<form:select path="item_typeBean.itId" class="custom-select">
+							<form:option value="-1" label="請選擇商品類型" />
+							<form:options items="${item_TypeMap}" />
+						</form:select>
+					</c:if>
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label for="countryId" class="col-sm-2 col-form-label">國家</label>
-				<div class="mb-3 col-10">
-					<form:select path="countryId" class="custom-select">
-						<form:option value="-1" label="請選擇國家" />
-						<form:options items="${countryMap}" />
-					</form:select>
-				</div>
+				<c:if test="${itemId==null}">
+					<div class="mb-3 col-10">
+						<form:select path="countryId" class="custom-select">
+							<form:option value="-1" label="請選擇國家" />
+							<form:options items="${countryMap}" />
+						</form:select>
+					</div>
+				</c:if>
+				<c:if test="${itemId!=null}">
+					<div class="mb-3 col-10">
+						<form:select path="countryBean.countryId" class="custom-select">
+							<form:option value="-1" label="請選擇國家" />
+							<form:options items="${countryMap}" />
+						</form:select>
+					</div>
+				</c:if>
 			</div>
 
 			<div id="addItem">
@@ -220,18 +241,23 @@ button { /*按鈕的樣式*/
 				<!-- 				<div> -->
 				<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
 				<!-- 				</div> -->
-				<div>
-					<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
-				</div>
+				<c:if test="${itemId==null}">
+					<div>
+						<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
+					</div>
+				</c:if>
 				<!-- 				<div> -->
 				<!-- 					<button type="submit" id="btnEdit" class="btn btn-primary">儲存變更</button> -->
 				<!-- 				</div> -->
 
+				<c:if test="${itemId!=null}">
+					<div>
+						<button type="submit" id="editM" class="btn btn-primary"
+							onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">儲存變更</button>
+					</div>
+				</c:if>
 			</div>
-			<div>
-				<button type="submit" id="editM" class="btn btn-primary"
-					onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">儲存變更</button>
-			</div>
+
 			<!-- 			<div> -->
 			<%-- 				<button type="submit" id="editM" value="/Id=${itemId}" --%>
 			<%-- 					onclick="location.href='merchandiseModify/update/Id=${item.itemId}'">儲存變更</button> --%>
@@ -258,24 +284,31 @@ button { /*按鈕的樣式*/
 					<div>商品編號:${item.itemId}</div>
 					<br>
 					<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-						class="w-100">
+					<div>
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+							class="w-100">
+					</div>
 				</div>
 
 				<div class=" col col-3-1 C_SpCre">
 					<div>商品類別:${item.item_typeBean.itemType}</div>
 					<br>
 					<%-- 					<div>紀念品照片2${item.Pic2}</div> --%>
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-						class="w-100">
+					<div>
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+							class="w-100">
+					</div>
+
 				</div>
 
 				<div class="col col-4-1 C_SpCre">
 					<div>商品國家:${item.countryBean.countryName}</div>
 					<br>
 					<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-						class="w-100">
+					<div>
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+							class="w-100">
+					</div>
 				</div>
 
 				<div class="col col-5-1 C_SpCre">
@@ -293,22 +326,18 @@ button { /*按鈕的樣式*/
 				</div>
 
 				<div class="col col-7-1 C_SpCre">
-					<br>
-
-					<!-- 					<div> -->
-					<!-- 						<button id="editM">編輯商品</button> -->
-					<!-- 					</div> -->
-
 					<div>
 						<button id="editM" value="/Id=${itemId}"
-							onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">編輯商品</button>
+							<%-- 							onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">編輯商品</button> --%>
+							onclick="location.href='Id=${item.itemId}'">編輯商品</button>
 					</div>
-					<br>
+					<br> <br>
 					<div>
 						<button id="deleteM" value="/Id=${itemId}"
 							onclick="location.href='merchandiseModify/delete/Id=${item.itemId}'">刪除商品</button>
 					</div>
 				</div>
+
 			</div>
 			<br>
 		</div>

@@ -97,7 +97,16 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 	//編輯及更新商品
 	@Transactional
 	@Override
-	public void updateItem(ItemBean itemBean) {
-		managetItemDao.updateItem(itemBean);
+	public void updateItem(ItemBean itemBeanN) {
+		ItemBean itemBeanO = managetItemDao.getItemByItemId(itemBeanN.getItemId());
+		
+		itemBeanO.setCountryId(itemBeanN.getCountryId());
+		itemBeanO.setItId(itemBeanN.getItId());
+		itemBeanO.setItemDes(itemBeanN.getItemDes());
+		itemBeanO.setItemHeader(itemBeanN.getItemHeader());
+		itemBeanO.setItemPrice(itemBeanN.getItemPrice());
+		itemBeanO.setItemQty(itemBeanN.getItemQty());
+		
+		managetItemDao.updateItem(itemBeanO);
 	}
 }
