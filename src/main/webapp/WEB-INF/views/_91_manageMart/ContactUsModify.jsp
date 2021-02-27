@@ -57,11 +57,14 @@ input {
 </style>
 </head>
 <body>
-	<!--內嵌header  -->
-	<div
-		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+<!--header=================================================================================  -->
+	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
+<!-----------定位----------------------------------------------------------------------------->
+	<div class="BodyPosition">
+<!------------------------------------------------------------------------------------------->	
+	
 	<div class="container">
 		<div id="form">
 			<div>
@@ -86,9 +89,13 @@ input {
 			<button style="margin-top: 15px; width: 60px;">送出</button>
 		</div>
 	</div>
-	<!--內嵌footer  -->
+<!-----------定位----------------------------------------------------------------------------->
+	</div>
+<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
+<!-- --------------------------------------------------------------------------------------->
+
 </body>
 </html>
