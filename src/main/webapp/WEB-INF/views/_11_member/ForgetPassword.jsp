@@ -31,23 +31,27 @@
 <title>ForgetPassword忘記密碼</title>
 </head>
 <body>
-	<!--內嵌header  -->
-	<div
-		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+<!--header=================================================================================  -->
+	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
+<!-----------定位----------------------------------------------------------------------------->
+	<div class="BodyPosition">
+<!------------------------------------------------------------------------------------------->	
 
-	<!--  -->
 	<div class="container">
 		<h1>忘記密碼？</h1>
 		<p>請輸入註冊的帳號(email)</p>
 		<input type="text" value="帳號/Email"> <input type="button"
 			value="確認">
 	</div>
-	<!--內嵌footer  -->
+<!-----------定位----------------------------------------------------------------------------->
+	</div>
+<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
+<!-- --------------------------------------------------------------------------------------->
 
 </body>
 </html>

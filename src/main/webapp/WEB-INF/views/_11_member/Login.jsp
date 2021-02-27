@@ -51,13 +51,14 @@
 </script>
 </head>
 <body onLoad="setFocusToUserId()"">
-	<!--內嵌header  -->
-	<div
-		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+<!--header=================================================================================  -->
+	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
+<!-----------定位----------------------------------------------------------------------------->
+	<div class="BodyPosition">
+<!------------------------------------------------------------------------------------------->	
 
-	<!--  -->
 	<div class="container">
 		<!-- 下列敘述設定變數funcName的值為LOG，top.jsp 會用到此變數 -->
 		<c:set var="funcName" value="LOG" scope="session" />
@@ -131,9 +132,13 @@
 			</div>
 		</Form>
 	</div>
-	<!--內嵌footer  -->
+<!-----------定位----------------------------------------------------------------------------->
+	</div>
+<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
+<!-- --------------------------------------------------------------------------------------->
+
 </body>
 </html>

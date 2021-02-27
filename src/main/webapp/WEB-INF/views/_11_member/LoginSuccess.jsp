@@ -32,13 +32,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!--內嵌header  -->
-	<div
-		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+<!--header=================================================================================  -->
+	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
+<!-----------定位----------------------------------------------------------------------------->
+	<div class="BodyPosition">
+<!------------------------------------------------------------------------------------------->	
 
-	<!--  -->
 	<div class="container">
 		<form name="form1" action="" method="post">
 			<table width="200" border="1">
@@ -53,9 +54,13 @@
 			</table>
 		</form>
 		</div>
-			<!--內嵌footer  -->
-			<div>
-				<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
-			</div>
+<!-----------定位----------------------------------------------------------------------------->
+	</div>
+<!--內嵌footer-------------------------------------------------------------------------------->
+	<div>
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+	</div>
+<!-- --------------------------------------------------------------------------------------->
+
 </body>
 </html>

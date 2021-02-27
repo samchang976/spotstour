@@ -43,13 +43,14 @@
 }
 </style>
 <body>
-	<!--內嵌header  -->
-	<div
-		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+<!--header=================================================================================  -->
+	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
+<!-----------定位----------------------------------------------------------------------------->
+	<div class="BodyPosition">
+<!------------------------------------------------------------------------------------------->	
 
-	<!--  -->
 	<div class="container">
 		<!-- <button class="btn btn-primary">ABC</button> -->
 
@@ -176,10 +177,13 @@
 		<!-- //       session.removeAttribute("MsgOK");    -->
 		<%-- %>  --%>
 	</div>
-	<!--內嵌footer  -->
+<!-----------定位----------------------------------------------------------------------------->
+	</div>
+<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
+<!-- --------------------------------------------------------------------------------------->
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
