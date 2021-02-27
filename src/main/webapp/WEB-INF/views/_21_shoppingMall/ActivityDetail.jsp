@@ -29,15 +29,17 @@
 <title>商城活動快訊詳細</title>
 </head>
 <body>
-	<!--header  -->
-	<div class="HeaderPostition">
+<!--header--------------------------------------------------------------------------->
+	<div class="HeaderPostition"
+		>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-	<!-- 搜尋 ----------------------------------------------------------------------------->
+<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
+<!-- 搜尋 ----------------------------------------------------------------------------->
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
-	
+<!------------------------------------------------------------------------------------------->
 
        <!-- 優惠標題 -->
       <div class="container" >
@@ -65,8 +67,10 @@
           </div>
         </div>
       </div>
+<!-----------定位----------------------------------------------------------------------------->       
       </div>
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+<!-- --------------------------------------------------------------------------------------->      
+<!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>

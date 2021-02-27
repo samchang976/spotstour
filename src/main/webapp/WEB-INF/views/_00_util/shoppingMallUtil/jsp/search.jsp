@@ -27,13 +27,11 @@
 
 <style>
 .container_search {
-	margin: 20px 50px;
+	margin-bottom: 20px;
 }
 
 #want {
 	font-size: 25px;
-	<<<<<<<
-	HEAD
 }
 </style>
 </head>

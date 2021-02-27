@@ -34,14 +34,17 @@
 </head>
 
 <body>
-	<!--header  -->
-	<div class="HeaderPostition">
+<!--header--------------------------------------------------------------------------->
+	<div class="HeaderPostition"
+		>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-	<!-- 搜尋 ----------------------------------------------------------------------------->
+<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
+<!-- 搜尋 ----------------------------------------------------------------------------->
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
+<!------------------------------------------------------------------------------------------->
 
 		<!-- 活動快訊 ---------------------------------------------------------------------------->
 		<div class="container" id="container_news">
@@ -61,56 +64,60 @@
 			</div>
 			<!-- 地區搜尋 ----------------------------------------------------------------------------->
 			<div class="row area_search">
-				<div class="col-12 col-md-3">
+				<div class="col-12 col-md-3"
+					onclick="location.href=
+                        'MerchandiseSearchResult'">
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
 
-					<a href="MerchandiseSearchResult"> 
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
-					</a>
 					<div class="mask">
 						<h2>韓國</h2>
 					</div>
 				</div>
 
+				<div class="col-12 col-md-3"
+					onclick="location.href=
+                        'MerchandiseSearchResult'">
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
 
-				<div class="col-12 col-md-3">
-					<a href="MerchandiseSearchResult" > 
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
-					</a>
 					<div class="mask">
 						<h2>韓國</h2>
 					</div>
 				</div>
 
+				<div class="col-12 col-md-3"
+					onclick="location.href=
+                        'MerchandiseSearchResult'">
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
 
-				<div class="col-12 col-md-3">
-					<a href="MerchandiseSearchResult"> <img
-						src="https://fakeimg.pl/350x350/?text=World&font=lobster">
-					</a>
 					<div class="mask">
 						<h2>韓國</h2>
 					</div>
 				</div>
 
+				<div class="col-12 col-md-3"
+					onclick="location.href=
+                        'MerchandiseSearchResult'">
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
 
-				<div class="col-12 col-md-3">
-					<a href="MerchandiseSearchResult"> <img
-						src="https://fakeimg.pl/350x350/?text=World&font=lobster">
-					</a>
 					<div class="mask">
 						<h2>韓國</h2>
 					</div>
 				</div>
+				<!-- 			-------------------------------------------------------------------------------------- -->
+
+
 			</div>
-			<!-- 			-------------------------------------------------------------------------------------- -->
-
 
 		</div>
-
-	</div>
-	<!-- Option 1: Bootstrap Bundle with Popper -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-		crossorigin="anonymous"></script>
+		
+<!-----------定位----------------------------------------------------------------------------->
+	</div>		
+<!------------------------------------------------------------------------------------------->
+	
+<!-- Option 1: Bootstrap Bundle with Popper -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"></script>
 </body>
 </html>

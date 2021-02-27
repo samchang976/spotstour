@@ -1,9 +1,3 @@
-.BodyPosition {
-	position: relative;
-	top: 35px;
-}
-
-
 /* MerchandiseIndex======================================================== */
 /*活動快訊外層容器*/
 #container_news .newsBlock{
@@ -61,6 +55,9 @@
  
    margin: 0px auto;
    padding:0px;
+   
+   display: block;
+   cursor: pointer;
    
  }
 
