@@ -50,7 +50,7 @@
 		<div class="container" id="container_news">
 			<div class="row newsBlock">
 				<div class="col-12">
-					<div id="news-text">活動快訊</div>
+					<div id="newsTitle">活動快訊</div>
 
 					<div class="block"
 						onclick="location.href=
@@ -63,41 +63,43 @@
 				</div>
 			</div>
 			<!-- 地區搜尋 ----------------------------------------------------------------------------->
-			<div class="row area_search">
-				<div class="col-12 col-md-3"
+			<div class="row row-cols-md-4">
+				<div class="col-12 area_search"
 					onclick="location.href=
                         'MerchandiseSearchResult'">
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" alt="area">
 
 					<div class="mask">
 						<h2>韓國</h2>
 					</div>
 				</div>
 
-				<div class="col-12 col-md-3"
+				<div class="col-12 area_search"
 					onclick="location.href=
                         'MerchandiseSearchResult'">
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+		
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" alt="area">
 
 					<div class="mask">
 						<h2>韓國</h2>
 					</div>
 				</div>
 
-				<div class="col-12 col-md-3"
+				<div class="col-12 area_search"
 					onclick="location.href=
                         'MerchandiseSearchResult'">
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" alt="area">
 
 					<div class="mask">
 						<h2>韓國</h2>
 					</div>
 				</div>
 
-				<div class="col-12 col-md-3"
+				<div class="col-12 area_search"
 					onclick="location.href=
                         'MerchandiseSearchResult'">
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" alt="area">
+
 
 					<div class="mask">
 						<h2>韓國</h2>

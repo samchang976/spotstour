@@ -7,7 +7,7 @@
     }
 
 /* 活動快訊標題 */
-#news-text{
+#newsTitle{
    border-bottom: 1px solid rgb(126, 125, 125);
    background: rgb(105, 105, 105);
    padding: 10px;
@@ -20,19 +20,19 @@
    padding: 5px;
 }
 /* 發布日期 */
-#container_news .newsBlock .date{
+#container_news .date{
    /* border:1px solid  rgb(73, 147, 221) ; */
    margin-right: 15px;
 }
 
-#container_news .newsBlock .block:hover{
+#container_news .block:hover{
    color: darkgray;
    cursor:pointer;
 }
 
 /* 地區搜尋的圖片==========================================================================*/
 
-#container_news .area_search .col-md-3{  
+#container_news .area_search{  
   position: relative;
   overflow: hidden;/*    隱藏超過的部分 */
  
@@ -45,7 +45,7 @@
   
 }
 
-#container_news .area_search .col-12{  
+#container_news .area_search{  
    position: relative;
    overflow: hidden;/*    隱藏超過的部分 */
   
@@ -61,7 +61,7 @@
    
  }
 
-#container_news .area_search .col-md-3 img{
+#container_news img[alt]{
    /* border-radius: 50px; */
    /* border: 5px solid black; */
    position: absolute;
@@ -70,12 +70,12 @@
    transition: transform .2s; /*設定滑過秒數*/
   }
 
-#container_news .area_search .col-md-3:hover img{
+#container_news .area_search:hover img[alt]{
    transform: scale(2,2);
  }
 
  /* 加背景 ===============================*/
- #container_news .area_search .col-md-3 .mask{
+ #container_news .area_search .mask{
    position: absolute;
    width: 100%; 
    height: 100%; 
@@ -85,13 +85,13 @@
 
    text-align: center;
 }
- #container_news .area_search .col-md-3:hover .mask{
+ #container_news .area_search:hover .mask{
    opacity: 1;
 } 
 
 
 @media screen and (max-width:768px) {
-   #container_news .area_search .col-md-3{   
+   #container_news .area_search{   
       width: 500px;
       height: 500px; 
       margin:20px 0px;
