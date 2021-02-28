@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import _02_model.entity.CountryBean;
+import _02_model.entity.FeedbackBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _91_managerMart.service.ManagerItemService;
@@ -58,30 +59,13 @@ public class ManagerController {
 		managerItemService.updateItem(itemBeanN);
 		return "redirect:/merchandiseModify";
 	}
-
-	@RequestMapping("/activityList")
-	public String activityList() {
-		return "_91_manageMart/ActivityList";
-	}
-
-	@RequestMapping("/activityModify")
-	public String activityModify() {
-		return "_91_manageMart/ActivityModify";
-	}
-
-	@RequestMapping("/aboutMerchandiseModify")
-	public String aboutMerchandiseModify() {
-		return "_91_manageMart/AboutMerchandiseModify";
-	}
-
-	@RequestMapping("/aboutUsModify")
-	public String aboutUsModify() {
-		return "_91_manageMart/AboutUsModify";
-	}
-
-	@RequestMapping("/contactUsModify")
-	public String contactUsModify() {
-		return "_91_manageMart/ContactUsModify";
+	
+	//編輯商品留言
+	@RequestMapping("/manageFeedback")
+	public String manageFeedback(Model model) {
+		List<FeedbackBean> list = managerItemService.getAllFeedbacks();
+		model.addAttribute("feedbacks", list);
+		return "_91_manageMart/ManageFeedback";
 	}
 
 	@ModelAttribute("item_TypeMap")

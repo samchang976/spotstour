@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import _02_model.entity.CountryBean;
+import _02_model.entity.FeedbackBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _91_managerMart.dao.ManagerItemDao;
@@ -71,13 +72,6 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	public void editItemByItemId(int itemId) {
 		String hql= "UPDATE ItemBean WHERE itemId = :id";
 		Session session = factory.getCurrentSession();
-		
-		
-		
-//		int freeze = 1;
-//		session.saveOrUpdate(hql)
-//		   .setParameter("id", itemId)
-//		   .executeUpdate();
 	}
 	
 
@@ -85,19 +79,10 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	public void updateItem(ItemBean itemBean) {
 		ItemBean ib2 = null;
 		Session session = factory.getCurrentSession();
-//		ib2 = session.get(ItemBean.class, itemBean.getItemId());
-		
-//		itemBean.setCountryId(ib2.getCountryId());
-//		itemBean.setItId(ib2.getItId());
-//		itemBean.setItemDes(ib2.getItemDes());
-//		itemBean.setItemHeader(ib2.getItemHeader());
-//		itemBean.setItemPrice(ib2.getItemPrice());
-//		itemBean.setItemQty(ib2.getItemQty());
-//		System.out.println("+++++ABCDE+++++");
-//		session.evict(ib2);
 		session.saveOrUpdate(itemBean);
 	}
 	
+	//陳列商品
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<ItemBean> getAllItems() {
@@ -107,10 +92,32 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 		return list;
 	}
 	
+	//陳列全部商品留言
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<FeedbackBean> getAllFeedbacks() {
+		String hql = "FROM FeedbackBean WHERE fb_freeze = 0 ORDER BY f_createTime DESC";
+		Session session = factory.getCurrentSession();
+		List<FeedbackBean> list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	
+	//陳列商品留言
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<FeedbackBean> getAllFeedbacksById(int itemId) {
+		String hql = "FROM FeedbackBean WHERE fb_freeze = 0 GROUP BY itemId = :id ORDER BY f_createTime DESC";
+		Session session = factory.getCurrentSession();
+		session.createQuery(hql)
+		.setParameter("id", itemId)
+		.executeUpdate();
+		List<FeedbackBean> list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	
 	@Override
 	public void addItem(ItemBean itemBean) {
 		Session session = factory.getCurrentSession();
-//		Session session = factory.openSession();
 		Item_typeBean itb = getItem_TypeById(itemBean.getItTId()); 
 		CountryBean cb = getCountryById(itemBean.getCountryTId());
 		itemBean.setItem_typeBean(itb);
@@ -122,7 +129,6 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	public Item_typeBean getItem_TypeById(int itId) {
 		Item_typeBean itb = null;
 		Session session = factory.getCurrentSession();
-//		Session session = factory.openSession();
 		itb = session.get(Item_typeBean.class, itId);
 		System.out.println(itb);
 		return itb;
@@ -133,7 +139,6 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	public List<Item_typeBean> getItem_TypeList() {
 		String hql = "FROM Item_typeBean";
 		Session session = factory.getCurrentSession();
-//		Session session = factory.openSession();		
 		List<Item_typeBean> list = session.createQuery(hql).getResultList();
 		return list;
 	}
@@ -142,7 +147,6 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	public CountryBean getCountryById(int countryId) {
 		CountryBean cb = null;
 		Session session = factory.getCurrentSession();
-//		Session session = factory.openSession();
 		cb = session.get(CountryBean.class, countryId);
 		return cb;
 	}
@@ -152,7 +156,6 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	public List<CountryBean> getCountryList() {
 		String hql = "FROM CountryBean";
 		Session session = factory.getCurrentSession();
-//		Session session = factory.openSession();		
 		List<CountryBean> list = session.createQuery(hql).getResultList();
 		return list;
 	}

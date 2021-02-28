@@ -133,21 +133,21 @@ button { /*按鈕的樣式*/
 
 
 	<c:if test="${itemId!=null}">
-		<h3>編輯商品</h3>
+		<h3>編輯商品 (商品編號 : ${itemId})</h3>
 	</c:if>
 
 	<div id="addSquare">
 		<form:form method='POST' modelAttribute='itemBean'>
 
-			<c:if test="${itemId!=null}">
-				<div class="form-group row">
-					<label for="itemId" class="col-sm-2 col-form-label">商品編號</label>
-					<div class="col-sm-10">
-						<form:input type="text" path="itemId" class="form-control"
-							id="itemId" />
-					</div>
-				</div>
-			</c:if>
+<%-- 			<c:if test="${itemId!=null}"> --%>
+<!-- 				<div class="form-group row"> -->
+<!-- 					<label for="itemId" class="col-sm-2 col-form-label">商品編號</label> -->
+<!-- 					<div class="col-sm-10"> -->
+<%-- 						<form:input type="text" path="itemId" class="form-control" --%>
+<%-- 							id="itemId" /> --%>
+<!-- 					</div> -->
+<!-- 				</div> -->
+<%-- 			</c:if> --%>
 
 			<div class="form-group row">
 				<label for="itemHeader" class="col-sm-2 col-form-label">標頭</label>
@@ -333,15 +333,19 @@ button { /*按鈕的樣式*/
 							<%-- 							onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">編輯商品</button> --%>
 							onclick="location.href='Id=${item.itemId}'">編輯商品</button>
 					</div>
-					<br> <br>
+					<br>
 					<div>
 						<button id="deleteM" value="/Id=${itemId}"
 							onclick="location.href='merchandiseModify/delete/Id=${item.itemId}'">刪除商品</button>
 					</div>
+					<br>
+					<div>
+						<button id="manageFeedback" 
+							onclick="location.href='manageFeedback'">編輯商品留言</button>
+					</div>
 				</div>
 
 			</div>
-			<br>
 		</div>
 	</c:forEach>
 
