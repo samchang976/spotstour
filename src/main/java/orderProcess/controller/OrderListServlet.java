@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import _02_model.entity.test.MemberBean;
+import _02_model.entity.MemberBean;
 import _02_model.entity.test.OrderBean;
 import _22_shoppingCart.service.OrderService;
 
@@ -40,7 +40,7 @@ public class OrderListServlet extends HttpServlet {
 		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext());
 		OrderService orderService = ctx.getBean(OrderService.class);
 
-		List<OrderBean> memberOrders = orderService.getMemberOrders(mb.getMemberId());
+		List<OrderBean> memberOrders = orderService.getMemberOrders(mb.getmAN());
 		request.setAttribute("memberOrders", memberOrders);
 		RequestDispatcher rd = request.getRequestDispatcher("/_05_orderProcess/OrderList.jsp");
 		rd.forward(request, response);

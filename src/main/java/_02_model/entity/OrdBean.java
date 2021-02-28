@@ -29,9 +29,9 @@ public class OrdBean implements Serializable {
 	@OneToMany(mappedBy = "ordBean", cascade = CascadeType.ALL)
 	Set<Ord_detailBean> ord_details = new LinkedHashSet<>();
 	
-	@ManyToOne
-	@JoinColumn(name="mId")
-	private MemberBean memberBean;
+//	@ManyToOne
+//	@JoinColumn(name="mId")
+//	private MemberBean memberBean;
 	
 	@ManyToOne(cascade = CascadeType.ALL)	
 	@JoinColumn(name = "receiptTypeId")
@@ -50,7 +50,7 @@ public class OrdBean implements Serializable {
 	}
 
 	public OrdBean(Integer ord_id, Timestamp s_createTime, Timestamp o_createTime, String s_mAddress,
-			Set<Ord_detailBean> ord_details, MemberBean memberBean, Receipt_TypeBean receipt_TypeBean,
+			Set<Ord_detailBean> ord_details, Receipt_TypeBean receipt_TypeBean,
 			Ship_TypeBean ship_TypeBean, Ord_statBean ord_statBean) {
 		super();
 		this.ord_id = ord_id;
@@ -58,7 +58,7 @@ public class OrdBean implements Serializable {
 		this.o_createTime = o_createTime;
 		this.s_mAddress = s_mAddress;
 		this.ord_details = ord_details;
-		this.memberBean = memberBean;
+//		this.memberBean = memberBean;
 		this.receipt_TypeBean = receipt_TypeBean;
 		this.ship_TypeBean = ship_TypeBean;
 		this.ord_statBean = ord_statBean;
@@ -105,13 +105,13 @@ public class OrdBean implements Serializable {
 		this.ord_details = ord_details;
 	}
 
-	public MemberBean getMemberBean() {
-		return memberBean;
-	}
-
-	public void setMemberBean(MemberBean memberBean) {
-		this.memberBean = memberBean;
-	}
+//	public MemberBean getMemberBean() {
+//		return memberBean;
+//	}
+//
+//	public void setMemberBean(MemberBean memberBean) {
+//		this.memberBean = memberBean;
+//	}
 
 	public Receipt_TypeBean getReceipt_TypeBean() {
 		return receipt_TypeBean;

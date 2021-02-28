@@ -61,9 +61,9 @@ public class PorfolioBean implements Serializable {
 	@JoinColumn(name="fk_city_id", nullable=false)  
 	private CityBean city;
 	
-	@ManyToOne
-	@JoinColumn(name="mid", nullable=false)
-	private MemberBean member;
+//	@ManyToOne
+//	@JoinColumn(name="mid", nullable=false)
+//	private MemberBean member;
 
 	public Integer getPortfolioId() {
 		return portfolioId;
@@ -193,18 +193,18 @@ public class PorfolioBean implements Serializable {
 		this.city = city;
 	}
 
-	public MemberBean getMember() {
-		return member;
-	}
-
-	public void setMember(MemberBean member) {
-		this.member = member;
-	}
+//	public MemberBean getMember() {
+//		return member;
+//	}
+//
+//	public void setMember(MemberBean member) {
+//		this.member = member;
+//	}
 
 	public PorfolioBean(Integer portfolioId, Integer cityId, String portfolioName, String portfolioText,
 			Integer placeTypeId, Timestamp p_createTime, Integer mId, String pAddress, Float longitude, Float latitude,
 			Set<RecordBean> records, Set<Watch_timesBean> watch_times, VideoBean video, Place_TypeBean place_Type,
-			Set<Porfolio_MsgBean> portfolio_Msgs, CityBean city, MemberBean member) {
+			Set<Porfolio_MsgBean> portfolio_Msgs, CityBean city) {
 		super();
 		this.portfolioId = portfolioId;
 		this.cityId = cityId;
@@ -222,7 +222,7 @@ public class PorfolioBean implements Serializable {
 		this.place_Type = place_Type;
 		this.portfolio_Msgs = portfolio_Msgs;
 		this.city = city;
-		this.member = member;
+//		this.member = member;
 	}
 	
 	

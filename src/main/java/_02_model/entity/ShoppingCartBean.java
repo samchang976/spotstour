@@ -26,8 +26,8 @@ public class ShoppingCartBean implements Serializable {
 	private String mId;
 	private Integer itemid;
 	private Integer sOrdQty;
- 	@OneToOne(mappedBy = "shoppingCart")
- 	private MemberBean member;
+// 	@OneToOne(mappedBy = "shoppingCart")
+// 	private MemberBean member;
  	
  	@OneToMany(cascade= { CascadeType.PERSIST})
     @JoinColumn(name="itemId", referencedColumnName="scId", nullable = true)    
@@ -65,13 +65,13 @@ public class ShoppingCartBean implements Serializable {
 		this.sOrdQty = sOrdQty;
 	}
 
-	public MemberBean getMember() {
-		return member;
-	}
-
-	public void setMember(MemberBean member) {
-		this.member = member;
-	}
+//	public MemberBean getMember() {
+//		return member;
+//	}
+//
+//	public void setMember(MemberBean member) {
+//		this.member = member;
+//	}
 
 	public Set<ItemBean> getItem() {
 		return item;
@@ -81,14 +81,14 @@ public class ShoppingCartBean implements Serializable {
 		this.item = item;
 	}
 
-	public ShoppingCartBean(Integer scId, String mId, Integer itemid, Integer sOrdQty, MemberBean member,
+	public ShoppingCartBean(Integer scId, String mId, Integer itemid, Integer sOrdQty, 
 			Set<ItemBean> item) {
 		super();
 		this.scId = scId;
 		this.mId = mId;
 		this.itemid = itemid;
 		this.sOrdQty = sOrdQty;
-		this.member = member;
+//		this.member = member;
 		this.item = item;
 	}
 	

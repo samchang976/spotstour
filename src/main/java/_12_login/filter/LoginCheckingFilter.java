@@ -7,7 +7,9 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.*;
 
-import _02_model.entity.test.MemberBean;
+import _02_model.entity.MemberBean;
+
+
 
 // 每個請求送達Server端時，都由本過濾器來檢查該請求所要求的資源是否需要登入才能使用。
 // 檢查的邏輯為：

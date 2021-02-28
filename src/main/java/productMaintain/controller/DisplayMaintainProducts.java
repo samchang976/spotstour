@@ -16,7 +16,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import _00_util.GlobalService;
 import _02_model.entity.test.BookBean;
-import _02_model.entity.test.MemberBean;
+import _02_model.entity.MemberBean;
 import listBooks.service.BookService;
 
 

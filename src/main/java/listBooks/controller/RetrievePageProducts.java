@@ -16,7 +16,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import _02_model.entity.test.BookBean;
-import _02_model.entity.test.MemberBean;
+import _02_model.entity.MemberBean;
 import listBooks.service.BookService;
 
 
@@ -48,7 +48,7 @@ public class RetrievePageProducts extends HttpServlet {
 		// 登入成功後，Session範圍內才會有LoginOK對應的MemberBean物件
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		// 取出使用者的memberId，後面的Cookie會用到 
-		String memberId = mb.getMemberId();
+		String memberId = mb.getmAN();
 		// BookService介面負責讀取資料庫內Book表格內某一頁的書籍資料，並能新增、修改、刪除
 		// 書籍資料等。
 		

@@ -58,37 +58,37 @@ public class MemberController {
 		if(result.hasErrors()) {
 			return inputForm;
 		}
-//		MultipartFile mbPicture = bean.getmMultipartFile();
-//		String originFileName = mbPicture.getOriginalFilename();
-//		String ext = "";
-//		if(originFileName.lastIndexOf(".") > -1) {
-//			ext = originFileName.substring(originFileName.lastIndexOf("."));
-//		}
-//		if(originFileName.length() > 0 && originFileName.lastIndexOf(".") > -1) {
-//			bean.setFileName(originFileName);
-//		}
-//		if(mbPicture != null && !mbPicture.isEmpty()) {
-//			try {
-//				byte[] b = mbPicture.getBytes();
-//				Blob blob = new SerialBlob(b);
-//				bean.setmPic(blob);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//				throw new RuntimeException("檔案上傳發生異常" + e.getMessage());
-//			}
-//		}
+		MultipartFile mbPicture = bean.getmMultipartFile();
+		String originFileName = mbPicture.getOriginalFilename();
+		String ext = "";
+		if(originFileName.lastIndexOf(".") > -1) {
+			ext = originFileName.substring(originFileName.lastIndexOf("."));
+		}
+		if(originFileName.length() > 0 && originFileName.lastIndexOf(".") > -1) {
+			bean.setFileName(originFileName);
+		}
+		if(mbPicture != null && !mbPicture.isEmpty()) {
+			try {
+				byte[] b = mbPicture.getBytes();
+				Blob blob = new SerialBlob(b);
+				bean.setmPic(blob);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException("檔案上傳發生異常" + e.getMessage());
+			}
+		}
 		Timestamp registerTime = new Timestamp(System.currentTimeMillis());
 		bean.setM_createTime(registerTime);
 		bean.setmPw(GlobalService.getMD5Endocing(GlobalService.encryptString(bean.getmPw())));
 		if(memberService.mANExists(bean.getmAN())) {
-			result.rejectValue("memberId", "", "帳號已存在，請重新輸入");
+			result.rejectValue("mAN", "", "帳號已存在，請重新輸入");
 			return inputForm;
 		}
 		try {
 			memberService.saveMember(bean);
 		} catch (Exception ex) {
 			System.out.println(ex.getClass().getName() + ", ex.getMessage() = " + ex.getMessage());
-			result.rejectValue("memberId", "", "發生異常，請通知系統人員..." + ex.getMessage());
+			result.rejectValue("mAN", "", "發生異常，請通知系統人員..." + ex.getMessage());
 			return inputForm;
 		}
 		return "redirect:/";

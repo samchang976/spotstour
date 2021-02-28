@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import _02_model.entity.test.MemberBean;
+import _02_model.entity.MemberBean;
 import _02_model.entity.test.OrderBean;
 import _02_model.entity.test.OrderItemBean;
 import _22_shoppingCart.service.OrderService;
@@ -62,7 +62,7 @@ public class ProcessOrderServlet extends HttpServlet {
 			response.sendRedirect(response.encodeRedirectURL(request.getContextPath()));
 			return; // 一定要記得 return
 		}
-		String memberId = mb.getMemberId(); // 取出會員代號
+		String memberId = mb.getmAN(); // 取出會員代號
 		double totalAmount = Math.round(sc.getSubtotal() * 1.05); // 計算訂單總金額
 		String shippingAddress = request.getParameter("ShippingAddress"); // 出貨地址
 		String bNO = request.getParameter("BNO"); // 發票的統一編號

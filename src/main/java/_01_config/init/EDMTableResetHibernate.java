@@ -16,11 +16,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import _00_util.GlobalService;
+import _02_model.entity.MemberBean;
 import _02_model.entity.test.BookBean;
 import _02_model.entity.test.CompanyBean;
 import _02_model.entity.test.ItemBean;
 import _02_model.entity.test.Item_typeBean;
-import _02_model.entity.test.MemberBean;
+
 
 
 
@@ -124,16 +125,16 @@ public class EDMTableResetHibernate {
 			while ((line = br.readLine()) != null) {
 				String[] sa = line.split("\\|");
 				MemberBean bean = new MemberBean();
-				bean.setMemberId(sa[0]);
+				bean.setmAN(sa[0]);
 				bean.setmName(sa[1]);
 				String pswd = GlobalService.getMD5Endocing(GlobalService.encryptString(sa[2]));
 				bean.setmPw(pswd);
-				bean.setd_mAddress(sa[3]);
+				bean.setD_mAddress(sa[3]);
 				bean.setmEmail(sa[4]);
 				bean.setmPhone(sa[5]);
 				bean.setmGender(sa[6]);
 
-				bean.setm_createTime(new java.sql.Timestamp(System.currentTimeMillis()));
+				bean.setM_createTime(new java.sql.Timestamp(System.currentTimeMillis()));
 
 				// --------------處理Blob(圖片)欄位----------------
 				Blob sb = GlobalService.fileToBlob(sa[7]);
