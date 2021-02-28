@@ -22,12 +22,12 @@ public class RecordBean implements Serializable {
 
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "type")
+	@JoinColumn(name = "paramId")
 	private ParamsBean paramsBean;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "portfolioId")
-	private PorfolioBean porfolioBean;
+	private PortfolioBean portfolioBean;
 
 	public Integer getRecordId() {
 		return recordId;
@@ -45,13 +45,15 @@ public class RecordBean implements Serializable {
 		this.paramsBean = paramsBean;
 	}
 
-	public PorfolioBean getPorfolioBean() {
-		return porfolioBean;
+	public PortfolioBean getPortfolioBean() {
+		return portfolioBean;
 	}
 
-	public void setPorfolioBean(PorfolioBean porfolioBean) {
-		this.porfolioBean = porfolioBean;
+	public void setPortfolioBean(PortfolioBean portfolioBean) {
+		this.portfolioBean = portfolioBean;
 	}
+
+
 
 
 	

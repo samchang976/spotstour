@@ -28,7 +28,7 @@ public class CityBean implements Serializable{
 	private CountryBean countryBean;
 	
 	@OneToMany(mappedBy = "cityBeans" , fetch = FetchType.EAGER)
-	private List<PorfolioBean> porfolioBeans;
+	private List<PortfolioBean> porfolioBeans;
 
 	public int getCityId() {
 		return cityId;
@@ -54,11 +54,11 @@ public class CityBean implements Serializable{
 		this.countryBean = countryBean;
 	}
 
-	public List<PorfolioBean> getPorfolioBeans() {
+	public List<PortfolioBean> getPorfolioBeans() {
 		return porfolioBeans;
 	}
 
-	public void setPorfolioBeans(List<PorfolioBean> porfolioBeans) {
+	public void setPorfolioBeans(List<PortfolioBean> porfolioBeans) {
 		this.porfolioBeans = porfolioBeans;
 	}
 

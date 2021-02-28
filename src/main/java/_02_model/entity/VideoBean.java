@@ -34,7 +34,7 @@ public class VideoBean implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "portfolioId")
-	private PorfolioBean porfolioBean;
+	private PortfolioBean portfolioBean;
 
 	public Integer getVideoId() {
 		return videoId;
@@ -76,15 +76,14 @@ public class VideoBean implements Serializable {
 		this.videoReports = videoReports;
 	}
 
-	public PorfolioBean getPorfolioBean() {
-		return porfolioBean;
+	public PortfolioBean getPortfolioBean() {
+		return portfolioBean;
 	}
 
-	public void setPorfolioBean(PorfolioBean porfolioBean) {
-		this.porfolioBean = porfolioBean;
+	public void setPortfolioBean(PortfolioBean portfolioBean) {
+		this.portfolioBean = portfolioBean;
 	}
 
 
-	
 	
 }

@@ -20,8 +20,8 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="porfolio")
-public class PorfolioBean implements Serializable {
+@Table(name="portfolio")
+public class PortfolioBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,21 +33,21 @@ public class PorfolioBean implements Serializable {
 	private String longitude;
 	private String latitude;
 	
-	@OneToMany(mappedBy = "porfolioBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
+	@OneToMany(mappedBy = "portfolioBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
 	private Set<RecordBean> records = new LinkedHashSet<>();
 	
-	@OneToMany(mappedBy = "porfolioBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
+	@OneToMany(mappedBy = "portfolioBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
 	private Set<Watch_timesBean> watch_times = new LinkedHashSet<>();
 	
-	@OneToMany(mappedBy = "porfolioBean" ,cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "portfolioBean" ,cascade = CascadeType.PERSIST)
 	private Set<VideoBean> videos = new LinkedHashSet<>();
 	
 	@ManyToOne 
 	@JoinColumn(name="placeTypeId", nullable=false)  
 	private Place_TypeBean place_TypeBean; 
 	
-	@OneToMany(mappedBy = "porfolioBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
-	private Set<Porfolio_MsgBean> portfolio_Msgs = new LinkedHashSet<>();
+	@OneToMany(mappedBy = "portfolioBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
+	private Set<Portfolio_MsgBean> portfolio_Msgs = new LinkedHashSet<>();
 	
 	@ManyToOne
 	@JoinColumn(name="cityId", nullable=false)  
@@ -145,11 +145,11 @@ public class PorfolioBean implements Serializable {
 		this.place_TypeBean = place_TypeBean;
 	}
 
-	public Set<Porfolio_MsgBean> getPortfolio_Msgs() {
+	public Set<Portfolio_MsgBean> getPortfolio_Msgs() {
 		return portfolio_Msgs;
 	}
 
-	public void setPortfolio_Msgs(Set<Porfolio_MsgBean> portfolio_Msgs) {
+	public void setPortfolio_Msgs(Set<Portfolio_MsgBean> portfolio_Msgs) {
 		this.portfolio_Msgs = portfolio_Msgs;
 	}
 

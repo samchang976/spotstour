@@ -305,11 +305,11 @@ CREATE TABLE `ord` (
 
 /*Data for the table `ord` */
 
-/*Table structure for table `ord_deatail` */
+/*Table structure for table `ord_detail` */
 
-DROP TABLE IF EXISTS `ord_deatail`;
+DROP TABLE IF EXISTS `ord_detail`;
 
-CREATE TABLE `ord_deatail` (
+CREATE TABLE `ord_detail` (
   `ord_dId` int NOT NULL AUTO_INCREMENT,
   `ord_Id` int NOT NULL,
   `ordQty` int NOT NULL,
@@ -321,7 +321,7 @@ CREATE TABLE `ord_deatail` (
   CONSTRAINT `ord_deatail_ord_Id_fk` FOREIGN KEY (`ord_Id`) REFERENCES `ord` (`ord_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `ord_deatail` */
+/*Data for the table `ord_detail` */
 
 /*Table structure for table `ord_stat` */
 
@@ -340,9 +340,10 @@ CREATE TABLE `ord_stat` (
 DROP TABLE IF EXISTS `params`;
 
 CREATE TABLE `params` (
+  `paramId` int NOT NULL AUTO_INCREMENT,
   `type` varchar(10) NOT NULL,
   `typeName` varchar(10) NOT NULL,
-  PRIMARY KEY (`type`)
+  PRIMARY KEY (`paramId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `params` */
@@ -432,11 +433,12 @@ CREATE TABLE `record` (
   `recordId` int NOT NULL AUTO_INCREMENT,
   `portfolioId` int NOT NULL,
   `type` varchar(10) NOT NULL,
+  `paramId` int NOT NULL,
   PRIMARY KEY (`recordId`),
   KEY `record_portfolioId_fk` (`portfolioId`),
-  KEY `record_type_fk` (`type`),
-  CONSTRAINT `record_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`),
-  CONSTRAINT `record_type_fk` FOREIGN KEY (`type`) REFERENCES `params` (`type`)
+  KEY `record_paramId_fk` (`paramId`),
+  CONSTRAINT `record_paramId_fk` FOREIGN KEY (`paramId`) REFERENCES `params` (`paramId`),
+  CONSTRAINT `record_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `record` */

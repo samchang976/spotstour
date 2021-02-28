@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -24,12 +25,13 @@ public class ShoppingCartBean implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Integer sc_Id;	
 	private Integer s_ordQty;
- 	@OneToOne(mappedBy = "mId")
- 	private MemberBean memberBeans;
+ 	@OneToOne
+ 	@JoinColumn(name = "mId")
+ 	private MemberBean memberBean;
  	
- 	@OneToMany(cascade= { CascadeType.PERSIST})
+ 	@ManyToOne
     @JoinColumn(name="itemId")    
-    private Set<ItemBean> item = new LinkedHashSet<>();
+ 	private ItemBean itemBean;
 
 	public Integer getSc_Id() {
 		return sc_Id;
@@ -47,21 +49,22 @@ public class ShoppingCartBean implements Serializable {
 		this.s_ordQty = s_ordQty;
 	}
 
-	public MemberBean getMemberBeans() {
-		return memberBeans;
+	public MemberBean getMemberBean() {
+		return memberBean;
 	}
 
-	public void setMemberBeans(MemberBean memberBeans) {
-		this.memberBeans = memberBeans;
+	public void setMemberBean(MemberBean memberBean) {
+		this.memberBean = memberBean;
 	}
 
-	public Set<ItemBean> getItem() {
-		return item;
+	public ItemBean getItemBean() {
+		return itemBean;
 	}
 
-	public void setItem(Set<ItemBean> item) {
-		this.item = item;
+	public void setItemBean(ItemBean itemBean) {
+		this.itemBean = itemBean;
 	}
+
 
  	
 }

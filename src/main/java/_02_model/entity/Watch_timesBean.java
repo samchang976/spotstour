@@ -23,7 +23,7 @@ public class Watch_timesBean implements Serializable {
 	
 	@ManyToOne  
 	@JoinColumn(name="portfolioId")  
-	private PorfolioBean porfolioBean;
+	private PortfolioBean portfolioBean;
 
 	public Integer getViewsId() {
 		return viewsId;
@@ -41,15 +41,14 @@ public class Watch_timesBean implements Serializable {
 		this.wt_createTime = wt_createTime;
 	}
 
-	public PorfolioBean getPorfolioBean() {
-		return porfolioBean;
+	public PortfolioBean getPortfolioBean() {
+		return portfolioBean;
 	}
 
-	public void setPorfolioBean(PorfolioBean porfolioBean) {
-		this.porfolioBean = porfolioBean;
+	public void setPortfolioBean(PortfolioBean portfolioBean) {
+		this.portfolioBean = portfolioBean;
 	}
 
-
-	
+		
 	
 }

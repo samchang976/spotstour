@@ -53,6 +53,9 @@ public class ItemBean implements Serializable {
 	
 	@OneToMany(mappedBy = "itemBean" , cascade = CascadeType.ALL)
 	private List<FeedbackBean> feedbackBeans;
+	
+	@OneToMany(mappedBy = "itemBean" , cascade = CascadeType.ALL)
+	private List<ShoppingCartBean> shoppingCartBeans;
 
 	public Integer getItemId() {
 		return itemId;
@@ -172,6 +175,14 @@ public class ItemBean implements Serializable {
 
 	public void setFeedbackBeans(List<FeedbackBean> feedbackBeans) {
 		this.feedbackBeans = feedbackBeans;
+	}
+
+	public List<ShoppingCartBean> getShoppingCartBeans() {
+		return shoppingCartBeans;
+	}
+
+	public void setShoppingCartBeans(List<ShoppingCartBean> shoppingCartBeans) {
+		this.shoppingCartBeans = shoppingCartBeans;
 	}
 	
 	

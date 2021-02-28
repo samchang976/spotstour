@@ -50,8 +50,7 @@ public class MemberBean implements Serializable {
 //	@Transient
 //	private MultipartFile multipartFile;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "sc_Id")
+	@OneToOne(mappedBy = "memberBean", cascade = CascadeType.ALL)
 	private ShoppingCartBean shoppingCartBeans;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
@@ -62,7 +61,7 @@ public class MemberBean implements Serializable {
 	private Set<OrdBean> orderBeans = new LinkedHashSet<>();
 
 	@OneToMany(mappedBy="memberBean", cascade={CascadeType.ALL}) 
-	private Set<PorfolioBean> porfolioBeans = new LinkedHashSet<>();
+	private Set<PortfolioBean> porfolioBeans = new LinkedHashSet<>();
 
 	public Integer getmId() {
 		return mId;
@@ -200,11 +199,11 @@ public class MemberBean implements Serializable {
 		this.orderBeans = orderBeans;
 	}
 
-	public Set<PorfolioBean> getPorfolioBeans() {
+	public Set<PortfolioBean> getPorfolioBeans() {
 		return porfolioBeans;
 	}
 
-	public void setPorfolioBeans(Set<PorfolioBean> porfolioBeans) {
+	public void setPorfolioBeans(Set<PortfolioBean> porfolioBeans) {
 		this.porfolioBeans = porfolioBeans;
 	}
 

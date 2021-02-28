@@ -24,8 +24,7 @@ public class Report_TypeBean implements Serializable {
 	private Integer rtId;
  	private String reportType;
 	
- 	@OneToMany(cascade = CascadeType.ALL)
- 	@JoinColumn(name = "reportTypeBeans")
+ 	@OneToMany(mappedBy = "reportTypeBeans")
  	private Set<VideoReportBean> videoReportBeans = new LinkedHashSet<>();
 
 	public Integer getRtId() {

@@ -14,8 +14,8 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="porfoliomsg")
-public class Porfolio_MsgBean implements Serializable {
+@Table(name="portfoliomsg")
+public class Portfolio_MsgBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,7 @@ public class Porfolio_MsgBean implements Serializable {
 	
 	@ManyToOne 
 	@JoinColumn(name="portfolioId", nullable=false)  
-	private PorfolioBean porfolioBean;
+	private PortfolioBean portfolioBean;
 
 	public Integer getPortfolioMsgId() {
 		return portfolioMsgId;
@@ -61,15 +61,14 @@ public class Porfolio_MsgBean implements Serializable {
 		this.pMsg_freeze = pMsg_freeze;
 	}
 
-	public PorfolioBean getPorfolioBean() {
-		return porfolioBean;
+	public PortfolioBean getPortfolioBean() {
+		return portfolioBean;
 	}
 
-	public void setPorfolioBean(PorfolioBean porfolioBean) {
-		this.porfolioBean = porfolioBean;
+	public void setPortfolioBean(PortfolioBean portfolioBean) {
+		this.portfolioBean = portfolioBean;
 	}
 
-	
-	
+
 	
 }
