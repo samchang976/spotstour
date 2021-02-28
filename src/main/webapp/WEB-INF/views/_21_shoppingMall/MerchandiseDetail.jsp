@@ -46,8 +46,9 @@
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 <!------------------------------------------------------------------------------------------->
 
-		<div class="container">
-			<div class="row">
+		<div class="container" id="container_MerchandiseDetail">
+<!-- 上方 ------------------------------------------------------------------------------------>
+			<div class="row above">
 				<div class="col-12 col-md-6">
 					<img src="https://fakeimg.pl/350x250/?text=World&font=lobster"
 						class="w-100">
@@ -61,35 +62,38 @@
 
 					<br> 付款方式 : 現金付款 寄送方式 : 郵局、ezShip店到店(全家/萊爾富/OK)
 				</div>
-
 			</div>
-		</div>
 
-		<!-- 下方 -->
-		<div class="container marginTop20">
+<!-- 下方 ----------------------------------------------------------------------------------->
+ 			<%-- 購買資訊分頁的按鈕-------------------------------------------------------------------  --%>
+			<div class="row AboutPurchaseInformation">
+				<div class="col-12">
+					<div id="ProductDescription">商品描述</div>
+					<div id="Purchase">費用&寄送資訊</div>
+					<div id="QA">問與答 (7)</div>
+				</div>
+			</div>
+ 
+ 			<%-- 商品資訊------------------------------------------------------- -----------------------%>
 			<div class="row">
 				<div class="col-12">
-					<button>商品描述</button>
-					<button>費用&寄送資訊</button>
-					<button>問與答 (7)</button>
-				</div>
-				<!--  -->
-				<div class="col-12">
-					<div class="content">
+					<div class="ItemInformationContent">
 						<span class="title"> 泰國-餅乾泡麵 </span>
-						<!-- 商品圖片 -->
+						<!-- 商品圖片-------------------------------------------------------- -->
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							class="w-100">
-						<div>內文................................................................
-							........................................................................
-							.......................................................................
+						
+						<!-- 商品敘述-------------------------------------------------------- -->
+						<div>內文................................................................<br>
+							........................................................................<br>
+							.......................................................................<br>
 							........................................................................</div>
 					</div>
-
-					<!-- 加入購物車 -->
-					<div class="col-12 col-md-3">
-						<div class="input-group marginTop20">
-							<select class="form-select" id="inputGroupSelect04"
+			</div>
+			<!-- 加入購物車 --------------------------------------------------------------------------------->
+			<div class="row">
+					<div class="col-12">
+							<select class="form-select"
 								aria-label="Example select with button addon">
 								<option selected>請選擇商品數量</option>
 								<option value="1">1</option>
@@ -98,12 +102,12 @@
 							</select>
 							<button class="btn btn-outline-secondary" type="button"
 								onclick="window.open('ShoppingCart')">加入購物車</button>
-						</div>
-
 					</div>
 				</div>
 			</div>
+
 		</div>
+
 <!-----------定位----------------------------------------------------------------------------->
 	</div>
 <!--內嵌footer-------------------------------------------------------------------------------->

@@ -57,7 +57,7 @@
 		<%-- 	</c:forEach> --%>
 
 
-		<div class="container text_center">
+		<div class="container" id="container_MerchandiseSearchResult">
 			<div class="row row-cols-1 row-cols-md-4 ">
 
 				<div class="col ">

@@ -46,7 +46,7 @@
 <!------------------------------------------------------------------------------------------->
 
        <!-- 優惠標題 -->
-      <div class="container" >
+      <div class="container" id="container_ActivityDetail">
           <div class="row">
               <div class="col-12">
                   <div class="title">

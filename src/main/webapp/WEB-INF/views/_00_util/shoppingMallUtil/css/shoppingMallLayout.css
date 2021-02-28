@@ -1,4 +1,12 @@
-/* MerchandiseIndex======================================================== */
+/* MerchandiseIndex、ActivityDetail****************************************************** */
+/* 發布日期 */
+#container_news .date,#container_ActivityDetail .date{
+   /* border:1px solid  rgb(73, 147, 221) ; */
+   margin-right: 15px;
+}
+
+
+/* MerchandiseIndex****************************************************** */
 /*活動快訊外層容器*/
 #container_news .newsBlock{
     /* border: 1px solid slateblue; */
@@ -19,11 +27,7 @@
    border-bottom: 1px solid rgb(224, 224, 224);
    padding: 5px;
 }
-/* 發布日期 */
-#container_news .date{
-   /* border:1px solid  rgb(73, 147, 221) ; */
-   margin-right: 15px;
-}
+
 
 #container_news .block:hover{
    color: darkgray;
@@ -96,4 +100,81 @@
       height: 500px; 
       margin:20px 0px;
     }
+}
+
+/* ActivityDetail****************************************************** */
+
+#container_ActivityDetail .title{
+   font-size: 18px;
+   background-color: rgb(252, 252, 252);
+   padding: 5px;
+ }
+
+ /* MerchandiseSearchResult*********************************************/
+
+ #container_MerchandiseSearchResult{
+   text-align: center;
+ }
+
+ 
+/* 商品照片外框 */
+.itemImageBorder{
+   background-color: rgba(225, 226, 226, 0.378); 
+   border:1px solid rgb(230, 227, 227,0.3) ;
+   border-radius: 3px;
+   padding: 20px;
+  }
+
+/* 加入購物車鈕 */
+#container_MerchandiseSearchResult .addButton{
+   /* border:1px solid maroon; */
+   /* border-radius:5px; */
+   padding:1px 3px;
+   cursor:pointer;
+   color:maroon;
+ }
+ 
+ /*MerchandiseDetail*********************************************/
+ /* 上方-------------------------------------------------------- */
+ #container_MerchandiseDetail .above{
+   margin-bottom: 10px;
+}
+
+/* 購買資訊分頁的按鈕--------------------------------------------- */
+.AboutPurchaseInformation{
+padding: 1px;
+   
+}
+
+#ProductDescription, #Purchase ,#QA{
+   display: inline-block;
+   box-sizing: border-box;
+   padding: 1px;
+   /* border: 1px solid black; */
+   border: 1px solid black;
+
+}
+
+#ProductDescription:hover, #Purchase:hover ,#QA:hover{
+   border: 1px solid rgb(119, 118, 118);
+
+   background: rgb(214, 213, 213);
+   cursor: pointer;
+}
+
+/* 商品資訊----------------------------------------------------- */
+ #container_MerchandiseDetail .ItemInformationContent{
+   padding: 50px;
+   background-color: rgb(115, 120, 124);
+ }
+  
+ #container_MerchandiseDetail .title{
+    font-size: 18px;
+    background-color: rgb(252, 252, 252);
+    padding: 5px;
+  } 
+/* 加入購物車--------------------------------------------------   */
+  #container_MerchandiseDetail select{
+     width: 300px;
+     display: inline-block;
 }
