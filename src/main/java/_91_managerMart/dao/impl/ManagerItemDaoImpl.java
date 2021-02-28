@@ -40,18 +40,18 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 		return itembean;
 	}
 
-	@Override
-	public boolean saveItem(ItemBean itembean) {
-		boolean b = false;
-        Session session = factory.getCurrentSession();
-        if (itembean.getItem_typeBean() == null) {
-        	managerItem_typeDao.setItemId(itembean.getItemId());
-            Item_typeBean itb = managerItem_typeDao.getItem_typeById();
-            itembean.setItem_typeBean(itb);
-        }
-        session.save(itembean);
-		return b = true;
-	}
+//	@Override
+//	public boolean saveItem(ItemBean itembean) {
+//		boolean b = false;
+//        Session session = factory.getCurrentSession();
+//        if (itembean.getItem_typeBean() == null) {
+//        	managerItem_typeDao.setItId(itembean.getItemId());
+//            Item_typeBean itb = managerItem_typeDao.getItem_typeById();
+//            itembean.setItem_typeBean(itb);
+//        }
+//        session.save(itembean);
+//		return b = true;
+//	}
 	
 	@Override
 	public void freezeItemByItemId(int itemId) {
@@ -69,24 +69,33 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	
 	@Override
 	public void editItemByItemId(int itemId) {
-		String hql= "UPDATE ItemBean SET item_freeze = :freeze WHERE itemId = :id";
+		String hql= "UPDATE ItemBean WHERE itemId = :id";
 		Session session = factory.getCurrentSession();
-		ItemBean bookbean = new ItemBean();
-		bookbean.setItemId(itemId);
-		session.delete(bookbean);
-		int freeze = 1;
-		session.createQuery(hql)
-		   .setParameter("freeze", freeze)
-		   .setParameter("id", itemId)
-		   .executeUpdate();
+		
+		
+		
+//		int freeze = 1;
+//		session.saveOrUpdate(hql)
+//		   .setParameter("id", itemId)
+//		   .executeUpdate();
 	}
 	
 
 	@Override
-	public boolean updateItem(ItemBean itemBean) {
+	public void updateItem(ItemBean itemBean) {
+		ItemBean ib2 = null;
 		Session session = factory.getCurrentSession();
-		// TODO Auto-generated method stub
-		return false;
+//		ib2 = session.get(ItemBean.class, itemBean.getItemId());
+		
+//		itemBean.setCountryId(ib2.getCountryId());
+//		itemBean.setItId(ib2.getItId());
+//		itemBean.setItemDes(ib2.getItemDes());
+//		itemBean.setItemHeader(ib2.getItemHeader());
+//		itemBean.setItemPrice(ib2.getItemPrice());
+//		itemBean.setItemQty(ib2.getItemQty());
+//		System.out.println("+++++ABCDE+++++");
+//		session.evict(ib2);
+		session.saveOrUpdate(itemBean);
 	}
 	
 	@SuppressWarnings("unchecked")
