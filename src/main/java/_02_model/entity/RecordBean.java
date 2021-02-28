@@ -12,26 +12,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name="record")
 public class RecordBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "recordId", unique = true, nullable = false)	
 	private Integer recordId;
-	@Column(name = "portfolioId")
-	private Integer portfolioId;
-	@Column(name = "type")
-	private String type;
+
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "type")
-	private ParamsBean Params;
+	@JoinColumn(name = "paramId")
+	private ParamsBean paramsBean;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "portfolioId")
-	private PorfolioBean porfolio;
+	private PortfolioBean portfolioBean;
 
 	public Integer getRecordId() {
 		return recordId;
@@ -41,46 +37,24 @@ public class RecordBean implements Serializable {
 		this.recordId = recordId;
 	}
 
-	public Integer getPortfolioId() {
-		return portfolioId;
+	public ParamsBean getParamsBean() {
+		return paramsBean;
 	}
 
-	public void setPortfolioId(Integer portfolioId) {
-		this.portfolioId = portfolioId;
+	public void setParamsBean(ParamsBean paramsBean) {
+		this.paramsBean = paramsBean;
 	}
 
-	public String getType() {
-		return type;
+	public PortfolioBean getPortfolioBean() {
+		return portfolioBean;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setPortfolioBean(PortfolioBean portfolioBean) {
+		this.portfolioBean = portfolioBean;
 	}
 
-	public ParamsBean getParams() {
-		return Params;
-	}
 
-	public void setParams(ParamsBean params) {
-		Params = params;
-	}
 
-	public PorfolioBean getPorfolio() {
-		return porfolio;
-	}
 
-	public void setPorfolio(PorfolioBean porfolio) {
-		this.porfolio = porfolio;
-	}
-
-	public RecordBean(Integer recordId, Integer portfolioId, String type, ParamsBean params, PorfolioBean porfolio) {
-		super();
-		this.recordId = recordId;
-		this.portfolioId = portfolioId;
-		this.type = type;
-		Params = params;
-		this.porfolio = porfolio;
-	}
-	
 	
 }

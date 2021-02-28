@@ -15,19 +15,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-//@Entity
+@Entity
 @Table(name="report_Type")
 public class Report_TypeBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "rtId", unique = true, nullable = false)
 	private Integer rtId;
  	private String reportType;
 	
- 	@OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true)
- 	@JoinColumn(name = "rtId", referencedColumnName = "rtId")
- 	private Set<VideoBean> videos = new LinkedHashSet<>();
+ 	@OneToMany(mappedBy = "reportTypeBeans")
+ 	private Set<VideoReportBean> videoReportBeans = new LinkedHashSet<>();
 
 	public Integer getRtId() {
 		return rtId;
@@ -45,20 +43,14 @@ public class Report_TypeBean implements Serializable {
 		this.reportType = reportType;
 	}
 
-	public Set<VideoBean> getVideos() {
-		return videos;
+	public Set<VideoReportBean> getVideoReportBeans() {
+		return videoReportBeans;
 	}
 
-	public void setVideos(Set<VideoBean> videos) {
-		this.videos = videos;
+	public void setVideoReportBeans(Set<VideoReportBean> videoReportBeans) {
+		this.videoReportBeans = videoReportBeans;
 	}
 
-	public Report_TypeBean(Integer rtId, String reportType, Set<VideoBean> videos) {
-		super();
-		this.rtId = rtId;
-		this.reportType = reportType;
-		this.videos = videos;
-	}
- 	
+
  	
 }

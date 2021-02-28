@@ -15,19 +15,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name="ord")
 public class OrdBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private Integer ord_id;	
+	private Integer ord_Id;	
 	private Timestamp s_createTime;
 	private Timestamp o_createTime;
 	private String s_mAddress;
 	
 	@OneToMany(mappedBy = "ordBean", cascade = CascadeType.ALL)
-	Set<Ord_detailBean> ord_details = new LinkedHashSet<>();
+	private Set<Ord_detailBean> ord_detailBeans = new LinkedHashSet<>();
 	
 	@ManyToOne
 	@JoinColumn(name="mId")
@@ -35,41 +35,22 @@ public class OrdBean implements Serializable {
 	
 	@ManyToOne(cascade = CascadeType.ALL)	
 	@JoinColumn(name = "receiptTypeId")
-	private Receipt_TypeBean receipt_TypeBean;
+	private Receipt_TypeBean receiptTypeBean;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "shipTypeId")
-	private Ship_TypeBean ship_TypeBean;
+	private Ship_TypeBean shipTypeBean;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ordSid")
-	private Ord_statBean ord_statBean;
+	@JoinColumn(name = "oSid")
+	private Ord_statBean ordStatBean;
 
-	public OrdBean() {
-		super();
+	public Integer getOrd_Id() {
+		return ord_Id;
 	}
 
-	public OrdBean(Integer ord_id, Timestamp s_createTime, Timestamp o_createTime, String s_mAddress,
-			Set<Ord_detailBean> ord_details, MemberBean memberBean, Receipt_TypeBean receipt_TypeBean,
-			Ship_TypeBean ship_TypeBean, Ord_statBean ord_statBean) {
-		super();
-		this.ord_id = ord_id;
-		this.s_createTime = s_createTime;
-		this.o_createTime = o_createTime;
-		this.s_mAddress = s_mAddress;
-		this.ord_details = ord_details;
-		this.memberBean = memberBean;
-		this.receipt_TypeBean = receipt_TypeBean;
-		this.ship_TypeBean = ship_TypeBean;
-		this.ord_statBean = ord_statBean;
-	}
-
-	public Integer getOrd_id() {
-		return ord_id;
-	}
-
-	public void setOrd_id(Integer ord_id) {
-		this.ord_id = ord_id;
+	public void setOrd_Id(Integer ord_Id) {
+		this.ord_Id = ord_Id;
 	}
 
 	public Timestamp getS_createTime() {
@@ -79,7 +60,6 @@ public class OrdBean implements Serializable {
 	public void setS_createTime(Timestamp s_createTime) {
 		this.s_createTime = s_createTime;
 	}
-
 
 	public Timestamp getO_createTime() {
 		return o_createTime;
@@ -97,12 +77,12 @@ public class OrdBean implements Serializable {
 		this.s_mAddress = s_mAddress;
 	}
 
-	public Set<Ord_detailBean> getOrd_details() {
-		return ord_details;
+	public Set<Ord_detailBean> getOrd_detailBeans() {
+		return ord_detailBeans;
 	}
 
-	public void setOrd_details(Set<Ord_detailBean> ord_details) {
-		this.ord_details = ord_details;
+	public void setOrd_detailBeans(Set<Ord_detailBean> ord_detailBeans) {
+		this.ord_detailBeans = ord_detailBeans;
 	}
 
 	public MemberBean getMemberBean() {
@@ -113,27 +93,31 @@ public class OrdBean implements Serializable {
 		this.memberBean = memberBean;
 	}
 
-	public Receipt_TypeBean getReceipt_TypeBean() {
-		return receipt_TypeBean;
+	public Receipt_TypeBean getReceiptTypeBean() {
+		return receiptTypeBean;
 	}
 
-	public void setReceipt_TypeBean(Receipt_TypeBean receipt_TypeBean) {
-		this.receipt_TypeBean = receipt_TypeBean;
+	public void setReceiptTypeBean(Receipt_TypeBean receiptTypeBean) {
+		this.receiptTypeBean = receiptTypeBean;
 	}
 
-	public Ship_TypeBean getShip_TypeBean() {
-		return ship_TypeBean;
+	public Ship_TypeBean getShipTypeBean() {
+		return shipTypeBean;
 	}
 
-	public void setShip_TypeBean(Ship_TypeBean ship_TypeBean) {
-		this.ship_TypeBean = ship_TypeBean;
+	public void setShipTypeBean(Ship_TypeBean shipTypeBean) {
+		this.shipTypeBean = shipTypeBean;
 	}
 
-	public Ord_statBean getOrd_statBean() {
-		return ord_statBean;
+	public Ord_statBean getOrdStatBean() {
+		return ordStatBean;
 	}
 
-	public void setOrd_statBean(Ord_statBean ord_statBean) {
-		this.ord_statBean = ord_statBean;
+	public void setOrdStatBean(Ord_statBean ordStatBean) {
+		this.ordStatBean = ordStatBean;
 	}
+
+
+	
+
 }

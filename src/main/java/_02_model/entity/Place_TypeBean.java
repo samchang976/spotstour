@@ -14,18 +14,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-//@Entity
+@Entity
 @Table(name="place_Type")
 public class Place_TypeBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "placeTypeId", unique = true, nullable = false)
 	Integer placeTypeId;
  	String placeType;
  	
- 	@OneToMany(mappedBy = "placeType", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
- 	private Set<PorfolioBean> porfolioes = new LinkedHashSet<>();
+ 	@OneToMany(mappedBy = "place_TypeBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
+ 	private Set<PortfolioBean> porfolioBeans = new LinkedHashSet<>();
 
 	public Integer getPlaceTypeId() {
 		return placeTypeId;
@@ -43,19 +42,14 @@ public class Place_TypeBean implements Serializable {
 		this.placeType = placeType;
 	}
 
-	public Set<PorfolioBean> getPorfolioes() {
-		return porfolioes;
+	public Set<PortfolioBean> getPorfolioBeans() {
+		return porfolioBeans;
 	}
 
-	public void setPorfolioes(Set<PorfolioBean> porfolioes) {
-		this.porfolioes = porfolioes;
+	public void setPorfolioBeans(Set<PortfolioBean> porfolioBeans) {
+		this.porfolioBeans = porfolioBeans;
 	}
 
-	public Place_TypeBean(Integer placeTypeId, String placeType, Set<PorfolioBean> porfolioes) {
-		super();
-		this.placeTypeId = placeTypeId;
-		this.placeType = placeType;
-		this.porfolioes = porfolioes;
-	}
+
 	
 }

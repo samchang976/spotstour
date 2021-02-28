@@ -13,27 +13,22 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
-//@Entity
-@Table(name="videoreport")
+@Entity
+@Table(name="video_report")
 public class VideoReportBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "reportId", unique = true, nullable = false)
 	private Integer reportId;
-	@Column(name = "videoId")
-	private Integer videoId;
 	private String reportText;
-	@Column(name = "rtId")
-	private Integer rtId;
 	
 	@ManyToOne
 	@JoinColumn(name="videoId", nullable=false)  
-	private VideoBean video;
+	private VideoBean videoBeans;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "rtId")
-	private Report_TypeBean report_Type;
+	private Report_TypeBean reportTypeBeans;
 
 	public Integer getReportId() {
 		return reportId;
@@ -41,14 +36,6 @@ public class VideoReportBean implements Serializable {
 
 	public void setReportId(Integer reportId) {
 		this.reportId = reportId;
-	}
-
-	public Integer getVideoId() {
-		return videoId;
-	}
-
-	public void setVideoId(Integer videoId) {
-		this.videoId = videoId;
 	}
 
 	public String getReportText() {
@@ -59,41 +46,21 @@ public class VideoReportBean implements Serializable {
 		this.reportText = reportText;
 	}
 
-	public Integer getRtId() {
-		return rtId;
+	public VideoBean getVideoBeans() {
+		return videoBeans;
 	}
 
-	public void setRtId(Integer rtId) {
-		this.rtId = rtId;
+	public void setVideoBeans(VideoBean videoBeans) {
+		this.videoBeans = videoBeans;
 	}
 
-	public VideoBean getVideo() {
-		return video;
+	public Report_TypeBean getReportTypeBeans() {
+		return reportTypeBeans;
 	}
 
-	public void setVideo(VideoBean video) {
-		this.video = video;
+	public void setReportTypeBeans(Report_TypeBean reportTypeBeans) {
+		this.reportTypeBeans = reportTypeBeans;
 	}
 
-	public Report_TypeBean getReport_Type() {
-		return report_Type;
-	}
 
-	public void setReportType(Report_TypeBean reportType) {
-		this.report_Type = reportType;
-	}
-
-	public VideoReportBean(Integer reportId, Integer videoId, String reportText, Integer rtId, VideoBean video,
-			Report_TypeBean report_Type) {
-		super();
-		this.reportId = reportId;
-		this.videoId = videoId;
-		this.reportText = reportText;
-		this.rtId = rtId;
-		this.video = video;
-		this.report_Type = report_Type;
-	}
-	
-	
-	
 }

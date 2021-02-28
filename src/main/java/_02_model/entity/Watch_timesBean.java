@@ -12,19 +12,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name="watch_times")
 public class Watch_timesBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer viewsId;
-	private Integer portfolioId;
 	private Timestamp wt_createTime;
 	
 	@ManyToOne  
 	@JoinColumn(name="portfolioId")  
-	private PorfolioBean porfolio;
+	private PortfolioBean portfolioBean;
 
 	public Integer getViewsId() {
 		return viewsId;
@@ -32,14 +31,6 @@ public class Watch_timesBean implements Serializable {
 
 	public void setViewsId(Integer viewsId) {
 		this.viewsId = viewsId;
-	}
-
-	public Integer getPortfolioId() {
-		return portfolioId;
-	}
-
-	public void setPortfolioId(Integer portfolioId) {
-		this.portfolioId = portfolioId;
 	}
 
 	public Timestamp getWt_createTime() {
@@ -50,21 +41,14 @@ public class Watch_timesBean implements Serializable {
 		this.wt_createTime = wt_createTime;
 	}
 
-	public PorfolioBean getPorfolio() {
-		return porfolio;
+	public PortfolioBean getPortfolioBean() {
+		return portfolioBean;
 	}
 
-	public void setPorfolio(PorfolioBean porfolio) {
-		this.porfolio = porfolio;
+	public void setPortfolioBean(PortfolioBean portfolioBean) {
+		this.portfolioBean = portfolioBean;
 	}
 
-	public Watch_timesBean(Integer viewsId, Integer portfolioId, Timestamp wt_createTime, PorfolioBean porfolio) {
-		super();
-		this.viewsId = viewsId;
-		this.portfolioId = portfolioId;
-		this.wt_createTime = wt_createTime;
-		this.porfolio = porfolio;
-	}
-	
+		
 	
 }

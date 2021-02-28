@@ -10,87 +10,61 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 
-//@Entity
+@Entity
 @Table(name="shoppingcart")
 public class ShoppingCartBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private Integer scId;	
-	private String mId;
-	private Integer itemid;
-	private Integer sOrdQty;
- 	@OneToOne(mappedBy = "shoppingCart")
- 	private MemberBean member;
+	private Integer sc_Id;	
+	private Integer s_ordQty;
+ 	@OneToOne
+ 	@JoinColumn(name = "mId")
+ 	private MemberBean memberBean;
  	
- 	@OneToMany(cascade= { CascadeType.PERSIST})
-    @JoinColumn(name="itemId", referencedColumnName="scId", nullable = true)    
-    private Set<ItemBean> item = new LinkedHashSet<>();
+ 	@ManyToOne
+    @JoinColumn(name="itemId")    
+ 	private ItemBean itemBean;
 
-	public Integer getScId() {
-		return scId;
+	public Integer getSc_Id() {
+		return sc_Id;
 	}
 
-	public void setScId(Integer scId) {
-		this.scId = scId;
+	public void setSc_Id(Integer sc_Id) {
+		this.sc_Id = sc_Id;
 	}
 
-	public String getmId() {
-		return mId;
+	public Integer getS_ordQty() {
+		return s_ordQty;
 	}
 
-	public void setmId(String mId) {
-		this.mId = mId;
+	public void setS_ordQty(Integer s_ordQty) {
+		this.s_ordQty = s_ordQty;
 	}
 
-	public Integer getItemid() {
-		return itemid;
+	public MemberBean getMemberBean() {
+		return memberBean;
 	}
 
-	public void setItemid(Integer itemid) {
-		this.itemid = itemid;
+	public void setMemberBean(MemberBean memberBean) {
+		this.memberBean = memberBean;
 	}
 
-	public Integer getsOrdQty() {
-		return sOrdQty;
+	public ItemBean getItemBean() {
+		return itemBean;
 	}
 
-	public void setsOrdQty(Integer sOrdQty) {
-		this.sOrdQty = sOrdQty;
+	public void setItemBean(ItemBean itemBean) {
+		this.itemBean = itemBean;
 	}
 
-	public MemberBean getMember() {
-		return member;
-	}
 
-	public void setMember(MemberBean member) {
-		this.member = member;
-	}
-
-	public Set<ItemBean> getItem() {
-		return item;
-	}
-
-	public void setItem(Set<ItemBean> item) {
-		this.item = item;
-	}
-
-	public ShoppingCartBean(Integer scId, String mId, Integer itemid, Integer sOrdQty, MemberBean member,
-			Set<ItemBean> item) {
-		super();
-		this.scId = scId;
-		this.mId = mId;
-		this.itemid = itemid;
-		this.sOrdQty = sOrdQty;
-		this.member = member;
-		this.item = item;
-	}
-	
  	
 }
