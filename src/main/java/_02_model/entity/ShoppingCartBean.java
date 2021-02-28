@@ -22,55 +22,37 @@ public class ShoppingCartBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private Integer scId;	
-	private String mId;
-	private Integer itemid;
-	private Integer sOrdQty;
- 	@OneToOne(mappedBy = "shoppingCartBeans")
- 	private MemberBean member;
+	private Integer sc_Id;	
+	private Integer s_ordQty;
+ 	@OneToOne(mappedBy = "mId")
+ 	private MemberBean memberBeans;
  	
  	@OneToMany(cascade= { CascadeType.PERSIST})
-    @JoinColumn(name="itemId", referencedColumnName="scId", nullable = true)    
+    @JoinColumn(name="itemId")    
     private Set<ItemBean> item = new LinkedHashSet<>();
 
-	public Integer getScId() {
-		return scId;
+	public Integer getSc_Id() {
+		return sc_Id;
 	}
 
-	public void setScId(Integer scId) {
-		this.scId = scId;
+	public void setSc_Id(Integer sc_Id) {
+		this.sc_Id = sc_Id;
 	}
 
-	public String getmId() {
-		return mId;
+	public Integer getS_ordQty() {
+		return s_ordQty;
 	}
 
-	public void setmId(String mId) {
-		this.mId = mId;
+	public void setS_ordQty(Integer s_ordQty) {
+		this.s_ordQty = s_ordQty;
 	}
 
-	public Integer getItemid() {
-		return itemid;
+	public MemberBean getMemberBeans() {
+		return memberBeans;
 	}
 
-	public void setItemid(Integer itemid) {
-		this.itemid = itemid;
-	}
-
-	public Integer getsOrdQty() {
-		return sOrdQty;
-	}
-
-	public void setsOrdQty(Integer sOrdQty) {
-		this.sOrdQty = sOrdQty;
-	}
-
-	public MemberBean getMember() {
-		return member;
-	}
-
-	public void setMember(MemberBean member) {
-		this.member = member;
+	public void setMemberBeans(MemberBean memberBeans) {
+		this.memberBeans = memberBeans;
 	}
 
 	public Set<ItemBean> getItem() {
@@ -81,16 +63,5 @@ public class ShoppingCartBean implements Serializable {
 		this.item = item;
 	}
 
-	public ShoppingCartBean(Integer scId, String mId, Integer itemid, Integer sOrdQty, MemberBean member,
-			Set<ItemBean> item) {
-		super();
-		this.scId = scId;
-		this.mId = mId;
-		this.itemid = itemid;
-		this.sOrdQty = sOrdQty;
-		this.member = member;
-		this.item = item;
-	}
-	
  	
 }

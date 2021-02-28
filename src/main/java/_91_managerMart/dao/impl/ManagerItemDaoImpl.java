@@ -57,9 +57,9 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	public void freezeItem(int itemId) {
 		String hql= "UPDATE ItemBean SET item_freeze = :freeze WHERE itemId = :id";
 		Session session = factory.getCurrentSession();
-//		ItemBean bookbean = new ItemBean();
-//		bookbean.setItemId(itemId);
-//		session.delete(bookbean);
+		ItemBean bookbean = new ItemBean();
+		bookbean.setItemId(itemId);
+		session.delete(bookbean);
 		int freeze = 1;
 		session.createQuery(hql)
 		   .setParameter("freeze", freeze)
@@ -88,8 +88,8 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	public void addItem(ItemBean itemBean) {
 		Session session = factory.getCurrentSession();
 //		Session session = factory.openSession();
-		Item_typeBean itb = getItem_TypeById(itemBean.getItId()); 
-		CountryBean cb = getCountryById(itemBean.getCountryId());
+		Item_typeBean itb = getItem_TypeById(itemBean.getItTId()); 
+		CountryBean cb = getCountryById(itemBean.getCountryTId());
 		itemBean.setItem_typeBean(itb);
 		itemBean.setCountryBean(cb);
 		session.save(itemBean);

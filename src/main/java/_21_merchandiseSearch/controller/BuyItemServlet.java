@@ -40,7 +40,7 @@ public class BuyItemServlet extends HttpServlet {
 		for (int i = 1; i < 3; i++) {
 			session.setAttribute("itemHeader" + i, itemService.getItem(i).getItemHeader());
 			session.setAttribute("itemPrice" + i, itemService.getItem(i).getItemPrice());
-			session.setAttribute("countryId" + i, itemService.getItem(i).getCountryId());
+//			session.setAttribute("countryId" + i, itemService.getItem(i).getCountryId());
 			session.setAttribute("itemQty" + i, itemService.getItem(i).getItemQty());
 		}
 		

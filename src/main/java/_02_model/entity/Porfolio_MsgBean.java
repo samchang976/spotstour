@@ -19,7 +19,7 @@ public class Porfolio_MsgBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "portfolioMsgId", unique = true, nullable = false)
+
 	private Integer portfolioMsgId;
 	private String msgText;
 	private Timestamp pm_createTime;     

@@ -20,7 +20,6 @@ public class Place_TypeBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "placeTypeId", unique = true, nullable = false)
 	Integer placeTypeId;
  	String placeType;
  	
@@ -43,19 +42,14 @@ public class Place_TypeBean implements Serializable {
 		this.placeType = placeType;
 	}
 
-	public Set<PorfolioBean> getPorfolioes() {
+	public Set<PorfolioBean> getPorfolioBeans() {
 		return porfolioBeans;
 	}
 
-	public void setPorfolioes(Set<PorfolioBean> porfolioBeans) {
+	public void setPorfolioBeans(Set<PorfolioBean> porfolioBeans) {
 		this.porfolioBeans = porfolioBeans;
 	}
 
-	public Place_TypeBean(Integer placeTypeId, String placeType, Set<PorfolioBean> porfolioBeans) {
-		super();
-		this.placeTypeId = placeTypeId;
-		this.placeType = placeType;
-		this.porfolioBeans = porfolioBeans;
-	}
+
 	
 }

@@ -23,4 +23,29 @@ public class Ship_TypeBean implements Serializable {
 	
 	@OneToMany(mappedBy = "shipTypeBean" , cascade = CascadeType.ALL)
 	private List<OrdBean> ordBeans;
+
+	public Integer getShipTypeId() {
+		return shipTypeId;
+	}
+
+	public void setShipTypeId(Integer shipTypeId) {
+		this.shipTypeId = shipTypeId;
+	}
+
+	public String getShipType() {
+		return shipType;
+	}
+
+	public void setShipType(String shipType) {
+		this.shipType = shipType;
+	}
+
+	public List<OrdBean> getOrdBeans() {
+		return ordBeans;
+	}
+
+	public void setOrdBeans(List<OrdBean> ordBeans) {
+		this.ordBeans = ordBeans;
+	}
+	
 }

@@ -51,7 +51,7 @@ public class MemberBean implements Serializable {
 //	private MultipartFile multipartFile;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "mId")
+	@JoinColumn(name = "sc_Id")
 	private ShoppingCartBean shoppingCartBeans;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
@@ -208,6 +208,5 @@ public class MemberBean implements Serializable {
 		this.porfolioBeans = porfolioBeans;
 	}
 
-	
-	
+
 }

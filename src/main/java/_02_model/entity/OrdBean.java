@@ -35,7 +35,7 @@ public class OrdBean implements Serializable {
 	
 	@ManyToOne(cascade = CascadeType.ALL)	
 	@JoinColumn(name = "receiptTypeId")
-	private Receipt_TypeBean receipt_TypeBean;
+	private Receipt_TypeBean receiptTypeBean;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "shipTypeId")
@@ -93,12 +93,12 @@ public class OrdBean implements Serializable {
 		this.memberBean = memberBean;
 	}
 
-	public Receipt_TypeBean getReceipt_TypeBean() {
-		return receipt_TypeBean;
+	public Receipt_TypeBean getReceiptTypeBean() {
+		return receiptTypeBean;
 	}
 
-	public void setReceipt_TypeBean(Receipt_TypeBean receipt_TypeBean) {
-		this.receipt_TypeBean = receipt_TypeBean;
+	public void setReceiptTypeBean(Receipt_TypeBean receiptTypeBean) {
+		this.receiptTypeBean = receiptTypeBean;
 	}
 
 	public Ship_TypeBean getShipTypeBean() {
@@ -116,7 +116,8 @@ public class OrdBean implements Serializable {
 	public void setOrdStatBean(Ord_statBean ordStatBean) {
 		this.ordStatBean = ordStatBean;
 	}
-	
+
+
 	
 
 }

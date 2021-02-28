@@ -30,8 +30,8 @@ public class PorfolioBean implements Serializable {
 	private String portfolioText;
 	private Timestamp p_createTime;
 	private String pAddress;
-	private Float longitude;
-	private Float latitude;
+	private String longitude;
+	private String latitude;
 	
 	@OneToMany(mappedBy = "porfolioBean", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
 	private Set<RecordBean> records = new LinkedHashSet<>();
@@ -53,6 +53,10 @@ public class PorfolioBean implements Serializable {
 	@JoinColumn(name="cityId", nullable=false)  
 	private CityBean cityBeans;
 	
+	@ManyToOne
+	@JoinColumn(name="mId", nullable=false)
+	private MemberBean memberBean;
+
 	public Integer getPortfolioId() {
 		return portfolioId;
 	}
@@ -93,19 +97,19 @@ public class PorfolioBean implements Serializable {
 		this.pAddress = pAddress;
 	}
 
-	public Float getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Float longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 
-	public Float getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Float latitude) {
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
 
@@ -164,10 +168,6 @@ public class PorfolioBean implements Serializable {
 	public void setMemberBean(MemberBean memberBean) {
 		this.memberBean = memberBean;
 	}
-
-	@ManyToOne
-	@JoinColumn(name="mId", nullable=false)
-	private MemberBean memberBean;
 
 
 	
