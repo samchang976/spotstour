@@ -100,263 +100,264 @@ button { /*按鈕的樣式*/
 
 </head>
 <body>
-<!--header=================================================================================  -->
+	<!--header=================================================================================  -->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!------------------------------------------------------------------------------------------->	
+		<!------------------------------------------------------------------------------------------->
 
-	<%-- 	<jsp:include page="<c:url value='${pageContext.request.contextPath}/WEB-INF/views/_00_util/allUtil/jsp/header.jsp'/>" /> --%>
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<div>
-					<br> <br>
+		<%-- 	<jsp:include page="<c:url value='${pageContext.request.contextPath}/WEB-INF/views/_00_util/allUtil/jsp/header.jsp'/>" /> --%>
+		<div class="container">
+			<div class="row">
+				<div class="col">
 					<div>
-						<button id="newM" onclick="location.href='merchandiseModify'">
-							<span class="fas fa-plus"></span>新增商品
-						</button>
-						<button id="selectA">全選</button>
-						<button id="save">儲存變更</button>
+						<br> <br>
+						<div>
+							<button id="newM" onclick="location.href='merchandiseModify'">
+								<span class="fas fa-plus"></span>新增商品
+							</button>
+							<button id="selectA">全選</button>
+							<button id="save">儲存變更</button>
+							<button id="allFeedback" onclick="location.href='manageFeedback'">查看全部商品留言</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- 	新增商品和編輯商品 -->
+		<!-- 	新增商品和編輯商品 -->
 
-	<c:if test="${itemId==null}">
-		<h3>新增商品</h3>
-	</c:if>
+		<c:if test="${itemId==null}">
+			<h3>新增商品</h3>
+		</c:if>
 
 
-	<c:if test="${itemId!=null}">
-		<h3>編輯商品 (商品編號 : ${itemId})</h3>
-	</c:if>
+		<c:if test="${itemId!=null}">
+			<h3>編輯商品 (商品編號 : ${itemId})</h3>
+		</c:if>
 
-	<div id="addSquare">
-		<form:form method='POST' modelAttribute='itemBean'>
+		<div id="addSquare">
+			<form:form method='POST' modelAttribute='itemBean'>
 
-<%-- 			<c:if test="${itemId!=null}"> --%>
-<!-- 				<div class="form-group row"> -->
-<!-- 					<label for="itemId" class="col-sm-2 col-form-label">商品編號</label> -->
-<!-- 					<div class="col-sm-10"> -->
-<%-- 						<form:input type="text" path="itemId" class="form-control" --%>
-<%-- 							id="itemId" /> --%>
-<!-- 					</div> -->
-<!-- 				</div> -->
-<%-- 			</c:if> --%>
+				<%-- 			<c:if test="${itemId!=null}"> --%>
+				<!-- 				<div class="form-group row"> -->
+				<!-- 					<label for="itemId" class="col-sm-2 col-form-label">商品編號</label> -->
+				<!-- 					<div class="col-sm-10"> -->
+				<%-- 						<form:input type="text" path="itemId" class="form-control" --%>
+				<%-- 							id="itemId" /> --%>
+				<!-- 					</div> -->
+				<!-- 				</div> -->
+				<%-- 			</c:if> --%>
 
-			<div class="form-group row">
-				<label for="itemHeader" class="col-sm-2 col-form-label">標頭</label>
-				<div class="col-sm-10">
-					<form:input type="text" path="itemHeader" class="form-control"
-						id="itemHeader" />
+				<div class="form-group row">
+					<label for="itemHeader" class="col-sm-2 col-form-label">標頭</label>
+					<div class="col-sm-10">
+						<form:input type="text" path="itemHeader" class="form-control"
+							id="itemHeader" />
+					</div>
 				</div>
-			</div>
 
-			<div class="form-group row">
-				<label for="itemPrice" class="col-sm-2 col-form-label">價錢</label>
-				<div class="col-sm-10">
-					<form:input type="text" path="itemPrice" class="form-control"
-						id="itemPrice" />
+				<div class="form-group row">
+					<label for="itemPrice" class="col-sm-2 col-form-label">價錢</label>
+					<div class="col-sm-10">
+						<form:input type="text" path="itemPrice" class="form-control"
+							id="itemPrice" />
+					</div>
 				</div>
-			</div>
 
-			<div class="form-group row">
-				<label for="itemQty" class="col-sm-2 col-form-label">數量</label>
-				<div class="col-sm-10">
-					<form:input type="number" path="itemQty" min="0"
-						class="form-control" id="itemQty" />
+				<div class="form-group row">
+					<label for="itemQty" class="col-sm-2 col-form-label">數量</label>
+					<div class="col-sm-10">
+						<form:input type="number" path="itemQty" min="0"
+							class="form-control" id="itemQty" />
+					</div>
 				</div>
-			</div>
 
-			<div class="form-group row">
-				<label for="itemDes" class="col-sm-2 col-form-label">描述</label>
-				<div class="col-sm-10">
-					<form:input type="text" path="itemDes" min="0" class="form-control"
-						id="itemDes" />
+				<div class="form-group row">
+					<label for="itemDes" class="col-sm-2 col-form-label">描述</label>
+					<div class="col-sm-10">
+						<form:input type="text" path="itemDes" min="0"
+							class="form-control" id="itemDes" />
+					</div>
 				</div>
-			</div>
 
-			<div class="form-group row">
-				<label for="itTId" class="col-sm-2 col-form-label">商品類型</label>
-				<div class="mb-3 col-10">
+				<div class="form-group row">
+					<label for="itTId" class="col-sm-2 col-form-label">商品類型</label>
+					<div class="mb-3 col-10">
+						<c:if test="${itemId==null}">
+							<form:select path="itTId" class="custom-select">
+								<form:option value="-1" label="請選擇商品類型" />
+								<form:options items="${item_TypeMap}" />
+							</form:select>
+						</c:if>
+						<c:if test="${itemId!=null}">
+							<form:select path="item_typeBean.itId" class="custom-select">
+								<form:option value="-1" label="請選擇商品類型" />
+								<form:options items="${item_TypeMap}" />
+							</form:select>
+						</c:if>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="countryTId" class="col-sm-2 col-form-label">國家</label>
 					<c:if test="${itemId==null}">
-						<form:select path="itTId" class="custom-select">
-							<form:option value="-1" label="請選擇商品類型" />
-							<form:options items="${item_TypeMap}" />
-						</form:select>
+						<div class="mb-3 col-10">
+							<form:select path="countryTId" class="custom-select">
+								<form:option value="-1" label="請選擇國家" />
+								<form:options items="${countryMap}" />
+							</form:select>
+						</div>
 					</c:if>
 					<c:if test="${itemId!=null}">
-						<form:select path="item_typeBean.itId" class="custom-select">
-							<form:option value="-1" label="請選擇商品類型" />
-							<form:options items="${item_TypeMap}" />
-						</form:select>
+						<div class="mb-3 col-10">
+							<form:select path="countryBean.countryId" class="custom-select">
+								<form:option value="-1" label="請選擇國家" />
+								<form:options items="${countryMap}" />
+							</form:select>
+						</div>
 					</c:if>
 				</div>
-			</div>
 
-			<div class="form-group row">
-				<label for="countryTId" class="col-sm-2 col-form-label">國家</label>
-				<c:if test="${itemId==null}">
-					<div class="mb-3 col-10">
-						<form:select path="countryTId" class="custom-select">
-							<form:option value="-1" label="請選擇國家" />
-							<form:options items="${countryMap}" />
-						</form:select>
-					</div>
-				</c:if>
-				<c:if test="${itemId!=null}">
-					<div class="mb-3 col-10">
-						<form:select path="countryBean.countryId" class="custom-select">
-							<form:option value="-1" label="請選擇國家" />
-							<form:options items="${countryMap}" />
-						</form:select>
-					</div>
-				</c:if>
-			</div>
-
-			<div id="addItem">
-				<div class="col col-2-1 C_SpCre">
-					<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-						class="w-100">
-					<button id="updateP1">上傳照片1</button>
-				</div>
-
-				<div class=" col col-3-1 C_SpCre">
-					<%-- 					<div>紀念品照片2${item.Pic2}</div> --%>
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-						class="w-100">
-					<button id="updateP2">上傳照片2</button>
-				</div>
-
-				<div class="col col-4-1 C_SpCre">
-					<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-						class="w-100">
-					<button id="updateP3">上傳照片3</button>
-				</div>
-			</div>
-			<div class="form-group row  d-flex justify-content-end mt-5">
-				<!-- 				<div> -->
-				<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
-				<!-- 				</div> -->
-				<c:if test="${itemId==null}">
-					<div>
-						<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
-					</div>
-				</c:if>
-				<!-- 				<div> -->
-				<!-- 					<button type="submit" id="btnEdit" class="btn btn-primary">儲存變更</button> -->
-				<!-- 				</div> -->
-
-				<c:if test="${itemId!=null}">
-					<div>
-						<button type="submit" id="editM" class="btn btn-primary"
-							onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">儲存變更</button>
-					</div>
-				</c:if>
-			</div>
-
-			<!-- 			<div> -->
-			<%-- 				<button type="submit" id="editM" value="/Id=${itemId}" --%>
-			<%-- 					onclick="location.href='merchandiseModify/update/Id=${item.itemId}'">儲存變更</button> --%>
-			<!-- 			</div> -->
-
-
-		</form:form>
-	</div>
-
-	<!-- 陳列商品 -->
-	<h3>陳列商品</h3>
-	<c:forEach var='item' items='${items}'>
-		<div class="container-fluid">
-			<div class="row R_SpCre">
-
-				<div class="col col-1 C_SpCre">
-					<input class="form-check-input" type="checkbox"
-						id="checkboxNoLabel" value="" aria-label="...">
-				</div>
-
-				<div class="col col-2-1 C_SpCre">
-					<div>${item.itemId}商品標頭:${item.itemHeader}</div>
-					<br>
-					<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
-					<div>
+				<div id="addItem">
+					<div class="col col-2-1 C_SpCre">
+						<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							class="w-100">
+						<button id="updateP1">上傳照片1</button>
 					</div>
-				</div>
 
-				<div class=" col col-3-1 C_SpCre">
-					<div>商品類別:${item.item_typeBean.itemType}</div>
-					<br>
-					<%-- 					<div>紀念品照片2${item.Pic2}</div> --%>
-					<div>
+					<div class=" col col-3-1 C_SpCre">
+						<%-- 					<div>紀念品照片2${item.Pic2}</div> --%>
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							class="w-100">
+						<button id="updateP2">上傳照片2</button>
 					</div>
 
-				</div>
-
-				<div class="col col-4-1 C_SpCre">
-					<div>商品國家:${item.countryBean.countryName}</div>
-					<br>
-					<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
-					<div>
+					<div class="col col-4-1 C_SpCre">
+						<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							class="w-100">
+						<button id="updateP3">上傳照片3</button>
 					</div>
 				</div>
+				<div class="form-group row  d-flex justify-content-end mt-5">
+					<!-- 				<div> -->
+					<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
+					<!-- 				</div> -->
+					<c:if test="${itemId==null}">
+						<div>
+							<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
+						</div>
+					</c:if>
+					<!-- 				<div> -->
+					<!-- 					<button type="submit" id="btnEdit" class="btn btn-primary">儲存變更</button> -->
+					<!-- 				</div> -->
 
-				<div class="col col-5-1 C_SpCre">
-					<br>
-					<div>
-						商品描述:<br> <br> ${item.itemDes}
-					</div>
+					<c:if test="${itemId!=null}">
+						<div>
+							<button type="submit" id="editM" class="btn btn-primary"
+								onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">儲存變更</button>
+						</div>
+					</c:if>
 				</div>
 
-				<div class=" col col-6-1 C_SpCre">
-					<br>
-					<div>商品定價:${item.itemPrice}</div>
-					<br>
-					<div>商品剩餘:${item.itemQty}</div>
-				</div>
+				<!-- 			<div> -->
+				<%-- 				<button type="submit" id="editM" value="/Id=${itemId}" --%>
+				<%-- 					onclick="location.href='merchandiseModify/update/Id=${item.itemId}'">儲存變更</button> --%>
+				<!-- 			</div> -->
 
-				<div class="col col-7-1 C_SpCre">
-					<div>
-						<button id="editM" value="/Id=${itemId}"
-							<%-- 							onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">編輯商品</button> --%>
-							onclick="location.href='Id=${item.itemId}'">編輯商品</button>
-					</div>
-					<br>
-					<div>
-						<button id="deleteM" value="/Id=${itemId}"
-							onclick="location.href='merchandiseModify/delete/Id=${item.itemId}'">刪除商品</button>
-					</div>
-					<br>
-					<div>
-						<button id="manageFeedback" 
-							onclick="location.href='manageFeedback'">編輯商品留言</button>
-					</div>
-				</div>
 
-			</div>
+			</form:form>
 		</div>
-	</c:forEach>
 
-	<hr>
-<!-----------定位----------------------------------------------------------------------------->
+		<!-- 陳列商品 -->
+		<h3>陳列商品</h3>
+		<c:forEach var='item' items='${items}'>
+			<div class="container-fluid">
+				<div class="row R_SpCre">
+
+					<div class="col col-1 C_SpCre">
+						<input class="form-check-input" type="checkbox"
+							id="checkboxNoLabel" value="" aria-label="...">
+					</div>
+
+					<div class="col col-2-1 C_SpCre">
+						<div>${item.itemId}商品標頭:${item.itemHeader}</div>
+						<br>
+						<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
+						<div>
+							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+								class="w-100">
+						</div>
+					</div>
+
+					<div class=" col col-3-1 C_SpCre">
+						<div>商品類別:${item.item_typeBean.itemType}</div>
+						<br>
+						<%-- 					<div>紀念品照片2${item.Pic2}</div> --%>
+						<div>
+							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+								class="w-100">
+						</div>
+
+					</div>
+
+					<div class="col col-4-1 C_SpCre">
+						<div>商品國家:${item.countryBean.countryName}</div>
+						<br>
+						<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
+						<div>
+							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+								class="w-100">
+						</div>
+					</div>
+
+					<div class="col col-5-1 C_SpCre">
+						<br>
+						<div>
+							商品描述:<br> <br> ${item.itemDes}
+						</div>
+					</div>
+
+					<div class=" col col-6-1 C_SpCre">
+						<br>
+						<div>商品定價:${item.itemPrice}</div>
+						<br>
+						<div>商品剩餘:${item.itemQty}</div>
+					</div>
+
+					<div class="col col-7-1 C_SpCre">
+						<div>
+							<button id="editM" value="/Id=${itemId}"
+								<%-- 							onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">編輯商品</button> --%>
+							onclick="location.href='Id=${item.itemId}'">編輯商品</button>
+						</div>
+						<br>
+						<div>
+							<button id="deleteM" value="/Id=${itemId}"
+								onclick="location.href='merchandiseModify/delete/Id=${item.itemId}'">刪除商品</button>
+						</div>
+						<br>
+						<div>
+							<button id="manageFeedback"
+								onclick="location.href='manageFeedback/Id=${item.itemId}'">編輯商品留言</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</c:forEach>
+
+		<hr>
+		<!-----------定位----------------------------------------------------------------------------->
 	</div>
-<!--內嵌footer-------------------------------------------------------------------------------->
+	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-<!-- --------------------------------------------------------------------------------------->
+	<!-- --------------------------------------------------------------------------------------->
 
 </body>
 </html>

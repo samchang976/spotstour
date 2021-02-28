@@ -29,8 +29,8 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	@Autowired
 	SessionFactory factory = null;
 	
-	@Autowired
-	ManagerItem_typeDao managerItem_typeDao;
+//	@Autowired
+//	ManagerItem_typeDao managerItem_typeDao;
 	
 	
 	@Override
@@ -56,7 +56,7 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	
 	@Override
 	public void freezeItemByItemId(int itemId) {
-		String hql= "UPDATE ItemBean SET item_freeze = :freeze WHERE itemId = :id";
+		String hql = "UPDATE ItemBean SET item_freeze = :freeze WHERE itemId = :id";
 		Session session = factory.getCurrentSession();
 //		ItemBean itembean = new ItemBean();
 //		bookbean.setItemId(itemId);
@@ -70,7 +70,7 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	
 	@Override
 	public void editItemByItemId(int itemId) {
-		String hql= "UPDATE ItemBean WHERE itemId = :id";
+		String hql = "UPDATE ItemBean WHERE itemId = :id";
 		Session session = factory.getCurrentSession();
 	}
 	
@@ -106,12 +106,13 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<FeedbackBean> getAllFeedbacksById(int itemId) {
-		String hql = "FROM FeedbackBean WHERE fb_freeze = 0 GROUP BY itemId = :id ORDER BY f_createTime DESC";
+		String hql = "FROM FeedbackBean WHERE fb_freeze = :freeze AND itemId = :id ORDER BY f_createTime DESC";
 		Session session = factory.getCurrentSession();
-		session.createQuery(hql)
-		.setParameter("id", itemId)
-		.executeUpdate();
-		List<FeedbackBean> list = session.createQuery(hql).getResultList();
+		int freeze = 0;
+		List<FeedbackBean> list = session.createQuery(hql)
+				.setParameter("id", itemId)
+				.setParameter("freeze", freeze)
+				.getResultList();
 		return list;
 	}
 	

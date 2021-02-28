@@ -34,17 +34,16 @@
 </head>
 
 <body>
-<!--header--------------------------------------------------------------------------->
-	<div class="HeaderPostition"
-		>
+	<!--header--------------------------------------------------------------------------->
+	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!-- 搜尋 ----------------------------------------------------------------------------->
+		<!-- 搜尋 ----------------------------------------------------------------------------->
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
-<!------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------->
 
 		<!-- 活動快訊 ---------------------------------------------------------------------------->
 		<div class="container" id="container_news">
@@ -63,63 +62,71 @@
 				</div>
 			</div>
 			<!-- 地區搜尋 ----------------------------------------------------------------------------->
-			<div class="row row-cols-md-4">
-				<div class="col-12 area_search"
-					onclick="location.href=
+			<c:forEach var='country' items='${countrys}'>
+				<div class="row row-cols-md-4">
+				<h2>${country.countryName}</h2>
+					<div class="col-12 area_search"
+						onclick="location.href=
                         'MerchandiseSearchResult'">
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" alt="area">
-
-					<div class="mask">
-						<h2>韓國</h2>
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+							alt="area">
+						<div class="mask">
+							<h2>${country.countryName}</h2>
+						</div>
 					</div>
+
+
+<!-- 					<div class="col-12 area_search" -->
+<!-- 						onclick="location.href= -->
+<!--                         'MerchandiseSearchResult'"> -->
+
+<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+<!-- 							alt="area"> -->
+
+<!-- 						<div class="mask"> -->
+<!-- 							<h2>韓國</h2> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+
+<!-- 					<div class="col-12 area_search" -->
+<!-- 						onclick="location.href= -->
+<!--                         'MerchandiseSearchResult'"> -->
+<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+<!-- 							alt="area"> -->
+
+<!-- 						<div class="mask"> -->
+<!-- 							<h2>韓國</h2> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+
+<!-- 					<div class="col-12 area_search" -->
+<!-- 						onclick="location.href= -->
+<!--                         'MerchandiseSearchResult'"> -->
+<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+<!-- 							alt="area"> -->
+
+
+<!-- 						<div class="mask"> -->
+<!-- 							<h2>韓國</h2> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+
+					<!-- -------------------------------------------------------------------------------------- -->
+
+
 				</div>
-
-				<div class="col-12 area_search"
-					onclick="location.href=
-                        'MerchandiseSearchResult'">
-		
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" alt="area">
-
-					<div class="mask">
-						<h2>韓國</h2>
-					</div>
-				</div>
-
-				<div class="col-12 area_search"
-					onclick="location.href=
-                        'MerchandiseSearchResult'">
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" alt="area">
-
-					<div class="mask">
-						<h2>韓國</h2>
-					</div>
-				</div>
-
-				<div class="col-12 area_search"
-					onclick="location.href=
-                        'MerchandiseSearchResult'">
-					<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" alt="area">
-
-
-					<div class="mask">
-						<h2>韓國</h2>
-					</div>
-				</div>
-<!-- -------------------------------------------------------------------------------------- -->
-
-
-			</div>
-
+			</c:forEach>
 		</div>
-		
-<!-----------定位----------------------------------------------------------------------------->
-	</div>		
-<!------------------------------------------------------------------------------------------->
-	
-<!-- Option 1: Bootstrap Bundle with Popper -->
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-			crossorigin="anonymous"></script>
+
+		<!-----------定位----------------------------------------------------------------------------->
+	</div>
+
+	<!------------------------------------------------------------------------------------------->
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
 </body>
 </html>
