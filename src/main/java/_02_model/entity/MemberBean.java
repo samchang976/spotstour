@@ -77,7 +77,7 @@ public class MemberBean implements Serializable {
 	
 	
 //	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
-//	private Set<ShoppingCartBean> shoppingCartBeans = new LinkedHashSet<>();
+//	private ShoppingCartBean shoppingCartBeans;
 	
 //	@ManyToOne(cascade = CascadeType.PERSIST)
 //	@JoinColumn(name = "mPid")
