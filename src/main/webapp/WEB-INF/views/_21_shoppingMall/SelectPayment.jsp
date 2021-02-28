@@ -42,12 +42,12 @@
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
 	
-	<!--付款資訊  -->
-	<div class="container">
+	<!--付款資訊  ---------------------------------------------------------------------------->
+	<div class="container" id="container_SelectPayment">
 		<form class="row g-2 needs-validation" novalidate action="#"
 			method="POST">
 
-			<!-- 訂購者資料 -->
+			<!-- 訂購者資料---------------------------------------------------------------- -->
 
 			<div>訂購人:</div>
 			<div>
@@ -55,13 +55,13 @@
 				<!--從會員資料庫拿-->
 			</div>
 
-			<!-- 付款方式 -->
+			<!-- 付款方式 ------------------------------------------------------------------->
 			<div>
 				付款方式 :
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox" name="pay_type"
-						id="pay_type" value="貨到付款"> <label
-						class="form-check-label" for="inlineRadio1">貨到付款</label>
+						id="pay_type" value="貨到付款"> 
+						<label class="form-check-label" for="inlineRadio1">貨到付款</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox" name="pay_type"
@@ -70,7 +70,7 @@
 				</div>
 			</div>
 
-			<!-- 手機 -->
+			<!-- 手機 --------------------------------------------------------------------->
 			<div>
 				<div class="row g-3 align-items-center">
 					<div class="col-auto">
@@ -82,7 +82,7 @@
 				</div>
 			</div>
 
-			<!-- 市話 -->
+			<!-- 市話 -------------------------------------------------------------------->
 			<div>
 				<div class="row g-3 align-items-center">
 					<div class="col-auto">
@@ -94,7 +94,7 @@
 				</div>
 			</div>
 
-			<!-- 發票類型 -->
+			<!-- 發票類型 --------------------------------------------------------------->
 			<div class="Pay_txt_title">
 				發票 :
 				<div class="form-check form-check-inline">
@@ -115,9 +115,9 @@
 						class="form-check-label" for="inlineRadio2">公司戶電子發票</label>
 				</div>
 			</div>
+<hr>
 
-
-			<!-- 收貨人資訊 -->
+			<!-- 收貨人資訊 --------------------------------------------------------------->
 			<div>收貨人 :</div>
 			<!-- 姓名 -->
 			<div>
@@ -182,9 +182,9 @@
 				</div>
 			</div>
 
-			<!--送出  -->
-			<div class="col-12">
-				<button type="submit" id="SP_Summit" class="Bt_black"
+			<!--送出  ----------------------------------------------------------------------->
+			<div class="col-12" id="subtotalBlock">
+				<button type="submit" class="Bt_black"
 					onclick="window.open('PurchaseSuccess') ">確定送出</button>
 			</div>
 		</form>

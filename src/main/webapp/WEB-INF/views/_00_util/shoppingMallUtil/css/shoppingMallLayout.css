@@ -178,3 +178,67 @@ padding: 1px;
      width: 300px;
      display: inline-block;
 }
+
+/* ShoppingCart****************************************************** */
+#container_ShoppingCart{
+   text-align: center;
+   align-items: center ;
+   /* background: #000; */
+}
+
+/*上方按鈕區--------------------------------------------------------  */
+.ButtonsBlock{
+   text-align: left
+}
+
+/* 欄位敘述--------------------------------------------------------- */
+.FieldDescription{
+   border: 1px solid rgb(65, 65, 65);
+   background: rgb(133, 133, 133);
+   /* line-height:25px; */
+    min-width: 70px;
+ }
+
+#container_ShoppingCart .row{
+   margin-bottom: 10px;
+   align-items: center ;
+}
+
+/* 商品清單區 -----------------------------------------------------------*/
+#container_ShoppingCart img{
+    max-width: 200px;
+    min-width: 80px;
+}
+
+#container_ShoppingCart .ItemField{
+   min-width: 70px;
+}
+
+#container_ShoppingCart input[type="number"]{
+   width: 40px;
+}
+
+/* SelectPayment****************************************************** */
+#container_SelectPayment{
+   /* background: #000; */
+   margin: 50px auto;
+   width: 500px;
+   padding: 20px;
+   border: 1px solid rgb(217, 224, 230);
+   border-radius: 5px;
+ }
+ #container_SelectPayment input[type="text"]{
+   width: 350px;
+} 
+label{
+   width: 70px;
+/*    background: #000; */
+   text-align: center;
+}
+
+/* ShoppingCart、SelectPayment****************************************************** */
+/* 結帳列 ----------------------------------------------------------------------------*/
+#subtotalBlock{
+   /*    padding: 10px; */
+   text-align: right;
+   }
