@@ -38,7 +38,7 @@ public class MemberBean implements Serializable {
 	private String mGender;		
 	private String mName;	
 	private String mUid;	
-	private Date mBDay;	
+	private String mBDay;	
 	private String mEmail;	
 	private String mPhone;	
 	private String d_mAddress;	
@@ -119,11 +119,11 @@ public class MemberBean implements Serializable {
 		this.mUid = mUid;
 	}
 
-	public Date getmBDay() {
+	public String getmBDay() {
 		return mBDay;
 	}
 
-	public void setmBDay(Date mBDay) {
+	public void setmBDay(String mBDay) {
 		this.mBDay = mBDay;
 	}
 
@@ -227,7 +227,7 @@ public class MemberBean implements Serializable {
 //	}
 
 	public MemberBean(Integer mId, String mAN, String mPw, String mTPw, String mGender, String mName, String mUid,
-			Date mBDay, String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, Blob mPic,
+			String mBDay, String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, Blob mPic,
 			Integer m_verify, MultipartFile multipartFile, ShoppingCartBean shoppingCartBeans,
 			Member_permBean memberPermBean, Set<OrdBean> orderBeans, Set<PortfolioBean> porfolioBeans) {
 		super();
@@ -254,7 +254,7 @@ public class MemberBean implements Serializable {
 	}
 
 	public MemberBean(Integer mId, String mAN, String mPw, String mTPw, String mGender, String mName, String mUid,
-			Date mBDay, String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, Blob mPic,
+			String mBDay, String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, Blob mPic,
 			Integer m_verify, MultipartFile multipartFile) {
 		super();
 		this.mId = mId;
@@ -275,7 +275,7 @@ public class MemberBean implements Serializable {
 		this.multipartFile = multipartFile;
 	}
 
-	public MemberBean(Integer mId, String mAN, String mPw, String mGender, String mName, String mUid, Date mBDay,
+	public MemberBean(Integer mId, String mAN, String mPw, String mGender, String mName, String mUid, String mBDay,
 			String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, Blob mPic, Integer m_verify) {
 		super();
 		this.mId = mId;

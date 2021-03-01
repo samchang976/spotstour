@@ -42,15 +42,22 @@ public class MemberController {
 	
 	/////////////////
 	
-	@GetMapping("memberRegister")
+	@GetMapping("/memberRegister")
 	public String sendForm(Model model) {
 		MemberBean memberBean = new MemberBean();
 		memberBean.setmName("Ms.Lin");
+		memberBean.setmPw("Do!ng123");
+		memberBean.setmTPw("Do!ng123");
+		memberBean.setmAN("a1011000");
+		memberBean.setD_mAddress("新竹市大同路100號");
+		memberBean.setmPhone("0919123456");
+		memberBean.setmEmail("scwang39165@outlook.com");
+		memberBean.setmUid("A123456789");
 		model.addAttribute("memberBean", memberBean);
 		return inputForm;
 	}
 	
-	@PostMapping("memberRegister")
+	@PostMapping("/memberRegister")
 	public String processForm(@ModelAttribute("memberBean") MemberBean bean, BindingResult result, 
 			Model model, HttpServletRequest request) {
 		MemberBeanValidator validator = new MemberBeanValidator();
@@ -92,12 +99,13 @@ public class MemberController {
 			return inputForm;
 		}
 		return "redirect:/";
+//		return "index";
 	}
 	
 	@ModelAttribute
 	public MemberBean prepareMemberBean(HttpServletRequest req) {
 		MemberBean memberBean = new MemberBean();
-//		memberBean.setUserType("Z");
+		memberBean.setM_verify(0);
 		return memberBean;
 	}
 	

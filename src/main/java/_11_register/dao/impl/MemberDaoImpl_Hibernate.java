@@ -1,6 +1,8 @@
 package _11_register.dao.impl;
 
 
+import java.util.List;
+
 import javax.persistence.NoResultException;
 
 import org.hibernate.NonUniqueResultException;
@@ -37,24 +39,18 @@ public class MemberDaoImpl_Hibernate implements MemberDao {
 	// 否則傳回false，表示此id可使用。
 	@Override
 	public boolean mANExists(String mAN) {
-		boolean exist = false;
+		
 		Session session = factory.getCurrentSession();
+		boolean exist = false;
 		String hql = "FROM MemberBean m WHERE m.mAN = :mAN";
-//		Query<MemberBean> query = session.createQuery(hql);
-//		query = query.setParameter("mid", mAN);
-//		MemberBean mb = query.getSingleResult();
-		try {
-			MemberBean mb = (MemberBean) session.createQuery(hql)
-												.setParameter("mAN", mAN)
-												.getSingleResult();
-			if (mb != null) {
-				exist = true;
-			}
-		} catch(NoResultException e) {
-			exist = false;
-		} catch(NonUniqueResultException e) {
+		@SuppressWarnings("unchecked")
+		List<MemberBean> beans = (List<MemberBean>) session.createQuery(hql)
+										.setParameter("mAN", mAN)
+										.getResultList();
+		
+		if (beans.size() > 0) {
 			exist = true;
-		}		
+		}
 		return exist;
 	}
 	
@@ -65,12 +61,12 @@ public class MemberDaoImpl_Hibernate implements MemberDao {
 		MemberBean mb = null;
 		Session session = factory.getCurrentSession();
 		String hql = "FROM MemberBean m WHERE m.mAN = :mAN";
-		try {
-			mb = (MemberBean) session.createQuery(hql)
-									 .setParameter("mAN", mAN)
-									 .getSingleResult();
-		} catch (NoResultException ex) {
-			;
+		@SuppressWarnings("unchecked")
+		List<MemberBean> beans = (List<MemberBean>) session.createQuery(hql)
+										.setParameter("mAN", mAN)
+										.getResultList();
+		if (beans.size() > 0) {
+			mb = beans.get(0);
 		}
 		return mb;
 	}
@@ -79,16 +75,18 @@ public class MemberDaoImpl_Hibernate implements MemberDao {
 	@Override
 	public MemberBean checkmANmPw(String mAN, String mPw) {
 		MemberBean mb = null;
-		Session session = factory.getCurrentSession();
 		String hql = "FROM MemberBean m WHERE m.mAN = :mAN and m.mPw = :mPw";
+		Session session = factory.getCurrentSession();
 		try {
 			mb = (MemberBean) session.createQuery(hql)
 									 .setParameter("mAN", mAN)
 									 .setParameter("mPw", mPw)
 									 .getSingleResult();
-		} catch (NoResultException ex) {
+		} catch(NoResultException ex) {
 			;
-		}
+		} catch(NonUniqueResultException ex) {
+			throw new RuntimeException("帳號資料有誤(NonUnique)，應重建初始資料");
+		} 	
 		return mb;
 	}
 	

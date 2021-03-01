@@ -1,5 +1,6 @@
 package _11_register.service.impl;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,9 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	MemberDao dao;
+	
+	@Autowired
+	SessionFactory factory;
 
 	public MemberServiceImpl() {
 	}

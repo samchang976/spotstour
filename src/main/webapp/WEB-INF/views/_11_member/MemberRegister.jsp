@@ -112,7 +112,7 @@
 								<div class="form-group">
 									<form:label path="mGender">性別：</form:label><form:errors path="mGender" class="error"/>
 									<form:select path="mGender" class="form-control">
-									<form:option value="-1" label="請挑選" />
+<%-- 									<form:option value="-1" label="請挑選" /> --%>
 									<form:option value="0" label="男" />
 									<form:option value="1" label="女" />
 									<form:option value="2" label="秘密" />
@@ -165,11 +165,7 @@
 
 						</form:form>
 
-						${param.message}${MsgOK.InsertOK}<br> <br>
-						<%
-							// 顯示MsgOK.InsertOK後，就要立刻移除，以免每次回到首 頁都會顯示新增成功的訊息
-						session.removeAttribute("MsgOK");
-						%>
+						
 					</div>
 				</div>
 
@@ -178,11 +174,7 @@
 
 		</div>
 
-		<%--   ${param.message}${MsgOK.InsertOK}<br> --%>
-		<!--  <br>   -->
-		<%--  <% // 顯示MsgOK.InsertOK後，就要立刻移除，以免每次回到首 頁都會顯示新增成功的訊息 --%>
-		<!-- //       session.removeAttribute("MsgOK");    -->
-		<%-- %>  --%>
+		
 	</div>
 <!-----------定位----------------------------------------------------------------------------->
 	</div>

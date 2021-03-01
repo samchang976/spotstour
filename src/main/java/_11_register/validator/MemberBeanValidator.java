@@ -28,14 +28,14 @@ public class MemberBeanValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mBDay", 		"", "生日欄不能空白");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mPhone", 		"", "電話欄不能空白");
 		ValidationUtils.rejectIfEmpty(errors, "multipartFile", "", "必須挑選圖片");
-//		if (mb.getmAN().length()<6) {
-//			errors.rejectValue("mAN","", "帳號欄不能小於六個字元");
-//		}		
-//		if (! mb.getmPw().equals(mb.getmTPw())) {
-//			errors.rejectValue("mPw","", "密碼欄與確認密碼不一致");
-//		}
-//		if (mb.getMultipartFile().getSize() == 0) {
-//			errors.rejectValue("multipartFile", "", "必須挑選圖片");
-//		}	
+		if (mb.getmAN() != null && mb.getmAN().length()<6) {
+			errors.rejectValue("mAN","", "帳號欄不能小於六個字元");
+		}		
+		if (mb.getmPw() != null && ! mb.getmPw().equals(mb.getmTPw())) {
+			errors.rejectValue("mPw","", "密碼欄與確認密碼不一致");
+		}
+		if (mb.getMultipartFile() != null && mb.getMultipartFile().getSize() == 0) {
+			errors.rejectValue("multipartFile", "", "必須挑選圖片");
+		}	
 	}
 }
