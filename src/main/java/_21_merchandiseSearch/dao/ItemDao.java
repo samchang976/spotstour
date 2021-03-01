@@ -4,6 +4,8 @@ import java.util.List;
 
 import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
+import _02_model.entity.Item_typeBean;
+import _02_model.entity.Ship_TypeBean;
 
 public interface ItemDao {
 	
@@ -23,5 +25,9 @@ public interface ItemDao {
 	
 	List<CountryBean> getAllCountrys();
 	
-	List<CountryBean> getCountryById(int countryId);
+	List<ItemBean> getItemByCountryId(int countryId);
+	
+	ItemBean getItemById(int itemId);
+	
+	List<Ship_TypeBean> getShip_TypeList();
 }

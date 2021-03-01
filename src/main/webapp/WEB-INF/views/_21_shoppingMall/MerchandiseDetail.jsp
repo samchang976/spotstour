@@ -48,13 +48,14 @@
 
 		<div class="container" id="container_MerchandiseDetail">
 <!-- 上方 ------------------------------------------------------------------------------------>
+			<form:form method='POST' modelAttribute='itemBean' >
 			<div class="row above">
 				<div class="col-12 col-md-6">
 					<img src="https://fakeimg.pl/350x250/?text=World&font=lobster"
 						class="w-100">
 				</div>
 				<div class="col-12 col-md-6">
-					泰國-餅乾泡麵<br> 售價 : $80<br> 已售出個數 :24個<br> 代購國家 : 國家<br>
+					${itemBean.itemHeader}<br> 售價 : ${itemBean.itemPrice}<br> 已售出個數 :24個<br> 代購國家 : ${itemBean.countryBean.countryName}<br>
 					款式資訊 : 辣味 | 原味 | 洋蔥 | 起司 <br>
 
 					<button id="like" class="Bt_black">加入收藏</button>
@@ -63,6 +64,13 @@
 					<br> 付款方式 : 現金付款 寄送方式 : 郵局、ezShip店到店(全家/萊爾富/OK)
 				</div>
 			</div>
+		</form:form>
+<%-- 					<form:form modelAttribute='ship_TypeBean' > --%>
+<%-- 					<form:select path="ship_TypeBean.shipTypeId" class="custom-select"> --%>
+<%-- 								<form:option value="-1" label="請選擇寄送方式" /> --%>
+<%-- 								<form:options items="${ship_TypeMap}" /> --%>
+<%-- 							</form:select> --%>
+<%-- 						</form:form>	 --%>
 
 <!-- 下方 ----------------------------------------------------------------------------------->
  			<%-- 購買資訊分頁的按鈕-------------------------------------------------------------------  --%>
@@ -78,16 +86,14 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="ItemInformationContent">
-						<span class="title"> 泰國-餅乾泡麵 </span>
+						<span class="title"> ${itemBean.itemHeader} </span>
 						<!-- 商品圖片-------------------------------------------------------- -->
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							class="w-100">
 						
 						<!-- 商品敘述-------------------------------------------------------- -->
-						<div>內文................................................................<br>
-							........................................................................<br>
-							.......................................................................<br>
-							........................................................................</div>
+						<div>${itemBean.itemDes}
+						</div>
 					</div>
 			</div>
 			<!-- 加入購物車 --------------------------------------------------------------------------------->
