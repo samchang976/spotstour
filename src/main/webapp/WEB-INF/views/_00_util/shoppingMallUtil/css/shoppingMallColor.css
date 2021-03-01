@@ -1,0 +1,24 @@
+
+/* PurchaseSuccess*************************************************************** */
+/* 勾勾icon--------------------------------------------------------------------- */
+#container_PurchaseSuccess .fas{
+    color: rgb(95, 151, 11);
+  }
+ 
+/* MyOrderList*************************************************************** */
+      /* 訂單項目 */
+.Item{
+     border-bottom: 1px solid rgb(178, 178, 179);
+}
+
+/* ShoppingCart、MyOrderList、OrderDetail、SubmitOrderInfo****************************************************** */
+/* 欄位敘述--------------------------------------------------------- */
+.FieldDescription{
+    border: 1px solid rgb(65, 65, 65);
+    background: rgb(133, 133, 133);
+  }
+
+/* OrderDetail***************************************************************************** */
+  #container_OrderDetail .Item{
+    border-bottom: 1px solid slategrey;
+ }
