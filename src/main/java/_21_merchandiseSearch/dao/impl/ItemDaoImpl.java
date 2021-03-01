@@ -79,6 +79,17 @@ public class ItemDaoImpl implements Serializable, ItemDao {
 		return list;
 	}
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CountryBean> getCountryById(int countryId) {
+		String hql = "FROM CountryBean WHERE countryId = :id";
+//		String hql = "FROM countryBean c JOIN itemBean i ON c.countryId = i.countryId WHERE c.countryId = :id";
+		Session session = factory.getCurrentSession();
+		List<CountryBean> list = session.createQuery(hql)
+				.setParameter("id", countryId)
+				.getResultList();
+		return list;
+	}
 	
 
 }

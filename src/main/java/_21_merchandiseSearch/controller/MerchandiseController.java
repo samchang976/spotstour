@@ -38,8 +38,11 @@ public class MerchandiseController {
 		return "_21_shoppingMall/MerchandiseDetail";
 	}
 
-	@RequestMapping("merchandiseSearchResult")
-	public String merchandiseSearchResult() {
+	@RequestMapping("merchandiseSearchResult/Id={countryId}")
+	public String merchandiseSearchResult(@PathVariable(value = "countryId", required = false) Integer countryId, Model model) {
+		List<CountryBean> list = itemService.getCountryById(countryId);
+		model.addAttribute("countryById", list);
+		
 		return "_21_shoppingMall/MerchandiseSearchResult";
 	}
 

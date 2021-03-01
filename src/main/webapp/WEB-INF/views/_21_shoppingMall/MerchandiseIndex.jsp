@@ -62,12 +62,11 @@
 				</div>
 			</div>
 			<!-- 地區搜尋 ----------------------------------------------------------------------------->
-			<c:forEach var='country' items='${countrys}'>
 				<div class="row row-cols-md-4">
-				<h2>${country.countryName}</h2>
+			<c:forEach var='country' items='${countrys}'>
 					<div class="col-12 area_search"
 						onclick="location.href=
-                        'MerchandiseSearchResult'">
+                        'merchandiseSearchResult/Id=${country.countryId}'">
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							alt="area">
 						<div class="mask">
@@ -114,8 +113,8 @@
 					<!-- -------------------------------------------------------------------------------------- -->
 
 
-				</div>
 			</c:forEach>
+				</div>
 		</div>
 
 		<!-----------定位----------------------------------------------------------------------------->

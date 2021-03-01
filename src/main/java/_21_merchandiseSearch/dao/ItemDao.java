@@ -20,5 +20,8 @@ public interface ItemDao {
 	long getItemCount();
 	
 //	=======================
+	
 	List<CountryBean> getAllCountrys();
+	
+	List<CountryBean> getCountryById(int countryId);
 }

@@ -33,4 +33,10 @@ public class ItemServiceImpl implements ItemService {
 		return itemdao.getAllCountrys();
 	}
 
+	@Transactional
+	@Override
+	public List<CountryBean> getCountryById(int countryId) {
+		return itemdao.getCountryById(countryId);
+	}
+
 }

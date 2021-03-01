@@ -10,6 +10,10 @@ public interface ItemService {
 	// 依itemId來查詢單筆記錄
 	ItemBean getItem(int itemId);
 	
+//	=======================
+	
 	List<CountryBean> getAllCountrys();
+	
+	List<CountryBean> getCountryById(int countryId);
 	
 }
