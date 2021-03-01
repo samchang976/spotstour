@@ -51,4 +51,9 @@ public class ShoppingCartController {
 		return "_21_shoppingMall/MerchandiseIndex";
 	}
 	
+	@RequestMapping("submitOrderInfo")
+	public String getsubmitOrderInfo() {
+		return "_21_shoppingMall/SubmitOrderInfo";
+	}
+	
 }
