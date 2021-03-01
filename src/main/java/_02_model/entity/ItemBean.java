@@ -1,6 +1,7 @@
 ﻿package _02_model.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -29,15 +31,14 @@ public class ItemBean implements Serializable {
 	private String itemPic3;
 	
 	//0 為顯示商品
-//	@Column(nullable = false, columnDefinition="INT default 0")
 	@Column(nullable = false, columnDefinition="INT default 0")
 	private Integer item_freeze = 0;
 	
 	@Transient
-	private Integer itId;
+	private Integer itTId;
 	
 	@Transient
-	private Integer countryId;
+	private Integer countryTId;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "countryId")
@@ -46,75 +47,15 @@ public class ItemBean implements Serializable {
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "itId")
 	private Item_typeBean item_typeBean;
-
-	public ItemBean() {
-		super();
-	}
-
-	public ItemBean(Integer itemId, String itemHeader, Integer itemPrice, Integer itemQty, String itemDes,
-			String itemPic1, String itemPic2, String itemPic3, Integer itId, Integer countryId, CountryBean countryBean,
-			Item_typeBean item_typeBean) {
-		super();
-		this.itemId = itemId;
-		this.itemHeader = itemHeader;
-		this.itemPrice = itemPrice;
-		this.itemQty = itemQty;
-		this.itemDes = itemDes;
-		this.itemPic1 = itemPic1;
-		this.itemPic2 = itemPic2;
-		this.itemPic3 = itemPic3;
-		this.itId = itId;
-		this.countryId = countryId;
-		this.countryBean = countryBean;
-		this.item_typeBean = item_typeBean;
-	}
-
-	public String getItemPic1() {
-		return itemPic1;
-	}
-
-	public void setItemPic1(String itemPic1) {
-		this.itemPic1 = itemPic1;
-	}
-	public String getItemPic2() {
-		return itemPic2;
-	}
-
-	public void setItemPic2(String itemPic2) {
-		this.itemPic2 = itemPic2;
-	}
-
-	public String getItemPic3() {
-		return itemPic3;
-	}
-
-	public void setItemPic3(String itemPic3) {
-		this.itemPic3 = itemPic3;
-	}
-
-	public Integer getItId() {
-		return itId;
-	}
-
-	public void setItId(Integer itId) {
-		this.itId = itId;
-	}
-
-	public Integer getCountryId() {
-		return countryId;
-	}
-
-	public void setCountryId(Integer countryId) {
-		this.countryId = countryId;
-	}
-
-	public CountryBean getCountryBean() {
-		return countryBean;
-	}
-
-	public void setCountryBean(CountryBean countryBean) {
-		this.countryBean = countryBean;
-	}
+	
+	@OneToMany(mappedBy = "itemBean" , cascade = CascadeType.ALL)
+	private List<Ord_detailBean> ord_details;
+	
+	@OneToMany(mappedBy = "itemBean" , cascade = CascadeType.ALL)
+	private List<FeedbackBean> feedbackBeans;
+	
+	@OneToMany(mappedBy = "itemBean" , cascade = CascadeType.ALL)
+	private List<ShoppingCartBean> shoppingCartBeans;
 
 	public Integer getItemId() {
 		return itemId;
@@ -156,12 +97,28 @@ public class ItemBean implements Serializable {
 		this.itemDes = itemDes;
 	}
 
-	public Item_typeBean getItem_typeBean() {
-		return item_typeBean;
+	public String getItemPic1() {
+		return itemPic1;
 	}
 
-	public void setItem_typeBean(Item_typeBean item_typeBean) {
-		this.item_typeBean = item_typeBean;
+	public void setItemPic1(String itemPic1) {
+		this.itemPic1 = itemPic1;
+	}
+
+	public String getItemPic2() {
+		return itemPic2;
+	}
+
+	public void setItemPic2(String itemPic2) {
+		this.itemPic2 = itemPic2;
+	}
+
+	public String getItemPic3() {
+		return itemPic3;
+	}
+
+	public void setItemPic3(String itemPic3) {
+		this.itemPic3 = itemPic3;
 	}
 
 	public Integer getItem_freeze() {
@@ -170,6 +127,62 @@ public class ItemBean implements Serializable {
 
 	public void setItem_freeze(Integer item_freeze) {
 		this.item_freeze = item_freeze;
+	}
+
+	public Integer getItTId() {
+		return itTId;
+	}
+
+	public void setItTId(Integer itTId) {
+		this.itTId = itTId;
+	}
+
+	public Integer getCountryTId() {
+		return countryTId;
+	}
+
+	public void setCountryTId(Integer countryTId) {
+		this.countryTId = countryTId;
+	}
+
+	public CountryBean getCountryBean() {
+		return countryBean;
+	}
+
+	public void setCountryBean(CountryBean countryBean) {
+		this.countryBean = countryBean;
+	}
+
+	public Item_typeBean getItem_typeBean() {
+		return item_typeBean;
+	}
+
+	public void setItem_typeBean(Item_typeBean item_typeBean) {
+		this.item_typeBean = item_typeBean;
+	}
+
+	public List<Ord_detailBean> getOrd_details() {
+		return ord_details;
+	}
+
+	public void setOrd_details(List<Ord_detailBean> ord_details) {
+		this.ord_details = ord_details;
+	}
+
+	public List<FeedbackBean> getFeedbackBeans() {
+		return feedbackBeans;
+	}
+
+	public void setFeedbackBeans(List<FeedbackBean> feedbackBeans) {
+		this.feedbackBeans = feedbackBeans;
+	}
+
+	public List<ShoppingCartBean> getShoppingCartBeans() {
+		return shoppingCartBeans;
+	}
+
+	public void setShoppingCartBeans(List<ShoppingCartBean> shoppingCartBeans) {
+		this.shoppingCartBeans = shoppingCartBeans;
 	}
 	
 	

@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name="member_perm")
 public class Member_permBean implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -23,7 +23,7 @@ public class Member_permBean implements Serializable {
 	Integer mPid;
  	String mPermissions;
  	
- 	@OneToMany(mappedBy = "memberperm", cascade = CascadeType.ALL)
+ 	@OneToMany(mappedBy = "memberPermBean", cascade = CascadeType.ALL)
  	Set<MemberBean> memberBeans = new LinkedHashSet<>();
  	
 	public Integer getmPid() {
@@ -34,11 +34,11 @@ public class Member_permBean implements Serializable {
 		super();
 	}
 
-	public Member_permBean(Integer mPid, String mPermissions, Set<MemberBean> memberBeans) {
+	public Member_permBean(Integer mPid, String mPermissions) {
 		super();
 		this.mPid = mPid;
 		this.mPermissions = mPermissions;
-		this.memberBeans = memberBeans;
+//		this.memberBeans = memberBeans;
 	}
 	
 	public void setmPid(Integer mPid) {
@@ -53,11 +53,11 @@ public class Member_permBean implements Serializable {
 		this.mPermissions = mPermissions;
 	}
 
-	public Set<MemberBean> getMemberBeans() {
-		return memberBeans;
-	}
-
-	public void setMemberBeans(Set<MemberBean> memberBeans) {
-		this.memberBeans = memberBeans;
-	}
+//	public Set<MemberBean> getMemberBeans() {
+//		return memberBeans;
+//	}
+//
+//	public void setMemberBeans(Set<MemberBean> memberBeans) {
+//		this.memberBeans = memberBeans;
+//	}
 }

@@ -23,18 +23,18 @@ import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
-//@Entity
+@Entity
 @Table(name="member")
 public class MemberBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer mId;//編號
-	private String mAN;//帳號
-	private String mPw;	//密碼
+	private Integer mId; //編號
+	private String mAN;  //帳號
+	private String mPw;	 //密碼
 	@Transient
-	private String mPw1;//確認密碼
+	private String mTPw; //確認密碼
 	private String mGender;		
 	private String mName;	
 	private String mUid;	
@@ -44,77 +44,24 @@ public class MemberBean implements Serializable {
 	private String d_mAddress;	
 	private Timestamp m_createTime;	
 	private String mPic;
-//	private Blob mPic;
-	
-	@Transient
-	String fileName;
-	public String getFileName() {
-		return fileName;
-	}
-
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-
-	@Transient
-	MultipartFile mMultipartFile;
-	
-	
-	public String getmPic() {
-		return mPic;
-	}
-
-
-	public void setmPic(String mPic) {
-		this.mPic = mPic;
-	}
-
-	private Integer mPid;
-	//新增該項的get&set&constructor
 	//信箱是否驗證
 	private Integer m_verify;
+
+//	@Transient
+//	private MultipartFile multipartFile;
 	
-	
-	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
-	private Set<ShoppingCartBean> shoppingCartBeans = new LinkedHashSet<>();
+	@OneToOne(mappedBy = "memberBean", cascade = CascadeType.ALL)
+	private ShoppingCartBean shoppingCartBeans;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "mPid")
-	private Member_permBean member_perm;
-	
+	private Member_permBean memberPermBean;
 	
 	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
 	private Set<OrdBean> orderBeans = new LinkedHashSet<>();
 
 	@OneToMany(mappedBy="memberBean", cascade={CascadeType.ALL}) 
-	private Set<PorfolioBean> porfolioBeans = new LinkedHashSet<>();
-
-	public MemberBean() {
-	}
-
-
-	public MemberBean(Integer mId, String mAN, String mPw, String mGender, String mName, String mUid, Date mBDay,
-			String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, String mPic, Integer mPid,
-			Set<ShoppingCartBean> shoppingCartBeans, Member_permBean member_perm, Set<OrdBean> orderBeans,
-			Set<PorfolioBean> porfolioBeans) {
-		super();
-		this.mId = mId;
-		this.mAN = mAN;
-		this.mPw = mPw;
-		this.mGender = mGender;
-		this.mName = mName;
-		this.mUid = mUid;
-		this.mBDay = mBDay;
-		this.mEmail = mEmail;
-		this.mPhone = mPhone;
-		this.d_mAddress = d_mAddress;
-		this.m_createTime = m_createTime;
-		this.mPic = mPic;
-		this.mPid = mPid;
-		this.shoppingCartBeans = shoppingCartBeans;
-		this.member_perm = member_perm;
-	}
+	private Set<PortfolioBean> porfolioBeans = new LinkedHashSet<>();
 
 	public Integer getmId() {
 		return mId;
@@ -138,6 +85,14 @@ public class MemberBean implements Serializable {
 
 	public void setmPw(String mPw) {
 		this.mPw = mPw;
+	}
+
+	public String getmTPw() {
+		return mTPw;
+	}
+
+	public void setmTPw(String mTPw) {
+		this.mTPw = mTPw;
 	}
 
 	public String getmGender() {
@@ -204,20 +159,12 @@ public class MemberBean implements Serializable {
 		this.m_createTime = m_createTime;
 	}
 
-//	public String getmPic() {
-//		return mPic;
-//	}
-//
-//	public void setmPic(String mPic) {
-//		this.mPic = mPic;
-//	}
-
-	public Integer getmPid() {
-		return mPid;
+	public String getmPic() {
+		return mPic;
 	}
 
-	public void setmPid(Integer mPid) {
-		this.mPid = mPid;
+	public void setmPic(String mPic) {
+		this.mPic = mPic;
 	}
 
 	public Integer getM_verify() {
@@ -228,20 +175,20 @@ public class MemberBean implements Serializable {
 		this.m_verify = m_verify;
 	}
 
-	public Set<ShoppingCartBean> getShoppingCartBeans() {
+	public ShoppingCartBean getShoppingCartBeans() {
 		return shoppingCartBeans;
 	}
 
-	public void setShoppingCartBeans(Set<ShoppingCartBean> shoppingCartBeans) {
+	public void setShoppingCartBeans(ShoppingCartBean shoppingCartBeans) {
 		this.shoppingCartBeans = shoppingCartBeans;
 	}
 
-	public Member_permBean getMember_perm() {
-		return member_perm;
+	public Member_permBean getMemberPermBean() {
+		return memberPermBean;
 	}
 
-	public void setMember_perm(Member_permBean member_perm) {
-		this.member_perm = member_perm;
+	public void setMemberPermBean(Member_permBean memberPermBean) {
+		this.memberPermBean = memberPermBean;
 	}
 
 	public Set<OrdBean> getOrderBeans() {
@@ -252,11 +199,13 @@ public class MemberBean implements Serializable {
 		this.orderBeans = orderBeans;
 	}
 
-	public Set<PorfolioBean> getPorfolioBeans() {
+	public Set<PortfolioBean> getPorfolioBeans() {
 		return porfolioBeans;
 	}
 
-	public void setPorfolioBeans(Set<PorfolioBean> porfolioBeans) {
+	public void setPorfolioBeans(Set<PortfolioBean> porfolioBeans) {
 		this.porfolioBeans = porfolioBeans;
 	}
+
+
 }

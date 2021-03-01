@@ -32,9 +32,10 @@ import javax.xml.bind.DatatypeConverter;
 public class GlobalService {
 
 	public static final int RECORDS_PER_PAGE = 3;
-	public static final String SYSTEM_NAME = "雅君網路購物商城";
+	public static final String SYSTEM_NAME = "SpotsTour";
 	public static final int IMAGE_FILENAME_LENGTH = 20;
 	
+	//金鑰
 	public static final String KEY = "KittySnoopyGarfieldMicky"; // 16, 24, 32
 	public static final int ORDER_AMOUNT_LIMIT = 10000;
 	

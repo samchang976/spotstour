@@ -13,25 +13,18 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name="params")
 public class ParamsBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "type", unique = true, nullable = false)	
+	private Integer paramId;
 	private String type;
 	private String typeName;
 	
-	@OneToMany(mappedBy = "ParamsBean", cascade = CascadeType.ALL)
-	Set<ParamsBean> set = new HashSet<>();
-
-	public ParamsBean(String type, String typeName, Set<ParamsBean> set) {
-		super();
-		this.type = type;
-		this.typeName = typeName;
-		this.set = set;
-	}
+	@OneToMany(mappedBy = "paramsBean", cascade = CascadeType.ALL)
+	Set<RecordBean> recordBeans = new HashSet<>();
 
 	public String getType() {
 		return type;
@@ -49,15 +42,15 @@ public class ParamsBean implements Serializable {
 		this.typeName = typeName;
 	}
 
-	public Set<ParamsBean> getSet() {
-		return set;
+	public Set<RecordBean> getRecordBeans() {
+		return recordBeans;
 	}
 
-	public void setSet(Set<ParamsBean> set) {
-		this.set = set;
+	public void setRecordBeans(Set<RecordBean> recordBeans) {
+		this.recordBeans = recordBeans;
 	}
-	
-	
+
+
 	
 	
 }

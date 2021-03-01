@@ -15,11 +15,11 @@ public class GetAreaDaoImpl implements GetAreaDao {
 	@Autowired
 	SessionFactory sessionFactory;
 	
-//	@Override
+	@Override
 	@Transactional
 	public ContinentBean queryContinentName(String continentName) {
 		ContinentBean cnb = null;
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		String hql = "FROM ContinentBean cnb WHERE cnb.continentName like :continentName";
 //		Transaction tx = session.getTransaction();
 		try {

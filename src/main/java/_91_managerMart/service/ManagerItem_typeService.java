@@ -8,12 +8,12 @@ import _02_model.entity.Item_typeBean;
 
 public interface ManagerItem_typeService {
 
-	List<Item_typeBean> getItem_type();
+//	List<Item_typeBean> getItem_type();
+//
+//	Item_typeBean getItem_typeById();
 
-	Item_typeBean getItem_typeById();
-
-	int getItemId();
+	int getItId();
 	
-	void setItemId(int id);
+	void setItId(int ItIdd);
 
 }

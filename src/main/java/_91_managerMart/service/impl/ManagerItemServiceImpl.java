@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import _02_model.entity.CountryBean;
+import _02_model.entity.FeedbackBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _91_managerMart.dao.ManagerItemDao;
@@ -43,25 +44,41 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 		managetItemDao.editItemByItemId(itemId);
 	}
 
-	@Transactional
-	@Override
-	public int saveItem(ItemBean itembean) {
-		int n = 0;
-		boolean b = managetItemDao.saveItem(itembean);
-		if(b = true) {
-			return n = 1;
-		}else {
-			return n = 0;
-		}
-	}
+//	@Transactional
+//	@Override
+//	public int saveItem(ItemBean itembean) {
+//		int n = 0;
+//		boolean b = managetItemDao.saveItem(itembean);
+//		if (b = true) {
+//			return n = 1;
+//		} else {
+//			return n = 0;
+//		}
+//	}
 	
+	//陳列全部商品
 	@Transactional
 	@Override
 	public List<ItemBean> getAllItems() {
 		return managetItemDao.getAllItems();
 	}
-	
 
+	
+	//陳列全部商品留言
+	@Transactional
+	@Override
+	public List<FeedbackBean> getAllFeedbacks() {
+		return managetItemDao.getAllFeedbacks();
+	}
+	
+	//陳列全部商品留言
+	@Transactional
+	@Override
+	public List<FeedbackBean> getAllFeedbacksById(int itemId) {
+		return managetItemDao.getAllFeedbacksById(itemId);
+	}
+	
+	//新增商品
 	@Transactional
 	@Override
 	public void addItem(ItemBean itemBean) {
@@ -92,5 +109,21 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 	@Override
 	public List<CountryBean> getCountryList() {
 		return managetItemDao.getCountryList();
+	}
+	
+	//編輯及更新商品
+	@Transactional
+	@Override
+	public void updateItem(ItemBean itemBeanN) {
+		ItemBean itemBeanO = managetItemDao.getItemByItemId(itemBeanN.getItemId());
+		
+		itemBeanO.setCountryTId(itemBeanN.getCountryTId());
+		itemBeanO.setItTId(itemBeanN.getItTId());
+		itemBeanO.setItemDes(itemBeanN.getItemDes());
+		itemBeanO.setItemHeader(itemBeanN.getItemHeader());
+		itemBeanO.setItemPrice(itemBeanN.getItemPrice());
+		itemBeanO.setItemQty(itemBeanN.getItemQty());
+		
+		managetItemDao.updateItem(itemBeanO);
 	}
 }

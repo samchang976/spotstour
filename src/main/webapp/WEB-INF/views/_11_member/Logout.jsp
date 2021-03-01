@@ -64,7 +64,7 @@
 
 		<%-- 	${ logoutBean.logout } --%>
 
-		<form name="form1" action="" method="post">
+		<form name="logoutForm" action="<c:url value='login.out' />" method="post">
 			<table width="200" border="1">
 				<tr>
 					<td colspan="2">已登出</td>

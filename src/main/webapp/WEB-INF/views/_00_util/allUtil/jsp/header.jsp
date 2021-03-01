@@ -103,7 +103,7 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="forgetPassword">忘記密碼</a></li>
 						<li><a class="dropdown-item" href="login">登入會員</a></li>
 						<li><a class="dropdown-item" href="loginSuccess">登入成功(連結找不到)</a></li>
-						<li><a class="dropdown-item" href="logOut">登出(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value='/login.out' />">登出</a></li>
 						<li><a class="dropdown-item" href="memberDetailModify">會員個人資料</a></li>
 						<li><a class="dropdown-item" href="memberRegister">註冊會員(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="memberRegisterSuccess">註冊成功(連結找不到)</a></li>
