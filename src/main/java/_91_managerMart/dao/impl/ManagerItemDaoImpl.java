@@ -146,10 +146,9 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	
 	@Override
 	public CountryBean getCountryById(int countryId) {
-		CountryBean cb = null;
 		Session session = factory.getCurrentSession();
-		cb = session.get(CountryBean.class, countryId);
-		return cb;
+		CountryBean countryBean = session.get(CountryBean.class, countryId);
+		return countryBean;
 	}
 	
 	@SuppressWarnings("unchecked")

@@ -45,35 +45,22 @@
 
 
 		<!--商品  -->
-		<%-- 	<c:forEach var="entry" items="${products}"> --%>
-
-		<!-- 		<img height='100' width='80' -->
-		<%-- 			src='${pageContext.servletContext.contextPath}/_00_init/getBookImage?id=${entry.value.bookId}'> --%>
-		<%--       	<div>商品名稱 : ${itemHeader1}</div> --%>
-		<%--       	<div>價錢 : ${itemPrice}</div> --%>
-		<%-- 		<div>產地 : ${countryId}</div> --%>
-		<%-- 		<div>庫存數量 : ${itemQty}</div> --%>
-		<%-- 	</c:forEach> --%>
-
-
 		<div class="container" id="container_MerchandiseSearchResult">
 			<div class="row row-cols-1 row-cols-md-4 ">
 
-				<c:forEach var='country' items='${countryById}'>
+				<c:forEach var='item' items='${items}'>
 					<div class="col ">
 						<div class="itemImageBorder">
-							<a href='MerchandiseDetail'> <img
+							<a href='merchandiseDetail/Id=${item.itemId}'> <img
 								src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 								class="w-100">
 							</a>
 
 						</div>
-						<div class="itemName">
-						${country.countryName}
-						韓國餅乾泡麵</div>
-						<div class="itemPrice">$120</div>
+						<div class="itemName">${item.itemHeader}</div>
+						<div class="itemPrice">${item.itemPrice}</div>
 						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input
-							type="hidden" value="韓國餅乾泡麵|照片名稱|120">
+							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}">
 						</i>
 					</div>
 

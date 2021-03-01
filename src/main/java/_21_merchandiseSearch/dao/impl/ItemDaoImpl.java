@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
+import _02_model.entity.Ship_TypeBean;
 import _21_merchandiseSearch.dao.ItemDao;
 import _21_merchandiseSearch.dao.Item_typeDao;
 
@@ -81,15 +82,29 @@ public class ItemDaoImpl implements Serializable, ItemDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<CountryBean> getCountryById(int countryId) {
-		String hql = "FROM CountryBean WHERE countryId = :id";
-//		String hql = "FROM countryBean c JOIN itemBean i ON c.countryId = i.countryId WHERE c.countryId = :id";
+	public List<ItemBean> getItemByCountryId(int countryId) {
+		String hql = "FROM ItemBean WHERE countryId = :id";
 		Session session = factory.getCurrentSession();
-		List<CountryBean> list = session.createQuery(hql)
+		List<ItemBean> list = session.createQuery(hql)
 				.setParameter("id", countryId)
 				.getResultList();
 		return list;
 	}
 	
+	@Override
+	public ItemBean getItemById(int itemId) {
+		Session session = factory.getCurrentSession();
+		ItemBean itemBean = session.get(ItemBean.class, itemId);
+		return itemBean;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Ship_TypeBean> getShip_TypeList() {
+		String hql = "FROM Ship_TypeBean";
+		Session session = factory.getCurrentSession();
+		List<Ship_TypeBean> list = session.createQuery(hql).getResultList();
+		return list;
+	}
 
 }
