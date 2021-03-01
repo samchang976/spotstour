@@ -6,4 +6,5 @@ public interface LoginDao {
 	MemberBean checkAN(MemberBean memberBean);
 	
 	MemberBean checkPw(MemberBean memberBean);
+	
 }

@@ -4,6 +4,7 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -30,12 +31,13 @@ public class LoginDaoImpl implements LoginDao {
 	@Override
 	@Transactional
 	public MemberBean checkPw(MemberBean memberBean) {
+		String imAN = memberBean.getmAN();
 		String imPw = memberBean.getmPw();
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "FROM MemberBean mb WHERE mb.mPw = :qmPw";
-		MemberBean mPw = (MemberBean) session.createQuery(hql).setParameter("qmPw", imPw).getSingleResult();
-
-
+		String hql = "FROM MemberBean mb WHERE mb.mPw = :qmPw AND mb.mAN = :qmAN";
+		//撈出帳號密碼對應的整個row
+		MemberBean mPw = (MemberBean) session.createQuery(hql).setParameter("qmPw", imPw).setParameter("qmAN", imAN).getSingleResult();
+		
 		return mPw;
 	}
 	

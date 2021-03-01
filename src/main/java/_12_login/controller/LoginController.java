@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import _02_model.entity.MemberBean;
+import _02_model.entity.Member_permBean;
 import _12_login.service.LoginService;
 
 @Controller
@@ -30,7 +31,9 @@ public class LoginController {
 	public String doLogin(@ModelAttribute MemberBean memberBean ,HttpSession session) {
 		if(loginService.loginCheck(memberBean) == true) {
 			session.setAttribute("mAN", memberBean.getmAN());
-			System.out.println(session.getAttribute("mAN")+" 已登入");
+			session.setAttribute("mPid", memberBean.getMemberPermBean().getmPid());
+			session.setAttribute("mPidName", memberBean.getMemberPermBean().getmPermissions());
+			System.out.println("User:" + session.getAttribute("mAN") + " 已登入" + ",權限:" + memberBean.getMemberPermBean().getmPermissions());
 			return "index";
 		}else {
 			return "_11_member/register";	
@@ -40,11 +43,11 @@ public class LoginController {
 	@RequestMapping("/login.out")
 	public String logout(@ModelAttribute MemberBean memberBean , HttpSession session,HttpServletRequest req) {
 		String user =  (String) session.getAttribute("mAN");
-		System.out.println(session.getAttribute("mAN")+" 準備登出");	
+		String mPidName =  (String) session.getAttribute("mPidName");
 		if(req.getSession(false) != null) {
 //		session.removeAttribute("mAN"); 只能移除sessoin屬性
 		session.invalidate(); //銷毀session	
-		System.out.println(user +" 已登出");	
+		System.out.println("User:" + user + " 已登出"+ ",權限:" + mPidName);	
 		return "index";
 		}
 		

@@ -15,12 +15,13 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public boolean loginCheck(MemberBean member) {
 		if(loginDao.checkAN(member) != null) {
-			loginDao.checkPw(member);
+			MemberBean res = loginDao.checkPw(member);
+			member.setMemberPermBean(res.getMemberPermBean());	//將權限加入	
 			return true;
 		}else {
 			return false;
 		}
-		
 	}
+
 
 }

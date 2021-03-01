@@ -25,7 +25,7 @@ public class WebAppConfig implements WebMvcConfigurer {
 	//註冊memberInterceptor攔截器,設置需要攔截的url請求路徑
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(memberInterceptor).addPathPatterns("/");
+		registry.addInterceptor(memberInterceptor).addPathPatterns("//memberDetailModify");
 	}
 
 	@Bean

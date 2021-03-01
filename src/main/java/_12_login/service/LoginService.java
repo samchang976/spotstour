@@ -6,4 +6,5 @@ public interface LoginService {
 	
 	public boolean loginCheck(MemberBean member);
 	
+	
 }
