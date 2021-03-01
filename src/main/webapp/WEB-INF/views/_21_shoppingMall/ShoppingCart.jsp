@@ -25,9 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
+	
+	
+<link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
+	
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>購物車</title>

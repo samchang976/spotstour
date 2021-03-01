@@ -25,9 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
+	
+	
+<link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
+	
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>訂單明細</title>
@@ -45,7 +59,7 @@
 		<div class="row">
 			<div class="col-12">
 				<!-- 訂單編號區塊 -->
-				<div class="orderNumber">
+				<div class="OrderNumber">
 					<span>訂單編號 : </span><span>FSWE1233245</span> <span>訂購時間 :</span><span>2021/01/12</span>
 				</div>
 			</div>
@@ -89,7 +103,7 @@
 		<!-- 總金額 -->
 
 		<div class="Total">
-			<div class="SubtotalBlock">
+			<div id="SubtotalBlock">
 				共<span id="items">3</span>商品，總金額 : <span id="subtotal">405</span>元
 			</div>
 		</div>

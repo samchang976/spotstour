@@ -1,14 +1,19 @@
+/* ActivityDetail****************************************************** */
+
+#container_ActivityDetail .title{
+   font-size: 18px;
+ }
+
+/* MerchandiseDetail************************************************************ */
+#container_MerchandiseDetail .title{
+    font-size: 18px;
+    }
 
 /* PurchaseSuccess*************************************************************** */
 /* 勾勾icon--------------------------------------------------------------------- */
 #container_PurchaseSuccess .fas{
     font-size: 80px;
   }
-
-/* 訂單編號--------------------------------------------------------------------- */
-.OrderNumber{
-    font-size: 20px;
-} 
 
 /* 訂購成功--------------------------------------------------------------------- */
 #successText{
@@ -19,8 +24,14 @@
     font-size: 20px;
  }
 
-/* PurchaseSuccess、OrderDetail************************************************* */
+/* PurchaseSuccess、OrderDetail、PurchaseSuccess************************************************* */
  /* 訂單編號 */
-.orderNumber{
+.OrderNumber{
     font-size: 20px;
   }
+ 
+  /* SubmitOrderInfo**************************************************************  */
+  .PayTitle{
+    font-size: 20px;
+    text-decoration:underline;
+ }
