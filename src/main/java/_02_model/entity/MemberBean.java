@@ -43,12 +43,12 @@ public class MemberBean implements Serializable {
 	private String mPhone;	
 	private String d_mAddress;	
 	private Timestamp m_createTime;	
-	private String mPic;
+	private Blob mPic;
 	//信箱是否驗證
 	private Integer m_verify;
-
-//	@Transient
-//	private MultipartFile multipartFile;
+//	private Integer mPid;
+	@Transient
+	private MultipartFile multipartFile;
 	
 	@OneToOne(mappedBy = "memberBean", cascade = CascadeType.ALL)
 	private ShoppingCartBean shoppingCartBeans;
@@ -159,11 +159,11 @@ public class MemberBean implements Serializable {
 		this.m_createTime = m_createTime;
 	}
 
-	public String getmPic() {
+	public Blob getmPic() {
 		return mPic;
 	}
 
-	public void setmPic(String mPic) {
+	public void setmPic(Blob mPic) {
 		this.mPic = mPic;
 	}
 
@@ -207,5 +207,98 @@ public class MemberBean implements Serializable {
 		this.porfolioBeans = porfolioBeans;
 	}
 
+	public MultipartFile getMultipartFile() {
+		return multipartFile;
+	}
 
+	public void setMultipartFile(MultipartFile multipartFile) {
+		this.multipartFile = multipartFile;
+	}
+
+	public MemberBean() {
+	}
+
+//	public Integer getmPid() {
+//		return mPid;
+//	}
+//
+//	public void setmPid(Integer mPid) {
+//		this.mPid = mPid;
+//	}
+
+	public MemberBean(Integer mId, String mAN, String mPw, String mTPw, String mGender, String mName, String mUid,
+			Date mBDay, String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, Blob mPic,
+			Integer m_verify, MultipartFile multipartFile, ShoppingCartBean shoppingCartBeans,
+			Member_permBean memberPermBean, Set<OrdBean> orderBeans, Set<PortfolioBean> porfolioBeans) {
+		super();
+		this.mId = mId;
+		this.mAN = mAN;
+		this.mPw = mPw;
+		this.mTPw = mTPw;
+		this.mGender = mGender;
+		this.mName = mName;
+		this.mUid = mUid;
+		this.mBDay = mBDay;
+		this.mEmail = mEmail;
+		this.mPhone = mPhone;
+		this.d_mAddress = d_mAddress;
+		this.m_createTime = m_createTime;
+		this.mPic = mPic;
+		this.m_verify = m_verify;
+//		this.mPid = mPid;
+		this.multipartFile = multipartFile;
+		this.shoppingCartBeans = shoppingCartBeans;
+		this.memberPermBean = memberPermBean;
+		this.orderBeans = orderBeans;
+		this.porfolioBeans = porfolioBeans;
+	}
+
+	public MemberBean(Integer mId, String mAN, String mPw, String mTPw, String mGender, String mName, String mUid,
+			Date mBDay, String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, Blob mPic,
+			Integer m_verify, MultipartFile multipartFile) {
+		super();
+		this.mId = mId;
+		this.mAN = mAN;
+		this.mPw = mPw;
+		this.mTPw = mTPw;
+		this.mGender = mGender;
+		this.mName = mName;
+		this.mUid = mUid;
+		this.mBDay = mBDay;
+		this.mEmail = mEmail;
+		this.mPhone = mPhone;
+		this.d_mAddress = d_mAddress;
+		this.m_createTime = m_createTime;
+		this.mPic = mPic;
+		this.m_verify = m_verify;
+//		this.mPid = mPid;
+		this.multipartFile = multipartFile;
+	}
+
+	public MemberBean(Integer mId, String mAN, String mPw, String mGender, String mName, String mUid, Date mBDay,
+			String mEmail, String mPhone, String d_mAddress, Timestamp m_createTime, Blob mPic, Integer m_verify) {
+		super();
+		this.mId = mId;
+		this.mAN = mAN;
+		this.mPw = mPw;
+		this.mGender = mGender;
+		this.mName = mName;
+		this.mUid = mUid;
+		this.mBDay = mBDay;
+		this.mEmail = mEmail;
+		this.mPhone = mPhone;
+		this.d_mAddress = d_mAddress;
+		this.m_createTime = m_createTime;
+		this.mPic = mPic;
+		this.m_verify = m_verify;
+//		this.mPid = mPid;
+	}
+
+	
+
+
+	
+	
+	
+	
 }

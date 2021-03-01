@@ -25,7 +25,7 @@ import _11_register.validator.MemberBeanValidator;
 //@RequestMapping("/_11_register/")
 public class MemberController {
 	
-	String inputForm="_11_member/register";
+	String inputForm="_11_member/MemberRegister";
 	@Autowired
 	MemberService memberService;
 
@@ -42,7 +42,7 @@ public class MemberController {
 	
 	/////////////////
 	
-	@GetMapping("register")
+	@GetMapping("memberRegister")
 	public String sendForm(Model model) {
 		MemberBean memberBean = new MemberBean();
 		memberBean.setmName("Ms.Lin");
@@ -50,7 +50,7 @@ public class MemberController {
 		return inputForm;
 	}
 	
-	@PostMapping("register")
+	@PostMapping("memberRegister")
 	public String processForm(@ModelAttribute("memberBean") MemberBean bean, BindingResult result, 
 			Model model, HttpServletRequest request) {
 		MemberBeanValidator validator = new MemberBeanValidator();
@@ -58,7 +58,7 @@ public class MemberController {
 		if(result.hasErrors()) {
 			return inputForm;
 		}
-//		MultipartFile mbPicture = bean.getmMultipartFile();
+		MultipartFile mbPicture = bean.getMultipartFile();
 //		String originFileName = mbPicture.getOriginalFilename();
 //		String ext = "";
 //		if(originFileName.lastIndexOf(".") > -1) {
@@ -67,28 +67,28 @@ public class MemberController {
 //		if(originFileName.length() > 0 && originFileName.lastIndexOf(".") > -1) {
 //			bean.setFileName(originFileName);
 //		}
-//		if(mbPicture != null && !mbPicture.isEmpty()) {
-//			try {
-//				byte[] b = mbPicture.getBytes();
-//				Blob blob = new SerialBlob(b);
-//				bean.setmPic(blob);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//				throw new RuntimeException("檔案上傳發生異常" + e.getMessage());
-//			}
-//		}
+		if(mbPicture != null && !mbPicture.isEmpty()) {
+			try {
+				byte[] b = mbPicture.getBytes();
+				Blob blob = new SerialBlob(b);
+				bean.setmPic(blob);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException("檔案上傳發生異常" + e.getMessage());
+			}
+		}
 		Timestamp registerTime = new Timestamp(System.currentTimeMillis());
 		bean.setM_createTime(registerTime);
 		bean.setmPw(GlobalService.getMD5Endocing(GlobalService.encryptString(bean.getmPw())));
 		if(memberService.mANExists(bean.getmAN())) {
-			result.rejectValue("memberId", "", "帳號已存在，請重新輸入");
+			result.rejectValue("mAN", "", "帳號已存在，請重新輸入");
 			return inputForm;
 		}
 		try {
 			memberService.saveMember(bean);
 		} catch (Exception ex) {
 			System.out.println(ex.getClass().getName() + ", ex.getMessage() = " + ex.getMessage());
-			result.rejectValue("memberId", "", "發生異常，請通知系統人員..." + ex.getMessage());
+			result.rejectValue("mAN", "", "發生異常，請通知系統人員..." + ex.getMessage());
 			return inputForm;
 		}
 		return "redirect:/";

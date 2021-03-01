@@ -19,7 +19,7 @@ public class Member_permBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "mPid", unique = true, nullable = false)
+//	@Column(name = "mPid", unique = true, nullable = false)
 	Integer mPid;
  	String mPermissions;
  	
@@ -53,11 +53,11 @@ public class Member_permBean implements Serializable {
 		this.mPermissions = mPermissions;
 	}
 
-//	public Set<MemberBean> getMemberBeans() {
-//		return memberBeans;
-//	}
-//
-//	public void setMemberBeans(Set<MemberBean> memberBeans) {
-//		this.memberBeans = memberBeans;
-//	}
+	public Set<MemberBean> getMemberBeans() {
+		return memberBeans;
+	}
+
+	public void setMemberBeans(Set<MemberBean> memberBeans) {
+		this.memberBeans = memberBeans;
+	}
 }
