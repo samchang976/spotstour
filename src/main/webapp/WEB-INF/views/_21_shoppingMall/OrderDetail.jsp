@@ -40,10 +40,7 @@
 <!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
-	
-	
-	
-	<div class="container">
+	<div class="container" id="container_OrderDetail">
 		<!--訂單編號  -->
 		<div class="row">
 			<div class="col-12">
@@ -56,16 +53,16 @@
 
 		<!-- 欄位敘述 -->
 		<div class="row">
-			<div class="col-4 fieldDescription_10">
+			<div class="col-4 FieldDescription">
 				<div>商品名稱</div>
 			</div>
-			<div class="col-1 fieldDescription_10">數量</div>
-			<div class="col-1 fieldDescription_10">單價</div>
-			<div class="col-1 fieldDescription_10">小計</div>
+			<div class="col-1 FieldDescription">數量</div>
+			<div class="col-1 FieldDescription">單價</div>
+			<div class="col-1 FieldDescription">小計</div>
 		</div>
 		<!-- 商品清單 -->
 		<!-- 第一列 -->
-		<div class="row W-SuOdIt">
+		<div class="row Item">
 			<!-- 商品照片 -->
 			<div class="col-2 ">
 				<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
@@ -74,7 +71,7 @@
 
 			<div class="col-2 ">
 				<div>
-					日本代購-<br>海苔天婦羅餅乾
+					日本代購<br>海苔天婦羅餅乾
 				</div>
 			</div>
 			<!--數量  -->
@@ -89,61 +86,10 @@
 			<div class="col-1 ">$135</div>
 		</div>
 
-		<!--第二列  -->
-		<div class="row W-SuOdIt">
-			<!-- 商品照片 -->
-			<div class="col-2 ">
-				<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
-				<i class="fas fa-search"></i>
-
-			</div>
-
-			<div class="col-2 ">
-				<div>
-					日本代購-<br>海苔天婦羅餅乾
-				</div>
-			</div>
-			<!--數量  -->
-			<div class="col-1 ">
-				<div>
-					<div>1</div>
-				</div>
-			</div>
-			<!-- 單價 -->
-			<div class="col-1 ">$135</div>
-			<!-- 小計 -->
-			<div class="col-1 ">$135</div>
-		</div>
-
-		<!-- 第三列 -->
-		<div class="row W-SuOdIt">
-			<!-- 商品照片 -->
-			<div class="col-2 ">
-				<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
-				<i class="fas fa-search"></i>
-
-			</div>
-
-			<div class="col-2">
-				<div>
-					日本代購-<br>海苔天婦羅餅乾
-				</div>
-			</div>
-			<!--數量  -->
-			<div class="col-1">
-				<div>
-					<div>1</div>
-				</div>
-			</div>
-			<!-- 單價 -->
-			<div class="col-1">$135</div>
-			<!-- 小計 -->
-			<div class="col-1">$135</div>
-		</div>
 		<!-- 總金額 -->
 
 		<div class="Total">
-			<div class="subtotalBlock_10">
+			<div class="SubtotalBlock">
 				共<span id="items">3</span>商品，總金額 : <span id="subtotal">405</span>元
 			</div>
 		</div>

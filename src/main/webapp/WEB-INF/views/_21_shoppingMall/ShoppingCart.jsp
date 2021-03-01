@@ -105,7 +105,7 @@
 
 		<!--結帳 ------------------------------------------------------------------------ -->
 		<hr>
-		<div class="row-12" id="subtotalBlock">
+		<div class="row-12" id="SubtotalBlock">
 			共<span id="items">0</span>商品，總金額 : <span id="subtotal">0</span>元
 			<button id="BtcheckNow" class="Bt_black " type="submit"
 				onclick="window.open('SelectPayment')">立即結帳</button>

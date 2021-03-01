@@ -41,11 +41,11 @@
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
 	
-	<div class="container">
+	<div class="container" id="container_PurchaseSuccess">
 		<!-- 訂單編號區塊 -->
 		<div class="row">
 			<div class="col-12">
-				<div class="orderNumber">
+				<div class="OrderNumber">
 					<span>訂單編號 : </span> <span>FSWE1233245</span>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div>
-					<i class="fas fa-check-circle"></i> <span id="success_Text">
+					<i class="fas fa-check-circle"></i> <span id="successText">
 						訂購成功! </span>
 				</div>
 			</div>

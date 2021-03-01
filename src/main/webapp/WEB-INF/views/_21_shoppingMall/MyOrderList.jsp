@@ -40,29 +40,24 @@
 	</div>
 <!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!-- 搜尋 ----------------------------------------------------------------------------->
-		<jsp:include
-			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
-<!------------------------------------------------------------------------------------------->
 	
-
     <!-- 欄位敘述 -->
-    <div class="container " >
+    <div class="container" id="MyOrderList">
         <div class="row " >
             <!-- 訂單編號 -->
-            <div class="col-3 fieldDescription_09 ">
+            <div class="col-3 FieldDescription ">
                 <div>訂單編號</div>
             </div>
             <!-- 訂購時間 -->
-            <div class="col-3 fieldDescription_09">
+            <div class="col-3 FieldDescription">
                 <div>訂單時間</div>
             </div>
             <!-- 出貨時間 -->
-            <div class="col-3 fieldDescription_09">
+            <div class="col-3 FieldDescription">
                 出貨時間
             </div>
             <!-- 狀態 -->
-            <div class="col-2 fieldDescription_09">
+            <div class="col-2 FieldDescription">
                 狀態
             </div>
             <!-- 退貨按鈕 -->
@@ -70,9 +65,9 @@
             </div>
         </div>
 
-    <!-- 訂單項目 -->
-    <!-- 第一項 -->
-        <div class="row OLitem">
+     <!-- 訂單項目 -->
+        <!-- 第一項 -->
+        <div class="row Item">
             <!-- 訂單編號 -->
             <div class="col-3">
                 <div >FSWE1233000</div>
@@ -95,7 +90,7 @@
             </div>
         </div>
         <!-- 第二項 -->
-        <div class="row OLitem">
+        <div class="row Item">
             <!-- 訂單編號 -->
             <div class="col-3">
                 <div>FSWE1561245</div>
@@ -119,7 +114,7 @@
         </div>
         
           <!-- 第三項 -->
-          <div class="row OLitem">
+          <div class="row Item">
             <!-- 訂單編號 -->
             <div class="col-3">
                 <div>FSWE1233245</div>
@@ -156,10 +151,5 @@
 	</div>
 <!------------------------------------------------------------------------------------------->
 
-<!-- Option 1: Bootstrap Bundle with Popper -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-		crossorigin="anonymous"></script>
 </body>
 </html>

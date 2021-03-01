@@ -41,20 +41,20 @@
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
 
-	<div class="container container_product">
+	<div class="container container_product" >
 		<!-- 訂單編號區塊 -->
 		<div class="orderNumber">
 			<span>訂單編號 : </span><span>FSWE1233245</span>
 		</div>
 		<!-- 欄位敘述 -->
 		<div class="row">
-			<div class="col-4 fieldDescription_07">
+			<div class="col-4 FieldDescription">
 				<div>商品名稱</div>
 			</div>
-			<div class="col-1 fieldDescription_07">數量</div>
-			<div class="col-1 fieldDescription_07">單價</div>
-			<div class="col-1 fieldDescription_07">小計</div>
-			<div class="col-1 fieldDescription_07">庫存</div>
+			<div class="col-1 FieldDescription">數量</div>
+			<div class="col-1 FieldDescription">單價</div>
+			<div class="col-1 FieldDescription">小計</div>
+			<div class="col-1 FieldDescription">庫存</div>
 		</div>
 		<!-- 商品清單 -->
 		<!-- 第一列 -->
@@ -137,10 +137,9 @@
 			<!-- 狀態 -->
 			<div class="col-1 ">足夠</div>
 		</div>
-	</div>
 
 
-	<div class="container container_Orderer">
+	<div class="Orderer">
 		<!--付款資訊  -->
 		<div class="Pay_txt_title">付款資訊</div>
 		姓名:多拉A ■ 先生 □ 小姐 身分證字號 : A123456778 <br> ■ 貨到付款 □門市取貨付款<br>
@@ -160,7 +159,7 @@
 	</div>
 
 	<!--送出訂單  -->
-	<div class="container container_Submit">
+	<div class="Submit">
 		<div class="row-12">
 			<div class="col">
 				<div class="subtotalBlock">
@@ -170,6 +169,7 @@
 					onclick="window.open('PurchaseSuccess') ">送出訂單</button>
 			</div>
 		</div>
+	</div>
 	</div>
 	
 <!-----------定位----------------------------------------------------------------------------->

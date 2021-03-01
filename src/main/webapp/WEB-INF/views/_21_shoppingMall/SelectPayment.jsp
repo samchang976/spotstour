@@ -34,167 +34,216 @@
 <!-- header -->
 
 <body>
-<!--header=================================================================================  -->
+	<!--header=================================================================================  -->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!------------------------------------------------------------------------------------------->	
-	
-	<!--付款資訊  ---------------------------------------------------------------------------->
-	<div class="container" id="container_SelectPayment">
-		<form class="row g-2 needs-validation" novalidate action="#"
-			method="POST">
+		<!------------------------------------------------------------------------------------------->
 
-			<!-- 訂購者資料---------------------------------------------------------------- -->
+		<!--付款資訊  ---------------------------------------------------------------------------->
+		<div class="container" id="container_SelectPayment">
+			<form class="row g-2 needs-validation" novalidate action="#">
 
-			<div>訂購人:</div>
-			<div>
-				姓名:多拉A ■ 先生 □ 小姐 身分證字號 : A123456778
-				<!--從會員資料庫拿-->
-			</div>
+				<!-- 訂購者資料---------------------------------------------------------------- -->
 
-			<!-- 付款方式 ------------------------------------------------------------------->
-			<div>
-				付款方式 :
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" name="pay_type"
-						id="pay_type" value="貨到付款"> 
-						<label class="form-check-label" for="inlineRadio1">貨到付款</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" name="pay_type"
-						id="pay_type" value="門市取貨付款"> <label
-						class="form-check-label" for="inlineRadio2">門市取貨付款</label>
-				</div>
-			</div>
+				<div>
+					訂購人:
+					<!-- 姓名 -->
 
-			<!-- 手機 --------------------------------------------------------------------->
-			<div>
-				<div class="row g-3 align-items-center">
-					<div class="col-auto">
-						<label for="phone" class="col-form-label">手機:</label>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label for="Orderer" class="col-form-label">姓名:</label>
+						</div>
+
+						<div class="col-auto">
+							<input type="text" id="Orderer" class="form-control"
+								name="Orderer" value="多拉夢">
+						</div>
 					</div>
-					<div class="col-auto">
-						<input type="text" id="phone" class="form-control" name="手機">
-					</div>
-				</div>
-			</div>
 
-			<!-- 市話 -------------------------------------------------------------------->
-			<div>
-				<div class="row g-3 align-items-center">
-					<div class="col-auto">
-						<label for="phone" class="col-form-label">市話:</label>
+					<div class=" form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" name="Gender"
+							id="Male" value="Male"> 
+							<label class="form-check-label"
+							for="Male">先生</label>
 					</div>
-					<div class="col-auto">
-						<input type="text" id="phone" class="form-control" neame="市話">
+
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" name="Gender"
+							id="Famale" value="Famale"> <label
+							class="form-check-label" for="Famale">小姐</label>
 					</div>
-				</div>
-			</div>
 
-			<!-- 發票類型 --------------------------------------------------------------->
-			<div class="Pay_txt_title">
-				發票 :
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" name="ReceiptType"
-						id="ReceiptType" value="個人電子發票"> <label
-						class="form-check-label" for="inlineRadio1">個人電子發票</label>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" name="Gender"
+							id="Secrecy" value="Secrecy"> <label
+							class="form-check-label" for="Secrecy">保留</label>
+					</div>
+					<div>
+					身分證字號 : A123456778
+					
+					</div>
+					<!--從會員資料庫拿-->
 				</div>
+				<!-- 付款方式 ------------------------------------------------------------------->
+				<div>
+					付款方式 :
+					<div class="form-check form-check-inline" id="PayType">
+						<input class="form-check-input" type="checkbox" name="PayType"
+							id="CashOnDelivery" value="貨到付款"> <label
+							class="form-check-label" for="CashOnDelivery">貨到付款</label>
+					</div>
 
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" name="ReceiptType"
-						id="ReceiptType" value="捐贈發票 "> <label
-						class="form-check-label" for="inlineRadio2">捐贈發票</label>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" name="PayType"
+							id="ConvenienceStore" value="門市取貨付款"> <label
+							class="form-check-label" for="ConvenienceStore">超商取貨付款</label>
+					</div>
 				</div>
 
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" name="ReceiptType"
-						id="ReceiptType" value="公司戶電子發票"> <label
-						class="form-check-label" for="inlineRadio2">公司戶電子發票</label>
-				</div>
-			</div>
-<hr>
+				<!-- 手機 --------------------------------------------------------------------->
+				<div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label for="OrdererPhone" class="col-form-label">手機:</label>
+						</div>
 
-			<!-- 收貨人資訊 --------------------------------------------------------------->
-			<div>收貨人 :</div>
-			<!-- 姓名 -->
-			<div>
-				<div class="row g-3 align-items-center">
-					<div class="col-auto">
-						<label for="phone" class="col-form-label">姓名:</label>
-					</div>
-					<div class="col-auto">
-						<input type="text" id="phone" class="form-control" name="姓名">
+						<div class="col-auto">
+							<input type="text" id="OrdererPhone" class="form-control"
+								name="OrdererPhone">
+						</div>
 					</div>
 				</div>
-			</div>
-			<!-- 通訊 -->
-			<div>
-				<div class="row g-3 align-items-center">
-					<div class="col-auto">
-						<label for="phone" class="col-form-label">手機:</label>
-					</div>
-					<div class="col-auto">
-						<input type="text" id="phone" class="form-control" name="手機">
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="row g-3 align-items-center">
-					<div class="col-auto">
-						<label for="phone" class="col-form-label">市話:</label>
-					</div>
-					<div class="col-auto">
-						<input type="text" id="phone" class="form-control" name="市話">
-					</div>
-				</div>
-			</div>
-			<!-- 地址 -->
-			<div>
-				<div class="row g-3 align-items-center">
-					<div class="col-auto">
-						<label for="phone" class="col-form-label">收件地址:</label>
-					</div>
-					<div class="col-auto">
-						<input type="text" id="phone" class="form-control" name="收件地址">
-					</div>
-				</div>
-			</div>
-			<!-- 運送方式 -->
-			<div class="Pay_txt_title">
-				寄送方式 :
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" name="ReceiptType"
-						id="ReceiptType" value="宅配運送"> <label
-						class="form-check-label" for="inlineRadio1">宅配運送</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" name="ReceiptType"
-						id="ReceiptType" value="7-11取貨"> <label
-						class="form-check-label" for="inlineRadio2">7-11取貨</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" name="ReceiptType"
-						id="ReceiptType" value="全家取貨"> <label
-						class="form-check-label" for="inlineRadio2">全家取貨</label>
-				</div>
-			</div>
 
-			<!--送出  ----------------------------------------------------------------------->
-			<div class="col-12" id="subtotalBlock">
-				<button type="submit" class="Bt_black"
-					onclick="window.open('PurchaseSuccess') ">確定送出</button>
-			</div>
-		</form>
+
+
+
+				<!-- 市話 -------------------------------------------------------------------->
+				<div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label for="OrdererLocalCall" class="col-form-label">市話:</label>
+						</div>
+
+						<div class="col-auto">
+							<input type="text" id="OrdererLocalCall" class="form-control"
+								name="OrdererLocalCall">
+						</div>
+					</div>
+				</div>
+
+
+
+				<!-- 發票類型 --------------------------------------------------------------->
+				<div>
+					發票 :
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" name="ReceiptType"
+							id="EInvoice" value="個人電子發票"> <label
+							class="form-check-label" for="EInvoice">個人電子發票</label>
+					</div>
+
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" name="ReceiptType"
+							id="Donation" value="捐贈發票 "> <label
+							class="form-check-label" for="Donation">捐贈發票</label>
+					</div>
+
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" name="ReceiptType"
+							id="Company" value="公司戶電子發票"> <label
+							class="form-check-label" for="Company">公司戶電子發票</label>
+					</div>
+				</div>
+				<hr>
+
+				<!-- 收貨人資訊 --------------------------------------------------------------->
+				<div>收貨人 :</div>
+				<!-- 姓名 -->
+				<div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label for="Consignee" class="col-form-label">姓名:</label>
+						</div>
+
+						<div class="col-auto">
+							<input type="text" id="Consignee" class="form-control"
+								name="Consignee">
+						</div>
+					</div>
+				</div>
+				<!-- 通訊 -->
+				<div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label for="ConsigneePhone" class="col-form-label">手機:</label>
+						</div>
+						<div class="col-auto">
+							<input type="text" id="ConsigneePhone" class="form-control"
+								name="ConsigneePhone">
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label for="ConsigneeLocalCall" class="col-form-label">市話:</label>
+						</div>
+						<div class="col-auto">
+							<input type="text" id="ConsigneeLocalCall" class="form-control"
+								name="ConsigneeLocalCall">
+						</div>
+					</div>
+				</div>
+				<!-- 地址 -->
+				<div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label for="Consigneeaddress" class="col-form-label">收件地址:</label>
+						</div>
+						<div class="col-auto">
+							<input type="text" id="Consigneeaddress" class="form-control"
+								name="Consigneeaddress">
+						</div>
+					</div>
+				</div>
+				<!-- 運送方式 -->
+				<div>
+					寄送方式 :
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox"
+							name="DeliveryMethod" id="HomeDelivery" value="宅配運送"> <label
+							class="form-check-label" for="HomeDelivery">宅配運送</label>
+					</div>
+
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox"
+							name="DeliveryMethod" id="Seven" value="7-11取貨"> <label
+							class="form-check-label" for="Seven">7-11取貨</label>
+					</div>
+
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox"
+							name="DeliveryMethod" id="FamilyMart" value="全家取貨"> <label
+							class="form-check-label" for="FamilyMart">全家取貨</label>
+					</div>
+				</div>
+
+				<!--送出  ----------------------------------------------------------------------->
+				<div class="col-12" id="SubtotalBlock">
+					<button type="submit" class="Bt_black">確定送出</button>
+				</div>
+			</form>
+		</div>
+		<!-----------定位----------------------------------------------------------------------------->
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
-	</div>
-<!--內嵌footer-------------------------------------------------------------------------------->
+	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-<!-- --------------------------------------------------------------------------------------->
+	<!-- --------------------------------------------------------------------------------------->
 </body>
 </html>
