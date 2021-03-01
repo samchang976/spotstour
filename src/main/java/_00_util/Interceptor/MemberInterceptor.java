@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Component
 public class MemberInterceptor implements HandlerInterceptor {
 	
-	
 	//進入controller前的攔截器
 	//此攔截器攔截session判斷是否會員
 	@Override
