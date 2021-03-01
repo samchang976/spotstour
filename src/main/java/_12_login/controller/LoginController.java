@@ -1,5 +1,8 @@
 package _12_login.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,17 +26,25 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/login.do")
-	public String doLogin(@ModelAttribute MemberBean memberBean) {
+	public String doLogin(@ModelAttribute MemberBean memberBean ,HttpSession session) {
 		if(loginService.loginCheck(memberBean) == true) {
+			session.setAttribute("mAN", memberBean.getmAN());
+			System.out.println(session.getAttribute("mAN"));
 			return "index";
 		}else {
 			return "_11_member/register";	
 		}
 	}
 	
-	@RequestMapping("/logout")
+	@RequestMapping("/login.out")
 	public String logout() {
-		return "_11_member/Logout";
+//		if()) {
+//			
+//		}
+		return "index";
 	}
+	
+	
+	
 	
 }
