@@ -25,9 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
+	
+	
+<link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
+	
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>訂購資訊</title>
 </head>
@@ -233,7 +247,7 @@
 				</div>
 
 				<!--送出  ----------------------------------------------------------------------->
-				<div class="col-12" id="SubtotalBlock">
+				<div class="col-12" id="SubmitBlock">
 					<button type="submit" class="Bt_black">確定送出</button>
 				</div>
 			</form>
