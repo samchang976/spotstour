@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
+import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
 import _21_merchandiseSearch.dao.ItemDao;
 import _21_merchandiseSearch.dao.Item_typeDao;
@@ -104,6 +105,15 @@ public class ItemDaoImpl implements Serializable, ItemDao {
 		String hql = "FROM Ship_TypeBean";
 		Session session = factory.getCurrentSession();
 		List<Ship_TypeBean> list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Receipt_TypeBean> getReceipt_TypeList() {
+		String hql = "FROM Receipt_TypeBean";
+		Session session = factory.getCurrentSession();
+		List<Receipt_TypeBean> list = session.createQuery(hql).getResultList();
 		return list;
 	}
 

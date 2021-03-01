@@ -153,3 +153,9 @@ INSERT  INTO `feedback`(`feedbackId`,`feedbackText`,`f_createTime`,`fb_freeze`,`
 (4,'好吃!!','2021-02-23 00:03:00',0,2),
 (5,'很好吃!!','2021-02-24 00:04:00',0,2),
 (6,'非常好吃!!','2021-02-25 00:05:00',0,2);
+
+
+insert  into `receipt_type`(`receiptTypeId`,`receiptType`) values 
+(1,'三聯式統一發票'),
+(2,'二聯式統一發票'),
+(3,'電子發票');

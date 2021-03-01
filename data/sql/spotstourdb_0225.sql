@@ -434,6 +434,11 @@ CREATE TABLE `receipt_type` (
 
 /*Data for the table `receipt_type` */
 
+insert  into `receipt_type`(`receiptTypeId`,`receiptType`) values 
+(1,'三聯式統一發票'),
+(2,'二聯式統一發票'),
+(3,'電子發票');
+
 /*Table structure for table `record` */
 
 DROP TABLE IF EXISTS `record`;

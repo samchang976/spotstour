@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="ord")
@@ -28,6 +29,12 @@ public class OrdBean implements Serializable {
 	
 	@OneToMany(mappedBy = "ordBean", cascade = CascadeType.ALL)
 	private Set<Ord_detailBean> ord_detailBeans = new LinkedHashSet<>();
+	
+	@Transient
+	private Integer shipTypeTId;
+	
+	@Transient
+	private Integer receiptTypeTId;
 	
 	@ManyToOne
 	@JoinColumn(name="mId")
@@ -115,6 +122,22 @@ public class OrdBean implements Serializable {
 
 	public void setOrdStatBean(Ord_statBean ordStatBean) {
 		this.ordStatBean = ordStatBean;
+	}
+
+	public Integer getShipTypeTId() {
+		return shipTypeTId;
+	}
+
+	public void setShipTypeTId(Integer shipTypeTId) {
+		this.shipTypeTId = shipTypeTId;
+	}
+
+	public Integer getReceiptTypeTId() {
+		return receiptTypeTId;
+	}
+
+	public void setReceiptTypeTId(Integer receiptTypeTId) {
+		this.receiptTypeTId = receiptTypeTId;
 	}
 
 

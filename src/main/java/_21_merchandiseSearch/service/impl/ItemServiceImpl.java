@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
+import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
 import _21_merchandiseSearch.dao.ItemDao;
 import _21_merchandiseSearch.service.ItemService;
@@ -50,6 +51,12 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public List<Ship_TypeBean> getShip_TypeList() {
 		return itemdao.getShip_TypeList();
+	}
+	
+	@Transactional
+	@Override
+	public List<Receipt_TypeBean> getReceipt_TypeList() {
+		return itemdao.getReceipt_TypeList();
 	}
 
 }

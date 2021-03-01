@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
+import _02_model.entity.OrdBean;
+import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
 import _21_merchandiseSearch.service.ItemService;
 
@@ -80,6 +82,14 @@ public class MerchandiseController {
 		return ship_TypeBean;
 	}
 	
+	// 取得OrdBean
+	@ModelAttribute
+	public OrdBean getOrdBean(Model model) {
+		OrdBean ordBean = new OrdBean();
+		model.addAttribute("ordBean", ordBean);
+		return ordBean;
+	}
+	
 	// 取得配送方式
 	@ModelAttribute("ship_TypeMap")
 	public Map<Integer, String> getShip_TypeMap() {
@@ -89,6 +99,17 @@ public class MerchandiseController {
 			ship_TypeMap.put(stb.getShipTypeId(), stb.getShipType());
 		}
 		return ship_TypeMap;
+	}
+	
+	// 取得發票領取方式
+	@ModelAttribute("receipt_TypeMap")
+	public Map<Integer, String> getReceipt_TypeMap() {
+		Map<Integer, String> receipt_TypeMap = new HashMap<>();
+		List<Receipt_TypeBean> list = itemService.getReceipt_TypeList();
+		for (Receipt_TypeBean rtb : list) {
+			receipt_TypeMap.put(rtb.getReceiptTypeId(), rtb.getReceiptType());
+		}
+		return receipt_TypeMap;
 	}
 
 }
