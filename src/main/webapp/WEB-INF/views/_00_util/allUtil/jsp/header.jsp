@@ -126,7 +126,7 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="purchaseSuccess">購買成功</a></li>
 						<li><a class="dropdown-item" href="selectPayment">訂購資訊</a></li>
 						<li><a class="dropdown-item" href="shoppingCart">購物車</a></li>
-						<li><a class="dropdown-item" href="submitOrderInfo">提交訂單資訊(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="submitOrderInfo">提交訂單資訊</a></li>
 						<li>_還沒有</li>
 						<li><a class="dropdown-item" href="checkPayment">結帳頁面</a></li>
 					</ul></li>
