@@ -13,8 +13,6 @@ import _91_managerMart.dao.ManagerItem_typeDao;
 import _91_managerMart.service.ManagerItem_typeService;
 
 
-// 本類別負責讀取資料庫內eBookCompany表格內的紀錄
-// 
 @Service
 public class ManagerItem_typeServiceImpl implements Serializable, ManagerItem_typeService {
 
@@ -25,19 +23,19 @@ public class ManagerItem_typeServiceImpl implements Serializable, ManagerItem_ty
 	@Autowired
 	SessionFactory factory;
 
-	@Transactional
-	public List<Item_typeBean> getItem_type() {
-		List<Item_typeBean> list = null;
-			list = dao.getItem_type();
-		return list;
-	}
-
-	@Transactional
-	public Item_typeBean getItem_typeById() {
-		Item_typeBean bean = null;
-			bean = dao.getItem_typeById();
-		return bean;
-	}
+//	@Transactional
+//	public List<Item_typeBean> getItem_type() {
+//		List<Item_typeBean> list = null;
+//			list = dao.getItem_type();
+//		return list;
+//	}
+//
+//	@Transactional
+//	public Item_typeBean getItem_typeById() {
+//		Item_typeBean bean = null;
+//			bean = dao.getItem_typeById();
+//		return bean;
+//	}
 
 	public int getItId() {
 		return dao.getItId();

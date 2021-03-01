@@ -2,6 +2,7 @@ package _21_merchandiseSearch.dao;
 
 import java.util.List;
 
+import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
 
 public interface ItemDao {
@@ -18,11 +19,9 @@ public interface ItemDao {
 	
 	long getItemCount();
 	
-	// 新增一筆記錄
-	boolean saveItem(ItemBean itembean);
+//	=======================
 	
-	// 依itemId來刪除單筆記錄
-	boolean deleteItem(int itemId);
+	List<CountryBean> getAllCountrys();
 	
-	boolean updateItem(ItemBean itemBean);
+	List<CountryBean> getCountryById(int countryId);
 }

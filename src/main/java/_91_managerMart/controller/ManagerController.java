@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import _02_model.entity.CountryBean;
+import _02_model.entity.FeedbackBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _91_managerMart.service.ManagerItemService;
@@ -27,10 +27,10 @@ public class ManagerController {
 //	@GetMapping("/merchandiseModify")
 //	public String addeMrchandise(Model model) {
 //	@GetMapping({"/merchandiseModify","/merchandiseModify/get/Id={itemId}"})
-	
+
 	// 陳列商品
-	@GetMapping({"/merchandiseModify","/Id={itemId}"})
-		public String addeMrchandise(@PathVariable(value="itemId", required = false) Integer itemId, Model model) {
+	@GetMapping({ "/merchandiseModify", "/Id={itemId}" })
+	public String addeMrchandise(@PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
 		List<ItemBean> list = managerItemService.getAllItems();
 		model.addAttribute("items", list);
 		return "_91_manageMart/MerchandiseModify";
@@ -44,7 +44,7 @@ public class ManagerController {
 	}
 
 	// 凍結商品(刪除)
-	@RequestMapping("/merchandiseModify/delete/Id={itemId}")
+	@GetMapping("/merchandiseModify/delete/Id={itemId}")
 	public String freezeItem(@ModelAttribute("itemId") Integer itemId, Model model) {
 		managerItemService.freezeItemByItemId(itemId);
 		return "redirect:/merchandiseModify";
@@ -53,36 +53,31 @@ public class ManagerController {
 	// 編輯及更新商品
 //	@PostMapping("/merchandiseModify/get/Id={itemId}")
 	@PostMapping("/Id={itemId}")
-	public String updateItem(@ModelAttribute(value="itemId") Integer itemId, @ModelAttribute("itemBean") ItemBean itemBeanN, Model model) {
-		
+	public String updateItem(@ModelAttribute(value = "itemId") Integer itemId,
+			@ModelAttribute("itemBean") ItemBean itemBeanN, Model model) {
 		managerItemService.updateItem(itemBeanN);
 		return "redirect:/merchandiseModify";
 	}
+	
 
-	@RequestMapping("/activityList")
-	public String activityList() {
-		return "_91_manageMart/ActivityList";
+
+	// 陳列全部商品留言
+	@GetMapping("/manageFeedback")
+	public String getAllFeedbacks(Model model) {
+		List<FeedbackBean> list = managerItemService.getAllFeedbacks();
+		model.addAttribute("feedbacks", list);
+		return "_91_manageMart/ManageFeedback";
 	}
 
-	@RequestMapping("/activityModify")
-	public String activityModify() {
-		return "_91_manageMart/ActivityModify";
+	// 陳列商品留言
+	@GetMapping("/manageFeedback/Id={itemId}")
+	public String getAllFeedbacksById(@ModelAttribute("itemId") Integer itemId, Model model) {
+		List<FeedbackBean> list = managerItemService.getAllFeedbacksById(itemId);
+		model.addAttribute("feedbacks", list);
+		return "_91_manageMart/ManageFeedback";
 	}
 
-	@RequestMapping("/aboutMerchandiseModify")
-	public String aboutMerchandiseModify() {
-		return "_91_manageMart/AboutMerchandiseModify";
-	}
-
-	@RequestMapping("/aboutUsModify")
-	public String aboutUsModify() {
-		return "_91_manageMart/AboutUsModify";
-	}
-
-	@RequestMapping("/contactUsModify")
-	public String contactUsModify() {
-		return "_91_manageMart/ContactUsModify";
-	}
+	// =========================================================
 
 	@ModelAttribute("item_TypeMap")
 	public Map<Integer, String> getItem_TypeMap() {
@@ -94,10 +89,10 @@ public class ManagerController {
 		return item_TypeMap;
 	}
 
-	@ModelAttribute("item_TypeList")
-	public List<Item_typeBean> getItem_TypeList() {
-		return managerItemService.getItem_TypeList();
-	}
+//	@ModelAttribute("item_TypeList")
+//	public List<Item_typeBean> getItem_TypeList() {
+//		return managerItemService.getItem_TypeList();
+//	}
 
 	@ModelAttribute("countryMap")
 	public Map<Integer, String> getCountryMap() {
@@ -109,10 +104,10 @@ public class ManagerController {
 		return countryMap;
 	}
 
-	@ModelAttribute("countryList")
-	public List<CountryBean> getCountryList() {
-		return managerItemService.getCountryList();
-	}
+//	@ModelAttribute("countryList")
+//	public List<CountryBean> getCountryList() {
+//		return managerItemService.getCountryList();
+//	}
 
 	// 取得商品
 	@ModelAttribute
@@ -124,7 +119,7 @@ public class ManagerController {
 			CountryBean countryBean = itemBean.getCountryBean();
 			model.addAttribute("item_typeBean", item_typeBean);
 			model.addAttribute("countryBean", countryBean);
-			
+
 		} else {
 			itemBean = new ItemBean();
 			itemBean.setItemHeader("AA");

@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _21_merchandiseSearch.dao.ItemDao;
@@ -39,28 +40,7 @@ public class ItemDaoImpl implements Serializable, ItemDao {
 		return itembean;
 	}
 
-	@Override
-	public boolean saveItem(ItemBean itembean) {
-		boolean b = false;
-        Session session = factory.getCurrentSession();
-        if (itembean.getItem_typeBean() == null) {
-        	item_typeDao.setItemId(itembean.getItemId());
-            Item_typeBean itb = item_typeDao.getItem_typeById();
-            itembean.setItem_typeBean(itb);
-        }
-        session.save(itembean);
-		return b = true;
-	}
 	
-	@Override
-	public boolean deleteItem(int itemId) {
-		boolean b = false;
-		Session session = factory.getCurrentSession();
-		ItemBean bookbean = new ItemBean();
-		bookbean.setItemId(itemId);
-		session.delete(bookbean);
-		return b = true;
-	}
 
 	@Override
 	public List<ItemBean> getAllItem() {
@@ -70,32 +50,46 @@ public class ItemDaoImpl implements Serializable, ItemDao {
 
 	@Override
 	public List<ItemBean> getTopSellItem(int i) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<ItemBean> getItemByCountry(String countryName) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public long getItemCount() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public boolean updateItem(ItemBean itemBean) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public List<ItemBean> getItemByItemType(String itemType) {
-		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CountryBean> getAllCountrys() {
+		String hql = "FROM CountryBean";
+		Session session = factory.getCurrentSession();
+		List<CountryBean> list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CountryBean> getCountryById(int countryId) {
+		String hql = "FROM CountryBean WHERE countryId = :id";
+//		String hql = "FROM countryBean c JOIN itemBean i ON c.countryId = i.countryId WHERE c.countryId = :id";
+		Session session = factory.getCurrentSession();
+		List<CountryBean> list = session.createQuery(hql)
+				.setParameter("id", countryId)
+				.getResultList();
+		return list;
+	}
+	
 
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import _02_model.entity.CountryBean;
+import _02_model.entity.FeedbackBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _91_managerMart.dao.ManagerItemDao;
@@ -55,13 +56,29 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 //		}
 //	}
 	
+	//陳列全部商品
 	@Transactional
 	@Override
 	public List<ItemBean> getAllItems() {
 		return managetItemDao.getAllItems();
 	}
-	
 
+	
+	//陳列全部商品留言
+	@Transactional
+	@Override
+	public List<FeedbackBean> getAllFeedbacks() {
+		return managetItemDao.getAllFeedbacks();
+	}
+	
+	//陳列全部商品留言
+	@Transactional
+	@Override
+	public List<FeedbackBean> getAllFeedbacksById(int itemId) {
+		return managetItemDao.getAllFeedbacksById(itemId);
+	}
+	
+	//新增商品
 	@Transactional
 	@Override
 	public void addItem(ItemBean itemBean) {

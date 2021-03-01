@@ -183,6 +183,15 @@ CREATE TABLE `feedback` (
 
 /*Data for the table `feedback` */
 
+insert  into `feedback`(`feedbackId`,`feedbackText`,`f_createTime`,`fb_freeze`,`itemId`) values 
+(1,'好吃','2021-02-23 00:00:00',0,1),
+(2,'很好吃','2021-02-24 00:00:00',0,1),
+(3,'非常好吃','2021-02-25 00:00:00',0,1),
+(4,'好吃!!','2021-02-23 00:03:00',0,2),
+(5,'很好吃!!','2021-02-24 00:04:00',0,2),
+(6,'非常好吃!!','2021-02-25 00:05:00',0,2);
+
+
 /*Table structure for table `item` */
 
 DROP TABLE IF EXISTS `item`;
