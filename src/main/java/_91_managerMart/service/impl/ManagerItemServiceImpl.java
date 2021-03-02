@@ -32,10 +32,18 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 		return itembean;
 	}
 
+	// 凍結商品(刪除)
 	@Transactional
 	@Override
 	public void freezeItemByItemId(int itemId) {
 		managetItemDao.freezeItemByItemId(itemId);
+	}
+	
+	// 凍結商品留言(刪除)
+	@Transactional
+	@Override
+	public void freezeFeedbackByFeedbackId(int itemId, int feedbackId) {
+		managetItemDao.freezeFeedbackByFeedbackId(itemId, feedbackId);
 	}
 	
 	@Transactional

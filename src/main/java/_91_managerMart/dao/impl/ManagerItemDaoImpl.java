@@ -54,6 +54,7 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 //		return b = true;
 //	}
 	
+	//凍結商品
 	@Override
 	public void freezeItemByItemId(int itemId) {
 		String hql = "UPDATE ItemBean SET item_freeze = :freeze WHERE itemId = :id";
@@ -65,6 +66,22 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 		session.createQuery(hql)
 		   .setParameter("freeze", freeze)
 		   .setParameter("id", itemId)
+		   .executeUpdate();
+	}
+	
+	//凍結商品留言
+	@Override
+	public void freezeFeedbackByFeedbackId(int itemId, int feedbackId) {
+		String hql = "UPDATE FeedbackBean SET fb_freeze = :freeze WHERE feedbackId = :feedbackId";
+		Session session = factory.getCurrentSession();
+//		ItemBean itembean = new ItemBean();
+//		bookbean.setItemId(itemId);
+//		session.delete(itembean);
+		int freeze = 1;
+		session.createQuery(hql)
+		   .setParameter("freeze", freeze)
+		   .setParameter("feedbackId", feedbackId)
+//		   .setParameter("itemId", itemId)
 		   .executeUpdate();
 	}
 	

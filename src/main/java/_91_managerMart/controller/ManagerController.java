@@ -30,7 +30,7 @@ public class ManagerController {
 
 	// 陳列商品
 	@GetMapping({ "/merchandiseModify", "/Id={itemId}" })
-	public String addeMrchandise(@PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
+	public String addAllMerchandise(@PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
 		List<ItemBean> list = managerItemService.getAllItems();
 		model.addAttribute("items", list);
 		return "_91_manageMart/MerchandiseModify";
@@ -58,8 +58,6 @@ public class ManagerController {
 		managerItemService.updateItem(itemBeanN);
 		return "redirect:/merchandiseModify";
 	}
-	
-
 
 	// 陳列全部商品留言
 	@GetMapping("/manageFeedback")
@@ -70,8 +68,18 @@ public class ManagerController {
 	}
 
 	// 陳列商品留言
-	@GetMapping("/manageFeedback/Id={itemId}")
-	public String getAllFeedbacksById(@ModelAttribute("itemId") Integer itemId, Model model) {
+	@GetMapping({"/manageFeedback/Id={itemId}", "/manageFeedback/Id" })
+	public String getAllFeedbacksById(@ModelAttribute("itemId") @PathVariable("itemId") Integer itemId, Model model) {
+		List<FeedbackBean> list = managerItemService.getAllFeedbacksById(itemId);
+		model.addAttribute("feedbacks", list);
+		return "_91_manageMart/ManageFeedback";
+	}
+
+	// 凍結商品留言(刪除)
+	@GetMapping("/manageFeedback/delete/ItId={itemId}/FbId={feedbackId}")
+	public String freezeFeedback(@ModelAttribute("feedbackId") Integer feedbackId, @ModelAttribute("itemId") @PathVariable("itemId") Integer itemId, Model model) {
+		model.addAttribute("itemId", itemId);
+		managerItemService.freezeFeedbackByFeedbackId(itemId, feedbackId);
 		List<FeedbackBean> list = managerItemService.getAllFeedbacksById(itemId);
 		model.addAttribute("feedbacks", list);
 		return "_91_manageMart/ManageFeedback";
@@ -119,7 +127,6 @@ public class ManagerController {
 			CountryBean countryBean = itemBean.getCountryBean();
 			model.addAttribute("item_typeBean", item_typeBean);
 			model.addAttribute("countryBean", countryBean);
-
 		} else {
 			itemBean = new ItemBean();
 			itemBean.setItemHeader("AA");
@@ -131,4 +138,5 @@ public class ManagerController {
 		}
 		return itemBean;
 	}
+
 }
