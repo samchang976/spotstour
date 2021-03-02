@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import _00_util.GlobalService;
 import _02_model.entity.MemberBean;
+import _02_model.entity.Member_permBean;
 import _11_register.service.MemberService;
 import _11_register.validator.MemberBeanValidator;
 
@@ -59,7 +60,7 @@ public class MemberController {
 	
 	@PostMapping("/memberRegister")
 	public String processForm(@ModelAttribute("memberBean") MemberBean bean, BindingResult result, 
-			Model model, HttpServletRequest request) {
+			Model model, HttpServletRequest request, @ModelAttribute("member_permBean") Member_permBean permbean) {
 		MemberBeanValidator validator = new MemberBeanValidator();
 		validator.validate(bean, result);
 		if(result.hasErrors()) {
@@ -86,6 +87,7 @@ public class MemberController {
 		}
 		Timestamp registerTime = new Timestamp(System.currentTimeMillis());
 		bean.setM_createTime(registerTime);
+		permbean.setmPid(2);
 		bean.setmPw(GlobalService.getMD5Endocing(GlobalService.encryptString(bean.getmPw())));
 		if(memberService.mANExists(bean.getmAN())) {
 			result.rejectValue("mAN", "", "帳號已存在，請重新輸入");
@@ -109,5 +111,10 @@ public class MemberController {
 		return memberBean;
 	}
 	
-	
+	@ModelAttribute
+	public Member_permBean prepareMemberpermBean(HttpServletRequest req) {
+		Member_permBean memberpermBean = new Member_permBean();
+		memberpermBean.setmPid(2);;
+		return memberpermBean;
+	}
 }
