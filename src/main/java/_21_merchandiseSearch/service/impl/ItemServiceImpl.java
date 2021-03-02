@@ -1,6 +1,7 @@
 package _21_merchandiseSearch.service.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,6 +58,12 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public List<Receipt_TypeBean> getReceipt_TypeList() {
 		return itemdao.getReceipt_TypeList();
+	}
+
+	@Transactional
+	@Override
+	public Set<ItemBean> getItemBySearchBar(String searchBar) {
+		return itemdao.getItemBySearchBar(searchBar);
 	}
 
 }

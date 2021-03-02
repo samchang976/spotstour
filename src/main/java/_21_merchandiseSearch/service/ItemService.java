@@ -1,6 +1,7 @@
 package _21_merchandiseSearch.service;
 
 import java.util.List;
+import java.util.Set;
 
 import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
@@ -23,5 +24,9 @@ public interface ItemService {
 	List<Ship_TypeBean> getShip_TypeList();
 	
 	List<Receipt_TypeBean> getReceipt_TypeList();
+	
+//	=======================
+	
+	Set<ItemBean> getItemBySearchBar(String searchBar);
 	
 }

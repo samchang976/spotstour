@@ -3,6 +3,7 @@ package _21_merchandiseSearch.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import _02_model.entity.ContinentBean;
 import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
@@ -54,25 +57,25 @@ public class MerchandiseController {
 	
 	// 得到單一商品
 	@GetMapping("/merchandiseSearchResult/merchandiseDetail/Id={itemId}")
+//	@GetMapping("/merchandiseDetail")
 	public String getItemById(@ModelAttribute("itemId") Integer itemId, Model model) {
 		ItemBean itemBean = itemService.getItemById(itemId);
 		model.addAttribute("itemBean", itemBean);
 		return "_21_shoppingMall/MerchandiseDetail";
 	}
+	
+	// 搜尋Bar
+	@GetMapping("/merchandiseSearchResult")
+	public String getItemBySearchBar(Model model, @ModelAttribute("searchWord") String searchWord) {
+		Set<ItemBean> list = itemService.getItemBySearchBar(searchWord);
+		model.addAttribute("items", list);
+		return "_21_shoppingMall/MerchandiseSearchResult";
+	}
+	
 
-//	// 陳列商品
-//	@GetMapping("/manageFeedback/Id={itemId}")
-//	public String getItemsByCountry(@ModelAttribute("itemId") Integer itemId, Model model) {
-//		List<FeedbackBean> list = managerItemService.getAllFeedbacksById(itemId);
-//		model.addAttribute("feedbacks", list);
-//		return "_91_manageMart/ManageFeedback";
-//	}
-
-//	@ModelAttribute("countryList")
-//	public List<CountryBean> getCountryList() {
-//		return itemService.getCountryList();
-//	}
-
+	
+//	=====================
+	
 	// 取得ItemBean
 	@ModelAttribute
 	public ItemBean getItemBean(Model model) {

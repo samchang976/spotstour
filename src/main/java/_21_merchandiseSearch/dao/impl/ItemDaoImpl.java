@@ -1,7 +1,9 @@
 package _21_merchandiseSearch.dao.impl;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -115,6 +117,35 @@ public class ItemDaoImpl implements Serializable, ItemDao {
 		Session session = factory.getCurrentSession();
 		List<Receipt_TypeBean> list = session.createQuery(hql).getResultList();
 		return list;
+	}
+
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Set<ItemBean> getItemBySearchBar(String searchBar) {
+		String hql1 = "FROM ItemBean WHERE item_freeze = 0 AND itemHeader like :searchBar";
+		Session session = factory.getCurrentSession();
+		List<ItemBean> list1 = session.createQuery(hql1)
+				.setParameter("searchBar", "%" + searchBar + "%")
+				.getResultList();
+		
+		String hql2 = "FROM ItemBean WHERE item_freeze = 0 AND itemDes like :searchBar";
+		List<ItemBean> list2 = session.createQuery(hql2)
+				.setParameter("searchBar", "%" + searchBar + "%")
+				.getResultList();
+		
+		String hql3 = "FROM ItemBean as i WHERE i.item_freeze = 0 AND i.countryBean.countryName like :searchBar";
+		List<ItemBean> list3 = session.createQuery(hql3)
+				.setParameter("searchBar", "%" + searchBar + "%")
+				.getResultList();
+		
+		Set<ItemBean> set = new HashSet<>();
+		set.addAll(list1);
+		set.addAll(list2);
+		set.addAll(list3);
+		
+		return set;
 	}
 
 }
