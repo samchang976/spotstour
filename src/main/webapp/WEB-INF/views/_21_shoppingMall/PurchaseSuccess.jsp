@@ -25,9 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
+	
+	
+<link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
+	
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>訂購成功</title>
@@ -41,11 +55,11 @@
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
 	
-	<div class="container">
+	<div class="container" id="container_PurchaseSuccess">
 		<!-- 訂單編號區塊 -->
 		<div class="row">
 			<div class="col-12">
-				<div class="orderNumber">
+				<div class="OrderNumber">
 					<span>訂單編號 : </span> <span>FSWE1233245</span>
 				</div>
 			</div>
@@ -55,7 +69,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div>
-					<i class="fas fa-check-circle"></i> <span id="success_Text">
+					<i class="fas fa-check-circle"></i> <span id="successText">
 						訂購成功! </span>
 				</div>
 			</div>

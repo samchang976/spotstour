@@ -2,7 +2,6 @@
 .HeaderPostition{
 	position: fixed;
 	width: 100%; 
-	background-color: rgba(155, 146, 146, 0.705); 
 	top: 0px; 
 	z-index: 5;
 }
@@ -10,3 +9,14 @@
 .BodyPosition {
 	margin:60px 0px;
 }
+
+/*按鈕的樣式--------------------------------------------------*/
+.Bt_blue{     
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Bt_black{
+    padding: 10px;
+    border-radius: 5px;
+  }

@@ -25,9 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
+	
+	
+<link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
+	
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>購物車</title>
@@ -105,7 +119,7 @@
 
 		<!--結帳 ------------------------------------------------------------------------ -->
 		<hr>
-		<div class="row-12" id="subtotalBlock">
+		<div class="row-12" id="SubtotalBlock">
 			共<span id="items">0</span>商品，總金額 : <span id="subtotal">0</span>元
 			<button id="BtcheckNow" class="Bt_black " type="submit"
 				onclick="window.open('SelectPayment')">立即結帳</button>

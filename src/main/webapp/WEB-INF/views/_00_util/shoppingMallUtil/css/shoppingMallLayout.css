@@ -16,21 +16,17 @@
 
 /* 活動快訊標題 */
 #newsTitle{
-   border-bottom: 1px solid rgb(126, 125, 125);
-   background: rgb(105, 105, 105);
    padding: 10px;
 }
 
 /* 裝優惠日期+資訊的block */
 #container_news .block{
    /* background: #000; */
-   border-bottom: 1px solid rgb(224, 224, 224);
    padding: 5px;
 }
 
 
 #container_news .block:hover{
-   color: darkgray;
    cursor:pointer;
 }
 
@@ -85,8 +81,6 @@
    height: 100%; 
    opacity: 0; /* 透明度  */
 
-   background: rgba(54, 123, 180, 0.7);
-
    text-align: center;
 }
  #container_news .area_search:hover .mask{
@@ -105,8 +99,6 @@
 /* ActivityDetail****************************************************** */
 
 #container_ActivityDetail .title{
-   font-size: 18px;
-   background-color: rgb(252, 252, 252);
    padding: 5px;
  }
 
@@ -116,11 +108,8 @@
    text-align: center;
  }
 
- 
 /* 商品照片外框 */
 .itemImageBorder{
-   background-color: rgba(225, 226, 226, 0.378); 
-   border:1px solid rgb(230, 227, 227,0.3) ;
    border-radius: 3px;
    padding: 20px;
   }
@@ -131,7 +120,6 @@
    /* border-radius:5px; */
    padding:1px 3px;
    cursor:pointer;
-   color:maroon;
  }
  
  /*MerchandiseDetail*********************************************/
@@ -151,26 +139,19 @@ padding: 1px;
    box-sizing: border-box;
    padding: 1px;
    /* border: 1px solid black; */
-   border: 1px solid black;
 
 }
 
 #ProductDescription:hover, #Purchase:hover ,#QA:hover{
-   border: 1px solid rgb(119, 118, 118);
-
-   background: rgb(214, 213, 213);
    cursor: pointer;
 }
 
 /* 商品資訊----------------------------------------------------- */
  #container_MerchandiseDetail .ItemInformationContent{
    padding: 50px;
-   background-color: rgb(115, 120, 124);
  }
   
  #container_MerchandiseDetail .title{
-    font-size: 18px;
-    background-color: rgb(252, 252, 252);
     padding: 5px;
   } 
 /* 加入購物車--------------------------------------------------   */
@@ -191,13 +172,6 @@ padding: 1px;
    text-align: left
 }
 
-/* 欄位敘述--------------------------------------------------------- */
-.FieldDescription{
-   border: 1px solid rgb(65, 65, 65);
-   background: rgb(133, 133, 133);
-   /* line-height:25px; */
-    min-width: 70px;
- }
 
 #container_ShoppingCart .row{
    margin-bottom: 10px;
@@ -222,23 +196,138 @@ padding: 1px;
 #container_SelectPayment{
    /* background: #000; */
    margin: 50px auto;
-   width: 500px;
+   width: 550px;
    padding: 20px;
-   border: 1px solid rgb(217, 224, 230);
    border-radius: 5px;
  }
  #container_SelectPayment input[type="text"]{
-   width: 350px;
-} 
-label{
-   width: 70px;
-/*    background: #000; */
-   text-align: center;
+   width: 400px;
+}
+#container_SelectPayment #Orderer input[type="text"]{
+   width: 100px;
 }
 
-/* ShoppingCart、SelectPayment****************************************************** */
-/* 結帳列 ----------------------------------------------------------------------------*/
-#subtotalBlock{
+/* 2個字------------------------------------------------ */
+#container_SelectPayment label[for="Male"], label[for="Famale"], label[for="Secrecy"]{
+   width: 35px;
+/*       border: 1px solid rgb(94, 150, 199); */
+}
+/* 4個字------------------------------------------------ */
+#container_SelectPayment label[for="CashOnDelivery"]{
+   width: 70PX;
+   /*    border: 1px solid rgb(94, 150, 199); */
+}
+
+/* 6個字------------------------------------------------ */
+#container_SelectPayment label[for="EInvoice"],label[for="ConvenienceStore"]{
+   width: 100pX;
+/*    border: 1px solid rgb(94, 150, 199); */
+   
+}
+/* 7個字------------------------------------------------ */
+#container_SelectPayment label[for="Company"]{
+   width: 120PX;
+   /*    border: 1px solid rgb(94, 150, 199); */
+   /* background: #000; */
+}
+
+#container_SelectPayment .col-form-label{
+	 width: 70px;
+	
+}
+
+/* PurchaseSuccess*************************************************************** */
+/* 訂單編號--------------------------------------------------------------------- */
+#container_PurchaseSuccess{
+   text-align: center;
+   margin: 50px auto;
+   /* background-color: lawngreen; */
+}
+
+
+/* PurchaseSuccess*************************************************************** */
+
+/* 感謝詞----------------------------------------------------------------------- */
+#thanks{
+   margin-bottom: 20px;
+}
+
+
+/* MyOrderList*************************************************************** */
+#container_MyOrderList{
+   margin-top: 100px;
+   text-align:center
+}
+
+/* 訂單項目 */
+#container_MyOrderList .Item{
+   margin-bottom: 10px;
+   line-height:10px;
+   padding: 15px 0px 0px 0px;
+
+}
+
+/* SubmitBlock ****************************************************************/
+
+
+
+/* OrderDetail*************************************************************** */
+#container_OrderDetail{
+   text-align:center;
+}
+
+/* ShoppingCart、OrderDetail****************************************************** */
+#container_OrderDetail .fa-search, #container_ShoppingCart .fa-search{
+   float:right;
+}
+
+#container_OrderDetail .fa-search:hover ,#container_ShoppingCart .fa-search:hover{
+cursor: pointer;
+}
+/* ShoppingCart、MyOrderList****************************************************** */
+/* 欄位敘述欄--------------------------------------------------------- */
+#container_ShoppingCart .FieldDescription, #container_MyOrderList .FieldDescription{
+   /* line-height:25px; */
+    min-width: 70px;
+ }
+
+/* ShoppingCart、SelectPayment、OrderDetail****************************************************** */
+/* 結帳列 、總金額列-------------------------------------------------------------------------*/
+#SubmitBlock, #SubtotalBlock , .Submit{
    /*    padding: 10px; */
    text-align: right;
-   }
+}
+/* PurchaseSuccess、OrderDetail、SubmitOrderInfo*************************************************************** */
+/* 訂單編號--------------------------------------------------------------------- */
+.OrderNumber{
+   text-align: left;
+   margin: 10px 0px;
+ } 
+
+ /* SubmitOrderInfo、OrderDetail************************************************************** */
+ #container_SubmitOrderInfo img ,#container_OrderDetail img{
+    width: 100%;
+    border-radius: 10px;
+ }
+ 
+ /* 欄位敘述欄-------------------------------------------- */
+ #container_OrderDetail,#SubmitOrderInfo .FieldDescription{
+ /* line-height:25px; */
+    min-width: 60px;
+ } 
+
+ /* 商品清單欄-------------------------------------------- */
+ #container_OrderDetail .col-1,.col-2 ,#container_SubmitOrderInfo .col-1,.col-2{
+   min-width: 60px;
+}
+
+
+#container_OrderDetail .row,#container_SubmitOrderInfo .row{
+   margin-bottom: 10px;
+}
+
+#container_OrderDetail .Item, #container_SubmitOrderInfo .Item{
+   padding: 0px 0px 10px 0px;
+   display: flex;
+   align-items: center 
+}

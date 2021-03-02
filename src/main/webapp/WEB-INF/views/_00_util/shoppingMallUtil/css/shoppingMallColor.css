@@ -1,0 +1,99 @@
+/* MerchandiseIndex****************************************************** */
+
+/* 活動快訊標題 */
+#newsTitle{
+ border-bottom: 1px solid rgb(126, 125, 125);
+ background: rgb(105, 105, 105);
+}
+
+/* 裝優惠日期+資訊的block */
+#container_news .block{
+ border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+#container_news .block:hover{
+ color: darkgray;
+}
+/* 地區搜尋的圖片==========================================================================*/
+/* 加背景 ===============================*/
+#container_news .area_search .mask{
+  background: rgba(54, 123, 180, 0.7);
+}
+
+/* ActivityDetail****************************************************** */
+
+#container_ActivityDetail .title{
+  background-color: rgb(252, 252, 252);
+}
+
+/* MerchandiseSearchResult*********************************************/
+/* 商品照片外框 */
+.itemImageBorder{
+  background-color: rgba(225, 226, 226, 0.378); 
+  border:1px solid rgb(230, 227, 227,0.3) ;
+ }
+
+/* 加入購物車鈕 */
+#container_MerchandiseSearchResult .addButton{
+  color:maroon;
+}
+
+/*MerchandiseDetail*********************************************/
+ /* 上方-------------------------------------------------------- */
+
+#ProductDescription, #Purchase ,#QA{
+  border: 1px solid black;
+
+}
+
+#ProductDescription:hover, #Purchase:hover ,#QA:hover{
+  border: 1px solid rgb(119, 118, 118);
+  background: rgb(214, 213, 213);
+}
+
+/* 商品資訊----------------------------------------------------- */
+#container_MerchandiseDetail .ItemInformationContent{
+  background-color: rgb(115, 120, 124);
+}
+ 
+#container_MerchandiseDetail .title{
+   background-color: rgb(252, 252, 252);
+ } 
+
+/* SelectPayment****************************************************** */
+#container_SelectPayment{
+  border: 1px solid rgb(217, 224, 230);
+}
+
+/* PurchaseSuccess*************************************************************** */
+/* 勾勾icon--------------------------------------------------------------------- */
+#container_PurchaseSuccess .fas{
+    color: rgb(95, 151, 11);
+  }
+ 
+/* MyOrderList*************************************************************** */
+      /* 訂單項目 */
+.Item{
+     border-bottom: 1px solid rgb(178, 178, 179);
+}
+
+/* ShoppingCart、MyOrderList、OrderDetail、SubmitOrderInfo****************************************************** */
+/* 欄位敘述--------------------------------------------------------- */
+.FieldDescription{
+    border: 1px solid rgb(65, 65, 65);
+    background: rgb(133, 133, 133);
+  }
+
+/* OrderDetail***************************************************************************** */
+  #container_OrderDetail .Item, #SubmitOrderInfo .Item{
+    border-bottom: 1px solid slategrey;
+ }
+
+ #container_OrderDetail .fa-search:hover, #container_ShoppingCart .fa-search:hover{
+color: rgb(165, 164, 164);
+}
+
+#container_OrderDetail .fa-search:hover ,#container_ShoppingCart .fa-search:hover{
+  color: rgb(165, 164, 164);
+
+  }
