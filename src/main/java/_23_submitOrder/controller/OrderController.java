@@ -26,4 +26,9 @@ public class OrderController {
 		return "_21_shoppingMall/SelectPayment";
 	}
 	
+	@RequestMapping("/submitOrderInfo")
+	public String submitOrderInfo() {
+		return "_21_shoppingMall/SubmitOrderInfo";
+	}
+	
 }

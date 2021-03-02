@@ -50,47 +50,47 @@ div {
 </style>
 </head>
 <body>
-<!--header=================================================================================  -->
+	<!--header=================================================================================  -->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!------------------------------------------------------------------------------------------->	
+		<!------------------------------------------------------------------------------------------->
 
-	<div class="container">
-		<input type="button" value="全選"> <input type="button"
-			value="全選刪除觀看紀錄"> <br> <br> <br>
-		<div class="content">
+		<div class="container">
+			<input type="button" value="全選"> <input type="button"
+				value="全選刪除觀看紀錄"> <br> <br> <br>
+			<div class="content">
 
-			<input type="checkbox" name="history">
-			<div class="circle"></div>
-			<div>
-				<span>台北101 跨年煙火影片</span><br> <span>觀看次數: 123,456次</span><br>
-				<span>上傳日期: 2021年01月01日</span><br>
+				<input type="checkbox" name="history">
+				<div class="circle"></div>
+				<div>
+					<span>台北101 跨年煙火影片</span><br> <span>觀看次數: 123,456次</span><br>
+					<span>上傳日期: 2021年01月01日</span><br>
+				</div>
+				<input type="button" value="刪除觀看紀錄">
+
 			</div>
-			<input type="button" value="刪除觀看紀錄">
+			<hr>
+			<div class="content">
 
-		</div>
-		<hr>
-		<div class="content">
+				<input type="checkbox" name="history">
+				<div class="circle"></div>
+				<div>
+					<span>台北101 跨年煙火影片</span><br> <span>觀看次數: 123,456次</span><br>
+					<span>上傳日期: 2021年01月01日</span><br>
+				</div>
+				<input type="button" value="刪除觀看紀錄">
 
-			<input type="checkbox" name="history">
-			<div class="circle"></div>
-			<div>
-				<span>台北101 跨年煙火影片</span><br> <span>觀看次數: 123,456次</span><br>
-				<span>上傳日期: 2021年01月01日</span><br>
 			</div>
-			<input type="button" value="刪除觀看紀錄">
-
 		</div>
+		<!-----------定位----------------------------------------------------------------------------->
 	</div>
-<!-----------定位----------------------------------------------------------------------------->       
-      </div>	
-<!--內嵌footer-------------------------------------------------------------------------------->
+	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-<!-- --------------------------------------------------------------------------------------->
+	<!-- --------------------------------------------------------------------------------------->
 </body>
 </html>

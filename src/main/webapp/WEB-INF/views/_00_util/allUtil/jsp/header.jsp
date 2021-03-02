@@ -126,7 +126,7 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="purchaseSuccess">購買成功</a></li>
 						<li><a class="dropdown-item" href="selectPayment">訂購資訊</a></li>
 						<li><a class="dropdown-item" href="shoppingCart">購物車</a></li>
-						<li><a class="dropdown-item" href="submitOrderInfo">提交訂單資訊(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="submitOrderInfo">提交訂單資訊</a></li>
 						<li>_還沒有</li>
 						<li><a class="dropdown-item" href="checkPayment">結帳頁面</a></li>
 					</ul></li>
@@ -139,12 +139,12 @@ ul.nav.nav-tabs {
 					<ul class="dropdown-menu">
 						<li>_31_portfolio</li>
 						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
-						<li><a class="dropdown-item" href="historyList">觀看紀錄(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="historyList">觀看紀錄</a></li>
 						<li><a class="dropdown-item" href="personalVideo">個人作品</a></li>
 						<li><a class="dropdown-item" href="PortfolioSearchResult">影片搜尋結果(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="previewVideo">播放預覽頁面_播放頁預覽(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="videoCreate">新增影片頁面(連結找不到)</a></li>
-						<li><a class="dropdown-item" href="videoModify">編輯影片(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="videoModify">編輯影片</a></li>
 						<li><a class="dropdown-item" href="videoReport">檢舉影片(連結找不到)</a></li>
 						
 						<li>_還沒有</li>
