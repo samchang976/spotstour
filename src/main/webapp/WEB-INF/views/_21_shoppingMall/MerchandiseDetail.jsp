@@ -69,7 +69,7 @@
 					</div>
 					<div class="col-12 col-md-6">
 						${itemBean.itemHeader}<br> 售價 : ${itemBean.itemPrice}<br>
-						已售出個數 :24個<br> 代購國家 : ${itemBean.countryBean.countryName}<br>
+						庫存數量 :${itemBean.itemQty}<br> 代購國家 : ${itemBean.countryBean.countryName}<br>
 						款式資訊 : 辣味 | 原味 | 洋蔥 | 起司 <br>
 
 						<button id="like" class="Bt_black">加入收藏</button>

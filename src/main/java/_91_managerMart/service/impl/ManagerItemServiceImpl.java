@@ -116,6 +116,8 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 	@Override
 	public void updateItem(ItemBean itemBeanN) {
 		ItemBean itemBeanO = managetItemDao.getItemByItemId(itemBeanN.getItemId());
+		Item_typeBean isb = managetItemDao.getItem_TypeById(itemBeanN.getItem_typeBean().getItId());
+		CountryBean cb = managetItemDao.getCountryById(itemBeanN.getCountryBean().getCountryId());
 		
 		itemBeanO.setCountryTId(itemBeanN.getCountryTId());
 		itemBeanO.setItTId(itemBeanN.getItTId());
@@ -124,6 +126,8 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 		itemBeanO.setItemPrice(itemBeanN.getItemPrice());
 		itemBeanO.setItemQty(itemBeanN.getItemQty());
 		
+		itemBeanO.setItem_typeBean(isb);
+		itemBeanO.setCountryBean(cb);
 		managetItemDao.updateItem(itemBeanO);
 	}
 }

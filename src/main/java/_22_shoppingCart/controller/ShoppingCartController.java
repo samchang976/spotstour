@@ -1,7 +1,11 @@
 package _22_shoppingCart.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import _02_model.entity.OrdBean;
 
 @Controller
 public class ShoppingCartController {
@@ -51,9 +55,14 @@ public class ShoppingCartController {
 		return "_21_shoppingMall/MerchandiseIndex";
 	}
 	
-	@RequestMapping("submitOrderInfo")
-	public String getsubmitOrderInfo() {
-		return "_21_shoppingMall/SubmitOrderInfo";
+	
+	
+	// 取得OrdBean
+	@ModelAttribute
+	public OrdBean getOrdBean(Model model) {
+		OrdBean ordBean = new OrdBean();
+		model.addAttribute("ordBean", ordBean);
+		return ordBean;
 	}
 	
 }

@@ -45,6 +45,13 @@ public class MerchandiseController {
 		return "_21_shoppingMall/MerchandiseSearchResult";
 	}
 	
+//	@RequestMapping("/merchandiseSearchResult/Id={countryId}")
+//	public String merchandiseSearchResult(@PathVariable(value = "countryId", required = false) Integer countryId, Model model) {
+//		List<ItemBean> list = itemService.getItemBySearch(countryId);
+//		model.addAttribute("items", list);
+//		return "_21_shoppingMall/MerchandiseSearchResult";
+//	}
+	
 	// 得到單一商品
 	@GetMapping("/merchandiseSearchResult/merchandiseDetail/Id={itemId}")
 	public String getItemById(@ModelAttribute("itemId") Integer itemId, Model model) {
