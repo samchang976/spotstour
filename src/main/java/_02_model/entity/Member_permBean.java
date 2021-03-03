@@ -53,11 +53,11 @@ public class Member_permBean implements Serializable {
 		this.mPermissions = mPermissions;
 	}
 
-//	public Set<MemberBean> getMemberBeans() {
-//		return memberBeans;
-//	}
-//
-//	public void setMemberBeans(Set<MemberBean> memberBeans) {
-//		this.memberBeans = memberBeans;
-//	}
+	public Set<MemberBean> getMemberBeans() {
+		return memberBeans;
+	}
+
+	public void setMemberBeans(Set<MemberBean> memberBeans) {
+		this.memberBeans = memberBeans;
+	}
 }

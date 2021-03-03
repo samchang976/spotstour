@@ -1,10 +1,12 @@
 package _11_register.service.impl;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import _02_model.entity.MemberBean;
+import _02_model.entity.Member_permBean;
 import _11_register.dao.MemberDao;
 import _11_register.service.MemberService;
 
@@ -14,6 +16,9 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	MemberDao dao;
+	
+	@Autowired
+	SessionFactory factory;
 
 	public MemberServiceImpl() {
 	}
@@ -44,5 +49,13 @@ public class MemberServiceImpl implements MemberService {
 		MemberBean mb = null;
 		mb = dao.checkmANmPw(mAN, mPw);
 		return mb;
+	}
+
+
+	@Override
+	public Member_permBean selectdata(int mPid) {
+		Member_permBean mpb = null;
+		mpb = dao.selectdata(mPid);
+		return mpb;
 	}
 }
