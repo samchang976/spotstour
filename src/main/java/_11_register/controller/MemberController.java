@@ -1,10 +1,8 @@
 package _11_register.controller;
 
-import java.sql.Blob;
-import java.sql.Timestamp;
 
+import java.sql.Timestamp;
 import javax.servlet.http.HttpServletRequest;
-import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,17 +21,12 @@ import _11_register.service.MemberService;
 import _11_register.validator.MemberBeanValidator;
 
 @Controller
-//@RequestMapping("/_11_register/")
 public class MemberController {
 	
 	String inputForm="_11_member/MemberRegister";
 	@Autowired
 	MemberService memberService;
 
-//	@RequestMapping("memberRegister")
-//	public String getMemberRegister() {
-//		return "_11_member/register";
-//	}
 	
 	
 	@RequestMapping("memberDetailModify")
@@ -41,7 +34,7 @@ public class MemberController {
 		return "_11_member/MemberDetailModify";
 	}
 	
-	/////////////////
+	
 	
 	@GetMapping("/memberRegister")
 	public String sendForm(Model model) {
@@ -55,39 +48,35 @@ public class MemberController {
 		memberBean.setmEmail("scwang39165@outlook.com");
 		memberBean.setmUid("A123456789");
 		model.addAttribute("memberBean", memberBean);
+
 		return inputForm;
 	}
 	
 	@PostMapping("/memberRegister")
 	public String processForm(@ModelAttribute("memberBean") MemberBean bean, BindingResult result, 
-			Model model, HttpServletRequest request, @ModelAttribute("member_permBean") Member_permBean permbean) {
+			Model model, HttpServletRequest request) {
 		MemberBeanValidator validator = new MemberBeanValidator();
 		validator.validate(bean, result);
 		if(result.hasErrors()) {
 			return inputForm;
 		}
 		MultipartFile mbPicture = bean.getMultipartFile();
-//		String originFileName = mbPicture.getOriginalFilename();
-//		String ext = "";
-//		if(originFileName.lastIndexOf(".") > -1) {
-//			ext = originFileName.substring(originFileName.lastIndexOf("."));
+
+//		if(mbPicture != null && !mbPicture.isEmpty()) {
+//			try {
+//				byte[] b = mbPicture.getBytes();
+//				Blob blob = new SerialBlob(b);
+//				bean.setmPic(blob);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				throw new RuntimeException("檔案上傳發生異常" + e.getMessage());
+//			}
 //		}
-//		if(originFileName.length() > 0 && originFileName.lastIndexOf(".") > -1) {
-//			bean.setFileName(originFileName);
-//		}
-		if(mbPicture != null && !mbPicture.isEmpty()) {
-			try {
-				byte[] b = mbPicture.getBytes();
-				Blob blob = new SerialBlob(b);
-				bean.setmPic(blob);
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException("檔案上傳發生異常" + e.getMessage());
-			}
-		}
 		Timestamp registerTime = new Timestamp(System.currentTimeMillis());
 		bean.setM_createTime(registerTime);
-		permbean.setmPid(2);
+		Member_permBean mpb = memberService.selectdata(2);
+		bean.setM_verify(0);
+		bean.setMemberPermBean(mpb);
 		bean.setmPw(GlobalService.getMD5Endocing(GlobalService.encryptString(bean.getmPw())));
 		if(memberService.mANExists(bean.getmAN())) {
 			result.rejectValue("mAN", "", "帳號已存在，請重新輸入");
@@ -101,20 +90,7 @@ public class MemberController {
 			return inputForm;
 		}
 		return "redirect:/";
-//		return "index";
 	}
 	
-	@ModelAttribute
-	public MemberBean prepareMemberBean(HttpServletRequest req) {
-		MemberBean memberBean = new MemberBean();
-		memberBean.setM_verify(0);
-		return memberBean;
-	}
-	
-	@ModelAttribute
-	public Member_permBean prepareMemberpermBean(HttpServletRequest req) {
-		Member_permBean memberpermBean = new Member_permBean();
-		memberpermBean.setmPid(2);;
-		return memberpermBean;
-	}
+
 }

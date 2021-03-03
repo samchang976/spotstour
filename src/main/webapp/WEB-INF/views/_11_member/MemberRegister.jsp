@@ -58,8 +58,10 @@
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
 
+								
+									
 	<div class="container">
-		<!-- <button class="btn btn-primary">ABC</button> -->
+		
 
 		<div class="main">
 
@@ -79,6 +81,8 @@
 						<form:form method="POST" modelAttribute="memberBean"
 							enctype='multipart/form-data'>
 							<div class="form-row">
+							
+							
 								<div class="form-group">
 									<form:label path="mAN">帳號：</form:label><form:errors path="mAN" class="error"/>
 									<form:input path="mAN" class="form-control"
@@ -125,7 +129,6 @@
 									
 								</div>
 							</div>
-							<div class="form-row">
 								<div class="form-group">
 									<form:label path="mEmail">電子信箱：</form:label><form:errors path="mEmail" class="error"/>
 									<form:input path="mEmail" class="form-control" placeholder="example@gmail.com"/>
@@ -136,18 +139,14 @@
 									<form:input path="mBDay" class="form-control" type="date"/>
 									
 								</div>
-								<!-- <div class="form-group col-md-3">
-                          <label for="inputState">生日：</label>
-                          <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                          </select> -->
+
 								<div class="form-group">
 									<form:label path="mPhone">電話：</form:label><form:errors path="mPhone" class="error"/>
 									<form:input path="mPhone" class="form-control" placeholder="0988123456"/>
 									
 								</div>
-							</div>
+														
+							
 							<div class="form-group">
 								<form:label path="multipartFile">會員照片：</form:label><form:errors path="multipartFile" class="error"/>
 									<form:input path="multipartFile" class="form-control" type="file"/>
@@ -157,8 +156,6 @@
 								<input type="checkbox" class="form-check-input"> <label
 									class="form-check-label" for="exampleCheck1">我已閱讀並同意服務條款及隱私權政策</label>
 							</div>
-
-
 
 							<button type="submit" class="btn btn-primary w-100">註冊</button>
 
