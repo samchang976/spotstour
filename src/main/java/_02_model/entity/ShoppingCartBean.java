@@ -15,24 +15,23 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name="shoppingcart")
 public class ShoppingCartBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private Integer sc_Id;	
-	private Integer s_ordQty;
- 	@OneToOne
- 	@JoinColumn(name = "mId")
+	private Integer sc_Id;	 //購物車編號
+	private Integer s_ordQty;//購物數量
+ 	
+	@OneToOne
+ 	@JoinColumn(name = "mId")//會員編號
  	private MemberBean memberBean;
  	
  	@ManyToOne
-    @JoinColumn(name="itemId")    
+    @JoinColumn(name="itemId")//商品編號
  	private ItemBean itemBean;
-
+//============================================================================
 	public Integer getSc_Id() {
 		return sc_Id;
 	}

@@ -32,18 +32,6 @@
 
 /* 地區搜尋的圖片==========================================================================*/
 
-#container_news .area_search{  
-  position: relative;
-  overflow: hidden;/*    隱藏超過的部分 */
- 
-  width: 250px;
-  height: 250px; 
-  /* border: 1px solid tan; */
-
-  margin: 0px auto;
-  padding:0px;
-  
-}
 
 #container_news .area_search{  
    position: relative;
@@ -83,8 +71,13 @@
 
    text-align: center;
 }
- #container_news .area_search:hover .mask{
+ #container_news .area_search:hover .mask, #countryName{
    opacity: 1;
+} 
+
+#container_news #countryName{
+   color:red;
+    opacity: 1;
 } 
 
 
