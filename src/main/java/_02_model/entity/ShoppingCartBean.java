@@ -1,38 +1,33 @@
 package _02_model.entity;
 
 import java.io.Serializable;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-
 
 @Entity
 @Table(name="shoppingcart")
 public class ShoppingCartBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private Integer sc_Id;	
-	private Integer s_ordQty;
- 	@OneToOne
- 	@JoinColumn(name = "mId")
- 	private MemberBean memberBean;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	//主鍵是自動增加的數值
+	private Integer sc_Id;	 //購物車編號
+	private Integer s_ordQty;//購物數量
+ 	
+	@OneToOne
+ 	@JoinColumn(name = "mId")//外鍵
+ 	private MemberBean memberBean;//會員編號
  	
  	@ManyToOne
-    @JoinColumn(name="itemId")    
- 	private ItemBean itemBean;
-
+    @JoinColumn(name="itemId")//外鍵
+ 	private ItemBean itemBean;//商品編號
+//============================================================================
 	public Integer getSc_Id() {
 		return sc_Id;
 	}

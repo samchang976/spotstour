@@ -25,9 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
+
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/managerUtil/css/managerLayout.css'></c:url>">
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/managerUtil/css/managerFont.css'></c:url>">
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/managerUtil/css/managerColor.css'></c:url>">
+	
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>活動快訊管理</title>
 <style>

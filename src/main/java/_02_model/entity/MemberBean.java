@@ -1,15 +1,12 @@
 ﻿package _02_model.entity;
 
 import java.io.Serializable;
-import java.sql.Blob;
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,8 +44,8 @@ public class MemberBean implements Serializable {
 	//信箱是否驗證
 	private Integer m_verify;
 
-//	@Transient
-//	private MultipartFile multipartFile;
+	@Transient
+	private MultipartFile multipartFile;
 	
 	@OneToOne(mappedBy = "memberBean", cascade = CascadeType.ALL)
 	private ShoppingCartBean shoppingCartBeans;
@@ -205,6 +202,14 @@ public class MemberBean implements Serializable {
 
 	public void setPorfolioBeans(Set<PortfolioBean> porfolioBeans) {
 		this.porfolioBeans = porfolioBeans;
+	}
+
+	public MultipartFile getMultipartFile() {
+		return multipartFile;
+	}
+
+	public void setMultipartFile(MultipartFile multipartFile) {
+		this.multipartFile = multipartFile;
 	}
 
 

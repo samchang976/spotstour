@@ -60,8 +60,8 @@
 
 		<!-- 活動快訊 ---------------------------------------------------------------------------->
 		<div class="container" id="container_news">
-			<div class="row newsBlock">
-				<div class="col-12">
+			<div class="row row-cols-1 newsBlock">
+				<div class="col">
 					<div id="newsTitle">活動快訊</div>
 
 					<div class="block"
@@ -75,15 +75,15 @@
 				</div>
 			</div>
 			<!-- 地區搜尋 ----------------------------------------------------------------------------->
-				<div class="row row-cols-md-4">
+				<div class="row row-cols-1 row-cols-md-4">
 			<c:forEach var='country' items='${countrys}'>
-					<div class="col-12 area_search"
+					<div class="col area_search my-3"
 						onclick="location.href=
                         'merchandiseSearchResult/Id=${country.countryId}'">
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							alt="area">
 						<div class="mask">
-							<h2>${country.countryName}</h2>
+							<h2 id="countryName">${country.countryName}</h2>
 						</div>
 					</div>
 

@@ -1,10 +1,8 @@
 package _11_register.controller;
 
-import java.sql.Blob;
-import java.sql.Timestamp;
 
+import java.sql.Timestamp;
 import javax.servlet.http.HttpServletRequest;
-import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,21 +16,17 @@ import org.springframework.web.multipart.MultipartFile;
 
 import _00_util.GlobalService;
 import _02_model.entity.MemberBean;
+import _02_model.entity.Member_permBean;
 import _11_register.service.MemberService;
 import _11_register.validator.MemberBeanValidator;
 
 @Controller
-//@RequestMapping("/_11_register/")
 public class MemberController {
 	
-	String inputForm="_11_member/register";
+	String inputForm="_11_member/MemberRegister";
 	@Autowired
 	MemberService memberService;
 
-//	@RequestMapping("memberRegister")
-//	public String getMemberRegister() {
-//		return "_11_member/register";
-//	}
 	
 	
 	@RequestMapping("memberDetailModify")
@@ -40,17 +34,25 @@ public class MemberController {
 		return "_11_member/MemberDetailModify";
 	}
 	
-	/////////////////
 	
-	@GetMapping("register")
+	
+	@GetMapping("/memberRegister")
 	public String sendForm(Model model) {
 		MemberBean memberBean = new MemberBean();
 		memberBean.setmName("Ms.Lin");
+		memberBean.setmPw("Do!ng123");
+		memberBean.setmTPw("Do!ng123");
+		memberBean.setmAN("a1011000");
+		memberBean.setD_mAddress("新竹市大同路100號");
+		memberBean.setmPhone("0919123456");
+		memberBean.setmEmail("scwang39165@outlook.com");
+		memberBean.setmUid("A123456789");
 		model.addAttribute("memberBean", memberBean);
+
 		return inputForm;
 	}
 	
-	@PostMapping("register")
+	@PostMapping("/memberRegister")
 	public String processForm(@ModelAttribute("memberBean") MemberBean bean, BindingResult result, 
 			Model model, HttpServletRequest request) {
 		MemberBeanValidator validator = new MemberBeanValidator();
@@ -58,15 +60,8 @@ public class MemberController {
 		if(result.hasErrors()) {
 			return inputForm;
 		}
-//		MultipartFile mbPicture = bean.getmMultipartFile();
-//		String originFileName = mbPicture.getOriginalFilename();
-//		String ext = "";
-//		if(originFileName.lastIndexOf(".") > -1) {
-//			ext = originFileName.substring(originFileName.lastIndexOf("."));
-//		}
-//		if(originFileName.length() > 0 && originFileName.lastIndexOf(".") > -1) {
-//			bean.setFileName(originFileName);
-//		}
+		MultipartFile mbPicture = bean.getMultipartFile();
+
 //		if(mbPicture != null && !mbPicture.isEmpty()) {
 //			try {
 //				byte[] b = mbPicture.getBytes();
@@ -79,27 +74,23 @@ public class MemberController {
 //		}
 		Timestamp registerTime = new Timestamp(System.currentTimeMillis());
 		bean.setM_createTime(registerTime);
+		Member_permBean mpb = memberService.selectdata(2);
+		bean.setM_verify(0);
+		bean.setMemberPermBean(mpb);
 		bean.setmPw(GlobalService.getMD5Endocing(GlobalService.encryptString(bean.getmPw())));
 		if(memberService.mANExists(bean.getmAN())) {
-			result.rejectValue("memberId", "", "帳號已存在，請重新輸入");
+			result.rejectValue("mAN", "", "帳號已存在，請重新輸入");
 			return inputForm;
 		}
 		try {
 			memberService.saveMember(bean);
 		} catch (Exception ex) {
 			System.out.println(ex.getClass().getName() + ", ex.getMessage() = " + ex.getMessage());
-			result.rejectValue("memberId", "", "發生異常，請通知系統人員..." + ex.getMessage());
+			result.rejectValue("mAN", "", "發生異常，請通知系統人員..." + ex.getMessage());
 			return inputForm;
 		}
 		return "redirect:/";
 	}
 	
-	@ModelAttribute
-	public MemberBean prepareMemberBean(HttpServletRequest req) {
-		MemberBean memberBean = new MemberBean();
-//		memberBean.setUserType("Z");
-		return memberBean;
-	}
-	
-	
+
 }
