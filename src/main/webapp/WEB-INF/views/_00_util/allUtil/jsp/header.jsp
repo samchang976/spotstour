@@ -144,7 +144,7 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="SearchResult">作品搜尋結果</a></li>
 						<li><a class="dropdown-item" href="portfolioPlay">作品播放</a></li>
 						<li><a class="dropdown-item" href="previewVideo">作品預覽頁面_播放頁預覽(連結找不到)</a></li>
-						<li><a class="dropdown-item" href="videoCreate">新增影片頁面(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="videoCreate">新增影片頁面</a></li>
 						<li><a class="dropdown-item" href="videoModify">編輯影片</a></li>
 						<li><a class="dropdown-item" href="videoReport">檢舉影片(連結找不到)</a></li>
 						
