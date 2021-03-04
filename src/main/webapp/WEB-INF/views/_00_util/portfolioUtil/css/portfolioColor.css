@@ -1,0 +1,4 @@
+/* VideoCreate*************************************************************** */
+        #container_VideoCreate input[type="text"]{
+            border: 1px darkgray solid;
+        }

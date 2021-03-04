@@ -1,0 +1,17 @@
+/* header------------------------------------------------------------------------- */
+.overlay p {
+	font-size: 10rem;
+}
+
+@media ( min-width : 300px) and (max-width: 1200px) {
+	.overlay p {
+		font-size: calc(4.5rem + ( 20.3 -4.5)* ((300vw- 1200px)/(1200- 600))); 
+		font-size: 4rem;
+	}
+}
+
+@media ( min-width : 1200px) {
+	 .overlay p {
+		font-size: 10rem;
+	} 
+}

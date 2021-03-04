@@ -1,0 +1,24 @@
+/* VideoCreate*************************************************************** */
+
+       .ViedoDescription input[type="text"]{
+            padding-bottom: 300px;
+        } 
+           
+         select.form-select{
+            width: 75%;
+            height: 46px;
+            display: inline-block;
+        }
+        
+        #container_VideoCreate input[type="text"]{
+            margin-bottom: 3px ;
+            border: 1px darkgray solid;
+            border-radius: 5px;
+            width: 100%;
+
+        }
+        #container_VideoCreate #latitude,#container_VideoCreate #longitude{
+            width: 41%;
+            border-radius: 5px;
+        }
+    
