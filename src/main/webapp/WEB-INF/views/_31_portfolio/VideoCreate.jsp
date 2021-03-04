@@ -54,7 +54,7 @@
 <!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
-    <div class="container container_VideoCreate">
+    <div class="container " id="container_VideoCreate">
         <!-- 影片新增 -->
         <div class="row">
             <div class="col">
@@ -63,20 +63,26 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-2">
-            <div class="col"></div>
-            <div class="col">
-                <div id="viedo_name">枕頭山</div>
-            </div>
-        </div>
-
-        <div class="row row-cols-1 row-cols-md-2">
-            <div class="col">
+            <div class="col SpotName">
+                景點名稱:
+                <input type="text" placeholder="請輸入景點名稱">
             </div>
             <div class="col LocationInformation">
                 <i class="fas fa-map-marker-alt"></i>
                 位置:
                 <input type="text" placeholder="請輸入位置資訊">
             </div>
+            
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col">
+            </div>
+            <div class="col">
+                經度:<input type="text" placeholder="經度" id="longitude">
+                緯度:<input type="text" placeholder="緯度" id="latitude">
+            </div>
+            
         </div>
 
         <div class="row row row-cols-1 row-cols-md-2">
@@ -109,6 +115,8 @@
             </div>
         </div>
     </div>
+
+
 <!-----------定位----------------------------------------------------------------------------->       
       </div>	
 <!--內嵌footer-------------------------------------------------------------------------------->
