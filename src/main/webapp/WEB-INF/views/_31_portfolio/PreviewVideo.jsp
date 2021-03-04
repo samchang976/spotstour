@@ -25,9 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
+
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/portfolioUtil/css/portfolioLayout.css'></c:url>">
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/portfolioUtil/css/portfolioFont.css'></c:url>">
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/portfolioUtil/css/portfolioColor.css'></c:url>">
+	
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>播放預覽</title>
