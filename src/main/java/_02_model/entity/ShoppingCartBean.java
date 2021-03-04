@@ -16,17 +16,17 @@ import javax.persistence.Table;
 public class ShoppingCartBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	//主鍵是自動增加的數值
 	private Integer sc_Id;	 //購物車編號
 	private Integer s_ordQty;//購物數量
  	
 	@OneToOne
- 	@JoinColumn(name = "mId")//會員編號
- 	private MemberBean memberBean;
+ 	@JoinColumn(name = "mId")//外鍵
+ 	private MemberBean memberBean;//會員編號
  	
  	@ManyToOne
-    @JoinColumn(name="itemId")//商品編號
- 	private ItemBean itemBean;
+    @JoinColumn(name="itemId")//外鍵
+ 	private ItemBean itemBean;//商品編號
 //============================================================================
 	public Integer getSc_Id() {
 		return sc_Id;
