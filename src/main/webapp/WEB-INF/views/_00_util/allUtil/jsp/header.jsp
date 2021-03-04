@@ -141,16 +141,17 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
 						<li><a class="dropdown-item" href="historyList">觀看紀錄</a></li>
 						<li><a class="dropdown-item" href="personalVideo">個人作品</a></li>
-						<li><a class="dropdown-item" href="PortfolioSearchResult">影片搜尋結果(連結找不到)</a></li>
-						<li><a class="dropdown-item" href="previewVideo">播放預覽頁面_播放頁預覽(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="SearchResult">作品搜尋結果</a></li>
+						<li><a class="dropdown-item" href="portfolioPlay">作品播放</a></li>
+						<li><a class="dropdown-item" href="previewVideo">作品預覽頁面_播放頁預覽(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="videoCreate">新增影片頁面(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="videoModify">編輯影片</a></li>
 						<li><a class="dropdown-item" href="videoReport">檢舉影片(連結找不到)</a></li>
 						
 						<li>_還沒有</li>
-						<li><a class="dropdown-item" href="worldMap">世界地圖</a></li>
-						<li><a class="dropdown-item" href="videoPlayer">影片播放</a></li>
-						<li><a class="dropdown-item" href="previewVideo_world">播放預覽頁面_世界地圖預覽</a></li>
+						<li><a class="dropdown-item" href="WorldMap">世界地圖</a></li>
+						<li><a class="dropdown-item" href="VideoPlayer">影片播放</a></li>
+						<li><a class="dropdown-item" href="PreviewVideo_world">播放預覽頁面_世界地圖預覽</a></li>
 						
 					</ul></li>
 

@@ -12,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import _00_util.Interceptor.ManagerInterceptor;
 import _00_util.Interceptor.MemberInterceptor;
 
 @Configuration
@@ -22,10 +23,13 @@ public class WebAppConfig implements WebMvcConfigurer {
 	//注入攔截器
 	@Autowired
 	private MemberInterceptor memberInterceptor;
+//	@Autowired
+//	private ManagerInterceptor managerInterceptor;
 	//註冊memberInterceptor攔截器,設置需要攔截的url請求路徑
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(memberInterceptor).addPathPatterns("//memberDetailModify");
+		registry.addInterceptor(memberInterceptor).addPathPatterns("/memberDetailModify");
+//		registry.addInterceptor(managerInterceptor).addPathPatterns("/aboutUsModify");
 	}
 
 	@Bean

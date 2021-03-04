@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import _02_model.entity.ContinentBean;
-import _32_portfolioSearch.dao.GetAreaDao;
+import _32_portfolioSearch.dao.GetKeywordDao;
 @Repository
-public class GetAreaDaoImpl implements GetAreaDao {
+public class GetKeywordDaoImpl implements GetKeywordDao {
 	@Autowired
 	SessionFactory sessionFactory;
 	

@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-@Component
-public class MemberInterceptor implements HandlerInterceptor {
+//@Component
+public class ManagerInterceptor implements HandlerInterceptor {
 	
 	//進入controller前的攔截器
-	//此攔截器攔截session判斷是否會員
+	//此攔截器攔截session判斷是否管理者
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -21,7 +21,7 @@ public class MemberInterceptor implements HandlerInterceptor {
 		String user =  (String) session.getAttribute("mAN");
 		String mPidName =  (String) session.getAttribute("mPidName");
 		Integer mPid = (Integer)session.getAttribute("mPid");
-		if(mPid != null && mPid == 2 ) {
+		if(mPid != null && mPid == 3 ) {
 			System.out.println("User:" + user + ",權限:" + mPidName +" 確認身分完畢");	
 			return true;
 		}else {

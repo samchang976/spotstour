@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import _02_model.entity.ContinentBean;
-import _32_portfolioSearch.dao.GetAreaDao;
+import _32_portfolioSearch.dao.GetKeywordDao;
 import _32_portfolioSearch.service.PortfolioSearchService;
 
 
@@ -17,7 +17,7 @@ import _32_portfolioSearch.service.PortfolioSearchService;
 public class PortfolioSearchServiceImpl implements PortfolioSearchService {
 
 	@Autowired
-	private GetAreaDao dao;
+	private GetKeywordDao dao;
 	
 	@Override
 //	@Transactional
@@ -26,7 +26,7 @@ public class PortfolioSearchServiceImpl implements PortfolioSearchService {
 //		return dao.queryContinent(id);
 //	}
 	
-	public ContinentBean queryContinentName(String name) {
+	public ContinentBean queryKeyword(String name) {
 		
 		return dao.queryContinentName(name);
 	}

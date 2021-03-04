@@ -1,7 +1,11 @@
 package _12_login.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
@@ -29,7 +33,7 @@ public class LoginController {
 	}
 
 	@RequestMapping("/login.do")
-	public String doLogin(@ModelAttribute MemberBean memberBean, HttpSession session) {
+	public String doLogin(@ModelAttribute MemberBean memberBean, HttpSession session ,HttpServletResponse res) {
 		
 		try{
 			boolean loginCheck = loginService.loginCheck(memberBean);
@@ -42,6 +46,18 @@ public class LoginController {
 				return "index";
 			}
 		} catch (NoResultException nre) {
+			//跳轉留給前端
+//			PrintWriter out;
+//			try {
+//				res.setContentType("text/html;charset=UTF-8");
+//				out = res.getWriter();
+//				out.println("<script>alert('帳號或密碼不存在,請重新輸入');</script>");
+//				out.close();
+//				return "redirect:login";
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//				return "/login";
+//			}
 			System.out.println("資料錯誤");
 //			return "_11_member/Login";
 			return "redirect:login";	
