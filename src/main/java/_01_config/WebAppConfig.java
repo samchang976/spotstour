@@ -21,6 +21,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import _00_util.Interceptor.ManagerInterceptor;
 //import _00_init.interceptor.DisableCacheInterceptor;
 import _00_util.Interceptor.MemberInterceptor;
 //import _02_login.interceptor.CheckLoginInterceptor;
