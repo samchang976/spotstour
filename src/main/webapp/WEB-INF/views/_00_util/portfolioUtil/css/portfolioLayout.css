@@ -12,9 +12,9 @@
         
         #container_VideoCreate input[type="text"]{
             margin-bottom: 3px ;
-            border: 1px darkgray solid;
             border-radius: 5px;
             width: 100%;
+            
 
         }
         #container_VideoCreate #latitude,#container_VideoCreate #longitude{

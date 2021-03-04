@@ -22,7 +22,7 @@
   }
   
 /* header------------------------------------------------ */
-/*SPOTS-TOUR跟search BAR  */
+/* SPOTS-TOUR跟search BAR  */
 .overlay {
   position: absolute;
   top:50%;
@@ -33,8 +33,26 @@
   
 }
 
-@media ( min-width : 300px) and (max-width: 1200px) {
-	.overlay p {
-		text-align: center;
-	}
+@media ( min-width : 576px) and (max-width: 800px) {
+	.overlay {
+ 	 position: absolute;
+ 	 top:180px;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+ 	 width:90%;
+  	text-align: center;
+  
+}
+}
+
+@media ( min-width : 801px) and (max-width: 1200px) {
+	.overlay {
+ 	 position: absolute;
+ 	 top:250px;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+ 	 width:90%;
+  	text-align: center;
+  
+}
 }
