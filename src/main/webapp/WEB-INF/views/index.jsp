@@ -124,7 +124,7 @@ a, i:hover {
 <body>
 	<!--內嵌header  -->
 	<div
-		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.705); top: 0px; z-index: 5;">
+		style="position: fixed; width: 100%; background-color: rgba(155, 146, 146, 0.2); top: 0px; z-index: 5;">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
 	<!-- 設定變數funcName的值為"IND", top.jsp會使用此變數-->
@@ -150,7 +150,7 @@ a, i:hover {
 				<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
 			</ol>
 			<!--  -->
-			<div style="width: 100%; height: 600px;" class="carousel-inner">
+			<div style="width: 100%; height: 1000px;" class="carousel-inner">
 				<div id="first" class="carousel-item active">
 
 					<video src="${pageContext.request.contextPath}/images/a.mp4"

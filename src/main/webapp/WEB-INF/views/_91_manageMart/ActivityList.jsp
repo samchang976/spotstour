@@ -115,7 +115,7 @@ button { /*按鈕的樣式*/
 				<div class="col-12">
 					<div class="news">
 						<div id="news-text">活動快訊</div>
-						
+
 						<c:forEach var='activity' items='${activitys}'>
 							<div class="block">
 								<!-- 日期 -->
@@ -322,33 +322,33 @@ button { /*按鈕的樣式*/
 
 				<!-- ============================================================= -->
 				<!-- 地區搜尋 -->
-				<div class="container"></div>
-				<div class="row g-5">
-					<div class="col-12 col-md-3">
-						<div>
-							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-								class="w-100">
-						</div>
-					</div>
-					<div class="col-12 col-md-3">
-						<div>
-							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-								class="w-100">
-						</div>
-					</div>
-					<div class="col-12 col-md-3">
-						<div>
-							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-								class="w-100">
-						</div>
-					</div>
-					<div class="col-12 col-md-3">
-						<div>
-							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-								class="w-100">
-						</div>
-					</div>
-				</div>
+				<!-- 				<div class="container"></div> -->
+				<!-- 				<div class="row g-5"> -->
+				<!-- 					<div class="col-12 col-md-3"> -->
+				<!-- 						<div> -->
+				<!-- 							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+				<!-- 								class="w-100"> -->
+				<!-- 						</div> -->
+				<!-- 					</div> -->
+				<!-- 					<div class="col-12 col-md-3"> -->
+				<!-- 						<div> -->
+				<!-- 							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+				<!-- 								class="w-100"> -->
+				<!-- 						</div> -->
+				<!-- 					</div> -->
+				<!-- 					<div class="col-12 col-md-3"> -->
+				<!-- 						<div> -->
+				<!-- 							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+				<!-- 								class="w-100"> -->
+				<!-- 						</div> -->
+				<!-- 					</div> -->
+				<!-- 					<div class="col-12 col-md-3"> -->
+				<!-- 						<div> -->
+				<!-- 							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+				<!-- 								class="w-100"> -->
+				<!-- 						</div> -->
+				<!-- 					</div> -->
+				<!-- 				</div> -->
 			</div>
 		</div>
 		<!-----------定位----------------------------------------------------------------------------->
