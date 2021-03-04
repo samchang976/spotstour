@@ -1,0 +1,17 @@
+/* VideoCreate*************************************************************** */
+
+        .ViedoDescription input[type="text"]{
+            width: 100%;
+            padding-bottom: 300px;
+            border-radius: 5px;
+        } 
+
+        .LocationInformation input[type="text"]{
+            width: 100%;
+            border-radius: 5px;
+        } 
+         select.form-select{
+            width: 78%;
+            height: 46px;
+            display: inline-block;
+        }

@@ -1,0 +1,9 @@
+/* VideoCreate*************************************************************** */
+        .ViedoDescription input[type="text"]{
+            border: 1px darkgray solid;
+        } 
+
+        .LocationInformation input[type="text"]{
+            border: 1px darkgray solid;
+
+        } 
