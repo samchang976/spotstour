@@ -30,7 +30,7 @@ public class ManagerController {
 
 	// 陳列商品
 	@GetMapping({ "/merchandiseModify", "/Id={itemId}" })
-	public String addAllMerchandise(@PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
+	public String getAllMerchandise(@PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
 		List<ItemBean> list = managerItemService.getAllItems();
 		model.addAttribute("items", list);
 		return "_91_manageMart/MerchandiseModify";
@@ -87,6 +87,7 @@ public class ManagerController {
 
 	// =========================================================
 
+	// 取得商品種類
 	@ModelAttribute("item_TypeMap")
 	public Map<Integer, String> getItem_TypeMap() {
 		Map<Integer, String> item_TypeMap = new HashMap<>();
@@ -102,6 +103,7 @@ public class ManagerController {
 //		return managerItemService.getItem_TypeList();
 //	}
 
+	// 取得國家
 	@ModelAttribute("countryMap")
 	public Map<Integer, String> getCountryMap() {
 		Map<Integer, String> countryMap = new HashMap<>();

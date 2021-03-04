@@ -16,6 +16,27 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`spotstourdb` /*!40100 DEFAULT CHARACTER
 
 USE `spotstourdb`;
 
+/*Table structure for table `activity` */
+
+/*Table structure for table `activity` */
+
+DROP TABLE IF EXISTS `activity`;
+
+CREATE TABLE `activity` (
+  `activityId` int NOT NULL AUTO_INCREMENT,
+  `activityContent` varchar(255) DEFAULT NULL,
+  `activityHeader` varchar(255) DEFAULT NULL,
+  `activity_createTime` date DEFAULT NULL,
+  `activity_freeze` int DEFAULT NULL,
+  PRIMARY KEY (`activityId`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Data for the table `activity` */
+
+insert  into `activity`(`activityId`,`activityContent`,`activityHeader`,`activity_createTime`,`activity_freeze`) values 
+(1,'新年特惠，全館免運! 活動到2021-01-03','活動1','2021-01-01',0),
+(2,'新春特惠，全館免運! 活動到2021-02-15','活動2','2021-02-01',0);
+
 /*Table structure for table `city` */
 
 DROP TABLE IF EXISTS `city`;
