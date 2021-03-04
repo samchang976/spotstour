@@ -52,10 +52,10 @@
 
 .main {
 	font-family: 'Noto Sans TC';
-	height: 85vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+/* 	height: 85vh; */
+/* 	display: flex; */
+/* justify-content: center;  */
+/* 	align-items: center; */
 }
 .error {
 	color: red;
