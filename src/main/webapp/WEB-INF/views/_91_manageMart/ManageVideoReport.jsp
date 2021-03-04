@@ -25,9 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
+	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
+
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/managerUtil/css/managerLayout.css'></c:url>">
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/managerUtil/css/managerFont.css'></c:url>">
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/managerUtil/css/managerColor.css'></c:url>">
+	
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>管理影片檢舉</title>
 
@@ -35,10 +49,12 @@
 body {
 	text-align: center;
 	font-size: 20px;
+	
 }
 
 .container {
 	text-align: center;
+
 }
 
 .row {
