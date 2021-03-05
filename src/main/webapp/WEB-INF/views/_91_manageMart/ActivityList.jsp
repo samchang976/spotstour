@@ -90,6 +90,35 @@ button { /*按鈕的樣式*/
 }
 </style>
 
+<script>
+window.onload = function() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "<c:url value='/members' />", true);
+	xhr.send();
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			var content = "<table border='1'>";
+			content += "<tr><th width='80'>編輯</th><th width='100'>帳號</th><th width='180'>姓名</th><th width='90'>餘額</th><th width='140'>生日</th></tr>";
+			var members = JSON.parse(xhr.responseText);
+			for(var i=0; i < members.length; i++){
+				tmp = "<c:url value='/membersEdit/' />";
+			    content += 	"<tr><td width='70'><a href='" + tmp + members[i].pk + "'>" + 
+			    			"<img width='36' height='36' src='<c:url value='/images/edit.png' />' ></a>" + 
+			                "<td align='center'>" + members[i].id + "</td>" +
+		        	       	"<td>" + members[i].name + "</td>" +
+		            	   	"<td align='right'>" + members[i].balance + "&nbsp;</td>" +
+							"<td>" + members[i].birthday + "</td>" +
+		               		"</tr>";
+			}
+			content += "</table>";
+			var divs = document.getElementById("somedivS");
+			divs.innerHTML = content;
+		}
+	}
+		
+}
+</script>
+
 </head>
 <body>
 	<!--header=================================================================================  -->
