@@ -25,7 +25,7 @@ import _12_login.service.LoginService;
 public class LoginController {
 
 	@Autowired
-	LoginService loginService;
+	private LoginService loginService;
 
 	@RequestMapping("/login")
 	public String login() {

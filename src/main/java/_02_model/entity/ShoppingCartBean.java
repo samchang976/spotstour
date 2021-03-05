@@ -20,7 +20,7 @@ public class ShoppingCartBean implements Serializable {
 	private Integer sc_Id;	 //購物車編號
 	private Integer s_ordQty;//購物數量
  	
-	@OneToOne
+	@ManyToOne
  	@JoinColumn(name = "mId")//外鍵
  	private MemberBean memberBean;//會員編號
  	

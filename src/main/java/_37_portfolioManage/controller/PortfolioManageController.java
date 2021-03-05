@@ -1,10 +1,20 @@
 package _37_portfolioManage.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import _02_model.entity.PortfolioBean;
+import _37_portfolioManage.service.CreatePortfolioService;
 
 @Controller
 public class PortfolioManageController {
+	
+	@Autowired
+	private CreatePortfolioService createPortfolioService;
 	
 	//新增影片跳轉
 	@RequestMapping("videoCreate")
@@ -27,6 +37,13 @@ public class PortfolioManageController {
 		return "_31_portfolio/VideoModify";
 	}
 	
-	
+//	@RequestMapping(value = "/createPortfolio", method = RequestMethod.POST)
+	public String createPortfolio(@ModelAttribute PortfolioBean portfolioBean,Model model) {
+		
+		
+		
+		return null;
+		
+	}
 	
 }

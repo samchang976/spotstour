@@ -65,16 +65,5 @@ public class RootAppConfig {
 		return properties;
 	}
 	
-	//檔案上傳
-	@Bean
-	private CommonsMultipartResolver multipartResolver() {
-		CommonsMultipartResolver cmr = new CommonsMultipartResolver();
-		cmr.setDefaultEncoding("UTF-8");
-		//檔案上傳的最大值 單位:位元組
-		cmr.setMaxUploadSize(10485760);
-		//檔案上傳時寫入內存的最大值
-//		cmr.setMaxInMemorySize(1024);
-		return cmr;
-	}
-	
+
 }

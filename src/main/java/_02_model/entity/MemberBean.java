@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -47,8 +48,8 @@ public class MemberBean implements Serializable {
 	@Transient
 	private MultipartFile multipartFile;
 	
-	@OneToOne(mappedBy = "memberBean", cascade = CascadeType.ALL)
-	private ShoppingCartBean shoppingCartBeans;
+	@OneToMany(mappedBy = "memberBean", cascade = CascadeType.ALL)
+	private List<ShoppingCartBean> shoppingCartBeans;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "mPid")
@@ -172,11 +173,19 @@ public class MemberBean implements Serializable {
 		this.m_verify = m_verify;
 	}
 
-	public ShoppingCartBean getShoppingCartBeans() {
+	public MultipartFile getMultipartFile() {
+		return multipartFile;
+	}
+
+	public void setMultipartFile(MultipartFile multipartFile) {
+		this.multipartFile = multipartFile;
+	}
+
+	public List<ShoppingCartBean> getShoppingCartBeans() {
 		return shoppingCartBeans;
 	}
 
-	public void setShoppingCartBeans(ShoppingCartBean shoppingCartBeans) {
+	public void setShoppingCartBeans(List<ShoppingCartBean> shoppingCartBeans) {
 		this.shoppingCartBeans = shoppingCartBeans;
 	}
 
@@ -202,14 +211,6 @@ public class MemberBean implements Serializable {
 
 	public void setPorfolioBeans(Set<PortfolioBean> porfolioBeans) {
 		this.porfolioBeans = porfolioBeans;
-	}
-
-	public MultipartFile getMultipartFile() {
-		return multipartFile;
-	}
-
-	public void setMultipartFile(MultipartFile multipartFile) {
-		this.multipartFile = multipartFile;
 	}
 
 

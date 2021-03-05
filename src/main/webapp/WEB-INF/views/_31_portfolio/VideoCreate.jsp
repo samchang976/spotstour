@@ -94,9 +94,7 @@
             <div class="col ViedoDescription">
                 <div>影片描述:</div>
                 <div>
-                    <form action="">
                         <input type="text" placeholder="請輸入影片描述" >
-                    </form>
                 </div>
             </div>
         </div>
