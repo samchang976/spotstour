@@ -16,6 +16,7 @@ public class MemberBeanValidator implements Validator{
 	@Override
 	public void validate(Object target, Errors errors) {
 		MemberBean mb = (MemberBean) target;
+//		String n = mb.getmBDay().toString();
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mAN", "", "帳號欄不能空白");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mName", 		"", "姓名欄不能空白");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mPw", 	"", "密碼欄不能空白");
@@ -24,7 +25,7 @@ public class MemberBeanValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mGender", 	"", "性別欄不能空白");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mUid", 		"", "身分證欄不能空白");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mEmail", 		"", "電子信箱欄不能空白");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mBDay", 		"", "生日欄不能空白");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mBDay", 		"mBDay.required", "生日欄不能空白");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mPhone", 		"", "電話欄不能空白");
 		ValidationUtils.rejectIfEmpty(errors, "multipartFile", "", "必須挑選圖片");
 		if (mb.getmAN() != null && mb.getmAN().length()<6) {
@@ -36,5 +37,9 @@ public class MemberBeanValidator implements Validator{
 		if (mb.getMultipartFile() != null && mb.getMultipartFile().getSize() == 0) {
 			errors.rejectValue("multipartFile", "", "必須挑選圖片");
 		}	
+//		Integer s = Integer.parseInt(mb.getmGender());
+//		if (s == -1) {
+//			errors.rejectValue("mGender","", "必須挑選嗜好欄的選項");
+//		}
 	}
 }

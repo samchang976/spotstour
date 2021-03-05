@@ -127,9 +127,10 @@
 									<form:label path="mGender">性別：</form:label><form:errors path="mGender" class="error"/>
 									<form:select path="mGender" class="form-control">
 <%-- 									<form:option value="-1" label="請挑選" /> --%>
-									<form:option value="0" label="男" />
-									<form:option value="1" label="女" />
-									<form:option value="2" label="秘密" />
+<%-- 									<form:option value="0" label="男" /> --%>
+<%-- 									<form:option value="1" label="女" /> --%>
+<%-- 									<form:option value="2" label="秘密" /> --%>
+									<form:options path="mGender" items="${gender}"/>
 									</form:select>
 									
 								</div>
