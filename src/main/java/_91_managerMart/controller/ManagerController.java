@@ -38,14 +38,14 @@ public class ManagerController {
 
 	// 新增商品
 	@PostMapping("/merchandiseModify")
-	public String processAddNewMrchandiseForm(@ModelAttribute("itemBean") ItemBean ib, Model model) {
-		managerItemService.addItem(ib);
+	public String processAddNewMrchandiseForm(@ModelAttribute("itemBean") ItemBean itemBean, Model model) {
+		managerItemService.addItem(itemBean);
 		return "redirect:/merchandiseModify";
 	}
 
 	// 凍結商品(刪除)
 	@GetMapping("/merchandiseModify/delete/Id={itemId}")
-	public String freezeItem(@ModelAttribute("itemId") Integer itemId, Model model) {
+	public String freezeItem(@ModelAttribute("itemId") Integer itemId) {
 		managerItemService.freezeItemByItemId(itemId);
 		return "redirect:/merchandiseModify";
 	}
