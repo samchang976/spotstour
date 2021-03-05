@@ -75,9 +75,20 @@
 						</div>
 						<div class="itemName">${item.itemHeader}</div>
 						<div class="itemPrice">${item.itemPrice}</div>
-						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input
-							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}">
-						</i>
+<!-- 						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input -->
+<%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
+<!-- 						</i> -->
+<!-- 加入購物車================================================================================================= -->
+				<form action="<c:url value='addShopping.do' />" method="POST">
+				<button type="submit">
+						<i class="fas fa-cart-arrow-down addButton" ></i>				
+				</button>
+						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}">
+						<input type="hidden" name="itemHeader" value="${item.itemId}">
+						<input type="hidden" name="itemPrice" value="${item.itemPrice}">
+				</form>
+<!-- ======================================================================================================= -->
+
 					</div>
 
 
@@ -135,7 +146,7 @@
 
 
 
-		<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	</div>
 	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
