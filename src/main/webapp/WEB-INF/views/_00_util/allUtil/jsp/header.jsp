@@ -96,17 +96,17 @@ ul.nav.nav-tabs {
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false">會員</a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="index">首頁</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/index"/>">首頁</a></li>
 						<li>_11_member</li>
-						<li><a class="dropdown-item" href="confirmEmail">Email確認(連結找不到)</a></li>
-						<li><a class="dropdown-item" href="emailVerificationSuccess">Email核對成功</a></li>
-						<li><a class="dropdown-item" href="forgetPassword">忘記密碼</a></li>
-						<li><a class="dropdown-item" href="login">登入會員</a></li>
-						<li><a class="dropdown-item" href="loginSuccess">登入成功(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/confirmEmail"/>">Email確認(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/emailVerificationSuccess"/>">Email核對成功</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/forgetPassword"/>">忘記密碼</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/login"/>">登入會員</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/loginSuccess"/>">登入成功(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="<c:url value='/login.out' />">登出</a></li>
-						<li><a class="dropdown-item" href="memberDetailModify">會員個人資料</a></li>
-						<li><a class="dropdown-item" href="memberRegister">註冊會員(連結找不到)</a></li>
-						<li><a class="dropdown-item" href="memberRegisterSuccess">註冊成功(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>">會員個人資料</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberRegister"/>">註冊會員(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberRegisterSuccess"/>">註冊成功(連結找不到)</a></li>
 					</ul></li>
 
 				<li class="nav-item dropdown"><a class="fas fa-user" style="color:green"
@@ -141,7 +141,8 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>">收藏的影片</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/historyList"/>">觀看紀錄</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>">個人作品</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/PortfolioSearchResult"/>">影片搜尋結果(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/portfolioSearchResult"/>">影片搜尋結果(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/portfolioPlay"/>">作品播放</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/previewVideo"/>">播放預覽頁面_播放頁預覽(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/videoCreate"/>">新增影片頁面(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/videoModify"/>">編輯影片</a></li>

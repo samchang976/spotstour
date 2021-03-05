@@ -75,12 +75,11 @@
 
 						<button id="like" class="Bt_black">加入收藏</button>
 						<button id="saleType" class="Bt_black">完售</button>
-
-						<br> 付款方式 : 現金付款<br> <select>
+						<br> <br> <select>
 							<option selected="selected" value="">請付款方式</option>
 							<option value="1">貨到付款</option>
 							<option value="2">信用卡付款</option>
-						</select>
+						</select> <br>
 						<form:form method='POST' modelAttribute='ordBean'>
 							<form:select path="shipTypeTId" class="custom-select">
 								<form:option value="-1" label="請選擇寄送方式" />
@@ -102,7 +101,7 @@
 				<div class="col-12">
 					<div id="ProductDescription">商品描述</div>
 					<div id="Purchase">費用&寄送資訊</div>
-					<div id="QA">問與答 (7)</div>
+					<div id="QA">商品留言</div>
 				</div>
 			</div>
 
