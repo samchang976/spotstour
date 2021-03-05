@@ -39,14 +39,6 @@ public class MemberController {
 	@GetMapping("/memberRegister")
 	public String sendForm(Model model) {
 		MemberBean memberBean = new MemberBean();
-		memberBean.setmName("Ms.Lin");
-		memberBean.setmPw("Do!ng123");
-		memberBean.setmTPw("Do!ng123");
-		memberBean.setmAN("a1011000");
-		memberBean.setD_mAddress("新竹市大同路100號");
-		memberBean.setmPhone("0919123456");
-		memberBean.setmEmail("scwang39165@outlook.com");
-		memberBean.setmUid("A123456789");
 		model.addAttribute("memberBean", memberBean);
 
 		return inputForm;
@@ -77,7 +69,6 @@ public class MemberController {
 		Member_permBean mpb = memberService.selectdata(2);
 		bean.setM_verify(0);
 		bean.setMemberPermBean(mpb);
-		bean.setmPw(GlobalService.getMD5Endocing(GlobalService.encryptString(bean.getmPw())));
 		if(memberService.mANExists(bean.getmAN())) {
 			result.rejectValue("mAN", "", "帳號已存在，請重新輸入");
 			return inputForm;
