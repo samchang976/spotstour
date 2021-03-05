@@ -48,6 +48,8 @@ public class OrderController {
 		return "_21_shoppingMall/CheckPayment";
 	}
 	
+	//====================
+	
 	// 取得OrdBean
 	@ModelAttribute
 	public OrdBean getOrdBean(Model model) {

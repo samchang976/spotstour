@@ -141,7 +141,7 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>">收藏的影片</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/historyList"/>">觀看紀錄</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>">個人作品</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/portfolioSearchResult"/>">影片搜尋結果(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/SearchResult"/>">影片搜尋結果(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/portfolioPlay"/>">作品播放</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/previewVideo"/>">播放預覽頁面_播放頁預覽(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/videoCreate"/>">新增影片頁面(連結找不到)</a></li>
