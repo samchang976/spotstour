@@ -65,7 +65,9 @@
 				<c:forEach var='item' items='${items}'>
 					<div class="col ">
 						<div class="itemImageBorder">
-							<a href='merchandiseDetail/Id=${item.itemId}'> <img
+
+							
+							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>"> <img
 								src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 								class="w-100">
 							</a>

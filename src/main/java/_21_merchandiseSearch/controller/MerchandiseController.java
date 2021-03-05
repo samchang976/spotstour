@@ -56,7 +56,7 @@ public class MerchandiseController {
 //	}
 	
 	// 得到單一商品
-	@GetMapping("/merchandiseSearchResult/merchandiseDetail/Id={itemId}")
+	@GetMapping({"/merchandiseDetail/Id={itemId}"})
 //	@GetMapping("/merchandiseDetail")
 	public String getItemById(@ModelAttribute("itemId") Integer itemId, Model model) {
 		ItemBean itemBean = itemService.getItemById(itemId);

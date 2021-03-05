@@ -43,90 +43,335 @@
 	href="<c:url value='/_00_util/managerUtil/css/managerColor.css'></c:url>">
 	
 <!-- --------------------------------------------------------------------------------------------------------->
-
-<title>活動管理清單</title>
-<link rel="stylesheet" href="button.css">
-<link rel="stylesheet" href="font.css">
+<title>活動快訊管理</title>
 <style>
 body {
-	margin: 0px;
 	font-size: 20px;
 }
 
-#first { /*最外層的div，包含所有*/
-	/* border: rgb(219, 67, 67) solid 1px; */
-	/* background: #000; */
-	text-align: center;
-	margin: auto;
-	width: 60%;
+.news {
+	padding: 5px;
+	/* border: 1px solid slateblue; */
 }
 
-/* #scoend{   div，檢舉類型選單
-           border: rgb(32, 4, 4) solid 1px;
-           height: 30px;
-           text-align: left;
-        }*/
-button { /*確定、送出的按鈕排版*/
+.clear-block {
+	clear: both;
+}
+
+.date {
+	/* border:1px solid  rgb(73, 147, 221) ; */
+	margin-right: 5px;
+}
+/* .discount{
+            border:1px solid  rgb(36, 112, 189) ;
+        } */
+#news-text {
+	border-bottom: 1px solid rgb(224, 224, 224);
+	background: rgb(240, 240, 240);
+	padding: 10px;
+}
+
+.block {
+	border-bottom: 1px solid rgb(224, 224, 224);
+	padding: 5px;
+}
+
+#want {
+	/* border: solid 1px slategrey; */
+	font-size: 20px;
+}
+
+button { /*按鈕的樣式*/
 	padding: 10px;
 	color: rgb(24, 24, 168);
 	border: 1px rgb(24, 24, 168) solid;
 	background-color: rgb(245, 241, 242);
 	border-radius: 5px;
 }
-
-#confirm {
-	text-align: right;
-}
 </style>
+
 </head>
 <body>
-<!--header=================================================================================  -->
+	<!--header=================================================================================  -->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!------------------------------------------------------------------------------------------->	
+		<!------------------------------------------------------------------------------------------->
 
-	<div class="container">
-		<div id="first">
-			<h2>編輯文章標題</h2>
-			<form>
-				<div>
-					<input type="text" name="Reportdescription" placeholder="請輸入內容"
-						style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;">
+		<!-- 搜尋列 -->
+		<div class="container" style="margin: 10px;">
+			<div class="row">
+				<div class="col-9 col-md-3">
+					<i class="fas fa-plus"></i> <span><button id="news"
+							value="新增活動資訊">新增活動資訊</button></span> <span><button
+							id="selectall" value="全選">全選</button></span> <span><button
+							id="denine" value="刪除全選">刪除全選</button></span>
+				</div>
+
+				<!-- <div class="col-9  col-md-4">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search"aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">
+                    <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div> -->
+
+			</div>
+		</div>
 
 
-					<!-- <div id="scoend">
-                    <form >
-                        <select name="Report" id="Report" 
-                            style="background-color: rgb(208, 210, 212);
-                            border-radius: 3px; 
-                            border:  1px solid rgb(0, 0, 0);
-                            ">
-                            <option value="violence">血腥暴力</option>
-                            <option value="pornography">色情內容</option>
-                            <option value="ImproperPofit">不當營利</option>
-                        </select>
-                    </form>
-                </div>   -->
+		<!-- 活動快訊 -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="news">
+						<div id="news-text">活動快訊</div>
 
-					<div id="confirm" style="background: #fff;">
-						<button>儲存</button>
-						<button>返回</button>
+						<c:forEach var='activity' items='${activitys}'>
+							<div class="block">
+								<!-- 日期 -->
+								<div class="left" style="float: left;">
+									<div class="date">${activity.activity_createTime}</div>
+								</div>
+								<!-- 優惠內容 -->
+								<div class="right " style="float: left;">
+									<div class="discount">${activity.activityContent}</div>
+								</div>
+								<div class="right " style="float: right;">
+									<input type="button" value="刪除">
+								</div>
+								<div class="right " style="float: right;">
+									<input type="button" value="修改">
+								</div>
+								<div class="clear-block"></div>
+							</div>
+						</c:forEach>
+
+						<!--------------------------------------------------------------->
+						<!-- 						<div class="block"> -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div> -->
+						<!-- 									<input class="form-check-input" type="checkbox" -->
+						<!-- 										id="checkboxNoLabel" value="" aria-label="..."> -->
+						<!-- 								</div> -->
+						<!-- 							</div> -->
+						<!-- 							日期 -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div class="date">2021/01/10</div> -->
+						<!-- 							</div> -->
+						<!-- 							優惠內容 -->
+						<!-- 							<div class="right " style="float: left;"> -->
+						<!-- 								<div class="discount">新春特惠，全館免運!</div> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="刪除"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="修改"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="clear-block"></div> -->
+						<!-- 						</div> -->
+						<!-- 						----------------------------------------------------------- -->
+
+						<!-- 						<div class="block"> -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div> -->
+						<!-- 									<input class="form-check-input" type="checkbox" -->
+						<!-- 										id="checkboxNoLabel" value="" aria-label="..."> -->
+						<!-- 								</div> -->
+						<!-- 							</div> -->
+						<!-- 							日期 -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div class="date">2021/01/10</div> -->
+						<!-- 							</div> -->
+						<!-- 							優惠內容 -->
+						<!-- 							<div class="right " style="float: left;"> -->
+						<!-- 								<div class="discount">新春特惠，全館免運!</div> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="刪除"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="修改"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="clear-block"></div> -->
+						<!-- 						</div> -->
+						<!-- 						----------------------------------------------------------- -->
+
+						<!-- 						<div class="block"> -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div> -->
+						<!-- 									<input class="form-check-input" type="checkbox" -->
+						<!-- 										id="checkboxNoLabel" value="" aria-label="..."> -->
+						<!-- 								</div> -->
+						<!-- 							</div> -->
+						<!-- 							日期 -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div class="date">2021/01/10</div> -->
+						<!-- 							</div> -->
+						<!-- 							優惠內容 -->
+						<!-- 							<div class="right " style="float: left;"> -->
+						<!-- 								<div class="discount">新春特惠，全館免運!</div> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="刪除"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="修改"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="clear-block"></div> -->
+						<!-- 						</div> -->
+						<!-- 						----------------------------------------------------------- -->
+
+						<!-- 						<div class="block"> -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div> -->
+						<!-- 									<input class="form-check-input" type="checkbox" -->
+						<!-- 										id="checkboxNoLabel" value="" aria-label="..."> -->
+						<!-- 								</div> -->
+						<!-- 							</div> -->
+						<!-- 							日期 -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div class="date">2021/01/10</div> -->
+						<!-- 							</div> -->
+						<!-- 							優惠內容 -->
+						<!-- 							<div class="right " style="float: left;"> -->
+						<!-- 								<div class="discount">新春特惠，全館免運!</div> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="刪除"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="修改"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="clear-block"></div> -->
+						<!-- 						</div> -->
+
+						<!-- 						----------------------------------------------------------- -->
+
+						<!-- 						<div class="block"> -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div> -->
+						<!-- 									<input class="form-check-input" type="checkbox" -->
+						<!-- 										id="checkboxNoLabel" value="" aria-label="..."> -->
+						<!-- 								</div> -->
+						<!-- 							</div> -->
+						<!-- 							日期 -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div class="date">2021/01/10</div> -->
+						<!-- 							</div> -->
+						<!-- 							優惠內容 -->
+						<!-- 							<div class="right " style="float: left;"> -->
+						<!-- 								<div class="discount">新春特惠，全館免運!</div> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="刪除"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="修改"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="clear-block"></div> -->
+						<!-- 						</div> -->
+
+						<!-- 						----------------------------------------------------------- -->
+
+						<!-- 						<div class="block"> -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div> -->
+						<!-- 									<input class="form-check-input" type="checkbox" -->
+						<!-- 										id="checkboxNoLabel" value="" aria-label="..."> -->
+						<!-- 								</div> -->
+						<!-- 							</div> -->
+						<!-- 							日期 -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div class="date">2021/01/10</div> -->
+						<!-- 							</div> -->
+						<!-- 							優惠內容 -->
+						<!-- 							<div class="right " style="float: left;"> -->
+						<!-- 								<div class="discount">新春特惠，全館免運!</div> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="刪除"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="修改"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="clear-block"></div> -->
+						<!-- 						</div> -->
+
+						<!-- 						<div class="block"> -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div> -->
+						<!-- 									<input class="form-check-input" type="checkbox" -->
+						<!-- 										id="checkboxNoLabel" value="" aria-label="..."> -->
+						<!-- 								</div> -->
+						<!-- 							</div> -->
+						<!-- 							日期 -->
+						<!-- 							<div class="left" style="float: left;"> -->
+						<!-- 								<div class="date">2021/01/10</div> -->
+						<!-- 							</div> -->
+						<!-- 							優惠內容 -->
+						<!-- 							<div class="right " style="float: left;"> -->
+						<!-- 								<div class="discount">新春特惠，全館免運!</div> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="刪除"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="right " style="float: right;"> -->
+						<!-- 								<input type="button" value="修改"> -->
+						<!-- 							</div> -->
+						<!-- 							<div class="clear-block"></div> -->
+						<!-- 						</div> -->
+
+
 					</div>
 				</div>
 
-			</form>
+
+
+
+
+				<!-- ============================================================= -->
+				<!-- 地區搜尋 -->
+				<!-- 				<div class="container"></div> -->
+				<!-- 				<div class="row g-5"> -->
+				<!-- 					<div class="col-12 col-md-3"> -->
+				<!-- 						<div> -->
+				<!-- 							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+				<!-- 								class="w-100"> -->
+				<!-- 						</div> -->
+				<!-- 					</div> -->
+				<!-- 					<div class="col-12 col-md-3"> -->
+				<!-- 						<div> -->
+				<!-- 							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+				<!-- 								class="w-100"> -->
+				<!-- 						</div> -->
+				<!-- 					</div> -->
+				<!-- 					<div class="col-12 col-md-3"> -->
+				<!-- 						<div> -->
+				<!-- 							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+				<!-- 								class="w-100"> -->
+				<!-- 						</div> -->
+				<!-- 					</div> -->
+				<!-- 					<div class="col-12 col-md-3"> -->
+				<!-- 						<div> -->
+				<!-- 							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+				<!-- 								class="w-100"> -->
+				<!-- 						</div> -->
+				<!-- 					</div> -->
+				<!-- 				</div> -->
+			</div>
 		</div>
+		<!-----------定位----------------------------------------------------------------------------->
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
-	</div>
-<!--內嵌footer-------------------------------------------------------------------------------->
+	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-<!-- --------------------------------------------------------------------------------------->
+	<!-- --------------------------------------------------------------------------------------->
 
 </body>
 </html>
