@@ -77,13 +77,13 @@
 <%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
 <!-- 						</i> -->
 <!-- 加入購物車================================================================================================= -->
-				<form action="<c:url value='addShopping.do' />" method="POST">
+				<form action="<c:url value='addShoppingCart.do' />" method="POST">
 				<button type="submit">
 						<i class="fas fa-cart-arrow-down addButton" ></i>				
 				</button>
-						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}">
+<%-- 						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
 						<input type="hidden" name="itemHeader" value="${item.itemId}">
-						<input type="hidden" name="itemPrice" value="${item.itemPrice}">
+		
 				</form>
 <!-- ======================================================================================================= -->
 

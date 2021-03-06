@@ -24,13 +24,22 @@ public class ShoppingCartBean implements Serializable {
  	@JoinColumn(name = "mId")//外鍵
  	private MemberBean memberBean;//會員編號
  	
- 	@ManyToOne
+ 	@ManyToOne 
     @JoinColumn(name="itemId")//外鍵
  	private ItemBean itemBean;//商品編號
+ 	
 //============================================================================
-	public Integer getSc_Id() {
+ 	//加入購物車用
+ 	public ShoppingCartBean( ItemBean itemBean) {
+ 		super();
+ 		this.itemBean = itemBean;
+ 	}
+	
+//============================================================================ 	
+ 	public Integer getSc_Id() {
 		return sc_Id;
 	}
+
 
 	public void setSc_Id(Integer sc_Id) {
 		this.sc_Id = sc_Id;
