@@ -44,7 +44,6 @@ public class OrderController {
 	
 	@RequestMapping("/testRequestBody")
 	public String test(@RequestBody String body) {
-		System.out.println("請求體" + body);
 		return "_21_shoppingMall/CheckPayment";
 	}
 	
