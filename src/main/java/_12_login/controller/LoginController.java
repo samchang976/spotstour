@@ -38,6 +38,7 @@ public class LoginController {
 		try{
 			boolean loginCheck = loginService.loginCheck(memberBean);
 			if (loginCheck == true) {
+				session.setAttribute("mId",memberBean.getmId());
 				session.setAttribute("mAN", memberBean.getmAN());
 				session.setAttribute("mPid", memberBean.getMemberPermBean().getmPid());
 				session.setAttribute("mPidName", memberBean.getMemberPermBean().getmPermissions());
