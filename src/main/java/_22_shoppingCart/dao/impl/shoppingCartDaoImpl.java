@@ -14,7 +14,7 @@ import _22_shoppingCart.dao.shoppingCartDao;
 @Repository //讀取資料的dao
 public class shoppingCartDaoImpl implements shoppingCartDao {
 	@Autowired
-	SessionFactory factory = null;
+	SessionFactory factory;
 	shoppingCartDaoImpl() {
 	}
 	
@@ -37,22 +37,20 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	//查詢標的為多性質
-	public List<Object> getShoppingCart(int memberId) {
-			List<Object> cart = new LinkedList<Object>(); //如果找不到就回傳null
-//			String hql = "SELECT i.itemPrice,i.itemHeader,i.itemPrice,i.itemQty,s.s_ordQty"
-//					+ "	FROM ShoppingCartBean s JOIN ItemBean i"
-//					+ "	ON i.itemId=s.itemId"
-//					+ "WHERE s.mId = :memberId"
-//					+ "ORDER BY sc_Id DESC"; //可以不用特別排，預設就是desc
+	public List<ShoppingCartBean> getShoppingCart(int memberId) {
+			List<ShoppingCartBean> cart = new LinkedList<ShoppingCartBean>(); //如果找不到就回傳null
+			String hql = "FROM ShoppingCartBean WHERE mId = :memberId" ; 
 			
-			String hql = "SELECT itemPrice,itemHeader,itemPrice,itemQty,s_ordQty"
-					+ "	FROM ShoppingCartBean "
-					+ "WHERE s.mId = :memberId";
 	
 	        Session session = factory.getCurrentSession();
 	         cart = session.createQuery(hql)
 	        		.setParameter("memberId", memberId)//設定參數名稱，參數值
 	        		.getResultList();//查詢0或多筆物件
+	         
+	         System.out.println("Dao================================");
+	         System.out.println(cart);
+	         System.out.println("Dao================================");
+
 			return cart;
 			
 	}
