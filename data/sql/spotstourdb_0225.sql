@@ -527,6 +527,11 @@ CREATE TABLE `shoppingcart` (
 
 /*Data for the table `shoppingcart` */
 
+insert  into `shoppingcart`(`sc_Id`,`mId`,`itemId`,`s_ordQty`) values 
+(1,1,1,5),
+(2,1,2,3),
+(3,1,5,1);
+
 /*Table structure for table `video` */
 
 DROP TABLE IF EXISTS `video`;

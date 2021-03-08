@@ -164,3 +164,9 @@ insert  into `receipt_type`(`receiptTypeId`,`receiptType`) values
 insert  into `activity`(`activityId`,`activityContent`,`activityHeader`,`activity_createTime`,`activity_freeze`) values 
 (1,'新年特惠，全館免運! 活動到2021-01-03','活動1','2021-01-01',0),
 (2,'新春特惠，全館免運! 活動到2021-02-15','活動2','2021-02-01',0);
+
+
+insert  into `shoppingcart`(`sc_Id`,`mId`,`itemId`,`s_ordQty`) values 
+(1,1,1,5),
+(2,1,2,3),
+(3,1,5,1);
