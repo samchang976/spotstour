@@ -62,8 +62,7 @@
 				</div>
 			</div>
 
-			<form action="createPortfolio" method="post"
-				enctype="multipart/form-data">
+			<form action="createPortfolio" method="post" enctype="multipart/form-data">
 				<div class="row row-cols-1 row-cols-md-2">
 					<div class="col SpotName">
 						影片名稱: <input type="text" name="portfolioName" placeholder="請輸入影片名稱">
@@ -77,37 +76,47 @@
 				<div class="row row-cols-1 row-cols-md-2">
 					<div>
 						城市: 
-						<select class="form-select"
+						<select class="form-select" 
 							aria-label="Default select example"
 							style="font-size: 15px; width: 39%; margin-top: 2px;">
 							<option selected>選擇城市</option>
-							<option value="1">台北</option>
-							<option value="2">台中</option>
-							<option value="3">高雄</option>
+							<c:forEach items="${cityList}" var="row">
+								<option value="${row.cityId}">${row.cityName}</option>
+							 </c:forEach>							
 						</select> 
+<!-- 						<select class="form-select"  -->
+<!-- 							aria-label="Default select example" -->
+<!-- 							style="font-size: 15px; width: 39%; margin-top: 2px;"> -->
+<!-- 							<option selected>選擇城市</option> -->
+<%-- 							<c:forEach items="${cityList}" var="row"> --%>
+<%-- 								<option value="${row.cityId}" <c:if test="${row.cityId == 2}">selected</c:if>>${row.cityName}</option> --%>
+<%-- 							 </c:forEach>							 --%>
+<!-- 						</select> -->
 						影片類型: 
 						<select class="form-select"
 							aria-label="Default select example"
 							style="font-size: 15px; width: 39%; margin-top: 2px;">
 							<option selected>選擇影片類型</option>
-							<option value="1">景點</option>
-							<option value="2">餐廳</option>
-							<option value="3">旅館</option>
+							<c:forEach items="${placeTypeList}" var="row">
+								<option value="${row.placeTypeId}">${row.placeType}</option>
+							 </c:forEach>
 						</select>
 					</div>
 					<div class="col">
 						<p></p>
-						經度:<input type="text" name="longitude" placeholder="經度" id="longitude"> 緯度:<input
-							type="text" name="latitude" placeholder="緯度" id="latitude">
+						經度:<input type="text" name="longitude" placeholder="經度" id="longitude"> 
+						緯度:<input type="text" name="latitude" placeholder="緯度" id="latitude">
 					</div>
 
 				</div>
 
 				<div class="row row row-cols-1 row-cols-md-2">
-					<div class="col" style="text-align: right;">
+					<div class="col" style="text-align: left;">
 						<video src="/a.mp4" controls class="w-100"></video>
-						<button class="Bt_black" type="submit">上傳影片預覽圖</button>
-						<button class="Bt_black" type="submit">上傳影片</button>
+						上傳影片預覽圖:
+						<input type="file" name="videoPic" id="videoPic"/><br>
+						上傳影片:
+						<input type="file" name="videoFile" id="videoFile"/><br>
 					</div>
 
 					<div class="col ViedoDescription">

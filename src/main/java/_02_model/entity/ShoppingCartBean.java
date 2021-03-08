@@ -28,6 +28,11 @@ public class ShoppingCartBean implements Serializable {
     @JoinColumn(name="itemId")//外鍵
  	private ItemBean itemBean;//商品編號
  	
+ 	
+ 	public ShoppingCartBean() {
+ 		super();
+ 		
+ 	}
 //============================================================================
  	//加入購物車用
  	public ShoppingCartBean( ItemBean itemBean) {
