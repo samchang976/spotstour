@@ -115,7 +115,15 @@
 			<div class="col-1 ItemField">${cart.itemBean.itemQty}個</div>
 			<!-- 刪除----- ----------------------------------------------------->
 			<div class="col-1 ItemField">
-				<Button class="Bt_blue">刪除</Button>
+			
+			<form action="shoppingCart/delete/Id=${cart.sc_Id}"
+			method='post'
+			>
+			<input class='Bt_blue' value="刪除" type="submit">
+			
+			</form>
+<!-- 				<Button class="Bt_blue"  -->
+<%-- 					onclick="location.href='shoppingCart/delete/Id=${cart.sc_Id}'">刪除</Button> --%>
 			</div>
 
 		</div>
