@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -54,6 +53,7 @@ public class ShoppingCartBean implements Serializable {
 	}
 
 	// ============================================================================
+	
 	public Integer getSc_Id() {
 		return sc_Id;
 	}
@@ -86,53 +86,5 @@ public class ShoppingCartBean implements Serializable {
 		this.itemBean = itemBean;
 	}
 
-
-
-	public ShoppingCartBean(Integer sc_Id, Integer s_ordQty, MemberBean memberBean, ItemBean itemBean) {
-		super();
-		this.sc_Id = sc_Id;
-		this.s_ordQty = s_ordQty;
-		this.memberBean = memberBean;
-		this.itemBean = itemBean;
-	}
-
-	@Override
-	public String toString() {
-		return "ShoppingCartBean [sc_Id=" + sc_Id + ", s_ordQty=" + s_ordQty + ", memberBean=" + memberBean
-				+ ", itemBean=" + itemBean + "]";
-	}
-
-	// ============================================================================
-	public Integer getSc_Id() {
-		return sc_Id;
-	}
-
-	public void setSc_Id(Integer sc_Id) {
-		this.sc_Id = sc_Id;
-	}
-
-	public Integer getS_ordQty() {
-		return s_ordQty;
-	}
-
-	public void setS_ordQty(Integer s_ordQty) {
-		this.s_ordQty = s_ordQty;
-	}
-
-	public MemberBean getMemberBean() {
-		return memberBean;
-	}
-
-	public void setMemberBean(MemberBean memberBean) {
-		this.memberBean = memberBean;
-	}
-
-	public ItemBean getItemBean() {
-		return itemBean;
-	}
-
-	public void setItemBean(ItemBean itemBean) {
-		this.itemBean = itemBean;
-	}
 
 }
