@@ -65,7 +65,9 @@
 				<c:forEach var='item' items='${items}'>
 					<div class="col ">
 						<div class="itemImageBorder">
-							<a href='merchandiseDetail/Id=${item.itemId}'> <img
+
+							
+							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>"> <img
 								src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 								class="w-100">
 							</a>
@@ -73,9 +75,20 @@
 						</div>
 						<div class="itemName">${item.itemHeader}</div>
 						<div class="itemPrice">${item.itemPrice}</div>
-						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input
-							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}">
-						</i>
+<!-- 						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input -->
+<%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
+<!-- 						</i> -->
+<!-- 加入購物車================================================================================================= -->
+				<form action="<c:url value='addShoppingCart.do' />" method="POST">
+				<button type="submit">
+						<i class="fas fa-cart-arrow-down addButton" ></i>				
+				</button>
+<%-- 						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
+						<input type="hidden" name="itemHeader" value="${item.itemId}">
+		
+				</form>
+<!-- ======================================================================================================= -->
+
 					</div>
 
 
@@ -133,7 +146,7 @@
 
 
 
-		<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	</div>
 	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>

@@ -25,23 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
-	
-	
+
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
-	
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
-	
+
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>商品詳細</title>
@@ -69,13 +69,17 @@
 					</div>
 					<div class="col-12 col-md-6">
 						${itemBean.itemHeader}<br> 售價 : ${itemBean.itemPrice}<br>
-						庫存數量 :${itemBean.itemQty}<br> 代購國家 : ${itemBean.countryBean.countryName}<br>
-						款式資訊 : 辣味 | 原味 | 洋蔥 | 起司 <br>
+						庫存數量 :${itemBean.itemQty}<br> 代購國家 :
+						${itemBean.countryBean.countryName}<br> 款式資訊 : 辣味 | 原味 | 洋蔥 |
+						起司 <br>
 
 						<button id="like" class="Bt_black">加入收藏</button>
 						<button id="saleType" class="Bt_black">完售</button>
-
-						<br> 付款方式 : 現金付款<br>
+						<br> <br> <select>
+							<option selected="selected" value="">請付款方式</option>
+							<option value="1">貨到付款</option>
+							<option value="2">信用卡付款</option>
+						</select> <br>
 						<form:form method='POST' modelAttribute='ordBean'>
 							<form:select path="shipTypeTId" class="custom-select">
 								<form:option value="-1" label="請選擇寄送方式" />
@@ -97,7 +101,7 @@
 				<div class="col-12">
 					<div id="ProductDescription">商品描述</div>
 					<div id="Purchase">費用&寄送資訊</div>
-					<div id="QA">問與答 (7)</div>
+					<div id="QA">商品留言</div>
 				</div>
 			</div>
 

@@ -1,13 +1,15 @@
 package _22_shoppingCart.service.impl;
 
-import java.sql.Blob;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import _02_model.entity.ShoppingCartBean;
 import _22_shoppingCart.dao.shoppingCartDao;
-
+import _22_shoppingCart.service.ShoppingCartService;
+@Transactional
 @Service //Service方法:企業邏輯，定義交易
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
@@ -18,38 +20,26 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		
 	}
 
-	@Transactional
 	@Override
-	public int getItemPrice() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Transactional
-	@Override
-	public String getItemHeader() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Transactional
-	@Override
-	public Blob getItemPic() {
-		// TODO Auto-generated method stub
-		return null;
+	public void saveShoppingCart(ShoppingCartBean cart) {
+		shoppingCartDao.saveShoppingCart(cart);
 	}
 
 	@Override
-	public int getItemQty() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void deleteItem(int sc_Id) {
+		shoppingCartDao.deleteItem(sc_Id);
+		
 	}
 
-	@Transactional
 	@Override
-	public int getOrdQty() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void UpdateQty(ShoppingCartBean cart) {
+		shoppingCartDao.UpdateQty(cart);
+		
+	}
+
+	@Override
+	public List<Object> getShoppingCart(int memberId) {
+		return shoppingCartDao.getShoppingCart(memberId);
 	}
 
 }

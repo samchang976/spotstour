@@ -3,8 +3,10 @@ package _23_submitOrder.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import _02_model.entity.MemberBean;
 import _02_model.entity.OrdBean;
 
 @Controller
@@ -30,10 +32,22 @@ public class OrderController {
 		return "_21_shoppingMall/SelectPayment";
 	}
 	
-	@RequestMapping("submitOrderInfo")
+	@RequestMapping("/submitOrderInfo")
 	public String getsubmitOrderInfo() {
 		return "_21_shoppingMall/SubmitOrderInfo";
 	}
+	
+	@RequestMapping("/checkPayment")
+	public String getCheckPayment() {
+		return "_21_shoppingMall/CheckPayment";
+	}
+	
+	@RequestMapping("/testRequestBody")
+	public String test(@RequestBody String body) {
+		return "_21_shoppingMall/CheckPayment";
+	}
+	
+	//====================
 	
 	// 取得OrdBean
 	@ModelAttribute
@@ -41,6 +55,14 @@ public class OrderController {
 		OrdBean ordBean = new OrdBean();
 		model.addAttribute("ordBean", ordBean);
 		return ordBean;
+	}
+	
+	// 取得MemberBean
+	@ModelAttribute
+	public MemberBean getMemberBean(Model model) {
+		MemberBean memberBean = new MemberBean();
+		model.addAttribute("memberBean", memberBean);
+		return memberBean;
 	}
 	
 }

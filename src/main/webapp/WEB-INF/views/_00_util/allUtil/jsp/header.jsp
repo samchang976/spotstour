@@ -96,17 +96,17 @@ ul.nav.nav-tabs {
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false">會員</a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="index">首頁</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/index"/>">首頁</a></li>
 						<li>_11_member</li>
-						<li><a class="dropdown-item" href="confirmEmail">Email確認(連結找不到)</a></li>
-						<li><a class="dropdown-item" href="emailVerificationSuccess">Email核對成功</a></li>
-						<li><a class="dropdown-item" href="forgetPassword">忘記密碼</a></li>
-						<li><a class="dropdown-item" href="login">登入會員</a></li>
-						<li><a class="dropdown-item" href="loginSuccess">登入成功(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/confirmEmail"/>">Email確認(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/emailVerificationSuccess"/>">Email核對成功</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/forgetPassword"/>">忘記密碼</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/login"/>">登入會員</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/loginSuccess"/>">登入成功(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="<c:url value='/login.out' />">登出</a></li>
-						<li><a class="dropdown-item" href="memberDetailModify">會員個人資料</a></li>
-						<li><a class="dropdown-item" href="memberRegister">註冊會員(連結找不到)</a></li>
-						<li><a class="dropdown-item" href="memberRegisterSuccess">註冊成功(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>">會員個人資料</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberRegister"/>">註冊會員(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberRegisterSuccess"/>">註冊成功(連結找不到)</a></li>
 					</ul></li>
 
 				<li class="nav-item dropdown"><a class="fas fa-user" style="color:green"
@@ -114,21 +114,21 @@ ul.nav.nav-tabs {
 					aria-expanded="false">商城</a>
 					<ul class="dropdown-menu">
 						<li>_21_shoppingMall</li>
-						<li><a class="dropdown-item" href="aboutMerchandise">關於商品資訊</a></li>
-						<li><a class="dropdown-item" href="aboutUs">關於我們</a></li>
-						<li><a class="dropdown-item" href="activityDetail">商城活動快訊詳細</a></li>
-						<li><a class="dropdown-item" href="contactUs">聯絡我們</a></li>
-						<li><a class="dropdown-item" href="merchandiseDetail">商品詳細</a></li>
-						<li><a class="dropdown-item" href="merchandiseIndex">商城首頁</a></li>									
-						<li><a class="dropdown-item" href="merchandiseSearchResult">商品搜尋結果</a></li>
-						<li><a class="dropdown-item" href="myOrderList">我的訂單</a></li>
-						<li><a class="dropdown-item" href="orderDetail">訂單明細</a></li>
-						<li><a class="dropdown-item" href="purchaseSuccess">購買成功</a></li>
-						<li><a class="dropdown-item" href="selectPayment">訂購資訊</a></li>
-						<li><a class="dropdown-item" href="shoppingCart">購物車</a></li>
-						<li><a class="dropdown-item" href="submitOrderInfo">提交訂單資訊</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutMerchandise"/>">關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutUs"/>">關於我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/activityDetail"/>">商城活動快訊詳細</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/contactUs"/>">聯絡我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/merchandiseDetail"/>">商品詳細</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/merchandiseIndex"/>">商城首頁</a></li>									
+						<li><a class="dropdown-item" href="<c:url value="/merchandiseSearchResult"/>">商品搜尋結果</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/myOrderList"/>">我的訂單</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/orderDetail"/>">訂單明細</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/purchaseSuccess"/>">購買成功</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/selectPayment"/>">訂購資訊</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/shoppingCart"/>">購物車</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/submitOrderInfo"/>">提交訂單資訊</a></li>
 						<li>_還沒有</li>
-						<li><a class="dropdown-item" href="checkPayment">結帳頁面</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/checkPayment"/>">結帳頁面</a></li>
 					</ul></li>
 
 
@@ -138,20 +138,20 @@ ul.nav.nav-tabs {
 					aria-expanded="false">影片</a>
 					<ul class="dropdown-menu">
 						<li>_31_portfolio</li>
-						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
-						<li><a class="dropdown-item" href="historyList">觀看紀錄</a></li>
-						<li><a class="dropdown-item" href="personalVideo">個人作品</a></li>
-						<li><a class="dropdown-item" href="SearchResult">作品搜尋結果</a></li>
-						<li><a class="dropdown-item" href="portfolioPlay">作品播放</a></li>
-						<li><a class="dropdown-item" href="previewVideo">作品預覽頁面_播放頁預覽(連結找不到)</a></li>
-						<li><a class="dropdown-item" href="videoCreate">新增影片頁面</a></li>
-						<li><a class="dropdown-item" href="videoModify">編輯影片</a></li>
-						<li><a class="dropdown-item" href="videoReport">檢舉影片(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>">收藏的影片</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/historyList"/>">觀看紀錄</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>">個人作品</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/SearchResult"/>">影片搜尋結果(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/portfolioPlay"/>">作品播放</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/previewVideo"/>">播放預覽頁面_播放頁預覽(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/videoCreate"/>">新增影片頁面(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/videoModify"/>">編輯影片</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/videoReport"/>">檢舉影片(連結找不到)</a></li>
 						
 						<li>_還沒有</li>
-						<li><a class="dropdown-item" href="WorldMap">世界地圖</a></li>
-						<li><a class="dropdown-item" href="VideoPlayer">影片播放</a></li>
-						<li><a class="dropdown-item" href="PreviewVideo_world">播放預覽頁面_世界地圖預覽</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/worldMap"/>">世界地圖</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/videoPlayer"/>">影片播放</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/previewVideo_world"/>">播放預覽頁面_世界地圖預覽</a></li>
 						
 					</ul></li>
 
@@ -160,14 +160,14 @@ ul.nav.nav-tabs {
 					aria-expanded="false">管理</a>
 					<ul class="dropdown-menu">
 						<li>_91_manageMart</li>
-						<li><a class="dropdown-item" href="aboutMerchandiseModify">編輯關於商品資訊</a></li>
-						<li><a class="dropdown-item" href="aboutUsModify">編輯關於我們</a></li>
-						<li><a class="dropdown-item" href="activityList">管理活動列表</a></li>
-						<li><a class="dropdown-item" href="activityModify">管理活動快訊</a></li>
-						<li><a class="dropdown-item" href="contactUsModify">編輯聯絡我們</a></li>
-						<li><a class="dropdown-item" href="manageMerchandiseReport">管理退貨商品列表</a></li>
-						<li><a class="dropdown-item" href="manageVideoReport">管理檢舉影片</a></li>
-						<li><a class="dropdown-item" href="merchandiseModify">編輯商品</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutMerchandiseModify"/>">編輯關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutUsModify"/>">編輯關於我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/activityList"/>">管理活動列表</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/activityModify"/>">管理活動快訊</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/contactUsModify"/>">編輯聯絡我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/manageMerchandiseReport"/>">管理退貨商品列表</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/manageVideoReport"/>">管理檢舉影片</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/merchandiseModify"/>">編輯商品</a></li>
 					</ul></li>
 <!-- ======================上方:測試頁面連結區塊================================================================================== -->
 					
@@ -175,16 +175,16 @@ ul.nav.nav-tabs {
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="merchandiseIndex">購物商城</a></li>
-						<li><a class="dropdown-item" href="shoppingCart">購物車</a></li>
-						<li><a class="dropdown-item" href="aboutMerchandise">關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/merchandiseIndex"/>">購物商城</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/shoppingCart"/>">購物車</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutMerchandise"/>">關於商品資訊</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="merchandiseModify">管理商城</a></li>
-						<li><a class="dropdown-item" href="activityList">管理活動列表</a></li>
-						<li><a class="dropdown-item" href="activityModify">管理活動快訊</a></li>
-						<li><a class="dropdown-item" href="aboutMerchandiseModify">編輯關於商品資訊</a></li>
-						<li><a class="dropdown-item" href="manageMerchandiseReport">管理退貨商品列表</a></li>
-						<li><a class="dropdown-item" href="manageVideoReport">管理檢舉影片</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/merchandiseModify"/>">管理商城</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/activityList"/>">管理活動列表</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/activityModify"/>">管理活動快訊</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutMerchandiseModify"/>">編輯關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/manageMerchandiseReport"/>">管理退貨商品列表</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/manageVideoReport"/>">管理檢舉影片</a></li>
 					</ul></li>
 					
 				<li class="nav-item dropdown"><a class="fas fa-user-alt "
@@ -192,27 +192,27 @@ ul.nav.nav-tabs {
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
 						<c:if test="${ funcName != 'REG' }">
-							<li><a class="dropdown-item" href="memberRegister">註冊會員</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/memberRegister"/>">註冊會員</a></li>
 						</c:if>
 						<c:if test="${ empty LoginOK }">
-							<li><a class="dropdown-item" href="login">登入</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/login"/>">登入</a></li>
 						</c:if>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="memberDetailModify">會員個人資料</a></li>
-						<li><a class="dropdown-item" href="personalVideo">個人作品</a></li>
-						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>">會員個人資料</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>">個人作品</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>">收藏的影片</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="logout">登出</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/logout"/>">登出</a></li>
 					</ul></li>
 					
 				<li class="nav-item dropdown"><a class="fas fa-align-justify "
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="aboutUs">關於我們</a></li>
-						<li><a class="dropdown-item" href="contactUs">聯絡我們</a></li>
-						<li><a class="dropdown-item" href="aboutUsModify">編輯關於我們</a></li>
-						<li><a class="dropdown-item" href="contactUsModify">編輯聯絡我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutUs"/>">關於我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/contactUs"/>">聯絡我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutUsModify"/>">編輯關於我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/contactUsModify"/>">編輯聯絡我們</a></li>
 					</ul></li>
 			</ul>
 		</div>

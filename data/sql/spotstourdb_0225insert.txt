@@ -159,3 +159,8 @@ insert  into `receipt_type`(`receiptTypeId`,`receiptType`) values
 (1,'三聯式統一發票'),
 (2,'二聯式統一發票'),
 (3,'電子發票');
+
+
+insert  into `activity`(`activityId`,`activityContent`,`activityHeader`,`activity_createTime`,`activity_freeze`) values 
+(1,'新年特惠，全館免運! 活動到2021-01-03','活動1','2021-01-01',0),
+(2,'新春特惠，全館免運! 活動到2021-02-15','活動2','2021-02-01',0);

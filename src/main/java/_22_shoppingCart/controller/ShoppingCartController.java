@@ -2,9 +2,12 @@ package _22_shoppingCart.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.support.SessionStatus;
 
+import _02_model.entity.MemberBean;
 import _02_model.entity.OrdBean;
 
 @Controller
@@ -63,6 +66,19 @@ public class ShoppingCartController {
 		OrdBean ordBean = new OrdBean();
 		model.addAttribute("ordBean", ordBean);
 		return ordBean;
+	}
+	//=====================================================================
+	
+	@GetMapping("ShowCartContent") //會員才有存在資料庫的購物車內容
+	protected String showCartContent(Model model, SessionStatus status) {
+		MemberBean memberBean = (MemberBean) model.getAttribute("mPid"); //會員權限 2:會員
+		if (memberBean == null) {
+			//使用 @SessionAttributes，Spring 無法知道什麼時候要清掉 @SessionAttributes 存進去的資料
+			//告知spring什麼時候要清掉session
+			status.setComplete();
+			return "redirect:/login"; //通知瀏覽器發出新請求
+		}
+		return  "_21_shoppingMall/ShoppingCart";
 	}
 	
 }
