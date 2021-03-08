@@ -76,8 +76,10 @@
 			<div class="col-1 FieldDescription">小計</div>
 			<div class="col-1 FieldDescription">庫存</div>
 		</div>
+		
 		<!-- 商品清單 ，動態新增---------------------------------------------------->
-		<div class="row">
+	<c:forEach varStatus='vs' var='cart' items='${cart}'>	
+		<div class="row" id="CartItem">
 			<!-- 選擇欄 ------------------------------------------------------- -->
 			<div class="col-1 ItemField">
 				<div>
@@ -93,34 +95,35 @@
 			<!-- 商品名稱 -------------------------------------------------------->
 			<div class="col-2 ItemField">
 				<div>
-					日本代購- <br>海苔天婦羅餅乾
+					${cart.itemBean.itemHeader}
+<!-- 					日本代購- <br>海苔天婦羅餅乾 -->
 				</div>
 			</div>
 			<!-- 選擇數量 -------------------------------------------------------->
 			<div class="col-1 ItemField">
 				<div>
-					<input type="number">
+					<input type="number" value="${cart.s_ordQty}" min="1">
 				</div>
 			</div>
 			<!-- 單價------------------------------------------------------------>
-			<div class="col-1 ItemField">$135</div>
+			<div class="col-1 ItemField">${cart.itemBean.itemPrice}元</div>
 
 			<!-- 小計----------------------------------------------------------->
-			<div class="col-1 ItemField">$135</div>
+			<div class="col-1 ItemField" id="Total${vs.index}">${cart.s_ordQty * cart.itemBean.itemPrice}元</div>
 
 			<!-- 庫存----------------------------------------------------------->
-			<div class="col-1 ItemField">足夠</div>
+			<div class="col-1 ItemField">${cart.itemBean.itemQty}個</div>
 			<!-- 刪除----- ----------------------------------------------------->
 			<div class="col-1 ItemField">
 				<Button class="Bt_blue">刪除</Button>
 			</div>
 
 		</div>
-
+	</c:forEach>	
 		<!--結帳 ------------------------------------------------------------------------ -->
 		<hr>
 		<div class="row-12" id="SubtotalBlock">
-			共<span id="items">0</span>商品，總金額 : <span id="subtotal">0</span>元
+			共<span id="items">${cartSize}</span>商品，總金額 : <span id="TotalMoney"></span>元
 			<button id="BtcheckNow" class="Bt_black " type="submit"
 				onclick="window.open('SelectPayment')">立即結帳</button>
 
@@ -134,5 +137,20 @@
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 <!-- --------------------------------------------------------------------------------------->
+<script>
+// var subtotal = 0; //總金額從0開始
+// var itemTotal =  window.querySelector("#CartItem"); //取得購物車商品數量
+
+// for(i=0;i<=itemTotal.length;i++){
+// 	itemTotal=window.getElementById("Total${i}").value;
+// 	subtotal += itemTotal;
+// 	}
+window.addeventListener('onload',function () {
+
+document.getElementById("TotalMoney").innerText("1");
+
+})
+
+</script>
 </body>
 </html>

@@ -24,7 +24,7 @@ public class ItemBean implements Serializable {
 	private Integer itemId;
 	private String itemHeader;
 	private Integer itemPrice;
-	private Integer itemQty;
+	private Integer itemQty;//庫存
 	private String itemDes;
 	private String itemPic1;
 	private String itemPic2;

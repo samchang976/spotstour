@@ -38,7 +38,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	}
 
 	@Override
-	public List<Object> getShoppingCart(int memberId) {
+	public List<ShoppingCartBean> getShoppingCart(int memberId) {
+		System.out.println("service=================================");
+		
+		System.out.println(memberId);
+		
+		System.out.println("service=================================");
+		
 		return shoppingCartDao.getShoppingCart(memberId);
 	}
 

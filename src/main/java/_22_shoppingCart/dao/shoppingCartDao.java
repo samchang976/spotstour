@@ -11,7 +11,7 @@ public interface shoppingCartDao {
 	
 	public void UpdateQty(ShoppingCartBean cart);//修改購物車一筆商品數量
 	
-	public List<Object> getShoppingCart(int memberId); //由memberId取得購物車清單:有順序性，先加的要在上面
+	public List<ShoppingCartBean> getShoppingCart(int memberId); //由memberId取得購物車清單:有順序性，先加的要在上面
 
 
 	
