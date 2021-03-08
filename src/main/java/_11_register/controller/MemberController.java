@@ -38,10 +38,10 @@ public class MemberController {
 
 	
 	
-	@RequestMapping("memberDetailModify")
-	public String getMemberDetailModify() {
-		return "_11_member/MemberDetailModify";
-	}
+//	@RequestMapping("memberDetailModify")
+//	public String getMemberDetailModify() {
+//		return "_11_member/MemberDetailModify";
+//	}
 	
 	
 	
