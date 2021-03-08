@@ -1,16 +1,19 @@
 package _11_register.controller;
 
 
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
+import java.util.Base64;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +22,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -89,6 +91,8 @@ public class MemberController {
 //				throw new RuntimeException("檔案上傳發生異常" + e.getMessage());
 //			}
 //		}
+		
+		
 		Timestamp registerTime = new Timestamp(System.currentTimeMillis());
 		bean.setM_createTime(registerTime);
 		
@@ -122,5 +126,26 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-
+///
+//	public byte[] blobToByteArray(Blob blob) {
+//		byte[] result = null;
+//		try (InputStream is = blob.getBinaryStream(); ByteArrayOutputStream baos = new ByteArrayOutputStream();) {
+//			byte[] b = new byte[819200];
+//			int len = 0;
+//			while ((len = is.read(b)) != -1) {
+//				baos.write(b, 0, len);
+//			}
+//			result = baos.toByteArray();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return result;
+//	}
+//	
+//	public static byte[] base64Encode(byte[] fileBytes) {
+//		byte[] encodedBytes = Base64.getEncoder().encode(fileBytes);
+//		System.out.println("編碼完成 " + encodedBytes.length);
+//		return encodedBytes;
+//	}
+	
 }
