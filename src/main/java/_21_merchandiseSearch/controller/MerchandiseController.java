@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import _02_model.entity.ActivityBean;
 import _02_model.entity.ContinentBean;
 import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
@@ -22,17 +24,23 @@ import _02_model.entity.OrdBean;
 import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
 import _21_merchandiseSearch.service.ItemService;
+import _91_managerMart.service.ManagerActivityService;
 
 @Controller
 public class MerchandiseController {
 
 	@Autowired
 	ItemService itemService;
+	
+	@Autowired
+	ManagerActivityService managerActivityService;
 
 	@GetMapping("/merchandiseIndex")
 	public String getAllCountry(Model model) {
 		List<CountryBean> list = itemService.getAllCountrys();
 		model.addAttribute("countrys", list);
+		List<ActivityBean> listA = managerActivityService.getAllActivitys();
+		model.addAttribute("activitys", listA);
 		return "_21_shoppingMall/MerchandiseIndex";
 	}
 
@@ -72,7 +80,6 @@ public class MerchandiseController {
 		return "_21_shoppingMall/MerchandiseSearchResult";
 	}
 	
-
 	
 //	=====================
 	
@@ -121,5 +128,14 @@ public class MerchandiseController {
 		}
 		return receipt_TypeMap;
 	}
+	
+//	// 取得活動資訊
+//	@ModelAttribute
+//	public ActivityBean getActivityBean(@PathVariable(value = "activityId", required = false) Integer activityId, Model model) {
+//		ActivityBean activityBean = null;
+//			activityBean = managerActivityService.getActivityByActivityId(activityId);
+//		return activityBean;
+//	}
+	
 
 }

@@ -25,23 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
-	
-	
+
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
-	
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
-	
+
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>商城首頁</title>
 </head>
@@ -64,19 +64,23 @@
 				<div class="col">
 					<div id="newsTitle">活動快訊</div>
 
-					<div class="block"
-						onclick="location.href=
-                        'ActivityDetail'">
-						<!-- 日期 -->
-						<span class="date">2021/01/01</span>
-						<!-- 優惠內容 -->
-						<span class="discount"> 新春特惠，全館免運!</span>
-					</div>
+					<c:forEach var='activity' items='${activitys}'>
+						<div class="block"
+							onclick="location.href=
+				                       'ActivityDetail'">
+							<!-- 											日期 -->
+							<span class="date">${activity.activity_createTime}</span>
+							<!-- 											優惠內容 -->
+							<span class="discount">${activity.activityContent}</span>
+						</div>
+					</c:forEach>
+
+
 				</div>
 			</div>
 			<!-- 地區搜尋 ----------------------------------------------------------------------------->
-				<div class="row row-cols-1 row-cols-md-4">
-			<c:forEach var='country' items='${countrys}'>
+			<div class="row row-cols-1 row-cols-md-4">
+				<c:forEach var='country' items='${countrys}'>
 					<div class="col area_search my-3"
 						onclick="location.href=
                         'merchandiseSearchResult/Id=${country.countryId}'">
@@ -88,46 +92,46 @@
 					</div>
 
 
-<!-- 					<div class="col-12 area_search" -->
-<!-- 						onclick="location.href= -->
-<!--                         'MerchandiseSearchResult'"> -->
+					<!-- 					<div class="col-12 area_search" -->
+					<!-- 						onclick="location.href= -->
+					<!--                         'MerchandiseSearchResult'"> -->
 
-<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
-<!-- 							alt="area"> -->
+					<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+					<!-- 							alt="area"> -->
 
-<!-- 						<div class="mask"> -->
-<!-- 							<h2>韓國</h2> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
+					<!-- 						<div class="mask"> -->
+					<!-- 							<h2>韓國</h2> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
 
-<!-- 					<div class="col-12 area_search" -->
-<!-- 						onclick="location.href= -->
-<!--                         'MerchandiseSearchResult'"> -->
-<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
-<!-- 							alt="area"> -->
+					<!-- 					<div class="col-12 area_search" -->
+					<!-- 						onclick="location.href= -->
+					<!--                         'MerchandiseSearchResult'"> -->
+					<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+					<!-- 							alt="area"> -->
 
-<!-- 						<div class="mask"> -->
-<!-- 							<h2>韓國</h2> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
+					<!-- 						<div class="mask"> -->
+					<!-- 							<h2>韓國</h2> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
 
-<!-- 					<div class="col-12 area_search" -->
-<!-- 						onclick="location.href= -->
-<!--                         'MerchandiseSearchResult'"> -->
-<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
-<!-- 							alt="area"> -->
+					<!-- 					<div class="col-12 area_search" -->
+					<!-- 						onclick="location.href= -->
+					<!--                         'MerchandiseSearchResult'"> -->
+					<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+					<!-- 							alt="area"> -->
 
 
-<!-- 						<div class="mask"> -->
-<!-- 							<h2>韓國</h2> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
+					<!-- 						<div class="mask"> -->
+					<!-- 							<h2>韓國</h2> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
 
 					<!-- -------------------------------------------------------------------------------------- -->
 
 
-			</c:forEach>
-				</div>
+				</c:forEach>
+			</div>
 		</div>
 
 		<!-----------定位----------------------------------------------------------------------------->
