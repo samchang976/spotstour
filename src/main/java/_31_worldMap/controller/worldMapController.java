@@ -8,6 +8,6 @@ public class worldMapController {
 	
 	@RequestMapping("/worldMap")
 	public String worldMap() {
-		return "_31_worldMap/worldMap";
+		return "_31_portfolio/worldMap";
 	}
 }

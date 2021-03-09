@@ -76,6 +76,7 @@
 		</div>
 		<!-- 商品清單 -->
 		<!-- 第一列 -->
+		<c:forEach var='feedback' items='${feedbacks}'>
 		<div class="row Item">
 			<!-- 商品照片 -->
 			<div class="col-2 ">
@@ -99,7 +100,7 @@
 			<!-- 小計 -->
 			<div class="col-1 ">$135</div>
 		</div>
-
+			</c:forEach>
 		<!-- 總金額 -->
 
 		<div class="Total">
@@ -108,10 +109,11 @@
 			</div>
 		</div>
 
+
 		<!-- 回商城首頁 -->
 		<div class="col">
 			<button class="Bt_black "
-				onclick="window.open('ShoppingCart')">回商城首頁</button>
+				onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
 		</div>
 
 
