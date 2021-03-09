@@ -8,8 +8,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import _02_model.entity.FeedbackBean;
 import _02_model.entity.MemberBean;
 import _02_model.entity.OrdBean;
+import _02_model.entity.Ord_detailBean;
 import _02_model.entity.Ord_statBean;
 import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
@@ -143,6 +145,18 @@ public class OrderDaoImpl implements Serializable, OrderDao {
 		String hql = "FROM Ord_statBean";
 		Session session = factory.getCurrentSession();
 		List<Ord_statBean> list = session.createQuery(hql).getResultList();
+		return list;
+	}
+
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Ord_detailBean> getAllOrd_detailsByOrd_Id(int ord_Id) {
+		String hql = "FROM Ord_detailBean WHERE ord_Id = :id";
+		Session session = factory.getCurrentSession();
+		List<Ord_detailBean> list = session.createQuery(hql)
+				.setParameter("id", ord_Id)
+				.getResultList();
 		return list;
 	}
 

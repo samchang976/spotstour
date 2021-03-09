@@ -2,10 +2,9 @@ package _23_submitOrder.dao;
 
 import java.util.List;
 
-import _02_model.entity.CountryBean;
-import _02_model.entity.Item_typeBean;
 import _02_model.entity.MemberBean;
 import _02_model.entity.OrdBean;
+import _02_model.entity.Ord_detailBean;
 import _02_model.entity.Ord_statBean;
 import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
@@ -45,5 +44,7 @@ public interface OrderDao {
 	List<Ship_TypeBean> getShip_TypeList();
 	
 	List<Ord_statBean> getOrd_statList();
+	
+	List<Ord_detailBean> getAllOrd_detailsByOrd_Id(int ord_Id);
 	
 }
