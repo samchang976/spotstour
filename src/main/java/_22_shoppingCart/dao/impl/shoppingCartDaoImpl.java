@@ -36,7 +36,7 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 //購物車，由memberId取得==========================================================================	
 	@SuppressWarnings("unchecked")
 	@Override
-	//查詢標的為多性質
+
 	public List<ShoppingCartBean> getShoppingCart(int memberId) {
 			List<ShoppingCartBean> cart = new LinkedList<ShoppingCartBean>(); //如果找不到就回傳null
 			String hql = "FROM ShoppingCartBean WHERE mId = :memberId" ; 
