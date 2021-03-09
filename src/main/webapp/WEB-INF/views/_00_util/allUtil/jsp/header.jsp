@@ -197,7 +197,7 @@ ul.nav.nav-tabs {
 							<li><a class="dropdown-item" href="login">登入</a></li>
 						</c:if>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="memberDetailModify">會員個人資料</a></li>
+						<li><a class="dropdown-item" href="memberDetailModify/${member.mId}">修改會員資料</a></li>
 						<li><a class="dropdown-item" href="personalVideo">個人作品</a></li>
 						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
 						<li><hr class="dropdown-divider"></li>

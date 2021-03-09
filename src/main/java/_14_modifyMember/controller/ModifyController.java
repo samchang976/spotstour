@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import _02_model.entity.MemberBean;
@@ -27,6 +28,7 @@ import _14_modifyMember.service.ModifyService;
 
 
 @Controller
+@SessionAttributes({"mId"})
 public class ModifyController {
 
 	@Autowired
@@ -59,7 +61,7 @@ public class ModifyController {
 			@ModelAttribute("member") MemberBean member, 
 			BindingResult result, 
 			Model model,
-			@PathVariable Integer id, 
+			@PathVariable Integer mId, 
 			HttpServletRequest request) {
 		MemberBeanValidator validator = new MemberBeanValidator();
 		validator.validate(member, result);

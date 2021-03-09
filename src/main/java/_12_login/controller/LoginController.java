@@ -35,6 +35,7 @@ public class LoginController {
 			boolean loginCheck = loginService.loginCheck(memberBean);
 			if (loginCheck == true) {
 				session.setAttribute("mAN", memberBean.getmAN());
+				session.setAttribute("mId", memberBean.getmId());
 				session.setAttribute("mPid", memberBean.getMemberPermBean().getmPid());
 				session.setAttribute("mPidName", memberBean.getMemberPermBean().getmPermissions());
 				System.out.println("User:" + session.getAttribute("mAN") + " 已登入" + ",權限:"
