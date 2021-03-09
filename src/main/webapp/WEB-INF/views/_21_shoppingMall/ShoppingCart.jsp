@@ -102,15 +102,18 @@
 					<div class="col-1 ItemField">
 						<div>
 							<input type="number" value="${cart.s_ordQty}" min="1"
-								id="Qty${vs.index}" name="itemQty">
+								id="Qty${vs.index}">
 						</div>
 					</div>
 					<!-- 單價------------------------------------------------------------>
-					<div class="col-1 ItemField">${cart.itemBean.itemPrice}元</div>
+					<div class="col-1 ItemField">
+						<span id="uniPrice${vs.index}">${cart.itemBean.itemPrice}</span>元
+					</div>
 
 					<!-- 小計----------------------------------------------------------->
 					<div class="col-1 ItemField">
-						<span id="Total${vs.index}">${cart.s_ordQty * cart.itemBean.itemPrice}</span>元
+						<span id="Total${vs.index}"></span>元
+						<%-- <span id="Total${vs.index}">${cart.s_ordQty * cart.itemBean.itemPrice}</span>元 --%>
 					</div>
 
 					<!-- 庫存----------------------------------------------------------->
@@ -159,12 +162,12 @@
 				}
 			}
 			//========================================================================
-			total();
+			anountMethod();
+			totalAmount();
+			 
 
 			}
 			
-
-
 			//多項刪除鈕，取得多項cartId
 
 			//放大鏡會有商品詳細資訊頁面
@@ -172,31 +175,39 @@
 			//庫存數量<商品選擇數量 ==>x
 			//庫存數量>=於商品選擇數量 ==>v
 			//更新商品小計
-			function modify(index) {
-				//商品id= Qty+
-				var x = "Qty" + index;
-				// 	商品數量--------------------------------------------
-				var Qty = document.getElementById(x).value;
-				alert(Qty);
+
+		//商品小計計算==========================================================================
+		function anountMethod() {
+
+			var items = document.querySelectorAll(".CartItem");
+			
+			for (i = 0; i < items.length; i++) {
+				Qty=parseInt(document.getElementById("Qty"+i).value); //商品選擇數量
+				price=parseInt(document.getElementById("uniPrice"+i).innerText); //商品選擇數量
+				anount = price * Qty;
+				// alert(anount);
+				document.getElementById("Total"+i).innerText = anount;
 				
 			}
-		//總金額計算功能
-		function total() {
+			// 			alert(Money);
+			// document.getElementById("TotalMoney").innerText = Money;
+
+		}
+
+		//總金額計算功能========================================================================
+		function totalAmount() {
 			var items = document.querySelectorAll(".CartItem");
-			// 			alert(items.length);
+			// alert(items.length);
 			// alert(document.getElementById("TotalMoney").innerText);
 			Money = 0; //金額從0開始
 			parseInt(Money);
 			// alert(typeof Money);
-			document.getElementById("TotalMoney").innerText = Money;
-
+			// alert(Money);
 			for (i = 0; i < items.length; i++) {
-				Toto = parseInt(document.getElementById("Total" + i).innerText);
-				// 	alert(typeof Toto);
-				// alert(itemTotal);
-				Money += Toto;
+				Toto = parseInt(document.getElementById("Total"+i).innerText);
+// 				alert(Toto);
+				Money = Money+Toto;
 			}
-			// 			alert(Money);
 			document.getElementById("TotalMoney").innerText = Money;
 
 		}
