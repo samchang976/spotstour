@@ -4,8 +4,8 @@ import java.util.List;
 
 import _02_model.entity.CityBean;
 
-public interface GetCityListDao {
-	public CityBean getCityById(int cityId);
+public interface CityDao {
+	public CityBean getCityById(Integer icId);
 	
 	public List<CityBean> getCityList();
 }

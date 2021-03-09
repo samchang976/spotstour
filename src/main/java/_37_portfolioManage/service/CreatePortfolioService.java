@@ -1,13 +1,9 @@
 package _37_portfolioManage.service;
 
-import java.util.List;
-
-import _02_model.entity.CityBean;
-import _02_model.entity.PortfolioBean;
+import _37_portfolioManage.controller.vo.PortfolioBeanVo;
 
 
 public interface CreatePortfolioService {
-	public PortfolioBean createPortfolio(PortfolioBean portfolio);
-	
+	public void addPortfolio(PortfolioBeanVo portfolioBeanVo);
 
 }
