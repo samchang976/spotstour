@@ -335,6 +335,11 @@ CREATE TABLE `ord` (
 
 /*Data for the table `ord` */
 
+insert  into `ord`(`ord_Id`,`mId`,`oSid`,`s_createTime`,`o_createTime`,`s_mAddress`,`receiptTypeId`,`shipTypeId`) values 
+(1,1,1,'2021-03-19 09:18:31','2021-03-10 09:18:49','台北市天龍區民權西路天橋下',1,1),
+(2,1,2,'2021-02-03 11:58:55','2021-02-19 03:58:59','台北市民權東路1號',2,2),
+(3,1,3,'2021-01-05 12:00:07','2021-01-29 16:00:11','台北市民權東路2號',3,3);
+
 /*Table structure for table `ord_detail` */
 
 DROP TABLE IF EXISTS `ord_detail`;
@@ -364,6 +369,11 @@ CREATE TABLE `ord_stat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord_stat` */
+
+insert  into `ord_stat`(`oSid`,`ordStat`) values 
+(1,'訂單處理中'),
+(2,'出貨中'),
+(3,'已送達');
 
 /*Table structure for table `params` */
 
