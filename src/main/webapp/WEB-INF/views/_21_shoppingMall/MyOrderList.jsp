@@ -58,7 +58,7 @@
 		<div class="container" id="container_MyOrderList">
 			<div class="row ">
 				<!-- 訂單編號 -->
-				<div class="col-3 FieldDescription ">
+				<div class="col-1 FieldDescription ">
 					<div>訂單編號</div>
 				</div>
 				<!-- 訂購時間 -->
@@ -67,8 +67,10 @@
 				</div>
 				<!-- 出貨時間 -->
 				<div class="col-3 FieldDescription">出貨時間</div>
+				<!-- 出貨地址 -->
+				<div class="col-3 FieldDescription">出貨地址</div>
 				<!-- 狀態 -->
-				<div class="col-2 FieldDescription">狀態</div>
+				<div class="col-1 FieldDescription">狀態</div>
 				<!-- 退貨按鈕 -->
 				<div class="col-1 "></div>
 			</div>
@@ -79,20 +81,22 @@
 			<c:forEach var='order' items='${orders}'>
 				<div class="row Item">
 					<!-- 訂單編號 -->
-					<div class="col-3">
-						<div>${order.ord_Id}</div>
+					<div class="col-1">
+						<div>FSWE1561${order.ord_Id}</div>
 					</div>
 					<!-- 訂購時間 -->
 					<div class="col-3">
-						<div>${order.s_createTime}</div>
+						<div>${order.o_createTime}</div>
 					</div>
 					<!-- 出貨時間 -->
-					<div class="col-3">${order.o_createTime}</div>
+					<div class="col-3">${order.s_createTime}</div>
+					<!-- 出貨地址 -->
+					<div class="col-3">${order.s_mAddress}</div>
 					<!-- 狀態 -->
-					<div class="col-2">完成</div>
-					<!-- 退貨按鈕 -->
+					<div class="col-1">${order.ordStatBean.ordStat}</div>
+					<!-- 訂單詳細資訊按鈕 -->
 					<div class="col-1">
-						<button class="Bt_blue">退貨</button>
+						<button class="Bt_blue" onclick="location.href='${pageContext.request.contextPath}/orderDetail'">詳細資訊</button>
 					</div>
 				</div>
 			</c:forEach>
