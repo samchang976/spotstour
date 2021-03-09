@@ -358,6 +358,18 @@ CREATE TABLE `ord_detail` (
 
 /*Data for the table `ord_detail` */
 
+insert  into `ord_detail`(`ord_dId`,`ord_Id`,`ordQty`,`itemId`) values 
+(1,1,2,1),
+(2,1,3,2),
+(3,1,4,3),
+(4,2,4,1),
+(5,2,4,2),
+(6,2,4,3),
+(7,3,5,1),
+(8,3,1,2),
+(9,3,2,3),
+(10,3,2,4);
+
 /*Table structure for table `ord_stat` */
 
 DROP TABLE IF EXISTS `ord_stat`;
