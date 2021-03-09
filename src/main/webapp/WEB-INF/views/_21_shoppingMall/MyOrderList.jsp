@@ -25,145 +25,138 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
-	
-	
+
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
-	
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
-	
+
 <!-- --------------------------------------------------------------------------------------------------------->
 
-    <title>我的訂單</title>
+<title>我的訂單</title>
 </head>
 <body>
-<!--header--------------------------------------------------------------------------->
-	<div class="HeaderPostition"
-		>
+	<!--header--------------------------------------------------------------------------->
+	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-	
-    <!-- 欄位敘述 -->
-    <div class="container" id="container_MyOrderList">
-        <div class="row " >
-            <!-- 訂單編號 -->
-            <div class="col-3 FieldDescription ">
-                <div>訂單編號</div>
-            </div>
-            <!-- 訂購時間 -->
-            <div class="col-3 FieldDescription">
-                <div>訂單時間</div>
-            </div>
-            <!-- 出貨時間 -->
-            <div class="col-3 FieldDescription">
-                出貨時間
-            </div>
-            <!-- 狀態 -->
-            <div class="col-2 FieldDescription">
-                狀態
-            </div>
-            <!-- 退貨按鈕 -->
-            <div class="col-1 ">
-            </div>
-        </div>
 
-     <!-- 訂單項目 -->
-        <!-- 第一項 -->
-        <div class="row Item">
-            <!-- 訂單編號 -->
-            <div class="col-3">
-                <div >FSWE1233000</div>
-            </div>
-            <!-- 訂購時間 -->
-            <div class="col-3">
-                <div>2020/12/12</div>
-            </div>
-            <!-- 出貨時間 -->
-            <div class="col-3">
-                2020/12/25
-            </div>
-            <!-- 狀態 -->
-            <div class="col-2">
-                完成
-            </div>
-            <!-- 退貨按鈕 -->
-            <div class="col-1">
-                <button class="Bt_blue">退貨</button>
-            </div>
-        </div>
-        <!-- 第二項 -->
-        <div class="row Item">
-            <!-- 訂單編號 -->
-            <div class="col-3">
-                <div>FSWE1561245</div>
-            </div>
-            <!-- 訂購時間 -->
-            <div class="col-3">
-                <div>2021/01/05</div>
-            </div>
-            <!-- 出貨時間 -->
-            <div class="col-3">
-                2021/01/10
-            </div>
-            <!-- 狀態 -->
-            <div class="col-2">
-                已送達
-            </div>
-            <!-- 退貨按鈕 -->
-            <div class="col-1">
-                <button class="Bt_blue">退貨</button>
-            </div>
-        </div>
-        
-          <!-- 第三項 -->
-          <div class="row Item">
-            <!-- 訂單編號 -->
-            <div class="col-3">
-                <div>FSWE1233245</div>
-            </div>
-            <!-- 訂購時間 -->
-            <div class="col-3">
-                <div>2021/01/12</div>
-            </div>
-            <!-- 出貨時間 -->
-            <div class="col-3">
-                -------------
-            </div>
-            <!-- 狀態 -->
-            <div class="col-2">
-                處理中
-            </div>
-            <!-- 退貨按鈕 -->
-            <div class="col-1">
-                <button class="Bt_blue">退貨</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button class="Bt_black"
-                >回商城首頁</button>
-            </div>
-        </div>
-    </div>
-<!-----------定位----------------------------------------------------------------------------->
+		<!-- 欄位敘述 -->
+		<div class="container" id="container_MyOrderList">
+			<div class="row ">
+				<!-- 訂單編號 -->
+				<div class="col-1 FieldDescription ">
+					<div>訂單編號</div>
+				</div>
+				<!-- 訂購時間 -->
+				<div class="col-3 FieldDescription">
+					<div>訂單時間</div>
+				</div>
+				<!-- 出貨時間 -->
+				<div class="col-3 FieldDescription">出貨時間</div>
+				<!-- 出貨地址 -->
+				<div class="col-3 FieldDescription">出貨地址</div>
+				<!-- 狀態 -->
+				<div class="col-1 FieldDescription">狀態</div>
+				<!-- 退貨按鈕 -->
+				<div class="col-1 "></div>
+			</div>
+
+			<!-- 訂單項目 -->
+			<!-- 第一項 -->
+
+			<c:forEach var='order' items='${orders}'>
+				<div class="row Item">
+					<!-- 訂單編號 -->
+					<div class="col-1">
+						<div>FSWE1561${order.ord_Id}</div>
+					</div>
+					<!-- 訂購時間 -->
+					<div class="col-3">
+						<div>${order.o_createTime}</div>
+					</div>
+					<!-- 出貨時間 -->
+					<div class="col-3">${order.s_createTime}</div>
+					<!-- 出貨地址 -->
+					<div class="col-3">${order.s_mAddress}</div>
+					<!-- 狀態 -->
+					<div class="col-1">${order.ordStatBean.ordStat}</div>
+					<!-- 訂單詳細資訊按鈕 -->
+					<div class="col-1">
+						<button class="Bt_blue" onclick="location.href='${pageContext.request.contextPath}/orderDetail'">詳細資訊</button>
+					</div>
+				</div>
+			</c:forEach>
+
+			<!-- 			<!-- 第二項 -->
+			<!-- 			<div class="row Item"> -->
+			<!-- 				訂單編號 -->
+			<!-- 				<div class="col-3"> -->
+			<!-- 					<div>FSWE1561245</div> -->
+			<!-- 				</div> -->
+			<!-- 				訂購時間 -->
+			<!-- 				<div class="col-3"> -->
+			<!-- 					<div>2021/01/05</div> -->
+			<!-- 				</div> -->
+			<!-- 				出貨時間 -->
+			<!-- 				<div class="col-3">2021/01/10</div> -->
+			<!-- 				狀態 -->
+			<!-- 				<div class="col-2">已送達</div> -->
+			<!-- 				退貨按鈕 -->
+			<!-- 				<div class="col-1"> -->
+			<!-- 					<button class="Bt_blue">退貨</button> -->
+			<!-- 				</div> -->
+			<!-- 			</div> -->
+
+			<!-- 			<!-- 第三項 -->
+			<!-- 			<div class="row Item"> -->
+			<!-- 				訂單編號 -->
+			<!-- 				<div class="col-3"> -->
+			<!-- 					<div>FSWE1233245</div> -->
+			<!-- 				</div> -->
+			<!-- 				訂購時間 -->
+			<!-- 				<div class="col-3"> -->
+			<!-- 					<div>2021/01/12</div> -->
+			<!-- 				</div> -->
+			<!-- 				出貨時間 -->
+			<!-- 				<div class="col-3">-------------</div> -->
+			<!-- 				狀態 -->
+			<!-- 				<div class="col-2">處理中</div> -->
+			<!-- 				退貨按鈕 -->
+			<!-- 				<div class="col-1"> -->
+			<!-- 					<button class="Bt_blue">退貨</button> -->
+			<!-- 				</div> -->
+			<!-- 			</div> -->
+
+
+			<div class="row">
+				<div class="col">
+					<!-- 					<button class="Bt_black">回商城首頁</button> -->
+					<button type="submit" class="btn btn-primary"
+						onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
+				</div>
+			</div>
+		</div>
+		<!-----------定位----------------------------------------------------------------------------->
 	</div>
-<!--內嵌footer-------------------------------------------------------------------------------->
+	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-<!------------------------------------------------------------------------------------------->
+	<!------------------------------------------------------------------------------------------->
 
 </body>
 </html>

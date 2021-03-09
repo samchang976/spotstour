@@ -25,7 +25,7 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
@@ -41,7 +41,7 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/managerUtil/css/managerColor.css'></c:url>">
-	
+
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>活動管理清單</title>
@@ -80,53 +80,62 @@ button { /*確定、送出的按鈕排版*/
 </style>
 </head>
 <body>
-<!--header=================================================================================  -->
+	<!--header=================================================================================  -->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!------------------------------------------------------------------------------------------->	
+		<!------------------------------------------------------------------------------------------->
 
-	<div class="container">
-		<div id="first">
-			<h2>編輯文章標題</h2>
-			<form>
-				<div>
-					<input type="text" name="Reportdescription" placeholder="請輸入內容"
-						style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;">
+		<div class="container">
+			<div id="first">
+				<c:if test="${activityId==null}">
+					<h2>新增活動</h2>
+				</c:if>
+				<c:if test="${activityId!=null}">
+					<h2>編輯活動</h2>
+				</c:if>
 
+				<form:form method='POST' modelAttribute='activityBean'>
+					<div>
+						<!-- 						<input type="text" name="Reportdescription" placeholder="請輸入內容" -->
+						<!-- 							style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;"> -->
 
-					<!-- <div id="scoend">
-                    <form >
-                        <select name="Report" id="Report" 
-                            style="background-color: rgb(208, 210, 212);
-                            border-radius: 3px; 
-                            border:  1px solid rgb(0, 0, 0);
-                            ">
-                            <option value="violence">血腥暴力</option>
-                            <option value="pornography">色情內容</option>
-                            <option value="ImproperPofit">不當營利</option>
-                        </select>
-                    </form>
-                </div>   -->
+						<div class="col-sm-10">
+							<form:input type="text" path="activityHeader"
+								class="form-control" id="activityHeader" />
+						</div>
+						<div class="col-sm-10">
+							<form:input type="text" path="activityContent"
+								class="form-control" id="activityContent"
+								style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;" />
+						</div>
 
-					<div id="confirm" style="background: #fff;">
-						<button>儲存</button>
-						<button>返回</button>
+						<div id="confirm" style="background: #fff;">
+							<c:if test="${activityId==null}">
+								<button type="submit" id="editM" class="btn btn-primary"
+									onclick="location.href='activityModify/get/Id=${activity.activityId}'">新增活動</button>
+							</c:if>
+
+							<c:if test="${activityId!=null}">
+								<button type="submit" id="editM" class="btn btn-primary"
+									onclick="location.href='activityModify/Id=${activity.activityId}'">儲存變更</button>
+							</c:if>
+						</div>
 					</div>
-				</div>
-
-			</form>
+				</form:form>
+				<button type="submit" class="btn btn-primary"
+					onclick="location.href='${pageContext.request.contextPath}/activityList'">返回前一頁</button>
+			</div>
 		</div>
+		<!-----------定位----------------------------------------------------------------------------->
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
-	</div>
-<!--內嵌footer-------------------------------------------------------------------------------->
+	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-<!-- --------------------------------------------------------------------------------------->
+	<!-- --------------------------------------------------------------------------------------->
 
 </body>
 </html>

@@ -31,10 +31,16 @@ public class OrdBean implements Serializable {
 	private Set<Ord_detailBean> ord_detailBeans = new LinkedHashSet<>();
 	
 	@Transient
+	private Integer mTId;
+	
+	@Transient
 	private Integer shipTypeTId;
 	
 	@Transient
 	private Integer receiptTypeTId;
+	
+	@Transient
+	private Integer oSTid;
 	
 	@ManyToOne
 	@JoinColumn(name="mId")
@@ -138,6 +144,22 @@ public class OrdBean implements Serializable {
 
 	public void setReceiptTypeTId(Integer receiptTypeTId) {
 		this.receiptTypeTId = receiptTypeTId;
+	}
+
+	public Integer getmTId() {
+		return mTId;
+	}
+
+	public void setmTId(Integer mTId) {
+		this.mTId = mTId;
+	}
+
+	public Integer getoSTid() {
+		return oSTid;
+	}
+
+	public void setoSTid(Integer oSTid) {
+		this.oSTid = oSTid;
 	}
 
 
