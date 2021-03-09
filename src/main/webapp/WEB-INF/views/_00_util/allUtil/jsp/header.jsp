@@ -69,7 +69,7 @@ ul.nav.nav-tabs {
 	<div class='menuOuter'
 		style="border-bottom: 1px solid black; text-align: center;">
 		<div id='option1'>
-			<a href="<c:url value='/index.jsp' />" target="_parent"> <i
+			<a href="<c:url value='worldMap' />" target="_parent"> <i
 				class="fas fa-globe-americas fa-spin "></i>
 			</a>
 		</div>

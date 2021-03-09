@@ -29,7 +29,7 @@ import _00_util.Interceptor.MemberInterceptor;
 @Configuration
 @EnableWebMvc 
 @EnableTransactionManagement 
-@ComponentScan({"_00_util", "_01_config", "_10_home", "_11_register", "_12_login","_13_mailVerification", "_21_merchandiseSearch", "_22_shoppingCart", "_23_submitOrder", "_24_contactUs", "_32_portfolioSearch", "_32_portfolioSearch.service","_37_portfolioManage", "_91_managerMart", "_92_managerReport" })
+@ComponentScan({"_00_util", "_01_config", "_10_home", "_11_register", "_12_login","_13_mailVerification", "_21_merchandiseSearch", "_22_shoppingCart", "_23_submitOrder", "_24_contactUs", "_31_worldMap", "_32_portfolioSearch", "_32_portfolioSearch.service","_37_portfolioManage", "_91_managerMart", "_92_managerReport" })
 public class WebAppConfig implements WebMvcConfigurer {
 	
 	@Autowired
