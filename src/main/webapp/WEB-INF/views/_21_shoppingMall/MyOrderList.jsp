@@ -96,7 +96,7 @@
 					<div class="col-1">${order.ordStatBean.ordStat}</div>
 					<!-- 訂單詳細資訊按鈕 -->
 					<div class="col-1">
-						<button class="Bt_blue" onclick="location.href='${pageContext.request.contextPath}/orderDetail'">詳細資訊</button>
+						<button class="Bt_blue" onclick="location.href='${pageContext.request.contextPath}/orderDetail/Id=${order.ord_Id}'">詳細資訊</button>
 					</div>
 				</div>
 			</c:forEach>
