@@ -142,6 +142,14 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 		itemBean.setCountryBean(cb);
 		session.save(itemBean);
 	}
+	
+	@Override
+	public void addFeedback(FeedbackBean feedbackBean) {
+		Session session = factory.getCurrentSession();
+		ItemBean ib = getItemByItemId(feedbackBean.getItemTId()); 
+		feedbackBean.setItemBean(ib);
+		session.save(feedbackBean);
+	}
 
 	@Override
 	public Item_typeBean getItem_TypeById(int itId) {
@@ -151,6 +159,7 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 		System.out.println(itb);
 		return itb;
 	}
+	
 
 	@SuppressWarnings("unchecked")
 	@Override

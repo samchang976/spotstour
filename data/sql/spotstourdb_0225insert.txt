@@ -123,12 +123,14 @@ INSERT  INTO `place_type`(`placeTypeId`,`placeType`) VALUES
 (2,'餐廳'),
 (3,'旅館');
 
-INSERT  INTO `ship_type`(`shipTypeId`,`shipType`) VALUES 
+
+insert  into `ship_type`(`shipTypeId`,`shipType`) values 
 (1,'宅配'),
 (2,'郵寄'),
 (3,'7-11門市取貨'),
 (4,'全家門市取貨'),
-(5,'萊爾富門市取貨');
+(5,'萊爾富門市取貨'),
+(6,'OK門市取貨');
 
 
 INSERT  INTO `member`(`mId`,`mAN`,`mPw`,`mGender`,`mName`,`mUid`,`mBDay`,`mEmail`,`mPhone`,`d_mAddress`,`m_createTime`,`mPic`,`m_verify`,`mPid`) VALUES 
@@ -158,7 +160,9 @@ INSERT  INTO `feedback`(`feedbackId`,`feedbackText`,`f_createTime`,`fb_freeze`,`
 insert  into `receipt_type`(`receiptTypeId`,`receiptType`) values 
 (1,'三聯式統一發票'),
 (2,'二聯式統一發票'),
-(3,'電子發票');
+(3,'個人電子發票'),
+(4,'公司戶電子發票'),
+(5,'捐贈發票');
 
 
 insert  into `activity`(`activityId`,`activityContent`,`activityHeader`,`activity_createTime`,`activity_freeze`) values 
@@ -184,3 +188,22 @@ insert  into `ord_stat`(`oSid`,`ordStat`) values
 (3,'已送達');
 
 
+insert  into `ord_detail`(`ord_dId`,`ord_Id`,`ordQty`,`itemId`) values 
+(1,1,2,1),
+(2,1,3,2),
+(3,1,4,3),
+(4,2,4,1),
+(5,2,4,2),
+(6,2,4,3),
+(7,3,5,1),
+(8,3,1,2),
+(9,3,2,3),
+(10,3,2,4);
+
+
+insert  into `report_type`(`rtId`,`reportType`) values 
+(1,'血腥暴力'),
+(2,'色情內容'),
+(3,'不當營利'),
+(4,'不當內容'),
+(5,'這是垃圾訊息');

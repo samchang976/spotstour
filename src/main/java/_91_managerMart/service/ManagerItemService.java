@@ -31,6 +31,8 @@ public interface ManagerItemService {
 	public List<FeedbackBean> getAllFeedbacksById(int itemId);
 
 	public void addItem(ItemBean itemBean);
+	
+	public void addFeedback(FeedbackBean feedbackBean);
 
 	public Item_typeBean getItem_TypeById(int itId);
 	

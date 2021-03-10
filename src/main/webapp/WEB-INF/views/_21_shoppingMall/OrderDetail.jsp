@@ -25,106 +25,112 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
-	
-	
+
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
-	
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
-	
+
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>訂單明細</title>
 </head>
 <body>
-<!--header=================================================================================  -->
+	<!--header=================================================================================  -->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!------------------------------------------------------------------------------------------->	
-	<div class="container" id="container_OrderDetail">
-		<!--訂單編號  -->
-		<div class="row">
-			<div class="col-12">
-				<!-- 訂單編號區塊 -->
-				<div class="OrderNumber">
-					<span>訂單編號 : </span><span>FSWE1233245</span> <span>訂購時間 :</span><span>2021/01/12</span>
+		<!------------------------------------------------------------------------------------------->
+		<div class="container" id="container_OrderDetail">
+			<!--訂單編號  -->
+			<div class="row">
+				<div class="col-12">
+					<!-- 訂單編號區塊 -->
+					<div class="OrderNumber">
+						<span>訂單編號 : </span><span>FSWE1233245</span> <span>訂購時間 :</span><span>2021/01/12</span>
+					</div>
 				</div>
-			</div>
-		</div>
-
-		<!-- 欄位敘述 -->
-		<div class="row">
-			<div class="col-4 FieldDescription">
-				<div>商品名稱</div>
-			</div>
-			<div class="col-1 FieldDescription">數量</div>
-			<div class="col-1 FieldDescription">單價</div>
-			<div class="col-1 FieldDescription">小計</div>
-		</div>
-		<!-- 商品清單 -->
-		<!-- 第一列 -->
-		<c:forEach var='feedback' items='${feedbacks}'>
-		<div class="row Item">
-			<!-- 商品照片 -->
-			<div class="col-2 ">
-				<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
-				<i class="fas fa-search"></i>
 			</div>
 
-			<div class="col-2 ">
-				<div>
-					日本代購<br>海苔天婦羅餅乾
+			<!-- 欄位敘述 -->
+			<div class="row">
+				<div class="col-4 FieldDescription">
+					<div>商品名稱</div>
 				</div>
+				<div class="col-1 FieldDescription">數量</div>
+				<div class="col-1 FieldDescription">單價</div>
+				<div class="col-1 FieldDescription">小計</div>
 			</div>
-			<!--數量  -->
-			<div class="col-1 ">
-				<div>
-					<div>1</div>
+			<!-- 商品清單 -->
+			<!-- 第一列 -->
+			<c:forEach var='ord_detail' items='${ord_details}' varStatus="s">
+				<div class="row Item">
+					<!-- 商品照片 -->
+					<div class="col-2 ">
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+						<i class="fas fa-search"></i>
+					</div>
+
+					<div class="col-2 ">
+						<div>
+							來自${ord_detail.itemBean.countryBean.countryName}代購<br>${ord_detail.itemBean.itemHeader}
+						</div>
+					</div>
+					<!--數量  -->
+					<div class="col-1 ">
+						<div>
+							<div>${ord_detail.ordQty}</div>
+						</div>
+					</div>
+					<!-- 單價 -->
+					<div class="col-1 ">${ord_detail.itemBean.itemPrice}</div>
+					<!-- 小計 -->
+					<div class="col-1 ">${ord_detail.ordQty * ord_detail.itemBean.itemPrice}</div>
 				</div>
-			</div>
-			<!-- 單價 -->
-			<div class="col-1 ">$135</div>
-			<!-- 小計 -->
-			<div class="col-1 ">$135</div>
-		</div>
+				<!-- 總金額 -->
+				<div class="Total">
+					<div id="SubtotalBlock">
+						<c:set
+							value="${ord_detail.ordQty * ord_detail.itemBean.itemPrice}"
+							var="sum" />
+						<c:set value="${sums + sum}" var="sums" />
+						<c:if test="${s.last==true}">
+							共<span id="items"> <c:out value="${s.count}" />
+							</span>
+							商品，總金額 : <span id="subtotal">${sums}</span>元
+						</c:if>
+
+					</div>
+				</div>
 			</c:forEach>
-		<!-- 總金額 -->
 
-		<div class="Total">
-			<div id="SubtotalBlock">
-				共<span id="items">3</span>商品，總金額 : <span id="subtotal">405</span>元
+			<!-- 回商城首頁 -->
+			<div class="col">
+				<button class="Bt_black "
+					onclick="location.href='${pageContext.request.contextPath}/myOrderList'">回到訂單頁面</button>
 			</div>
+
 		</div>
-
-
-		<!-- 回商城首頁 -->
-		<div class="col">
-			<button class="Bt_black "
-				onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
-		</div>
-
-
+		<!-----------定位----------------------------------------------------------------------------->
 	</div>
-<!-----------定位----------------------------------------------------------------------------->       
-      </div>	
-<!--內嵌footer-------------------------------------------------------------------------------->
+	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-<!------------------------------------------------------------------------------------------->
+	<!------------------------------------------------------------------------------------------->
 
 </body>
 </html>

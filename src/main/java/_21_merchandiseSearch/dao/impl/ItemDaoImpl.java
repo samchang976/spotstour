@@ -139,11 +139,17 @@ public class ItemDaoImpl implements Serializable, ItemDao {
 		List<ItemBean> list3 = session.createQuery(hql3)
 				.setParameter("searchBar", "%" + searchBar + "%")
 				.getResultList();
+
+		String hql4 = "FROM ItemBean as i WHERE i.item_freeze = 0 AND i.item_typeBean.itemType like :searchBar";
+		List<ItemBean> list4 = session.createQuery(hql4)
+				.setParameter("searchBar", "%" + searchBar + "%")
+				.getResultList();
 		
 		Set<ItemBean> set = new HashSet<>();
 		set.addAll(list1);
 		set.addAll(list2);
 		set.addAll(list3);
+		set.addAll(list4);
 		
 		return set;
 	}

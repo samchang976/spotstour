@@ -1,6 +1,9 @@
 package _37_portfolioManage.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import _02_model.entity.CityBean;
+import _02_model.entity.MemberBean;
 import _02_model.entity.Place_TypeBean;
 import _02_model.entity.PortfolioBean;
+import _37_portfolioManage.controller.vo.PortfolioBeanVo;
 import _37_portfolioManage.service.CreatePortfolioService;
 import _37_portfolioManage.service.GetCityListService;
 import _37_portfolioManage.service.GetPlace_TypeListService;
@@ -58,12 +63,12 @@ public class PortfolioManageController {
 
 	
     @PostMapping("createPortfolio")
-//    @ResponseBody
-	public String createPortfolio(@ModelAttribute("portfolioBean") PortfolioBean portfolioBean,Model model) {
-		createPortfolioService.createPortfolio(portfolioBean);
-		
-		
-		return "redirect:/videoModify";
+//  @ResponseBody
+	public String createPortfolio(@ModelAttribute PortfolioBeanVo portfolioBeanVo,Model model,HttpSession session) throws IOException {
+    	portfolioBeanVo.setmId((Integer)session.getAttribute("mId"));
+    	createPortfolioService.addPortfolio(portfolioBeanVo);
+			
+		return "redirect:/videoCreate";
 		
 	}
 	

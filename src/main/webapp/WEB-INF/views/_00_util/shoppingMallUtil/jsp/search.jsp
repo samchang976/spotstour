@@ -42,7 +42,7 @@
 				<div style="display: inline-flex;">
 					<span id="want">想買什麼?</span>
 
-					<form class="d-flex" action="merchandiseSearchResult" method="get">
+					<form class="d-flex" action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get">
 						<input class="form-control me-2" type="search" name="searchWord"
 							placeholder="Search" aria-label="Search">
 						<button class="btn btn-outline-success" type="submit">

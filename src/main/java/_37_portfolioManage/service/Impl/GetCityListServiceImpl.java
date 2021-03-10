@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import _02_model.entity.CityBean;
-import _37_portfolioManage.dao.GetCityListDao;
+import _37_portfolioManage.dao.CityDao;
 import _37_portfolioManage.service.GetCityListService;
 
 @Service
 public class GetCityListServiceImpl implements GetCityListService {
 
 	@Autowired
-	private GetCityListDao getCityListDao;
+	private CityDao getCityListDao;
 	
 	
 	@Transactional

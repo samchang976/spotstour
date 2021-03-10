@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import _02_model.entity.CountryBean;
+import _02_model.entity.FeedbackBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _02_model.entity.MemberBean;
 import _02_model.entity.OrdBean;
+import _02_model.entity.Ord_detailBean;
 import _02_model.entity.Ord_statBean;
 import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
@@ -124,6 +126,13 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public List<Ord_statBean> getOrd_statList() {
 		return orderDao.getOrd_statList();
+	}
+	
+	//陳列訂單資訊
+	@Transactional
+	@Override
+	public List<Ord_detailBean> getAllOrd_detailsByOrd_Id(int ord_Id) {
+		return orderDao.getAllOrd_detailsByOrd_Id(ord_Id);
 	}
 
 }
