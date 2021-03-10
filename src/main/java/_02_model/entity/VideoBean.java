@@ -26,8 +26,6 @@ public class VideoBean implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer videoId;
 	private String videoFile;
-	@Column(name = "videoPic", columnDefinition = "TEXT")
-	@Lob
 	private String videoPic;
 	private int v_freeze;
 
