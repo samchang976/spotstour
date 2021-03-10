@@ -12,14 +12,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="video")
+@Table(name = "video")
 public class VideoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -28,10 +28,10 @@ public class VideoBean implements Serializable {
 	private String videoFile;
 	private String videoPic;
 	private int v_freeze;
-	
+
 	@OneToMany(mappedBy = "videoBeans", cascade = { CascadeType.PERSIST }, orphanRemoval = false)
 	private Set<VideoReportBean> videoReports = new LinkedHashSet<>();
-	
+
 	@ManyToOne
 	@JoinColumn(name = "portfolioId")
 	private PortfolioBean portfolioBean;
@@ -84,6 +84,4 @@ public class VideoBean implements Serializable {
 		this.portfolioBean = portfolioBean;
 	}
 
-
-	
 }

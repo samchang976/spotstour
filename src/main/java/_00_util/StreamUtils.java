@@ -1,10 +1,13 @@
 package _00_util;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 
 public class StreamUtils {
 
@@ -19,7 +22,7 @@ public class StreamUtils {
 			int count = 0;
 			byte[] ba = new byte[1024];
 			while ((count = bis.read()) != -1) {
-				baos.write( ba, 0, count);
+				baos.write(ba, 0, count);
 				System.out.println(baos.size());
 			}
 			e = System.currentTimeMillis();
@@ -34,4 +37,27 @@ public class StreamUtils {
 		return baos.toByteArray();
 	}
 
+	public static String writeStream(byte[] fileByte, String filePath, String fileName) throws IOException {
+		if (fileByte == null) {
+			return null;
+		}
+		String path = filePath + fileName;
+		//建立資料夾,判斷資料夾存在
+		File file = new File(filePath);
+		if (!file.exists()) {
+			file.mkdirs();
+		}
+		//建立檔案,判斷檔案存在
+		file = new File(path);
+		if (!file.exists()) {
+			file.createNewFile();
+		}
+		OutputStream output = new FileOutputStream(file);
+		BufferedOutputStream bufferedOutput = new BufferedOutputStream(output);
+		bufferedOutput.write(fileByte);
+		bufferedOutput.flush();
+		bufferedOutput.close();
+
+		return path;
+	}
 }

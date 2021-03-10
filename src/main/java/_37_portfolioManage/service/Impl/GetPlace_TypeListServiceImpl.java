@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import _02_model.entity.Place_TypeBean;
-import _37_portfolioManage.dao.GetPlace_TypeListDao;
+import _37_portfolioManage.dao.Place_TypeDao;
 
 @Service
 public class GetPlace_TypeListServiceImpl implements _37_portfolioManage.service.GetPlace_TypeListService {
 
 	@Autowired
-	private GetPlace_TypeListDao getPlace_TypeListDao;
+	private Place_TypeDao getPlace_TypeListDao;
 
 	@Transactional
 	@Override

@@ -76,7 +76,7 @@
 				<div class="row row-cols-1 row-cols-md-2">
 					<div>
 						城市: 
-						<select class="form-select" 
+						<select class="form-select" name="cityId"
 							aria-label="Default select example"
 							style="font-size: 15px; width: 39%; margin-top: 2px;">
 							<option selected>選擇城市</option>
@@ -93,7 +93,7 @@
 <%-- 							 </c:forEach>							 --%>
 <!-- 						</select> -->
 						影片類型: 
-						<select class="form-select"
+						<select class="form-select" name="placeTypeId"
 							aria-label="Default select example"
 							style="font-size: 15px; width: 39%; margin-top: 2px;">
 							<option selected>選擇影片類型</option>
@@ -114,9 +114,9 @@
 					<div class="col" style="text-align: left;">
 						<video src="/a.mp4" controls class="w-100"></video>
 						上傳影片預覽圖:
-						<input type="file" name="videoPic" id="videoPic"/><br>
+						<input type="file" name="videoPic"/><br>
 						上傳影片:
-						<input type="file" name="videoFile" id="videoFile"/><br>
+						<input type="file" name="videoFile"/><br>
 					</div>
 
 					<div class="col ViedoDescription">
