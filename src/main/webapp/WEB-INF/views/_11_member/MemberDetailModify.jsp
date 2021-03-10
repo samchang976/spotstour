@@ -100,118 +100,58 @@ select {
 			<div class="focus container text-dark text-left text-shdow">
 				<div class="row text-center">
 					<div class="col">
-						<h1>會員個人資料</h1>
+						<h1 class="mt-3">會員資料修改</h1>
 					</div>
 				</div>
 
 
 				<!-- 表單 -->
 				<div class="row justify-content-center mt-3">
-					<div class="col-10 col-md-6 col-lg-6">
+					<div class="col-10 col-md-6 col-lg-4">
 
-
-						<form:form method="POST" modelAttribute="member"
+					<form:form method="POST" action="/SpotsTourHSM/memberDetailModify"  modelAttribute="member"
 							enctype='multipart/form-data'>
-							<div class="form-row">
+							<div class="form-row" >
 							
-							
-<%-- 		<c:if test='${member.id == null}'> --%>
-<!-- 		<br> -->
-<!-- 	 	<tr> -->
-<!-- 	      <td>帳號：<br>&nbsp;</td> -->
-<%-- 	   	  <td width='360'><form:input path='account'/><br>&nbsp; --%>
-<%-- 	   	   <form:errors path="account" cssClass="error"/> --%>
-<!-- 	   	  </td> -->
-<!-- 	   </tr> -->
-<%--     </c:if>	    --%>
-<%--     	<c:if test='${member.id != null}'> --%>
-<!-- 	 	<tr> -->
-<!-- 	      <td>帳號：<br>&nbsp;</td> -->
-<%-- 	   	  <td><form:hidden path='account'/> --%>
-<%-- 	   	  	${member.account}<br>&nbsp; --%>
-<!-- 	   	  </td> -->
-<!-- 	   </tr> -->
-<%--     </c:if>	 --%>
-							
-							
-							
-<!-- 								<div class="form-group"> -->
-<%-- 									<form:label path="mAN">帳號：</form:label><form:errors path="mAN" class="error"/> --%>
-<%-- 									<form:input path="mAN" class="form-control" --%>
-<%-- 									placeholder="6-10個字元英數混合不含特殊符號"/> --%>
+									帳號：${LoginOK.mAN}<br>
+									
+									姓名： <form:input path="mName" value="${LoginOK.mName}" size="40" class="mt-3"/>
+										 <form:errors path="mName" class="error"/><br>
 
+									密碼： <form:input path="mPw" placeholder="${LoginOK.mPw}" size="40" class="mt-3"/>
+										 <form:errors path="mPw" class="error"/><br>
 
-									<div class="form-group">
-									<c:if test='${member.mId != null}'>
-									<form:label path="mAN">帳號：</form:label>
-	   	  							${member.mAN}
-									</c:if>
-								</div>
-								<div class="form-group">
-									<form:label path="mName">姓名：</form:label><form:errors path="mName" class="error"/>
-									<form:input path="mName" class="form-control"/>
-									
-								</div>
-							</div>
-							<div class="form-row">
-								<div class="form-group">
-									<form:label path="mPw">密碼：</form:label><form:errors path="mPw" class="error"/>
-									<form:input path="mPw" class="form-control" placeholder="6-10個字元英數混合"/>
-									
-								</div>
-<!-- 								<div class="form-group"> -->
-<%-- 									<form:label path="mTPw">密碼確認：</form:label><form:errors path="mTPw" class="error"/> --%>
-<%-- 									<form:input path="mTPw" class="form-control" placeholder="6-10個字元英數混合"/> --%>
-									
-<!-- 								</div> -->
-							</div>
-							<div class="form-row">
-								<div class="form-group">
-									<form:label path="d_mAddress">地址：</form:label><form:errors path="d_mAddress" class="error"/>
-									<form:input path="d_mAddress" class="form-control"/>
-									
-								</div>
-								<div class="form-group">
-									<form:label path="mGender">性別：</form:label><form:errors path="mGender" class="error"/>
-									<form:select path="mGender" class="form-control">
+									密碼確認： <form:input path="mTPw" placeholder="${LoginOK.mPw}" size="36" class="mt-3"/>
+										 <form:errors path="mTPw" class="error"/><br>
+
+									地址： <form:input path="d_mAddress" placeholder="${LoginOK.d_mAddress}" size="40" class="mt-3"/>
+										 <form:errors path="d_mAddress" class="error"/><br>
+
+									性別： 
+									<form:select path="mGender" class="mt-3">
 									<form:options path="mGender" items="${gender}"/>
-									</form:select>
-									
-								</div>
-								<div class="form-group">
-									<form:label path="mUid">身分證：</form:label><form:errors path="mUid" class="error"/>
-									<form:input path="mUid" class="form-control" placeholder="A123456789"/>
-									
-								</div>
-							</div>
-								<div class="form-group">
-									<form:label path="mEmail">電子信箱：</form:label><form:errors path="mEmail" class="error"/>
-									<form:input path="mEmail" class="form-control" placeholder="example@gmail.com"/>
-									
-								</div>
-								<div class="form-group">
-									<form:label path="mBDay">生日：</form:label><form:errors path="mBDay" class="error"/>
-									<form:input path="mBDay" class="form-control" type="date"/>
-									
-								</div>
+									</form:select><br>
 
-								<div class="form-group">
-									<form:label path="mPhone">電話：</form:label><form:errors path="mPhone" class="error"/>
-									<form:input path="mPhone" class="form-control" placeholder="0988123456"/>
-									
-								</div>
-														
+									身分證： <form:input path="mUid" value="${LoginOK.mUid}" size="38" class="mt-3"/>
+										 <form:errors path="mUid" class="error"/><br>
+
+									電子信箱： <form:input path="mEmail" value="${LoginOK.mEmail}" size="36" class="mt-3"/>
+										 <form:errors path="mEmail" class="error"/><br>
+
+									生日： <form:input path="mBDay" value="${LoginOK.mBDay}" type="date" size="40" class="mt-3" required="required"/>
+										 <form:errors path="mBDay" class="error"/><br>
+
+									地址： <form:input path="mPhone" value="${LoginOK.mPhone}" size="40" class="mt-3"/>
+										 <form:errors path="mPhone" class="error"/><br>
+										 
+									會員照片： <form:input path="multipartFile" size="36" class="mt-3" type="file"/>
+										 <form:errors path="multipartFile" class="error"/><br>
 							
-							<div class="form-group">
-								<form:label path="multipartFile">會員照片：</form:label><form:errors path="multipartFile" class="error"/>
-									<form:input path="multipartFile" class="form-control" type="file"/>
-									
-							</div>
 							
 
-							<button type="submit" class="btn btn-primary w-100">修改</button>
+							<button type="submit" class="btn btn-primary w-100 mt-3">修改</button>
 
-
+							</div>
 						</form:form>
 
 						

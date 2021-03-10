@@ -36,14 +36,25 @@ public class ModifyDaoImpl implements ModifyDao{
 		return factory.getCurrentSession().get(MemberBean.class, mId);
 	}
 
+//	@Override
+//	public void update(MemberBean mb) {
+//		if(mb != null && mb.getmId() != null) {
+//			Session session = factory.getCurrentSession();
+//			session.saveOrUpdate(mb);
+//		}
+//		
+//	}
+	
 	@Override
 	public void update(MemberBean mb) {
 		if(mb != null && mb.getmId() != null) {
 			Session session = factory.getCurrentSession();
-			session.saveOrUpdate(mb);
+//			session.saveOrUpdate(mb);
+			session.update(mb);
 		}
 		
 	}
+	
 
 	@SuppressWarnings("unchecked")
 	@Override

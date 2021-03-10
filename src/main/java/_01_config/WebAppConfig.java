@@ -21,6 +21,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import _00_util.Interceptor.CheckLoginInterceptor;
 //import _00_init.interceptor.DisableCacheInterceptor;
 import _00_util.Interceptor.MemberInterceptor;
 //import _02_login.interceptor.CheckLoginInterceptor;
@@ -43,19 +44,19 @@ public class WebAppConfig implements WebMvcConfigurer {
 	}
 		
 	//注入攔截器
-	@Autowired
-	private MemberInterceptor memberInterceptor;
+//	@Autowired
+//	private MemberInterceptor memberInterceptor;
 //	@Autowired
 //	private ManagerInterceptor managerInterceptor;
 	//註冊memberInterceptor攔截器,設置需要攔截的url請求路徑
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		//會員權限攔截
-		registry.addInterceptor(memberInterceptor).addPathPatterns("/memberDetailModify");
+//		registry.addInterceptor(memberInterceptor).addPathPatterns("/memberDetailModify");
 		//管理員權限攔截
 //		registry.addInterceptor(managerInterceptor).addPathPatterns("/aboutUsModify");
 		
-//		registry.addInterceptor(new CheckLoginInterceptor());
+		registry.addInterceptor(new CheckLoginInterceptor());
 //		DisableCacheInterceptor  disableCacheInterceptor = new DisableCacheInterceptor();
 //        registry.addInterceptor(disableCacheInterceptor);
         

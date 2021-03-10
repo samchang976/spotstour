@@ -90,10 +90,10 @@
 			name="loginForm">
 			<div id='content'>
 				<Table style="border-width: 2; width: 500px; border-color: #EF02A4;">
-					<TR>
-						<TH width="180">&nbsp;</TH>
-						<TH width="180">&nbsp;</TH>
-					</TR>
+<!-- 					<TR> -->
+<!-- 						<TH width="180">&nbsp;</TH> -->
+<!-- 						<TH width="180">&nbsp;</TH> -->
+<!-- 					</TR> -->
 					<!-- 				<TR> -->
 					<!-- 					<TD colspan='2' align="CENTER" -->
 					<!-- 						style="font-size: 0.6cm; font-weight: 300;"><Font -->
