@@ -34,6 +34,8 @@ public interface ManagerItemDao {
 	
 	public void addItem(ItemBean itemBean);
 	
+	public void addFeedback(FeedbackBean feedbackBean);
+	
 	public Item_typeBean getItem_TypeById(int itId); 
 	
 	public CountryBean getCountryById(int countryId);

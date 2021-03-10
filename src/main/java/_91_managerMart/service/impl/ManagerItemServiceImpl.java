@@ -71,7 +71,6 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 		return managetItemDao.getAllItems();
 	}
 
-	
 	//陳列全部商品留言
 	@Transactional
 	@Override
@@ -91,6 +90,13 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 	@Override
 	public void addItem(ItemBean itemBean) {
 		managetItemDao.addItem(itemBean);
+	}
+	
+	//新增留言
+	@Transactional
+	@Override
+	public void addFeedback(FeedbackBean feedbackBean) {
+		managetItemDao.addFeedback(feedbackBean);
 	}
 
 	@Transactional
