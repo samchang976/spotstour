@@ -74,7 +74,9 @@
 
 						</div>
 						<div class="itemName">${item.itemHeader}</div>
-						<div class="itemPrice">${item.itemPrice}</div>
+						<div class="itemPrice">價格 : ${item.itemPrice}</div>
+						<div class="countryName">產地 : ${item.countryBean.countryName}</div>
+						<div class="itemType">商品類別 : ${item.item_typeBean.itemType}</div>
 <!-- 						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input -->
 <%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
 <!-- 						</i> -->

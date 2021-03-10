@@ -55,6 +55,7 @@
 	<div class="BodyPosition">
 		<!------------------------------------------------------------------------------------------->
 		<div class="container" id="container_OrderDetail">
+			<!-- 訂單編號區塊 ----------------------------------------------->
 			<c:forEach var='ord_detail' items='${ord_details}' varStatus="s">
 				<c:if test="${s.first==true}">
 					<!--訂單編號  -->
@@ -67,7 +68,7 @@
 						</div>
 					</div>
 
-					<!-- 欄位敘述 -->
+					<!-- 欄位敘述 -------------------------------------------------->
 					<div class="row">
 						<div class="col-4 FieldDescription">
 							<div>商品名稱</div>
@@ -76,9 +77,9 @@
 						<div class="col-1 FieldDescription">單價</div>
 						<div class="col-1 FieldDescription">小計</div>
 					</div>
-					<!-- 商品清單 -->
-					<!-- 第一列 -->
 				</c:if>
+					<!-- 商品清單 ------------------------------------------------------------------->
+					<!-- 第一列 -->
 				<div class="row Item">
 					<!-- 商品照片 -->
 					<div class="col-2 ">

@@ -65,17 +65,18 @@
 				<div>
 					訂購人:
 					<!-- 姓名 -->
+					<form:form method='POST' modelAttribute='ordBean'>
+						<div class="row g-3 align-items-center">
+							<div class="col-auto">
+								<label for="Orderer" class="col-form-label">姓名:${ordBean.memberBean.mName}</label>
+							</div>
 
-					<div class="row g-3 align-items-center">
-						<div class="col-auto">
-							<label for="Orderer" class="col-form-label">姓名:</label>
+							<div class="col-auto">
+								<input type="text" id="Orderer" class="form-control"
+									name="Orderer" value="多拉夢">
+							</div>
 						</div>
-
-						<div class="col-auto">
-							<input type="text" id="Orderer" class="form-control"
-								name="Orderer" value="多拉夢">
-						</div>
-					</div>
+					</form:form>
 
 					<!-- 					<div class=" form-check form-check-inline"> -->
 					<!-- 						<input class="form-check-input" type="checkbox" name="Gender" -->
@@ -267,7 +268,7 @@
 
 				<!--送出  ----------------------------------------------------------------------->
 				<%-- 				<c:forEach var='order' items='${orders}'> --%>
-<%-- 				<c:set value="" var="order" /> --%>
+				<%-- 				<c:set value="" var="order" /> --%>
 				<div class="col-12" id="SubmitBlock">
 					<button class="btn btn-primary"
 						onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>

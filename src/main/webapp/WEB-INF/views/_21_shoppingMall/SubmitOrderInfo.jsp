@@ -59,9 +59,16 @@
 			<!-- 訂單編號區塊 ----------------------------------------------->
 			<c:forEach var='ord_detail' items='${ord_details}' varStatus="s">
 				<c:if test="${s.first==true}">
-					<div class="OrderNumber">
-						<span>訂單編號 : </span><span>FSWE1233${ord_detail.ord_dId}</span>
+					<!--訂單編號  -->
+					<div class="row">
+						<div class="col-12">
+							<!-- 訂單編號區塊 -->
+							<div class="OrderNumber">
+								<span>訂單編號 : </span><span>FSWE1233${ord_detail.ord_dId}</span>
+							</div>
+						</div>
 					</div>
+
 					<!-- 欄位敘述 -------------------------------------------------->
 					<div class="row">
 						<div class="col-4 FieldDescription">
@@ -83,7 +90,7 @@
 
 					<div class="col-2 ">
 						<div>
-							日本代購-<br>海苔天婦羅餅乾
+							來自${ord_detail.itemBean.countryBean.countryName}代購<br>${ord_detail.itemBean.itemHeader}
 						</div>
 					</div>
 					<!--數量  -->
@@ -104,9 +111,9 @@
 			<div class="Orderer">
 				<!--付款資訊  -------------------------------------------------------------------------->
 				<div class="PayTitle">付款資訊</div>
-				姓名:多拉A ■ 先生 □ 小姐 身分證字號 : A123456778 <br> ■ 貨到付款 □門市取貨付款<br>
-				手機 : 0912345678 <br> 市話 : -----------<br>
 
+				姓名:多拉A ■ 先生 □ 小姐 身分證字號 : A123456778 <br> ■ 貨到付款 □門市取貨付款<br>
+				手機 : 0912345678 <br>
 
 				<div class="PayTitle">發票</div>
 				■ 個人電子發票 □ 捐贈發票 □ 公司戶電子發票<br>
@@ -134,16 +141,13 @@
 							商品，總金額 : <span id="subtotal">${sums}</span>元
 
 								<button id="SubmitBlock" type="submit" class="Bt_black"
-									onclick="location.href='${pageContext.request.contextPath}/purchaseSuccess'">送出訂單</button>
-							</c:if>
-
+										onclick="location.href='${pageContext.request.contextPath}/purchaseSuccess'">送出訂單</button>
+								</c:if>
 							</div>
-
 						</div>
 					</div>
 				</c:forEach>
 			</div>
-
 		</div>
 		<!-----------定位----------------------------------------------------------------------------->
 	</div>
