@@ -18,6 +18,7 @@ import _02_model.entity.PortfolioBean;
 import _02_model.entity.VideoBean;
 import _37_portfolioManage.controller.vo.PortfolioBeanVo;
 import _37_portfolioManage.dao.PortfolioDao;
+import _37_portfolioManage.dao.VideoDao;
 import _37_portfolioManage.dao.CityDao;
 import _37_portfolioManage.dao.MemberDao;
 import _37_portfolioManage.dao.Place_TypeDao;
@@ -34,6 +35,8 @@ public class CreatePortfolioServiceImpl implements CreatePortfolioService {
 	private Place_TypeDao place_TypeDao;
 	@Autowired
 	private CityDao cityDao;
+	@Autowired
+	private VideoDao videoDao;
 	
 	@Transactional
 	@Override
@@ -75,7 +78,8 @@ public class CreatePortfolioServiceImpl implements CreatePortfolioService {
 		String filePath = "/data/viedos/";
 		String fileName = uuid + ".mp4";
 		videoBean.setVideoFile(StreamUtils.writeStream(mf.getBytes(),filePath,fileName));
-		
+		//新增影片
+		videoDao.addVideo(videoBean);
 	}
 
 }
