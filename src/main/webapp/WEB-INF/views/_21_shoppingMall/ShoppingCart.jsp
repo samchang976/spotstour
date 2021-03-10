@@ -94,15 +94,13 @@
 					</div>
 					<!-- 商品名稱 -------------------------------------------------------->
 					<div class="col-2 ItemField">
-						<div>
-							${cart.itemBean.itemHeader}
-						</div>
+						<div>${cart.itemBean.itemHeader}</div>
 					</div>
 					<!-- 選擇數量 -------------------------------------------------------->
 					<div class="col-1 ItemField">
 						<div>
 							<input type="number" value="${cart.s_ordQty}" min="1"
-								id="Qty${vs.index}">
+								id="Qty${vs.index}" name="${cart.sc_Id}">
 						</div>
 					</div>
 					<!-- 單價------------------------------------------------------------>
@@ -146,73 +144,8 @@
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
-	<script>
-		function doFirst() {
-			//先跟畫面產生關聯，再建事件聆聽功能
-			//全選======================================================================
-			document.getElementById('checkedALL').onclick = function checkAll() {
-				checkedALL = document.getElementsByName('checkboxs');
-				// alert(checkedALL);
-				for (var i = 0; i < checkedALL.length; i++) {
-					var checkElement = checkedALL[i];
-					// 方法一
-					// checkElement.setAttribute('checked',' checked');
-					// 方法二
-					checkElement.checked = "checked";
-				}
-			}
-			//========================================================================
-			anountMethod();
-			totalAmount();
-			 
-
-			}
-			
-			//多項刪除鈕，取得多項cartId
-
-			//放大鏡會有商品詳細資訊頁面
-
-			//庫存數量<商品選擇數量 ==>x
-			//庫存數量>=於商品選擇數量 ==>v
-			//更新商品小計
-
-		//商品小計計算==========================================================================
-		function anountMethod() {
-
-			var items = document.querySelectorAll(".CartItem");
-			
-			for (i = 0; i < items.length; i++) {
-				Qty=parseInt(document.getElementById("Qty"+i).value); //商品選擇數量
-				price=parseInt(document.getElementById("uniPrice"+i).innerText); //商品選擇數量
-				anount = price * Qty;
-				// alert(anount);
-				document.getElementById("Total"+i).innerText = anount;
-				
-			}
-			// 			alert(Money);
-			// document.getElementById("TotalMoney").innerText = Money;
-
-		}
-
-		//總金額計算功能========================================================================
-		function totalAmount() {
-			var items = document.querySelectorAll(".CartItem");
-			// alert(items.length);
-			// alert(document.getElementById("TotalMoney").innerText);
-			Money = 0; //金額從0開始
-			parseInt(Money);
-			// alert(typeof Money);
-			// alert(Money);
-			for (i = 0; i < items.length; i++) {
-				Toto = parseInt(document.getElementById("Total"+i).innerText);
-// 				alert(Toto);
-				Money = Money+Toto;
-			}
-			document.getElementById("TotalMoney").innerText = Money;
-
-		}
-
-		window.addEventListener('load', doFirst);
-	</script>
+	<script src="<c:url value='/_00_util/shoppingMallUtil/javascript/shoppingCart.js'></c:url>"></script>
+	
+	
 </body>
 </html>

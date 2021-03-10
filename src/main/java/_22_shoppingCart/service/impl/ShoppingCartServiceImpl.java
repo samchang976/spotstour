@@ -48,4 +48,5 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		return shoppingCartDao.getShoppingCart(memberId);
 	}
 
+	
 }
