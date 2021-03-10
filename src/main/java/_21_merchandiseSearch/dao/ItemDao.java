@@ -14,7 +14,7 @@ public interface ItemDao {
 	
 	List<ItemBean> getItemByItemType(String itemType);
 	
-	List<ItemBean> getAllItem();
+	List<ItemBean> getAllItems();
 	
 	List<ItemBean> getTopSellItem(int i);
 	

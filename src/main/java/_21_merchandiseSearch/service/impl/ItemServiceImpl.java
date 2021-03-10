@@ -66,4 +66,10 @@ public class ItemServiceImpl implements ItemService {
 		return itemdao.getItemBySearchBar(searchBar);
 	}
 
+	@Transactional
+	@Override
+	public List<ItemBean> getAllItems() {
+		return itemdao.getAllItems();
+	}
+
 }

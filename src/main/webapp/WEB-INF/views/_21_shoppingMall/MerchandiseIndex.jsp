@@ -60,6 +60,10 @@
 
 		<!-- 活動快訊 ---------------------------------------------------------------------------->
 		<div class="container" id="container_news">
+		<div class="col">
+				<button class="Bt_black "
+					onclick="location.href='${pageContext.request.contextPath}/merchandiseSearchResult'">查看所有商品</button>
+			</div>
 			<div class="row row-cols-1 newsBlock">
 				<div class="col">
 					<div id="newsTitle">活動快訊</div>
@@ -69,6 +73,8 @@
 							onclick="location.href='${pageContext.request.contextPath}/activityDetail/Id=${activity.activityId}'">
 							<!-- 											日期 -->
 							<span class="date">${activity.activity_createTime}</span>
+							<!-- 											優惠標頭 -->
+							<span class="discount">${activity.activityHeader}</span>
 							<!-- 											優惠內容 -->
 							<span class="discount">${activity.activityContent}</span>
 						</div>

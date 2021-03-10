@@ -57,9 +57,17 @@ public class MerchandiseController {
 //		return "_21_shoppingMall/ActivityDetail";
 //	}
 
+	// 得到所有商品
+	@RequestMapping("/merchandiseSearchResult")
+	public String merchandiseSearchResult(Model model) {
+		List<ItemBean> list = itemService.getAllItems();
+		model.addAttribute("items", list);
+		return "_21_shoppingMall/MerchandiseSearchResult";
+	}
+
 	@RequestMapping("/merchandiseSearchResult/Id={countryId}")
-	public String merchandiseSearchResult(@PathVariable(value = "countryId", required = false) Integer countryId,
-			Model model) {
+	public String merchandiseSearchResultByCountryId(
+			@PathVariable(value = "countryId", required = false) Integer countryId, Model model) {
 		List<ItemBean> list = itemService.getItemByCountryId(countryId);
 		model.addAttribute("items", list);
 		return "_21_shoppingMall/MerchandiseSearchResult";
@@ -73,7 +81,7 @@ public class MerchandiseController {
 //	}
 
 	// 得到單一商品
-	@GetMapping({ "/merchandiseDetail/Id={itemId}"})
+	@GetMapping({ "/merchandiseDetail/Id={itemId}" })
 //	@GetMapping("/merchandiseDetail")
 	public String getItemById(@ModelAttribute("itemId") Integer itemId, Model model) {
 		ItemBean itemBean = itemService.getItemById(itemId);
@@ -90,8 +98,7 @@ public class MerchandiseController {
 		model.addAttribute("items", list);
 		return "_21_shoppingMall/MerchandiseSearchResult";
 	}
-	
-	
+
 	// 新增商品留言
 	@PostMapping("/merchandiseDetail/Id={itemId}")
 	public String processAddNewFeedbackForm(@ModelAttribute("feedbackBean") FeedbackBean feedbackBean, Model model) {
@@ -157,18 +164,18 @@ public class MerchandiseController {
 
 	// 商品留言
 	@ModelAttribute
-	public FeedbackBean getFeedbackBean(@PathVariable(value = "feedbackId", required = false) Integer feedbackId,@PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
+	public FeedbackBean getFeedbackBean(@PathVariable(value = "feedbackId", required = false) Integer feedbackId,
+			@PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
 		FeedbackBean feedbackBean = null;
 		feedbackBean = new FeedbackBean();
 		feedbackBean.setItemTId(itemId);
 		feedbackBean.setFeedbackText("AAAA");
 		feedbackBean.setFb_freeze(0);
-		
-		
+
 		Date utilDate = new Date();// util.Date
 		Timestamp sqlDate = new Timestamp(utilDate.getTime());
 		feedbackBean.setF_createTime(sqlDate);
-		
+
 		model.addAttribute("feedbackBean", feedbackBean);
 		return feedbackBean;
 	}

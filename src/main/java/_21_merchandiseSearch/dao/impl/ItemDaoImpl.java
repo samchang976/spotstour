@@ -46,10 +46,13 @@ public class ItemDaoImpl implements Serializable, ItemDao {
 
 	
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<ItemBean> getAllItem() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ItemBean> getAllItems() {
+		String hql = "FROM ItemBean";
+		Session session = factory.getCurrentSession();
+		List<ItemBean> list = session.createQuery(hql).getResultList();
+		return list;
 	}
 
 	@Override

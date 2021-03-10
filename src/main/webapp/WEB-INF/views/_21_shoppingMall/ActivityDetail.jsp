@@ -70,6 +70,10 @@
 							<span class="discount">${activityBean.activityHeader}</span>
 						</div>
 					</div>
+					<br>
+					<div>
+							${activityBean.activityContent}
+						</div>
 				</div>
 				<!--內容-->
 
@@ -77,9 +81,9 @@
 					<div class="col-12">
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							class="w-100">
-						<div>
-							${activityBean.activityContent}
-						</div>
+<!-- 						<div> -->
+<%-- 							${activityBean.activityContent} --%>
+<!-- 						</div> -->
 					</div>
 				</div>
 			</form:form>
