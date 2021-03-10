@@ -1,6 +1,8 @@
 package _23_submitOrder.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import _02_model.entity.MemberBean;
 import _02_model.entity.OrdBean;
 import _02_model.entity.Ord_detailBean;
+import _02_model.entity.Receipt_TypeBean;
+import _02_model.entity.Ship_TypeBean;
+import _21_merchandiseSearch.service.ItemService;
 import _23_submitOrder.service.OrderService;
 
 @Controller
@@ -20,6 +25,9 @@ public class OrderController {
 
 	@Autowired
 	OrderService orderService;
+	
+	@Autowired
+	ItemService itemService;
 
 	// 陳列所有訂單
 	@RequestMapping("/myOrderList")
@@ -77,6 +85,36 @@ public class OrderController {
 		MemberBean memberBean = new MemberBean();
 		model.addAttribute("memberBean", memberBean);
 		return memberBean;
+	}
+	
+	// 取得Ship_TypeBean
+	@ModelAttribute
+	public Ship_TypeBean getShip_TypeBean(Model model) {
+		Ship_TypeBean ship_TypeBean = new Ship_TypeBean();
+		model.addAttribute("ship_TypeBean", ship_TypeBean);
+		return ship_TypeBean;
+	}
+	
+	// 取得配送方式
+	@ModelAttribute("ship_TypeMap")
+	public Map<Integer, String> getShip_TypeMap() {
+		Map<Integer, String> ship_TypeMap = new HashMap<>();
+		List<Ship_TypeBean> list = itemService.getShip_TypeList();
+		for (Ship_TypeBean stb : list) {
+			ship_TypeMap.put(stb.getShipTypeId(), stb.getShipType());
+		}
+		return ship_TypeMap;
+	}
+	
+	// 取得發票領取方式
+	@ModelAttribute("receipt_TypeMap")
+	public Map<Integer, String> getReceipt_TypeMap() {
+		Map<Integer, String> receipt_TypeMap = new HashMap<>();
+		List<Receipt_TypeBean> list = itemService.getReceipt_TypeList();
+		for (Receipt_TypeBean rtb : list) {
+			receipt_TypeMap.put(rtb.getReceiptTypeId(), rtb.getReceiptType());
+		}
+		return receipt_TypeMap;
 	}
 
 }

@@ -68,30 +68,51 @@
 							class="w-100">
 					</div>
 					<div class="col-12 col-md-6">
-						${itemBean.itemHeader}<br> 售價 : ${itemBean.itemPrice}<br>
-						庫存數量 :${itemBean.itemQty}<br> 代購國家 :
-						${itemBean.countryBean.countryName}<br> 款式資訊 : 辣味 | 原味 | 洋蔥 |
-						起司 <br>
+						<h2>${itemBean.itemHeader}</h2><br> 
+						商品描述 : ${itemBean.itemDes}<br> <br>
+						售價 : ${itemBean.itemPrice}<br>
+						庫存數量 : ${itemBean.itemQty}<br> 
+						代購國家 : ${itemBean.countryBean.countryName}<br> 
+						<select>
+							<option selected="selected" value="">請選擇數量</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">6</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+						<br> 
+						<br> 
+						<br> 
+						<br> 
+						<br> 
+<!-- 						款式資訊 : 辣味 | 原味 | 洋蔥 | 起司 <br> -->
 
-						<button id="like" class="Bt_black">加入收藏</button>
+						<button id="like" class="Bt_black">加入購物車</button>
 						<button id="saleType" class="Bt_black">完售</button>
-						<br> <br> <select>
-							<option selected="selected" value="">請付款方式</option>
-							<option value="1">貨到付款</option>
-							<option value="2">超商取貨付款</option>
-							<option value="3">信用卡付款</option>
-						</select> <br>
-						<form:form method='POST' modelAttribute='ordBean'>
-							<form:select path="shipTypeTId" class="custom-select">
-								<form:option value="-1" label="請選擇寄送方式" />
-								<form:options items="${ship_TypeMap}" />
-							</form:select>
-							<br>
-							<form:select path="receiptTypeTId" class="custom-select">
-								<form:option value="-1" label="請選擇發票型式" />
-								<form:options items="${receipt_TypeMap}" />
-							</form:select>
-						</form:form>
+						<br> <br> 
+<!-- 						<select> -->
+<!-- 							<option selected="selected" value="">請選擇付款方式</option> -->
+<!-- 							<option value="1">貨到付款</option> -->
+<!-- 							<option value="2">超商取貨付款</option> -->
+<!-- 							<option value="3">信用卡付款</option> -->
+<!-- 						</select> <br> -->
+<%-- 						<form:form method='POST' modelAttribute='ordBean'> --%>
+<%-- 							<form:select path="shipTypeTId" class="custom-select"> --%>
+<%-- 								<form:option value="-1" label="請選擇寄送方式" /> --%>
+<%-- 								<form:options items="${ship_TypeMap}" /> --%>
+<%-- 							</form:select> --%>
+<!-- 							<br> -->
+<%-- 							<form:select path="receiptTypeTId" class="custom-select"> --%>
+<%-- 								<form:option value="-1" label="請選擇發票型式" /> --%>
+<%-- 								<form:options items="${receipt_TypeMap}" /> --%>
+<%-- 							</form:select> --%>
+<%-- 						</form:form> --%>
 					</div>
 				</div>
 			</form:form>
@@ -101,7 +122,7 @@
 			<div class="row AboutPurchaseInformation">
 				<div class="col-12">
 					<div id="ProductDescription">商品描述</div>
-					<div id="Purchase">費用&寄送資訊</div>
+<!-- 					<div id="Purchase">費用&寄送資訊</div> -->
 					<div id="QA">商品留言</div>
 				</div>
 			</div>
@@ -120,19 +141,19 @@
 					</div>
 				</div>
 				<!-- 加入購物車 --------------------------------------------------------------------------------->
-				<div class="row">
-					<div class="col-12">
-						<select class="form-select"
-							aria-label="Example select with button addon">
-							<option selected>請選擇商品數量</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-						<button class="btn btn-outline-secondary" type="button"
-							onclick="window.open('ShoppingCart')">加入購物車</button>
-					</div>
-				</div>
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-12"> -->
+<!-- 						<select class="form-select" -->
+<!-- 							aria-label="Example select with button addon"> -->
+<!-- 							<option selected>請選擇商品數量</option> -->
+<!-- 							<option value="1">1</option> -->
+<!-- 							<option value="2">2</option> -->
+<!-- 							<option value="3">3</option> -->
+<!-- 						</select> -->
+<!-- 						<button class="btn btn-outline-secondary" type="button" -->
+<!-- 							onclick="window.open('ShoppingCart')">加入購物車</button> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 			</div>
 
 		</div>
