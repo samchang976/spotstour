@@ -8,7 +8,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.UUID;
 
 public class StreamUtils {
 
@@ -38,17 +37,27 @@ public class StreamUtils {
 		return baos.toByteArray();
 	}
 
-	public static String writeStream(byte[] fileByte,String filePath,String fileName) throws IOException {
-		File file = new File(filePath);
+	public static String writeStream(byte[] fileByte, String filePath, String fileName) throws IOException {
 		if (fileByte == null) {
 			return null;
+		}
+		String path = filePath + fileName;
+		//建立資料夾,判斷資料夾存在
+		File file = new File(filePath);
+		if (!file.exists()) {
+			file.mkdirs();
+		}
+		//建立檔案,判斷檔案存在
+		file = new File(path);
+		if (!file.exists()) {
+			file.createNewFile();
 		}
 		OutputStream output = new FileOutputStream(file);
 		BufferedOutputStream bufferedOutput = new BufferedOutputStream(output);
 		bufferedOutput.write(fileByte);
 		bufferedOutput.flush();
 		bufferedOutput.close();
-		
-		return filePath;
+
+		return path;
 	}
 }

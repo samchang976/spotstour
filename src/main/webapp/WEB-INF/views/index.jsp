@@ -55,15 +55,15 @@
 			<!--  -->
 			<div style="width: 100%;" class="carousel-inner">
 				<div id="first" class="carousel-item active">
-					<video src="${pageContext.request.contextPath}/images/a.mp4"
+					<video src="${pageContext.request.contextPath}/videos/a.mp4"
 						class="d-block w-100" autoplay loop muted></video>
 				</div>
 				<div class="carousel-item">
-					<video src="${pageContext.request.contextPath}/images/a.mp4"
+					<video src="${pageContext.request.contextPath}/videos/a.mp4"
 						class="d-block w-100" autoplay loop muted></video>
 				</div>
 				<div class="carousel-item">
-					<video src="${pageContext.request.contextPath}/images/a.mp4"
+					<video src="${pageContext.request.contextPath}/videos/a.mp4"
 						class="d-block w-100" autoplay loop muted></video>
 				</div>
 			</div>

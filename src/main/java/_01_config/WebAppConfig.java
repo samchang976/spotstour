@@ -52,7 +52,7 @@ public class WebAppConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		//會員權限攔截
-		registry.addInterceptor(memberInterceptor).addPathPatterns("/memberDetailModify");
+		registry.addInterceptor(memberInterceptor).addPathPatterns("/memberDetailModify","/videoCreate");
 		//管理員權限攔截
 //		registry.addInterceptor(managerInterceptor).addPathPatterns("/aboutUsModify");
 		

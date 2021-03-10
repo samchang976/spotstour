@@ -3,6 +3,7 @@ package _37_portfolioManage.service.Impl;
 import java.io.IOException;
 import java.util.UUID;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,6 +38,8 @@ public class CreatePortfolioServiceImpl implements CreatePortfolioService {
 	private CityDao cityDao;
 	@Autowired
 	private VideoDao videoDao;
+
+	
 	
 	@Transactional
 	@Override
@@ -69,15 +72,20 @@ public class CreatePortfolioServiceImpl implements CreatePortfolioService {
 		videoBean.setV_freeze(0);
 		//關聯作品的row
 		videoBean.setPortfolioBean(portfolioBean);
-		//將接取的圖片檔案轉換Base64字串,放入要送到對應資料庫Video的Bean
-		videoBean.setVideoPic(Base64Utils.base64Encode(portfolioBeanVo.getVideoPic().getBytes()));
+		//將接取的圖片檔案儲存到本地,拿取路徑字串,放入要送到對應資料庫圖片的Bean
+		MultipartFile mfp = portfolioBeanVo.getVideoPic();
+		//隨機唯一圖片檔名
+		UUID puuid = UUID.randomUUID();
+		String picPath = "/Project/workspace_JSP/SpotsTourHSM/src/main/webapp/images/vedioImages/";
+		String picName = puuid + ".jpg";
+		videoBean.setVideoPic(StreamUtils.writeStream(mfp.getBytes(),picPath,picName));	
 		//將接取的影片檔案儲存到本地,拿取路徑字串,放入要送到對應資料庫Video的Bean
-		MultipartFile mf = portfolioBeanVo.getVideoFile();
-		//隨機唯一檔名
-		UUID uuid = UUID.randomUUID();
-		String filePath = "/data/viedos/";
-		String fileName = uuid + ".mp4";
-		videoBean.setVideoFile(StreamUtils.writeStream(mf.getBytes(),filePath,fileName));
+		MultipartFile mff = portfolioBeanVo.getVideoFile();
+		//隨機唯一影片檔名
+		UUID fuuid = UUID.randomUUID();
+		String filePath = "/Project/workspace_JSP/SpotsTourHSM/src/main/webapp/videos/";
+		String fileName = fuuid + ".mp4";
+		videoBean.setVideoFile(StreamUtils.writeStream(mff.getBytes(),filePath,fileName));
 		//新增影片
 		videoDao.addVideo(videoBean);
 	}
