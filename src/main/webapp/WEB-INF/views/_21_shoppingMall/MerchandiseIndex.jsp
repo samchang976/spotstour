@@ -66,8 +66,7 @@
 
 					<c:forEach var='activity' items='${activitys}'>
 						<div class="block"
-							onclick="location.href=
-				                       'ActivityDetail'">
+							onclick="location.href='${pageContext.request.contextPath}/activityDetail/Id=${activity.activityId}'">
 							<!-- 											日期 -->
 							<span class="date">${activity.activity_createTime}</span>
 							<!-- 											優惠內容 -->

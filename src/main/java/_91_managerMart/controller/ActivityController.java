@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import _02_model.entity.ActivityBean;
+import _02_model.entity.ItemBean;
 import _91_managerMart.service.ManagerActivityService;
 
 @Controller
@@ -27,6 +28,13 @@ public class ActivityController {
 		List<ActivityBean> list = managerActivityService.getAllActivitys();
 		model.addAttribute("activitys", list);
 		return "_91_manageMart/ActivityList";
+	}
+	
+	@RequestMapping("/activityDetail/Id={activityId}")
+	public String getActivityById(@ModelAttribute("activityId") Integer activityId, Model model) {
+		ActivityBean activityBean = managerActivityService.getActivityByActivityId(activityId);
+		model.addAttribute("activityBean", activityBean);
+		return "_21_shoppingMall/ActivityDetail";
 	}
 
 //	@RequestMapping("/activityModify")

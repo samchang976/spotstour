@@ -52,10 +52,10 @@ public class MerchandiseController {
 		return "_21_shoppingMall/MerchandiseIndex";
 	}
 
-	@RequestMapping("/activityDetail")
-	public String activityDetail() {
-		return "_21_shoppingMall/ActivityDetail";
-	}
+//	@RequestMapping("/activityDetail")
+//	public String activityDetail() {
+//		return "_21_shoppingMall/ActivityDetail";
+//	}
 
 	@RequestMapping("/merchandiseSearchResult/Id={countryId}")
 	public String merchandiseSearchResult(@PathVariable(value = "countryId", required = false) Integer countryId,

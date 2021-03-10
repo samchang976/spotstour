@@ -25,70 +25,72 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
-	
-	
+
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
-	
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
-	
+
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>商城活動快訊詳細</title>
 </head>
 <body>
-<!--header--------------------------------------------------------------------------->
-	<div class="HeaderPostition"
-		>
+	<!--header--------------------------------------------------------------------------->
+	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!-- 搜尋 ----------------------------------------------------------------------------->
+		<!-- 搜尋 ----------------------------------------------------------------------------->
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
-<!------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------->
 
-       <!-- 優惠標題 -->
-      <div class="container" id="container_ActivityDetail">
-          <div class="row">
-              <div class="col-12">
-                  <div class="title">
-                    <!-- 日期 -->
-                    <span class="date">2021/01/01</span>
-                    <!-- 優惠內容 -->
-                    <span class="discount"> 新春特惠，全館免運!</span>
-                </div>
-              </div>
-            </div>
-        <!--內容-->
-     
-        <div class="row">
-          <div class="col-12">
-            <img src="https://fakeimg.pl/350x350/?text=World&font=lobster" class="w-100">
-            <div>
-              一年復始，萬象更新!<br>
-              歡慶新的一年~ <br>
-              本商城全館免運~<br>
-              請大家把握機會，趕快下訂喔 ^^<br>
-            </div>
-          </div>
-        </div>
-      </div>
-<!-----------定位----------------------------------------------------------------------------->       
-      </div>
-<!-- --------------------------------------------------------------------------------------->      
-<!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+		<!-- 優惠標題 -->
+		<div class="container" id="container_ActivityDetail">
+			<form:form method='POST' modelAttribute='activityBean'>
+				<div class="row">
+					<div class="col-12">
+						<div class="title">
+							<!-- 日期 -->
+							<span class="date">${activityBean.activity_createTime}</span>
+							<!-- 優惠內容 -->
+							<span class="discount">${activityBean.activityHeader}</span>
+						</div>
+					</div>
+				</div>
+				<!--內容-->
+
+				<div class="row">
+					<div class="col-12">
+						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+							class="w-100">
+						<div>
+							${activityBean.activityContent}
+						</div>
+					</div>
+				</div>
+			</form:form>
+		</div>
+		<!-----------定位----------------------------------------------------------------------------->
+	</div>
+	<!-- --------------------------------------------------------------------------------------->
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
 </body>
 </html>

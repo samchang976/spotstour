@@ -37,7 +37,7 @@ public class OrderController {
 		return "_21_shoppingMall/MyOrderList";
 	}
 
-	@RequestMapping("/orderDetail/Id={ord_Id}")
+	@RequestMapping({"/orderDetail/Id={ord_Id}", "/submitOrderInfo/Id={ord_Id}"})
 	public String orderDetail(@ModelAttribute("ord_Id") @PathVariable("ord_Id") Integer ord_Id, Model model) {
 		List<Ord_detailBean> list = orderService.getAllOrd_detailsByOrd_Id(ord_Id);
 		model.addAttribute("ord_details", list);

@@ -356,7 +356,7 @@ button { /*按鈕的樣式*/
 						<br>
 						<div>
 							<button id="manageFeedback"
-								onclick="location.href='manageFeedback/Id=${item.itemId}'">編輯商品留言</button>
+								onclick="location.href='manageFeedback/Id=${item.itemId}'">管理留言</button>
 						</div>
 					</div>
 
