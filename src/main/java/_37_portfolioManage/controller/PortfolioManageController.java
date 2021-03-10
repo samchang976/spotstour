@@ -1,5 +1,6 @@
 package _37_portfolioManage.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -63,11 +64,10 @@ public class PortfolioManageController {
 	
     @PostMapping("createPortfolio")
 //  @ResponseBody
-	public String createPortfolio(@ModelAttribute PortfolioBeanVo portfolioBeanVo,Model model,HttpSession session) {
+	public String createPortfolio(@ModelAttribute PortfolioBeanVo portfolioBeanVo,Model model,HttpSession session) throws IOException {
     	portfolioBeanVo.setmId((Integer)session.getAttribute("mId"));
     	createPortfolioService.addPortfolio(portfolioBeanVo);
-		
-		
+			
 		return "redirect:/videoCreate";
 		
 	}

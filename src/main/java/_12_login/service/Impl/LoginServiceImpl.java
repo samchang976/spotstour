@@ -16,6 +16,7 @@ public class LoginServiceImpl implements LoginService {
 	public boolean loginCheck(MemberBean member) {
 		if(loginDao.checkAN(member) != null) {
 			MemberBean res = loginDao.checkPw(member);
+			member.setmId(res.getmId());                        //將會員ID加入
 			member.setMemberPermBean(res.getMemberPermBean());	//將權限加入	
 			return true;
 		}else {
