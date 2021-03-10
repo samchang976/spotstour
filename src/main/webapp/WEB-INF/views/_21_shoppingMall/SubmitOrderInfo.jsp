@@ -57,22 +57,23 @@
 
 		<div class="container" id="container_SubmitOrderInfo">
 			<!-- 訂單編號區塊 ----------------------------------------------->
-
-			<div class="OrderNumber">
-				<span>訂單編號 : </span><span>FSWE1233245</span>
-			</div>
-			<!-- 欄位敘述 -------------------------------------------------->
-			<div class="row">
-				<div class="col-4 FieldDescription">
-					<div>商品名稱</div>
-				</div>
-				<div class="col-1 FieldDescription">數量</div>
-				<div class="col-1 FieldDescription">單價</div>
-				<div class="col-1 FieldDescription">小計</div>
-				<div class="col-1 FieldDescription">庫存</div>
-			</div>
-			<!-- 商品清單 ------------------------------------------------------------------->
-			<c:forEach var='ord_detail' items='${ord_details}'>
+			<c:forEach var='ord_detail' items='${ord_details}' varStatus="s">
+				<c:if test="${s.first==true}">
+					<div class="OrderNumber">
+						<span>訂單編號 : </span><span>FSWE1233${ord_detail.ord_dId}</span>
+					</div>
+					<!-- 欄位敘述 -------------------------------------------------->
+					<div class="row">
+						<div class="col-4 FieldDescription">
+							<div>商品名稱</div>
+						</div>
+						<div class="col-1 FieldDescription">數量</div>
+						<div class="col-1 FieldDescription">單價</div>
+						<div class="col-1 FieldDescription">小計</div>
+						<div class="col-1 FieldDescription">庫存</div>
+					</div>
+				</c:if>
+				<!-- 商品清單 ------------------------------------------------------------------->
 				<div class="row Item">
 					<!-- 商品照片 -->
 					<div class="col-2 ">
@@ -131,10 +132,10 @@
 
 							共<span id="items"> <c:out value="${s.count}" /></span>
 							商品，總金額 : <span id="subtotal">${sums}</span>元
-							</c:if>
 
 								<button id="SubmitBlock" type="submit" class="Bt_black"
-									onclick="window.open('PurchaseSuccess') ">送出訂單</button>
+									onclick="location.href='${pageContext.request.contextPath}/purchaseSuccess'">送出訂單</button>
+							</c:if>
 
 							</div>
 
