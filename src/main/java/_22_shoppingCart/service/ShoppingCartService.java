@@ -13,4 +13,5 @@ public interface ShoppingCartService {
 	
 	public List<ShoppingCartBean> getShoppingCart(int memberId); //由memberId取得購物車清單:有順序性，先加的要在上面
 
+	
 }
