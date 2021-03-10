@@ -92,8 +92,8 @@ button { /*按鈕的樣式*/
 							商品留言時間:${feedback.f_createTime}<br> <i
 								class="fas fa-trash-alt" id="deleteF"
 								value="}/Id=${feedback.feedbackId}"
-<%-- 								onclick="location.href='delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}'"></i> --%>
-								onclick="location.replace('delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}')"></i>
+<%-- 								onclick="location.href='/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}'"></i> --%>
+								onclick="location.replace('${pageContext.request.contextPath}/manageFeedback/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}')"></i>
 							商品留言:${feedback.feedbackText}
 						</div>
 					</div>
