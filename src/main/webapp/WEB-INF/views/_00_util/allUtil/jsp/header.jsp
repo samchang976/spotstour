@@ -98,15 +98,14 @@ ul.nav.nav-tabs {
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="<c:url value="/index"/>">首頁</a></li>
 						<li>_11_member</li>
-						<li><a class="dropdown-item" href="<c:url value="/confirmEmail"/>">Email確認(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/confirmEmail"/>">Email確認(尚未)</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/emailVerificationSuccess"/>">Email核對成功</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/forgetPassword"/>">忘記密碼</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/login"/>">登入會員</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/loginSuccess"/>">登入成功(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="<c:url value='/login.out' />">登出</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>">會員個人資料</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/memberRegister"/>">註冊會員(連結找不到)</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/memberRegisterSuccess"/>">註冊成功(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberRegister"/>">註冊會員</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberRegisterSuccess"/>">註冊成功(尚未)</a></li>
 					</ul></li>
 
 				<li class="nav-item dropdown"><a class="fas fa-user" style="color:green"
@@ -141,14 +140,13 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>">收藏的影片</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/historyList"/>">觀看紀錄</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>">個人作品</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/SearchResult"/>">影片搜尋結果(連結找不到)</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/portfolioPlay"/>">作品播放</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/previewVideo"/>">播放預覽頁面_播放頁預覽(連結找不到)</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/videoCreate"/>">新增影片頁面(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/previewVideo"/>">播放預覽頁面_播放頁預覽(尚未)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/videoCreate"/>">新增影片頁面</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/videoModify"/>">編輯影片</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/videoReport"/>">檢舉影片(連結找不到)</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/videoReport"/>">檢舉影片(尚未)</a></li>
 						
-						<li>_還沒有</li>
+						<li>_wordMap</li>
 						<li><a class="dropdown-item" href="<c:url value="/worldMap"/>">世界地圖</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/videoPlayer"/>">影片播放</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/previewVideo_world"/>">播放預覽頁面_世界地圖預覽</a></li>

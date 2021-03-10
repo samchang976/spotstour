@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -598,7 +602,7 @@
       </div>
       
         </div>
-        <a href="01_MerchandiseIndex.html" target="_parent">
+        <a href="<c:url value='/' />" target="_parent">
             <div id="SPOTTOUR">
             SPOTS-TOUR</div>
         </a>
