@@ -480,7 +480,9 @@ CREATE TABLE `receipt_type` (
 insert  into `receipt_type`(`receiptTypeId`,`receiptType`) values 
 (1,'三聯式統一發票'),
 (2,'二聯式統一發票'),
-(3,'電子發票');
+(3,'個人電子發票'),
+(4,'公司戶電子發票'),
+(5,'捐贈發票');
 
 /*Table structure for table `record` */
 
@@ -512,6 +514,13 @@ CREATE TABLE `report_type` (
 
 /*Data for the table `report_type` */
 
+insert  into `report_type`(`rtId`,`reportType`) values 
+(1,'血腥暴力'),
+(2,'色情內容'),
+(3,'不當營利'),
+(4,'不當內容'),
+(5,'這是垃圾訊息');
+
 /*Table structure for table `ship_type` */
 
 DROP TABLE IF EXISTS `ship_type`;
@@ -529,7 +538,8 @@ insert  into `ship_type`(`shipTypeId`,`shipType`) values
 (2,'郵寄'),
 (3,'7-11門市取貨'),
 (4,'全家門市取貨'),
-(5,'萊爾富門市取貨');
+(5,'萊爾富門市取貨'),
+(6,'OK門市取貨');
 
 /*Table structure for table `shoppingcart` */
 
