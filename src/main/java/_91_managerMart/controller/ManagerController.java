@@ -123,13 +123,16 @@ public class ManagerController {
 	@ModelAttribute
 	public ItemBean getItemBean(@PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
 		ItemBean itemBean = null;
+		//有itemid
 		if (itemId != null) {
 			itemBean = managerItemService.getItemByItemId(itemId);
+			//外鍵
 			Item_typeBean item_typeBean = itemBean.getItem_typeBean();
 			CountryBean countryBean = itemBean.getCountryBean();
 			model.addAttribute("item_typeBean", item_typeBean);
 			model.addAttribute("countryBean", countryBean);
 		} else {
+			//沒有itemid
 			itemBean = new ItemBean();
 			itemBean.setItemHeader("AA");
 			itemBean.setItemPrice(20);
