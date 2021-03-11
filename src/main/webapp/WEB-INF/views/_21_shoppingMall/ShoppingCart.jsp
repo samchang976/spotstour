@@ -99,8 +99,15 @@
 					<!-- 選擇數量 -------------------------------------------------------->
 					<div class="col-1 ItemField">
 						<div>
-							<input type="number" value="${cart.s_ordQty}" min="1"
-								id="Qty${vs.index}" name="${cart.sc_Id}">
+						<form:form method='POST' modelAttribute='cartBean'>
+<%-- 							<input type="number" value="${cart.s_ordQty}" min="1" --%>
+<%-- 								id="Qty${vs.index}" name="Qty"> --%>
+<!-- 								onchange="this.form.submit()" -->
+<!-- 							/shoppingCart/put/Id={sc_Id} -->
+							<form:input path="s_ordQty" type="number" min="1" id="Qty${vs.index}" name="Qty"
+							onchange="this.form.submit()"/>
+							<form:hidden path="sc_Id"/>
+						</form:form>
 						</div>
 					</div>
 					<!-- 單價------------------------------------------------------------>
@@ -118,6 +125,7 @@
 					<div class="col-1 ItemField">
 						<span id="Stock${vs.index}">${cart.itemBean.itemQty}</span>個
 					</div>
+					
 					<!-- 刪除----- ----------------------------------------------------->
 					<div class="col-1 ItemField">
 						<form action="shoppingCart/delete/Id=${cart.sc_Id}" method='post'>

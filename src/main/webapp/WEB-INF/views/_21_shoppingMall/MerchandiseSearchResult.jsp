@@ -74,7 +74,7 @@
 
 						</div>
 						<div class="itemName">${item.itemHeader}</div>
-						<div class="itemPrice">${item.itemPrice}</div>
+						<div class="itemPrice">${item.itemPrice}元</div>
 <!-- 						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input -->
 <%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
 <!-- 						</i> -->
