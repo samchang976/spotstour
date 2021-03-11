@@ -69,8 +69,8 @@
 					</div>
 					<div class="col-12 col-md-6">
 						<h2>${itemBean.itemHeader}</h2>
-						<br> 商品描述 : ${itemBean.itemDes}<br> <br> 售價 :
-						${itemBean.itemPrice}<br> 庫存數量 : ${itemBean.itemQty}<br>
+						<br> 商品描述 : ${itemBean.itemDes}<br> <br> 售價 : 
+						${itemBean.itemPrice}元<br> 庫存數量 : ${itemBean.itemQty}<br>
 						代購國家 : ${itemBean.countryBean.countryName}<br> <select>
 							<option selected="selected" value="">請選擇數量</option>
 							<option value="1">1</option>
@@ -112,67 +112,83 @@
 
 			<!-- 下方 ----------------------------------------------------------------------------------->
 			<%-- 購買資訊分頁的按鈕-------------------------------------------------------------------  --%>
-			<div class="row AboutPurchaseInformation">
-				<div class="col-12">
-					<div id="ProductDescription">商品描述</div>
-					<!-- 					<div id="Purchase">費用&寄送資訊</div> -->
-					<div id="QA">商品留言</div>
-				</div>
-			</div>
+			<!-- 			<div class="row AboutPurchaseInformation"> -->
+			<!-- 				<div class="col-12"> -->
+			<!-- 					<div id="ProductDescription">商品描述</div> -->
+			<!-- 										<div id="Purchase">費用&寄送資訊</div> -->
+			<!-- 					<div id="QA">商品留言</div> -->
+			<!-- 				</div> -->
+			<!-- 			</div> -->
+
+			<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+				<a class="navbar-brand" href="#"></a>
+				<ul class="nav nav-pills">
+					<li class="nav-item"><a class="nav-link" href="#des">商品描述</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#fb">商品留言</a></li>
+				</ul>
+			</nav>
+
+
 
 			<%-- 商品資訊------------------------------------------------------- -----------------------%>
 			<div class="row">
 				<div class="col-12">
-					<div class="ItemInformationContent">
-						<span class="title"> ${itemBean.itemHeader} </span>
-						<!-- 商品圖片-------------------------------------------------------- -->
-						<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
-						<!-- 							class="w-100"> -->
-						
-						
-						<!-- 							圖片輪播 -->
-						<div id="carouselExampleIndicators" class="carousel slide"
-							data-bs-ride="carousel">
-							<div class="carousel-indicators">
-								<button type="button"
-									data-bs-target="#carouselExampleIndicators"
-									data-bs-slide-to="0" class="active" aria-current="true"
-									aria-label="Slide 1"></button>
-								<button type="button"
-									data-bs-target="#carouselExampleIndicators"
-									data-bs-slide-to="1" aria-label="Slide 2"></button>
-								<button type="button"
-									data-bs-target="#carouselExampleIndicators"
-									data-bs-slide-to="2" aria-label="Slide 3"></button>
-							</div>
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-										class="d-block w-100" alt="...">
-								</div>
-								<div class="carousel-item">
-									<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-										class="d-block w-100" alt="...">
-								</div>
-								<div class="carousel-item">
-									<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-										class="d-block w-100" alt="...">
-								</div>
-							</div>
-							<button class="carousel-control-prev" type="button"
-								data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								<span class="visually-hidden">Previous</span>
-							</button>
-							<button class="carousel-control-next" type="button"
-								data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-								<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="visually-hidden">Next</span>
-							</button>
-						</div>
+					<div data-bs-spy="scroll" data-bs-target="#navbar-example2"
+						data-bs-offset="0" tabindex="0">
+						<div class="ItemInformationContent">
+							<span class="title"> ${itemBean.itemHeader} </span>
+							<!-- 商品圖片-------------------------------------------------------- -->
+							<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+							<!-- 							class="w-100"> -->
 
-						<!-- 商品敘述-------------------------------------------------------- -->
-						<div>${itemBean.itemDes}</div>
+
+							<!-- 							圖片輪播 -->
+							<div id="carouselExampleIndicators" class="carousel slide"
+								data-bs-ride="carousel">
+								<div class="carousel-indicators">
+									<button type="button"
+										data-bs-target="#carouselExampleIndicators"
+										data-bs-slide-to="0" class="active" aria-current="true"
+										aria-label="Slide 1"></button>
+									<button type="button"
+										data-bs-target="#carouselExampleIndicators"
+										data-bs-slide-to="1" aria-label="Slide 2"></button>
+									<button type="button"
+										data-bs-target="#carouselExampleIndicators"
+										data-bs-slide-to="2" aria-label="Slide 3"></button>
+								</div>
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+											class="d-block w-100" alt="...">
+									</div>
+									<div class="carousel-item">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+											class="d-block w-100" alt="...">
+									</div>
+									<div class="carousel-item">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+											class="d-block w-100" alt="...">
+									</div>
+								</div>
+								<button class="carousel-control-prev" type="button"
+									data-bs-target="#carouselExampleIndicators"
+									data-bs-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="visually-hidden">Previous</span>
+								</button>
+								<button class="carousel-control-next" type="button"
+									data-bs-target="#carouselExampleIndicators"
+									data-bs-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="visually-hidden">Next</span>
+								</button>
+							</div>
+							<h4 id="des">商品敘述</h4>
+							<!-- 商品敘述-------------------------------------------------------- -->
+							<div>${itemBean.itemDes}</div>
+						</div>
 					</div>
 				</div>
 				<!-- 加入購物車 --------------------------------------------------------------------------------->
@@ -190,7 +206,7 @@
 				<!-- 					</div> -->
 				<!-- 				</div> -->
 			</div>
-
+			<h4 id="fb">商品敘述</h4>
 			<h3>${item.itemHeader}商品留言</h3>
 			<c:forEach var='feedback' items='${feedbacks}'>
 				<div class="container-fluid">

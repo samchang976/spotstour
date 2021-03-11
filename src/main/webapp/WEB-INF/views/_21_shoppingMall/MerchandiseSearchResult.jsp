@@ -72,7 +72,7 @@
 							<!-- 								class="w-100"> -->
 							<!-- 							</a> -->
 
-							<!-- 							圖片輪播 -->
+							<!-- 							圖片輪播不能左右選擇 -->
 							<div id="carouselExampleSlidesOnly" class="carousel slide"
 								data-bs-ride="carousel">
 								<div class="carousel-inner">
