@@ -108,10 +108,12 @@
  		</form> 
 	</div>
 <%-- =================下面有佔空間，白色的區塊======================================================================== --%>
-				${param.message}${MsgOK.InsertOK}<br> <br>
+				${registerOK} ${Login} ${FlashMSG_farewell} ${SUCCESS} ${param.message}${MsgOK.InsertOK}<br> <br>
 				<%
-					// 顯示MsgOK.InsertOK後，就要立刻移除，以免每次回到首 頁都會顯示新增成功的訊息
 				session.removeAttribute("MsgOK");
+				session.removeAttribute("registerOK");
+				session.removeAttribute("Login");
+				session.removeAttribute("SUCCESS");
 				%>
 <!--內嵌footer-------------------------------------------------------------------------------->
 	<div>

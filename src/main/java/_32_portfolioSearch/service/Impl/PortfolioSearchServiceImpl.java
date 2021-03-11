@@ -1,40 +1,29 @@
 package _32_portfolioSearch.service.Impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import _02_model.entity.ContinentBean;
-import _32_portfolioSearch.dao.GetKeywordDao;
+import _32_portfolioSearch.dao.PortfolioSearchDao;
 import _32_portfolioSearch.service.PortfolioSearchService;
-
-
-
 
 
 @Service
 public class PortfolioSearchServiceImpl implements PortfolioSearchService {
 
 	@Autowired
-	private GetKeywordDao dao;
-	
+	private PortfolioSearchDao portfolioSearchDao;
+
 	@Override
-//	@Transactional
-//	public ContinentBean queryContinent(int id) {
-//	
-//		return dao.queryContinent(id);
-//	}
-	
-	public ContinentBean queryKeyword(String name) {
+	@Transactional
+	public List<Map<String, Object>> queryKeyword(String keyword) {
 		
-		return dao.queryContinentName(name);
+		return portfolioSearchDao.queryKeyword(keyword);
 	}
-	
-//	public CountryBean queryCountryName(String name) {
-//		
-//		return dao.queryCountryName(name);
-//	}
 	
 
 }
