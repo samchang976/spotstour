@@ -27,16 +27,7 @@ public class PortfolioSearchController {
 	// 關鍵字查詢
 	@RequestMapping(value = "/SearchResult", method = RequestMethod.GET)
 	public String getSearchWordForm(Model model, @ModelAttribute(name = "searchWord") String searchWord) {
-		String kw = searchWord;
-		ContinentBean cnb = psService.queryKeyword(kw);
-
-		model.addAttribute("Continent", cnb.getContinentName());
-		for (int i = 1; i < cnb.getCountryList().size(); i++) {
-			model.addAttribute("Country" + i, cnb.getCountryList().get(i).getCountryName());
-		}
-		for (int i = 1; i < cnb.getCountryList().get(i).getCityList().size(); i++) {
-			model.addAttribute("City" + i, cnb.getCountryList().get(i).getCityList().get(i).getCityName());
-		}
+		model.addAttribute("resultList", psService.queryKeyword(searchWord));
 		return "_31_portfolio/PortfolioSearchResult";
 
 	}

@@ -67,18 +67,20 @@
 	<jsp:include
 		page="/WEB-INF/views/_00_util/portfolioUtil/PortfolioSearchResult_serch.jsp" />
 	<!--     <iframe src="VideoSearchResult_serch.html" frameborder="0" width="100%" height="67px" scrolling ="no" sandbox="allow-top-navigation-by-user-activation"></iframe> -->
-<p></p>
+	<p></p>
 
 	<div class="container">
 
 		<!--顯示影片清單  -->
 		<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
 			<!--第一個-->
+			<c:forEach items="${resultList}" var="row">		
 			<div class="col">
 				<!-- 發布時間 -->
-				<div>${Country1}-${City1}</div>
+				<div>${row.continentName}-${row.countryName}-${row.cityName}</div>
+				<div>${row.portfolioName}</div>
 				<!-- 影片-->
-				<video src="/images/a.mp4" controls></video>
+				<video src="/images/a.mp4" controls></video><br>
 
 				<!--按讚次數-->
 				<div id="great">
@@ -89,85 +91,8 @@
 				<!-- 觀看次數 -->
 				<div>觀看次數: 123456次</div>
 			</div>
-			<!--第二個-->
-			<div class="col">
-				<!-- 發布時間 -->
-				<div>${Country2}-${City2}</div>
-				<!-- 影片-->
-				<video src="/images/a.mp4" controls></video>
-				<!--按讚次數-->
-				<div id="great">
-					<a href="#"> <i class="far fa-thumbs-up"></i>
-					</a> <span>103</span> <a href="#"> <i class="far fa-thumbs-down"></i>
-					</a> <span>1</span>
-				</div>
-				<!-- 觀看次數 -->
-				<div>觀看次數: 123456次</div>
-			</div>
-			<!--第三個-->
-			<div class="col">
-				<!-- 發布時間 -->
-				<div>${Country3}-${City3}</div>
-				<!-- 影片-->
-				<video src="/images/a.mp4" controls></video>
-				<!--按讚次數-->
-				<div id="great">
-					<a href="#"> <i class="far fa-thumbs-up"></i>
-					</a> <span>103</span> <a href="#"> <i class="far fa-thumbs-down"></i>
-					</a> <span>1</span>
-				</div>
-				<!-- 觀看次數 -->
-				<div>觀看次數: 123456次</div>
-			</div>
-			<!--第四個-->
-			<div class="col">
-				<!-- 發布時間 -->
-				<div>${Country4}-${City4}</div>
-				<!-- 影片-->
-				<video src="/images/a.mp4" controls></video>
-				<!--按讚次數-->
-				<div id="great">
-					<a href="#"> <i class="far fa-thumbs-up"></i>
-					</a> <span>103</span> <a href="#"> <i class="far fa-thumbs-down"></i>
-					</a> <span>1</span>
-				</div>
-				<!-- 觀看次數 -->
-				<div>觀看次數: 123456次</div>
-			</div>
-			<!--第五個-->
-			<div class="col">
-				<!-- 發布時間 -->
-				<div>${Country5}-${City5}</div>
-				<!-- 影片-->
-				<video src="/images/a.mp4" controls></video>
-				<!--按讚次數-->
-				<div id="great">
-					<a href="#"> <i class="far fa-thumbs-up"></i>
-					</a> <span>103</span> <a href="#"> <i class="far fa-thumbs-down"></i>
-					</a> <span>1</span>
-				</div>
-				<!-- 觀看次數 -->
-				<div>觀看次數: 123456次</div>
-			</div>
-			<!--第六個-->
-			<div class="col">
-				<!-- 發布時間 -->
-				<div>${Country6}-${City6}</div>
-				<!-- 影片-->
-				<video src="/images/a.mp4" controls></video>
-				<!--按讚次數-->
-				<div id="great">
-					<a href="#"> <i class="far fa-thumbs-up"></i>
-					</a> <span>103</span> <a href="#"> <i class="far fa-thumbs-down"></i>
-					</a> <span>1</span>
-				</div>
-				<!-- 觀看次數 -->
-				<div>觀看次數: 123456次</div>
-			</div>
-
+		</c:forEach>		
 		</div>
-
-
 
 	</div>
 
