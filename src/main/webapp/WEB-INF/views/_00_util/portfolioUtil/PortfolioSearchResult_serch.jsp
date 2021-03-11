@@ -23,7 +23,7 @@
 		<div class="row">
 			<!--搜尋結果-->
 			<div class="col-2">
-				<i class="fas fa-map-marker-alt"></i> <span>${Continent}</span>
+				
 			</div>
 			<!--按鈕  -->
 			<div class="col">
