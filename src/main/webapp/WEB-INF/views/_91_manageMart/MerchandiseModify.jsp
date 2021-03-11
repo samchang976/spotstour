@@ -168,7 +168,7 @@ button { /*按鈕的樣式*/
 					<label for="itemHeader" class="col-sm-2 col-form-label">標頭</label>
 					<div class="col-sm-10">
 						<form:input type="text" path="itemHeader" class="form-control"
-							id="itemHeader" />
+							id="itemHeader" maxlength="20" placeholder="限20字以內"/>
 					</div>
 				</div>
 
@@ -239,21 +239,21 @@ button { /*按鈕的樣式*/
 						<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							class="w-100">
-						<button id="updateP1">上傳照片1</button>
+						上傳照片1<input type="file" name="itemPic1"/>
 					</div>
 
 					<div class=" col col-3-1 C_SpCre">
 						<%-- 					<div>紀念品照片2${item.Pic2}</div> --%>
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							class="w-100">
-						<button id="updateP2">上傳照片2</button>
+						上傳照片2<input type="file" name="itemPic2"/>
 					</div>
 
 					<div class="col col-4-1 C_SpCre">
 						<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							class="w-100">
-						<button id="updateP3">上傳照片3</button>
+						上傳照片3<input type="file" name="itemPic3"/>
 					</div>
 				</div>
 				<div class="form-group row  d-flex justify-content-end mt-5">

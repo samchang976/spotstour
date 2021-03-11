@@ -63,7 +63,8 @@
 						<div class="col-12">
 							<!-- 訂單編號區塊 -->
 							<div class="OrderNumber">
-								<span>訂單編號 : </span><span>FSWE1233${ord_detail.ord_dId}</span> <span>訂購時間 :</span><span>${ord_detail.ordBean.o_createTime}</span>
+								<span>訂單編號 : </span><span>FSWE1233${ord_detail.ord_dId}</span> <span>訂購時間
+									:</span><span>${ord_detail.ordBean.o_createTime}</span>
 							</div>
 						</div>
 					</div>
@@ -78,8 +79,8 @@
 						<div class="col-1 FieldDescription">小計</div>
 					</div>
 				</c:if>
-					<!-- 商品清單 ------------------------------------------------------------------->
-					<!-- 第一列 -->
+				<!-- 商品清單 ------------------------------------------------------------------->
+				<!-- 第一列 -->
 				<div class="row Item">
 					<!-- 商品照片 -->
 					<div class="col-2 ">
@@ -119,11 +120,18 @@
 					</div>
 				</div>
 			</c:forEach>
+			<div class="row">
+				<!-- 返回訂單畫面 -->
+				<div class="col">
+					<button class="btn btn-primary"
+						onclick="location.href='${pageContext.request.contextPath}/myOrderList'">返回訂單畫面</button>
+				</div>
 
-			<!-- 回商城首頁 -->
-			<div class="col">
-				<button class="Bt_black "
-					onclick="location.href='${pageContext.request.contextPath}/myOrderList'">回到訂單頁面</button>
+				<!-- 回商城首頁 -->
+				<div class="col">
+					<button type="submit" class="btn btn-primary"
+						onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
+				</div>
 			</div>
 
 		</div>
