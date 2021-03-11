@@ -196,21 +196,13 @@ ul.nav.nav-tabs {
 						</c:if>
 						<c:if test="${ !empty LoginOK }">
 						<li><hr class="dropdown-divider"></li>
-<<<<<<< HEAD
-						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>">會員個人資料</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>">修改會員資料</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>">個人作品</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>">收藏的影片</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="<c:url value="/logout"/>">登出</a></li>
-=======
-						<li><a class="dropdown-item" href="memberDetailModify">修改會員資料</a></li>
-						<li><a class="dropdown-item" href="personalVideo">個人作品</a></li>
-						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
-						<li><hr class="dropdown-divider"></li>	
-						<li><a class="dropdown-item" href="logout">登出</a></li>
 						</c:if>
->>>>>>> ting02
-					</ul></li>
+				      </ul></li>
 					
 				<li class="nav-item dropdown"><a class="fas fa-align-justify "
 					data-bs-toggle="dropdown" href="#" role="button"
