@@ -90,7 +90,7 @@
 </c:if>
 
 
-<form:form method="POST" modelAttribute="memberBean">
+<form:form method="POST" modelAttribute="memberBeanA">
                                          
   <div id='content'>
     <Table  style="border-width:2; background:#E0E0E0; width: 500px;">
