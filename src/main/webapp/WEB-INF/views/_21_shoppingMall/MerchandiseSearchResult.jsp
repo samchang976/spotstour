@@ -25,23 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
-	
-	
+
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
-	
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
-	
+
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>商品搜尋結果</title>
 </head>
@@ -66,28 +66,51 @@
 					<div class="col ">
 						<div class="itemImageBorder">
 
-							
-							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>"> <img
-								src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-								class="w-100">
-							</a>
+
+							<%-- 							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>"> <img --%>
+							<!-- 								src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+							<!-- 								class="w-100"> -->
+							<!-- 							</a> -->
+
+							<!-- 							圖片輪播不能左右選擇 -->
+							<div id="carouselExampleSlidesOnly" class="carousel slide"
+								data-bs-ride="carousel">
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" class="d-block w-100" alt="...">
+									</div>
+									<div class="carousel-item">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" class="d-block w-100" alt="...">
+									</div>
+									<div class="carousel-item">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" class="d-block w-100" alt="...">
+									</div>
+								</div>
+							</div>
 
 						</div>
-						<div class="itemName">${item.itemHeader}</div>
-						<div class="itemPrice">${item.itemPrice}元</div>
-<!-- 						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input -->
-<%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
-<!-- 						</i> -->
-<!-- 加入購物車================================================================================================= -->
-				<form action="<c:url value='addShoppingCart.do' />" method="POST">
-				<button type="submit">
-						<i class="fas fa-cart-arrow-down addButton" ></i>				
-				</button>
-<%-- 						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
-						<input type="hidden" name="itemHeader" value="${item.itemId}">
-		
-				</form>
-<!-- ======================================================================================================= -->
+						<div class="itemName">
+							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>">
+								<img class="w-100"> ${item.itemHeader}
+							</a>
+						</div>
+						<div class="itemPrice">價格 : ${item.itemPrice}元</div>
+						<div class="countryName">產地 :
+							${item.countryBean.countryName}</div>
+						<div class="itemType">商品類別 : ${item.item_typeBean.itemType}</div>
+						<!-- 						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input -->
+						<%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
+						<!-- 						</i> -->
+						<!-- 加入購物車================================================================================================= -->
+						<form action="<c:url value='addShoppingCart.do' />" method="POST">
+							<button type="submit">
+								<i class="fas fa-cart-arrow-down addButton"></i>
+							</button>
+							<%-- 						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
+							<input type="hidden" name="itemHeader" value="${item.itemId}">
+
+						</form>
+						<!-- ======================================================================================================= -->
 
 					</div>
 
@@ -146,7 +169,7 @@
 
 
 
-	<!-----------定位----------------------------------------------------------------------------->
+		<!-----------定位----------------------------------------------------------------------------->
 	</div>
 	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>

@@ -101,15 +101,20 @@ button { /*確定、送出的按鈕排版*/
 					<div>
 						<!-- 						<input type="text" name="Reportdescription" placeholder="請輸入內容" -->
 						<!-- 							style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;"> -->
+						<br>
+						<div class="col-sm-10">
+						<label for="exampleFormControlInput1" class="form-label">活動標頭(字數限30字以內)</label>
+							<form:input type="text" path="activityHeader"
+								class="form-control" id="activityHeader" maxlength="30"
+								placeholder="限30字以內" />
+						</div>
 
 						<div class="col-sm-10">
-							<form:input type="text" path="activityHeader"
-								class="form-control" id="activityHeader" />
-						</div>
-						<div class="col-sm-10">
+							<label for="exampleFormControlInput1" class="form-label">活動內容</label>
 							<form:input type="text" path="activityContent"
 								class="form-control" id="activityContent"
-								style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;" />
+								style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;"
+								maxlength="1000" placeholder="限1000字以內" />
 						</div>
 
 						<div id="confirm" style="background: #fff;">
@@ -122,6 +127,9 @@ button { /*確定、送出的按鈕排版*/
 								<button type="submit" id="editM" class="btn btn-primary"
 									onclick="location.href='activityModify/Id=${activity.activityId}'">儲存變更</button>
 							</c:if>
+						</div>
+						<div>
+							<input type="file" name="activityPic" /><br>
 						</div>
 					</div>
 				</form:form>

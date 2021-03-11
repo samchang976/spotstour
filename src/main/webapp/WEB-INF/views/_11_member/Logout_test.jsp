@@ -1,12 +1,93 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!doctype html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<!-- Required meta tags------------------------------------------------------------------------------------- -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap CSS ----------------------------------------------------------------------------------------- -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+<!-- icon cdn----------------------------------------------------------------------------------------------- -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<!-- css連結------------------------------------------------------------------------------------------------ -->
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
+
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
+	
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/memberUtil/css/memberLayout.css'></c:url>">
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/memberUtil/css/memberColor.css'></c:url>">	
+	
+<link rel="stylesheet"
+	href="<c:url value='/_00_util/memberUtil/css/memberFont.css'></c:url>">
+	
+<!-- --------------------------------------------------------------------------------------------------------->
+
+<title>登入</title>
+
 </head>
 <body>
 
+<!--header=================================================================================  -->
+	<div class="HeaderPostition">
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
+	</div>
+<!-----------定位----------------------------------------------------------------------------->
+	<div class="BodyPosition">
+<!------------------------------------------------------------------------------------------->	
+
+<!-- 先將使用者名稱取出 -->
+<c:set var="memberName" value="${ LoginOK.name }" />
+<!-- 移除放在session物件內的屬性物件 -->
+<c:remove var="LoginOK" scope="session" />
+<c:remove var="ShoppingCart" scope="session" />
+
+<!-- 下列敘述設定變數funcName的值為OUT，top.jsp 會用到此變數 -->
+<c:set var="funcName" value="OUT" scope="session"/>
+<!-- 引入共同的頁首 -->
+<%-- <jsp:include page="/fragment/topMVC.jsp" /> --%>
+<!-- 下列六行敘述設定登出後要顯示的感謝訊息 -->
+<c:set var="logoutMessage" scope="request"/>
+<font color='blue' ><BR>
+訪客${ memberName }，感謝您使用本系統。<BR>
+您已經登出<BR>
+</font>
+<%-- <jsp:useBean id='logoutBean' class='_02_login.model.LogoutBean' scope='page' /> --%>
+    
+<c:set target='${logoutBean}' 
+   property='session'    value='${pageContext.session}'/>
+   
+${ logoutBean.logout }
+
+<c:redirect url="/index.jsp"/>
+
+<!-----------定位----------------------------------------------------------------------------->
+	</div>
+<!--內嵌footer-------------------------------------------------------------------------------->
+	<div>
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+	</div>
+<!-- --------------------------------------------------------------------------------------->
 </body>
 </html>

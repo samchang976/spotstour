@@ -1,10 +1,11 @@
 package _32_portfolioSearch.service;
 
-import _02_model.entity.ContinentBean;
+import java.util.List;
+import java.util.Map;
+
 
 public interface PortfolioSearchService {
 	
-	public ContinentBean queryKeyword(String name);
+	public List<Map<String, Object>> queryKeyword(String keyword);
 	
-
 }

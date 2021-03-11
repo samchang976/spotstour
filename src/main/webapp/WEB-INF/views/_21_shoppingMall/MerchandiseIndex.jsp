@@ -60,7 +60,7 @@
 
 		<!-- 活動快訊 ---------------------------------------------------------------------------->
 		<div class="container" id="container_news">
-		<div class="col">
+			<div class="col">
 				<button class="Bt_black "
 					onclick="location.href='${pageContext.request.contextPath}/merchandiseSearchResult'">查看所有商品</button>
 			</div>
@@ -89,8 +89,15 @@
 					<div class="col area_search my-3"
 						onclick="location.href=
                         'merchandiseSearchResult/Id=${country.countryId}'">
+
+
+
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 							alt="area">
+
+
+
+
 						<div class="mask">
 							<h2 id="countryName">${country.countryName}</h2>
 						</div>

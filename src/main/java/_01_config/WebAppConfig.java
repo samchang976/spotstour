@@ -21,7 +21,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import _00_util.Interceptor.ManagerInterceptor;
+import _00_util.Interceptor.CheckLoginInterceptor;
 //import _00_init.interceptor.DisableCacheInterceptor;
 import _00_util.Interceptor.MemberInterceptor;
 //import _02_login.interceptor.CheckLoginInterceptor;
@@ -29,7 +29,7 @@ import _00_util.Interceptor.MemberInterceptor;
 @Configuration
 @EnableWebMvc 
 @EnableTransactionManagement 
-@ComponentScan({"_00_util", "_01_config", "_10_home", "_11_register", "_12_login","_13_mailVerification", "_21_merchandiseSearch", "_22_shoppingCart", "_23_submitOrder", "_24_contactUs", "_31_worldMap", "_32_portfolioSearch", "_32_portfolioSearch.service","_37_portfolioManage", "_91_managerMart", "_92_managerReport" })
+@ComponentScan({"_00_util", "_01_config", "_10_home", "_11_register", "_12_login","_13_mailVerification", "_14_modifyMember", "_21_merchandiseSearch", "_22_shoppingCart", "_23_submitOrder", "_24_contactUs", "_32_portfolioSearch", "_32_portfolioSearch.service","_37_portfolioManage", "_91_managerMart", "_92_managerReport" })
 public class WebAppConfig implements WebMvcConfigurer {
 	
 	@Autowired
@@ -44,19 +44,19 @@ public class WebAppConfig implements WebMvcConfigurer {
 	}
 		
 	//注入攔截器
-	@Autowired
-	private MemberInterceptor memberInterceptor;
+//	@Autowired
+//	private MemberInterceptor memberInterceptor;
 //	@Autowired
 //	private ManagerInterceptor managerInterceptor;
 	//註冊memberInterceptor攔截器,設置需要攔截的url請求路徑
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		//會員權限攔截
-		registry.addInterceptor(memberInterceptor).addPathPatterns("/memberDetailModify","/videoCreate");
+//		registry.addInterceptor(memberInterceptor).addPathPatterns("/memberDetailModify");
 		//管理員權限攔截
 //		registry.addInterceptor(managerInterceptor).addPathPatterns("/aboutUsModify");
 		
-//		registry.addInterceptor(new CheckLoginInterceptor());
+		registry.addInterceptor(new CheckLoginInterceptor());
 //		DisableCacheInterceptor  disableCacheInterceptor = new DisableCacheInterceptor();
 //        registry.addInterceptor(disableCacheInterceptor);
         

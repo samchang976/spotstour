@@ -88,7 +88,7 @@ ul.nav.nav-tabs {
 				<!-- 會員圖片 -->
 				<c:if test="${! empty LoginOK }">
 					<img height='40px' width='30px'
-						src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.memberId}'>
+						src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.mId}'>
 				</c:if>
 <!-- ======================測試頁面連結區塊================================================================================== -->
 				
@@ -126,7 +126,6 @@ ul.nav.nav-tabs {
 						<li><a class="dropdown-item" href="<c:url value="/selectPayment"/>">訂購資訊</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/shoppingCart"/>">購物車</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/submitOrderInfo"/>">提交訂單資訊</a></li>
-						<li>_還沒有</li>
 						<li><a class="dropdown-item" href="<c:url value="/checkPayment"/>">結帳頁面</a></li>
 					</ul></li>
 
@@ -195,13 +194,15 @@ ul.nav.nav-tabs {
 						<c:if test="${ empty LoginOK }">
 							<li><a class="dropdown-item" href="<c:url value="/login"/>">登入</a></li>
 						</c:if>
+						<c:if test="${ !empty LoginOK }">
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>">會員個人資料</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>">修改會員資料</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>">個人作品</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>">收藏的影片</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="<c:url value="/logout"/>">登出</a></li>
-					</ul></li>
+						</c:if>
+				      </ul></li>
 					
 				<li class="nav-item dropdown"><a class="fas fa-align-justify "
 					data-bs-toggle="dropdown" href="#" role="button"
