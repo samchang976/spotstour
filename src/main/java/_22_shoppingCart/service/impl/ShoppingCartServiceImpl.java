@@ -32,8 +32,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	}
 
 	@Override
-	public void UpdateQty(ShoppingCartBean cart) {
-		shoppingCartDao.UpdateQty(cart);
+	public void UpdateQty(int sc_Id,ShoppingCartBean cartbean) {
+		shoppingCartDao.UpdateQty(sc_Id, cartbean);;
 		
 	}
 

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -27,7 +28,6 @@ public class ShoppingCartContent {
 		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart(1); //先從service拿資料
 		model.addAttribute("cart", list); //放到model內
 		model.addAttribute("cartSize", list.size()); //放到model內
-		
 		System.out.println("controller================================================");
 		System.out.println(list);
 		System.out.println("controller================================================");
@@ -44,6 +44,24 @@ public class ShoppingCartContent {
 		shoppingCartService.deleteItem(sc_Id);
 		System.out.println("Delete===================================================");
 		return "redirect:/shoppingCart";
+	}
+	
+//修改購物車商品數量
+	@PostMapping("/shoppingCart/put")
+	public String updateQty(
+			@ModelAttribute("sc_Id") Integer sc_Id,
+			@ModelAttribute("cartBean") ShoppingCartBean cartbean,
+			Model model
+			) {
+		System.out.println("Put===================================================");
+		System.out.println("sc_Id="+sc_Id);
+		System.out.println("s_ordQty="+cartbean);
+		shoppingCartService.UpdateQty(sc_Id, cartbean);
+		System.out.println("Put===================================================");
+		return "redirect:/shoppingCart";
+	
+	
+
 	}
 
 }
