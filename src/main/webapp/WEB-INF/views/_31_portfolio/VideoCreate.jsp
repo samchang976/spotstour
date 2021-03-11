@@ -56,29 +56,7 @@
             font-size: 2rem;
         }
 
-        .ViedoDescription input[type="text"]{
-            padding-bottom: 300px;
-        } 
-           
-         select.form-select{
-            width: 70%;
-            height: 46px;
-            display: inline-block;
-            margin-right: 15px;
-        }
-        
-        #container_VideoCreate input[type="text"]{
-            margin-bottom: 3px ;
-            border: 1px darkgray solid;
-            border-radius: 5px;
-            width: 100%;
-
-        }
-        #container_VideoCreate #latitude,#container_VideoCreate #longitude{
-            width: 41%;
-            border-radius: 5px;
-            margin-left: 8px;
-        }
+  
 
         /* searchMap 覆蓋在上 */
         #searchMap{
@@ -102,48 +80,46 @@
 	</div>
 	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-		<!------------------------------------------------------------------------------------------->
-		<div class="container " id="container_VideoCreate">
-			<!-- 標題:影片新增 -->
+	<!------------------------------------------------------------------------------------------->
+	<div class="container " id="container_VideoCreate">
+<!-- 標題:影片新增 -------------------------------------------------------------------------------------->
 			<div class="row">
 				<div class="col">
 					<div id="title">影片新增</div>
-					
 				</div>
 			</div>
-<!-- ============================================================			 -->
-			<div class="row">
-				<div class="col-6"></div>
-				<div class="col-6">
-				<i class="fas fa-map-marker-alt"></i>
-				  位置:<button id="slideButton" style="margin-bottom: 5px;">Click Me To Search</button>
-                   
-                            <button id="sendData" >確認位置</button>
-                            <button id="cancelData">重選位置</button>
-            
+<!-- ==============================================================================================-->
+			<div class="row row-cols-1 row-cols-md-2">
+				<div class="col"></div>
+				
+				<div class="col">
+				      <i class="fas fa-map-marker-alt"></i>
+				  位置:<button id="slideButton" style="margin-bottom: 5px;">Click Me To Search</button>               
+                      <button id="sendData" >確認位置</button>
+                      <button id="cancelData">重選位置</button>
 				</div>
 			</div>
-<!-- ============================================================			 -->
-			
-			<form action="createPortfolio" method="post" enctype="multipart/form-data">
-				<div class="row row-cols-1 row-cols-md-2">
+<!-- ==========================================================================================================-->	
+	<form action="createPortfolio" method="post" enctype="multipart/form-data">
+<!-- ==========================================================================================================-->
+			<div class="row row-cols-1 row-cols-md-2">
 					<div class="col SpotName">
 						影片名稱: <input type="text" name="portfolioName" placeholder="請輸入影片名稱">
+					
 					</div>
-<!-- 					-------------------------------- -->
-				<div class="col LocationInformation">
+<!---------------------------------------------------------------------------------------------------------- -->
+			<div class="col LocationInformation">
+              <!-- 地圖搜尋框 --------------------------------------------------------------------------->
                 <div id="searchMap">            
-                   <!-- 搜尋框 -->
-                        <div class="row">
+                        <div class="row row-cols-1 row-cols-md-2">
                             <div class="col google-map">
-                            <h5>Search：</h5>
-                            <div class="form-group">
-                                <input type="text" id="address" class="form-control" ref="site" v-model="site">
-                            </div>
+	                            <h5>Search：</h5>
+	                            <div class="form-group">
+	                               	<input type="text" id="address" class="form-control" ref="site" v-model="site">	                            
+	                            </div>
                             </div>
                         </div>
-
-                   <!-- 放google map的div -->
+                   <!-- 放google map的div ------------------------------------------------------------->
                         <div class="row">
                             <div class="col google-map">
                                 <h5>Google Map：</h5>
@@ -154,46 +130,25 @@
                         緯度<input id="lat" type="textbox" >
                 </div>
                 <input id="display_address" type="text" placeholder="請輸入位置資訊">
-            </div>
-<!-- ----------------------------------- -->
-				</div>
+                <input type="text" name="longitude" placeholder="經度" id="longitude"> 
+				<input type="text" name="latitude" placeholder="緯度" id="latitude">
 
-				<div class="row row-cols-1 row-cols-md-2">
-					<div>
-						城市: 
-						<select class="form-select" name="cityId"
-							aria-label="Default select example"
-							style="font-size: 15px; width: 35%; margin-top: 2px;margin-bottom: 10px;">
-							<option selected>選擇城市</option>
-							<c:forEach items="${cityList}" var="row">
-								<option value="${row.cityId}">${row.cityName}</option>
-							 </c:forEach>							
-						</select> 
+         	 </div>			
+         </div>
+<!-- ======================================================================================================= -->
+<!-- 				<div class="row row-cols-1 row-cols-md-2"> -->
 
-						影片類型: 
-						<select class="form-select" name="placeTypeId"
-							aria-label="Default select example"
-							style="font-size: 15px; width: 35%; margin-top: 2px ; margin-bottom: 10px;">
-							<option selected>選擇影片類型</option>
-							<c:forEach items="${placeTypeList}" var="row">
-								<option value="${row.placeTypeId}">${row.placeType}</option>
-							 </c:forEach>
-						</select>
-					</div>
-					<div class="col">
-						經度:<input type="text" name="longitude" placeholder="經度" id="longitude"> 
-						緯度:<input type="text" name="latitude" placeholder="緯度" id="latitude">
-					</div>
+<!-- 					<div class="col"> -->
+<!-- 						經度:<input type="text" name="longitude" placeholder="經度" id="longitude">  -->
+<!-- 						緯度:<input type="text" name="latitude" placeholder="緯度" id="latitude"> -->
+<!-- 					</div> -->
 
-				</div>
-
+<!-- 				</div> -->
+<!-- =================================================================================================== -->
 				<div class="row row row-cols-1 row-cols-md-2">
-					<div class="col" style="text-align: left;">
+					<div class="col">
 						<video src="/a.mp4" controls class="w-100"></video>
-						上傳影片預覽圖:
-						<input type="file" name="videoPic"/><br>
-						上傳影片:
-						<input type="file" name="videoFile"/><br>
+				
 					</div>
 
 					<div class="col ViedoDescription">
@@ -203,8 +158,14 @@
 						</div>
 					</div>
 				</div>
+<!-- =================================================================================================== -->
 				<div class="row ">
-					<div class="col-md-6"></div>
+					<div class="col-md-6">
+							上傳影片預覽圖:
+						<input type="file" name="videoPic"/><br>
+						上傳影片:
+						<input type="file" name="videoFile"/><br>
+					</div>
 					<div class="col">
 						<select class="form-select" aria-label="Default select example">
 							<option selected>選擇預覽方式</option>
@@ -213,15 +174,15 @@
 							<option value="good">世界地圖資訊預覽</option>
 						</select>
 						<button class="Bt_blue" type="submit">儲存</button>
-						<button class="Bt_blue"><a href="index">取消</a></button>
+						<button class="Bt_blue" onclick="onclick="location.href="index">取消</button>
 
 					</div>
 				</div>
-			</form>
-		</div>
+<!-- =================================================================================================== -->				
+	</form>
+</div>
 
-
-		<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	</div>
 	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
