@@ -56,13 +56,16 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 	}
 	
 //=============================================================================================
+	@SuppressWarnings("unchecked")
 	@Override
-	public void UpdateQty(ShoppingCartBean cart) {
+	public void UpdateQty(int sc_Id,ShoppingCartBean cartbean) {
+		String hql = "UPDATE ShoppingCartBean SET s_ordQty = :s_ordQty"
+				+ " WHERE sc_Id = :sc_Id"; 
 		Session session = factory.getCurrentSession();
-		session.update(cart);
-		
+		session.createQuery(hql)
+	        		.setParameter("sc_Id", sc_Id)//設定參數名稱，參數值
+	        		.setParameter("s_ordQty",cartbean)
+	        		.executeUpdate();//查詢0或多筆物件
 	}
-
-	
-
 }
+

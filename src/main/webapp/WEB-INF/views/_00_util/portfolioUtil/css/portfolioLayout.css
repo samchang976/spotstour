@@ -1,7 +1,7 @@
 /* VideoCreate*************************************************************** */
 
        .ViedoDescription input[type="text"]{
-            padding-bottom: 300px;
+            padding-bottom: 220px;
         } 
            
          select.form-select{
@@ -18,7 +18,8 @@
 
         }
         #container_VideoCreate #latitude,#container_VideoCreate #longitude{
-            width: 41%;
+            width: 49%;
             border-radius: 5px;
+            
         }
     

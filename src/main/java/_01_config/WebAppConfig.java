@@ -44,19 +44,19 @@ public class WebAppConfig implements WebMvcConfigurer {
 	}
 		
 	//注入攔截器
-//	@Autowired
-//	private MemberInterceptor memberInterceptor;
+	@Autowired
+	private MemberInterceptor memberInterceptor;
 //	@Autowired
 //	private ManagerInterceptor managerInterceptor;
 	//註冊memberInterceptor攔截器,設置需要攔截的url請求路徑
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		//會員權限攔截
-//		registry.addInterceptor(memberInterceptor).addPathPatterns("/memberDetailModify");
+		registry.addInterceptor(memberInterceptor).addPathPatterns("/memberDetailModify","/videoCreate");
 		//管理員權限攔截
 //		registry.addInterceptor(managerInterceptor).addPathPatterns("/aboutUsModify");
 		
-		registry.addInterceptor(new CheckLoginInterceptor());
+//		registry.addInterceptor(new CheckLoginInterceptor());
 //		DisableCacheInterceptor  disableCacheInterceptor = new DisableCacheInterceptor();
 //        registry.addInterceptor(disableCacheInterceptor);
         

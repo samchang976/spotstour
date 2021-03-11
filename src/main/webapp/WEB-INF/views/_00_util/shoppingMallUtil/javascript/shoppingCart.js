@@ -13,26 +13,51 @@ function doFirst() {
         }
     }
     //========================================================================
-    let Quantity = document.querySelectorAll(`input[name="Quantity"]`);
-    // alert(Quantity);
-    for (i = 0; i < Quantity.length; i++) {
-        Quantity[i].addEventListener('change', function() {
-            let QuantityInfo = document.querySelector(`#${this.id}`).value;          
-            // alert(`${this.id}`);
-            var xhr1 = new XMLHttpRequest();
-            xhr1.open("PUT","<c:url value=''></c:url>">+pk,true)
-            var jsonQty={};
-            xhr1.setRequestHeader("Content-Type","application/json;charset=UYF-8");
-            xhr1.send(JSON.stringify(jsonQty))
-            alert(QuantityInfo);
-        });
-        // alert(yourCheck);
-    }
-    //========================================================================
-    anountMethod();
-    totalAmount();
+        // 修改
+       /* let Quantity = document.querySelectorAll(`input[type="number"]`); //取得所有input數量(商品數量)
+        // alert(Quantity.length);
+        // alert(Quantity[0]);
 
-}
+        for (i = 0; i < Quantity.length; i++) {
+            // alert("aa");
+            Quantity[i].addEventListener('change', function () { //input的change事件
+                // let QuantityInfo = document.querySelector(`#${this.id}`).value;
+                // alert(QuantityInfo);
+                // QuantityInfo = document.getElementById("sc_Id=2").value;
+                // alert(QuantityInfo);
+                // alert(`${this.id}`)
+                // `${this.id}`; //input的id
+                sc_Id = `${this.id}`; //被點到的input的id
+                QuantityInfo = document.getElementById(`${sc_Id}`).value; //修改的數量值
+
+                // alert(sc_Id);
+                // alert(QuantityInfo);
+                //如何把轉乘json==========================================================================================
+                json = { sc_Id: sc_Id, s_ordQty: QuantityInfo };
+                // alert(json);
+                alert(JSON.stringify(json));
+                // alert(`${this.id}`);
+                var xhr1 = new XMLHttpRequest();
+                xhr1.open("PUT","shoppingCart/put/Id",true)
+
+                xhr1.setRequestHeader("Content-Type","application/json;charset=UTF-8");
+                xhr1.send(JSON.stringify(json)); 
+                xhr.onreadystatechange = function() {
+                    if (xhr.status == 200 && xhr.readyState == 4)
+                    //alert(xhr.responseText); //把這個資料傳成html文件
+                    alert(xhr.responseText);
+                       
+                
+                //======================================================================================================
+            });
+            // alert(yourCheck);
+
+            //========================================================================
+        }}*/
+        anountMethod();
+        totalAmount();
+    }
+
 
 //多項刪除鈕，取得多項cartId
 
@@ -50,9 +75,9 @@ function newQtyChange() {
 function anountMethod() {
 
     var items = document.querySelectorAll(".CartItem");
-
     for (i = 0; i < items.length; i++) {
-        Qty = parseInt(document.getElementById("Qty" + i).value); //商品選擇數量
+        Qty = parseInt(document.getElementById("Qty"+i).value); //商品選擇數量
+        // alert(Qty);
         price = parseInt(document.getElementById("uniPrice" + i).innerText); //商品選擇數量
         anount = price * Qty;
         // alert(anount);

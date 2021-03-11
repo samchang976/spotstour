@@ -253,11 +253,11 @@ button { /*按鈕的樣式*/
 							class="w-100"> 上傳照片3<input type="file" name="itemPic3" />
 					</div>
 					<!-- 一次上傳三張照片 -->
-<!-- 					<div class="mb-3"> -->
-<!-- 						<label for="formFileMultiple" class="form-label">Multiple -->
-<!-- 							一次上傳三張照片</label> <input class="form-control" type="file" -->
-<!-- 							id="formFileMultiple" multiple> -->
-<!-- 					</div> -->
+					<!-- 					<div class="mb-3"> -->
+					<!-- 						<label for="formFileMultiple" class="form-label">Multiple -->
+					<!-- 							一次上傳三張照片</label> <input class="form-control" type="file" -->
+					<!-- 							id="formFileMultiple" multiple> -->
+					<!-- 					</div> -->
 				</div>
 				<div class="form-group row  d-flex justify-content-end mt-5">
 					<!-- 				<div> -->
@@ -354,7 +354,8 @@ button { /*按鈕的樣式*/
 						<br>
 						<div>
 							<button id="deleteM" value="/Id=${itemId}"
-								onclick="location.href='merchandiseModify/delete/Id=${item.itemId}'">刪除商品</button>
+<%-- 								onclick="location.href='merchandiseModify/delete/Id=${item.itemId}'">刪除商品</button> --%>
+								 data-bs-toggle="modal" data-bs-target="#exampleModal">刪除商品</button>
 						</div>
 						<br>
 						<div>
@@ -365,7 +366,27 @@ button { /*按鈕的樣式*/
 
 				</div>
 			</div>
+			<div class="modal fade" id="exampleModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">確定要刪除商品??</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-primary"
+								onclick="location.href='merchandiseModify/delete/Id=${item.itemId}'">確定刪除商品</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</c:forEach>
+
 
 		<hr>
 		<!-----------定位----------------------------------------------------------------------------->

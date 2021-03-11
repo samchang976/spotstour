@@ -69,11 +69,11 @@ ul.nav.nav-tabs {
 	<div class='menuOuter'
 		style="border-bottom: 1px solid black; text-align: center;">
 		<div id='option1'>
-			<a href="<c:url value='worldMap' />" target="_parent"> <i
+			<a href="<c:url value='worldMap' />" target="_parent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="worldMap 世界地圖"> <i
 				class="fas fa-globe-americas fa-spin "></i>
 			</a>
 		</div>
-		<a href="<c:url value='/' />" target="_parent">
+		<a href="<c:url value='/' />" target="_parent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Spots-tour 首頁">
 			<div id="SPOTTOUR">SPOTS-TOUR</div>
 		</a>
 		<div id='option2'>
@@ -96,7 +96,7 @@ ul.nav.nav-tabs {
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false">會員</a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="<c:url value="/index"/>">首頁</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/index"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Spots-tour 首頁">首頁</a></li>
 						<li>_11_member</li>
 						<li><a class="dropdown-item" href="<c:url value="/confirmEmail"/>">Email確認(尚未)</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/emailVerificationSuccess"/>">Email核對成功</a></li>
@@ -170,48 +170,48 @@ ul.nav.nav-tabs {
 					
 				<li class="nav-item dropdown"><a class="fas fa-cart-plus "
 					data-bs-toggle="dropdown" href="#" role="button"
-					aria-expanded="false"></a>
+					aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="bottom" title="商城資訊"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="<c:url value="/merchandiseIndex"/>">購物商城</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/shoppingCart"/>">購物車</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/aboutMerchandise"/>">關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/merchandiseIndex"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員可以查詢全部代購商品">購物商城</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/shoppingCart"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員可以查詢已加入購物車內容">購物車</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutMerchandise"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢關於商品配送資訊">關於商品資訊</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="<c:url value="/merchandiseModify"/>">管理商城</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/activityList"/>">管理活動列表</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/activityModify"/>">管理活動快訊</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/aboutMerchandiseModify"/>">編輯關於商品資訊</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/manageMerchandiseReport"/>">管理退貨商品列表</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/manageVideoReport"/>">管理檢舉影片</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/merchandiseModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有商城商品">管理商城</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/activityList"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有商城活動資訊">管理活動列表</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/activityModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有商城活動資訊">管理活動快訊</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutMerchandiseModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以修改商品資訊">編輯關於商品資訊</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/manageMerchandiseReport"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以修改有關退換貨商品資訊">管理退貨商品列表</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/manageVideoReport"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有影片不當的內容">管理檢舉影片</a></li>
 					</ul></li>
 					
 				<li class="nav-item dropdown"><a class="fas fa-user-alt "
 					data-bs-toggle="dropdown" href="#" role="button"
-					aria-expanded="false"></a>
+					aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員資訊"></a>
 					<ul class="dropdown-menu">
 						<c:if test="${ funcName != 'REG' }">
-							<li><a class="dropdown-item" href="<c:url value="/memberRegister"/>">註冊會員</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/memberRegister"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="還沒加入會員嗎? 這裡可以註冊會員">註冊會員</a></li>
 						</c:if>
 						<c:if test="${ empty LoginOK }">
-							<li><a class="dropdown-item" href="<c:url value="/login"/>">登入</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/login"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者及會員登入">登入</a></li>
 						</c:if>
 						<c:if test="${ !empty LoginOK }">
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>">修改會員資料</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>">個人作品</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>">收藏的影片</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>" data-bs-placement="bottom" title="會員可以 修改會員資料">修改會員資料</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>" data-bs-placement="bottom" title="會員個人影片的作品集">個人作品</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>" data-bs-placement="bottom" title="會員個人收藏所有的影片">收藏的影片</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="<c:url value="/logout"/>">登出</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/logout"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者及會員登出">登出</a></li>
 						</c:if>
 				      </ul></li>
 					
 				<li class="nav-item dropdown"><a class="fas fa-align-justify "
 					data-bs-toggle="dropdown" href="#" role="button"
-					aria-expanded="false"></a>
+					aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="bottom" title="其他資訊"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="<c:url value="/aboutUs"/>">關於我們</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/contactUs"/>">聯絡我們</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/aboutUsModify"/>">編輯關於我們</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/contactUsModify"/>">編輯聯絡我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutUs"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查看關於Spots-tour">關於我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/contactUs"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="聯絡Spots-tour">聯絡我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/aboutUsModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以編輯關於Spots-tour">編輯關於我們</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/contactUsModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以編輯聯絡Spots-tour的資訊">編輯聯絡我們</a></li>
 					</ul></li>
 			</ul>
 		</div>
