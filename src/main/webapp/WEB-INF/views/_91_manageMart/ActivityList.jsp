@@ -137,7 +137,8 @@ button { /*按鈕的樣式*/
 			<div class="row">
 				<div class="col-9 col-md-3">
 					<i class="fas fa-plus"></i> <span><button id="news"
-							value="新增活動資訊" onclick="location.href='${pageContext.request.contextPath}/activityModify'">新增活動資訊</button></span>
+							value="新增活動資訊"
+							onclick="location.href='${pageContext.request.contextPath}/activityModify'">新增活動資訊</button></span>
 					<!-- 							<span><button -->
 					<!-- 							id="selectall" value="全選">全選</button></span> <span><button -->
 					<!-- 							id="denine" value="刪除全選">刪除全選</button></span> -->
@@ -155,6 +156,10 @@ button { /*按鈕的樣式*/
 						<div class='center' id='somedivS'></div>
 
 						<c:forEach var='activity' items='${activitys}'>
+
+
+
+
 							<div class="block">
 								<!-- 								日期 -->
 								<div class="left" style="float: left;">
@@ -167,7 +172,31 @@ button { /*按鈕的樣式*/
 								<div class="right " style="float: right;">
 									<!-- 									<input type="button" value="刪除"> -->
 									<button id="deleteA" value="/Id=${activityId}"
-										onclick="location.href='activityList/delete/Id=${activity.activityId}'">刪除活動</button>
+										data-bs-toggle="modal"
+										data-bs-target="#deleteActivity${activity.activityId}">刪除活動</button>
+
+
+									<div class="modal fade" id="deleteActivity${activity.activityId}"
+										tabindex="-1" aria-labelledby="exampleModalLabel"
+										aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLabel">刪除活動</h5>
+													<button type="button" class="btn-close"
+														data-bs-dismiss="modal" aria-label="Close"></button>
+												</div>
+												<div class="modal-body">確定要刪除此活動??</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-bs-dismiss="modal">取消</button>
+													<button class="btn btn-primary" value="/Id=${activityId}"
+														onclick="location.href='activityList/delete/Id=${activity.activityId}'">確定刪除活動</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
 
 								</div>
 								<div class="right " style="float: right;">
@@ -178,7 +207,12 @@ button { /*按鈕的樣式*/
 								</div>
 								<div class="clear-block"></div>
 							</div>
+
 						</c:forEach>
+
+
+
+
 					</div>
 				</div>
 			</div>
