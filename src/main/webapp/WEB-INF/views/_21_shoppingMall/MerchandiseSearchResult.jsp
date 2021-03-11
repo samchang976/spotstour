@@ -73,46 +73,19 @@
 							<!-- 							</a> -->
 
 							<!-- 							圖片輪播 -->
-							<div id="carouselExampleIndicators" class="carousel slide"
+							<div id="carouselExampleSlidesOnly" class="carousel slide"
 								data-bs-ride="carousel">
-								<div class="carousel-indicators">
-									<button type="button"
-										data-bs-target="#carouselExampleIndicators"
-										data-bs-slide-to="0" class="active" aria-current="true"
-										aria-label="Slide 1"></button>
-									<button type="button"
-										data-bs-target="#carouselExampleIndicators"
-										data-bs-slide-to="1" aria-label="Slide 2"></button>
-									<button type="button"
-										data-bs-target="#carouselExampleIndicators"
-										data-bs-slide-to="2" aria-label="Slide 3"></button>
-								</div>
 								<div class="carousel-inner">
 									<div class="carousel-item active">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-											class="d-block w-100" alt="...">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" class="d-block w-100" alt="...">
 									</div>
 									<div class="carousel-item">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-											class="d-block w-100" alt="...">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" class="d-block w-100" alt="...">
 									</div>
 									<div class="carousel-item">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-											class="d-block w-100" alt="...">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" class="d-block w-100" alt="...">
 									</div>
 								</div>
-								<button class="carousel-control-prev" type="button"
-									data-bs-target="#carouselExampleIndicators"
-									data-bs-slide="prev">
-									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-									<span class="visually-hidden">Previous</span>
-								</button>
-								<button class="carousel-control-next" type="button"
-									data-bs-target="#carouselExampleIndicators"
-									data-bs-slide="next">
-									<span class="carousel-control-next-icon" aria-hidden="true"></span>
-									<span class="visually-hidden">Next</span>
-								</button>
 							</div>
 
 						</div>
@@ -121,7 +94,7 @@
 								<img class="w-100"> ${item.itemHeader}
 							</a>
 						</div>
-						<div class="itemPrice">價格 : ${item.itemPrice}</div>
+						<div class="itemPrice">價格 : ${item.itemPrice}元</div>
 						<div class="countryName">產地 :
 							${item.countryBean.countryName}</div>
 						<div class="itemType">商品類別 : ${item.item_typeBean.itemType}</div>

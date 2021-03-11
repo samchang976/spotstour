@@ -25,7 +25,7 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
@@ -41,7 +41,7 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/managerUtil/css/managerColor.css'></c:url>">
-	
+
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>編輯商品</title>
 
@@ -168,7 +168,7 @@ button { /*按鈕的樣式*/
 					<label for="itemHeader" class="col-sm-2 col-form-label">標頭</label>
 					<div class="col-sm-10">
 						<form:input type="text" path="itemHeader" class="form-control"
-							id="itemHeader" maxlength="20" placeholder="限20字以內"/>
+							id="itemHeader" maxlength="20" placeholder="限20字以內" />
 					</div>
 				</div>
 
@@ -238,23 +238,26 @@ button { /*按鈕的樣式*/
 					<div class="col col-2-1 C_SpCre">
 						<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							class="w-100">
-						上傳照片1<input type="file" name="itemPic1"/>
+							class="w-100"> 上傳照片1<input type="file" name="itemPic1" />
 					</div>
 
 					<div class=" col col-3-1 C_SpCre">
 						<%-- 					<div>紀念品照片2${item.Pic2}</div> --%>
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							class="w-100">
-						上傳照片2<input type="file" name="itemPic2"/>
+							class="w-100"> 上傳照片2<input type="file" name="itemPic2" />
 					</div>
 
 					<div class="col col-4-1 C_SpCre">
 						<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							class="w-100">
-						上傳照片3<input type="file" name="itemPic3"/>
+							class="w-100"> 上傳照片3<input type="file" name="itemPic3" />
 					</div>
+					<!-- 一次上傳三張照片 -->
+<!-- 					<div class="mb-3"> -->
+<!-- 						<label for="formFileMultiple" class="form-label">Multiple -->
+<!-- 							一次上傳三張照片</label> <input class="form-control" type="file" -->
+<!-- 							id="formFileMultiple" multiple> -->
+<!-- 					</div> -->
 				</div>
 				<div class="form-group row  d-flex justify-content-end mt-5">
 					<!-- 				<div> -->

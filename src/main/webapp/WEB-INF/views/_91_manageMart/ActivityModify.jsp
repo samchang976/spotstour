@@ -102,15 +102,15 @@ button { /*確定、送出的按鈕排版*/
 						<!-- 						<input type="text" name="Reportdescription" placeholder="請輸入內容" -->
 						<!-- 							style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;"> -->
 						<br>
-						<h5>活動標頭</h5>
-						<h6>字數限30字以內</h6>
 						<div class="col-sm-10">
+						<label for="exampleFormControlInput1" class="form-label">活動標頭(字數限30字以內)</label>
 							<form:input type="text" path="activityHeader"
 								class="form-control" id="activityHeader" maxlength="30"
 								placeholder="限30字以內" />
 						</div>
 
 						<div class="col-sm-10">
+							<label for="exampleFormControlInput1" class="form-label">活動內容</label>
 							<form:input type="text" path="activityContent"
 								class="form-control" id="activityContent"
 								style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;"
