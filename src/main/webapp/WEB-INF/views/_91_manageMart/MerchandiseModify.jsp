@@ -129,12 +129,12 @@ button { /*按鈕的樣式*/
 					<div>
 						<br> <br>
 						<div>
-							<button id="newM" onclick="location.href='merchandiseModify'">
+							<button id="newM" onclick="location.href='${pageContext.request.contextPath}/merchandiseModify'">
 								<span class="fas fa-plus"></span>新增商品
 							</button>
-							<button id="selectA">全選</button>
-							<button id="save">儲存變更</button>
-							<button id="allFeedback" onclick="location.href='manageFeedback'">查看全部商品留言</button>
+							<!-- 							<button id="selectA">全選</button> -->
+							<!-- 							<button id="save">儲存變更</button> -->
+							<button id="allFeedback" onclick="location.href='${pageContext.request.contextPath}/manageFeedback'">查看全部商品留言</button>
 						</div>
 					</div>
 				</div>
@@ -264,19 +264,22 @@ button { /*按鈕的樣式*/
 									<div class="col col-2-1 C_SpCre">
 										<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
 										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-											class="w-100"> 上傳照片1<input type="file" name="itemPic1" />
+											class="w-100"> 上傳照片1 <br> <input type="file"
+											name="itemPic1" />
 									</div>
 
 									<div class=" col col-3-1 C_SpCre">
 										<%-- 					<div>紀念品照片2${item.Pic2}</div> --%>
 										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-											class="w-100"> 上傳照片2<input type="file" name="itemPic2" />
+											class="w-100"> 上傳照片2 <br> <input type="file"
+											name="itemPic2" />
 									</div>
 
 									<div class="col col-4-1 C_SpCre">
 										<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
 										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-											class="w-100"> 上傳照片3<input type="file" name="itemPic3" />
+											class="w-100"> 上傳照片3 <br> <input type="file"
+											name="itemPic3" />
 									</div>
 									<!-- 一次上傳三張照片 -->
 									<!-- 					<div class="mb-3"> -->
@@ -321,7 +324,7 @@ button { /*按鈕的樣式*/
 			</div>
 		</div>
 
-
+		<br>
 		<!-- 陳列商品 -->
 		<h3>陳列商品</h3>
 		<c:forEach var='item' items='${items}'>
