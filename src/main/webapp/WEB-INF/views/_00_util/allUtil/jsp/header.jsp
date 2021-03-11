@@ -170,7 +170,7 @@ ul.nav.nav-tabs {
 					
 				<li class="nav-item dropdown"><a class="fas fa-cart-plus "
 					data-bs-toggle="dropdown" href="#" role="button"
-					aria-expanded="false"></a>
+					aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="bottom" title="商城資訊"></a>
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="<c:url value="/merchandiseIndex"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員可以查詢全部代購商品">購物商城</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/shoppingCart"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員可以查詢已加入購物車內容">購物車</a></li>
@@ -186,7 +186,7 @@ ul.nav.nav-tabs {
 					
 				<li class="nav-item dropdown"><a class="fas fa-user-alt "
 					data-bs-toggle="dropdown" href="#" role="button"
-					aria-expanded="false"></a>
+					aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員資訊"></a>
 					<ul class="dropdown-menu">
 						<c:if test="${ funcName != 'REG' }">
 							<li><a class="dropdown-item" href="<c:url value="/memberRegister"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="還沒加入會員嗎? 這裡可以註冊會員">註冊會員</a></li>
@@ -206,7 +206,7 @@ ul.nav.nav-tabs {
 					
 				<li class="nav-item dropdown"><a class="fas fa-align-justify "
 					data-bs-toggle="dropdown" href="#" role="button"
-					aria-expanded="false"></a>
+					aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="bottom" title="其他資訊"></a>
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="<c:url value="/aboutUs"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查看關於Spots-tour">關於我們</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/contactUs"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="聯絡Spots-tour">聯絡我們</a></li>
