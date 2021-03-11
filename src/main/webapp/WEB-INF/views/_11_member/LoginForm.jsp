@@ -45,7 +45,31 @@
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>登入</title>
+<style type="text/css">
+@import
+	url('https://fonts.googleapis.com/css2?family=Lora&family=Noto+Sans+TC:wght@300&display=swap')
+	;
 
+.container {
+	font-family: 'Noto Sans TC';
+}
+.error {
+	color: red;
+	display: inline-block;
+	font-size: 10pt;
+}
+ #main { 
+ 	position:relative; 
+ 	top: 50px; 
+     width:100%; 
+     text-align:center; 
+ } 
+ #content { 
+   width: 500px ; 
+   margin-left: auto ; 
+   margin-right: auto ; 
+ } 
+</style>
 </head>
 <body>
 
@@ -57,31 +81,73 @@
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
 
-<!-- 先將使用者名稱取出 -->
-<c:set var="memberName" value="${ LoginOK.name }" />
-<!-- 移除放在session物件內的屬性物件 -->
-<c:remove var="LoginOK" scope="session" />
-<c:remove var="ShoppingCart" scope="session" />
+<div class="container">
 
-<!-- 下列敘述設定變數funcName的值為OUT，top.jsp 會用到此變數 -->
-<c:set var="funcName" value="OUT" scope="session"/>
-<!-- 引入共同的頁首 -->
-<%-- <jsp:include page="/fragment/topMVC.jsp" /> --%>
-<!-- 下列六行敘述設定登出後要顯示的感謝訊息 -->
-<c:set var="logoutMessage" scope="request"/>
-<font color='blue' ><BR>
-訪客${ memberName }，感謝您使用本系統。<BR>
-您已經登出<BR>
-</font>
-<%-- <jsp:useBean id='logoutBean' class='_02_login.model.LogoutBean' scope='page' /> --%>
-    
-<c:set target='${logoutBean}' 
-   property='session'    value='${pageContext.session}'/>
-   
-${ logoutBean.logout }
+<c:set var="funcName" value="LOG" scope="session"/>
+<c:set var="msg" value="登入" />
+<c:if test="${ ! empty sessionScope.timeOut }" > <!-- 表示使用逾時，重新登入 -->
+   <c:set var="msg" value="<font color='red'>${sessionScope.timeOut}</font>" />
+</c:if>
 
-<c:redirect url="/index.jsp"/>
 
+<form:form method="POST" modelAttribute="memberBean">
+                                         
+  <div id='content'>
+    <Table  style="border-width:2; background:#E0E0E0; width: 500px;">
+
+         <TR>
+             <TD height='50' colspan='2' align="CENTER" style="font-size:0.8cm"> 
+                <Font color="#000000">
+                    ${msg}<br>
+                    
+                </Font>
+             </TD>
+         </TR>
+
+         <TR height='20'>
+             <TD align="CENTER" colspan='2'>
+             	&nbsp;
+             </TD>
+         </TR>
+         <TR>
+             <TD width="180" align="right">帳號：　</TD>
+             <TD width="180" colspan='2' align="LEFT">
+	             <form:input  path="mAN" size="16" />
+    	         <form:errors  path="mAN" cssClass="error" /><br>
+             </TD>
+         </TR>
+         <TR>
+             <TD width="180" align="right">密碼：　</TD>
+             <TD width="180" colspan='2' align="LEFT" >
+             	<form:input  type="password" path="mPw" size="16" />
+             	<form:errors  path="mPw" cssClass="error" /><br>
+             </TD>
+             
+         </TR>  
+         <tr>
+         <TD width="180" align="right" >
+				
+			<input type="checkbox">
+						
+         </TD>
+         <TD width="180"  colspan='2' align="left"><small>記住密碼</small></TD>
+         </tr>
+         <TR height='20'>
+             <TD> &nbsp;</TD>   
+             <TD Class="error">${LoginError}</TD>
+         </TR>
+
+        <TR>
+            <TD colspan="2" align="center"><input type="submit" value="提交"> </TD>
+         </TR>
+         <TR height='10'>
+             <TD align="CENTER" colspan='2'>&nbsp;</TD>
+         </TR>
+         
+    </Table>
+  </div>
+</form:form>
+</div>
 <!-----------定位----------------------------------------------------------------------------->
 	</div>
 <!--內嵌footer-------------------------------------------------------------------------------->

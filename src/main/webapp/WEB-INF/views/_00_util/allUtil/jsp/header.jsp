@@ -88,7 +88,7 @@ ul.nav.nav-tabs {
 				<!-- 會員圖片 -->
 				<c:if test="${! empty LoginOK }">
 					<img height='40px' width='30px'
-						src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.memberId}'>
+						src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.mId}'>
 				</c:if>
 <!-- ======================測試頁面連結區塊================================================================================== -->
 				
@@ -194,12 +194,22 @@ ul.nav.nav-tabs {
 						<c:if test="${ empty LoginOK }">
 							<li><a class="dropdown-item" href="<c:url value="/login"/>">登入</a></li>
 						</c:if>
+						<c:if test="${ !empty LoginOK }">
 						<li><hr class="dropdown-divider"></li>
+<<<<<<< HEAD
 						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>">會員個人資料</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>">個人作品</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>">收藏的影片</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="<c:url value="/logout"/>">登出</a></li>
+=======
+						<li><a class="dropdown-item" href="memberDetailModify">修改會員資料</a></li>
+						<li><a class="dropdown-item" href="personalVideo">個人作品</a></li>
+						<li><a class="dropdown-item" href="collectVideo">收藏的影片</a></li>
+						<li><hr class="dropdown-divider"></li>	
+						<li><a class="dropdown-item" href="logout">登出</a></li>
+						</c:if>
+>>>>>>> ting02
 					</ul></li>
 					
 				<li class="nav-item dropdown"><a class="fas fa-align-justify "
