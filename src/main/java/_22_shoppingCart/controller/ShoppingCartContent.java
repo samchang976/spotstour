@@ -21,7 +21,7 @@ import _22_shoppingCart.dao.shoppingCartDao;
 import _22_shoppingCart.service.ShoppingCartService;
 
 @Controller
-@SessionAttributes({"LoginOK","Login","mId"})
+@SessionAttributes({"LoginOK","Login","mId","hasItem"})
 public class ShoppingCartContent {
 
 	public ShoppingCartContent() {
@@ -161,7 +161,8 @@ public class ShoppingCartContent {
 		}
 
 		//創建購物車(傳入會員編號, 產品編號, 數量)
-		shoppingCartService.addToCart(member, itemId, qty);
+		String hasItem = shoppingCartService.addToCart(member, itemId, qty);
+		model.addAttribute("hasItem", hasItem);
 		System.out.println(member);
 		System.out.println("addcart============================");
 		return "redirect:/shoppingCart";

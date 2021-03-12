@@ -77,7 +77,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 //===========================================
 	@Transactional
 	@Override
-	public void addToCart(Integer memberId, Integer itemId, Integer qty) {
+	public String addToCart(Integer memberId, Integer itemId, Integer qty) {
 //		try {
 		System.out.println("addcart-Service 開始==================");
 			// 判斷購物車某會員是否已經加入某商品至購物車
@@ -90,12 +90,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 				shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId(memberId));
 				
 				shoppingCartDao.addShoppingCart(shoppingCartBean);
-				
+				return "0";
 
 			} else { // 購物車裡面已經存在會員id 與 產品id
 				shoppingCartBean.setS_ordQty(shoppingCartBean.getS_ordQty() + qty); // 傳來的數量加上最原本的
+				System.out.println("addcart-Service 完成==================");
+				return "1";
 			}
-			System.out.println("addcart-Service 完成==================");
 //
 //			// 創建購物車
 //		} catch (SQLException e) {

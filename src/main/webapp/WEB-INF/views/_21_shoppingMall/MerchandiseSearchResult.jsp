@@ -122,17 +122,47 @@
 						<!-- 						</i> -->
 						<!-- 加入購物車================================================================================================= -->
 					
-							<c:if test="${mPid==2||mPid==1}">
+<%-- 							<c:if test="${mPid==2||mPid==1}"> --%>
 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post">
-								<button type="button" onclick="this.form.submit()">
+<%-- 								<c:if test="${hasItem==0}"> --%>
+									<button type="button" onclick="this.form.submit()">
 									<i class="fas fa-cart-arrow-down addButton"></i>
-								</button>
+									</button>
+<%-- 								</c:if> --%>
+								
+<!--================================================================================= -->
+<%-- 								<c:if test="${hasItem==1}"> --%>
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<!--   <div class="modal-dialog"> -->
+<!--     <div class="modal-content"> -->
+<!--       <div class="modal-header"> -->
+<!--         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+<!--         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+<!--       </div> -->
+<!--       <div class="modal-body"> -->
+<!--         ... -->
+<!--       </div> -->
+<!--       <div class="modal-footer"> -->
+<!--         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+<!--         <button type="button" class="btn btn-primary">Save changes</button> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </div> -->
+<%-- 						</c:if> --%>
+<!--================================================================================= -->								
 <%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
 <%-- 								onchange="this.form.submit()" --%>
 <!-- 						顯示:綁識別字串 -->
 <!-- 						數量修改靠js -->
+
+
+
+
+
+
 						</form>
-						</c:if>
+<%-- 						</c:if> --%>
 							<%-- 						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
 
 						
