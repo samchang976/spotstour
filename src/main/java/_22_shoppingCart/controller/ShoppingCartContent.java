@@ -1,6 +1,9 @@
 package _22_shoppingCart.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.ServletException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import _02_model.entity.MemberBean;
 import _02_model.entity.ShoppingCartBean;
 import _22_shoppingCart.dao.shoppingCartDao;
 import _22_shoppingCart.service.ShoppingCartService;
@@ -122,13 +126,46 @@ public class ShoppingCartContent {
 	public String addShoppingCart(
 			@PathVariable("itemId")Integer itemId,
 			Model model) {
-		Integer a = (Integer) model.getAttribute("mId");
-		System.out.println("ABCDE"+a);
+		//1.判斷用戶是否存在
+				Integer member = (Integer) model.getAttribute("mId");
+				System.out.println(member);
+				if( member == null) { //1:管理員 2:會員
+					return "redirect:/login";
+					
+				}
+//		Integer a = (Integer) model.getAttribute("mId");
+//		System.out.println("ABCDE"+a);
 		ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
 		shoppingCartBean.setS_ordQty(1);
 		shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(itemId));
-		shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId(a));
+		shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId((Integer) model.getAttribute("mId")));
 		shoppingCartService.addShoppingCart(shoppingCartBean);
 		return "redirect:/shoppingCart";
 	}
+	
+	
+	//加入購物車有傳數量的===>商品詳細資訊那邊
+	@PostMapping("/shoppingCart/addQty/{itemId}")
+	public String creatCart(
+			Model model,
+			@PathVariable("itemId") Integer itemId,
+			@RequestParam("qty") Integer qty
+			) throws ServletException, IOException {
+		System.out.println("addcart============================");
+		//1.判斷用戶是否存在
+		Integer member = (Integer) model.getAttribute("mId");
+		System.out.println(member);
+		if( member == null) { //1:管理員 2:會員
+			return "redirect:/login";
+			
+		}
+
+		//創建購物車(傳入會員編號, 產品編號, 數量)
+		shoppingCartService.addToCart(member, itemId, qty);
+		System.out.println(member);
+		System.out.println("addcart============================");
+		return "redirect:/shoppingCart";
+		
+	
+}
 }

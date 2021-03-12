@@ -8,7 +8,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import _02_model.entity.CartBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.MemberBean;
 import _02_model.entity.ShoppingCartBean;
@@ -98,20 +97,22 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 			session.save(cart);
 		}
 	
+		@SuppressWarnings("unchecked")
 		@Override
 		//判斷某會員是某要加入同樣商品到購物車
-		public ShoppingCartBean hasCart(Integer memberId, Integer itemId) {
+		public ShoppingCartBean hasCart(Integer mId, Integer itemId) {
+			System.out.println("addcart-dao判斷 開始==================");
 			Session session = factory.getCurrentSession();
 			String hql =  " FROM ShoppingCartBean c "
 //						+ " JOIN ProductBean p "
 //						+ " ON c.productBean.product_id = p.product_id "
-						+ " WHERE c.memberBean.memberId = :memberId  "
-						+ " AND c.productBean.product_id = :productId " ;
+						+ " WHERE c.memberBean.mId = :mId  "
+						+ " AND c.itemBean.itemId = :itemId " ;
 			
 //			可能得到0或1筆，故不能使用getSingleResult()，否則會丟出例外
-			@SuppressWarnings("unchecked")
+			
 			List<ShoppingCartBean> result = session.createQuery(hql)
-										 .setParameter("memberId", memberId)
+										 .setParameter("mId", mId)
 										 .setParameter("itemId", itemId)
 										 .getResultList();
 			
@@ -123,6 +124,7 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 				return null;
 			}
 			
+			System.out.println("addcart-dao判斷 完成==================");
 			return result.get(0); //0==>取得list的index=1的值
 		}
 
