@@ -117,8 +117,9 @@ public class ShoppingCartContent {
 		return "redirect:/shoppingCart";
 	}
 	
+	//加入購物車
 	@Transactional
-	@PostMapping("shoppingCart/add/{itemId}")
+	@PostMapping({"shoppingCart/add/{itemId}","/merchandiseSearchResult/shoppingCart/add/{itemId}"})
 	public String addShoppingCart(
 			@PathVariable("itemId")Integer itemId,
 			Model model) {

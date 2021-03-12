@@ -61,7 +61,7 @@
 
 		<div class="container" id="container_MerchandiseDetail">
 			<!-- 上方 ------------------------------------------------------------------------------------>
-			<form:form method='POST' modelAttribute='itemBean'>
+			<form:form method='POST' modelAttribute='itemBean' action="${pageContext.request.contextPath}/shoppingCart/add/${itemBean.itemId}">
 				<div class="row above">
 					<div class="col-12 col-md-6">
 						<img src="https://fakeimg.pl/350x250/?text=World&font=lobster"
@@ -86,7 +86,18 @@
 						</select> <br> <br> <br> <br> <br>
 						<!-- 						款式資訊 : 辣味 | 原味 | 洋蔥 | 起司 <br> -->
 
-						<button id="like" class="Bt_black">加入購物車</button>
+						<c:if test="${mPid==2||mPid==1}">
+<%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
+								<button type="button" onclick="this.form.submit()" id="like" class="Bt_black">
+									加入購物車
+								</button>
+<%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
+<%-- 								onchange="this.form.submit()" --%>
+<!-- 						顯示:綁識別字串 -->
+<!-- 						數量修改靠js -->
+<%-- 						</form> --%>
+						</c:if>
+						
 						<button id="saleType" class="Bt_black">完售</button>
 						<br> <br>
 						<!-- 						<select> -->

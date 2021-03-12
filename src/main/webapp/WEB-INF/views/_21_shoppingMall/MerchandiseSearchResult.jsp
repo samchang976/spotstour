@@ -123,7 +123,7 @@
 						<!-- 加入購物車================================================================================================= -->
 					
 							<c:if test="${mPid==2||mPid==1}">
-							<form action="shoppingCart/add/${item.itemId}" method="post">
+							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post">
 								<button type="button" onclick="this.form.submit()">
 									<i class="fas fa-cart-arrow-down addButton"></i>
 								</button>
