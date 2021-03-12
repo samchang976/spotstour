@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import _02_model.entity.ItemBean;
+import _02_model.entity.MemberBean;
 import _02_model.entity.ShoppingCartBean;
 import _22_shoppingCart.dao.shoppingCartDao;
 
@@ -32,7 +34,6 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
         session.delete(sb);
 
 	}	
-	
 //購物車，由memberId取得==========================================================================	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -41,7 +42,6 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 			List<ShoppingCartBean> cart = new LinkedList<ShoppingCartBean>(); //如果找不到就回傳null
 			String hql = "FROM ShoppingCartBean WHERE mId = :memberId" ; 
 			
-	
 	        Session session = factory.getCurrentSession();
 	         cart = session.createQuery(hql)
 	        		.setParameter("memberId", memberId)//設定參數名稱，參數值
@@ -56,16 +56,44 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 	}
 	
 //=============================================================================================
-	@SuppressWarnings("unchecked")
+	
+//以sc_Id取的shoppingBean======================================================================
 	@Override
-	public void UpdateQty(int sc_Id,ShoppingCartBean cartbean) {
-		String hql = "UPDATE ShoppingCartBean SET s_ordQty = :s_ordQty"
-				+ " WHERE sc_Id = :sc_Id"; 
+	public ShoppingCartBean getShoppingCartBysc_Id(int sc_Id) {
+		String	hql = "FROM ShoppingCartBean WHERE sc_Id = :sc_Id";
 		Session session = factory.getCurrentSession();
-		session.createQuery(hql)
+		ShoppingCartBean cart = (ShoppingCartBean) session.createQuery(hql)
 	        		.setParameter("sc_Id", sc_Id)//設定參數名稱，參數值
-	        		.setParameter("s_ordQty",cartbean)
-	        		.executeUpdate();//查詢0或多筆物件
+	        		.getSingleResult();
+		return cart;
 	}
+//以mId取得MemberBean
+
+	@Override
+	public MemberBean getMemberBeanBymId(int memberId) {
+		 Session session = factory.getCurrentSession();
+		 MemberBean memberBean = session.get(MemberBean.class, memberId);
+		return memberBean;
+	}
+
+//itemId取得itemBean
+	
+	@Override
+	public ItemBean getItemBeanByItemId(int itemId) {
+		 Session session = factory.getCurrentSession();
+		 ItemBean itembean = session.get(ItemBean.class, itemId);
+		return itembean;
+	}
+	
+
+	@Override
+	public void updateItem(ShoppingCartBean shoppingCartBean) {
+		System.out.println("更新的dao=========================================");
+		Session session = factory.getCurrentSession();
+		session.saveOrUpdate(shoppingCartBean);
+		System.out.println("更新的dao=========================================");
+		
+	}
+	
 }
 

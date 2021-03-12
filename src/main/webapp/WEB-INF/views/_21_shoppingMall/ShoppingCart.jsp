@@ -99,15 +99,14 @@
 					<!-- 選擇數量 -------------------------------------------------------->
 					<div class="col-1 ItemField">
 						<div>
-						<form:form method='POST' modelAttribute='cartBean'>
-<%-- 							<input type="number" value="${cart.s_ordQty}" min="1" --%>
-<%-- 								id="Qty${vs.index}" name="Qty"> --%>
-<!-- 								onchange="this.form.submit()" -->
-<!-- 							/shoppingCart/put/Id={sc_Id} -->
-							<form:input path="s_ordQty" type="number" min="1" id="Qty${vs.index}" name="Qty"
-							onchange="this.form.submit()"/>
-							<form:hidden path="sc_Id"/>
-						</form:form>
+						<form action="shoppingCart/${cart.sc_Id}" method="post">
+							<input type="number" value="${cart.s_ordQty}" min="1"
+								id="Qty${vs.index}" name="s_ordQty" 
+								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/>
+<%-- 								onchange="this.form.submit()" --%>
+<!-- 						顯示:綁識別字串 -->
+<!-- 						數量修改靠js -->
+						</form>
 						</div>
 					</div>
 					<!-- 單價------------------------------------------------------------>
