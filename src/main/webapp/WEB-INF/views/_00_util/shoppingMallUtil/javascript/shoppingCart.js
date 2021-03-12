@@ -67,8 +67,15 @@ function doFirst() {
 //庫存數量>=於商品選擇數量 ==>v
 //更新商品小計
 
-function newQtyChange() {
-    alert('hi');
+function newQtyChange(id,index,itemId,mId) {
+    // alert(index);
+    var x = "Qty"+index; //index=迴圈執行次數
+    var newQty = document.getElementById(x).value; //取得數量
+    // alert(newQty);
+    document.forms[0].action="shoppingCart/updateQty?sc_Id=" + id + "&s_ordQty=" + newQty +"&mId="+mId+"&itemId="+itemId;
+    document.forms[0].method="POST";
+    document.forms[0].submit();
+
 }
 
 //商品小計計算==========================================================================
