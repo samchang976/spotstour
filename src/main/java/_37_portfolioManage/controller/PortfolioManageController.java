@@ -47,7 +47,8 @@ public class PortfolioManageController {
 	}
 	//個人作品跳轉
 	@RequestMapping("personalPortfolio")
-	public String getPersonalVideo() {
+	public String getPersonalVideo(HttpSession session,Model model) {
+		model.addAttribute("mId", session.getAttribute("mId"));
 		return "_31_portfolio/PersonalPortfolio";
 	}
 	//收藏影片跳轉
