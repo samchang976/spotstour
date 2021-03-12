@@ -69,7 +69,7 @@
 					</div>
 					<div class="col-12 col-md-6">
 						<h2>${itemBean.itemHeader}</h2>
-						<br> 商品描述 : ${itemBean.itemDes}<br> <br> 售價 : 
+						<br> 商品描述 : ${itemBean.itemDes}<br> <br> 售價 :
 						${itemBean.itemPrice}元<br> 庫存數量 : ${itemBean.itemQty}<br>
 						代購國家 : ${itemBean.countryBean.countryName}<br> <select>
 							<option selected="selected" value="">請選擇數量</option>
@@ -208,35 +208,44 @@
 			</div>
 			<h4 id="fb">商品敘述</h4>
 			<h3>${item.itemHeader}商品留言</h3>
-			<c:forEach var='feedback' items='${feedbacks}'>
-				<div class="container-fluid">
-					<div class="row R_SpCre">
-						<div class="col col-2-1 C_SpCre">
-							<div>
-								商品留言時間:${feedback.f_createTime}<br>
-								商品留言:${feedback.feedbackText}<br>
+			<div class="overflow-scroll" style="height: 350px;">
+				<c:forEach var='feedback' items='${feedbacks}'>
+					<div class="container-fluid">
+						<div class="row R_SpCre">
+							<div class="col col-2-1 C_SpCre">
+								<div>
+									商品留言時間:${feedback.f_createTime}<br>
+									商品留言:${feedback.feedbackText}<br>
+								</div>
 							</div>
 						</div>
 					</div>
+				</c:forEach>
+			</div>
+			<c:if test="${ mPid != 2 && mPid != 1 }">
+				<div>
+					<button type="submit" id="login" class="btn btn-primary"
+						onclick="location.href='${pageContext.request.contextPath}/login'">登入即可留言</button>
 				</div>
-			</c:forEach>
-			<h3>${item.itemHeader}新增商品留言</h3>
-			<form:form method='POST' modelAttribute='feedbackBean'>
-				<div class="form-group row">
-					<label for="feedbackText" class="col-sm-2 col-form-label">新增留言</label>
-					<div class="col-sm-10">
-						<form:input type="text" path="feedbackText" class="form-control"
-							id="feedbackText" />
+			</c:if>
+			<c:if test="${ mPid == 2 || mPid == 1 }">
+				<h3>${item.itemHeader}新增商品留言</h3>
+				<form:form method='POST' modelAttribute='feedbackBean'>
+					<div class="form-group row">
+						<label for="feedbackText" class="col-sm-2 col-form-label">新增留言</label>
+						<div class="col-sm-10">
+							<form:input type="text" path="feedbackText" class="form-control"
+								id="feedbackText" />
+						</div>
 					</div>
-				</div>
-				<div class="form-group row  d-flex justify-content-end mt-5">
-					<div>
-						<button type="submit" id="editM" class="btn btn-primary"
-							onclick="location.href='/merchandiseDetail/Id=${item.itemId}'">新增</button>
+					<div class="form-group row  d-flex justify-content-end mt-5">
+						<div>
+							<button type="submit" id="editM" class="btn btn-primary"
+								onclick="location.href='/merchandiseDetail/Id=${item.itemId}'">新增</button>
+						</div>
 					</div>
-				</div>
-			</form:form>
-
+				</form:form>
+			</c:if>
 
 		</div>
 
