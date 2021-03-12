@@ -17,7 +17,9 @@ import _02_model.entity.OrdBean;
 import _02_model.entity.Ord_detailBean;
 import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
+import _02_model.entity.ShoppingCartBean;
 import _21_merchandiseSearch.service.ItemService;
+import _22_shoppingCart.service.ShoppingCartService;
 import _23_submitOrder.service.OrderService;
 
 @Controller
@@ -28,6 +30,9 @@ public class OrderController {
 	
 	@Autowired
 	ItemService itemService;
+	
+	@Autowired
+	ShoppingCartService shoppingCartService;
 
 	// 陳列所有訂單
 	@RequestMapping("/myOrderList")
@@ -49,15 +54,18 @@ public class OrderController {
 		return "_21_shoppingMall/PurchaseSuccess";
 	}
 
-	@RequestMapping("/selectPayment")
-	public String selectPayment() {
+	@RequestMapping("/selectPayment/Id={mId}")
+	public String selectPayment(@ModelAttribute("mId") @PathVariable("mId") Integer mId, Model model) {
+		
 		return "_21_shoppingMall/SelectPayment";
 	}
 
-	@RequestMapping("/submitOrderInfo/Id={ord_Id}")
-	public String getsubmitOrderInfo(@ModelAttribute("ord_Id") @PathVariable("ord_Id") Integer ord_Id, Model model) {
-		List<Ord_detailBean> list = orderService.getAllOrd_detailsByOrd_Id(ord_Id);
-		model.addAttribute("ord_details", list);
+	@RequestMapping("/submitOrderInfo/Id={mId}")
+	public String getsubmitOrderInfo(@ModelAttribute("mId") @PathVariable("mId") int mId, Model model) {
+//		List<Ord_detailBean> list = orderService.getAllOrd_detailsByOrd_Id(ord_Id);
+//		model.addAttribute("ord_details", list);
+		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart(mId);
+		model.addAttribute("cart", list);
 		return "_21_shoppingMall/SubmitOrderInfo";
 	}
 

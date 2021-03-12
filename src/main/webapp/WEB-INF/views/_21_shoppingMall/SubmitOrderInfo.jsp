@@ -57,15 +57,15 @@
 
 		<div class="container" id="container_SubmitOrderInfo">
 			<!-- 訂單編號區塊 ----------------------------------------------->
-			<c:forEach var='ord_detail' items='${ord_details}' varStatus="s">
+			<c:forEach var='cart' items='${cart}' varStatus="s">
 				<c:if test="${s.first==true}">
 					<!--訂單編號  -->
 					<div class="row">
 						<div class="col-12">
 							<!-- 訂單編號區塊 -->
-							<div class="OrderNumber">
-								<span>訂單編號 : </span><span>FSWE1233${ord_detail.ord_dId}</span>
-							</div>
+<!-- 							<div class="OrderNumber"> -->
+<%-- 								<span>訂單編號 : </span><span>FSWE1233${cart.sc_Id}</span> --%>
+<!-- 							</div> -->
 						</div>
 					</div>
 
@@ -90,19 +90,19 @@
 
 					<div class="col-2 ">
 						<div>
-							來自${ord_detail.itemBean.countryBean.countryName}代購<br>${ord_detail.itemBean.itemHeader}
+							來自代購<br>${cart.itemBean.itemHeader}
 						</div>
 					</div>
 					<!--數量  -->
 					<div class="col-1 ">
 						<div>
-							<div>${ord_detail.ordQty}</div>
+							<div>${cart.s_ordQty}</div>
 						</div>
 					</div>
 					<!-- 單價 -->
-					<div class="col-1 ">${ord_detail.itemBean.itemPrice}</div>
+					<div class="col-1 ">${cart.itemBean.itemPrice}</div>
 					<!-- 小計 -->
-					<div class="col-1 ">${ord_detail.ordQty * ord_detail.itemBean.itemPrice}</div>
+					<div class="col-1 ">${cart.s_ordQty * cart.itemBean.itemPrice}</div>
 					<!-- 狀態 -->
 					<div class="col-1 ">足夠</div>
 				</div>
@@ -112,14 +112,14 @@
 				<!--付款資訊  -------------------------------------------------------------------------->
 				<div class="PayTitle">付款資訊</div>
 
-				姓名:多拉A ■ 先生 □ 小姐 身分證字號 : A123456778 <br> ■ 貨到付款 □門市取貨付款<br>
-				手機 : 0912345678 <br>
+				姓名 : ${LoginOK.mName} ■ 先生 □ 小姐 身分證字號 : A123456778 <br> ■ 貨到付款 □門市取貨付款<br>
+				手機 : ${LoginOK.mPhone} <br>
 
 				<div class="PayTitle">發票</div>
 				■ 個人電子發票 □ 捐贈發票 □ 公司戶電子發票<br>
 
 				<div class="PayTitle">收貨人</div>
-				姓名 : 多拉B 手機 : 0912345677 市話 :<br> 收件地址 : 桃園市楊梅區光明街32巷123號1樓<br>
+				姓名 : ${LoginOK.mName} 手機 : ${LoginOK.mPhone} <br> 收件地址 : 桃園市楊梅區光明街32巷123號1樓<br>
 
 				<div class="PayTitle">寄送方式</div>
 				■ 宅配運送 □ 7-11取貨 □全家取貨<br>
@@ -127,12 +127,12 @@
 
 
 				<!--送出訂單  ---------------------------------------------------------------------------->
-				<c:forEach var='ord_detail' items='${ord_details}' varStatus="s">
+				<c:forEach var='cart' items='${cart}' varStatus="s">
 					<div class="Submit">
 						<div class="row-12">
 							<div class="col" id="SubtotalBlock">
 								<c:set
-									value="${ord_detail.ordQty * ord_detail.itemBean.itemPrice}"
+									value="${cart.s_ordQty * cart.itemBean.itemPrice}"
 									var="sum" />
 								<c:set value="${sums + sum}" var="sums" />
 								<c:if test="${s.last==true}">

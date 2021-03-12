@@ -18,8 +18,8 @@ public class Ord_detailBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer ord_dId;
-	Integer ordQty; 
+	private Integer ord_dId;
+	private Integer ordQty; 
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "itemId")

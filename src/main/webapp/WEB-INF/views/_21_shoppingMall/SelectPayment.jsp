@@ -62,132 +62,130 @@
 
 				<!-- 訂購者資料---------------------------------------------------------------- -->
 
-				<div>
-					訂購人:
-					<!-- 姓名 -->
-					<form:form method='POST' modelAttribute='ordBean'>
+				<form:form method='POST' modelAttribute='ordBean'>
+					<div>
+						<h3>訂購人:</h3>
+						<!-- 姓名 -->
 						<div class="row g-3 align-items-center">
 							<div class="col-auto">
-								<label for="Orderer" class="col-form-label">姓名:${ordBean.memberBean.mName}</label>
+								<label for="Orderer" class="col-form-label">姓名:</label>
 							</div>
 
 							<div class="col-auto">
 								<input type="text" id="Orderer" class="form-control"
-									name="Orderer" value="多拉夢">
+									name="Orderer" value="${LoginOK.mName}">
 							</div>
 						</div>
-					</form:form>
 
-					<!-- 					<div class=" form-check form-check-inline"> -->
-					<!-- 						<input class="form-check-input" type="checkbox" name="Gender" -->
-					<!-- 							id="Male" value="Male">  -->
-					<!-- 							<label class="form-check-label" -->
-					<!-- 							for="Male">先生</label> -->
-					<!-- 					</div> -->
+						<!-- 					<div class=" form-check form-check-inline"> -->
+						<!-- 						<input class="form-check-input" type="checkbox" name="Gender" -->
+						<!-- 							id="Male" value="Male">  -->
+						<!-- 							<label class="form-check-label" -->
+						<!-- 							for="Male">先生</label> -->
+						<!-- 					</div> -->
 
-					<!-- 					<div class="form-check form-check-inline"> -->
-					<!-- 						<input class="form-check-input" type="checkbox" name="Gender" -->
-					<!-- 							id="Famale" value="Famale"> <label -->
-					<!-- 							class="form-check-label" for="Famale">小姐</label> -->
-					<!-- 					</div> -->
+						<!-- 					<div class="form-check form-check-inline"> -->
+						<!-- 						<input class="form-check-input" type="checkbox" name="Gender" -->
+						<!-- 							id="Famale" value="Famale"> <label -->
+						<!-- 							class="form-check-label" for="Famale">小姐</label> -->
+						<!-- 					</div> -->
 
-					<!-- 					<div class="form-check form-check-inline"> -->
-					<!-- 						<input class="form-check-input" type="checkbox" name="Gender" -->
-					<!-- 							id="Secrecy" value="Secrecy"> <label -->
-					<!-- 							class="form-check-label" for="Secrecy">保留</label> -->
-					<!-- 					</div> -->
-					<!-- 					<div> -->
-					<!-- 					身分證字號 : A123456778 -->
+						<!-- 					<div class="form-check form-check-inline"> -->
+						<!-- 						<input class="form-check-input" type="checkbox" name="Gender" -->
+						<!-- 							id="Secrecy" value="Secrecy"> <label -->
+						<!-- 							class="form-check-label" for="Secrecy">保留</label> -->
+						<!-- 					</div> -->
+						<!-- 					<div> -->
+						<!-- 					身分證字號 : A123456778 -->
 
-					<!-- 					</div> -->
-					<!--從會員資料庫拿-->
-				</div>
-				<!-- 付款方式 ------------------------------------------------------------------->
-				<div>
-					付款方式 :
-					<div class="form-check form-check-inline" id="PayType">
+						<!-- 					</div> -->
+						<!--從會員資料庫拿-->
+					</div>
+					<!-- 付款方式 ------------------------------------------------------------------->
+					<div>
+						付款方式 :
+						<div class="form-check form-check-inline" id="PayType">
+							<!-- 						<input class="form-check-input" type="checkbox" name="PayType" -->
+							<!-- 							id="CashOnDelivery" value="貨到付款"> <label -->
+							<!-- 							class="form-check-label" for="CashOnDelivery">貨到付款</label> -->
+							<select>
+								<option selected="selected" value="">請選擇付款方式</option>
+								<option value="1">貨到付款</option>
+								<option value="2">超商取貨付款</option>
+								<option value="3">信用卡付款</option>
+							</select>
+						</div>
+
+						<!-- 					<div class="form-check form-check-inline"> -->
 						<!-- 						<input class="form-check-input" type="checkbox" name="PayType" -->
-						<!-- 							id="CashOnDelivery" value="貨到付款"> <label -->
-						<!-- 							class="form-check-label" for="CashOnDelivery">貨到付款</label> -->
-						<select>
-							<option selected="selected" value="">請選擇付款方式</option>
-							<option value="1">貨到付款</option>
-							<option value="2">超商取貨付款</option>
-							<option value="3">信用卡付款</option>
-						</select>
+						<!-- 							id="ConvenienceStore" value="門市取貨付款"> <label -->
+						<!-- 							class="form-check-label" for="ConvenienceStore">超商取貨付款</label> -->
+						<!-- 					</div> -->
 					</div>
 
-					<!-- 					<div class="form-check form-check-inline"> -->
-					<!-- 						<input class="form-check-input" type="checkbox" name="PayType" -->
-					<!-- 							id="ConvenienceStore" value="門市取貨付款"> <label -->
-					<!-- 							class="form-check-label" for="ConvenienceStore">超商取貨付款</label> -->
-					<!-- 					</div> -->
-				</div>
+					<!-- 手機 --------------------------------------------------------------------->
+					<div>
+						<div class="row g-3 align-items-center">
+							<div class="col-auto">
+								<label for="OrdererPhone" class="col-form-label">手機:</label>
+							</div>
 
-				<!-- 手機 --------------------------------------------------------------------->
-				<div>
-					<div class="row g-3 align-items-center">
-						<div class="col-auto">
-							<label for="OrdererPhone" class="col-form-label">手機:</label>
-						</div>
-
-						<div class="col-auto">
-							<input type="text" id="OrdererPhone" class="form-control"
-								name="OrdererPhone">
+							<div class="col-auto">
+								<input type="text" id="OrdererPhone" class="form-control"
+									name="OrdererPhone" value="${LoginOK.mPhone}">
+							</div>
 						</div>
 					</div>
-				</div>
 
 
 
 
-				<!-- 市話 -------------------------------------------------------------------->
-				<!-- 				<div> -->
-				<!-- 					<div class="row g-3 align-items-center"> -->
-				<!-- 						<div class="col-auto"> -->
-				<!-- 							<label for="OrdererLocalCall" class="col-form-label">市話:</label> -->
-				<!-- 						</div> -->
+					<!-- 市話 -------------------------------------------------------------------->
+					<!-- 				<div> -->
+					<!-- 					<div class="row g-3 align-items-center"> -->
+					<!-- 						<div class="col-auto"> -->
+					<!-- 							<label for="OrdererLocalCall" class="col-form-label">市話:</label> -->
+					<!-- 						</div> -->
 
-				<!-- 						<div class="col-auto"> -->
-				<!-- 							<input type="text" id="OrdererLocalCall" class="form-control" -->
-				<!-- 								name="OrdererLocalCall"> -->
-				<!-- 						</div> -->
-				<!-- 					</div> -->
-				<!-- 				</div> -->
-
-
-
-				<!-- 發票類型 --------------------------------------------------------------->
-				<div>
-					發票 :
-					<!-- 					<div class="form-check form-check-inline"> -->
-					<!-- 						<input class="form-check-input" type="checkbox" name="ReceiptType" -->
-					<!-- 							id="EInvoice" value="個人電子發票"> <label -->
-					<!-- 							class="form-check-label" for="EInvoice">個人電子發票</label> -->
+					<!-- 						<div class="col-auto"> -->
+					<!-- 							<input type="text" id="OrdererLocalCall" class="form-control" -->
+					<!-- 								name="OrdererLocalCall"> -->
+					<!-- 						</div> -->
 					<!-- 					</div> -->
+					<!-- 				</div> -->
 
-					<!-- 					<div class="form-check form-check-inline"> -->
-					<!-- 						<input class="form-check-input" type="checkbox" name="ReceiptType" -->
-					<!-- 							id="Donation" value="捐贈發票 "> <label -->
-					<!-- 							class="form-check-label" for="Donation">捐贈發票</label> -->
-					<!-- 					</div> -->
 
-					<!-- 					<div class="form-check form-check-inline"> -->
-					<!-- 						<input class="form-check-input" type="checkbox" name="ReceiptType" -->
-					<!-- 							id="Company" value="公司戶電子發票"> <label -->
-					<!-- 							class="form-check-label" for="Company">公司戶電子發票</label> -->
-					<!-- 					</div> -->
-					<form:form method='POST' modelAttribute='ordBean'>
+
+					<!-- 發票類型 --------------------------------------------------------------->
+					<div>
+						發票 :
+						<!-- 					<div class="form-check form-check-inline"> -->
+						<!-- 						<input class="form-check-input" type="checkbox" name="ReceiptType" -->
+						<!-- 							id="EInvoice" value="個人電子發票"> <label -->
+						<!-- 							class="form-check-label" for="EInvoice">個人電子發票</label> -->
+						<!-- 					</div> -->
+
+						<!-- 					<div class="form-check form-check-inline"> -->
+						<!-- 						<input class="form-check-input" type="checkbox" name="ReceiptType" -->
+						<!-- 							id="Donation" value="捐贈發票 "> <label -->
+						<!-- 							class="form-check-label" for="Donation">捐贈發票</label> -->
+						<!-- 					</div> -->
+
+						<!-- 					<div class="form-check form-check-inline"> -->
+						<!-- 						<input class="form-check-input" type="checkbox" name="ReceiptType" -->
+						<!-- 							id="Company" value="公司戶電子發票"> <label -->
+						<!-- 							class="form-check-label" for="Company">公司戶電子發票</label> -->
+						<!-- 					</div> -->
 						<form:select path="receiptTypeTId" class="custom-select">
 							<form:option value="-1" label="請選擇發票型式" />
 							<form:options items="${receipt_TypeMap}" />
 						</form:select>
-					</form:form>
-				</div>
+					</div>
+				</form:form>
 				<hr>
 
 				<!-- 收貨人資訊 --------------------------------------------------------------->
-				<div>收貨人 :</div>
+				<h3>收貨人:</h3>
 				<!-- 姓名 -->
 				<div>
 					<div class="row g-3 align-items-center">
@@ -197,7 +195,7 @@
 
 						<div class="col-auto">
 							<input type="text" id="Consignee" class="form-control"
-								name="Consignee">
+								name="Consignee" value="${LoginOK.mName}">
 						</div>
 					</div>
 				</div>
@@ -209,7 +207,7 @@
 						</div>
 						<div class="col-auto">
 							<input type="text" id="ConsigneePhone" class="form-control"
-								name="ConsigneePhone">
+								name="ConsigneePhone" value="${LoginOK.mPhone}">
 						</div>
 					</div>
 				</div>
@@ -233,7 +231,7 @@
 						</div>
 						<div class="col-auto">
 							<input type="text" id="Consigneeaddress" class="form-control"
-								name="Consigneeaddress">
+								name="Consigneeaddress" value="${LoginOK.d_mAddress}">
 						</div>
 					</div>
 				</div>
@@ -276,7 +274,7 @@
 				<%-- 				</c:forEach> --%>
 				<div class="col-12" id="SubmitBlock">
 					<button type="submit" class="btn btn-primary"
-						onclick="location.href='${pageContext.request.contextPath}/submitOrderInfo/Id=${order.ord_Id}'">提交訂單資訊</button>
+						onclick="location.href='${pageContext.request.contextPath}/submitOrderInfo/Id=${LoginOK.mId}'">提交訂單資訊</button>
 				</div>
 			</form>
 		</div>

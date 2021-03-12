@@ -139,7 +139,7 @@
 			<div class="row-12" id="SubtotalBlock">
 				共<span id="items">${cartSize}</span>商品，總金額 : <span id="TotalMoney"></span>元
 				<button id="BtcheckNow" class="Bt_black " type="submit"
-					onclick="window.open('SelectPayment')">立即結帳</button>
+					onclick="location.href='${pageContext.request.contextPath}/selectPayment/Id=${mId}'">立即結帳</button>
 
 			</div>
 		</div>
