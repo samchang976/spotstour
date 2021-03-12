@@ -102,14 +102,21 @@
 						<%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
 						<!-- 						</i> -->
 						<!-- 加入購物車================================================================================================= -->
-						<form action="<c:url value='addShoppingCart.do' />" method="POST">
-							<button type="submit">
-								<i class="fas fa-cart-arrow-down addButton"></i>
-							</button>
-							<%-- 						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
-							<input type="hidden" name="itemHeader" value="${item.itemId}">
-
+					
+							<c:if test="${mPid==2||mPid==1}">
+							<form action="shoppingCart/add/${item.itemId}" method="post">
+								<button type="button" onclick="this.form.submit()">
+									<i class="fas fa-cart-arrow-down addButton"></i>
+								</button>
+<%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
+<%-- 								onchange="this.form.submit()" --%>
+<!-- 						顯示:綁識別字串 -->
+<!-- 						數量修改靠js -->
 						</form>
+						</c:if>
+							<%-- 						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
+
+						
 						<!-- ======================================================================================================= -->
 
 					</div>

@@ -20,12 +20,7 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 	shoppingCartDaoImpl() {
 	}
 	
-// 儲存ShoppingCartBean物件，將參數saveCart新增到ShoppingCartBean表格內。=============================
-	public void saveShoppingCart(ShoppingCartBean cart) {
-		Session session = factory.getCurrentSession();
-		session.save(cart);
 
-	}
 //刪除一筆商品資料，依sc_Id刪除	=================================================================
 	public void deleteItem(int sc_Id) {
         Session session = factory.getCurrentSession();
@@ -94,6 +89,13 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 		System.out.println("更新的dao=========================================");
 		
 	}
+	
+
+	// 儲存ShoppingCartBean物件，將參數saveCart新增到ShoppingCartBean表格內。=============================
+		public void addShoppingCart(ShoppingCartBean cart) {
+			Session session = factory.getCurrentSession();
+			session.save(cart);
+		}
 	
 }
 

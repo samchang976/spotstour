@@ -7,7 +7,7 @@ import _02_model.entity.MemberBean;
 import _02_model.entity.ShoppingCartBean;
 
 public interface shoppingCartDao {
-	public void saveShoppingCart(ShoppingCartBean cart);//新增一筆商品到購物車
+//	public void saveShoppingCart(ShoppingCartBean cart);
 	
 	public void deleteItem(int sc_Id);//刪除購物車中的一筆商品
 	
@@ -24,6 +24,9 @@ public interface shoppingCartDao {
 	
 	//itemId取得itemBean
 	public ItemBean getItemBeanByItemId(int itemId);
+	
+	//=======================================================================================
+	void addShoppingCart(ShoppingCartBean shoppingCartBean);//新增一筆商品到購物車
 
 
 }

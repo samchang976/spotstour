@@ -5,7 +5,6 @@ import java.util.List;
 import _02_model.entity.ShoppingCartBean;
 
 public interface ShoppingCartService {
-	public void saveShoppingCart(ShoppingCartBean cart);//新增一筆商品到購物車
 	
 	public void deleteItem(int sc_Id);//刪除購物車中的一筆商品
 	
@@ -15,4 +14,5 @@ public interface ShoppingCartService {
 
 	public ShoppingCartBean getShoppingCartBysc_Id(int sc_Id);
 	
+	public void addShoppingCart(ShoppingCartBean cart);//新增一筆商品到購物車
 }

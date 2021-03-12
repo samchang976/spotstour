@@ -7,16 +7,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import _02_model.entity.MemberBean;
 import _02_model.entity.ShoppingCartBean;
 import _22_shoppingCart.dao.shoppingCartDao;
 import _22_shoppingCart.service.ShoppingCartService;
 
 @Controller
+@SessionAttributes({"LoginOK","Login","mId"})
 public class ShoppingCartContent {
 
 	public ShoppingCartContent() {
@@ -69,22 +71,22 @@ public class ShoppingCartContent {
 //	}
 //=======================================================================================	
 //取得購物車單項商品內容
-	@ModelAttribute
-	public ShoppingCartBean getShoppingCartBean(
-			@PathVariable(value = "sc_Id", required = false) Integer sc_Id, 
-			Model model) {
-		ShoppingCartBean shoppingCartBean = null;
-		//有sc_Id
-		if (sc_Id != null) {
-			shoppingCartBean = shoppingCartService.getShoppingCartBysc_Id(sc_Id);
-			model.addAttribute("shoppingCartBean", shoppingCartBean);
-		} else {
-		//沒有sc_Id
-			 shoppingCartBean = new ShoppingCartBean();
-			model.addAttribute("ShoppingCartBean", shoppingCartBean);
-		}
-		return shoppingCartBean;
-	}
+//	@ModelAttribute
+//	public ShoppingCartBean getShoppingCartBean(
+//			@PathVariable(value = "sc_Id", required = false) Integer sc_Id, 
+//			Model model) {
+//		ShoppingCartBean shoppingCartBean = null;
+//		//有sc_Id
+//		if (sc_Id != null) {
+//			shoppingCartBean = shoppingCartService.getShoppingCartBysc_Id(sc_Id);
+//			model.addAttribute("shoppingCartBean", shoppingCartBean);
+//		} else {
+//		//沒有sc_Id
+//			 shoppingCartBean = new ShoppingCartBean();
+//			model.addAttribute("ShoppingCartBean", shoppingCartBean);
+//		}
+//		return shoppingCartBean;
+//	}
 	
 	//編輯及更新
 //	@PostMapping("/shoppingCart/{sc_Id}/{itemPrice}/{itemQty}/{mId}")
@@ -112,6 +114,21 @@ public class ShoppingCartContent {
 		shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(itemId));
 		shoppingCartService.UpdateQty(shoppingCartBean);
 		System.out.println("更新controller============================");
+		return "redirect:/shoppingCart";
+	}
+	
+	@Transactional
+	@PostMapping("shoppingCart/add/{itemId}")
+	public String addShoppingCart(
+			@PathVariable("itemId")Integer itemId,
+			Model model) {
+		Integer a = (Integer) model.getAttribute("mId");
+		System.out.println("ABCDE"+a);
+		ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
+		shoppingCartBean.setS_ordQty(1);
+		shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(itemId));
+		shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId(a));
+		shoppingCartService.addShoppingCart(shoppingCartBean);
 		return "redirect:/shoppingCart";
 	}
 }
