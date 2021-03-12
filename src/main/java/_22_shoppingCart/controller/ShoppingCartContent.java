@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import _02_model.entity.MemberBean;
 import _02_model.entity.ShoppingCartBean;
 import _22_shoppingCart.dao.shoppingCartDao;
 import _22_shoppingCart.service.ShoppingCartService;
@@ -33,7 +32,7 @@ public class ShoppingCartContent {
 //查詢購物車內容====================================================================================
 	@GetMapping("shoppingCart")
 	public String list(Model model) {
-		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart(1); //先從service拿資料
+		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart((Integer) model.getAttribute("mId")); //先從service拿資料
 		model.addAttribute("cart", list); //放到model內
 		model.addAttribute("cartSize", list.size()); //放到model內
 		System.out.println("controller================================================");
