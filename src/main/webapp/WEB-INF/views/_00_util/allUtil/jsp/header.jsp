@@ -138,7 +138,7 @@ ul.nav.nav-tabs {
 						<li>_31_portfolio</li>
 						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>">收藏的影片</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/historyList"/>">觀看紀錄</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>">個人作品</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/personalPortfolio"/>">個人作品</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/portfolioPlay"/>">作品播放</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/previewVideo"/>">播放預覽頁面_播放頁預覽(尚未)</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/videoCreate"/>">新增影片頁面</a></li>
@@ -197,7 +197,7 @@ ul.nav.nav-tabs {
 						<c:if test="${ !empty LoginOK }">
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>" data-bs-placement="bottom" title="會員可以 修改會員資料">修改會員資料</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>" data-bs-placement="bottom" title="會員個人影片的作品集">個人作品</a></li>
+						<li><a class="dropdown-item" href="<c:url value="/personalPortfolio"/>" data-bs-placement="bottom" title="會員個人影片的作品集">個人作品</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>" data-bs-placement="bottom" title="會員個人收藏所有的影片">收藏的影片</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="<c:url value="/logout"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者及會員登出">登出</a></li>

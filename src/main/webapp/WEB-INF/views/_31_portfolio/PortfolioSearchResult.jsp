@@ -63,10 +63,34 @@
 <!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
-	<!-- serch -->
-	<jsp:include
-		page="/WEB-INF/views/_00_util/portfolioUtil/PortfolioSearchResult_serch.jsp" />
-	<!--     <iframe src="VideoSearchResult_serch.html" frameborder="0" width="100%" height="67px" scrolling ="no" sandbox="allow-top-navigation-by-user-activation"></iframe> -->
+	<div class="container">
+		<!--上方-->
+		<div class="row">
+			<!--搜尋結果-->
+			<div class="col-2">
+				
+			</div>
+			<!--按鈕  -->
+			<div class="col">
+				<select class="form-select" aria-label="Default select example">
+					<option selected>選擇排序方式</option>
+					<option value="time">依時間</option>
+					<option value="look">依觀看數次數</option>
+					<option value="good">依按讚數</option>
+				</select>
+			</div>
+			<!-- 搜尋 -->
+			<div class="col">
+				<form class="d-flex" action="SearchResult" method="get">
+					<input class="form-control me-2" type="text" name="searchWord"
+						placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">
+						<i class="fas fa-search"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
 	<p></p>
 
 	<div class="container">

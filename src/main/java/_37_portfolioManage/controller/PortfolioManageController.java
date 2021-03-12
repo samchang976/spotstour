@@ -46,9 +46,9 @@ public class PortfolioManageController {
 		return "_31_portfolio/VideoCreate";
 	}
 	//個人作品跳轉
-	@RequestMapping("personalVideo")
+	@RequestMapping("personalPortfolio")
 	public String getPersonalVideo() {
-		return "_31_portfolio/PersonalVideo";
+		return "_31_portfolio/PersonalPortfolio";
 	}
 	//收藏影片跳轉
 	@RequestMapping("collectVideo")
@@ -61,9 +61,8 @@ public class PortfolioManageController {
 		return "_31_portfolio/VideoModify";
 	}
 
-	
+	//新增作品
     @PostMapping("createPortfolio")
-//  @ResponseBody
 	public String createPortfolio(@ModelAttribute PortfolioBeanVo portfolioBeanVo,Model model,HttpSession session) throws IOException {
     	portfolioBeanVo.setmId((Integer)session.getAttribute("mId"));
     	createPortfolioService.addPortfolio(portfolioBeanVo);
