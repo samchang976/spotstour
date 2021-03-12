@@ -68,7 +68,7 @@ public class PortfolioManageController {
     	portfolioBeanVo.setmId((Integer)session.getAttribute("mId"));
     	createPortfolioService.addPortfolio(portfolioBeanVo);
 			
-		return "redirect:/videoCreate";
+		return "redirect:/index";
 		
 	}
 	
