@@ -61,18 +61,21 @@
 
 		<div class="container" id="container_MerchandiseDetail">
 			<!-- 上方 ------------------------------------------------------------------------------------>
-			<form:form method='POST' modelAttribute='itemBean' action="${pageContext.request.contextPath}/shoppingCart/add/${itemBean.itemId}">
-				<div class="row above">
+			<form:form method='POST' modelAttribute='itemBean' action="${pageContext.request.contextPath}/shoppingCart/addQty/${itemBean.itemId}">
+				<div class="row above">                                   
 					<div class="col-12 col-md-6">
 						<img src="https://fakeimg.pl/350x250/?text=World&font=lobster"
 							class="w-100">
 					</div>
 					<div class="col-12 col-md-6">
-						<h2>${itemBean.itemHeader}</h2>
-						<br> 商品描述 : ${itemBean.itemDes}<br> <br> 售價 :
-						${itemBean.itemPrice}元<br> 庫存數量 : ${itemBean.itemQty}<br>
-						代購國家 : ${itemBean.countryBean.countryName}<br> <select>
-							<option selected="selected" value="">請選擇數量</option>
+						<h2>${itemBean.itemHeader}</h2><br> 
+						商品描述 : ${itemBean.itemDes}<br> 
+						<br> 
+						售價 :${itemBean.itemPrice}元<br> 
+						庫存數量 : ${itemBean.itemQty}<br>
+						代購國家 : ${itemBean.countryBean.countryName}<br> 
+						<select name="qty">
+<!-- 							<option  selected="selected" value="-1">請選擇數量</option> -->
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -86,9 +89,9 @@
 						</select> <br> <br> <br> <br> <br>
 						<!-- 						款式資訊 : 辣味 | 原味 | 洋蔥 | 起司 <br> -->
 
-						<c:if test="${mPid==2||mPid==1}">
+<%-- 						<c:if test="${mPid==2||mPid==1}"> --%>
 <%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
-								<button type="button" onclick="this.form.submit()" id="like" class="Bt_black">
+								<button type="submit"  id="like" class="Bt_black">
 									加入購物車
 								</button>
 <%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
@@ -96,7 +99,7 @@
 <!-- 						顯示:綁識別字串 -->
 <!-- 						數量修改靠js -->
 <%-- 						</form> --%>
-						</c:if>
+<%-- 						</c:if> --%>
 						
 						<button id="saleType" class="Bt_black">完售</button>
 						<br> <br>

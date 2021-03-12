@@ -15,4 +15,6 @@ public interface ShoppingCartService {
 	public ShoppingCartBean getShoppingCartBysc_Id(int sc_Id);
 	
 	public void addShoppingCart(ShoppingCartBean cart);//新增一筆商品到購物車
+
+	public String addToCart(Integer memberId, Integer itemId, Integer qty);
 }

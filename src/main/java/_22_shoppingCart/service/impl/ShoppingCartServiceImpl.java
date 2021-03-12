@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
 import _02_model.entity.ItemBean;
 import _02_model.entity.MemberBean;
 import _02_model.entity.ShoppingCartBean;
 import _22_shoppingCart.dao.shoppingCartDao;
-import _22_shoppingCart.dao.impl.shoppingCartDaoImpl;
 import _22_shoppingCart.service.ShoppingCartService;
 
 @Transactional
@@ -67,10 +67,42 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		System.out.println("更新的service============================");
 
 	}
+
 //加入購物車=========================================================================
 	@Override
 	public void addShoppingCart(ShoppingCartBean cart) {
 		shoppingCartDao.addShoppingCart(cart);
+	}
+
+//===========================================
+	@Transactional
+	@Override
+	public String addToCart(Integer memberId, Integer itemId, Integer qty) {
+//		try {
+		System.out.println("addcart-Service 開始==================");
+			// 判斷購物車某會員是否已經加入某商品至購物車
+			ShoppingCartBean shoppingCartBean = shoppingCartDao.hasCart(memberId, itemId);
+			if (shoppingCartBean == null) {
+
+				shoppingCartBean = new ShoppingCartBean();
+				shoppingCartBean.setS_ordQty(qty);
+				shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(itemId));
+				shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId(memberId));
+				
+				shoppingCartDao.addShoppingCart(shoppingCartBean);
+				return "0";
+
+			} else { // 購物車裡面已經存在會員id 與 產品id
+				shoppingCartBean.setS_ordQty(shoppingCartBean.getS_ordQty() + qty); // 傳來的數量加上最原本的
+				System.out.println("addcart-Service 完成==================");
+				return "1";
+			}
+//
+//			// 創建購物車
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+
 	}
 
 }

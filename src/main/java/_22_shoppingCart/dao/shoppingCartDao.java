@@ -29,4 +29,6 @@ public interface shoppingCartDao {
 	void addShoppingCart(ShoppingCartBean shoppingCartBean);//新增一筆商品到購物車
 
 
+	//判斷
+	public ShoppingCartBean hasCart(Integer memberId, Integer itemId);
 }

@@ -97,33 +97,36 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 			session.save(cart);
 		}
 	
-//		@Override
-//		//判斷某會員是某要加入同樣商品到購物車
-//		public ShoppingCartBean hasCart(Integer memberId, Integer itemId) {
-//			Session session = factory.getCurrentSession();
-//			String hql =  " FROM ShoppingCartBean c "
-////						+ " JOIN ProductBean p "
-////						+ " ON c.productBean.product_id = p.product_id "
-//						+ " WHERE c.memberBean.memberId = :memberId  "
-//						+ " AND c.productBean.product_id = :productId " ;
-//			
-////			可能得到0或1筆，故不能使用getSingleResult()，否則會丟出例外
-//			@SuppressWarnings("unchecked")
-//			List<ShoppingCartBean> result = session.createQuery(hql)
-//										 .setParameter("memberId", memberId)
-//										 .setParameter("itemId", itemId)
-//										 .getResultList();
-//			
-////			System.out.println("================");
-////			System.out.println(result.get(0).getCart_id());
-////			System.out.println("================");
-//			
-//			if(result == null || result.isEmpty()) {
-//				return null;
-//			}
-//			
-//			return result.get(0); //0==>取得list的index=1的值
-//		}
+		@SuppressWarnings("unchecked")
+		@Override
+		//判斷某會員是某要加入同樣商品到購物車
+		public ShoppingCartBean hasCart(Integer mId, Integer itemId) {
+			System.out.println("addcart-dao判斷 開始==================");
+			Session session = factory.getCurrentSession();
+			String hql =  " FROM ShoppingCartBean c "
+//						+ " JOIN ProductBean p "
+//						+ " ON c.productBean.product_id = p.product_id "
+						+ " WHERE c.memberBean.mId = :mId  "
+						+ " AND c.itemBean.itemId = :itemId " ;
+			
+//			可能得到0或1筆，故不能使用getSingleResult()，否則會丟出例外
+			
+			List<ShoppingCartBean> result = session.createQuery(hql)
+										 .setParameter("mId", mId)
+										 .setParameter("itemId", itemId)
+										 .getResultList();
+			
+//			System.out.println("================");
+//			System.out.println(result.get(0).getCart_id());
+//			System.out.println("================");
+			
+			if(result == null || result.isEmpty()) {
+				return null;
+			}
+			
+			System.out.println("addcart-dao判斷 完成==================");
+			return result.get(0); //0==>取得list的index=1的值
+		}
 
 }
 
