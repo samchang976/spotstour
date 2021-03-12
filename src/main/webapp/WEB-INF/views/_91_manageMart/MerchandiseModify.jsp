@@ -178,6 +178,7 @@ button { /*按鈕的樣式*/
 						<%-- 		<c:if test="${itemId!=null}"> --%>
 						<%-- 			<h3>編輯商品 (商品編號 : ${itemId})</h3> --%>
 						<%-- 		</c:if> --%>
+						<!-- 			增加陰影效果 -->
 						<div class="shadow p-3 mb-5 bg-body rounded">
 							<div id="addSquare">
 								<form:form method='POST' modelAttribute='itemBean'>
@@ -334,6 +335,7 @@ button { /*按鈕的樣式*/
 		<h3>陳列商品</h3>
 		<c:forEach var='item' items='${items}'>
 			<div class="container-fluid">
+				<!-- 			增加陰影效果 -->
 				<div class="shadow p-3 mb-5 bg-body rounded" style="margin: 10px;">
 					<div class="row R_SpCre">
 						<div class="col col-1 C_SpCre">

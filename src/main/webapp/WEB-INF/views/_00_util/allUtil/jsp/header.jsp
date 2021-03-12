@@ -195,12 +195,12 @@ ul.nav.nav-tabs {
 							<li><a class="dropdown-item" href="<c:url value="/login"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者及會員登入">登入</a></li>
 						</c:if>
 						<c:if test="${ !empty LoginOK }">
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>" data-bs-placement="bottom" title="會員可以 修改會員資料">修改會員資料</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>" data-bs-placement="bottom" title="會員個人影片的作品集">個人作品</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>" data-bs-placement="bottom" title="會員個人收藏所有的影片">收藏的影片</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="<c:url value="/logout"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者及會員登出">登出</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="<c:url value="/memberDetailModify"/>" data-bs-placement="bottom" title="會員修改會員資料">修改會員資料</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/personalVideo"/>" data-bs-placement="bottom" title="會員個人影片的作品集">個人作品</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/collectVideo"/>" data-bs-placement="bottom" title="會員個人收藏所有的影片">收藏的影片</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="<c:url value="/logout"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者及會員登出">登出</a></li>
 						</c:if>
 				      </ul></li>
 					

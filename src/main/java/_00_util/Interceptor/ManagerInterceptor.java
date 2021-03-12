@@ -21,7 +21,7 @@ public class ManagerInterceptor implements HandlerInterceptor {
 		String user =  (String) session.getAttribute("mAN");
 		String mPidName =  (String) session.getAttribute("mPidName");
 		Integer mPid = (Integer)session.getAttribute("mPid");
-		if(mPid != null && mPid == 3 ) {
+		if(mPid != null && mPid == 1 ) {
 			System.out.println("User:" + user + ",權限:" + mPidName +" 確認身分完畢");	
 			return true;
 		}else {
