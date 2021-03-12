@@ -72,21 +72,40 @@
 							<!-- 								class="w-100"> -->
 							<!-- 							</a> -->
 
-							<!-- 							圖片輪播不能左右選擇 -->
-							<div id="carouselExampleSlidesOnly" class="carousel slide"
-								data-bs-ride="carousel">
+							<!-- 							圖片輪播 -->
+
+
+
+							<div id="carouselExampleControls${item.itemId}"
+								class="carousel slide" data-bs-ride="carousel">
 								<div class="carousel-inner">
 									<div class="carousel-item active">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" class="d-block w-100" alt="...">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+											class="d-block w-100" alt="...">
 									</div>
 									<div class="carousel-item">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" class="d-block w-100" alt="...">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+											class="d-block w-100" alt="...">
 									</div>
 									<div class="carousel-item">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" class="d-block w-100" alt="...">
+										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+											class="d-block w-100" alt="...">
 									</div>
 								</div>
+								<button class="carousel-control-prev" type="button"
+									data-bs-target="#carouselExampleControls${item.itemId}"
+									data-bs-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="visually-hidden">Previous</span>
+								</button>
+								<button class="carousel-control-next" type="button"
+									data-bs-target="#carouselExampleControls${item.itemId}"
+									data-bs-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="visually-hidden">Next</span>
+								</button>
 							</div>
+
 
 						</div>
 						<div class="itemName">

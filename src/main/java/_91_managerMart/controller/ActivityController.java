@@ -88,9 +88,10 @@ public class ActivityController {
 	// 編輯及更新活動
 	@PostMapping({ "/activityModify/Id={activityId}" })
 	public String updateActivity(@ModelAttribute(value = "activityId") Integer activityId,
-			@ModelAttribute("activityBean") ActivityBean activityBeanN, Model model) {
+			@ModelAttribute("activityBean") ActivityBean activityBeanN, Model model) throws InterruptedException {
 		managerActivityService.updateActivity(activityBeanN);
-		return "_91_manageMart/ActivityModify";
+		Thread.sleep(5000);
+		return "redirect:/activityList";
 	}
 
 	// 新增活動
@@ -101,9 +102,10 @@ public class ActivityController {
 
 	// 新增活動
 	@PostMapping("/activityModify")
-	public String addNewActivityForm(@ModelAttribute("activityBean") ActivityBean activityBean, Model model) {
+	public String addNewActivityForm(@ModelAttribute("activityBean") ActivityBean activityBean, Model model) throws InterruptedException {
 		managerActivityService.addActivity(activityBean);
-		return "redirect:/activityModify";
+		Thread.sleep(5000);
+		return "redirect:/activityList";
 	}
 
 	// ===============
