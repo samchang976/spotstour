@@ -1,5 +1,6 @@
 package _91_managerMart.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -128,6 +129,9 @@ public class ActivityController {
 			java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 //			System.out.println("sqlDate : " + sqlDate);
 
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+			sdf.format(sqlDate);
+			
 			activityBean.setActivity_createTime(sqlDate);
 			activityBean.setActivity_freeze(0);
 			model.addAttribute("activityBean", activityBean);

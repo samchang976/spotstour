@@ -210,8 +210,10 @@ ul.nav.nav-tabs {
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="<c:url value="/aboutUs"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查看關於Spots-tour">關於我們</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/contactUs"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="聯絡Spots-tour">聯絡我們</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/aboutUsModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以編輯關於Spots-tour">編輯關於我們</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/contactUsModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以編輯聯絡Spots-tour的資訊">編輯聯絡我們</a></li>
+						<c:if test="${ mPid ==  1 }">
+							<li><a class="dropdown-item" href="<c:url value="/aboutUsModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以編輯關於Spots-tour">編輯關於我們</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/contactUsModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以編輯聯絡Spots-tour的資訊">編輯聯絡我們</a></li>
+						</c:if>
 					</ul></li>
 			</ul>
 		</div>
