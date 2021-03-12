@@ -25,7 +25,7 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
@@ -41,21 +41,46 @@
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/portfolioUtil/css/portfolioColor.css'></c:url>">
-	
+
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>個人作品</title>
 </head>
 <body>
-<!--header=================================================================================  -->
+	<!--header=================================================================================  -->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!------------------------------------------------------------------------------------------->	
+		<!------------------------------------------------------------------------------------------->
 
-		<!-- 陳列商品 -->
-		<h3>陳列商品</h3>
+		<!-- 個人作品 -->
+		<div class="row">
+		<h3>個人作品</h3>
+		</div>
+		<!-- 控制盤 -->
+		<div class="row row row-cols-1 row-cols-md-2">
+			<div class="col-md-6">
+				<button class="Bt_blue"
+					onclick="location.href='${pageContext.request.contextPath}/videoCreate'">新增影片</button>
+				<button class="Bt_blue"
+					onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">依時間排序</button>
+				<button class="Bt_blue"
+					onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">依點閱率排序</button>
+				<button class="Bt_blue" onclick="history.back()">回到上一頁</button>
+			</div>
+			<div class="col-md-6">
+				<form class="d-flex" action="SearchResult" method="get">
+					<input class="form-control me-2" type="text" name="searchWord"
+						placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">
+						<i class="fas fa-search"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+
+
 		<c:forEach var='item' items='${items}'>
 			<div class="container-fluid">
 				<div class="shadow p-3 mb-5 bg-body rounded" style="margin: 10px;">
@@ -161,13 +186,13 @@
 
 
 		<hr>
-<!-----------定位----------------------------------------------------------------------------->       
-      </div>	
-<!--內嵌footer-------------------------------------------------------------------------------->
+		<!-----------定位----------------------------------------------------------------------------->
+	</div>
+	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-<!-- --------------------------------------------------------------------------------------->
+	<!-- --------------------------------------------------------------------------------------->
 
 </body>
 </html>

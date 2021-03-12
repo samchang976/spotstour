@@ -23,7 +23,8 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 <!-- <link rel="stylesheet" href="./css/button.css"> -->
 
@@ -47,28 +48,25 @@
 	href="<c:url value='/_00_util/portfolioUtil/css/portfolioColor.css'></c:url>">
 <!-- --------------------------------------------------------------------------------------------------------->
 <!--  地圖搜尋CSS -->
-    <style>
-        #viedo_name {
-            font-size: 1.5rem;
-        }
+<style>
+#viedo_name {
+	font-size: 1.5rem;
+}
 
-        #title{
-            font-size: 2rem;
-        }
+#title {
+	font-size: 2rem;
+}
 
-  
-
-        /* searchMap 覆蓋在上 */
-        #searchMap{
-           display: none;  /*先隱藏 */
-            position: fixed;
-            z-index: 5;
-            width: 600px;
-            height: 550px;
-            background-color: rgb(248, 243, 236);
-        }
-       
-    </style>
+/* searchMap 覆蓋在上 */
+#searchMap {
+	display: none; /*先隱藏 */
+	position: fixed;
+	z-index: 5;
+	width: 600px;
+	height: 550px;
+	background-color: rgb(248, 243, 236);
+}
+</style>
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>影片新增與編輯</title>
 </head>
@@ -80,101 +78,102 @@
 	</div>
 	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-	<!------------------------------------------------------------------------------------------->
-	<div class="container " id="container_VideoCreate">
-<!-- 標題:影片新增 -------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------->
+		<div class="container " id="container_VideoCreate">
+			<!-- 標題:影片新增 -------------------------------------------------------------------------------------->
 			<div class="row">
 				<div class="col">
-						<c:if test="${portfolioId==null}">
-							<div id="title">影片新增</div>
-						</c:if>
-						<c:if test="${portfolioId!=null}">
-							<div id="title">影片編輯</div>
-						</c:if>
+					<c:if test="${portfolioId==null}">
+						<div id="title">影片新增</div>
+					</c:if>
+					<c:if test="${portfolioId!=null}">
+						<div id="title">影片編輯</div>
+					</c:if>
 				</div>
 			</div>
-<!-- ==============================================================================================-->
+			<!-- ==============================================================================================-->
 			<div class="row row-cols-1 row-cols-md-2">
 				<div class="col"></div>
-				
+
 				<div class="col">
-				      <i class="fas fa-map-marker-alt"></i>
-				  位置:<button id="slideButton" style="margin-bottom: 5px;">Click Me To Search</button>               
-                      <button id="sendData" >確認位置</button>
-                      <button id="cancelData">重選位置</button>
+					<i class="fas fa-map-marker-alt"></i> 位置:
+					<button id="slideButton" style="margin-bottom: 5px;">Click
+						Me To Search</button>
+					<button id="sendData">確認位置</button>
+					<button id="cancelData">重選位置</button>
 				</div>
 			</div>
-<!-- ==========================================================================================================-->	
-	<form action="createPortfolio" method="post" enctype="multipart/form-data">
-<!-- ==========================================================================================================-->
-			<div class="row row-cols-1 row-cols-md-2">
+			<!-- ==========================================================================================================-->
+			<form action="createPortfolio" method="post"
+				enctype="multipart/form-data">
+				<!-- ==========================================================================================================-->
+				<div class="row row-cols-1 row-cols-md-2">
 					<div class="col SpotName">
-						影片名稱: <input type="text" name="portfolioName" placeholder="請輸入影片名稱">
+						影片名稱: <input type="text" name="portfolioName"
+							placeholder="請輸入影片名稱">
 					</div>
-					                
-					
-<!---------------------------------------------------------------------------------------------------------- -->
-			<div class="col LocationInformation">
-              <!-- 地圖搜尋框 --------------------------------------------------------------------------->
-                <div id="searchMap">            
-                        <div class="row row-cols-1 row-cols-md-2">
-                            <div class="col google-map">
-	                            <h5>Search：</h5>
-	                            <div class="form-group">
-	                               	<input type="text" id="address" class="form-control" ref="site" v-model="site">	                            
-	                            </div>
-                            </div>
-                        </div>
-                   <!-- 放google map的div ------------------------------------------------------------->
-                        <div class="row">
-                            <div class="col google-map">
-                                <h5>Google Map：</h5>
-                            <div id="map" class="embed-responsive embed-responsive-16by9"></div>
-                            </div>
-                        </div>
-                        經度<input id="lng" type="textbox" >
-                        緯度<input id="lat" type="textbox" >
-                </div>
-                <input id="display_address" name="pAddress" type="text" placeholder="請輸入位置資訊">            
-                <input type="text" name="longitude" placeholder="經度" id="longitude"> 
-				<input type="text" name="latitude" placeholder="緯度" id="latitude">
-         	 </div>	
-         	        <div>
-                        城市: 
-                        <select class="form-select" name="cityId"
-                            aria-label="Default select example"
-                            style="font-size: 15px; width: 35%; margin-top: 2px;margin-bottom: 10px;">
-                            <option selected>選擇城市</option>
-                            <c:forEach items="${cityList}" var="row">
-                                <option value="${row.cityId}">${row.cityName}</option>
-                             </c:forEach>                            
-                        </select> 
 
-                        影片類型: 
-                        <select class="form-select" name="placeTypeId"
-                            aria-label="Default select example"
-                            style="font-size: 15px; width: 35%; margin-top: 2px ; margin-bottom: 10px;">
-                            <option selected>選擇影片類型</option>
-                            <c:forEach items="${placeTypeList}" var="row">
-                                <option value="${row.placeTypeId}">${row.placeType}</option>
-                             </c:forEach>
-                        </select>
-                    </div>		
-         </div>
-<!-- ======================================================================================================= -->
-<!-- 				<div class="row row-cols-1 row-cols-md-2"> -->
 
-<!-- 					<div class="col"> -->
-<!-- 						經度:<input type="text" name="longitude" placeholder="經度" id="longitude">  -->
-<!-- 						緯度:<input type="text" name="latitude" placeholder="緯度" id="latitude"> -->
-<!-- 					</div> -->
+					<!---------------------------------------------------------------------------------------------------------- -->
+					<div class="col LocationInformation">
+						<!-- 地圖搜尋框 --------------------------------------------------------------------------->
+						<div id="searchMap">
+							<div class="row row-cols-1 row-cols-md-2">
+								<div class="col google-map">
+									<h5>Search：</h5>
+									<div class="form-group">
+										<input type="text" id="address" class="form-control"
+											ref="site" v-model="site">
+									</div>
+								</div>
+							</div>
+							<!-- 放google map的div ------------------------------------------------------------->
+							<div class="row">
+								<div class="col google-map">
+									<h5>Google Map：</h5>
+									<div id="map" class="embed-responsive embed-responsive-16by9"></div>
+								</div>
+							</div>
+							經度<input id="lng" type="textbox"> 緯度<input id="lat"
+								type="textbox">
+						</div>
+						<input id="display_address" name="pAddress" type="text"
+							placeholder="請輸入位置資訊"> <input type="text"
+							name="longitude" placeholder="經度" id="longitude"> <input
+							type="text" name="latitude" placeholder="緯度" id="latitude">
+					</div>
+					<div>
+						城市: <select class="form-select" name="cityId"
+							aria-label="Default select example"
+							style="font-size: 15px; width: 35%; margin-top: 2px; margin-bottom: 10px;">
+							<option selected>選擇城市</option>
+							<c:forEach items="${cityList}" var="row">
+								<option value="${row.cityId}">${row.cityName}</option>
+							</c:forEach>
+						</select> 影片類型: <select class="form-select" name="placeTypeId"
+							aria-label="Default select example"
+							style="font-size: 15px; width: 35%; margin-top: 2px; margin-bottom: 10px;">
+							<option selected>選擇影片類型</option>
+							<c:forEach items="${placeTypeList}" var="row">
+								<option value="${row.placeTypeId}">${row.placeType}</option>
+							</c:forEach>
+						</select>
+					</div>
+				</div>
+				<!-- ======================================================================================================= -->
+				<!-- 				<div class="row row-cols-1 row-cols-md-2"> -->
 
-<!-- 				</div> -->
-<!-- =================================================================================================== -->
+				<!-- 					<div class="col"> -->
+				<!-- 						經度:<input type="text" name="longitude" placeholder="經度" id="longitude">  -->
+				<!-- 						緯度:<input type="text" name="latitude" placeholder="緯度" id="latitude"> -->
+				<!-- 					</div> -->
+
+				<!-- 				</div> -->
+				<!-- =================================================================================================== -->
 				<div class="row row row-cols-1 row-cols-md-2">
 					<div class="col">
 						<video src="/a.mp4" controls class="w-100"></video>
-				
+
 					</div>
 
 					<div class="col ViedoDescription">
@@ -184,31 +183,39 @@
 						</div>
 					</div>
 				</div>
-<!-- =================================================================================================== -->
-				<div class="row ">
+				<!-- =================================================================================================== -->
+				<div class="row row row-cols-1 row-cols-md-2 ">
 					<div class="col-md-6">
-							上傳影片預覽圖:
-						<input type="file" name="videoPic"/><br>
-						上傳影片:
-						<input type="file" name="videoFile"/><br>
+						上傳影片預覽圖: <input type="file" name="videoPic" /><br> 上傳影片: <input
+							type="file" name="videoFile" /><br>
 					</div>
-					<div class="col">
+					<div class="col-md-3" align="left">
 						<select class="form-select" aria-label="Default select example">
 							<option selected>選擇預覽方式</option>
 							<option value="time">預覽</option>
 							<option value="look">播放頁預覽</option>
 							<option value="good">世界地圖資訊預覽</option>
 						</select>
-						<button class="Bt_blue" type="submit">儲存</button>
-						<button class="Bt_blue" onclick="onclick="location.href="index">取消</button>
-
+					</div>
+					<div class="col-md-3" align="right">
+						<button class="Bt_blue" type="submit"
+							style="min-width: 100%; width: 40px">儲存</button>
 					</div>
 				</div>
-<!-- =================================================================================================== -->				
-	</form>
-</div>
+			</form>
+			<div class="row row row-cols-1 row-cols-md-2 ">
+				<div class="col-md-6"></div>
+				<div class="col-md-3" align="left"></div>
+				<div class="col-md-3" align="right">
+					<button class="Bt_blue" style="min-width: 100%; width: 40px"
+						onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">取消</button>
+				</div>
+			</div>
+			<!-- =================================================================================================== -->
 
-	<!-----------定位----------------------------------------------------------------------------->
+		</div>
+
+		<!-----------定位----------------------------------------------------------------------------->
 	</div>
 	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
@@ -216,17 +223,22 @@
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
 	<!-- Option 1: Bootstrap Bundle with Popper -->
-  	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
-        <!-- jquery cdn + 兩個檔案能使用 -->
-       	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>	
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
+	<!-- jquery cdn + 兩個檔案能使用 -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 
-         <!-- Google Map 將 YOUR_API_KEY 替換成你的 API Key 即可 -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_YJF33PnZP3fjYIJXflZ_Y4K7a3VQSSQ&libraries=places"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
-		<script>
+	<!-- Google Map 將 YOUR_API_KEY 替換成你的 API Key 即可 -->
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_YJF33PnZP3fjYIJXflZ_Y4K7a3VQSSQ&libraries=places"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+	<script>
                 
             $(document).ready(function(){
                 //click Click Me To Search的功能
@@ -273,8 +285,8 @@
         });
 
 	</script>
-          <!-- map -->
-    <script>
+	<!-- map -->
+	<script>
         var address_val ;
         const googleMap = new Vue({
           el: '#app',
