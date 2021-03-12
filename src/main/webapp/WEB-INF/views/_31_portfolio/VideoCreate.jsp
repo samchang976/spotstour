@@ -70,7 +70,7 @@
        
     </style>
 <!-- --------------------------------------------------------------------------------------------------------->
-<title>影片新增</title>
+<title>影片新增與編輯</title>
 </head>
 
 <body>
@@ -85,7 +85,12 @@
 <!-- 標題:影片新增 -------------------------------------------------------------------------------------->
 			<div class="row">
 				<div class="col">
-					<div id="title">影片新增</div>
+						<c:if test="${portfolioId==null}">
+							<div id="title">影片新增</div>
+						</c:if>
+						<c:if test="${portfolioId!=null}">
+							<div id="title">影片編輯</div>
+						</c:if>
 				</div>
 			</div>
 <!-- ==============================================================================================-->
@@ -105,8 +110,9 @@
 			<div class="row row-cols-1 row-cols-md-2">
 					<div class="col SpotName">
 						影片名稱: <input type="text" name="portfolioName" placeholder="請輸入影片名稱">
-					
 					</div>
+					                
+					
 <!---------------------------------------------------------------------------------------------------------- -->
 			<div class="col LocationInformation">
               <!-- 地圖搜尋框 --------------------------------------------------------------------------->
@@ -129,11 +135,31 @@
                         經度<input id="lng" type="textbox" >
                         緯度<input id="lat" type="textbox" >
                 </div>
-                <input id="display_address" type="text" placeholder="請輸入位置資訊">
+                <input id="display_address" name="pAddress" type="text" placeholder="請輸入位置資訊">            
                 <input type="text" name="longitude" placeholder="經度" id="longitude"> 
 				<input type="text" name="latitude" placeholder="緯度" id="latitude">
+         	 </div>	
+         	        <div>
+                        城市: 
+                        <select class="form-select" name="cityId"
+                            aria-label="Default select example"
+                            style="font-size: 15px; width: 35%; margin-top: 2px;margin-bottom: 10px;">
+                            <option selected>選擇城市</option>
+                            <c:forEach items="${cityList}" var="row">
+                                <option value="${row.cityId}">${row.cityName}</option>
+                             </c:forEach>                            
+                        </select> 
 
-         	 </div>			
+                        影片類型: 
+                        <select class="form-select" name="placeTypeId"
+                            aria-label="Default select example"
+                            style="font-size: 15px; width: 35%; margin-top: 2px ; margin-bottom: 10px;">
+                            <option selected>選擇影片類型</option>
+                            <c:forEach items="${placeTypeList}" var="row">
+                                <option value="${row.placeTypeId}">${row.placeType}</option>
+                             </c:forEach>
+                        </select>
+                    </div>		
          </div>
 <!-- ======================================================================================================= -->
 <!-- 				<div class="row row-cols-1 row-cols-md-2"> -->
