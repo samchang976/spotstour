@@ -99,15 +99,14 @@
 					<!-- 選擇數量 -------------------------------------------------------->
 					<div class="col-1 ItemField">
 						<div>
-						<form:form method='POST' modelAttribute='cartBean'>
-<%-- 							<input type="number" value="${cart.s_ordQty}" min="1" --%>
-<%-- 								id="Qty${vs.index}" name="Qty"> --%>
-<!-- 								onchange="this.form.submit()" -->
-<!-- 							/shoppingCart/put/Id={sc_Id} -->
-							<form:input path="s_ordQty" type="number" min="1" id="Qty${vs.index}" name="Qty"
-							onchange="this.form.submit()"/>
-							<form:hidden path="sc_Id"/>
-						</form:form>
+						<form action="shoppingCart/${cart.sc_Id}" method="post">
+							<input type="number" value="${cart.s_ordQty}" min="1"
+								id="Qty${vs.index}" name="s_ordQty" 
+								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/>
+<%-- 								onchange="this.form.submit()" --%>
+<!-- 						顯示:綁識別字串 -->
+<!-- 						數量修改靠js -->
+						</form>
 						</div>
 					</div>
 					<!-- 單價------------------------------------------------------------>
@@ -140,7 +139,7 @@
 			<div class="row-12" id="SubtotalBlock">
 				共<span id="items">${cartSize}</span>商品，總金額 : <span id="TotalMoney"></span>元
 				<button id="BtcheckNow" class="Bt_black " type="submit"
-					onclick="window.open('SelectPayment')">立即結帳</button>
+					onclick="location.href='${pageContext.request.contextPath}/selectPayment/Id=${mId}'">立即結帳</button>
 
 			</div>
 		</div>

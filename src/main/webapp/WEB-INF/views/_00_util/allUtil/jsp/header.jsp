@@ -172,16 +172,21 @@ ul.nav.nav-tabs {
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="bottom" title="商城資訊"></a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="<c:url value="/merchandiseIndex"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員可以查詢全部代購商品">購物商城</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/shoppingCart"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員可以查詢已加入購物車內容">購物車</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/aboutMerchandise"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢關於商品配送資訊">關於商品資訊</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="<c:url value="/merchandiseModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有商城商品">管理商城</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/activityList"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有商城活動資訊">管理活動列表</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/activityModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增商城活動資訊">管理活動快訊</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/aboutMerchandiseModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以修改商品資訊">編輯關於商品資訊</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/manageMerchandiseReport"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以修改有關退換貨商品資訊">管理退貨商品列表</a></li>
-						<li><a class="dropdown-item" href="<c:url value="/manageVideoReport"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有影片不當的內容">管理檢舉影片</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/merchandiseIndex"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢全部代購商品">購物商城</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/aboutMerchandise"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢關於商品配送資訊">關於商品資訊</a></li>
+							
+						<c:if test="${ mPid == 2 || mPid == 1}">
+							<li><a class="dropdown-item" href="<c:url value="/shoppingCart"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員可以查詢已加入購物車內容">購物車</a></li>
+						</c:if>
+						<c:if test="${ mPid == 1 }">
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="<c:url value="/merchandiseModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有商城商品">管理商城</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/activityList"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有商城活動資訊">管理活動列表</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/activityModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增商城活動資訊">管理活動快訊</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/aboutMerchandiseModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以修改商品資訊">編輯關於商品資訊</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/manageMerchandiseReport"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以修改有關退換貨商品資訊">管理退貨商品列表</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/manageVideoReport"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有影片不當的內容">管理檢舉影片</a></li>
+						</c:if>
 					</ul></li>
 					
 				<li class="nav-item dropdown"><a class="fas fa-user-alt "
@@ -210,7 +215,7 @@ ul.nav.nav-tabs {
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="<c:url value="/aboutUs"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查看關於Spots-tour">關於我們</a></li>
 						<li><a class="dropdown-item" href="<c:url value="/contactUs"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="聯絡Spots-tour">聯絡我們</a></li>
-						<c:if test="${ mPid ==  1 }">
+						<c:if test="${ mPid == 1 }">
 							<li><a class="dropdown-item" href="<c:url value="/aboutUsModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以編輯關於Spots-tour">編輯關於我們</a></li>
 							<li><a class="dropdown-item" href="<c:url value="/contactUsModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以編輯聯絡Spots-tour的資訊">編輯聯絡我們</a></li>
 						</c:if>
