@@ -18,8 +18,6 @@ USE `spotstourdb`;
 
 /*Table structure for table `activity` */
 
-/*Table structure for table `activity` */
-
 DROP TABLE IF EXISTS `activity`;
 
 CREATE TABLE `activity` (
@@ -29,7 +27,7 @@ CREATE TABLE `activity` (
   `activity_createTime` date DEFAULT NULL,
   `activity_freeze` int DEFAULT NULL,
   PRIMARY KEY (`activityId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `activity` */
 
@@ -38,7 +36,6 @@ insert  into `activity`(`activityId`,`activityContent`,`activityHeader`,`activit
 (2,'新春特惠，全館免運! 活動到2021-02-15','新春優惠','2021-02-01',0),
 (3,'快來買喔~~~','周年慶優惠，全館免運','2021-03-10',0),
 (4,'全館巧克力商品結帳85折!','情人節優惠','2021-03-10',0);
-
 
 /*Table structure for table `city` */
 
@@ -50,7 +47,8 @@ CREATE TABLE `city` (
   `countryId` int NOT NULL,
   PRIMARY KEY (`cityId`),
   KEY `city_countryId_fk` (`countryId`),
-  CONSTRAINT `city_countryId_fk` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`)
+  CONSTRAINT `city_countryId_fk` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`),
+  CONSTRAINT `FK78hf6lwr8j8c707wuvur9e0am` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 
 /*Data for the table `city` */
@@ -145,7 +143,8 @@ CREATE TABLE `country` (
   `continentId` int NOT NULL,
   PRIMARY KEY (`countryId`),
   KEY `country_continentId_fk` (`continentId`),
-  CONSTRAINT `country_continentId_fk` FOREIGN KEY (`continentId`) REFERENCES `continent` (`continentId`)
+  CONSTRAINT `country_continentId_fk` FOREIGN KEY (`continentId`) REFERENCES `continent` (`continentId`),
+  CONSTRAINT `FKh5vexlgdygaio95pyc9akil7i` FOREIGN KEY (`continentId`) REFERENCES `continent` (`continentId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 /*Data for the table `country` */
@@ -202,8 +201,9 @@ CREATE TABLE `feedback` (
   `itemId` int NOT NULL,
   PRIMARY KEY (`feedbackId`),
   KEY `feedback_itemId_fk` (`itemId`),
-  CONSTRAINT `feedback_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `feedback_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`),
+  CONSTRAINT `FKs9iiqmtehauufulmipc8mu61r` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `feedback` */
 
@@ -214,7 +214,6 @@ insert  into `feedback`(`feedbackId`,`feedbackText`,`f_createTime`,`fb_freeze`,`
 (4,'好吃!!','2021-02-23 00:03:00',0,2),
 (5,'很好吃!!','2021-02-24 00:04:00',0,2),
 (6,'非常好吃!!','2021-02-25 00:05:00',0,2);
-
 
 /*Table structure for table `item` */
 
@@ -235,9 +234,11 @@ CREATE TABLE `item` (
   PRIMARY KEY (`itemId`),
   KEY `item_itId_fk` (`itId`),
   KEY `item_countryId_fk` (`countryId`),
+  CONSTRAINT `FKaaneiypx6x3kjdl2jjafx3fuu` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`),
+  CONSTRAINT `FKtffcamb09gjp3yigshjgybdvs` FOREIGN KEY (`itId`) REFERENCES `item_type` (`itId`),
   CONSTRAINT `item_countryId_fk` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`),
   CONSTRAINT `item_itId_fk` FOREIGN KEY (`itId`) REFERENCES `item_type` (`itId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 /*Data for the table `item` */
 
@@ -245,38 +246,31 @@ insert  into `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`
 (1,'MAMA泰國泡麵',10,35,'最常見的泰式泡麵，結合打拋豬肉和豬骨湯，口味偏清淡，三大品牌都有出這口味，但是最推MAMA的！',1,NULL,NULL,NULL,0,6),
 (2,'紫玉酥禮盒(6入)',250,100,'台中大甲裕珍馨人氣商品！以大甲芋頭及優質米為開發概念，酥、鬆、Q多重口感在口中綻放！',1,NULL,NULL,NULL,0,1),
 (3,'Press Butter Sand焦糖奶油餅',264,20,'當前東京最受矚目、最夯排隊伴手禮，焦糖奶油夾心餅，超級無敵有夠好吃！\r\n特製烤模壓製，餅乾酥香硬脆口感創舉大突破，內餡爆漿牽絲的奶油焦糖雙餡更是完美迷人不甜膩。',1,NULL,NULL,NULL,0,2),
-(4,'Panasonic水離子吹風機(EH-NA99)',4750,5,'同樣讓人用過後就回不去的日本神器，吹頭髮同時保濕、護法，實在是很厲害～。從EH-NA97型號到EH-NA99(最新)，使用者高達95%滿意！',4,NULL,NULL,NULL,0,2),
-(7,'白色戀人巧克力餅乾36入 ',1500,10,'北海道限定 白い恋人',1,NULL,NULL,NULL,0,2),
-(8,'Pocky蕃茄百利滋棒9袋入裝-134g',99,20,'★日本原裝進口★日本大廠GLICO格力高品牌★經典蕃茄百利滋口味9袋入獨立小包裝★分享方便，適合辦公室下午茶、點心',1,NULL,NULL,NULL,0,2),
-(9,'日本《金吾堂》芥末米果17枚',99,100,'★日本品牌《金吾堂》原裝進口★熱銷超過 60 年的米果經典老店★嚴選日本國產米，只用新鮮品質好原料',1,NULL,NULL,NULL,0,2),
-(10,'Glico固力果 冰淇淋杯餅乾 (87g)　',155,10,'★日本原裝進口 ★日本大廠Glico 固力果 ★冰淇淋造型餅乾 ★絕對讓您口感滿分',1,NULL,NULL,NULL,0,2),
-(11,'Glico固力果 冰淇淋杯餅乾 (87g)　',155,10,'★日本原裝進口 ★日本大廠Glico 固力果 ★冰淇淋造型餅乾 ★絕對讓您口感滿分',1,NULL,NULL,NULL,0,2),
-(12,'一生懸命的米果 日本《金吾堂》甘口醬油米果7枚',99,10,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料 ',1,NULL,NULL,NULL,0,2),
-(13,'日本《金吾堂》和鹽米果7枚',99,10,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料',1,NULL,NULL,NULL,0,2),
-(14,'龜田手鹽屋鹽味米果9枚',79,10,'★日本原裝進口 ★口感堅脆，原味米果最對味 ★使用日本國產米製作，調味使用沈崎產鰹魚 ★原烤9枚超大片',1,NULL,NULL,NULL,0,1),
-(15,'日本《龜田》茶豆米果70g',79,10,'★日本米果大廠《龜田》製菓原裝進口 ★食鹽合成自日本赤穗天鹽與沖繩天日鹽 ★吃得到豆仁！原料 100％ 使用真實茶豆',1,NULL,NULL,NULL,0,2),
-(16,'Honda製果 玉米濃湯餅 (90g)',59,10,'★日本原裝進口 ★日本超人氣熱銷商品 ★獨特玉米濃湯風味',1,NULL,NULL,NULL,0,2),
-(17,'Mondelez RITZ起士夾心餅乾 (160g)',105,10,'★知名餅乾RITZ ★酥脆餅乾搭配香濃起士 ★讓你欲罷不能的好滋味~',1,NULL,NULL,NULL,0,2),
-(18,'日本TWINBIRD-美型蒸氣掛燙機(白)TB-G006TW',1880,10,'◆ 超輕量設計，隨手熨燙 ◆ 設計美型，放在家中不突兀 ◆ 連續按壓，蒸氣不間斷',4,NULL,NULL,NULL,0,2),
-(19,'日本TWINBIRD-多功能製麵包機PY-E632TW',3980,15,'◆業界最高，40種麵包/麵糰模式 ◆手動模式，不只有傻瓜模式，美味升級 ◆可獨立進行麵糰搓揉、發酵與烘焙',4,NULL,NULL,NULL,0,2),
-(20,'[日本原裝] TIGER虎牌6人份微電腦炊飯電子鍋(JBV-S10R)',2990,10,'☆日本原裝進口 ☆內鍋再升級,黑色遠赤厚釜(1.7mm) ☆炊煮多種米飯，盡享美味',4,NULL,NULL,NULL,0,2),
-(21,'梨膏糖',280,100,'盛行於中國江南一代的梨膏糖可說是有百年的歷史，以梨汁、蜂蜜和各種草藥製成，主要功能為止咳化痰、開胃順氣。',1,NULL,NULL,NULL,0,3),
-(22,'NewYork Perfect Cheese奶油起司脆餅',400,30,'由前白宮甜點師等人聯手研發，餅乾從包裝、造型感皆呈現超高質感，堪稱夢幻逸品無誤～',1,NULL,NULL,NULL,0,2),
-(23,'The Maple mania（楓糖奶油餅乾）',430,100,'選用加拿大楓糖搭配奶油巧克力，厚實大塊夾心非常厲害，濃郁楓糖香滿溢於口，愛不釋手啊。',1,NULL,NULL,NULL,0,2),
-(24,'東京晴空戀巧巧克力',350,220,'餅乾本身超級薄脆，輕碰就裂、清咬即碎，輕盈鬆化的口感，非常少有，波比特愛的～',1,NULL,NULL,NULL,0,2),
-(25,'東京牛奶起司工坊',300,150,'楓糖夾心餅乾是甜香，這款則是海鹽搭上爆濃鹹香起司味，兩者無法抉擇，都太太太好吃了。',1,NULL,NULL,NULL,0,2),
-(26,'R.L Waffle Cake（鬆餅蛋糕、棒狀鬆餅）',100,50,'發跡神戶，鬆餅口味多達20種，全國一天賣出4萬個，累積1千萬銷售量，超級驚人。發跡神戶，鬆餅口味多達20種，全國一天賣出4萬個，累積1千萬銷售量，超級驚人。',1,NULL,NULL,NULL,0,2),
-(27,'caffarel榛果巧克力派',380,250,'表面佈滿糖粒，派皮酥脆層層分明，入口後濃郁榛果巧克力醬半融於嘴，名店出手果然優秀。',1,NULL,NULL,NULL,0,2),
-(28,'《CEZANNE》 血色腮紅',300,200,'這塊血色腮紅一擦上臉，馬上讓你白兩個色號，想要買還要用搶的呢！',3,NULL,NULL,NULL,0,2),
-(29,'山善｜多功能電子烤盤',5680,20,'多功能電子烤盤 (附平盤+章魚燒) YOF-W120 2色 附2枚烤盤 單身 小家庭 電烤盤推薦',4,NULL,NULL,NULL,0,2),
-(30,'thisisneverthat 潮牌服飾代購',0,0,'「THISISNEVERTHAT」以軍服與運動風為基礎，上市10年以來，舒服又時尚的風格非常受到韓國人歡迎，也是韓國有名的本土時裝、潮牌品牌。',5,NULL,NULL,NULL,0,4),
-(31,'thisisneverthat 朝牌配件代購',0,0,'「THISISNEVERTHAT」以軍服與運動風為基礎，上市10年以來，舒服又時尚的風格非常受到韓國人歡迎，也是韓國有名的本土時裝、潮牌品牌。',5,NULL,NULL,NULL,0,4),
-(32,'LOUIS VUITTON 香水代購',0,0,'LV香水 如有個別需求請私訊。',3,NULL,NULL,NULL,0,24),
-(33,'美國 BLUE YETI 雪怪 USB麥克風 電容式麥克風 USB麥【迪特軍】',6000,30,'美製USB電容式麥克風',4,NULL,NULL,NULL,0,13),
-(34,'SUPERDRY 極度乾燥',0,0,'潮牌代購',5,NULL,NULL,NULL,0,23),
-(35,'Roots',0,0,'潮牌代購',5,NULL,NULL,NULL,0,15),
-(36,'sunwave 原裝日本廚具',0,0,'unwave系統廚具 滿足各種裝修需求與設計風格的專業品牌。從豪華到經濟實惠，你會找到適合你的預算。',2,NULL,NULL,NULL,0,2);
-
+(4,'Panasonic水離子吹風機(EH-NA99)',4750,10,'同樣讓人用過後就回不去的日本神器，吹頭髮同時保濕、護法，實在是很厲害～。從EH-NA97型號到EH-NA99(最新)，使用者高達95%滿意！',4,NULL,NULL,NULL,0,2),
+(5,'Pocky蕃茄百利滋棒9袋入裝-134g',99,20,'★日本原裝進口★日本大廠GLICO格力高品牌★經典蕃茄百利滋口味9袋入獨立小包裝★分享方便，適合辦公室下午茶、點心',1,NULL,NULL,NULL,0,2),
+(6,'白色戀人巧克力餅乾36入 ',1500,10,'北海道限定 白い恋人',1,NULL,NULL,NULL,0,2),
+(7,'日本《金吾堂》芥末米果17枚',99,100,'★日本品牌《金吾堂》原裝進口★熱銷超過 60 年的米果經典老店★嚴選日本國產米，只用新鮮品質好原料',1,NULL,NULL,NULL,0,2),
+(8,'Glico固力果 冰淇淋杯餅乾 (87g)　',155,300,'★日本原裝進口 ★日本大廠Glico 固力果 ★冰淇淋造型餅乾 ★絕對讓您口感滿分',1,NULL,NULL,NULL,0,2),
+(9,'Glico固力果 冰淇淋杯餅乾 (87g)　',155,200,'★日本原裝進口 ★日本大廠Glico 固力果 ★冰淇淋造型餅乾 ★絕對讓您口感滿分',1,NULL,NULL,NULL,0,2),
+(10,'一生懸命的米果 日本《金吾堂》甘口醬油米果7枚',99,300,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料 ',1,NULL,NULL,NULL,0,2),
+(11,'日本《金吾堂》和鹽米果7枚',99,200,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料',1,NULL,NULL,NULL,0,2),
+(12,'龜田手鹽屋鹽味米果9枚',79,100,'★日本原裝進口 ★口感堅脆，原味米果最對味 ★使用日本國產米製作，調味使用沈崎產鰹魚 ★原烤9枚超大片',1,NULL,NULL,NULL,0,1),
+(13,'日本《龜田》茶豆米果70g',79,200,'★日本米果大廠《龜田》製菓原裝進口 ★食鹽合成自日本赤穗天鹽與沖繩天日鹽 ★吃得到豆仁！原料 100％ 使用真實茶豆',1,NULL,NULL,NULL,0,2),
+(14,'Honda製果 玉米濃湯餅 (90g)',59,300,'★日本原裝進口 ★日本超人氣熱銷商品 ★獨特玉米濃湯風味',1,NULL,NULL,NULL,0,2),
+(15,'Mondelez RITZ起士夾心餅乾 (160g)',105,300,'★知名餅乾RITZ ★酥脆餅乾搭配香濃起士 ★讓你欲罷不能的好滋味~',1,NULL,NULL,NULL,0,2),
+(16,'日本TWINBIRD-美型蒸氣掛燙機(白)TB-G006TW',1880,300,'◆ 超輕量設計，隨手熨燙 ◆ 設計美型，放在家中不突兀 ◆ 連續按壓，蒸氣不間斷',4,NULL,NULL,NULL,0,2),
+(17,'日本TWINBIRD-多功能製麵包機PY-E632TW',3980,15,'◆業界最高，40種麵包/麵糰模式 ◆手動模式，不只有傻瓜模式，美味升級 ◆可獨立進行麵糰搓揉、發酵與烘焙',4,NULL,NULL,NULL,0,2),
+(18,'[日本原裝] TIGER虎牌6人份微電腦炊飯電子鍋(JBV-S10R)',2990,10,'☆日本原裝進口 ☆內鍋再升級,黑色遠赤厚釜(1.7mm) ☆炊煮多種米飯，盡享美味',4,NULL,NULL,NULL,0,2),
+(19,'梨膏糖',280,100,'盛行於中國江南一代的梨膏糖可說是有百年的歷史，以梨汁、蜂蜜和各種草藥製成，主要功能為止咳化痰、開胃順氣。',1,NULL,NULL,NULL,0,3),
+(20,'NewYork Perfect Cheese奶油起司脆餅',400,30,'由前白宮甜點師等人聯手研發，餅乾從包裝、造型感皆呈現超高質感，堪稱夢幻逸品無誤～',1,NULL,NULL,NULL,0,2),
+(21,'The Maple mania（楓糖奶油餅乾）',430,100,'選用加拿大楓糖搭配奶油巧克力，厚實大塊夾心非常厲害，濃郁楓糖香滿溢於口，愛不釋手啊。',1,NULL,NULL,NULL,0,2),
+(22,'東京晴空戀巧巧克力',350,220,'餅乾本身超級薄脆，輕碰就裂、清咬即碎，輕盈鬆化的口感，非常少有，波比特愛的～',1,NULL,NULL,NULL,0,2),
+(23,'東京牛奶起司工坊',300,150,'楓糖夾心餅乾是甜香，這款則是海鹽搭上爆濃鹹香起司味，兩者無法抉擇，都太太太好吃了。',1,NULL,NULL,NULL,0,2),
+(24,'R.L Waffle Cake（鬆餅蛋糕、棒狀鬆餅）',100,50,'發跡神戶，鬆餅口味多達20種，全國一天賣出4萬個，累積1千萬銷售量，超級驚人。發跡神戶，鬆餅口味多達20種，全國一天賣出4萬個，累積1千萬銷售量，超級驚人。',1,NULL,NULL,NULL,0,2),
+(25,'caffarel榛果巧克力派',380,250,'表面佈滿糖粒，派皮酥脆層層分明，入口後濃郁榛果巧克力醬半融於嘴，名店出手果然優秀。',1,NULL,NULL,NULL,0,2),
+(26,'《CEZANNE》 血色腮紅',300,200,'這塊血色腮紅一擦上臉，馬上讓你白兩個色號，想要買還要用搶的呢！',3,NULL,NULL,NULL,0,2),
+(27,'山善｜多功能電子烤盤',5680,20,'多功能電子烤盤 (附平盤+章魚燒) YOF-W120 2色 附2枚烤盤 單身 小家庭 電烤盤推薦',4,NULL,NULL,NULL,0,2),
+(28,'美國 BLUE YETI 雪怪 USB麥克風 電容式麥克風 USB麥【迪特軍】',6000,30,'美製USB電容式麥克風',4,NULL,NULL,NULL,0,13);
 
 /*Table structure for table `item_type` */
 
@@ -313,18 +307,20 @@ CREATE TABLE `member` (
   `mPhone` varchar(10) NOT NULL,
   `d_mAddress` varchar(40) NOT NULL,
   `m_createTime` datetime NOT NULL,
-  `mPic` varchar(10000) DEFAULT NULL,
+  `mPic` varchar(21000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `m_verify` tinyint NOT NULL DEFAULT '0',
   `mPid` int NOT NULL,
   PRIMARY KEY (`mId`),
   KEY `member_mPid_fk` (`mPid`),
+  CONSTRAINT `FKm7kkdfwqd0u1h50am44ijl07e` FOREIGN KEY (`mPid`) REFERENCES `member_perm` (`mPid`),
   CONSTRAINT `member_mPid_fk` FOREIGN KEY (`mPid`) REFERENCES `member_perm` (`mPid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `member` */
 
 insert  into `member`(`mId`,`mAN`,`mPw`,`mGender`,`mName`,`mUid`,`mBDay`,`mEmail`,`mPhone`,`d_mAddress`,`m_createTime`,`mPic`,`m_verify`,`mPid`) values 
-(1,'spotstour','0000','男','諸葛村夫','F123456789','1987-08-07 00:00:00','spotstour@gmail.com','0912345678','台北市天龍區民權西路天橋下','2021-02-25 00:00:00',NULL,1,2);
+(1,'spotstour','0000','男','諸葛村夫','F123456789','1987-08-07 00:00:00','spotstour@gmail.com','0912345678','台北市天龍區民權西路天橋下','2021-02-25 00:00:00',NULL,1,2),
+(2,'aaaaaa','aaaaaa','男','管理者','A123456789','2021-03-01 12:03:16','spotstour@gamil.com','0912345678','台北市','2021-03-10 12:03:53',NULL,1,1);
 
 /*Table structure for table `member_perm` */
 
@@ -361,11 +357,15 @@ CREATE TABLE `ord` (
   KEY `ord_oSid_fk` (`oSid`),
   KEY `ord_receiptTypeId_fk` (`receiptTypeId`),
   KEY `ord_shipTypeId_fk` (`shipTypeId`),
+  CONSTRAINT `FK7qlib25hyrm5f49gklddrq9xn` FOREIGN KEY (`receiptTypeId`) REFERENCES `receipt_type` (`receiptTypeId`),
+  CONSTRAINT `FKghucymwpuhvf2r2tpfyamwk7h` FOREIGN KEY (`shipTypeId`) REFERENCES `ship_type` (`shipTypeId`),
+  CONSTRAINT `FKifkuprlm38e7yan6fb3dhedb` FOREIGN KEY (`oSid`) REFERENCES `ord_stat` (`oSid`),
+  CONSTRAINT `FKny7ctr8pwt2uov8npjh4mhaci` FOREIGN KEY (`mId`) REFERENCES `member` (`mId`),
   CONSTRAINT `ord_mId_fk` FOREIGN KEY (`mId`) REFERENCES `member` (`mId`),
   CONSTRAINT `ord_oSid_fk` FOREIGN KEY (`oSid`) REFERENCES `ord_stat` (`oSid`),
   CONSTRAINT `ord_receiptTypeId_fk` FOREIGN KEY (`receiptTypeId`) REFERENCES `receipt_type` (`receiptTypeId`),
   CONSTRAINT `ord_shipTypeId_fk` FOREIGN KEY (`shipTypeId`) REFERENCES `ship_type` (`shipTypeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord` */
 
@@ -386,9 +386,11 @@ CREATE TABLE `ord_detail` (
   PRIMARY KEY (`ord_dId`),
   KEY `ord_deatail_ord_Id_fk` (`ord_Id`),
   KEY `ord_deatail_itemId_fk` (`itemId`),
+  CONSTRAINT `FK2juk7cejh9yhqu0dfgp3i54d3` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`),
+  CONSTRAINT `FK7rq4ds1xrookjnyfp0oyvqn4v` FOREIGN KEY (`ord_Id`) REFERENCES `ord` (`ord_Id`),
   CONSTRAINT `ord_deatail_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`),
   CONSTRAINT `ord_deatail_ord_Id_fk` FOREIGN KEY (`ord_Id`) REFERENCES `ord` (`ord_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord_detail` */
 
@@ -412,7 +414,7 @@ CREATE TABLE `ord_stat` (
   `oSid` int NOT NULL AUTO_INCREMENT,
   `ordStat` varchar(10) NOT NULL,
   PRIMARY KEY (`oSid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord_stat` */
 
@@ -470,6 +472,9 @@ CREATE TABLE `portfolio` (
   KEY `portfolio_cityId_fk` (`cityId`),
   KEY `portfolio_mId_fk` (`mId`),
   KEY `portfolio_placeTypeId_fk` (`placeTypeId`),
+  CONSTRAINT `FK8m5tct44pltwr7jt8k2oqyuvr` FOREIGN KEY (`mId`) REFERENCES `member` (`mId`),
+  CONSTRAINT `FK9v3eim27t5eu7bb6i6sv3ryeb` FOREIGN KEY (`placeTypeId`) REFERENCES `place_type` (`placeTypeId`),
+  CONSTRAINT `FKo1tu242f22p34uayen175i8y` FOREIGN KEY (`cityId`) REFERENCES `city` (`cityId`),
   CONSTRAINT `portfolio_cityId_fk` FOREIGN KEY (`cityId`) REFERENCES `city` (`cityId`),
   CONSTRAINT `portfolio_mId_fk` FOREIGN KEY (`mId`) REFERENCES `member` (`mId`),
   CONSTRAINT `portfolio_placeTypeId_fk` FOREIGN KEY (`placeTypeId`) REFERENCES `place_type` (`placeTypeId`)
@@ -494,6 +499,7 @@ CREATE TABLE `portfoliomsg` (
   `pmsg_freeze` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`portfolioMsgId`),
   KEY `portfolioMsg_portfolioId_fk` (`portfolioId`),
+  CONSTRAINT `FK1uut686ofs5t3rlehnn72tuwv` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`),
   CONSTRAINT `portfolioMsg_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -507,7 +513,7 @@ CREATE TABLE `receipt_type` (
   `receiptTypeId` int NOT NULL AUTO_INCREMENT,
   `receiptType` varchar(15) NOT NULL,
   PRIMARY KEY (`receiptTypeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `receipt_type` */
 
@@ -530,6 +536,8 @@ CREATE TABLE `record` (
   PRIMARY KEY (`recordId`),
   KEY `record_portfolioId_fk` (`portfolioId`),
   KEY `record_paramId_fk` (`paramId`),
+  CONSTRAINT `FK5hwf0kbet9m9dd6d7ydvkbuls` FOREIGN KEY (`paramId`) REFERENCES `params` (`paramId`),
+  CONSTRAINT `FKbopblbme50gdwh19qg9qphlw3` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`),
   CONSTRAINT `record_paramId_fk` FOREIGN KEY (`paramId`) REFERENCES `params` (`paramId`),
   CONSTRAINT `record_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -544,7 +552,7 @@ CREATE TABLE `report_type` (
   `rtId` int NOT NULL AUTO_INCREMENT,
   `reportType` varchar(20) NOT NULL,
   PRIMARY KEY (`rtId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `report_type` */
 
@@ -563,7 +571,7 @@ CREATE TABLE `ship_type` (
   `shipTypeId` int NOT NULL AUTO_INCREMENT,
   `shipType` varchar(15) NOT NULL,
   PRIMARY KEY (`shipTypeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ship_type` */
 
@@ -587,9 +595,10 @@ CREATE TABLE `shoppingcart` (
   PRIMARY KEY (`sc_Id`),
   KEY `shoppingCart_mId_fk` (`mId`),
   KEY `shoppingCart_itemId_fk` (`itemId`),
+  CONSTRAINT `FK61woi9oewq06kw7xcsg47hm2f` FOREIGN KEY (`mId`) REFERENCES `member` (`mId`),
   CONSTRAINT `shoppingCart_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`),
   CONSTRAINT `shoppingCart_mId_fk` FOREIGN KEY (`mId`) REFERENCES `member` (`mId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `shoppingcart` */
 
@@ -605,11 +614,12 @@ DROP TABLE IF EXISTS `video`;
 CREATE TABLE `video` (
   `videoId` int NOT NULL AUTO_INCREMENT,
   `videoFile` varchar(100) NOT NULL,
-  `videoPic` varchar(20000) NOT NULL,
+  `videoPic` varchar(21000) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `v_freeze` tinyint NOT NULL DEFAULT '0',
   `portfolioId` int NOT NULL,
   PRIMARY KEY (`videoId`),
   KEY `video_portfolioId_fk` (`portfolioId`),
+  CONSTRAINT `FKq04dmcepecgeqy8o00n7vq0sf` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`),
   CONSTRAINT `video_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -627,6 +637,8 @@ CREATE TABLE `video_report` (
   PRIMARY KEY (`reportId`),
   KEY `video_Report_videoId_fk` (`videoId`),
   KEY `video_Report_rtId_fk` (`rtId`),
+  CONSTRAINT `FKg19yhyg35qv5b9tfkiobvx5e9` FOREIGN KEY (`rtId`) REFERENCES `report_type` (`rtId`),
+  CONSTRAINT `FKrvbi5kbcknnstq9jnq6je0vkt` FOREIGN KEY (`videoId`) REFERENCES `video` (`videoId`),
   CONSTRAINT `video_Report_rtId_fk` FOREIGN KEY (`rtId`) REFERENCES `report_type` (`rtId`),
   CONSTRAINT `video_Report_videoId_fk` FOREIGN KEY (`videoId`) REFERENCES `video` (`videoId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -643,6 +655,7 @@ CREATE TABLE `watch_times` (
   `wt_createTime` datetime NOT NULL,
   PRIMARY KEY (`viewsId`),
   KEY `watch_times_portfolioId_fk` (`portfolioId`),
+  CONSTRAINT `FKfnjwlw0urcysgotkifpdr03fj` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`),
   CONSTRAINT `watch_times_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

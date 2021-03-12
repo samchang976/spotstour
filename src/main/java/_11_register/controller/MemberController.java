@@ -82,7 +82,7 @@ public class MemberController {
 		Date date1 = new Date(bean.getmBDay().getTime());
 		
 		Member_permBean mpb = memberService.selectdata(2);
-		bean.setM_verify(0);
+		bean.setM_verify(1);
 		bean.setMemberPermBean(mpb);
 		if(memberService.mANExists(bean.getmAN())) {
 			result.rejectValue("mAN", "", "帳號已存在，請重新輸入");
