@@ -56,6 +56,10 @@
 	<div class="BodyPosition">
 		<!------------------------------------------------------------------------------------------->
 		<div class="container" id="container_OrderDetail">
+		<div>
+							<h2>訂單詳細資訊</h2>
+						</div>
+		<div class="shadow p-3 mb-5 bg-body rounded">
 			<!-- 訂單編號區塊 ----------------------------------------------->
 			<c:forEach var='ord_detail' items='${ord_details}' varStatus="s">
 				<c:if test="${s.first==true}">
@@ -69,7 +73,6 @@
 									<span>現在時間 : <fmt:formatDate type="both"  dateStyle="long" timeStyle="long" value="${now}" /></span>
 								</div>
 							
-							<br>
 								<span>訂單編號 : </span>
 								<span>FSWE1233${ord_detail.ord_dId}</span> 
 								<br>
@@ -84,9 +87,10 @@
 
 					<!-- 欄位敘述 -------------------------------------------------->
 					<div class="row">
-						<div class="col-4 FieldDescription">
+						<div class="col-6 FieldDescription">
 							<div>商品名稱</div>
 						</div>
+						<div class="col-2 FieldDescription">產地</div>
 						<div class="col-1 FieldDescription">數量</div>
 						<div class="col-1 FieldDescription">單價</div>
 						<div class="col-1 FieldDescription">小計</div>
@@ -101,21 +105,27 @@
 						<i class="fas fa-search"></i>
 					</div>
 
+					<div class="col-4 ">
+						<div>
+							<h4>${ord_detail.itemBean.itemHeader}</h4>
+						</div>
+					</div>
+					<!--產地  -->
 					<div class="col-2 ">
 						<div>
-							來自${ord_detail.itemBean.countryBean.countryName}代購<br>${ord_detail.itemBean.itemHeader}
+							<div><h5>${ord_detail.itemBean.countryBean.countryName}</h5></div>
 						</div>
 					</div>
 					<!--數量  -->
 					<div class="col-1 ">
 						<div>
-							<div>${ord_detail.ordQty}</div>
+							<div><h5>${ord_detail.ordQty}</h5></div>
 						</div>
 					</div>
 					<!-- 單價 -->
-					<div class="col-1 ">${ord_detail.itemBean.itemPrice}</div>
+					<div class="col-1 "><h5>${ord_detail.itemBean.itemPrice}</h5></div>
 					<!-- 小計 -->
-					<div class="col-1 ">${ord_detail.ordQty * ord_detail.itemBean.itemPrice}</div>
+					<div class="col-1 "><h5>${ord_detail.ordQty * ord_detail.itemBean.itemPrice}</h5></div>
 				</div>
 				<!-- 總金額 -->
 				<div class="Total">
@@ -125,7 +135,7 @@
 							var="sum" />
 						<c:set value="${sums + sum}" var="sums" />
 						<c:if test="${s.last==true}">
-							共<span id="items"> <c:out value="${s.count}" />
+							<h4>共<span id="items"> <c:out value="${s.count}" />
 							</span>
 							商品，原價總金額 : <span id="subtotal"><fmt:formatNumber maxFractionDigits="0" value="${sums}" type="currency"/></span>元
             				<br><br>
@@ -133,22 +143,23 @@
 							
 							折扣後總金額 : <span id="subtotal"><fmt:formatNumber maxFractionDigits="0" value="${formatSums}" type="currency"/></span>元
 							<br>
-						
+						</h4>
 						</c:if>
 
 					</div>
 				</div>
 			</c:forEach>
+			</div>
 			<div class="row">
 				<!-- 返回訂單畫面 -->
 				<div class="col">
-					<button class="btn btn-primary"
-						onclick="location.href='${pageContext.request.contextPath}/myOrderList'">返回訂單畫面</button>
+					<button class="btn btn-primary btn-lg"
+						onclick="location.href='${pageContext.request.contextPath}/myOrderList'">回訂單畫面</button>
 				</div>
 
 				<!-- 回商城首頁 -->
 				<div class="col">
-					<button type="submit" class="btn btn-primary"
+					<button type="submit" class="btn btn-primary btn-lg"
 						onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
 				</div>
 			</div>

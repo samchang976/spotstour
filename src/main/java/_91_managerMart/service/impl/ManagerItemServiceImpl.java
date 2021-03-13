@@ -1,11 +1,16 @@
 package _91_managerMart.service.impl;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import _02_model.entity.CountryBean;
 import _02_model.entity.FeedbackBean;
@@ -139,6 +144,35 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 		itemBeanO.setItemHeader(itemBeanN.getItemHeader());
 		itemBeanO.setItemPrice(itemBeanN.getItemPrice());
 		itemBeanO.setItemQty(itemBeanN.getItemQty());
+		
+		// 圖片處理
+		MultipartFile picture = itemBeanN.getItemImage1(); // 圖片本人
+		String originalFilename = picture.getOriginalFilename(); // 圖片的檔名
+		if (originalFilename.length() > 0 && originalFilename.lastIndexOf(".") > -1) {
+			itemBeanO.setItemPic1("itemImages/" + itemBeanN.getItemId() + "/" + originalFilename); // 將檔名存入資料庫
+		}
+		
+		// 將圖片存入資料夾
+		String folderPath = String.format("C:/_Hibernate/workspace/SpotsTourHSM/src/main/webapp/images/itemImages/%s",
+				itemBeanN.getItemId());
+		File theDir = new File(folderPath);
+		if (!theDir.exists()) {
+			theDir.mkdirs();
+		}
+
+		try (InputStream in = picture.getInputStream();
+				OutputStream out = new FileOutputStream(folderPath + "/" + originalFilename)) {
+
+			byte[] buffer = new byte[1024];
+			int len = -1;
+			while ((len = in.read(buffer)) != -1) {
+				out.write(buffer, 0, len);
+
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		itemBeanO.setItem_typeBean(isb);
 		itemBeanO.setCountryBean(cb);

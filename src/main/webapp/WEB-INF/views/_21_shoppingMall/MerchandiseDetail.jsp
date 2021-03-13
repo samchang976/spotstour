@@ -141,8 +141,9 @@
 			<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
 				<a class="navbar-brand" href="#"></a>
 				<ul class="nav nav-pills">
+					<li class="nav-item"><a class="nav-link" href="<c:url value="/aboutMerchandise"/>">關於商品資訊</a></li>
 					<li class="nav-item"><a class="nav-link" href="#des">商品描述</a></li>
-					<li class="nav-item"><a class="nav-link" href="#fb">商品留言</a></li>
+					<li class="nav-item"><a class="nav-link" href="#fb">查看商品留言</a></li>
 					<li class="nav-item"><a class="nav-link" href="#addFb">新增商品留言</a></li>	
 				</ul>
 			</nav>
@@ -266,10 +267,10 @@
 				<h3 id="addFb">${itemBean.itemHeader} 新增商品留言 : </h3>
 				<form:form method='POST' modelAttribute='feedbackBean'>
 					<div class="form-group row">
-						<label for="feedbackText" class="col-sm-2 col-form-label">新增留言</label>
+						<label for="feedbackText" class="col-sm-2 col-form-label"></label>
 						<div class="col-sm-10">
 							<form:input type="text" path="feedbackText" class="form-control"
-								id="feedbackText" height="48px"/>
+								id="feedbackText" />
 						</div>
 					</div>
 					<div class="form-group row  d-flex justify-content-end mt-5">

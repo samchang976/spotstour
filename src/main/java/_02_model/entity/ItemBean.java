@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @Entity
 @Table(name="item")
 public class ItemBean implements Serializable {
@@ -40,6 +42,9 @@ public class ItemBean implements Serializable {
 	@Transient
 	private Integer countryTId;
 	
+	@Transient
+	MultipartFile itemImage1;
+	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "countryId")
 	private CountryBean countryBean;
@@ -56,6 +61,16 @@ public class ItemBean implements Serializable {
 	
 	@OneToMany(mappedBy = "itemBean" , cascade = CascadeType.ALL)
 	private List<ShoppingCartBean> shoppingCartBeans;
+
+	
+	
+	public MultipartFile getItemImage1() {
+		return itemImage1;
+	}
+
+	public void setItemImage1(MultipartFile itemImage1) {
+		this.itemImage1 = itemImage1;
+	}
 
 	public Integer getItemId() {
 		return itemId;

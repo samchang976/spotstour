@@ -130,14 +130,15 @@ button { /*按鈕的樣式*/
 					<div>
 						<br> <br>
 						<div>
-							<button id="newM"
+							<button id="newM" class="btn btn-primary btn-lg"
 								onclick="location.href='${pageContext.request.contextPath}/merchandiseModify'">
-								<span class="fas fa-plus"></span>新增商品
+								<span class="fas fa-plus"></span> 新增商品
 							</button>
 							<!-- 							<button id="selectA">全選</button> -->
 							<!-- 							<button id="save">儲存變更</button> -->
-							<button id="allFeedback"
+							<button id="allFeedback" class="btn btn-primary btn-lg"
 								onclick="location.href='${pageContext.request.contextPath}/manageFeedback'">查看全部商品留言</button>
+						<br> <br>
 						</div>
 					</div>
 				</div>
@@ -178,7 +179,7 @@ button { /*按鈕的樣式*/
 						<!-- 			增加陰影效果 -->
 						<div class="shadow p-3 mb-5 bg-body rounded">
 							<div id="addSquare">
-								<form:form method='POST' modelAttribute='itemBean'>
+								<form:form method='POST' modelAttribute='itemBean' enctype="multipart/form-data">
 
 									<%-- 			<c:if test="${itemId!=null}"> --%>
 									<!-- 				<div class="form-group row"> -->
@@ -265,10 +266,13 @@ button { /*按鈕的樣式*/
 									<div id="addItem">
 										<div class="col col-2-1 C_SpCre">
 											<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
-											<img
+											<img id="photo" name="photo"
 												src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-												class="w-100"> 上傳照片1 <br> <input type="file"
-												name="itemPic1" />
+												class="w-100">
+												
+												 上傳照片1 <br> 
+<!-- 												 <input type="file" name="itemPic1" /> -->
+												 <form:input path="itemImage1" type='file' class="theFile"/>
 										</div>
 
 										<div class=" col col-3-1 C_SpCre">
@@ -282,7 +286,7 @@ button { /*按鈕的樣式*/
 										<div class="col col-4-1 C_SpCre">
 											<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
 											<img
-												src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+												src="${pageContext.request.contextPath}/images/itemImages/1/MAMA3.jpg"
 												class="w-100"> 上傳照片3 <br> <input type="file"
 												name="itemPic3" />
 										</div>
@@ -299,7 +303,7 @@ button { /*按鈕的樣式*/
 										<!-- 				</div> -->
 										<c:if test="${itemId==null}">
 											<div>
-												<button type="submit" id="btnAdd" class="btn btn-primary">新增</button>
+												<button type="submit" id="btnAdd" class="btn btn-primary btn-lg">新增</button>
 											</div>
 										</c:if>
 										<!-- 				<div> -->
@@ -308,8 +312,9 @@ button { /*按鈕的樣式*/
 
 										<c:if test="${itemId!=null}">
 											<div>
-												<button type="submit" id="editM" class="btn btn-primary"
-													onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">儲存變更</button>
+												<button type="submit" id="editM" class="btn btn-primary btn-lg"
+<%-- 													onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">儲存變更</button> --%>
+													onclick="location.href='merchandiseModify/get/Id=${itemId}'">儲存變更</button>
 											</div>
 										</c:if>
 									</div>
@@ -443,6 +448,29 @@ button { /*按鈕的樣式*/
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
+	<script>
+		const theFile = document.getElementById('itemPic1');
+		
+		theFile.addEventListener('change', function() {
+			console.log('ok');
+			showImg(theFile);
+		})
+		
+		function showImg(imgFile) {
+			var file = imgFile.files[0];
+
+			// 建立FileReader物件
+			var fr = new FileReader();
+
+			let photo = document.getElementById('photo');
+			//註冊load事件
+			fr.addEventListener('load', function(e) {
+				photo.src = e.target.result;
+			});
+			//readAsDataURL去讀 file 把檔案轉成 URL
+			fr.readAsDataURL(file);
+		}
+	</script>
 
 </body>
 </html>
