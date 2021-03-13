@@ -1,5 +1,6 @@
 package _23_submitOrder.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import _02_model.entity.MemberBean;
@@ -8,6 +9,7 @@ import _02_model.entity.Ord_detailBean;
 import _02_model.entity.Ord_statBean;
 import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
+import _23_submitOrder.vo.OrderVo;
 
 public interface OrderService {
 	
@@ -46,4 +48,6 @@ OrdBean getOrderByOrderId(int ord_Id);
 	List<Ord_statBean> getOrd_statList();
 	
 	List<Ord_detailBean> getAllOrd_detailsByOrd_Id(int ord_Id);
+	
+	public void addOrder(OrderVo orderVo);
 }

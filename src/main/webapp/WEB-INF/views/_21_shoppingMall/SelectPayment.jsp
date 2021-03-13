@@ -274,7 +274,7 @@
 				<%-- 				</c:forEach> --%>
 				<div class="col-12" id="SubmitBlock">
 					<button type="submit" class="btn btn-primary"
-						onclick="location.href='${pageContext.request.contextPath}/submitOrderInfo/Id=${LoginOK.mId}'">提交訂單資訊</button>
+						onclick="location.href='${pageContext.request.contextPath}/submitOrderInfo'">提交訂單資訊</button>
 				</div>
 			</form>
 		</div>

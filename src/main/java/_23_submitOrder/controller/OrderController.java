@@ -1,8 +1,11 @@
 package _23_submitOrder.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +24,7 @@ import _02_model.entity.ShoppingCartBean;
 import _21_merchandiseSearch.service.ItemService;
 import _22_shoppingCart.service.ShoppingCartService;
 import _23_submitOrder.service.OrderService;
+import _23_submitOrder.vo.OrderVo;
 
 @Controller
 public class OrderController {
@@ -54,17 +58,20 @@ public class OrderController {
 		return "_21_shoppingMall/PurchaseSuccess";
 	}
 
-	@RequestMapping("/selectPayment/Id={mId}")
-	public String selectPayment(@ModelAttribute("mId") @PathVariable("mId") Integer mId, Model model) {
-		
+	// 立即結帳按鈕
+	@RequestMapping("/selectPayment")
+	public String selectPayment(@ModelAttribute OrderVo orderVo, Model model, HttpSession session){
+//		orderVo.setmId((Integer)session.getAttribute("mId"));
+//		orderService.addOrder(orderVo);
 		return "_21_shoppingMall/SelectPayment";
 	}
 
-	@RequestMapping("/submitOrderInfo/Id={mId}")
-	public String getsubmitOrderInfo(@ModelAttribute("mId") @PathVariable("mId") int mId, Model model) {
+	@RequestMapping("/submitOrderInfo")
+	public String getsubmitOrderInfo(Model model, HttpSession session) {
 //		List<Ord_detailBean> list = orderService.getAllOrd_detailsByOrd_Id(ord_Id);
 //		model.addAttribute("ord_details", list);
-		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart(mId);
+		
+		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart((Integer)session.getAttribute("mId"));
 		model.addAttribute("cart", list);
 		return "_21_shoppingMall/SubmitOrderInfo";
 	}

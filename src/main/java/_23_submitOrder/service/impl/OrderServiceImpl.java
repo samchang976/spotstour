@@ -1,15 +1,13 @@
 package _23_submitOrder.service.impl;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import _02_model.entity.CountryBean;
-import _02_model.entity.FeedbackBean;
-import _02_model.entity.ItemBean;
-import _02_model.entity.Item_typeBean;
+import _00_util.DateTimeUtils;
 import _02_model.entity.MemberBean;
 import _02_model.entity.OrdBean;
 import _02_model.entity.Ord_detailBean;
@@ -18,6 +16,7 @@ import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
 import _23_submitOrder.dao.OrderDao;
 import _23_submitOrder.service.OrderService;
+import _23_submitOrder.vo.OrderVo;
 
 @Service
 public class OrderServiceImpl implements OrderService{
@@ -135,4 +134,34 @@ public class OrderServiceImpl implements OrderService{
 		return orderDao.getAllOrd_detailsByOrd_Id(ord_Id);
 	}
 
+	// 新增訂單
+	@Transactional
+	@Override
+	public void addOrder(OrderVo orderVo){
+		
+		//準備一個對應訂單的Bean
+		OrdBean ordBean = new OrdBean();
+		ordBean.setO_createTime(DateTimeUtils.getTimestamps());
+		ordBean.setS_mAddress(orderVo.getS_mAddress());
+		
+		//關聯會員的row
+		Integer mId = orderVo.getmId();
+		MemberBean mb = orderDao.getMemberById(mId);
+		ordBean.setMemberBean(mb);
+		//關聯發票類型的row
+		Integer rtId = orderVo.getReceiptTypeId();
+		Receipt_TypeBean rt = orderDao.getReceipt_TypeById(rtId);
+		ordBean.setReceiptTypeBean(rt);
+		//關聯訂單狀態類型的row
+		Integer oId = orderVo.getoSid();
+		Ord_statBean ob = orderDao.getOrd_statById(oId);
+		ordBean.setOrdStatBean(ob);
+		//關聯配送狀態類型的row
+		Integer stId = orderVo.getShipTypeId();
+		Ship_TypeBean sb = orderDao.getShip_TypeById(stId);
+		ordBean.setShipTypeBean(sb);
+		
+		//新增訂單
+		orderDao.addOrder(ordBean);
+	}
 }
