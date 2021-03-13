@@ -63,9 +63,9 @@
 					<div class="row">
 						<div class="col-12">
 							<!-- 訂單編號區塊 -->
-<!-- 							<div class="OrderNumber"> -->
-<%-- 								<span>訂單編號 : </span><span>FSWE1233${cart.sc_Id}</span> --%>
-<!-- 							</div> -->
+							<!-- 							<div class="OrderNumber"> -->
+							<%-- 								<span>訂單編號 : </span><span>FSWE1233${cart.sc_Id}</span> --%>
+							<!-- 							</div> -->
 						</div>
 					</div>
 
@@ -111,19 +111,22 @@
 			<div class="Orderer">
 				<!--付款資訊  -------------------------------------------------------------------------->
 				<div class="PayTitle">付款資訊</div>
+				<form:form method='POST' modelAttribute='orderVo'>
 
-				姓名 : ${LoginOK.mName} ■ 先生 □ 小姐 身分證字號 : A123456778 <br> ■ 貨到付款 □門市取貨付款<br>
-				手機 : ${LoginOK.mPhone} <br>
+				姓名 : ${orderVo.mName} <br> 性別 : ${orderVo.mGender} <br> 身分證字號 : ${orderVo.mUid} <br>
+					<%-- 				${orderVo.shipTypeId}<br> --%>
+				手機 : ${orderVo.mPhone} <br> 收件地址 : ${orderVo.s_mAddress}
 
-				<div class="PayTitle">發票</div>
+					<div class="PayTitle">發票</div>
+				■ 個人電子發票 □ 捐贈發票 □ 公司戶電子發票 ${orderVo.receiptType}<br>
+				
+
+					<div class="PayTitle">發票</div>
 				■ 個人電子發票 □ 捐贈發票 □ 公司戶電子發票<br>
 
-				<div class="PayTitle">收貨人</div>
-				姓名 : ${LoginOK.mName} 手機 : ${LoginOK.mPhone} <br> 收件地址 : 桃園市楊梅區光明街32巷123號1樓<br>
-
-				<div class="PayTitle">寄送方式</div>
+					<div class="PayTitle">寄送方式</div>
 				■ 宅配運送 □ 7-11取貨 □全家取貨<br>
-
+				</form:form>
 
 
 				<!--送出訂單  ---------------------------------------------------------------------------->
@@ -131,8 +134,7 @@
 					<div class="Submit">
 						<div class="row-12">
 							<div class="col" id="SubtotalBlock">
-								<c:set
-									value="${cart.s_ordQty * cart.itemBean.itemPrice}"
+								<c:set value="${cart.s_ordQty * cart.itemBean.itemPrice}"
 									var="sum" />
 								<c:set value="${sums + sum}" var="sums" />
 								<c:if test="${s.last==true}">

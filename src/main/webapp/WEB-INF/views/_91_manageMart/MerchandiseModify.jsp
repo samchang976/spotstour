@@ -155,11 +155,8 @@ button { /*按鈕的樣式*/
 							<h3>新增商品</h3>
 						</c:if>
 
-
 						<c:if test="${itemId!=null}">
-
 							<h3>編輯商品 (商品編號 : ${itemId})</h3>
-
 						</c:if>
 					</button>
 				</h2>

@@ -72,44 +72,39 @@ public class OrderDaoImpl implements Serializable, OrderDao {
 	@Override
 	public void addOrder(OrdBean ordBean) {
 		Session session = factory.getCurrentSession();
-		MemberBean mb = getMemberById(ordBean.getmTId()); 
-		Receipt_TypeBean rtb = getReceipt_TypeById(ordBean.getReceiptTypeTId());
-		Ship_TypeBean sb = getShip_TypeById(ordBean.getShipTypeTId());
-		Ord_statBean osb = getOrd_statById(ordBean.getoSTid());
-		
-		ordBean.setMemberBean(mb);
-		ordBean.setReceiptTypeBean(rtb);
-		ordBean.setShipTypeBean(sb);
-		ordBean.setOrdStatBean(osb);
 		session.save(ordBean);
 	}
 
 	@Override
 	public MemberBean getMemberById(int mId) {
 		Session session = factory.getCurrentSession();
-		MemberBean memberBean = session.get(MemberBean.class, mId);
-		return memberBean;
+		String hql = "FROM MemberBean mb WHERE mb.mId = :mId";
+		//撈出會員ID對應的整個row
+		return (MemberBean) session.createQuery(hql).setParameter("mId",mId).getSingleResult();
 	}
 
 	@Override
 	public Receipt_TypeBean getReceipt_TypeById(int receiptTypeId) {
 		Session session = factory.getCurrentSession();
-		Receipt_TypeBean receipt_TypeBean = session.get(Receipt_TypeBean.class, receiptTypeId);
-		return receipt_TypeBean;
+		String hql = "FROM Receipt_TypeBean rtb WHERE rtb.receiptTypeId = :receiptTypeId";
+		//撈出receiptTypeId對應的整個row
+		return (Receipt_TypeBean) session.createQuery(hql).setParameter("receiptTypeId",receiptTypeId).getSingleResult();
 	}
 
 	@Override
 	public Ship_TypeBean getShip_TypeById(int shipTypeId) {
 		Session session = factory.getCurrentSession();
-		Ship_TypeBean ship_TypeBean = session.get(Ship_TypeBean.class, shipTypeId);
-		return ship_TypeBean;
+		String hql = "FROM Ship_TypeBean stb WHERE stb.shipTypeId = :shipTypeId";
+		//撈出shipTypeId對應的整個row
+		return (Ship_TypeBean) session.createQuery(hql).setParameter("shipTypeId",shipTypeId).getSingleResult();
 	}
 
 	@Override
-	public Ord_statBean getOrd_statById(int counoSidtryId) {
+	public Ord_statBean getOrd_statById(int oSid) {
 		Session session = factory.getCurrentSession();
-		Ord_statBean ord_statBean = session.get(Ord_statBean.class, counoSidtryId);
-		return ord_statBean;
+		String hql = "FROM Ord_statBean osb WHERE osb.oSid = :oSid";
+		//撈出oSid對應的整個row
+		return (Ord_statBean) session.createQuery(hql).setParameter("oSid",oSid).getSingleResult();
 	}
 
 	@SuppressWarnings("unchecked")

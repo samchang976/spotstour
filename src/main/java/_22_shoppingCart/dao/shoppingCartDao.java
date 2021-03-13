@@ -31,4 +31,7 @@ public interface shoppingCartDao {
 
 	//判斷
 	public ShoppingCartBean hasCart(Integer memberId, Integer itemId);
+
+	//根據使用者id的清空所有購物車紀錄
+	public void deleteCartByMemberId(Integer memberId);
 }

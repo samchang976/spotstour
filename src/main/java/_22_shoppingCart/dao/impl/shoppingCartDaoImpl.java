@@ -127,6 +127,24 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 			System.out.println("addcart-dao判斷 完成==================");
 			return result.get(0); //0==>取得list的index=1的值
 		}
+		
+		@SuppressWarnings("unchecked")
+		@Override
+		public void deleteCartByMemberId(Integer mId) {
+			Session session = factory.getCurrentSession();
+			String hql = " FROM ShoppingCartBean c "
+					   + " WHERE c.memberBean.mId = :mId ";
+			List<ShoppingCartBean> carts = session.createQuery(hql)
+										  .setParameter("mId", mId)
+										  .getResultList();
+			if(carts != null) {
+				for(ShoppingCartBean cart : carts) {
+					cart.setMemberBean(null);
+					cart.setItemBean(null);
+					session.delete(cart);
+				}
+			}
+		}
 
 }
 

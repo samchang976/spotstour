@@ -10,11 +10,14 @@ public class OrderVo {
 	private String d_mAddress;	
 	private String mEmail;	
 	private String mUid;
+	private String mPhone;
 	private String s_mAddress;
+	private String mGender;
+	
 	private Integer ord_Id;	
 	private Integer ord_dId;
 	private Integer ordQty; 
-	private Integer oSid;
+	private Integer oSid = 1;
 	private String ordStat;
 	private Integer receiptTypeId;
  	private String receiptType;
@@ -29,8 +32,42 @@ public class OrderVo {
 	private Integer s_ordQty;
 	private Timestamp s_createTime;
 	private Timestamp o_createTime;
+//	private Integer shipTypeTId;
+//	private Integer receiptTypeTId;
+//	private Integer oSTid;
 	
 	
+	
+	public String getmGender() {
+		return mGender;
+	}
+	public void setmGender(String mGender) {
+		this.mGender = mGender;
+	}
+//	public Integer getShipTypeTId() {
+//		return shipTypeTId;
+//	}
+//	public void setShipTypeTId(Integer shipTypeTId) {
+//		this.shipTypeTId = shipTypeTId;
+//	}
+//	public Integer getReceiptTypeTId() {
+//		return receiptTypeTId;
+//	}
+//	public void setReceiptTypeTId(Integer receiptTypeTId) {
+//		this.receiptTypeTId = receiptTypeTId;
+//	}
+//	public Integer getoSTid() {
+//		return oSTid;
+//	}
+//	public void setoSTid(Integer oSTid) {
+//		this.oSTid = oSTid;
+//	}
+	public String getmPhone() {
+		return mPhone;
+	}
+	public void setmPhone(String mPhone) {
+		this.mPhone = mPhone;
+	}
 	public Integer getmId() {
 		return mId;
 	}

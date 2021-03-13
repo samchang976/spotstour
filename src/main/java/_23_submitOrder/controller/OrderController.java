@@ -1,6 +1,5 @@
 package _23_submitOrder.controller;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import _02_model.entity.MemberBean;
 import _02_model.entity.OrdBean;
@@ -27,6 +27,7 @@ import _23_submitOrder.service.OrderService;
 import _23_submitOrder.vo.OrderVo;
 
 @Controller
+@SessionAttributes("orderVo")
 public class OrderController {
 
 	@Autowired
@@ -53,27 +54,33 @@ public class OrderController {
 		return "_21_shoppingMall/OrderDetail";
 	}
 
-	@RequestMapping("/purchaseSuccess")
-	public String purchaseSuccess() {
-		return "_21_shoppingMall/PurchaseSuccess";
-	}
-
 	// 立即結帳按鈕
 	@RequestMapping("/selectPayment")
-	public String selectPayment(@ModelAttribute OrderVo orderVo, Model model, HttpSession session){
-//		orderVo.setmId((Integer)session.getAttribute("mId"));
-//		orderService.addOrder(orderVo);
+	public String selectPayment(Model model, HttpSession session){
 		return "_21_shoppingMall/SelectPayment";
 	}
 
 	@RequestMapping("/submitOrderInfo")
-	public String getsubmitOrderInfo(Model model, HttpSession session) {
-//		List<Ord_detailBean> list = orderService.getAllOrd_detailsByOrd_Id(ord_Id);
-//		model.addAttribute("ord_details", list);
+	public String getsubmitOrderInfo(@ModelAttribute OrderVo orderVo, Model model, HttpSession session) {
+		
+//		orderVo.setmId((Integer)session.getAttribute("mId"));
+		
+		model.addAttribute("orderVo", orderVo);
 		
 		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart((Integer)session.getAttribute("mId"));
 		model.addAttribute("cart", list);
 		return "_21_shoppingMall/SubmitOrderInfo";
+	}
+
+	@RequestMapping("/purchaseSuccess")
+	public String purchaseSuccess(@ModelAttribute OrderVo orderVo, Model model, HttpSession session) {
+		
+//		OrderVo orderVo1 = (OrderVo) model.getAttribute("orderVo");
+//		orderVo.setmId((Integer)session.getAttribute("mId"));
+		orderVo.setmId((Integer)session.getAttribute("mId"));
+		orderService.addOrder(orderVo);
+		
+		return "_21_shoppingMall/PurchaseSuccess";
 	}
 
 	@RequestMapping("/checkPayment")
@@ -88,6 +95,14 @@ public class OrderController {
 
 	// ====================
 
+	// 取得OrderVo
+	@ModelAttribute
+	public OrderVo getOrderVo(Model model) {
+		OrderVo orderVo = new OrderVo();
+		model.addAttribute("orderVo", orderVo);
+		return orderVo;
+	}
+	
 	// 取得OrdBean
 	@ModelAttribute
 	public OrdBean getOrdBean(Model model) {
