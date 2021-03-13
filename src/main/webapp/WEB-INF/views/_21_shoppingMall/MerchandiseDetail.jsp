@@ -62,7 +62,10 @@
 
 		<div class="container" id="container_MerchandiseDetail">
 			<!-- 上方 ------------------------------------------------------------------------------------>
+			
 			<form:form method='POST' modelAttribute='itemBean' action="${pageContext.request.contextPath}/shoppingCart/addQty/${itemBean.itemId}">
+<!-- 			增加陰影效果 -->
+			<div class="shadow p-3 mb-5 bg-body rounded">
 				<div class="row above">                                   
 					<div class="col-12 col-md-6">
 						<img src="https://fakeimg.pl/350x250/?text=World&font=lobster"
@@ -123,8 +126,8 @@
 						<%-- 						</form:form> --%>
 					</div>
 				</div>
+</div>
 			</form:form>
-
 			<!-- 下方 ----------------------------------------------------------------------------------->
 			<%-- 購買資訊分頁的按鈕-------------------------------------------------------------------  --%>
 			<!-- 			<div class="row AboutPurchaseInformation"> -->
@@ -149,6 +152,7 @@
 			<%-- 商品資訊------------------------------------------------------- -----------------------%>
 			<div class="row">
 				<div class="col-12">
+				<div class="shadow p-3 mb-5 bg-body rounded">
 					<div data-bs-spy="scroll" data-bs-target="#navbar-example2"
 						data-bs-offset="0" tabindex="0">
 						<div class="ItemInformationContent">
@@ -205,6 +209,7 @@
 							<div>${itemBean.itemDes}</div>
 						</div>
 					</div>
+					</div>
 				</div>
 				<!-- 加入購物車 --------------------------------------------------------------------------------->
 				<!-- 				<div class="row"> -->
@@ -222,6 +227,7 @@
 				<!-- 				</div> -->
 			</div>
 			<br>
+			<div class="shadow p-3 mb-5 bg-body rounded">
 			<h3 id="fb">${itemBean.itemHeader} 商品留言 : </h3>
 			
 			<div style="text-align: right;">
@@ -245,13 +251,16 @@
 					</div>
 				</c:forEach>
 			</div>
+			</div>
 			
+			<div class="shadow p-3 mb-5 bg-body rounded">
 			<c:if test="${ mPid != 2 && mPid != 1 }">
 				<div>
 					<button type="submit" id="login" class="btn btn-primary btn-lg"
 						onclick="location.href='${pageContext.request.contextPath}/login'">登入即可留言</button>
 				</div>
 			</c:if>
+			
 			
 			<c:if test="${ mPid == 2 || mPid == 1 }">
 				<h3 id="addFb">${itemBean.itemHeader} 新增商品留言 : </h3>
@@ -260,7 +269,7 @@
 						<label for="feedbackText" class="col-sm-2 col-form-label">新增留言</label>
 						<div class="col-sm-10">
 							<form:input type="text" path="feedbackText" class="form-control"
-								id="feedbackText" />
+								id="feedbackText" height="48px"/>
 						</div>
 					</div>
 					<div class="form-group row  d-flex justify-content-end mt-5">
@@ -271,6 +280,7 @@
 					</div>
 				</form:form>
 			</c:if>
+		</div>
 		</div>
 
 		<!-----------定位----------------------------------------------------------------------------->

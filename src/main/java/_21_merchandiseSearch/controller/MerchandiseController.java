@@ -103,7 +103,7 @@ public class MerchandiseController {
 	@PostMapping("/merchandiseDetail/Id={itemId}")
 	public String processAddNewFeedbackForm(@ModelAttribute("feedbackBean") FeedbackBean feedbackBean, Model model) {
 		managerItemService.addFeedback(feedbackBean);
-		return "redirect:/merchandiseDetail/Id={itemId}";
+		return "redirect:/merchandiseDetail/Id={itemId}#fb";
 	}
 
 //	=====================
