@@ -143,6 +143,10 @@ padding: 1px;
  #container_MerchandiseDetail .ItemInformationContent{
    padding: 50px;
  }
+ 
+ #container_MerchandiseDetail .mb-5 {
+    margin-bottom: 1rem!important;
+}
   
  #container_MerchandiseDetail .title{
     padding: 5px;

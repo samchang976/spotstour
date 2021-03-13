@@ -40,14 +40,14 @@ public class ManagerController {
 	@PostMapping("/merchandiseModify")
 	public String processAddNewMrchandiseForm(@ModelAttribute("itemBean") ItemBean itemBean, Model model) {
 		managerItemService.addItem(itemBean);
-		return "redirect:/merchandiseModify";
+		return "redirect:/merchandiseModify#searchi";
 	}
 
 	// 凍結商品(刪除)
 	@GetMapping("/merchandiseModify/delete/Id={itemId}")
 	public String freezeItem(@ModelAttribute("itemId") Integer itemId) {
 		managerItemService.freezeItemByItemId(itemId);
-		return "redirect:/merchandiseModify";
+		return "redirect:/merchandiseModify#searchi";
 	}
 
 	// 編輯及更新商品
@@ -56,7 +56,7 @@ public class ManagerController {
 	public String updateItem(@ModelAttribute(value = "itemId") Integer itemId,
 			@ModelAttribute("itemBean") ItemBean itemBeanN, Model model) {
 		managerItemService.updateItem(itemBeanN);
-		return "redirect:/merchandiseModify";
+		return "redirect:/merchandiseModify#searchi";
 	}
 
 	// 陳列全部商品留言

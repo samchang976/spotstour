@@ -72,13 +72,15 @@
 							class="w-100">
 					</div>
 					<div class="col-12 col-md-6">
-						<h2>${itemBean.itemHeader}</h2><br> 
+					<div style="line-height: 2.5;">
+						<h2>${itemBean.itemHeader}</h2> 
 						商品描述 : ${itemBean.itemDes}<br> 
 						<br> 
-						售價 :${itemBean.itemPrice}元<br> 
+						商品售價 :${itemBean.itemPrice}元<br> 
 						庫存數量 : ${itemBean.itemQty}<br>
 						代購國家 : ${itemBean.countryBean.countryName}<br> 
-						<select name="qty">
+						請選擇數量 :  
+						<select name="qty" class="form-select" aria-label="Default select example">
 <!-- 							<option  selected="selected" value="-1">請選擇數量</option> -->
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -90,8 +92,7 @@
 							<option value="8">8</option>
 							<option value="9">9</option>
 							<option value="10">10</option>
-						</select> <br> <br> <br> <br> <br>
-						<!-- 						款式資訊 : 辣味 | 原味 | 洋蔥 | 起司 <br> -->
+						</select> <br> <br> 
 
 <%-- 						<c:if test="${mPid==2||mPid==1}"> --%>
 <%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
@@ -125,6 +126,7 @@
 						<%-- 							</form:select> --%>
 						<%-- 						</form:form> --%>
 					</div>
+					</div>
 				</div>
 </div>
 			</form:form>
@@ -138,7 +140,15 @@
 			<!-- 				</div> -->
 			<!-- 			</div> -->
 
-			<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+			
+
+
+
+			<%-- 商品資訊------------------------------------------------------- -----------------------%>
+			<div class="row">
+				<div class="col-12">
+				<div class="shadow p-3 mb-5 bg-body rounded">
+				<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
 				<a class="navbar-brand" href="#"></a>
 				<ul class="nav nav-pills">
 					<li class="nav-item"><a class="nav-link" href="<c:url value="/aboutMerchandise"/>">關於商品資訊</a></li>
@@ -147,13 +157,6 @@
 					<li class="nav-item"><a class="nav-link" href="#addFb">新增商品留言</a></li>	
 				</ul>
 			</nav>
-
-
-
-			<%-- 商品資訊------------------------------------------------------- -----------------------%>
-			<div class="row">
-				<div class="col-12">
-				<div class="shadow p-3 mb-5 bg-body rounded">
 					<div data-bs-spy="scroll" data-bs-target="#navbar-example2"
 						data-bs-offset="0" tabindex="0">
 						<div class="ItemInformationContent">
@@ -237,7 +240,7 @@
 						timeStyle="long" value="${now}" /></span>
 			</div>
 			<br>	
-			<div class="overflow-scroll" style="height: 500px;">
+			<div class="overflow-scroll" style="height: 500px; line-height: 2.5;">
 				<c:forEach var='feedback' items='${feedbacks}'>
 					<div class="container-fluid">
 						<div class="row R_SpCre">
@@ -269,14 +272,14 @@
 					<div class="form-group row">
 						<label for="feedbackText" class="col-sm-2 col-form-label"></label>
 						<div class="col-sm-10">
-							<form:input type="text" path="feedbackText" class="form-control"
+							<form:textarea type="text" path="feedbackText" class="form-control"
 								id="feedbackText" />
 						</div>
 					</div>
 					<div class="form-group row  d-flex justify-content-end mt-5">
-						<div>
+						<div  style="text-align: center;">
 							<button type="submit" id="editM" class="btn btn-primary btn-lg"
-								onclick="location.href='/merchandiseDetail/Id=${item.itemId}'">新增</button>
+								onclick="location.href='/merchandiseDetail/Id=${item.itemId}'">新增留言</button>
 						</div>
 					</div>
 				</form:form>
