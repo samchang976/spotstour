@@ -4,6 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!doctype html>
 <html lang="en">
@@ -91,7 +92,7 @@
 
 <%-- 						<c:if test="${mPid==2||mPid==1}"> --%>
 <%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
-								<button type="submit"  id="like" class="Bt_black">
+								<button type="submit"  id="like" class="btn btn-primary btn-lg">
 									加入購物車
 								</button>
 <%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
@@ -101,7 +102,7 @@
 <%-- 						</form> --%>
 <%-- 						</c:if> --%>
 						
-						<button id="saleType" class="Bt_black">完售</button>
+						<button id="saleType" class="btn btn-secondary btn-lg" disabled>完售</button>
 						<br> <br>
 						<!-- 						<select> -->
 						<!-- 							<option selected="selected" value="">請選擇付款方式</option> -->
@@ -137,9 +138,9 @@
 			<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
 				<a class="navbar-brand" href="#"></a>
 				<ul class="nav nav-pills">
-					<li class="nav-item"><a class="nav-link" href="#des">商品描述</a>
-					</li>
+					<li class="nav-item"><a class="nav-link" href="#des">商品描述</a></li>
 					<li class="nav-item"><a class="nav-link" href="#fb">商品留言</a></li>
+					<li class="nav-item"><a class="nav-link" href="#addFb">新增商品留言</a></li>	
 				</ul>
 			</nav>
 
@@ -220,30 +221,40 @@
 				<!-- 					</div> -->
 				<!-- 				</div> -->
 			</div>
-			<h4 id="fb">商品敘述</h4>
-			<h3>${item.itemHeader}商品留言</h3>
-			<div class="overflow-scroll" style="height: 350px;">
+			<br>
+			<h3 id="fb">${itemBean.itemHeader} 商品留言 : </h3>
+			
+			<div style="text-align: right;">
+				<c:set var="now" value="<%=new java.util.Date()%>" />
+				<span>現在時間 : <fmt:formatDate type="both" dateStyle="long"
+						timeStyle="long" value="${now}" /></span>
+			</div>
+			<br>	
+			<div class="overflow-scroll" style="height: 500px;">
 				<c:forEach var='feedback' items='${feedbacks}'>
 					<div class="container-fluid">
 						<div class="row R_SpCre">
 							<div class="col col-2-1 C_SpCre">
-								<div>
-									商品留言時間:${feedback.f_createTime}<br>
-									商品留言:${feedback.feedbackText}<br>
+								<div class="shadow-sm p-3 mb-5 bg-body rounded">
+									<c:set var="fbCreateTime" value="${feedback.f_createTime}" />
+									<fmt:formatDate type="both" dateStyle="long" timeStyle="medium" value="${fbCreateTime}" /><br>
+									商品留言 : ${feedback.feedbackText}<br>
 								</div>
 							</div>
 						</div>
 					</div>
 				</c:forEach>
 			</div>
+			
 			<c:if test="${ mPid != 2 && mPid != 1 }">
 				<div>
-					<button type="submit" id="login" class="btn btn-primary"
+					<button type="submit" id="login" class="btn btn-primary btn-lg"
 						onclick="location.href='${pageContext.request.contextPath}/login'">登入即可留言</button>
 				</div>
 			</c:if>
+			
 			<c:if test="${ mPid == 2 || mPid == 1 }">
-				<h3>${item.itemHeader}新增商品留言</h3>
+				<h3 id="addFb">${itemBean.itemHeader} 新增商品留言 : </h3>
 				<form:form method='POST' modelAttribute='feedbackBean'>
 					<div class="form-group row">
 						<label for="feedbackText" class="col-sm-2 col-form-label">新增留言</label>
@@ -254,13 +265,12 @@
 					</div>
 					<div class="form-group row  d-flex justify-content-end mt-5">
 						<div>
-							<button type="submit" id="editM" class="btn btn-primary"
+							<button type="submit" id="editM" class="btn btn-primary btn-lg"
 								onclick="location.href='/merchandiseDetail/Id=${item.itemId}'">新增</button>
 						</div>
 					</div>
 				</form:form>
 			</c:if>
-
 		</div>
 
 		<!-----------定位----------------------------------------------------------------------------->

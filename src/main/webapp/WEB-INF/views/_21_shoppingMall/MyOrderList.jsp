@@ -63,14 +63,16 @@
 
 			<c:forEach var='order' items='${orders}' varStatus="s">
 				<c:if test="${s.first==true}">
-<div style="text-align: left;">
-					<form:form method='POST' modelAttribute='ordBean'>
-						<form:select path="ordStatBean.oSid" class="custom-select">
-							<form:option value="-1" label="請選擇訂單狀態" />
-							<form:options items="${ordStatMap}" />
-						</form:select>
-					</form:form>
-</div>
+				
+					<div style="text-align: left;">
+						<form:form method='POST' modelAttribute='ordBean'>
+							<form:select path="ordStatBean.oSid" class="custom-select">
+								<form:option value="-1" label="請選擇訂單狀態" />
+								<form:options items="${ordStatMap}" />
+							</form:select>
+						</form:form>
+					</div>
+					
 					<div style="text-align: right;">
 						<c:set var="now" value="<%=new java.util.Date()%>" />
 						<span>現在時間 : <fmt:formatDate type="both" dateStyle="long"
