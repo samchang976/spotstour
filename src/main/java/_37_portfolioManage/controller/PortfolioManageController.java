@@ -22,6 +22,7 @@ import _37_portfolioManage.controller.vo.PortfolioBeanVo;
 import _37_portfolioManage.service.CreatePortfolioService;
 import _37_portfolioManage.service.GetCityListService;
 import _37_portfolioManage.service.GetPlace_TypeListService;
+import _37_portfolioManage.service.ShowPersonalPortfolioService;
 
 @Controller
 public class PortfolioManageController {
@@ -32,7 +33,8 @@ public class PortfolioManageController {
 	private GetCityListService getCityListService;
 	@Autowired
 	private GetPlace_TypeListService getPlace_TypeListService;
-	
+	@Autowired
+	private ShowPersonalPortfolioService showPersonalPortfolioService;
 	
 	
 	//新增影片跳轉
@@ -47,7 +49,9 @@ public class PortfolioManageController {
 	}
 	//個人作品跳轉
 	@RequestMapping("personalPortfolio")
-	public String getPersonalVideo() {
+	public String getPersonalVideo(HttpSession session,Model model) {
+		model.addAttribute("mId", session.getAttribute("mId"));
+		model.addAttribute("memberPortfolioList",showPersonalPortfolioService.queryMemberPortfolio(model));
 		return "_31_portfolio/PersonalPortfolio";
 	}
 	//收藏影片跳轉
