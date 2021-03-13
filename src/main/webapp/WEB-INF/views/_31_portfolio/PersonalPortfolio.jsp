@@ -52,7 +52,7 @@
 	</div>
 	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-		<!------------------------------------------------------------------------------------------->
+	<!------------------------------------------------------------------------------------------->
 
 		<!-- 個人作品 -->
 		<div class="row">
@@ -79,9 +79,10 @@
 				</form>
 			</div>
 		</div>
+	 <!------------------------------------------------------------------------------------------->
 
 
-		<c:forEach var='item' items='${items}'>
+		<c:forEach items="${memberPortfolioList}" var="mpl">
 			<div class="container-fluid">
 				<div class="shadow p-3 mb-5 bg-body rounded" style="margin: 10px;">
 					<div class="row R_SpCre">
@@ -91,7 +92,7 @@
 						</div>
 
 						<div class="col col-2-1 C_SpCre">
-							<div>${item.itemId}商品標頭:${item.itemHeader}</div>
+							<div>${mpl.portfolioName}商品標頭:${item.itemHeader}</div>
 							<br>
 							<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
 							<div>

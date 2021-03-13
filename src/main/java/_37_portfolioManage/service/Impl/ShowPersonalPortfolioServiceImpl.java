@@ -8,22 +8,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
-import _37_portfolioManage.dao.MemberDao;
+import _37_portfolioManage.dao.QueryPersonalPortfolioDao;
 import _37_portfolioManage.service.ShowPersonalPortfolioService;
 
 @Service
 public class ShowPersonalPortfolioServiceImpl implements ShowPersonalPortfolioService{
 	
 	@Autowired
-	private MemberDao memberDao;
+	private QueryPersonalPortfolioDao queryPersonalPortfolioDao;
 	
 	@Transactional
 	@Override
 	public List<Map<String, Object>> queryMemberPortfolio(Model model) {
-		MemberDao mb = (MemberDao) memberDao.getMemberById((Integer) model.getAttribute("mId"));
 		
-		
-		return null;
+		return queryPersonalPortfolioDao.getMemberPortfolio((Integer) model.getAttribute("mId"));
 	}
 
 }
