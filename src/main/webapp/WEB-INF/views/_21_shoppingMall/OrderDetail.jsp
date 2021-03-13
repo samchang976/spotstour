@@ -119,13 +119,13 @@
 					<!--數量  -->
 					<div class="col-1 ">
 						<div>
-							<div><h5>${ord_detail.ordQty}</h5></div>
+							<div><h5>${ord_detail.ordQty}個</h5></div>
 						</div>
 					</div>
 					<!-- 單價 -->
-					<div class="col-1 "><h5>${ord_detail.itemBean.itemPrice}</h5></div>
+					<div class="col-1 "><h5>${ord_detail.itemBean.itemPrice}元</h5></div>
 					<!-- 小計 -->
-					<div class="col-1 "><h5>${ord_detail.ordQty * ord_detail.itemBean.itemPrice}</h5></div>
+					<div class="col-1 "><h5>${ord_detail.ordQty * ord_detail.itemBean.itemPrice}元</h5></div>
 				</div>
 				<!-- 總金額 -->
 				<div class="Total">
@@ -137,11 +137,11 @@
 						<c:if test="${s.last==true}">
 							<h4>共<span id="items"> <c:out value="${s.count}" />
 							</span>
-							商品，原價總金額 : <span id="subtotal"><fmt:formatNumber maxFractionDigits="0" value="${sums}" type="currency"/></span>元
+							商品，原價總金額 : <span id="subtotal1"><fmt:formatNumber maxFractionDigits="0" value="${sums}" type="currency"/></span>元
             				<br><br>
 							<c:set var="formatSums" value="${sums * 0.8}" />
 							
-							折扣後總金額 : <span id="subtotal"><fmt:formatNumber maxFractionDigits="0" value="${formatSums}" type="currency"/></span>元
+							使用八折優惠券 折扣後總金額 : <span id="subtotal2"><fmt:formatNumber maxFractionDigits="0" value="${formatSums}" type="currency"/></span>元
 							<br>
 						</h4>
 						</c:if>
