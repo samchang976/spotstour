@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
+import _02_model.entity.Ord_statBean;
 import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
 import _21_merchandiseSearch.dao.ItemDao;

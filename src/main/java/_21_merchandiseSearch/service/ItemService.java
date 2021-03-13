@@ -5,6 +5,7 @@ import java.util.Set;
 
 import _02_model.entity.CountryBean;
 import _02_model.entity.ItemBean;
+import _02_model.entity.Ord_statBean;
 import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
 

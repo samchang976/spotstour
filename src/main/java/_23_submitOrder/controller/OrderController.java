@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import _02_model.entity.MemberBean;
 import _02_model.entity.OrdBean;
 import _02_model.entity.Ord_detailBean;
+import _02_model.entity.Ord_statBean;
 import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
 import _02_model.entity.ShoppingCartBean;
@@ -41,11 +42,33 @@ public class OrderController {
 
 	// 陳列所有訂單
 	@RequestMapping("/myOrderList")
-	public String myOrderList(Model model) {
-		List<OrdBean> list = orderService.getAllOrders();
+	public String myOrderList(Model model, HttpSession session) {
+		Integer mId = (Integer) session.getAttribute("mId");
+		Integer mPid = (Integer) session.getAttribute("mPid");
+		List<OrdBean> list = null;
+		if(mPid == 1) {
+			list = orderService.getAllOrders();
+		}else {
+			list = orderService.getAllOrdersByMemberId(mId);
+		}
 		model.addAttribute("orders", list);
 		return "_21_shoppingMall/MyOrderList";
 	}
+	
+	// 陳列訂單依出貨分類
+//	@RequestMapping("/myOrderList/Id={0}")
+//	public String myOrderListByOrderStat(Model model, HttpSession session) {
+//		Integer mId = (Integer) session.getAttribute("mId");
+//		Integer mPid = (Integer) session.getAttribute("mPid");
+//		List<OrdBean> list = null;
+//		if(mPid == 1) {
+//			list = orderService.getAllOrders();
+//		}else {
+//			list = orderService.getAllOrdersByMemberId(mId);
+//		}
+//		model.addAttribute("orders", list);
+//		return "_21_shoppingMall/MyOrderList";
+//	}
 
 	@RequestMapping({"/orderDetail/Id={ord_Id}"})
 	public String orderDetail(@ModelAttribute("ord_Id") @PathVariable("ord_Id") Integer ord_Id, Model model) {
@@ -147,6 +170,17 @@ public class OrderController {
 			receipt_TypeMap.put(rtb.getReceiptTypeId(), rtb.getReceiptType());
 		}
 		return receipt_TypeMap;
+	}
+	
+	// 取得訂單狀態
+	@ModelAttribute("ordStatMap")
+	public Map<Integer, String> getOrdStatMap() {
+		Map<Integer, String> ordStatMap = new HashMap<>();
+		List<Ord_statBean> list = orderService.getOrd_statList();
+		for (Ord_statBean osb : list) {
+			ordStatMap.put(osb.getoSid(), osb.getOrdStat());
+		}
+		return ordStatMap;
 	}
 
 }

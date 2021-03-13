@@ -4,6 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!doctype html>
 <html lang="en">
@@ -63,11 +64,23 @@
 						<div class="col-12">
 							<!-- 訂單編號區塊 -->
 							<div class="OrderNumber">
-								<span>訂單編號 : </span><span>FSWE1233${ord_detail.ord_dId}</span> <span>訂購時間
-									:</span><span>${ord_detail.ordBean.o_createTime}</span>
+								<div style="text-align:right;">
+									<c:set var="now" value="<%=new java.util.Date()%>" />
+									<span>現在時間 : <fmt:formatDate type="both"  dateStyle="long" timeStyle="long" value="${now}" /></span>
+								</div>
+							
+							<br>
+								<span>訂單編號 : </span>
+								<span>FSWE1233${ord_detail.ord_dId}</span> 
+								<br>
+								<span>訂購時間 : </span>
+									<c:set var="orderTime" value="${ord_detail.ordBean.o_createTime}" />
+									<fmt:formatDate type="date"  value="${orderTime}" />
+<%-- 									<span>${ord_detail.ordBean.o_createTime}</span> --%>
 							</div>
 						</div>
 					</div>
+					
 
 					<!-- 欄位敘述 -------------------------------------------------->
 					<div class="row">
@@ -114,7 +127,13 @@
 						<c:if test="${s.last==true}">
 							共<span id="items"> <c:out value="${s.count}" />
 							</span>
-							商品，總金額 : <span id="subtotal">${sums}</span>元
+							商品，原價總金額 : <span id="subtotal"><fmt:formatNumber maxFractionDigits="0" value="${sums}" type="currency"/></span>元
+            				<br><br>
+							<c:set var="formatSums" value="${sums * 0.8}" />
+							
+							折扣後總金額 : <span id="subtotal"><fmt:formatNumber maxFractionDigits="0" value="${formatSums}" type="currency"/></span>元
+							<br>
+						
 						</c:if>
 
 					</div>

@@ -35,7 +35,7 @@ public interface OrderDao {
 	
 	public Ship_TypeBean getShip_TypeById(int shipTypeId);
 	
-	public Ord_statBean getOrd_statById(int counoSidtryId);
+	public Ord_statBean getOrd_statById(int oSid);
 	
 	List<MemberBean> getMemberList();
 	

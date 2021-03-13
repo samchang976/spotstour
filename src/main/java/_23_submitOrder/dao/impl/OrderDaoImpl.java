@@ -50,7 +50,7 @@ public class OrderDaoImpl implements Serializable, OrderDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<OrdBean> getAllOrdersByMemberId(int mTId) {
-		String hql = "FROM OrdBean WHERE mTId = :id ORDER BY o_createTime ASC";
+		String hql = "FROM OrdBean WHERE memberBean.mId = :id ORDER BY o_createTime ASC";
 		Session session = factory.getCurrentSession();
 		List<OrdBean> list = session.createQuery(hql)
 				.setParameter("id", mTId)
@@ -61,7 +61,7 @@ public class OrderDaoImpl implements Serializable, OrderDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<OrdBean> getAllOrdersByShipTypeId(int shipTypeTId) {
-		String hql = "FROM OrdBean WHERE shipTypeTId = :id ORDER BY o_createTime ASC";
+		String hql = "FROM OrdBean WHERE shipTypeBean.shipTypeId = :id ORDER BY o_createTime ASC";
 		Session session = factory.getCurrentSession();
 		List<OrdBean> list = session.createQuery(hql)
 				.setParameter("id", shipTypeTId)

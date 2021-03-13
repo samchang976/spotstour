@@ -172,17 +172,19 @@ ul.nav.nav-tabs {
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="bottom" title="商城資訊"></a>
 					<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="<c:url value="/merchandiseIndex"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢全部代購商品">購物商城</a></li>
-							<li><a class="dropdown-item" href="<c:url value="/aboutMerchandise"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢關於商品配送資訊">關於商品資訊</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/merchandiseIndex"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="前往商城首頁查詢全部商品">購物商城首頁</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/aboutMerchandise"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢關於商品配送資訊">關於商品配送資訊</a></li>
 							
 						<c:if test="${ mPid == 2 || mPid == 1}">
-							<li><a class="dropdown-item" href="<c:url value="/shoppingCart"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員可以查詢已加入購物車內容">購物車</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/shoppingCart"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員可以查詢個人已加入購物車內容">我的購物車</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/myOrderList"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員可以查詢個人訂單及訂單明細">我的訂單</a></li>
 						</c:if>
 						<c:if test="${ mPid == 1 }">
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="<c:url value="/merchandiseModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有商城商品">管理商城</a></li>
 							<li><a class="dropdown-item" href="<c:url value="/activityList"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有商城活動資訊">管理活動列表</a></li>
-							<li><a class="dropdown-item" href="<c:url value="/activityModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增商城活動資訊">管理活動快訊</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/activityModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增商城活動資訊">新增活動快訊</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/myOrderList"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以查看所有訂單資訊">管理訂單資訊</a></li>
 							<li><a class="dropdown-item" href="<c:url value="/aboutMerchandiseModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以修改商品資訊">編輯關於商品資訊</a></li>
 							<li><a class="dropdown-item" href="<c:url value="/manageMerchandiseReport"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以修改有關退換貨商品資訊">管理退貨商品列表</a></li>
 							<li><a class="dropdown-item" href="<c:url value="/manageVideoReport"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有影片不當的內容">管理檢舉影片</a></li>
