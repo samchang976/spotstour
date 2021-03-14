@@ -87,10 +87,10 @@
 
 					<!-- 欄位敘述 -------------------------------------------------->
 					<div class="row">
-						<div class="col-6 FieldDescription">
+						<div class="col-5 FieldDescription">
 							<div>商品名稱</div>
 						</div>
-						<div class="col-2 FieldDescription">產地</div>
+						<div class="col-1 FieldDescription">產地</div>
 						<div class="col-1 FieldDescription">數量</div>
 						<div class="col-1 FieldDescription">單價</div>
 						<div class="col-1 FieldDescription">小計</div>
@@ -105,13 +105,13 @@
 						<i class="fas fa-search"></i>
 					</div>
 
-					<div class="col-4 ">
+					<div class="col-3 ">
 						<div>
 							${ord_detail.itemBean.itemHeader}
 						</div>
 					</div>
 					<!--產地  -->
-					<div class="col-2 ">
+					<div class="col-1 ">
 						<div>
 							<div>${ord_detail.itemBean.countryBean.countryName}</div>
 						</div>
@@ -141,7 +141,7 @@
             				<br><br>
 							<c:set var="formatSums" value="${sums * 0.8}" />
 							
-							使用八折優惠券 折扣後總金額 : <span id="subtotal2"><fmt:formatNumber maxFractionDigits="0" value="${formatSums}" type="currency"/></span>元
+							使用八折優惠券，折扣後總金額 : <span id="subtotal2"><fmt:formatNumber maxFractionDigits="0" value="${formatSums}" type="currency"/></span>元
 							<br>
 						</h5>
 						</c:if>

@@ -74,11 +74,11 @@
 						</div>
 
 						<!-- 欄位敘述 -------------------------------------------------->
-						<div class="row">
+						<div class="row" style="text-align:center;">
 							<div class="col-5 FieldDescription">
 								<div>商品名稱</div>
 							</div>
-							<div class="col-2 FieldDescription">產地</div>
+							<div class="col-1 FieldDescription">產地</div>
 							<div class="col-1 FieldDescription">數量</div>
 							<div class="col-1 FieldDescription">單價</div>
 							<div class="col-1 FieldDescription">小計</div>
@@ -86,18 +86,18 @@
 						</div>
 					</c:if>
 					<!-- 商品清單 ------------------------------------------------------------------->
-					<div class="row Item">
+					<div class="row Item" style="text-align:center;">
 						<!-- 商品照片 -->
-						<div class="col-3 ">
+						<div class="col-2 ">
 							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
 							<i class="fas fa-search" style="float: right;"></i>
 						</div>
 
-						<div class="col-2 ">
+						<div class="col-3 ">
 							<div>${cart.itemBean.itemHeader}</div>
 						</div>
 						<!--產地  -->
-						<div class="col-2 ">
+						<div class="col-1 ">
 							<div>
 								<div>${cart.itemBean.countryBean.countryName}</div>
 							</div>
@@ -105,13 +105,13 @@
 						<!--數量  -->
 						<div class="col-1 ">
 							<div>
-								<div>${cart.s_ordQty}</div>
+								<div>${cart.s_ordQty}個</div>
 							</div>
 						</div>
 						<!-- 單價 -->
-						<div class="col-1 ">${cart.itemBean.itemPrice}</div>
+						<div class="col-1 ">${cart.itemBean.itemPrice}元</div>
 						<!-- 小計 -->
-						<div class="col-1 ">${cart.s_ordQty * cart.itemBean.itemPrice}</div>
+						<div class="col-1 ">${cart.s_ordQty * cart.itemBean.itemPrice}元</div>
 						<!-- 狀態 -->
 						<div class="col-1 ">足夠</div>
 					</div>
@@ -199,6 +199,11 @@
 											</span> 商品，原價總金額 : <span id="subtotal1"><fmt:formatNumber
 													maxFractionDigits="0" value="${sums}" type="currency" /></span>元
 											<br> <br>
+											<c:set var="formatSums" value="${sums * 0.8}" />
+
+											使用八折優惠券，折扣後總金額 : <span id="subtotal2"><fmt:formatNumber
+													maxFractionDigits="0" value="${formatSums}" type="currency" /></span>元
+											<br>
 										</h5>
 									</c:if>
 								</div>

@@ -77,7 +77,7 @@
 									<div class="col-auto">
 										<form:input type="text" id="mName" class="form-control"
 											path="mName" name="mName" value="${LoginOK.mName}"
-											placeholder="${LoginOK.mName}" disabled="true" />
+											placeholder="${LoginOK.mName}"/>
 									</div>
 								</div>
 							</div>
@@ -92,7 +92,7 @@
 									<div class="col-auto">
 										<form:input type="text" id="mGender" class="form-control"
 											path="mGender" name="mGender" value="${LoginOK.mGender}"
-											placeholder="${LoginOK.mGender}" disabled="true" />
+											placeholder="${LoginOK.mGender}"/>
 									</div>
 								</div>
 							</div>
@@ -108,7 +108,7 @@
 									<div class="col-auto">
 										<form:input type="text" id="mUid" class="form-control"
 											path="mUid" name="mUid" value="${LoginOK.mUid}"
-											placeholder="${LoginOK.mUid}" disabled="true" />
+											placeholder="${LoginOK.mUid}"/>
 									</div>
 								</div>
 							</div>
@@ -124,7 +124,7 @@
 									<div class="col-auto">
 										<form:input type="text" id="mPhone" class="form-control"
 											path="mPhone" name="mPhone" value="${LoginOK.mPhone}"
-											placeholder="${LoginOK.mPhone}" disabled="true" />
+											placeholder="${LoginOK.mPhone}"/>
 									</div>
 								</div>
 							</div>
@@ -134,23 +134,24 @@
 							<div class="input-group mb-3">
 								<div class="row g-3 align-items-center">
 									<div class="col-auto">
-										<label for="Orderer" class="col-form-label">地址 :</label>
+										<label for="Orderer" class="col-form-label">原地址 :</label>
 									</div>
 
 									<div class="col-auto">
 										<form:input type="text" id="d_mAddress" class="form-control"
 											path="d_mAddress" name="d_mAddress"
 											value="${LoginOK.d_mAddress}"
-											placeholder="${LoginOK.d_mAddress}" disabled="true" />
+											placeholder="${LoginOK.d_mAddress}" />
 									</div>
 								</div>
 							</div>
 						</div>
+						
 						<div class="form-group row">
 							<div class="input-group mb-3">
 								<div class="row g-3 align-items-center">
 									<div class="col-auto">
-										<label for="Orderer" class="col-form-label">更改收件地址 :</label>
+										<label for="Orderer" class="col-form-label">新地址 :</label>
 									</div>
 
 									<div class="col-auto">
@@ -162,39 +163,70 @@
 								</div>
 							</div>
 						</div>
-
-
 					</div>
 					<!-- 付款方式 ------------------------------------------------------------------->
-					<div>
-						<label for="Orderer" class="col-form-label">付款方式 :</label> <select
-							class="form-select" aria-label="Default select example">
-							<option selected="selected" value="">請選擇付款方式</option>
-							<option value="1">貨到付款</option>
-							<option value="2">超商取貨付款</option>
-							<option value="3">信用卡付款</option>
-						</select>
+					<div class="form-group row">
+						<div class="input-group mb-3">
+							<div class="col-2">
+								<label for="Orderer" class="col-form-label">付款方式:</label>
+							</div>
+							<div class="col-10">
+								<select class="form-select" aria-label="Default select example">
+									<option selected="selected" value="">請選擇付款方式</option>
+									<option value="1">貨到付款</option>
+									<option value="2">超商取貨付款</option>
+									<option value="3">信用卡付款</option>
+								</select>
+							</div>
+						</div>
 					</div>
 
 					<!-- 發票類型 --------------------------------------------------------------->
-					<div>
-						<label for="Orderer" class="col-form-label">發票類型 :</label>
-						<form:select path="receiptTypeId" class="form-select"
-							aria-label="Default select example">
-							<form:option value="-1" label="請選擇發票型式" />
-							<form:options items="${receipt_TypeMap}" />
-						</form:select>
+					<div class="form-group row">
+						<div class="input-group mb-3">
+							<div class="col-2">
+								<label for="Orderer" class="col-form-label">發票類型:</label>
+							</div>
+							<div class="col-10">
+								<form:select path="receiptTypeId" class="form-select"
+									aria-label="Default select example">
+									<form:option value="-1" label="請選擇發票型式" />
+									<form:options items="${receipt_TypeMap}" />
+								</form:select>
+							</div>
+						</div>
 					</div>
 
 					<!-- 寄送方式 --------------------------------------------------------------->
-					<div>
-						<label for="Orderer" class="col-form-label">寄送方式 :</label>
-						<form:select path="shipTypeId" class="form-select"
-							aria-label="Default select example">
-							<form:option value="-1" label="請選擇寄送方式" />
-							<form:options items="${ship_TypeMap}" />
-						</form:select>
+					<div class="form-group row">
+						<div class="input-group mb-3">
+							<div class="col-2">
+								<label for="Orderer" class="col-form-label">寄送方式:</label>
+							</div>
+							<div class="col-10">
+								<form:select path="shipTypeId" class="form-select"
+									aria-label="Default select example">
+									<form:option value="-1" label="請選擇寄送方式" />
+									<form:options items="${ship_TypeMap}" />
+								</form:select>
+							</div>
+						</div>
 					</div>
+					
+					<div class="form-group row">
+							<div class="input-group mb-3">
+								<div class="row g-3 align-items-center">
+									<div class="col-auto">
+										<label for="Orderer" class="col-form-label">折扣碼 :</label>
+									</div>
+
+									<div class="col-auto">
+										<input type="text" id="code" name="code" class="form-control"
+											placeholder="請輸入折扣碼" />
+									</div>
+								</div>
+							</div>
+						</div>
 					<br>
 					<!--送出  ----------------------------------------------------------------------->
 					<%-- 				<c:forEach var='order' items='${orders}'> --%>

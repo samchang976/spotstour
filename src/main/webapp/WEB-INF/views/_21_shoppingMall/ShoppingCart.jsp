@@ -56,6 +56,9 @@
 		<!------------------------------------------------------------------------------------------->
 
 		<div class="container" id="container_ShoppingCart">
+		<div style="text-align: center;">
+				<h2>我的購物車</h2>
+			</div>
 			<!-- 上方按鈕區------------------------------------------------------------ -->
 			<div class="row ButtonsBlock">
 				<div class="col-12 ">
@@ -65,12 +68,14 @@
 
 			</div>
 			<!-- 欄位敘述------------------------------------------------------------ -->
+			<div class="shadow p-3 mb-5 bg-body rounded">
 			<div class="row">
 				<div class="col-1 FieldDescription">選擇</div>
-				<div class="col-4 FieldDescription">
+				<div class="col-5 FieldDescription">
 					<div>商品名稱</div>
 				</div>
 				<!-- 商品照片 --------------------------------------------------------->
+				<div class="col-1 FieldDescription">產地</div>
 				<div class="col-1 FieldDescription">數量</div>
 				<div class="col-1 FieldDescription">單價</div>
 				<div class="col-1 FieldDescription">小計</div>
@@ -93,8 +98,12 @@
 							class="w-100"> <i class="fas fa-search float-right"></i>
 					</div>
 					<!-- 商品名稱 -------------------------------------------------------->
-					<div class="col-2 ItemField">
+					<div class="col-3 ItemField">
 						<div>${cart.itemBean.itemHeader}</div>
+					</div>
+					<!-- 商品產地 -------------------------------------------------------->
+					<div class="col-1 ItemField">
+						<div>${cart.itemBean.countryBean.countryName}</div>
 					</div>
 					<!-- 選擇數量 -------------------------------------------------------->
 					<div class="col-1 ItemField">
@@ -128,7 +137,7 @@
 					<!-- 刪除----- ----------------------------------------------------->
 					<div class="col-1 ItemField">
 						<form action="shoppingCart/delete/Id=${cart.sc_Id}" method='post'>
-							<input class='Bt_blue' value="刪除" type="submit">
+							<input class='btn btn-primary' value="刪除" type="submit">
 						</form>
 					</div>
 
@@ -138,9 +147,13 @@
 			<hr>
 			<div class="row-12" id="SubtotalBlock">
 				共<span id="items">${cartSize}</span>商品，總金額 : <span id="TotalMoney"></span>元
-				<button id="BtcheckNow" class="Bt_black " type="submit"
+				<div style="text-align: center;">
+				<button id="BtcheckNow" class="btn btn-primary btn-lg" type="submit"
 					onclick="location.href='${pageContext.request.contextPath}/selectPayment'">立即結帳</button>
 
+			
+			</div>
+			</div>
 			</div>
 		</div>
 		<!-----------定位----------------------------------------------------------------------------->

@@ -25,68 +25,76 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
-	
-	
+
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">	
-	
+	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallColor.css'></c:url>">
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/shoppingMallUtil/css/shoppingMallFont.css'></c:url>">
-	
+
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>訂購成功</title>
 </head>
 <body>
-<!--header=================================================================================  -->
+	<!--header=================================================================================  -->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!------------------------------------------------------------------------------------------->	
-	
-	<div class="container" id="container_PurchaseSuccess">
-		<!-- 訂單編號區塊 -->
-		<div class="row">
-			<div class="col-12">
-				<div class="OrderNumber">
-					<span>訂單編號 : </span> <span>FSWE1233245</span>
+		<!------------------------------------------------------------------------------------------->
+
+		<div class="container" id="container_PurchaseSuccess">
+			<!-- 訂單編號區塊 -->
+			<div class="row">
+				<div class="col-12">
+					<div class="OrderNumber">
+						<span>訂單編號 : </span> <span>FSWE1233245</span>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<!--訂購成功  -->
-		<div class="row">
-			<div class="col-12">
-				<div>
-					<i class="fas fa-check-circle"></i> <span id="successText">
-						訂購成功! </span>
+			<!--訂購成功  -->
+			<div class="row">
+				<div class="col-12">
+					<div>
+						<i class="fas fa-check-circle"></i> <span id="successText">
+							訂購成功! </span>
+					</div>
 				</div>
 			</div>
+			<!--感謝詞  -->
+
+			<div id="thanks">謝謝您!歡迎下次再光臨</div>
+
+			<!-- 我的訂單 -->
+			<button class="btn btn-primary btn-lg"
+				onclick="location.href='${pageContext.request.contextPath}/myOrderList'">我的訂單</button>
+
+			<!-- 回商城首頁 -->
+			<button class="btn btn-primary btn-lg"
+				onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
+
+
 		</div>
-		<!--感謝詞  -->
-
-		<div id="thanks">謝謝您!歡迎下次再光臨</div>
-
-		<button class="btn btn-primary btn-lg" onclick="location.href='${pageContext.request.contextPath}/myOrderList'">我的訂單</button>
+		<!-----------定位----------------------------------------------------------------------------->
 	</div>
-<!-----------定位----------------------------------------------------------------------------->       
-      </div>	
-<!--內嵌footer-------------------------------------------------------------------------------->
+	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-<!------------------------------------------------------------------------------------------->	
+	<!------------------------------------------------------------------------------------------->
 
 </body>
 </html>
