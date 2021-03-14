@@ -1,6 +1,7 @@
 package _22_shoppingCart.controller;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,13 +16,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import _02_model.entity.MemberBean;
+import _02_model.entity.ItemBean;
 import _02_model.entity.ShoppingCartBean;
+import _21_merchandiseSearch.dao.ItemDao;
 import _22_shoppingCart.dao.shoppingCartDao;
 import _22_shoppingCart.service.ShoppingCartService;
 
 @Controller
-@SessionAttributes({"LoginOK","Login","mId","hasItem"})
+@SessionAttributes({"LoginOK","Login","mId","hasItem","sessionShoppingCart"})
 public class ShoppingCartContent {
 
 	public ShoppingCartContent() {
@@ -33,6 +35,9 @@ public class ShoppingCartContent {
 	
 	@Autowired
 	shoppingCartDao shoppingCartDao;
+	
+	@Autowired
+	ItemDao itemDao;
 //查詢購物車內容====================================================================================
 	@GetMapping("shoppingCart")
 	public String list(Model model) {
@@ -120,33 +125,38 @@ public class ShoppingCartContent {
 		return "redirect:/shoppingCart";
 	}
 	
-	//加入購物車
+	//加入購物車:加入會員才能購物
 	@Transactional
 	@PostMapping({"shoppingCart/add/{itemId}","/merchandiseSearchResult/shoppingCart/add/{itemId}"})
 	public String addShoppingCart(
 			@PathVariable("itemId")Integer itemId,
-			Model model) {
+			Model model) throws InterruptedException {
 		//1.判斷用戶是否存在
 				Integer member = (Integer) model.getAttribute("mId");
 				System.out.println(member);
 				if( member == null) { //1:管理員 2:會員
-					return "redirect:/login";
-					
+					return "redirect:/login";			
 				}
 //		Integer a = (Integer) model.getAttribute("mId");
 //		System.out.println("ABCDE"+a);
-		ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
-		shoppingCartBean.setS_ordQty(1);
-		shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(itemId));
-		shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId((Integer) model.getAttribute("mId")));
-		shoppingCartService.addShoppingCart(shoppingCartBean);
-		return "redirect:/shoppingCart";
+//		ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
+//		shoppingCartBean.setS_ordQty(1);
+//		shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(itemId));
+//		shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId((Integer) model.getAttribute("mId")));
+//		
+		String hasItem = shoppingCartService.addToCart(member, itemId, 1);
+		model.addAttribute("hasItem", hasItem); //存入session
+		
+//		shoppingCartService.addShoppingCart(shoppingCartBean);
+//		return "redirect:/shoppingCart";
+		Thread.sleep(2000);
+		return "redirect:/merchandiseSearchResult";
+		
 	}
 	
-	
-	//加入購物車有傳數量的===>商品詳細資訊那邊
+	//加入購物車有傳數量的===>商品詳細資訊那邊:加入會員才能購物
 	@PostMapping("/shoppingCart/addQty/{itemId}")
-	public String creatCart(
+	public String addShoppingCartHaveQty(
 			Model model,
 			@PathVariable("itemId") Integer itemId,
 			@RequestParam("qty") Integer qty
@@ -160,13 +170,33 @@ public class ShoppingCartContent {
 			
 		}
 
-		//創建購物車(傳入會員編號, 產品編號, 數量)
+		//2.創建購物車(傳入會員編號, 產品編號, 數量)
 		String hasItem = shoppingCartService.addToCart(member, itemId, qty);
 		model.addAttribute("hasItem", hasItem);
 		System.out.println(member);
 		System.out.println("addcart============================");
 		return "redirect:/shoppingCart";
-		
-	
+			
 }
+	@PostMapping("/shoppingCart/visitoradd/{itemId}")
+	public String VisitorAdd(
+			Model model,
+			@PathVariable("itemId") Integer itemId) {
+		System.out.println("訪客加入購物車開始===================================");
+		@SuppressWarnings("unchecked")
+		//Session內的購物車商品id清單
+		List<Integer> cartlist = (List<Integer>) model.getAttribute("sessionShoppingCart");
+		// 如果找不到ShoppingCart清單
+		if (cartlist == null) {
+		cartlist = new LinkedList<>();
+		cartlist.add(itemId);
+		model.addAttribute("sessionShoppingCart", cartlist);   
+		System.out.println(cartlist);
+		}else {
+		cartlist.add(itemId);
+		model.addAttribute("sessionShoppingCart", cartlist);   
+		}
+		System.out.println("訪客加入購物車結束===================================");
+		return "redirect:/merchandiseSearchResult";
 }
+	}

@@ -56,7 +56,12 @@
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 		<!------------------------------------------------------------------------------------------->
-
+	session
+<div id="sessionCart">
+	<c:forEach var="sessioncart" items="${sessionShoppingCart}">
+		${sessioncart},
+	</c:forEach>
+</div>
 
 		<!--商品  -->
 		<div class="container" id="container_MerchandiseSearchResult">
@@ -121,52 +126,47 @@
 						<%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
 						<!-- 						</i> -->
 						<!-- 加入購物車================================================================================================= -->
-					
+<!-- 							@@@判斷會員/管理員才顯示加入購物車按鈕 -->
 <%-- 							<c:if test="${mPid==2||mPid==1}"> --%>
-							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post">
+<%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
 <%-- 								<c:if test="${hasItem==0}"> --%>
+<!-- 									<button type="button" onclick="this.form.submit()"  data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
+<!-- 									<i class="fas fa-cart-arrow-down addButton"></i> -->
+<!-- 									</button> -->
+<%-- 							</form> --%>
+<%-- 								</c:if> --%>
+								
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+						<c:choose>	
+							<c:when test="${mPid==2||mPid==1}">
+								<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post">
 									<button type="button" onclick="this.form.submit()">
 									<i class="fas fa-cart-arrow-down addButton"></i>
 									</button>
-<%-- 								</c:if> --%>
-								
-<!--================================================================================= -->
-<%-- 								<c:if test="${hasItem==1}"> --%>
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
-<!--   <div class="modal-dialog"> -->
-<!--     <div class="modal-content"> -->
-<!--       <div class="modal-header"> -->
-<!--         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
-<!--         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-<!--       </div> -->
-<!--       <div class="modal-body"> -->
-<!--         ... -->
-<!--       </div> -->
-<!--       <div class="modal-footer"> -->
-<!--         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-<!--         <button type="button" class="btn btn-primary">Save changes</button> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--   </div> -->
-<!-- </div> -->
-<%-- 						</c:if> --%>
+								</form>
+							</c:when>	
+							
+							<c:otherwise> 
+								<form action="${pageContext.request.contextPath}/shoppingCart/visitoradd/${item.itemId}" method="post"
+								name="form${item.itemId}">
+									<button type="button" onclick="
+									chackcartitem(${item.itemId})">
+										<i class="fas fa-cart-arrow-down addButton"></i>
+									</button>
+								</form>
+							</c:otherwise>
+						</c:choose>		
 <!--================================================================================= -->								
 <%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
 <%-- 								onchange="this.form.submit()" --%>
 <!-- 						顯示:綁識別字串 -->
 <!-- 						數量修改靠js -->
 
-
-
-
-
-
-						</form>
+						
 <%-- 						</c:if> --%>
 							<%-- 						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
-
 						
-						<!-- ======================================================================================================= -->
+<!-- ======================================================================================================= -->
 
 					</div>
 
@@ -220,6 +220,33 @@
 					<!-- 					</i> -->
 					<!-- 				</div> -->
 				</c:forEach>
+<!-- ======================================================================================================= -->	
+<!-- 				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<!-- 				  <div class="modal-dialog"> -->
+<!-- 				    <div class="modal-content"> -->
+<!-- 				      <div class="modal-header"> -->
+<!-- 				        <h5 class="modal-title" id="exampleModalLabel">sopts-tour商城</h5> -->
+<!-- 				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+<!-- 				      </div> -->
+<!-- 				      <div class="modal-body"> -->
+<%-- 							<c:if test="${hasItem==1}"> --%>
+<!-- 								已經有此項商品 -->
+<%-- 							</c:if> --%>
+<%-- 							<c:if test="${hasItem==0}"> --%>
+<!-- 								加入購物車成功 -->
+<%-- 							</c:if> --%>
+<!-- 						已加入購物車 -->
+<!-- 				      </div> -->
+<!-- 				      <div class="modal-footer"> -->
+<!-- 				        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+<!-- 				      </div> -->
+<!-- 				    </div> -->
+<!-- 				  </div> -->
+<!-- 				</div> -->
+<!-- ======================================================================================================= -->	
+				
+				
+				
 			</div>
 		</div>
 
@@ -233,6 +260,42 @@
 	</div>
 	<!------------------------------------------------------------------------------------------->
 
+	<script>
+
+		//sessioncart
+		function chackcartitem(itemId) {
+			// alert(itemId);
+			sessioncart=document.getElementById("sessionCart").innerText;//字串
+			// alert(typeof sessioncart);
+			list=sessioncart.substr(0, sessioncart.length-1).split(",");
+			// alert(list.length);
+			for(i=0;i<list.length;i++){
+				// alert(typeof parseInt(list[i])) //string
+// 				alert(typeof itemId);
+// 				alert("session內"+list[i]+"點選的商品id"+itemId);
+// 				alert(itemId==parseInt(list[i]));//false
+				if(itemId==parseInt(list[i])){
+					hasTheSame = true;
+				}else{
+					hasTheSame = false;
+					}
+			}
+			if(hasTheSame == true){
+				alert("購物車內已有相同的商品!");
+			}else{
+				alert("已加入購物車");
+			let name="form"+itemId;
+			var thisForm = document.forms[name];
+			thisForm.action="${pageContext.request.contextPath}/shoppingCart/visitoradd/"+itemId;
+			thisForm.method="post";
+			// alert(name);
+// 			console.info(thisForm);
+			thisForm.submit();
+			}
+		}
+		// alert(list[0]);
+
+	</script>
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
