@@ -28,7 +28,7 @@ import _23_submitOrder.service.OrderService;
 import _23_submitOrder.vo.OrderVo;
 
 @Controller
-@SessionAttributes("orderVo")
+@SessionAttributes("orderVoNew")
 public class OrderController {
 
 	@Autowired
@@ -86,9 +86,9 @@ public class OrderController {
 	@RequestMapping("/submitOrderInfo")
 	public String getsubmitOrderInfo(@ModelAttribute OrderVo orderVo, Model model, HttpSession session) {
 		
-//		orderVo.setmId((Integer)session.getAttribute("mId"));
+		orderVo.setmId((Integer)session.getAttribute("mId"));
 		
-		model.addAttribute("orderVo", orderVo);
+		model.addAttribute("orderVoNew", orderVo);
 		
 		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart((Integer)session.getAttribute("mId"));
 		model.addAttribute("cart", list);
@@ -96,12 +96,16 @@ public class OrderController {
 	}
 
 	@RequestMapping("/purchaseSuccess")
-	public String purchaseSuccess(@ModelAttribute OrderVo orderVo, Model model, HttpSession session) {
+	public String purchaseSuccess(@ModelAttribute OrderVo orderVoNew, Model model, HttpSession session) {
 		
-//		OrderVo orderVo1 = (OrderVo) model.getAttribute("orderVo");
+//		OrderVo orderVoNew = (OrderVo) model.getAttribute("orderVo");
 //		orderVo.setmId((Integer)session.getAttribute("mId"));
-		orderVo.setmId((Integer)session.getAttribute("mId"));
-		orderService.addOrder(orderVo);
+		
+//		orderVo.setmId((Integer)session.getAttribute("mId"));
+//		orderService.addOrder(orderVo);
+		
+//		orderVoNew.setmId((Integer)session.getAttribute("mId"));
+		orderService.addOrderVo((OrderVo) session.getAttribute("orderVoNew"));
 		
 		return "_21_shoppingMall/PurchaseSuccess";
 	}

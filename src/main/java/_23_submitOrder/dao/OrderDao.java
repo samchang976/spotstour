@@ -25,7 +25,7 @@ public interface OrderDao {
 	public List<OrdBean> getAllOrdersByShipTypeId(int shipTypeId);
 	
 	
-	public void addOrder(OrdBean ordBean);
+	public void addOrderBean(OrdBean ordBean);
 	
 	
 	

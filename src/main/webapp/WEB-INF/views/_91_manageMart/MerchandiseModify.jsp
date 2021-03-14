@@ -189,8 +189,11 @@ button { /*按鈕的樣式*/
 														<label for="itemPrice" class="col-sm-2 col-form-label"
 															style="text-align: right;">商品價錢 : &nbsp;</label>
 														<div class="col-sm-10">
-															<form:input type="text" path="itemPrice"
-																class="form-control" id="itemPrice" />
+															<div class="input-group">
+																<span class="input-group-text">$</span>
+																<form:input type="text" path="itemPrice"
+																	class="form-control" id="itemPrice" />
+															</div>
 														</div>
 													</div>
 												</div>
@@ -212,7 +215,8 @@ button { /*按鈕的樣式*/
 															style="text-align: right;">商品描述 : &nbsp;</label>
 														<div class="col-sm-10">
 															<form:textarea type="text" path="itemDes" min="0"
-																class="form-control" id="itemDes" aria-label="With textarea"/>
+																style="padding-bottom: 40px;" class="form-control"
+																id="itemDes" aria-label="With textarea" />
 														</div>
 													</div>
 												</div>
@@ -223,7 +227,8 @@ button { /*按鈕的樣式*/
 															style="text-align: right;">商品類型 : &nbsp;</label>
 														<div class="mb-3 col-10">
 															<c:if test="${itemId==null}">
-																<form:select path="itTId" class="form-select" aria-label="Default select example">
+																<form:select path="itTId" class="form-select"
+																	aria-label="Default select example">
 																	<form:option value="-1" label="請選擇商品類型" />
 																	<form:options items="${item_TypeMap}" />
 																</form:select>
@@ -245,7 +250,8 @@ button { /*按鈕的樣式*/
 															style="text-align: right;">商品產地 : &nbsp;</label>
 														<c:if test="${itemId==null}">
 															<div class="mb-3 col-10">
-																<form:select path="countryTId" class="form-select" aria-label="Default select example">
+																<form:select path="countryTId" class="form-select"
+																	aria-label="Default select example">
 																	<form:option value="-1" label="請選擇國家" />
 																	<form:options items="${countryMap}" />
 																</form:select>
@@ -264,8 +270,7 @@ button { /*按鈕的樣式*/
 												</div>
 
 												<div id="addItem">
-												<div class="col-1">
-												</div>
+													<div class="col-1"></div>
 													<div class="col-3">
 														商品第一張照片 :<br>
 														<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
@@ -273,10 +278,9 @@ button { /*按鈕的樣式*/
 															src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 															class="w-100"> <br>
 														<!-- 												 <input type="file" name="itemPic1" /> -->
-<%-- 														<form:input path="itemImage1" type='file' class="theFile" /> --%>
+														<%-- 														<form:input path="itemImage1" type='file' class="theFile" /> --%>
 													</div>
-													<div class="col-1">
-												</div>
+													<div class="col-1"></div>
 
 													<div class="col-3">
 														商品第二張照片 :<br>
@@ -286,8 +290,7 @@ button { /*按鈕的樣式*/
 															class="w-100"> <br> <input type="file"
 															name="itemPic2" />
 													</div>
-													<div class="col-1">
-												</div>
+													<div class="col-1"></div>
 
 													<div class="col-3">
 														商品第三張照片 :<br>
@@ -305,26 +308,26 @@ button { /*按鈕的樣式*/
 													<!-- 					</div> -->
 												</div>
 												<div class="form-group row  d-flex justify-content-end mt-5">
-												<div style="text-align: center;">
-													<!-- 				<div> -->
-													<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
-													<!-- 				</div> -->
-													<c:if test="${itemId==null}">
-														<div>
-															<button type="submit" id="btnAdd"
-																class="btn btn-primary btn-lg">新增</button>
-														</div>
-													</c:if>
+													<div style="text-align: center;">
+														<!-- 				<div> -->
+														<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
+														<!-- 				</div> -->
+														<c:if test="${itemId==null}">
+															<div>
+																<button type="submit" id="btnAdd"
+																	class="btn btn-primary btn-lg">新增</button>
+															</div>
+														</c:if>
 
-													<c:if test="${itemId!=null}">
-														<div>
-															<button type="submit" id="editM"
-																class="btn btn-primary btn-lg"
-																<%-- 													onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">儲存變更</button> --%>
+														<c:if test="${itemId!=null}">
+															<div>
+																<button type="submit" id="editM"
+																	class="btn btn-primary btn-lg"
+																	<%-- 													onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">儲存變更</button> --%>
 													onclick="location.href='merchandiseModify/get/Id=${itemId}'">儲存變更</button>
-														</div>
-													</c:if>
-												</div>
+															</div>
+														</c:if>
+													</div>
 												</div>
 
 												<!-- 			<div> -->
@@ -385,7 +388,6 @@ button { /*按鈕的樣式*/
 																src="https://fakeimg.pl/350x350/?text=World&font=lobster"
 																class="w-100">
 														</div>
-
 													</div>
 
 													<div class="col-2">

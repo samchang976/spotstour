@@ -136,9 +136,11 @@ button { /*按鈕的樣式*/
 		<div class="container" style="margin: 10px;">
 			<div class="row">
 				<div class="col-9 col-md-3">
-					<span><button id="news"
-							value="新增活動資訊" class="btn btn-primary btn-lg"
-							onclick="location.href='${pageContext.request.contextPath}/activityModify'"><span class="fas fa-plus"></span> 新增活動資訊</button></span>
+					<span><button id="news" value="新增活動資訊"
+							class="btn btn-primary btn-lg"
+							onclick="location.href='${pageContext.request.contextPath}/activityModify'">
+							<span class="fas fa-plus"></span> 新增活動資訊
+						</button></span>
 					<!-- 							<span><button -->
 					<!-- 							id="selectall" value="全選">全選</button></span> <span><button -->
 					<!-- 							id="denine" value="刪除全選">刪除全選</button></span> -->
@@ -149,72 +151,82 @@ button { /*按鈕的樣式*/
 		<!-- 活動快訊 -->
 		<div class="container">
 			<div class="row">
-			<div class="shadow p-3 mb-5 bg-body rounded">
-				<div class="col-12">
-					<div class="news">
-						<div id="news-text">活動快訊</div>
+				<div class="shadow p-3 mb-5 bg-body rounded">
+					<div class="col-12">
+						<div class="news">
+							<div id="news-text">活動快訊</div>
 
-						<div class='center' id='somedivS'></div>
+							<div class='center' id='somedivS'></div>
 
-						<c:forEach var='activity' items='${activitys}'>
-
-
+							<c:forEach var='activity' items='${activitys}'>
 
 
-							<div class="block">
-								<!-- 								日期 -->
-								<div class="left" style="float: left;">
-									<div class="date">${activity.activity_createTime}</div>
-								</div>
-								<!-- 								優惠內容 -->
-								<div class="right " style="float: left;">
-									<div class="discount">${activity.activityContent}</div>
-								</div>
-								<div class="right " style="float: right;">
-									<!-- 									<input type="button" value="刪除"> -->
-									<button id="deleteA" value="/Id=${activityId}" class="btn btn-primary"
-										data-bs-toggle="modal"
-										data-bs-target="#deleteActivity${activity.activityId}">刪除活動</button>&nbsp; 
 
 
-									<div class="modal fade" id="deleteActivity${activity.activityId}"
-										tabindex="-1" aria-labelledby="exampleModalLabel"
-										aria-hidden="true">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLabel">刪除活動</h5>
-													<button type="button" class="btn-close"
-														data-bs-dismiss="modal" aria-label="Close"></button>
-												</div>
-												<div class="modal-body">確定要刪除此活動??</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-secondary"
-														data-bs-dismiss="modal">取消</button>
-													<button class="btn btn-primary" value="/Id=${activityId}"
-														onclick="location.href='activityList/delete/Id=${activity.activityId}'">確定刪除活動</button>
+								<div class="block">
+									<!-- 								日期 -->
+									<div class="left" style="float: left;">
+										<div class="date">${activity.activity_createTime}</div>
+									</div>
+									<!-- 								優惠內容 -->
+									<div class="right " style="float: left;">
+										<div class="discount">${activity.activityContent}</div>
+									</div>
+									<div class="right " style="float: right;">
+										<!-- 									<input type="button" value="刪除"> -->
+										<button id="deleteA" value="/Id=${activityId}"
+											class="btn btn-primary" data-bs-toggle="modal"
+											data-bs-target="#deleteActivity${activity.activityId}">刪除活動</button>
+										&nbsp;
+
+
+										<div class="modal fade"
+											id="deleteActivity${activity.activityId}" tabindex="-1"
+											aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title" id="exampleModalLabel">刪除活動</h5>
+														<button type="button" class="btn-close"
+															data-bs-dismiss="modal" aria-label="Close"></button>
+													</div>
+													<div class="modal-body">確定要刪除此活動??</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary"
+															data-bs-dismiss="modal">取消</button>
+														<button class="btn btn-primary" value="/Id=${activityId}"
+															onclick="location.href='activityList/delete/Id=${activity.activityId}'">確定刪除活動</button>
+													</div>
 												</div>
 											</div>
 										</div>
+
+
 									</div>
+									<div class="right " style="float: right;">
+										<!-- 									<input type="button" value="修改"> -->
+										<button id="editA" value="/Id=${activityId}"
+											class="btn btn-primary"
+											onclick="location.href='activityModify/Id=${activity.activityId}'">編輯活動</button>
+										&nbsp; &nbsp;
 
-
+									</div>
+									<div class="clear-block"></div>
 								</div>
-								<div class="right " style="float: right;">
-									<!-- 									<input type="button" value="修改"> -->
-									<button id="editA" value="/Id=${activityId}" class="btn btn-primary"
-										onclick="location.href='activityModify/Id=${activity.activityId}'">編輯活動</button>
-
-								</div>
-								<div class="clear-block"></div>
-							</div>
-
-						</c:forEach>
+							</c:forEach>
+							<br>
 
 
-
-
+						</div>
 					</div>
+				</div>
+			</div>
+			<div style="text-align: center;">
+				<div class="row">
+					<!-- 回商城首頁 -->
+					<div class="col">
+						<button type="submit" class="btn btn-primary btn-lg"
+							onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
 					</div>
 				</div>
 			</div>

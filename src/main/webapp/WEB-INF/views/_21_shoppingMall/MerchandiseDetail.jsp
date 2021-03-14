@@ -272,7 +272,7 @@
 					<div class="form-group row">
 						<label for="feedbackText" class="col-sm-2 col-form-label"></label>
 						<div class="col-sm-10">
-							<form:textarea type="text" path="feedbackText" class="form-control"
+							<form:textarea type="text" path="feedbackText" class="form-control" style="padding-bottom: 40px;"
 								id="feedbackText" />
 						</div>
 					</div>
