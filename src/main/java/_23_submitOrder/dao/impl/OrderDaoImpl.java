@@ -70,7 +70,7 @@ public class OrderDaoImpl implements Serializable, OrderDao {
 	}
 
 	@Override
-	public void addOrder(OrdBean ordBean) {
+	public void addOrderBean(OrdBean ordBean) {
 		Session session = factory.getCurrentSession();
 		session.save(ordBean);
 	}

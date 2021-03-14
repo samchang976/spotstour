@@ -78,7 +78,7 @@
 
 		<div id="thanks">謝謝您!歡迎下次再光臨</div>
 
-		<button class="Bt_blue" onclick="location.href='${pageContext.request.contextPath}/myOrderList'">我的訂單</button>
+		<button class="btn btn-primary btn-lg" onclick="location.href='${pageContext.request.contextPath}/myOrderList'">我的訂單</button>
 	</div>
 <!-----------定位----------------------------------------------------------------------------->       
       </div>	

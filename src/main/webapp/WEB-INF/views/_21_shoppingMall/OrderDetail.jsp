@@ -56,10 +56,10 @@
 	<div class="BodyPosition">
 		<!------------------------------------------------------------------------------------------->
 		<div class="container" id="container_OrderDetail">
-		<div>
-							<h2>訂單詳細資訊</h2>
-						</div>
-		<div class="shadow p-3 mb-5 bg-body rounded">
+			<div>
+				<h2>訂單詳細資訊</h2>
+			</div>
+			<div class="shadow p-3 mb-5 bg-body rounded">
 			<!-- 訂單編號區塊 ----------------------------------------------->
 			<c:forEach var='ord_detail' items='${ord_details}' varStatus="s">
 				<c:if test="${s.first==true}">
@@ -107,25 +107,25 @@
 
 					<div class="col-4 ">
 						<div>
-							<h4>${ord_detail.itemBean.itemHeader}</h4>
+							${ord_detail.itemBean.itemHeader}
 						</div>
 					</div>
 					<!--產地  -->
 					<div class="col-2 ">
 						<div>
-							<div><h5>${ord_detail.itemBean.countryBean.countryName}</h5></div>
+							<div>${ord_detail.itemBean.countryBean.countryName}</div>
 						</div>
 					</div>
 					<!--數量  -->
 					<div class="col-1 ">
 						<div>
-							<div><h5>${ord_detail.ordQty}個</h5></div>
+							<div>${ord_detail.ordQty}個</div>
 						</div>
 					</div>
 					<!-- 單價 -->
-					<div class="col-1 "><h5>${ord_detail.itemBean.itemPrice}元</h5></div>
+					<div class="col-1 ">${ord_detail.itemBean.itemPrice}元</div>
 					<!-- 小計 -->
-					<div class="col-1 "><h5>${ord_detail.ordQty * ord_detail.itemBean.itemPrice}元</h5></div>
+					<div class="col-1 ">${ord_detail.ordQty * ord_detail.itemBean.itemPrice}元</div>
 				</div>
 				<!-- 總金額 -->
 				<div class="Total">
@@ -135,7 +135,7 @@
 							var="sum" />
 						<c:set value="${sums + sum}" var="sums" />
 						<c:if test="${s.last==true}">
-							<h4>共<span id="items"> <c:out value="${s.count}" />
+							<h5>共<span id="items"> <c:out value="${s.count}" />
 							</span>
 							商品，原價總金額 : <span id="subtotal1"><fmt:formatNumber maxFractionDigits="0" value="${sums}" type="currency"/></span>元
             				<br><br>
@@ -143,7 +143,7 @@
 							
 							使用八折優惠券 折扣後總金額 : <span id="subtotal2"><fmt:formatNumber maxFractionDigits="0" value="${formatSums}" type="currency"/></span>元
 							<br>
-						</h4>
+						</h5>
 						</c:if>
 
 					</div>
