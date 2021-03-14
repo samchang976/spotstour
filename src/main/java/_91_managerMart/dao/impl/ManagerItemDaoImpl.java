@@ -71,7 +71,7 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	
 	//凍結商品留言
 	@Override
-	public void freezeFeedbackByFeedbackId(int itemId, int feedbackId) {
+	public void freezeFeedbackByFeedbackId(int feedbackId) {
 		String hql = "UPDATE FeedbackBean SET fb_freeze = :freeze WHERE feedbackId = :feedbackId";
 		Session session = factory.getCurrentSession();
 //		ItemBean itembean = new ItemBean();

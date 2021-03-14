@@ -47,8 +47,8 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 	// 凍結商品留言(刪除)
 	@Transactional
 	@Override
-	public void freezeFeedbackByFeedbackId(int itemId, int feedbackId) {
-		managetItemDao.freezeFeedbackByFeedbackId(itemId, feedbackId);
+	public void freezeFeedbackByFeedbackId(int feedbackId) {
+		managetItemDao.freezeFeedbackByFeedbackId(feedbackId);
 	}
 	
 	@Transactional

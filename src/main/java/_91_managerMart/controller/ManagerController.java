@@ -76,13 +76,18 @@ public class ManagerController {
 	}
 
 	// 凍結商品留言(刪除)
-	@GetMapping("/manageFeedback/delete/ItId={itemId}/FbId={feedbackId}")
-	public String freezeFeedback(@ModelAttribute("feedbackId") Integer feedbackId, @ModelAttribute("itemId") @PathVariable("itemId") Integer itemId, Model model) {
-		model.addAttribute("itemId", itemId);
-		managerItemService.freezeFeedbackByFeedbackId(itemId, feedbackId);
-		List<FeedbackBean> list = managerItemService.getAllFeedbacksById(itemId);
-		model.addAttribute("feedbacks", list);
-		return "_91_manageMart/ManageFeedback";
+	@GetMapping({"/manageFeedback/delete/ItId={itemId}/FbId={feedbackId}","/manageFeedback/delete/ItId=/FbId={feedbackId}"})
+	public String freezeFeedback(@ModelAttribute("feedbackId") Integer feedbackId, @ModelAttribute("itemId") @PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
+		List<FeedbackBean> list = null;
+		if(itemId != null) {
+			model.addAttribute("itemId", itemId);
+			managerItemService.freezeFeedbackByFeedbackId(feedbackId);
+			list = managerItemService.getAllFeedbacksById(itemId);
+			model.addAttribute("feedbacks", list);
+			return "_91_manageMart/ManageFeedback";
+		}
+			managerItemService.freezeFeedbackByFeedbackId(feedbackId);
+			return "redirect:/manageFeedback";
 	}
 
 	// =========================================================

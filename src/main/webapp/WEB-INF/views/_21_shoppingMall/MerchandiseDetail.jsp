@@ -232,31 +232,33 @@
 			</div>
 			<br>
 			<div class="shadow p-3 mb-5 bg-body rounded">
-			<h3 id="fb">${itemBean.itemHeader} 商品留言 : </h3>
-			
-			<div style="text-align: right;">
-				<c:set var="now" value="<%=new java.util.Date()%>" />
-				<span>現在時間 : <fmt:formatDate type="both" dateStyle="long"
-						timeStyle="long" value="${now}" /></span>
-			</div>
-			<br>	
-			<div class="overflow-scroll" style="height: 500px; line-height: 2.5;">
-				<c:forEach var='feedback' items='${feedbacks}'>
-					<div class="container-fluid">
-						<div class="row R_SpCre">
-							<div class="col col-2-1 C_SpCre">
-								<div class="shadow-sm p-3 mb-5 bg-body rounded">
-									<c:set var="fbCreateTime" value="${feedback.f_createTime}" />
-									<fmt:formatDate type="both" dateStyle="long" timeStyle="medium" value="${fbCreateTime}" /><br>
-									商品留言 : ${feedback.feedbackText}<br>
+				<h3 id="fb">${itemBean.itemHeader} 商品留言 :</h3>
+
+				<div style="text-align: right;">
+					<c:set var="now" value="<%=new java.util.Date()%>" />
+					<span>現在時間 : <fmt:formatDate type="both" dateStyle="long"
+							timeStyle="long" value="${now}" /></span>
+				</div>
+				<br>
+				<div class="overflow-scroll"
+					style="height: 500px; line-height: 2.5;">
+					<c:forEach var='feedback' items='${feedbacks}'>
+						<div class="container-fluid">
+							<div class="row R_SpCre">
+								<div class="col col-2-1 C_SpCre">
+									<div class="shadow-sm p-3 mb-5 bg-body rounded">
+										<c:set var="fbCreateTime" value="${feedback.f_createTime}" />
+										<fmt:formatDate type="both" dateStyle="long"
+											timeStyle="medium" value="${fbCreateTime}" />
+										<br> 商品留言 : ${feedback.feedbackText}<br>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</c:forEach>
+					</c:forEach>
+				</div>
 			</div>
-			</div>
-			
+
 			<div class="shadow p-3 mb-5 bg-body rounded">
 			<c:if test="${ mPid != 2 && mPid != 1 }">
 				<div>
