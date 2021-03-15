@@ -1,8 +1,10 @@
 package _22_shoppingCart.service;
 
 import java.util.List;
+import java.util.Map;
 
 import _02_model.entity.ShoppingCartBean;
+import _22_shoppingCart.vo.SessionShoppingCartVo;
 
 public interface ShoppingCartService {
 	
@@ -17,4 +19,7 @@ public interface ShoppingCartService {
 	public void addShoppingCart(ShoppingCartBean cart);//新增一筆商品到購物車
 
 	public String addToCart(Integer memberId, Integer itemId, Integer qty);
+	
+	public List<SessionShoppingCartVo> getShoppingCartVo(Map<Integer, Integer> cartlist);
+	
 }

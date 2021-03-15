@@ -22,6 +22,9 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
+<%-- jQuery============================================================================ --%>
+	 <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.min.js'></script>	
+
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
@@ -46,15 +49,43 @@
 <title>商品搜尋結果</title>
 
 <style>
-body{ 
- 	background: #000 url(/SpotsTourHSM/data/image/background/liza-rusalskaya-0gqcBEe2rv8-unsplash.jpg) center fixed no-repeat;
-    background-size: cover;
-}
+		body{ 
+		 	background: #000 url("<c:url value='/images/background/ugur-peker-AkX0_cZQ6PI-unsplash.jpg'></c:url>") center fixed no-repeat;
+		    background-size: cover;
+		}
+        .addcart{
+            width: 100%;
+            background-color: rgba(199, 195, 188, 0.9);
+            color:rgb(58, 5, 5);
 
-.addcart{
-width:100%;
-background:
-}
+        }
+        .addcart:hover{
+            /* background: url(./download.jpg) center; */
+            /* background-size: cover; */
+            background-color: rgba(177, 112, 82, 0.9);
+            color:white;
+        }
+        
+	    #imgBoard{
+		    background: #ddd;
+		    width: 300px;
+		    padding: 20px 30px;
+		
+    		position: fixed; 
+		    left: -260px;
+			z-index: 50;
+		    
+		}
+ 		#imgBoard:hover{
+		    left: 0px;
+			
+
+		 }
+
+		.myPhoto{
+		    width: 100px;
+		}
+        
 </style>
 </head>
 <body>
@@ -68,13 +99,28 @@ background:
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 		<!------------------------------------------------------------------------------------------->
-	session
-<div id="sessionCart">
-	<c:forEach var="sessioncart" items="${sessionShoppingCart}">
-		${sessioncart},
-	</c:forEach>
-</div>
-
+		
+		<div id="imgBoard">購物車
+			<form>
+				<div id="sessionCart">
+<!-- 					map取值:OO.key/OO.value -->
+					<c:forEach var="sessioncart" items="${sessionShoppingCart}">
+						${sessioncart.key},
+					</c:forEach>
+				</div>
+				
+				<div>
+				List 
+					<c:forEach var="sessioncartList" items="${sessionShoppingCartList}">
+						${sessioncartList.itemHeader}<br>${sessioncartList.scQty}個<br>
+						
+					</c:forEach>
+				</div>
+				
+				
+					<button>確定購買</button>
+			</form>
+		</div>
 		<!--商品  -->
 		<div class="container" id="container_MerchandiseSearchResult">
 			<div class="row row-cols-1 row-cols-md-4 g-3">
@@ -83,7 +129,6 @@ background:
 					<div class="col">
 						<div class="card">
 						<div class="itemImageBorder">
-
 
 							<%-- 							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>"> <img --%>
 							<!-- 								src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
@@ -154,7 +199,8 @@ background:
 							<c:when test="${mPid==2||mPid==1}">
 								<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post">
 									<button type="button" onclick="this.form.submit()">
-									<i class="fas fa-cart-arrow-down addButton"></i>
+<!-- 									<i class="fas fa-cart-arrow-down addButton"></i> -->
+										加入購物車
 									</button>
 								</form>
 							</c:when>	
@@ -162,6 +208,7 @@ background:
 							<c:otherwise> 
 								<form action="${pageContext.request.contextPath}/shoppingCart/visitoradd/${item.itemId}" method="post"
 								name="form${item.itemId}">
+									<input type="hidden" name="itemQty">
 									<button type="button" onclick="
 									chackcartitem(${item.itemId})"  class="btn addcart">加入購物車
 <!-- 										<i class="fas fa-cart-arrow-down addButton"></i> -->
@@ -283,29 +330,35 @@ background:
 	<!------------------------------------------------------------------------------------------->
 
 	<script>
+		function doFirst(){
+			
+			
+		}
 
-		//sessioncart
+		
+		//sessioncart===========================================================================
 		function chackcartitem(itemId) {
 			// alert(itemId);
 			sessioncart=document.getElementById("sessionCart").innerText;//字串
-			// alert(typeof sessioncart);
+// 			alert(sessioncart);
 			list=sessioncart.substr(0, sessioncart.length-1).split(",");
-			// alert(list.length);
+// 			alert(list.length);
 			for(i=0;i<list.length;i++){
 				// alert(typeof parseInt(list[i])) //string
 // 				alert(typeof itemId);
 // 				alert("session內"+list[i]+"點選的商品id"+itemId);
-// 				alert(itemId==parseInt(list[i]));//false
+				console.log(itemId==parseInt(list[i]));//false
 				if(itemId==parseInt(list[i])){
 					hasTheSame = true;
+					break;
 				}else{
 					hasTheSame = false;
 					}
 			}
 			if(hasTheSame == true){
 				alert("購物車內已有相同的商品!");
-			}else{
-				alert("已加入購物車");
+			}else{	
+			alert("已加入購物車");
 			let name="form"+itemId;
 			var thisForm = document.forms[name];
 			thisForm.action="${pageContext.request.contextPath}/shoppingCart/visitoradd/"+itemId;
@@ -314,14 +367,23 @@ background:
 // 			console.info(thisForm);
 			thisForm.submit();
 			}
-		}
 		// alert(list[0]);
+		}
+		
+		window.addEventListener('load',doFirst);
+		
+		
+		
 
+		// ========================================================================================
 	</script>
+
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous">
+	</script>
+	
 </body>
 </html>
