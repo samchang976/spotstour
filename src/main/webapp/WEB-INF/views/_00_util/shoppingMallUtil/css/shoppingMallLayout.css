@@ -99,13 +99,15 @@
 
  #container_MerchandiseSearchResult{
    text-align: center;
+   max-width:1000px;
  }
 
 /* 商品照片外框 */
-.itemImageBorder{
-   border-radius: 3px;
-   padding: 20px;
-  }
+/* .itemImageBorder{ */
+/*    border-radius: 3px; */
+/*    padding: 20px; */
+/*   } */
+
 
 /* 加入購物車鈕 */
 #container_MerchandiseSearchResult .addButton{
