@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import _02_model.entity.CountryBean;
 import _02_model.entity.FeedbackBean;
@@ -54,7 +56,9 @@ public class ManagerController {
 //	@PostMapping("/merchandiseModify/get/Id={itemId}")
 	@PostMapping("/Id={itemId}")
 	public String updateItem(@ModelAttribute(value = "itemId") Integer itemId,
-			@ModelAttribute("itemBean") ItemBean itemBeanN, Model model) {
+			@ModelAttribute("itemBean") ItemBean itemBeanN, Model model,
+			@RequestParam(value ="img", required = false) MultipartFile img) {
+		System.out.println("okkkk");
 		managerItemService.updateItem(itemBeanN);
 		return "redirect:/merchandiseModify#searchi";
 	}

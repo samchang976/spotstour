@@ -11,7 +11,8 @@
 <head>
 <!-- Required meta tags------------------------------------------------------------------------------------- -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap CSS ----------------------------------------------------------------------------------------- -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
@@ -169,7 +170,8 @@ button { /*按鈕的樣式*/
 									<!-- 			增加陰影效果 -->
 									<div class="shadow p-3 mb-5 bg-body rounded">
 										<div id="addSquare">
-											<form:form method='POST' modelAttribute='itemBean'>
+											<form:form method="POST" modelAttribute="itemBean"
+												enctype="multipart/form-data">
 
 												<div class="form-group row">
 													<div class="input-group mb-3">
@@ -272,33 +274,28 @@ button { /*按鈕的樣式*/
 												<div id="addItem">
 													<div class="col-1"></div>
 													<div class="col-3">
-														商品第一張照片 :<br>
-														<%-- 					<div>紀念品照片1${item.Pic1}</div> --%>
-														<img id="photo" name="photo"
-															src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-															class="w-100"> <br>
-														<!-- 												 <input type="file" name="itemPic1" /> -->
-														<%-- 														<form:input path="itemImage1" type='file' class="theFile" /> --%>
+<!-- 														商品第一張照片 :<br> <img id="photo1" name="photo1" -->
+<%-- 															src="/upload/${itemBean.itemPic1}" class="w-100"> <br> --%>
+
+														<form:input path="itemImage1" type='file' accept=".jpg" class="form-control"/><br>
+														
+														<form:input path="itemImage2" type='file' accept=".jpg" class="form-control"/><br>
+														
+														<form:input path="itemImage3" type='file' accept=".jpg" class="form-control"/><br>
 													</div>
 													<div class="col-1"></div>
 
 													<div class="col-3">
-														商品第二張照片 :<br>
-														<%-- 					<div>紀念品照片2${item.Pic2}</div> --%>
-														<img
-															src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-															class="w-100"> <br> <input type="file"
-															name="itemPic2" />
+<!-- 														商品第二張照片 :<br> <img id="photo2" name="photo2" -->
+<%-- 															src="/upload/${itemBean.itemPic2}" class="w-100"> <br> --%>
+<%-- 														<form:input path="itemImage2" type='file' accept=".jpg" /> --%>
 													</div>
 													<div class="col-1"></div>
 
 													<div class="col-3">
-														商品第三張照片 :<br>
-														<%-- 					<div>紀念品照片3${item.Pic3}</div> --%>
-														<img
-															src="${pageContext.request.contextPath}/images/itemImages/1/MAMA3.jpg"
-															class="w-100"> <br> <input type="file"
-															name="itemPic3" />
+														商品照片 :<br> <img id="photo3" name="photo3"
+															src="/upload/${itemBean.itemPic3}" class="w-100"> <br>
+<%-- 														<form:input path="itemImage3" type='file' accept=".jpg" /> --%>
 													</div>
 													<!-- 一次上傳三張照片 -->
 													<!-- 					<div class="mb-3"> -->
@@ -346,12 +343,10 @@ button { /*按鈕的樣式*/
 					<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
 						<a class="navbar-brand" href="#"></a>
 						<ul class="nav nav-pills">
-							<li class="nav-item">
-								<label for="testInput"> <input type="text" placeholder="請輸入商品編號"
-									id="testInput" />
-									<button class="submitBtn btn btn-secondary" >查詢商品</button>
-							</label>
-							</li>
+							<li class="nav-item"><label for="testInput"> <input
+									type="text" placeholder="請輸入商品編號" id="testInput" />
+									<button class="submitBtn btn btn-secondary">查詢商品</button>
+							</label></li>
 						</ul>
 					</nav>
 
@@ -373,7 +368,7 @@ button { /*按鈕的樣式*/
 
 								<c:forEach var='item' items='${items}'>
 									<div class="container-fluid">
-									<div id="${item.itemId}" style="height: 40px"></div>
+										<div id="${item.itemId}" style="height: 40px"></div>
 										<!-- 			增加陰影效果 -->
 										<div class="shadow p-3 bg-body rounded">
 											<div id="searchSquare">
@@ -382,7 +377,7 @@ button { /*按鈕的樣式*/
 													<!-- 							<input class="form-check-input" type="checkbox" -->
 													<!-- 								id="checkboxNoLabel" value="" aria-label="..."> -->
 													<!-- 						</div> -->
-													
+
 													<div style="text-align: left;">
 														<div>商品編號 : ${item.itemId}</div>
 													</div>
@@ -390,9 +385,9 @@ button { /*按鈕的樣式*/
 													<div class="col-2">
 														<br>
 														<div>
-															<img
-																src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-																class="w-100">
+															<img id="pic1" name="pic1"
+																src="${pageContext.request.contextPath}/images/${item.itemPic1}" class="w-100">
+												
 														</div>
 													</div>
 
@@ -400,9 +395,8 @@ button { /*按鈕的樣式*/
 
 														<br>
 														<div>
-															<img
-																src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-																class="w-100">
+															<img id="pic2" name="pic2"
+																src="${pageContext.request.contextPath}/images/${item.itemPic2}" class="w-100">
 														</div>
 													</div>
 
@@ -410,9 +404,8 @@ button { /*按鈕的樣式*/
 
 														<br>
 														<div>
-															<img
-																src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-																class="w-100">
+														<img id="pic3" name="pic3"
+																src="${pageContext.request.contextPath}/images/${item.itemPic3}" class="w-100">
 														</div>
 													</div>
 
@@ -519,45 +512,89 @@ button { /*按鈕的樣式*/
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
 	<script>
-	var testInput = document.getElementById("testInput");
-	var submitBtn = document.querySelector(".submitBtn");
+		var testInput = document.getElementById("testInput");
+		var submitBtn = document.querySelector(".submitBtn");
 
-	function FsubmitBtn(value) {
-	  var str = "";
-	  var submitValue = testInput.value;
-	  str = submitValue;
-	  location.href='${pageContext.request.contextPath}/merchandiseModify' +'#' + str;
-// 	  document.forms[0].action = "${pageContext.request.contextPath}/merchandiseModify#1";
-// 	  alert(str);
-	}
-	submitBtn.addEventListener("click", FsubmitBtn);
-// 	onclick="location.href='${pageContext.request.contextPath}/merchandiseModify#1'"
-	
+		function FsubmitBtn(value) {
+			var str = "";
+			var submitValue = testInput.value;
+			str = submitValue;
+			location.href = '${pageContext.request.contextPath}/merchandiseModify'
+					+ '#' + str;
+			// 	  document.forms[0].action = "${pageContext.request.contextPath}/merchandiseModify#1";
+			// 	  alert(str);
+		}
+		submitBtn.addEventListener("click", FsubmitBtn);
+		// 	onclick="location.href='${pageContext.request.contextPath}/merchandiseModify#1'"
 
-	
-	
-	
-		const theFile = document.getElementById('itemPic1');
+		
+		const theFile1 = document.getElementById('itemImage1');
 
-		theFile.addEventListener('change', function() {
+		theFile1.addEventListener('change', function() {
 			console.log('ok');
-			showImg(theFile);
+			showImg(theFile1);
 		})
 
-		function showImg(imgFile) {
-			var file = imgFile.files[0];
+		function showImg(imgFile1) {
+			var file1 = imgFile1.files[0];
 
 			// 建立FileReader物件
-			var fr = new FileReader();
+			var fr1 = new FileReader();
 
-			let photo = document.getElementById('photo');
+			let photo1 = document.getElementById('photo1');
 			//註冊load事件
-			fr.addEventListener('load', function(e) {
-				photo.src = e.target.result;
+			fr1.addEventListener('load', function(e) {
+				photo1.src = e.target.result;
 			});
 			//readAsDataURL去讀 file 把檔案轉成 URL
-			fr.readAsDataURL(file);
+			fr1.readAsDataURL(file1);
 		}
+		
+		const theFile2 = document.getElementById('itemImage2');
+
+		theFile2.addEventListener('change', function() {
+			console.log('ok');
+			showImg(theFile2);
+		})
+
+		function showImg(imgFile2) {
+			var file2 = imgFile2.files[0];
+
+			// 建立FileReader物件
+			var fr2 = new FileReader();
+
+			let photo2 = document.getElementById('photo2');
+			//註冊load事件
+			fr2.addEventListener('load', function(e) {
+				photo2.src = e.target.result;
+			});
+			//readAsDataURL去讀 file 把檔案轉成 URL
+			fr2.readAsDataURL(file2);
+		}
+
+		
+		const theFile3 = document.getElementById('itemImage3');
+
+		theFile3.addEventListener('change', function() {
+			console.log('ok');
+			showImg(theFile3);
+		})
+
+		function showImg(imgFile3) {
+			var file3 = imgFile3.files[0];
+
+			// 建立FileReader物件
+			var fr3 = new FileReader();
+
+			let photo3 = document.getElementById('photo3');
+			//註冊load事件
+			fr3.addEventListener('load', function(e) {
+				photo3.src = e.target.result;
+			});
+			//readAsDataURL去讀 file 把檔案轉成 URL
+			fr3.readAsDataURL(file3);
+		}
+		
 	</script>
 
 </body>

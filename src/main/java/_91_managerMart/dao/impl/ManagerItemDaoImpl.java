@@ -13,7 +13,6 @@ import _02_model.entity.FeedbackBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _91_managerMart.dao.ManagerItemDao;
-import _91_managerMart.dao.ManagerItem_typeDao;
 
 
 // 本類別使用純JDBC的技術來存取資料庫。

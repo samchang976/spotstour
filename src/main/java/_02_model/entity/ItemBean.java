@@ -45,6 +45,12 @@ public class ItemBean implements Serializable {
 	@Transient
 	MultipartFile itemImage1;
 	
+	@Transient
+	MultipartFile itemImage2;
+	
+	@Transient
+	MultipartFile itemImage3;
+	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "countryId")
 	private CountryBean countryBean;
@@ -62,14 +68,32 @@ public class ItemBean implements Serializable {
 	@OneToMany(mappedBy = "itemBean" , cascade = CascadeType.ALL)
 	private List<ShoppingCartBean> shoppingCartBeans;
 
-	
-	
+	public ItemBean() {
+		super();
+	}
+
 	public MultipartFile getItemImage1() {
 		return itemImage1;
 	}
 
 	public void setItemImage1(MultipartFile itemImage1) {
 		this.itemImage1 = itemImage1;
+	}
+	
+	public MultipartFile getItemImage2() {
+		return itemImage2;
+	}
+
+	public void setItemImage2(MultipartFile itemImage2) {
+		this.itemImage2 = itemImage2;
+	}
+
+	public MultipartFile getItemImage3() {
+		return itemImage3;
+	}
+
+	public void setItemImage3(MultipartFile itemImage3) {
+		this.itemImage3 = itemImage3;
 	}
 
 	public Integer getItemId() {

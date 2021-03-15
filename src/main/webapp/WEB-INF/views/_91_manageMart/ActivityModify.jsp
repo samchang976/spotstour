@@ -11,7 +11,8 @@
 <head>
 <!-- Required meta tags------------------------------------------------------------------------------------- -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap CSS ----------------------------------------------------------------------------------------- -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
@@ -99,7 +100,8 @@ button { /*確定、送出的按鈕排版*/
 							<h2>編輯活動</h2>
 						</c:if>
 						<div class="shadow p-3 mb-5 bg-body rounded">
-							<form:form method='POST' modelAttribute='activityBean'>
+							<form:form method="POST" modelAttribute="activityBean"
+								enctype="multipart/form-data">
 								<!-- 						<input type="text" name="Reportdescription" placeholder="請輸入內容" -->
 								<!-- 							style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;"> -->
 								<br>
@@ -121,9 +123,9 @@ button { /*確定、送出的按鈕排版*/
 								<div class="col-12">
 									<label for="exampleFormControlInput1" class="form-label">活動照片</label>
 									<div>
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-											class="w-100"> <br> <input type="file"
-											name="activityPic" /><br>
+<!-- 										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+<!-- 											class="w-100"> <br> -->
+										<form:input type="file" path="activityImage" />
 									</div>
 								</div>
 
@@ -131,7 +133,7 @@ button { /*確定、送出的按鈕排版*/
 									<div style="text-align: center;">
 										<div id="confirm" style="background: #fff;">
 											<c:if test="${activityId==null}">
-												<button type="submit" id="editM" class="btn btn-primary"
+												<button type="submit" id="newM" class="btn btn-primary"
 													onclick="location.href='activityModify/get/Id=${activity.activityId}'"
 													data-bs-toggle="modal" data-bs-target="#exampleModal">新增活動</button>
 											</c:if>
