@@ -44,6 +44,18 @@
 
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>商品搜尋結果</title>
+
+<style>
+body{ 
+ 	background: #000 url(/SpotsTourHSM/data/image/background/liza-rusalskaya-0gqcBEe2rv8-unsplash.jpg) center fixed no-repeat;
+    background-size: cover;
+}
+
+.addcart{
+width:100%;
+background:
+}
+</style>
 </head>
 <body>
 	<!--header--------------------------------------------------------------------------->
@@ -65,10 +77,11 @@
 
 		<!--商品  -->
 		<div class="container" id="container_MerchandiseSearchResult">
-			<div class="row row-cols-1 row-cols-md-4 ">
+			<div class="row row-cols-1 row-cols-md-4 g-3">
 
 				<c:forEach var='item' items='${items}'>
-					<div class="col ">
+					<div class="col">
+						<div class="card">
 						<div class="itemImageBorder">
 
 
@@ -113,7 +126,7 @@
 
 
 						</div>
-						<div class="itemName">
+						<div class="itemName ">
 							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>">
 								<img class="w-100"> ${item.itemHeader}
 							</a>
@@ -135,7 +148,7 @@
 <!-- 									</button> -->
 <%-- 							</form> --%>
 <%-- 								</c:if> --%>
-								
+		
 <!-- ---------------------------------------------------------------------------------------------------------------- -->
 						<c:choose>	
 							<c:when test="${mPid==2||mPid==1}">
@@ -150,26 +163,35 @@
 								<form action="${pageContext.request.contextPath}/shoppingCart/visitoradd/${item.itemId}" method="post"
 								name="form${item.itemId}">
 									<button type="button" onclick="
-									chackcartitem(${item.itemId})">
-										<i class="fas fa-cart-arrow-down addButton"></i>
+									chackcartitem(${item.itemId})"  class="btn addcart">加入購物車
+<!-- 										<i class="fas fa-cart-arrow-down addButton"></i> -->
 									</button>
 								</form>
 							</c:otherwise>
 						</c:choose>		
 <!--================================================================================= -->								
-<%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
-<%-- 								onchange="this.form.submit()" --%>
+<%-- 						onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
+<%-- 						onchange="this.form.submit()" --%>
 <!-- 						顯示:綁識別字串 -->
 <!-- 						數量修改靠js -->
 
 						
 <%-- 						</c:if> --%>
-							<%-- 						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
-						
+							<%-- <input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
+<!-- ========================================================================================================-->
+
+<!-- <div class="card" style="width: 18rem;"> -->
+<!--         <img src="..." class="card-img-top" alt="..."> -->
+<!--         <div class="card-body"> -->
+<!--           <h5 class="card-title">Card title</h5> -->
+<!--           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+<!--           <a href="#" class="btn btn-primary">Go somewhere</a> -->
+<!--         </div> -->
+<!--       </div> -->
 <!-- ======================================================================================================= -->
 
 					</div>
-
+				</div>
 
 					<!-- 				<div class="col"> -->
 					<!-- 					<div class="itemImageBorder"> -->
