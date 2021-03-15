@@ -172,20 +172,20 @@ public class ShoppingCartContent {
 
 	}
 
-	@PostMapping("/shoppingCart/visitoradd/{itemId}") /// {judgment}判斷
-	public String VisitorAdd(Model model, @PathVariable("itemId") Integer itemId,
-			@RequestParam("itemQty") Integer itemQty
-//			@PathVariable("judgment") String judgment
+	
+	@SuppressWarnings("unchecked")
+	@PostMapping("/shoppingCart/visitor/{cmd}") /// {cmd}判斷
+	public String VisitorAdd(Model model, @RequestParam("itemId") Integer itemId,
+			@RequestParam("itemQty") Integer itemQty,
+			@PathVariable("cmd") String cmd
 	) {
 		System.out.println("訪客加入購物車開始===================================");
-
+		if (cmd=="del") {
+			System.out.println("有喔~~~~~~~~~~~~~~~~~~~~~~~");
+		}
 		// Session內的購物車商品id清單
-		@SuppressWarnings("unchecked")
 		Map<Integer, Integer> cartlist = (Map<Integer, Integer>) model.getAttribute("sessionShoppingCart");
 		
-		
-		
-
 		// 如果找不到ShoppingCart清單
 		if (cartlist == null) {
 			cartlist = new LinkedHashMap<>();

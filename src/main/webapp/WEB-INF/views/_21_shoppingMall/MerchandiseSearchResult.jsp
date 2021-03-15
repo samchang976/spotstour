@@ -69,22 +69,37 @@
 	    #imgBoard{
 		    background: #ddd;
 		    width: 300px;
-		    padding: 20px 30px;
+		    padding: 20px 40px;
 		
     		position: fixed; 
 		    left: -260px;
 			z-index: 50;
+			text-align:center;
+			height: 80%;
 		    
 		}
  		#imgBoard:hover{
 		    left: 0px;
-			
+			overflow-y:scroll;
 
 		 }
 
-		.myPhoto{
-		    width: 100px;
+		#imgBoard img{
+		width:100%
 		}
+		
+		#sessionCart{
+		display:none;
+		}
+        
+        #imgBoard .fa-minus-circle{
+        float:right; 
+        }
+        
+        #imgBoard .fa-minus-circle:hover{
+        color:red;
+		cursor:pointer;
+        }
         
 </style>
 </head>
@@ -101,7 +116,6 @@
 		<!------------------------------------------------------------------------------------------->
 		
 		<div id="imgBoard">購物車
-			<form>
 				<div id="sessionCart">
 <!-- 					map取值:OO.key/OO.value -->
 					<c:forEach var="sessioncart" items="${sessionShoppingCart}">
@@ -110,16 +124,20 @@
 				</div>
 				
 				<div>
-				List 
 					<c:forEach var="sessioncartList" items="${sessionShoppingCartList}">
-						${sessioncartList.itemHeader}<br>${sessioncartList.scQty}個<br>
-						
+						<form>
+<%-- 							<a href="<c:url value="shoppingCart/visitor/delete?itemId=${sessioncartList.itemId}"/>"> --%>
+								<i class="fas fa-minus-circle" onclick="deleteItem(${sessioncartList.itemId})"></i>
+<!-- 							</a> -->
+								
+							<img src="<c:url value='/images/background/ugur-peker-AkX0_cZQ6PI-unsplash.jpg'></c:url>" alt="商品照片"></img> 
+	<!-- 						<img src="#" alt="商品照片"></img> -->
+							<div>${sessioncartList.itemHeader}</div>
+							<div>${sessioncartList.itemPrice}元</div>
+						</form>
 					</c:forEach>
 				</div>
-				
-				
-					<button>確定購買</button>
-			</form>
+				<button>確定購買</button>
 		</div>
 		<!--商品  -->
 		<div class="container" id="container_MerchandiseSearchResult">
@@ -206,7 +224,7 @@
 							</c:when>	
 							
 							<c:otherwise> 
-								<form action="${pageContext.request.contextPath}/shoppingCart/visitoradd/${item.itemId}" method="post"
+								<form 
 								name="form${item.itemId}">
 									<input type="hidden" name="itemQty">
 									<button type="button" onclick="
@@ -331,12 +349,9 @@
 
 	<script>
 		function doFirst(){
-			
-			
-		}
-
 		
-		//sessioncart===========================================================================
+		}
+		//檢查session是否有相同商品===========================================================================
 		function chackcartitem(itemId) {
 			// alert(itemId);
 			sessioncart=document.getElementById("sessionCart").innerText;//字串
@@ -361,7 +376,7 @@
 			alert("已加入購物車");
 			let name="form"+itemId;
 			var thisForm = document.forms[name];
-			thisForm.action="${pageContext.request.contextPath}/shoppingCart/visitoradd/"+itemId;
+			thisForm.action="${pageContext.request.contextPath}/shoppingCart/visitor/add?itemId="+itemId;
 			thisForm.method="post";
 			// alert(name);
 // 			console.info(thisForm);
@@ -369,6 +384,25 @@
 			}
 		// alert(list[0]);
 		}
+		
+		function deleteItem(itemId){
+			alert(itemId);
+			var xhr = new XMLHttpRequest();
+
+			xhr.open('post', "<c:url value='shoppingCart/visitor/del?itemId='/>"+itemId, false);
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");//post方法一定要設
+		   	xhr.send(itemId);
+			// 送出
+			
+			
+// 		var temp = document.createElement("Form");
+// 		temp.action = "${pageContext.request.contextPath}/shoppingCart/visitor/del?itemId="+itemId;
+// 		temp.method = "post";
+// 		temp.style.display = "none";
+// 		temp.submit();
+// 		alert(typeof temp);
+		}
+		
 		
 		window.addEventListener('load',doFirst);
 		
