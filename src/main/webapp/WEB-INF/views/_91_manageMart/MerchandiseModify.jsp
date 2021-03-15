@@ -343,6 +343,20 @@ button { /*按鈕的樣式*/
 						</div>
 					</div>
 
+					<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+						<a class="navbar-brand" href="#"></a>
+						<ul class="nav nav-pills">
+							<li class="nav-item">
+								<label for="testInput"> <input type="text" placeholder="請輸入商品編號"
+									id="testInput" />
+									<button class="submitBtn btn btn-secondary" >查詢商品</button>
+							</label>
+							</li>
+						</ul>
+					</nav>
+
+
+
 					<br>
 					<!-- 陳列商品 -->
 					<div class="accordion-item">
@@ -359,14 +373,16 @@ button { /*按鈕的樣式*/
 
 								<c:forEach var='item' items='${items}'>
 									<div class="container-fluid">
+									<div id="${item.itemId}" style="height: 40px"></div>
 										<!-- 			增加陰影效果 -->
-										<div class="shadow p-3 mb-5 bg-body rounded">
+										<div class="shadow p-3 bg-body rounded">
 											<div id="searchSquare">
 												<div class="row R_SpCre">
 													<!-- 						<div class="col-1"> -->
 													<!-- 							<input class="form-check-input" type="checkbox" -->
 													<!-- 								id="checkboxNoLabel" value="" aria-label="..."> -->
 													<!-- 						</div> -->
+													
 													<div style="text-align: left;">
 														<div>商品編號 : ${item.itemId}</div>
 													</div>
@@ -503,6 +519,24 @@ button { /*按鈕的樣式*/
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
 	<script>
+	var testInput = document.getElementById("testInput");
+	var submitBtn = document.querySelector(".submitBtn");
+
+	function FsubmitBtn(value) {
+	  var str = "";
+	  var submitValue = testInput.value;
+	  str = submitValue;
+	  location.href='${pageContext.request.contextPath}/merchandiseModify' +'#' + str;
+// 	  document.forms[0].action = "${pageContext.request.contextPath}/merchandiseModify#1";
+// 	  alert(str);
+	}
+	submitBtn.addEventListener("click", FsubmitBtn);
+// 	onclick="location.href='${pageContext.request.contextPath}/merchandiseModify#1'"
+	
+
+	
+	
+	
 		const theFile = document.getElementById('itemPic1');
 
 		theFile.addEventListener('change', function() {

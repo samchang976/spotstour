@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!doctype html>
 <html lang="en">
@@ -62,157 +62,150 @@
 
 		<div class="container" id="container_MerchandiseDetail">
 			<!-- 上方 ------------------------------------------------------------------------------------>
-			
-			<form:form method='POST' modelAttribute='itemBean' action="${pageContext.request.contextPath}/shoppingCart/addQty/${itemBean.itemId}">
-<!-- 			增加陰影效果 -->
-			<div class="shadow p-3 mb-5 bg-body rounded">
-				<div class="row above">                                   
-					<div class="col-12 col-md-6">
-						<img src="https://fakeimg.pl/350x250/?text=World&font=lobster"
-							class="w-100">
-					</div>
-					<div class="col-12 col-md-6">
-					<div style="line-height: 2.5;">
-						<h2>${itemBean.itemHeader}</h2> 
-						商品描述 : ${itemBean.itemDes}<br> 
-						<br> 
-						商品售價 :${itemBean.itemPrice}元<br> 
-						庫存數量 : ${itemBean.itemQty}<br>
-						代購國家 : ${itemBean.countryBean.countryName}<br> 
-						請選擇數量 :  
-						<select name="qty" class="form-select" aria-label="Default select example">
-<!-- 							<option  selected="selected" value="-1">請選擇數量</option> -->
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">6</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-						</select> <br> <br> 
 
-<%-- 						<c:if test="${mPid==2||mPid==1}"> --%>
-<%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
-								<button type="submit"  id="like" class="btn btn-primary btn-lg">
-									加入購物車
-								</button>
-<%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
-<%-- 								onchange="this.form.submit()" --%>
-<!-- 						顯示:綁識別字串 -->
-<!-- 						數量修改靠js -->
-<%-- 						</form> --%>
-<%-- 						</c:if> --%>
-						
-						<button id="saleType" class="btn btn-secondary btn-lg" disabled>完售</button>
-						<br> <br>
-						<!-- 						<select> -->
-						<!-- 							<option selected="selected" value="">請選擇付款方式</option> -->
-						<!-- 							<option value="1">貨到付款</option> -->
-						<!-- 							<option value="2">超商取貨付款</option> -->
-						<!-- 							<option value="3">信用卡付款</option> -->
-						<!-- 						</select> <br> -->
-						<%-- 						<form:form method='POST' modelAttribute='ordBean'> --%>
-						<%-- 							<form:select path="shipTypeTId" class="custom-select"> --%>
-						<%-- 								<form:option value="-1" label="請選擇寄送方式" /> --%>
-						<%-- 								<form:options items="${ship_TypeMap}" /> --%>
-						<%-- 							</form:select> --%>
-						<!-- 							<br> -->
-						<%-- 							<form:select path="receiptTypeTId" class="custom-select"> --%>
-						<%-- 								<form:option value="-1" label="請選擇發票型式" /> --%>
-						<%-- 								<form:options items="${receipt_TypeMap}" /> --%>
-						<%-- 							</form:select> --%>
-						<%-- 						</form:form> --%>
-					</div>
+			<form:form method='POST' modelAttribute='itemBean'
+				action="${pageContext.request.contextPath}/shoppingCart/addQty/${itemBean.itemId}">
+				<!-- 			增加陰影效果 -->
+				<div class="shadow p-3 mb-5 bg-body rounded">
+					<div class="row above">
+						<div class="col-12 col-md-6">
+							<img src="https://fakeimg.pl/350x250/?text=World&font=lobster"
+								class="w-100">
+						</div>
+						<div class="col-12 col-md-6">
+							<div style="line-height: 2.5;">
+								<h2>${itemBean.itemHeader}</h2>
+								商品描述 : ${itemBean.itemDes}<br> <br> 商品售價
+								:${itemBean.itemPrice}元<br> 庫存數量 : ${itemBean.itemQty}<br>
+								代購國家 : ${itemBean.countryBean.countryName}<br> 請選擇數量 : <select
+									name="qty" class="form-select"
+									aria-label="Default select example">
+									<!-- 							<option  selected="selected" value="-1">請選擇數量</option> -->
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">6</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+								</select> <br> <br>
+
+								<%-- 						<c:if test="${mPid==2||mPid==1}"> --%>
+								<%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
+								<button type="submit" id="like" class="btn btn-primary btn-lg">
+									加入購物車</button>
+								<%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
+								<%-- 								onchange="this.form.submit()" --%>
+								<!-- 						顯示:綁識別字串 -->
+								<!-- 						數量修改靠js -->
+								<%-- 						</form> --%>
+								<%-- 						</c:if> --%>
+
+								<button id="saleType" class="btn btn-secondary btn-lg" disabled>完售</button>
+								<br> <br>
+								<!-- 						<select> -->
+								<!-- 							<option selected="selected" value="">請選擇付款方式</option> -->
+								<!-- 							<option value="1">貨到付款</option> -->
+								<!-- 							<option value="2">超商取貨付款</option> -->
+								<!-- 							<option value="3">信用卡付款</option> -->
+								<!-- 						</select> <br> -->
+								<%-- 						<form:form method='POST' modelAttribute='ordBean'> --%>
+								<%-- 							<form:select path="shipTypeTId" class="custom-select"> --%>
+								<%-- 								<form:option value="-1" label="請選擇寄送方式" /> --%>
+								<%-- 								<form:options items="${ship_TypeMap}" /> --%>
+								<%-- 							</form:select> --%>
+								<!-- 							<br> -->
+								<%-- 							<form:select path="receiptTypeTId" class="custom-select"> --%>
+								<%-- 								<form:option value="-1" label="請選擇發票型式" /> --%>
+								<%-- 								<form:options items="${receipt_TypeMap}" /> --%>
+								<%-- 							</form:select> --%>
+								<%-- 						</form:form> --%>
+							</div>
+						</div>
 					</div>
 				</div>
-</div>
 			</form:form>
 			<!-- 下方 ----------------------------------------------------------------------------------->
 			<%-- 購買資訊分頁的按鈕-------------------------------------------------------------------  --%>
-			<!-- 			<div class="row AboutPurchaseInformation"> -->
-			<!-- 				<div class="col-12"> -->
-			<!-- 					<div id="ProductDescription">商品描述</div> -->
-			<!-- 										<div id="Purchase">費用&寄送資訊</div> -->
-			<!-- 					<div id="QA">商品留言</div> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-
-			
-
-
-
-			<%-- 商品資訊------------------------------------------------------- -----------------------%>
+			<div style="height: 50px"></div>
 			<div class="row">
 				<div class="col-12">
-				<div class="shadow p-3 mb-5 bg-body rounded">
-				<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
-				<a class="navbar-brand" href="#"></a>
-				<ul class="nav nav-pills">
-					<li class="nav-item"><a class="nav-link" href="<c:url value="/aboutMerchandise"/>">關於商品資訊</a></li>
-					<li class="nav-item"><a class="nav-link" href="#des">商品描述</a></li>
-					<li class="nav-item"><a class="nav-link" href="#fb">查看商品留言</a></li>
-					<li class="nav-item"><a class="nav-link" href="#addFb">新增商品留言</a></li>	
-				</ul>
-			</nav>
-					<div data-bs-spy="scroll" data-bs-target="#navbar-example2"
-						data-bs-offset="0" tabindex="0">
-						<div class="ItemInformationContent">
-							<span class="title"> ${itemBean.itemHeader} </span>
-							<!-- 商品圖片-------------------------------------------------------- -->
-							<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
-							<!-- 							class="w-100"> -->
+					<div class="shadow p-3 mb-5 bg-body rounded">
+						<nav id="navbar-example2"
+							class="navbar navbar-light bg-light px-3">
+							<a class="navbar-brand" href="#"></a>
+							<ul class="nav nav-pills">
+								<li class="nav-item"><a class="nav-link"
+									href="<c:url value="/aboutMerchandise"/>">關於商品資訊</a></li>
+								<li class="nav-item"><a class="nav-link" href="#des">商品描述</a></li>
+								<li class="nav-item"><a class="nav-link" href="#fb">查看商品留言</a></li>
+								<li class="nav-item"><a class="nav-link" href="#addFb">新增商品留言</a></li>
+							</ul>
+						</nav>
+					<%-- 商品資訊------------------------------------------------------- -----------------------%>	
+						<div data-bs-spy="scroll" data-bs-target="#navbar-example2"
+							data-bs-offset="0" tabindex="0">
+							<div class="ItemInformationContent">
+								<span class="title"> ${itemBean.itemHeader} </span>
+								<!-- 商品圖片-------------------------------------------------------- -->
+								<!-- 						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+								<!-- 							class="w-100"> -->
 
 
-							<!-- 							圖片輪播 -->
-							<div id="carouselExampleIndicators" class="carousel slide"
-								data-bs-ride="carousel">
-								<div class="carousel-indicators">
-									<button type="button"
+								<!-- 							圖片輪播 -->
+								<div id="carouselExampleIndicators" class="carousel slide"
+									data-bs-ride="carousel">
+									<div class="carousel-indicators">
+										<button type="button"
+											data-bs-target="#carouselExampleIndicators"
+											data-bs-slide-to="0" class="active" aria-current="true"
+											aria-label="Slide 1"></button>
+										<button type="button"
+											data-bs-target="#carouselExampleIndicators"
+											data-bs-slide-to="1" aria-label="Slide 2"></button>
+										<button type="button"
+											data-bs-target="#carouselExampleIndicators"
+											data-bs-slide-to="2" aria-label="Slide 3"></button>
+									</div>
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img
+												src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img
+												src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+												class="d-block w-100" alt="...">
+										</div>
+										<div class="carousel-item">
+											<img
+												src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+												class="d-block w-100" alt="...">
+										</div>
+									</div>
+									<button class="carousel-control-prev" type="button"
 										data-bs-target="#carouselExampleIndicators"
-										data-bs-slide-to="0" class="active" aria-current="true"
-										aria-label="Slide 1"></button>
-									<button type="button"
+										data-bs-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button"
 										data-bs-target="#carouselExampleIndicators"
-										data-bs-slide-to="1" aria-label="Slide 2"></button>
-									<button type="button"
-										data-bs-target="#carouselExampleIndicators"
-										data-bs-slide-to="2" aria-label="Slide 3"></button>
+										data-bs-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
 								</div>
-								<div class="carousel-inner">
-									<div class="carousel-item active">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-											class="d-block w-100" alt="...">
-									</div>
-									<div class="carousel-item">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-											class="d-block w-100" alt="...">
-									</div>
-									<div class="carousel-item">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-											class="d-block w-100" alt="...">
-									</div>
-								</div>
-								<button class="carousel-control-prev" type="button"
-									data-bs-target="#carouselExampleIndicators"
-									data-bs-slide="prev">
-									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-									<span class="visually-hidden">Previous</span>
-								</button>
-								<button class="carousel-control-next" type="button"
-									data-bs-target="#carouselExampleIndicators"
-									data-bs-slide="next">
-									<span class="carousel-control-next-icon" aria-hidden="true"></span>
-									<span class="visually-hidden">Next</span>
-								</button>
+								<div id="des" style="height: 50px"></div>
+								<h3>商品敘述</h3>
+								<!-- 商品敘述-------------------------------------------------------- -->
+								<div>${itemBean.itemDes}</div>
 							</div>
-							<h4 id="des">商品敘述</h4>
-							<!-- 商品敘述-------------------------------------------------------- -->
-							<div>${itemBean.itemDes}</div>
 						</div>
-					</div>
 					</div>
 				</div>
 				<!-- 加入購物車 --------------------------------------------------------------------------------->
@@ -231,8 +224,9 @@
 				<!-- 				</div> -->
 			</div>
 			<br>
+			<div id="fb" style="height: 30px"></div>
 			<div class="shadow p-3 mb-5 bg-body rounded">
-				<h3 id="fb">${itemBean.itemHeader} 商品留言 :</h3>
+				<h3>${itemBean.itemHeader}商品留言 :</h3>
 
 				<div style="text-align: right;">
 					<c:set var="now" value="<%=new java.util.Date()%>" />
@@ -259,34 +253,36 @@
 				</div>
 			</div>
 
+			<div id="addFb" style="height: 50px"></div>
 			<div class="shadow p-3 mb-5 bg-body rounded">
-			<c:if test="${ mPid != 2 && mPid != 1 }">
-				<div>
-					<button type="submit" id="login" class="btn btn-primary btn-lg"
-						onclick="location.href='${pageContext.request.contextPath}/login'">登入即可留言</button>
-				</div>
-			</c:if>
-			
-			
-			<c:if test="${ mPid == 2 || mPid == 1 }">
-				<h3 id="addFb">${itemBean.itemHeader} 新增商品留言 : </h3>
-				<form:form method='POST' modelAttribute='feedbackBean'>
-					<div class="form-group row">
-						<label for="feedbackText" class="col-sm-2 col-form-label"></label>
-						<div class="col-sm-10">
-							<form:textarea type="text" path="feedbackText" class="form-control" style="padding-bottom: 40px;"
-								id="feedbackText" />
-						</div>
+				<c:if test="${ mPid != 2 && mPid != 1 }">
+					<div>
+						<button type="submit" id="login" class="btn btn-primary btn-lg"
+							onclick="location.href='${pageContext.request.contextPath}/login'">登入即可留言</button>
 					</div>
-					<div class="form-group row  d-flex justify-content-end mt-5">
-						<div  style="text-align: center;">
-							<button type="submit" id="editM" class="btn btn-primary btn-lg"
-								onclick="location.href='/merchandiseDetail/Id=${item.itemId}'">新增留言</button>
+				</c:if>
+
+
+				<c:if test="${ mPid == 2 || mPid == 1 }">
+					<h3>${itemBean.itemHeader}新增商品留言 :</h3>
+					<form:form method='POST' modelAttribute='feedbackBean'>
+						<div class="form-group row">
+							<label for="feedbackText" class="col-sm-2 col-form-label"></label>
+							<div class="col-sm-10">
+								<form:textarea type="text" path="feedbackText"
+									class="form-control" style="padding-bottom: 40px;"
+									id="feedbackText" />
+							</div>
 						</div>
-					</div>
-				</form:form>
-			</c:if>
-		</div>
+						<div class="form-group row  d-flex justify-content-end mt-5">
+							<div style="text-align: center;">
+								<button type="submit" id="editM" class="btn btn-primary btn-lg"
+									onclick="location.href='/merchandiseDetail/Id=${item.itemId}'">新增留言</button>
+							</div>
+						</div>
+					</form:form>
+				</c:if>
+			</div>
 		</div>
 
 		<!-----------定位----------------------------------------------------------------------------->
