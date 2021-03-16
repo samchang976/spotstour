@@ -53,6 +53,10 @@
 		 	background: #000 url("<c:url value='/images/background/ugur-peker-AkX0_cZQ6PI-unsplash.jpg'></c:url>") center fixed no-repeat;
 		    background-size: cover;
 		}
+		.itemName{
+		height:70px;
+		}
+	
         .addcart{
             width: 100%;
             background-color: rgba(199, 195, 188, 0.9);
@@ -66,6 +70,7 @@
             color:white;
         }
         
+/*購物車側欄======================================================================================= */
 	    #imgBoard{
 		    background: #ddd;
 		    width: 300px;
@@ -78,6 +83,7 @@
 			height: 80%;
 		    
 		}
+		
  		#imgBoard:hover{
 		    left: 0px;
 			overflow-y:scroll;
@@ -125,15 +131,16 @@
 				
 				<div>
 					<c:forEach var="sessioncartList" items="${sessionShoppingCartList}">
-						<form>
-<%-- 							<a href="<c:url value="shoppingCart/visitor/delete?itemId=${sessioncartList.itemId}"/>"> --%>
-								<i class="fas fa-minus-circle" onclick="deleteItem(${sessioncartList.itemId})"></i>
-<!-- 							</a> -->
+						<form name="sideform${sessioncartList.itemId}">
+<%-- 						<a href="<c:url value="shoppingCart/visitor/delete?itemId=${sessioncartList.itemId}"/>"> --%>
+							<i class="fas fa-minus-circle" onclick="deleteItem(${sessioncartList.itemId})"></i>
+<!-- 						</a> -->
 								
 							<img src="<c:url value='/images/background/ugur-peker-AkX0_cZQ6PI-unsplash.jpg'></c:url>" alt="商品照片"></img> 
 	<!-- 						<img src="#" alt="商品照片"></img> -->
 							<div>${sessioncartList.itemHeader}</div>
 							<div>${sessioncartList.itemPrice}元</div>
+							
 						</form>
 					</c:forEach>
 				</div>
@@ -189,14 +196,14 @@
 
 
 						</div>
+						
 						<div class="itemName ">
 							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>">
 								<img class="w-100"> ${item.itemHeader}
 							</a>
 						</div>
 						<div class="itemPrice">價格 : ${item.itemPrice}元</div>
-						<div class="countryName">產地 :
-							${item.countryBean.countryName}</div>
+						<div class="countryName">產地 :${item.countryBean.countryName}</div>
 						<div class="itemType">商品類別 : ${item.item_typeBean.itemType}</div>
 						<!-- 						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input -->
 						<%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
@@ -387,14 +394,12 @@
 		
 		function deleteItem(itemId){
 			alert(itemId);
-			var xhr = new XMLHttpRequest();
-
-			xhr.open('post', "<c:url value='shoppingCart/visitor/del?itemId='/>"+itemId, false);
-			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");//post方法一定要設
-		   	xhr.send(itemId);
+			name="sideform"+itemId;
 			// 送出
-			
-			
+			var thisForm = document.forms[name];
+			thisForm.action="${pageContext.request.contextPath}/shoppingCart/visitor/del?itemId="+itemId;
+			thisForm.method="post";
+			thisForm.submit();
 // 		var temp = document.createElement("Form");
 // 		temp.action = "${pageContext.request.contextPath}/shoppingCart/visitor/del?itemId="+itemId;
 // 		temp.method = "post";
