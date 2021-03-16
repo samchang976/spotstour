@@ -59,8 +59,7 @@
 	
         .addcart{
             width: 100%;
-            background-color: rgba(199, 195, 188, 0.9);
-            color:rgb(58, 5, 5);
+            background-color: rgba(177, 112, 82, 0.3);
 
         }
         .addcart:hover{
@@ -120,33 +119,35 @@
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 		<!------------------------------------------------------------------------------------------->
-		
+<!-- 側邊購物車--------------------------------------------------------------------------------------- -->
 		<div id="imgBoard">購物車
+				<!--判斷購物車內是否有相同商品:未顯示----------------------------------------------------------->
 				<div id="sessionCart">
 <!-- 					map取值:OO.key/OO.value -->
 					<c:forEach var="sessioncart" items="${sessionShoppingCart}">
 						${sessioncart.key},
 					</c:forEach>
 				</div>
-				
+				<!------------------------------------------------------------------------------------>
 				<div>
 					<c:forEach var="sessioncartList" items="${sessionShoppingCartList}">
 						<form name="sideform${sessioncartList.itemId}">
-<%-- 						<a href="<c:url value="shoppingCart/visitor/delete?itemId=${sessioncartList.itemId}"/>"> --%>
 							<i class="fas fa-minus-circle" onclick="deleteItem(${sessioncartList.itemId})"></i>
-<!-- 						</a> -->
 								
 							<img src="<c:url value='/images/background/ugur-peker-AkX0_cZQ6PI-unsplash.jpg'></c:url>" alt="商品照片"></img> 
-	<!-- 						<img src="#" alt="商品照片"></img> -->
+							<!--<img src="#" alt="商品照片"></img> -->
 							<div>${sessioncartList.itemHeader}</div>
 							<div>${sessioncartList.itemPrice}元</div>
 							
 						</form>
 					</c:forEach>
 				</div>
-				<button>確定購買</button>
+				<button class="btn addcart">確定購買</button>
+				判斷是否登入會員
+				未登入=>導向登入頁面
+				登入=>把session內的itemid、itemQty存入資料庫
 		</div>
-		<!--商品  -->
+		<!--商品------------------------------------------------------------------------------------------------------------  -->
 		<div class="container" id="container_MerchandiseSearchResult">
 			<div class="row row-cols-1 row-cols-md-4 g-3">
 
@@ -395,7 +396,6 @@
 		function deleteItem(itemId){
 			alert(itemId);
 			name="sideform"+itemId;
-			// 送出
 			var thisForm = document.forms[name];
 			thisForm.action="${pageContext.request.contextPath}/shoppingCart/visitor/del?itemId="+itemId;
 			thisForm.method="post";

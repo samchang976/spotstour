@@ -180,9 +180,9 @@ public class ShoppingCartContent {
 			@PathVariable("cmd") String cmd
 	) {
 		System.out.println("訪客加入購物車開始===================================");
+		// Session內的購物車商品id清單
 		Map<Integer, Integer> cartlist = (Map<Integer, Integer>) model.getAttribute("sessionShoppingCart");
 		
-		// Session內的購物車商品id清單
 		if(cmd.equalsIgnoreCase("del")) {
 			System.out.println("這是刪除的=========");
 			if ( cartlist.get(itemId) != null ) {
@@ -191,10 +191,7 @@ public class ShoppingCartContent {
 			
 			model.addAttribute("sessionShoppingCart", cartlist);
 			System.out.println("移除後的cartlist===================================="+cartlist);
-			
-			
 		}
-		
 		//========================================================================================
 		if(cmd.equalsIgnoreCase("add")) {
 		// 如果找不到ShoppingCart清單
