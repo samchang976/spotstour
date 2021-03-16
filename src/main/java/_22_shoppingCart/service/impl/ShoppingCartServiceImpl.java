@@ -130,21 +130,22 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 //				cartlist.put(itemId, itemQty);
 //			}
 //		}
-
 		
 		 Integer key = null;
 		 List<SessionShoppingCartVo> sscList = new LinkedList<>();
-		
+		//讀出Map
 		 Iterator<Integer> iter = cartlist.keySet().iterator();
-		  while(iter.hasNext()){
+		 
+		 //如果有還有下一個就繼續迴圈 
+		 while(iter.hasNext()){
 			  key=iter.next();
 			  Integer value = cartlist.get(key);
 		   System.out.println("keyvalue==========="+key+" : "+value);
-		
-		
 //		int i;
 
 //		for (i = 0; i < (cartlist.size() - 1); i++) {
+		   
+		   //不經過資料庫的串接容器類bean
 			SessionShoppingCartVo ssc = new SessionShoppingCartVo();
 			ItemBean newItemBean = shoppingCartDao.getItemBeanByItemId(key);
 
@@ -153,16 +154,17 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 			ssc.setItemPrice(newItemBean.getItemPrice());
 			ssc.setItemPic1(newItemBean.getItemPic1());
 			ssc.setScQty(value);
-
+			ssc.setItemId(key);
 			sscList.add(ssc);
 //		}
 		  }
+		  
 		System.out.println("cartlistSE===================="+cartlist);
 		System.out.println("sscListSE================="+sscList);
 		
 		return sscList;
-		
-//		return null;
 	}
+	
+
 
 }

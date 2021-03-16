@@ -172,20 +172,31 @@ public class ShoppingCartContent {
 
 	}
 
-	@PostMapping("/shoppingCart/visitoradd/{itemId}") /// {judgment}判斷
-	public String VisitorAdd(Model model, @PathVariable("itemId") Integer itemId,
-			@RequestParam("itemQty") Integer itemQty
-//			@PathVariable("judgment") String judgment
+	
+	@SuppressWarnings("unchecked")
+	@PostMapping("/shoppingCart/visitor/{cmd}") /// {cmd}判斷
+	public String VisitorAdd(Model model, @RequestParam("itemId") Integer itemId,
+			@RequestParam(value="itemQty" ,required=false) Integer itemQty,
+			@PathVariable("cmd") String cmd
 	) {
 		System.out.println("訪客加入購物車開始===================================");
-
-		// Session內的購物車商品id清單
-		@SuppressWarnings("unchecked")
 		Map<Integer, Integer> cartlist = (Map<Integer, Integer>) model.getAttribute("sessionShoppingCart");
 		
+		// Session內的購物車商品id清單
+		if(cmd.equalsIgnoreCase("del")) {
+			System.out.println("這是刪除的=========");
+			if ( cartlist.get(itemId) != null ) {
+				cartlist.remove(itemId);  // Map介面的remove()方法}
+			}
+			
+			model.addAttribute("sessionShoppingCart", cartlist);
+			System.out.println("移除後的cartlist===================================="+cartlist);
+			
+			
+		}
 		
-		
-
+		//========================================================================================
+		if(cmd.equalsIgnoreCase("add")) {
 		// 如果找不到ShoppingCart清單
 		if (cartlist == null) {
 			cartlist = new LinkedHashMap<>();
@@ -196,7 +207,7 @@ public class ShoppingCartContent {
 			}
 			model.addAttribute("sessionShoppingCart", cartlist);
 			System.out.println(cartlist);
-
+		//有:加上商品
 		} else {
 			if (itemQty == null) {
 				cartlist.put(itemId, 1);
@@ -205,7 +216,7 @@ public class ShoppingCartContent {
 				model.addAttribute("sessionShoppingCart", cartlist);
 			}
 		}
-
+		}
 //		int i;
 //		List<SessionShoppingCartVo> sscList = null;
 //		SessionShoppingCartVo ssc = null;
@@ -222,11 +233,11 @@ public class ShoppingCartContent {
 //		}
 
 		List<SessionShoppingCartVo> sscList = shoppingCartService.getShoppingCartVo(cartlist);
-		model.addAttribute("sessionShoppingCart", cartlist);
-		System.out.println("cartlist===================="+cartlist);
+//		model.addAttribute("sessionShoppingCart", cartlist);
+//		System.out.println("cartlist===================="+cartlist);
 		model.addAttribute("sessionShoppingCartList", sscList);
-		System.out.println("sscList================="+sscList);
-
+//		System.out.println("sscList================="+sscList);
+		
 		System.out.println("訪客加入購物車結束===================================");
 		return "redirect:/merchandiseSearchResult";
 	}
