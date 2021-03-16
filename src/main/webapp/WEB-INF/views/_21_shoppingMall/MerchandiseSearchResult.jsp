@@ -142,10 +142,11 @@
 						</form>
 					</c:forEach>
 				</div>
-				<button class="btn addcart">確定購買</button>
-				判斷是否登入會員
-				未登入=>導向登入頁面
-				登入=>把session內的itemid、itemQty存入資料庫
+				
+				<button class="btn addcart" type="button"
+					onclick="location.href='<c:url value="/shoppingCart/sessionCartSave"/>'">確定購買</button>
+<!-- 				導向存session的controller -->
+				
 		</div>
 		<!--商品------------------------------------------------------------------------------------------------------------  -->
 		<div class="container" id="container_MerchandiseSearchResult">
