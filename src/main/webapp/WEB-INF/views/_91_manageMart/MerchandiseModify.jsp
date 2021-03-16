@@ -176,7 +176,7 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="itemHeader" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品名稱 : &nbsp;</label>
+															style="text-align: right;">商品名稱 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<div class="col-sm-10">
 															<form:input type="text" path="itemHeader"
 																class="form-control" id="itemHeader" maxlength="20"
@@ -189,7 +189,7 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="itemPrice" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品價錢 : &nbsp;</label>
+															style="text-align: right;">商品價錢 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<div class="col-sm-10">
 															<div class="input-group">
 																<span class="input-group-text">$</span>
@@ -203,7 +203,7 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="itemQty" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品數量 : &nbsp;</label>
+															style="text-align: right;">商品數量 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<div class="col-sm-10">
 															<form:input type="number" path="itemQty" min="0"
 																class="form-control" id="itemQty" />
@@ -214,7 +214,7 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="itemDes" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品描述 : &nbsp;</label>
+															style="text-align: right;">商品描述 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<div class="col-sm-10">
 															<form:textarea type="text" path="itemDes" min="0"
 																style="padding-bottom: 40px;" class="form-control"
@@ -226,7 +226,7 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="itTId" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品類型 : &nbsp;</label>
+															style="text-align: right;">商品類型 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<div class="mb-3 col-10">
 															<c:if test="${itemId==null}">
 																<form:select path="itTId" class="form-select"
@@ -249,7 +249,7 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="countryTId" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品產地 : &nbsp;</label>
+															style="text-align: right;">商品產地 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<c:if test="${itemId==null}">
 															<div class="mb-3 col-10">
 																<form:select path="countryTId" class="form-select"
@@ -271,39 +271,58 @@ button { /*按鈕的樣式*/
 													</div>
 												</div>
 
-												<div id="addItem">
+												<c:if test="${itemId==null}">
+												
+													<div id="addItem">
 													<div class="col-1"></div>
-													<div class="col-3">
-<!-- 														商品第一張照片 :<br> <img id="photo1" name="photo1" -->
-<%-- 															src="/upload/${itemBean.itemPic1}" class="w-100"> <br> --%>
-
-														<form:input path="itemImage1" type='file' accept=".jpg" class="form-control"/><br>
+														<div class="col-1">
+														<label style="text-align: right;" >商品照片 :</label>
+														</div>
 														
-														<form:input path="itemImage2" type='file' accept=".jpg" class="form-control"/><br>
-														
-														<form:input path="itemImage3" type='file' accept=".jpg" class="form-control"/><br>
-													</div>
-													<div class="col-1"></div>
+														<div class="col-3">
+															<!-- 														商品第一張照片 :<br> <img id="photo1" name="photo1" -->
+															<%-- 															src="/upload/${itemBean.itemPic1}" class="w-100"> <br> --%>
 
-													<div class="col-3">
-<!-- 														商品第二張照片 :<br> <img id="photo2" name="photo2" -->
-<%-- 															src="/upload/${itemBean.itemPic2}" class="w-100"> <br> --%>
-<%-- 														<form:input path="itemImage2" type='file' accept=".jpg" /> --%>
-													</div>
-													<div class="col-1"></div>
+															<form:input path="itemImage1" type='file' accept=".jpg"
+																class="form-control" />
+															<br>
 
-													<div class="col-3">
-														商品照片 :<br> <img id="photo3" name="photo3"
-															src="/upload/${itemBean.itemPic3}" class="w-100"> <br>
-<%-- 														<form:input path="itemImage3" type='file' accept=".jpg" /> --%>
+															<form:input path="itemImage2" type='file' accept=".jpg"
+																class="form-control" />
+															<br>
+
+															<form:input path="itemImage3" type='file' accept=".jpg"
+																class="form-control" />
+															<br>
+														</div>
+
+														<div class="col-1">
+															<!-- 														商品第二張照片 :<br> <img id="photo2" name="photo2" -->
+															<%-- 															src="/upload/${itemBean.itemPic2}" class="w-100"> <br> --%>
+															<%-- 														<form:input path="itemImage2" type='file' accept=".jpg" /> --%>
+														</div>
+														<div class="col-1">
+														<label style="text-align: right;" >瀏覽照片 :</label>
+														</div>
+
+														<div class="col-3">
+															<br> <img id="photo3" name="photo3"
+																src="/upload/${itemBean.itemPic3}" class="w-100">
+															<br>
+															<%-- 														<form:input path="itemImage3" type='file' accept=".jpg" /> --%>
+														</div>
+														<!-- 一次上傳三張照片 -->
+														<!-- 					<div class="mb-3"> -->
+														<!-- 						<label for="formFileMultiple" class="form-label">Multiple -->
+														<!-- 							一次上傳三張照片</label> <input class="form-control" type="file" -->
+														<!-- 							id="formFileMultiple" multiple> -->
+														<!-- 					</div> -->
 													</div>
-													<!-- 一次上傳三張照片 -->
-													<!-- 					<div class="mb-3"> -->
-													<!-- 						<label for="formFileMultiple" class="form-label">Multiple -->
-													<!-- 							一次上傳三張照片</label> <input class="form-control" type="file" -->
-													<!-- 							id="formFileMultiple" multiple> -->
-													<!-- 					</div> -->
-												</div>
+												</c:if>
+												
+												
+
+
 												<div class="form-group row  d-flex justify-content-end mt-5">
 													<div style="text-align: center;">
 														<!-- 				<div> -->
@@ -386,8 +405,9 @@ button { /*按鈕的樣式*/
 														<br>
 														<div>
 															<img id="pic1" name="pic1"
-																src="${pageContext.request.contextPath}/images/${item.itemPic1}" class="w-100">
-												
+																src="/upload/${item.itemPic1}"
+																class="w-100">
+
 														</div>
 													</div>
 
@@ -396,7 +416,8 @@ button { /*按鈕的樣式*/
 														<br>
 														<div>
 															<img id="pic2" name="pic2"
-																src="${pageContext.request.contextPath}/images/${item.itemPic2}" class="w-100">
+																src="/upload/${item.itemPic2}"
+																class="w-100">
 														</div>
 													</div>
 
@@ -404,8 +425,9 @@ button { /*按鈕的樣式*/
 
 														<br>
 														<div>
-														<img id="pic3" name="pic3"
-																src="${pageContext.request.contextPath}/images/${item.itemPic3}" class="w-100">
+															<img id="pic3" name="pic3"
+																src="/upload/${item.itemPic3}"
+																class="w-100">
 														</div>
 													</div>
 
@@ -527,7 +549,6 @@ button { /*按鈕的樣式*/
 		submitBtn.addEventListener("click", FsubmitBtn);
 		// 	onclick="location.href='${pageContext.request.contextPath}/merchandiseModify#1'"
 
-		
 		const theFile1 = document.getElementById('itemImage1');
 
 		theFile1.addEventListener('change', function() {
@@ -549,7 +570,7 @@ button { /*按鈕的樣式*/
 			//readAsDataURL去讀 file 把檔案轉成 URL
 			fr1.readAsDataURL(file1);
 		}
-		
+
 		const theFile2 = document.getElementById('itemImage2');
 
 		theFile2.addEventListener('change', function() {
@@ -572,7 +593,6 @@ button { /*按鈕的樣式*/
 			fr2.readAsDataURL(file2);
 		}
 
-		
 		const theFile3 = document.getElementById('itemImage3');
 
 		theFile3.addEventListener('change', function() {
@@ -594,7 +614,6 @@ button { /*按鈕的樣式*/
 			//readAsDataURL去讀 file 把檔案轉成 URL
 			fr3.readAsDataURL(file3);
 		}
-		
 	</script>
 
 </body>
