@@ -170,15 +170,15 @@
 								class="carousel slide" data-bs-ride="carousel">
 								<div class="carousel-inner">
 									<div class="carousel-item active">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+										<img src="/upload/${item.itemPic1}"
 											class="d-block w-100" alt="...">
 									</div>
 									<div class="carousel-item">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+										<img src="/upload/${item.itemPic2}"
 											class="d-block w-100" alt="...">
 									</div>
 									<div class="carousel-item">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+										<img src="/upload/${item.itemPic3}"
 											class="d-block w-100" alt="...">
 									</div>
 								</div>

@@ -69,7 +69,7 @@
 				<div class="shadow p-3 mb-5 bg-body rounded">
 					<div class="row above">
 						<div class="col-12 col-md-6">
-							<img src="https://fakeimg.pl/350x250/?text=World&font=lobster"
+							<img src="/upload/${itemBean.itemPic1}"
 								class="w-100">
 						</div>
 						<div class="col-12 col-md-6">
@@ -132,6 +132,7 @@
 			<%-- 購買資訊分頁的按鈕-------------------------------------------------------------------  --%>
 			<div style="height: 50px"></div>
 			<div class="row">
+<!-- 			<div class="col-2"></div> -->
 				<div class="col-12">
 					<div class="shadow p-3 mb-5 bg-body rounded">
 						<nav id="navbar-example2"
@@ -173,17 +174,17 @@
 									<div class="carousel-inner">
 										<div class="carousel-item active">
 											<img
-												src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+												src="/upload/${itemBean.itemPic1}"
 												class="d-block w-100" alt="...">
 										</div>
 										<div class="carousel-item">
 											<img
-												src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+												src="/upload/${itemBean.itemPic2}"
 												class="d-block w-100" alt="...">
 										</div>
 										<div class="carousel-item">
 											<img
-												src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+												src="/upload/${itemBean.itemPic3}"
 												class="d-block w-100" alt="...">
 										</div>
 									</div>
@@ -223,6 +224,7 @@
 				<!-- 					</div> -->
 				<!-- 				</div> -->
 			</div>
+<!-- 			<div class="col-2"></div> -->
 			<br>
 			<div id="fb" style="height: 30px"></div>
 			<div class="shadow p-3 mb-5 bg-body rounded">
