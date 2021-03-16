@@ -124,7 +124,7 @@
 
 				姓名 : ${orderVoNew.mName} <br> 性別 : ${orderVoNew.mGender} <br> 身分證字號 : ${orderVoNew.mUid} <br>
 						<%-- 				${orderVo.shipTypeId}<br> --%>
-				手機 : ${orderVoNew.mPhone} <br> 收件地址 : ${orderVoNew.s_mAddress}
+				手機 : ${orderVoNew.mPhone} <br> Email : ${orderVoNew.mEmail} <br>  收件地址 : ${orderVoNew.s_mAddress}
 
 					<div class="PayTitle">發票</div>
 						<c:if test="${ orderVoNew.receiptTypeId == 1}">

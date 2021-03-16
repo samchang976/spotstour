@@ -129,6 +129,22 @@
 								</div>
 							</div>
 						</div>
+						
+						<div class="form-group row">
+							<div class="input-group mb-3">
+								<div class="row g-3 align-items-center">
+									<div class="col-auto">
+										<label for="Orderer" class="col-form-label">信箱 :</label>
+									</div>
+
+									<div class="col-auto">
+										<form:input type="text" id="mEmail" class="form-control"
+											path="mEmail" name="mEmail" value="${LoginOK.mEmail}"
+											placeholder="${LoginOK.mEmail}"/>
+									</div>
+								</div>
+							</div>
+						</div>
 
 						<div class="form-group row">
 							<div class="input-group mb-3">
