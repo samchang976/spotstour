@@ -229,75 +229,78 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 		itemBeanO.setItemHeader(itemBeanN.getItemHeader());
 		itemBeanO.setItemPrice(itemBeanN.getItemPrice());
 		itemBeanO.setItemQty(itemBeanN.getItemQty());
+		itemBeanO.setItemPic1(itemBeanN.getItemPic1());
+		itemBeanO.setItemPic2(itemBeanN.getItemPic2());
+		itemBeanO.setItemPic3(itemBeanN.getItemPic3());
 		
-		// 圖片處理
-		MultipartFile picture1 = itemBeanN.getItemImage1(); // 圖片本人
-		String originalFilename1 = picture1.getOriginalFilename(); // 圖片的檔名
-		if (originalFilename1.length() > 0 && originalFilename1.lastIndexOf(".") > -1) {
-			itemBeanO.setItemPic1("itemImages/" + originalFilename1); // 將檔名存入資料庫
-		}
-		
-		MultipartFile picture2 = itemBeanN.getItemImage2(); // 圖片本人
-		String originalFilename2 = picture2.getOriginalFilename(); // 圖片的檔名
-		if (originalFilename2.length() > 0 && originalFilename2.lastIndexOf(".") > -1) {
-			itemBeanO.setItemPic2("itemImages/" + originalFilename2); // 將檔名存入資料庫
-		}
-		
-		MultipartFile picture3 = itemBeanN.getItemImage3(); // 圖片本人
-		String originalFilename3 = picture3.getOriginalFilename(); // 圖片的檔名
-		if (originalFilename3.length() > 0 && originalFilename3.lastIndexOf(".") > -1) {
-			itemBeanO.setItemPic3("itemImages/" + originalFilename3); // 將檔名存入資料庫
-		}
-		
-		// 將圖片存入資料夾
-//		String folderPath = String.format("C:/_Hibernate/workspace/SpotsTourHSM/src/main/webapp/images/itemImages/%s",
-//				itemBean.getItemId());
-		
-		String folderPath = "C:/_Hibernate/workspace/SpotsTourHSM/src/main/webapp/images/itemImages";
-		
-		File theDir = new File(folderPath);
-		if (!theDir.exists()) {
-			theDir.mkdirs();
-		}
-
-		try (InputStream in = picture1.getInputStream();
-				OutputStream out = new FileOutputStream(folderPath + "/" + originalFilename1)) {
-
-			byte[] buffer = new byte[1024];
-			int len = -1;
-			while ((len = in.read(buffer)) != -1) {
-				out.write(buffer, 0, len);
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		try (InputStream in = picture2.getInputStream();
-				OutputStream out = new FileOutputStream(folderPath + "/" + originalFilename2)) {
-
-			byte[] buffer = new byte[1024];
-			int len = -1;
-			while ((len = in.read(buffer)) != -1) {
-				out.write(buffer, 0, len);
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		try (InputStream in = picture3.getInputStream();
-				OutputStream out = new FileOutputStream(folderPath + "/" + originalFilename3)) {
-
-			byte[] buffer = new byte[1024];
-			int len = -1;
-			while ((len = in.read(buffer)) != -1) {
-				out.write(buffer, 0, len);
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		// 圖片處理
+//		MultipartFile picture1 = itemBeanN.getItemImage1(); // 圖片本人
+//		String originalFilename1 = picture1.getOriginalFilename(); // 圖片的檔名
+//		if (originalFilename1.length() > 0 && originalFilename1.lastIndexOf(".") > -1) {
+//			itemBeanO.setItemPic1("itemImages/" + originalFilename1); // 將檔名存入資料庫
+//		}
+//		
+//		MultipartFile picture2 = itemBeanN.getItemImage2(); // 圖片本人
+//		String originalFilename2 = picture2.getOriginalFilename(); // 圖片的檔名
+//		if (originalFilename2.length() > 0 && originalFilename2.lastIndexOf(".") > -1) {
+//			itemBeanO.setItemPic2("itemImages/" + originalFilename2); // 將檔名存入資料庫
+//		}
+//		
+//		MultipartFile picture3 = itemBeanN.getItemImage3(); // 圖片本人
+//		String originalFilename3 = picture3.getOriginalFilename(); // 圖片的檔名
+//		if (originalFilename3.length() > 0 && originalFilename3.lastIndexOf(".") > -1) {
+//			itemBeanO.setItemPic3("itemImages/" + originalFilename3); // 將檔名存入資料庫
+//		}
+//		
+//		// 將圖片存入資料夾
+////		String folderPath = String.format("C:/_Hibernate/workspace/SpotsTourHSM/src/main/webapp/images/itemImages/%s",
+////				itemBean.getItemId());
+//		
+//		String folderPath = "C:/_Hibernate/workspace/SpotsTourHSM/src/main/webapp/images/itemImages";
+//		
+//		File theDir = new File(folderPath);
+//		if (!theDir.exists()) {
+//			theDir.mkdirs();
+//		}
+//
+//		try (InputStream in = picture1.getInputStream();
+//				OutputStream out = new FileOutputStream(folderPath + "/" + originalFilename1)) {
+//
+//			byte[] buffer = new byte[1024];
+//			int len = -1;
+//			while ((len = in.read(buffer)) != -1) {
+//				out.write(buffer, 0, len);
+//			}
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		try (InputStream in = picture2.getInputStream();
+//				OutputStream out = new FileOutputStream(folderPath + "/" + originalFilename2)) {
+//
+//			byte[] buffer = new byte[1024];
+//			int len = -1;
+//			while ((len = in.read(buffer)) != -1) {
+//				out.write(buffer, 0, len);
+//			}
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		try (InputStream in = picture3.getInputStream();
+//				OutputStream out = new FileOutputStream(folderPath + "/" + originalFilename3)) {
+//
+//			byte[] buffer = new byte[1024];
+//			int len = -1;
+//			while ((len = in.read(buffer)) != -1) {
+//				out.write(buffer, 0, len);
+//			}
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
 		//將接取的圖片檔案儲存到本地,拿取路徑字串,放入要送到對應資料庫圖片的Bean
 //				MultipartFile mfp = itemBean.getItemImage1();
