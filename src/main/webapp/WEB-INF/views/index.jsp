@@ -43,6 +43,7 @@
 		<!-- 		<p style='font-family: "Verdana"; color: red'> -->
 		<!-- 			本範例需要先執行_00_init.EDMTableReset.java來建立初始資料</p> -->
 <%-- 影片輪播============================================================================== --%>
+	<div class="o"></div>
 		<div id="carouselExampleIndicators" class="carousel slide"
 			data-bs-ride="carousel">
 			<!-- 選擇影片的框框 -->
@@ -55,15 +56,15 @@
 			<!--  -->
 			<div style="width: 100%;" class="carousel-inner">
 				<div id="first" class="carousel-item active">
-					<video src="${pageContext.request.contextPath}/videos/a.mp4"
+					<video src="${pageContext.request.contextPath}/videos/Birmingham.mp4"
 						class="d-block w-100" autoplay loop muted></video>
 				</div>
 				<div class="carousel-item">
-					<video src="${pageContext.request.contextPath}/videos/a.mp4"
+					<video src="${pageContext.request.contextPath}/videos/Bristol.mp4"
 						class="d-block w-100" autoplay loop muted></video>
 				</div>
 				<div class="carousel-item">
-					<video src="${pageContext.request.contextPath}/videos/a.mp4"
+					<video src="${pageContext.request.contextPath}/videos/Calgary.mp4"
 						class="d-block w-100" autoplay loop muted></video>
 				</div>
 			</div>
