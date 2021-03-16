@@ -46,6 +46,8 @@
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>活動管理清單</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 <link rel="stylesheet" href="button.css">
 <link rel="stylesheet" href="font.css">
 <style>
@@ -123,9 +125,13 @@ button { /*確定、送出的按鈕排版*/
 								<div class="col-12">
 									<label for="exampleFormControlInput1" class="form-label">活動照片</label>
 									<div>
-<!-- 										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
-<!-- 											class="w-100"> <br> -->
-										<form:input type="file" path="activityImage" />
+										<!-- 										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+										<!-- 											class="w-100"> <br> -->
+										<form:input type="file" path="activityImage"
+											id="activityImage" />
+									</div>
+									<div class="image">
+										<img id="image1" />
 									</div>
 								</div>
 
@@ -192,6 +198,23 @@ button { /*確定、送出的按鈕排版*/
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
+	<script>
+		$(document).ready(function() {
+			$('#activityImage').change(function() {
+				readURL(this);
+			})
+			//因為單選的關係，所以有檔案一定是在第0個。
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					let reader = new FileReader();
+					reader.onload = function(e) { //讀出來是二進位檔案
+						$('#image1').attr('src', e.target.result);
+					}
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+		});
+	</script>
 
 </body>
 </html>

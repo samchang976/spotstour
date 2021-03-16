@@ -47,6 +47,45 @@
 
 <title>商品詳細</title>
 
+<style>
+.imageFrame {
+	height: 600px; /*can be anything*/
+	width: 600px; /*can be anything*/
+	position: relative;
+	overflow: hidden;
+}
+
+.imageFrame img {
+	transform: scale(1, 1);
+	transition: all 1s ease-out;
+}
+
+.imageFrame img:hover {
+	transform: scale(1.2, 1.2);
+}
+
+#img {
+	max-height: 100%;
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+/* .imageFrame { */
+/* 	width: 600px; */
+/* 	height: 600px; */
+/* 	overflow: hidden; */
+/* } */
+
+
+</style>
+
 </head>
 <body>
 	<!--header--------------------------------------------------------------------------->
@@ -69,8 +108,9 @@
 				<div class="shadow p-3 mb-5 bg-body rounded">
 					<div class="row above">
 						<div class="col-12 col-md-6">
-							<img src="/upload/${itemBean.itemPic1}"
-								class="w-100">
+							<div class="imageFrame">
+								<img id="img" src="/upload/${itemBean.itemPic2}" class="w-100">
+							</div>
 						</div>
 						<div class="col-12 col-md-6">
 							<div style="line-height: 2.5;">
@@ -132,7 +172,7 @@
 			<%-- 購買資訊分頁的按鈕-------------------------------------------------------------------  --%>
 			<div style="height: 50px"></div>
 			<div class="row">
-<!-- 			<div class="col-2"></div> -->
+				<!-- 			<div class="col-2"></div> -->
 				<div class="col-12">
 					<div class="shadow p-3 mb-5 bg-body rounded">
 						<nav id="navbar-example2"
@@ -146,7 +186,7 @@
 								<li class="nav-item"><a class="nav-link" href="#addFb">新增商品留言</a></li>
 							</ul>
 						</nav>
-					<%-- 商品資訊------------------------------------------------------- -----------------------%>	
+						<%-- 商品資訊------------------------------------------------------- -----------------------%>
 						<div data-bs-spy="scroll" data-bs-target="#navbar-example2"
 							data-bs-offset="0" tabindex="0">
 							<div class="ItemInformationContent">
@@ -173,19 +213,16 @@
 									</div>
 									<div class="carousel-inner">
 										<div class="carousel-item active">
-											<img
-												src="/upload/${itemBean.itemPic1}"
-												class="d-block w-100" alt="...">
+											<img src="/upload/${itemBean.itemPic1}" class="d-block w-100"
+												alt="...">
 										</div>
 										<div class="carousel-item">
-											<img
-												src="/upload/${itemBean.itemPic2}"
-												class="d-block w-100" alt="...">
+											<img src="/upload/${itemBean.itemPic2}" class="d-block w-100"
+												alt="...">
 										</div>
 										<div class="carousel-item">
-											<img
-												src="/upload/${itemBean.itemPic3}"
-												class="d-block w-100" alt="...">
+											<img src="/upload/${itemBean.itemPic3}" class="d-block w-100"
+												alt="...">
 										</div>
 									</div>
 									<button class="carousel-control-prev" type="button"
@@ -224,7 +261,7 @@
 				<!-- 					</div> -->
 				<!-- 				</div> -->
 			</div>
-<!-- 			<div class="col-2"></div> -->
+			<!-- 			<div class="col-2"></div> -->
 			<br>
 			<div id="fb" style="height: 30px"></div>
 			<div class="shadow p-3 mb-5 bg-body rounded">

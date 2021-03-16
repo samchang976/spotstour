@@ -33,6 +33,9 @@ public class SendingOrderSuccessEmail {
 		// Enter the email address and password for the account from which verification link will be send
 		String email = "trainme015@gmail.com";
 		String password = "Trainme0!";
+//		String email = "spotstour@gmail.com";
+//		String password = "Spotstour0!";
+		
 //		int starCourseTime=course.getTime();
 //		int endCourseTime=course.getTime()+1;
 //		

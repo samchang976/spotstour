@@ -101,14 +101,22 @@ button { /*按鈕的樣式*/
 
 								<div class="col col-2-1 C_SpCre">
 									<div>
-										<c:set var="fbCreateTime" value="${feedback.f_createTime}" />
-										<fmt:formatDate type="both" dateStyle="long"
-											timeStyle="medium" value="${fbCreateTime}" />
-										<i class="fas fa-trash-alt" id="deleteF"
-											value="}/Id=${feedback.feedbackId}"
-											<%-- 								onclick="location.href='/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}'"></i> --%>
+										<div class="row">
+											<div class="col-1">
+												<i class="fas fa-trash-alt" id="deleteF"
+													value="}/Id=${feedback.feedbackId}"
+													<%-- 								onclick="location.href='/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}'"></i> --%>
 								onclick="location.replace('${pageContext.request.contextPath}/manageFeedback/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}')"></i>
-										<br>商品留言:${feedback.feedbackText}
+											</div>
+
+											<div class="col-11">
+												<c:set var="fbCreateTime" value="${feedback.f_createTime}" />
+												<fmt:formatDate type="both" dateStyle="long"
+													timeStyle="medium" value="${fbCreateTime}" />
+
+												<br>商品留言:${feedback.feedbackText}
+											</div>
+										</div>
 									</div>
 								</div>
 
