@@ -94,7 +94,7 @@
 					</div>
 					<!-- 商品照片 -------------------------------------------------------->
 					<div class="col-2 ItemField">
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+						<img src="/upload/${cart.itemBean.itemPic1}"
 							class="w-100"> <i class="fas fa-search float-right"></i>
 					</div>
 					<!-- 商品名稱 -------------------------------------------------------->

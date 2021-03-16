@@ -185,8 +185,9 @@ ul.nav.nav-tabs {
 							<li><a class="dropdown-item" href="<c:url value="/activityList"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有商城活動資訊">管理活動列表</a></li>
 							<li><a class="dropdown-item" href="<c:url value="/activityModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增商城活動資訊">新增活動快訊</a></li>
 							<li><a class="dropdown-item" href="<c:url value="/myOrderList"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以查看所有訂單資訊">管理訂單資訊</a></li>
-							<li><a class="dropdown-item" href="<c:url value="/aboutMerchandiseModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以修改商品資訊">編輯關於商品資訊</a></li>
-							<li><a class="dropdown-item" href="<c:url value="/manageMerchandiseReport"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以修改有關退換貨商品資訊">管理退貨商品列表</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/aboutMerchandiseModify"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以編輯關於商品訂購與配送">編輯關於商品</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/manageFeedback"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以刪除不適當的商品留言">管理所有商品留言</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/manageMerchandiseReport"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以編輯關於退貨商品資訊">編輯關於退貨商品</a></li>
 							<li><a class="dropdown-item" href="<c:url value="/manageVideoReport"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="管理者可以新增 刪除 修改 查詢所有影片不當的內容">管理檢舉影片</a></li>
 						</c:if>
 					</ul></li>

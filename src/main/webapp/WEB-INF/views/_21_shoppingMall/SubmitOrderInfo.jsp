@@ -89,7 +89,7 @@
 					<div class="row Item" style="text-align:center;">
 						<!-- 商品照片 -->
 						<div class="col-2 ">
-							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+							<img src="/upload/${cart.itemBean.itemPic1}">
 							<i class="fas fa-search" style="float: right;"></i>
 						</div>
 

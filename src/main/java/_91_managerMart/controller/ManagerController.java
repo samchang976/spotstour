@@ -58,9 +58,8 @@ public class ManagerController {
 	public String updateItem(@ModelAttribute(value = "itemId") Integer itemId,
 			@ModelAttribute("itemBean") ItemBean itemBeanN, Model model,
 			@RequestParam(value ="img", required = false) MultipartFile img) {
-		System.out.println("okkkk");
 		managerItemService.updateItem(itemBeanN);
-		return "redirect:/merchandiseModify#searchi";
+		return "redirect:/merchandiseModify#{itemId}";
 	}
 
 	// 陳列全部商品留言

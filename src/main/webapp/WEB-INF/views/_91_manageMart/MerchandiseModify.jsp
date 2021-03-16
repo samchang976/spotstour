@@ -359,15 +359,15 @@ button { /*按鈕的樣式*/
 						</div>
 					</div>
 
-					<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
-						<a class="navbar-brand" href="#"></a>
-						<ul class="nav nav-pills">
-							<li class="nav-item"><label for="testInput"> <input
-									type="text" placeholder="請輸入商品編號" id="testInput" />
-									<button class="submitBtn btn btn-secondary">查詢商品</button>
-							</label></li>
-						</ul>
-					</nav>
+<!-- 					<nav id="navbar-example2" class="navbar navbar-light bg-light px-3"> -->
+<!-- 						<a class="navbar-brand" href="#"></a> -->
+<!-- 						<ul class="nav nav-pills"> -->
+<!-- 							<li class="nav-item"><label for="testInput"> <input -->
+<!-- 									type="text" placeholder="請輸入商品編號" id="testInput" style="height:34px; width:122px;"/> -->
+<!-- 									<button class="submitBtn btn btn-secondary">查詢商品</button> -->
+<!-- 							</label></li> -->
+<!-- 						</ul> -->
+<!-- 					</nav> -->
 
 
 
@@ -375,10 +375,21 @@ button { /*按鈕的樣式*/
 					<!-- 陳列商品 -->
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="headingTwo">
+							<nav id="navbar-example2"
+								class="navbar navbar-light bg-light px-3">
+								<a class="navbar-brand" href="#"></a>
+								<ul class="nav nav-pills">
+									<li class="nav-item"><label for="testInput"> <input
+											type="text" placeholder="請輸入商品編號" id="testInput"
+											style="height: 36px; width: 122px; font-size: 16px;" />
+											<button class="submitBtn btn btn-secondary btn-lg">查詢商品</button>
+									</label></li>
+								</ul>
+							</nav>
 							<button class="accordion-button" type="button"
 								data-bs-toggle="collapse" data-bs-target="#collapseTwo"
 								aria-expanded="true" aria-controls="collapseTwo">
-								<h3 id="searchi">陳列所有商品</h3>
+								<h3 id="searchi">所有商品</h3>
 							</button>
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse show"
@@ -397,10 +408,11 @@ button { /*按鈕的樣式*/
 													<!-- 								id="checkboxNoLabel" value="" aria-label="..."> -->
 													<!-- 						</div> -->
 
-													<div style="text-align: left;">
+													<div style="text-align: right;">
 														<div>商品編號 : ${item.itemId}</div>
 													</div>
-													<div>商品名稱 : ${item.itemHeader}</div>
+													<div style="text-align: left; font-size: 20px;">商品名稱 : ${item.itemHeader}</div>
+													
 													<div class="col-2">
 														<br>
 														<div>
