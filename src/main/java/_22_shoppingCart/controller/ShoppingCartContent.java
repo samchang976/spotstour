@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -183,20 +184,23 @@ public class ShoppingCartContent {
 		// Session內的購物車商品id清單
 		Map<Integer, Integer> cartlist = (Map<Integer, Integer>) model.getAttribute("sessionShoppingCart");
 		
+		//刪除
 		if(cmd.equalsIgnoreCase("del")) {
-			System.out.println("這是刪除的=========");
+//			System.out.println("這是刪除的=========");
 			if ( cartlist.get(itemId) != null ) {
 				cartlist.remove(itemId);  // Map介面的remove()方法}
 			}
 			
 			model.addAttribute("sessionShoppingCart", cartlist);
-			System.out.println("移除後的cartlist===================================="+cartlist);
+//			System.out.println("移除後的cartlist===================================="+cartlist);
 		}
 		//========================================================================================
+		//新增
 		if(cmd.equalsIgnoreCase("add")) {
 		// 如果找不到ShoppingCart清單
 		if (cartlist == null) {
 			cartlist = new LinkedHashMap<>();
+			System.out.println(itemQty);
 			if (itemQty == null) {
 				cartlist.put(itemId, 1);
 			} else {
@@ -204,6 +208,7 @@ public class ShoppingCartContent {
 			}
 			model.addAttribute("sessionShoppingCart", cartlist);
 			System.out.println(cartlist);
+			System.out.println(itemQty);
 		//有:加上商品
 		} else {
 			if (itemQty == null) {
@@ -237,5 +242,39 @@ public class ShoppingCartContent {
 		
 		System.out.println("訪客加入購物車結束===================================");
 		return "redirect:/merchandiseSearchResult";
+	}
+	
+	//存session
+	@Transactional
+	@GetMapping("/shoppingCart/sessionCartSave") /// {cmd}判斷
+	public String sessionCartSave(Model model,HttpSession session) {
+		//訪客=>導向登入頁面
+		Integer member = (Integer) session.getAttribute("mPid");
+		System.out.println(member);
+		
+		if (member == null) { // 1:管理員 2:會員
+			return "redirect:/login";
+		}
+		//會員
+		if (member == 2) { // 1:管理員 2:會員
+		List<SessionShoppingCartVo> sscList =(List<SessionShoppingCartVo>) model.getAttribute("sessionShoppingCartList");
+		if(sscList != null) {
+			for(int i=0 ; i<sscList.size();i++) {
+				SessionShoppingCartVo vo =sscList.get(i);
+				ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
+				
+				shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(vo.getItemId()));
+				shoppingCartBean.setS_ordQty(vo.getScQty());
+				
+				shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId((int) session.getAttribute("mId")));
+				
+				shoppingCartService.addShoppingCart(shoppingCartBean);
+				
+			}
+			
+		}
+			return "redirect:/shoppingCart";
+		}
+		return null;
 	}
 }
