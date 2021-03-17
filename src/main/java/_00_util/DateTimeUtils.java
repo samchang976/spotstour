@@ -17,4 +17,12 @@ public class DateTimeUtils {
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 		return ts;
 	}
+	
+	//指定日期加上天數
+	public static long addDate(Date date, long day){
+		long time = date.getTime(); // 得到指定日期的毫秒數
+		day = day * 24 * 60 * 60 * 1000; // 要加上的天數轉換成毫秒數
+		time += day; // 相加得到新的毫秒數
+		return time; // 最後日期的總毫秒數
+	}
 }

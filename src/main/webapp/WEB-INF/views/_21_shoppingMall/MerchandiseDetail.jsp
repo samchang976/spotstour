@@ -182,7 +182,7 @@
 								<li class="nav-item"><a class="nav-link"
 									href="<c:url value="/aboutMerchandise"/>">關於商品資訊</a></li>
 								<li class="nav-item"><a class="nav-link" href="#des">商品描述</a></li>
-								<li class="nav-item"><a class="nav-link" href="#fb">查看商品留言</a></li>
+								<li class="nav-item"><a class="nav-link" href="#fb">查看商品留言(${feedbacks.size()})</a></li>
 								<li class="nav-item"><a class="nav-link" href="#addFb">新增商品留言</a></li>
 							</ul>
 						</nav>
@@ -265,7 +265,7 @@
 			<br>
 			<div id="fb" style="height: 30px"></div>
 			<div class="shadow p-3 mb-5 bg-body rounded">
-				<h3>${itemBean.itemHeader}商品留言 :</h3>
+				<h3>${itemBean.itemHeader}商品留言 : </h3>
 
 				<div style="text-align: right;">
 					<c:set var="now" value="<%=new java.util.Date()%>" />
@@ -303,7 +303,7 @@
 
 
 				<c:if test="${ mPid == 2 || mPid == 1 }">
-					<h3>${itemBean.itemHeader}新增商品留言 :</h3>
+					<h3>${itemBean.itemHeader} 新增商品留言 :</h3>
 					<form:form method='POST' modelAttribute='feedbackBean'>
 						<div class="form-group row">
 							<label for="feedbackText" class="col-sm-2 col-form-label"></label>
@@ -321,6 +321,14 @@
 						</div>
 					</form:form>
 				</c:if>
+			</div>
+			<br>
+			<br>
+			<div class="col-12" id="SubmitBlock">
+				<div style="text-align: center;">
+					<button class="btn btn-primary btn-lg"
+						onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
+				</div>
 			</div>
 		</div>
 

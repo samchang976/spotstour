@@ -49,5 +49,5 @@ OrdBean getOrderByOrderId(int ord_Id);
 	
 	List<Ord_detailBean> getAllOrd_detailsByOrd_Id(int ord_Id);
 	
-	public void addOrderVo(OrderVo orderVo);
+	public OrdBean addOrderVo(OrderVo orderVo);
 }

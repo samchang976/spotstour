@@ -45,6 +45,22 @@
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>購物車</title>
+<style>
+.imageFrame {
+	position: relative;
+	overflow: hidden;
+}
+
+.imageFrame img {
+	transform: scale(1, 1);
+	transition: all 1s ease-out;
+}
+
+.imageFrame img:hover {
+	transform: scale(1.5, 1.5);
+}
+
+</style>
 </head>
 <body>
 	<!--header=================================================================================  -->
@@ -94,8 +110,10 @@
 					</div>
 					<!-- 商品照片 -------------------------------------------------------->
 					<div class="col-2 ItemField">
+					<div class="imageFrame">
 						<img src="/upload/${cart.itemBean.itemPic1}"
 							class="w-100"> <i class="fas fa-search float-right"></i>
+					</div>
 					</div>
 					<!-- 商品名稱 -------------------------------------------------------->
 					<div class="col-3 ItemField">
