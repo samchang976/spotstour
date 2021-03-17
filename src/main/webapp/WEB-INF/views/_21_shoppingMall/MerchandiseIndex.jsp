@@ -71,7 +71,7 @@
 			<div class="shadow p-3 mb-5 bg-body rounded">
 				<div class="row row-cols-1 newsBlock ">
 					<div class="col">
-						<div class="overflow-scroll" style="height: 350px;">
+						<div class="overflow-auto" style="height: 350px;">
 							<div id="newsTitle">活動快訊</div>
 
 							<c:forEach var='activity' items='${activitys}'>
