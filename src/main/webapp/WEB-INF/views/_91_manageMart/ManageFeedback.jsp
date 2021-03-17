@@ -75,8 +75,9 @@ button { /*按鈕的樣式*/
 	font-size: 16px;
 }
 #deleteF:hover{
-	font-size: 24px;
-	cursor: pointer; 
+	font-size: 26px;
+	cursor: pointer;
+	color: red; 
 }
 </style>
 
@@ -92,7 +93,7 @@ button { /*按鈕的樣式*/
 		<div class="container">
 			<!-- 陳列商品留言 -->
 			<div style="text-align: center;">
-				<h3>${item.itemHeader}商品留言(${feedbacks.size()})</h3>
+				<h4>${item.itemHeader}商品留言<span class="">(${feedbacks.size()})</span></h4>
 			</div>
 			<div style="text-align: right;">
 				<c:set var="now" value="<%=new java.util.Date()%>" />

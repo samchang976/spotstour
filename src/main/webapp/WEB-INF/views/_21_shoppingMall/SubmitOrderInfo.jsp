@@ -72,6 +72,15 @@
 	<div class="BodyPosition">
 		<!------------------------------------------------------------------------------------------->
 		<div class="container" id="container_SubmitOrderInfo">
+		<nav
+				style="-bs-breadcrumb-divider: url(&amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;#34;);"
+				aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="<c:url value="/shoppingCart"/>">我的購物車</a></li>
+					<li class="breadcrumb-item"><a href="<c:url value="/selectPayment"/>">填寫訂購資訊</a></li>
+					<li class="breadcrumb-item active" aria-current="page">確認訂購資訊</li>
+				</ol>
+			</nav>
 			<div style="text-align: center;">
 				<h2>確認訂單資訊</h2>
 			</div>
@@ -139,10 +148,15 @@
 					<!--付款資訊  -------------------------------------------------------------------------->
 					<div class="PayTitle">付款資訊</div>
 					<form:form method='POST' modelAttribute='orderVoNew'>
-
-				姓名 : ${orderVoNew.mName} <br> 性別 : ${orderVoNew.mGender} <br> 身分證字號 : ${orderVoNew.mUid} <br>
-						<%-- 				${orderVo.shipTypeId}<br> --%>
-				手機 : ${orderVoNew.mPhone} <br> Email : ${orderVoNew.mEmail} <br>  收件地址 : ${orderVoNew.s_mAddress}
+<div class="alert alert-primary" role="alert">
+  A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+</div>
+						姓名&nbsp;:&nbsp;${orderVoNew.mName} <br> 
+						性別&nbsp;:&nbsp;${orderVoNew.mGender} <br> 
+						身分證字號&nbsp;:&nbsp;${orderVoNew.mUid} <br>
+						手機&nbsp;:&nbsp;${orderVoNew.mPhone} <br> 
+						Email&nbsp;:&nbsp;${orderVoNew.mEmail} <br>  
+						收件地址&nbsp;:&nbsp;${orderVoNew.s_mAddress}<br>
 
 					<div class="PayTitle">發票</div>
 						<c:if test="${ orderVoNew.receiptTypeId == 1}">
