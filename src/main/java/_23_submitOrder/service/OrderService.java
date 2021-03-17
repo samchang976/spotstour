@@ -27,7 +27,7 @@ OrdBean getOrderByOrderId(int ord_Id);
 	public List<OrdBean> getAllOrdersByShipTypeId(int shipTypeId);
 	
 	
-	public void addOrder(OrdBean ordBean);
+	public void addOrderBean(OrdBean ordBean);
 	
 	
 	
@@ -49,5 +49,5 @@ OrdBean getOrderByOrderId(int ord_Id);
 	
 	List<Ord_detailBean> getAllOrd_detailsByOrd_Id(int ord_Id);
 	
-	public void addOrder(OrderVo orderVo);
+	public void addOrderVo(OrderVo orderVo);
 }

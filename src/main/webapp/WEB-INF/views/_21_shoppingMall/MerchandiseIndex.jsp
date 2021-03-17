@@ -60,13 +60,16 @@
 
 		<!-- 活動快訊 ---------------------------------------------------------------------------->
 		<div class="container" id="container_news">
+		<div class="row">
 			<div class="col">
 				<button class="btn btn-primary btn-lg"
 					onclick="location.href='${pageContext.request.contextPath}/merchandiseSearchResult'">查看所有商品</button>
 			</div>
+		</div>
+		
 			<br>
 			<div class="shadow p-3 mb-5 bg-body rounded">
-				<div class="row row-cols-1 newsBlock">
+				<div class="row row-cols-1 newsBlock ">
 					<div class="col">
 						<div class="overflow-scroll" style="height: 350px;">
 							<div id="newsTitle">活動快訊</div>

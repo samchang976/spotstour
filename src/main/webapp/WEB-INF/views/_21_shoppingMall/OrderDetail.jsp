@@ -46,6 +46,22 @@
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>訂單明細</title>
+<style>
+.imageFrame {
+	position: relative;
+	overflow: hidden;
+}
+
+.imageFrame img {
+	transform: scale(1, 1);
+	transition: all 1s ease-out;
+}
+
+.imageFrame img:hover {
+	transform: scale(1.5, 1.5);
+}
+
+</style>
 </head>
 <body>
 	<!--header=================================================================================  -->
@@ -56,10 +72,10 @@
 	<div class="BodyPosition">
 		<!------------------------------------------------------------------------------------------->
 		<div class="container" id="container_OrderDetail">
-		<div>
-							<h2>訂單詳細資訊</h2>
-						</div>
-		<div class="shadow p-3 mb-5 bg-body rounded">
+			<div>
+				<h2>訂單詳細資訊</h2>
+			</div>
+			<div class="shadow p-3 mb-5 bg-body rounded">
 			<!-- 訂單編號區塊 ----------------------------------------------->
 			<c:forEach var='ord_detail' items='${ord_details}' varStatus="s">
 				<c:if test="${s.first==true}">
@@ -87,10 +103,10 @@
 
 					<!-- 欄位敘述 -------------------------------------------------->
 					<div class="row">
-						<div class="col-6 FieldDescription">
+						<div class="col-5 FieldDescription">
 							<div>商品名稱</div>
 						</div>
-						<div class="col-2 FieldDescription">產地</div>
+						<div class="col-1 FieldDescription">產地</div>
 						<div class="col-1 FieldDescription">數量</div>
 						<div class="col-1 FieldDescription">單價</div>
 						<div class="col-1 FieldDescription">小計</div>
@@ -101,31 +117,33 @@
 				<div class="row Item">
 					<!-- 商品照片 -->
 					<div class="col-2 ">
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster">
+					<div class="imageFrame">
+						<img src="/upload/${ord_detail.itemBean.itemPic1}">
 						<i class="fas fa-search"></i>
 					</div>
+					</div>
 
-					<div class="col-4 ">
+					<div class="col-3 ">
 						<div>
-							<h4>${ord_detail.itemBean.itemHeader}</h4>
+							${ord_detail.itemBean.itemHeader}
 						</div>
 					</div>
 					<!--產地  -->
-					<div class="col-2 ">
+					<div class="col-1 ">
 						<div>
-							<div><h5>${ord_detail.itemBean.countryBean.countryName}</h5></div>
+							<div>${ord_detail.itemBean.countryBean.countryName}</div>
 						</div>
 					</div>
 					<!--數量  -->
 					<div class="col-1 ">
 						<div>
-							<div><h5>${ord_detail.ordQty}個</h5></div>
+							<div>${ord_detail.ordQty}個</div>
 						</div>
 					</div>
 					<!-- 單價 -->
-					<div class="col-1 "><h5>${ord_detail.itemBean.itemPrice}元</h5></div>
+					<div class="col-1 ">${ord_detail.itemBean.itemPrice}元</div>
 					<!-- 小計 -->
-					<div class="col-1 "><h5>${ord_detail.ordQty * ord_detail.itemBean.itemPrice}元</h5></div>
+					<div class="col-1 ">${ord_detail.ordQty * ord_detail.itemBean.itemPrice}元</div>
 				</div>
 				<!-- 總金額 -->
 				<div class="Total">
@@ -135,15 +153,15 @@
 							var="sum" />
 						<c:set value="${sums + sum}" var="sums" />
 						<c:if test="${s.last==true}">
-							<h4>共<span id="items"> <c:out value="${s.count}" />
+							<h5>共<span id="items"> <c:out value="${s.count}" />
 							</span>
 							商品，原價總金額 : <span id="subtotal1"><fmt:formatNumber maxFractionDigits="0" value="${sums}" type="currency"/></span>元
             				<br><br>
 							<c:set var="formatSums" value="${sums * 0.8}" />
 							
-							使用八折優惠券 折扣後總金額 : <span id="subtotal2"><fmt:formatNumber maxFractionDigits="0" value="${formatSums}" type="currency"/></span>元
+							使用八折優惠券，折扣後總金額 : <span id="subtotal2"><fmt:formatNumber maxFractionDigits="0" value="${formatSums}" type="currency"/></span>元
 							<br>
-						</h4>
+						</h5>
 						</c:if>
 
 					</div>

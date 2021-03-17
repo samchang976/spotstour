@@ -24,11 +24,12 @@ import _02_model.entity.Ship_TypeBean;
 import _02_model.entity.ShoppingCartBean;
 import _21_merchandiseSearch.service.ItemService;
 import _22_shoppingCart.service.ShoppingCartService;
+import _23_submitOrder.mail.SendingOrderSuccessEmail;
 import _23_submitOrder.service.OrderService;
 import _23_submitOrder.vo.OrderVo;
 
 @Controller
-@SessionAttributes("orderVo")
+@SessionAttributes("orderVoNew")
 public class OrderController {
 
 	@Autowired
@@ -86,22 +87,35 @@ public class OrderController {
 	@RequestMapping("/submitOrderInfo")
 	public String getsubmitOrderInfo(@ModelAttribute OrderVo orderVo, Model model, HttpSession session) {
 		
-//		orderVo.setmId((Integer)session.getAttribute("mId"));
+		Integer memberId = (Integer)session.getAttribute("mId");
 		
-		model.addAttribute("orderVo", orderVo);
+		orderVo.setmId(memberId);
 		
-		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart((Integer)session.getAttribute("mId"));
+		model.addAttribute("orderVoNew", orderVo);
+		
+		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart(memberId);
 		model.addAttribute("cart", list);
+		
+		
+		SendingOrderSuccessEmail sendingOrderSuccessEmail = new SendingOrderSuccessEmail(orderVo.getmEmail(), orderVo.getmName(), memberId ,orderVo);
+		sendingOrderSuccessEmail.sendAcceptMail();
+		
+		
+		
 		return "_21_shoppingMall/SubmitOrderInfo";
 	}
 
 	@RequestMapping("/purchaseSuccess")
-	public String purchaseSuccess(@ModelAttribute OrderVo orderVo, Model model, HttpSession session) {
+	public String purchaseSuccess(@ModelAttribute OrderVo orderVoNew, Model model, HttpSession session) {
 		
-//		OrderVo orderVo1 = (OrderVo) model.getAttribute("orderVo");
+//		OrderVo orderVoNew = (OrderVo) model.getAttribute("orderVo");
 //		orderVo.setmId((Integer)session.getAttribute("mId"));
-		orderVo.setmId((Integer)session.getAttribute("mId"));
-		orderService.addOrder(orderVo);
+		
+//		orderVo.setmId((Integer)session.getAttribute("mId"));
+//		orderService.addOrder(orderVo);
+		
+//		orderVoNew.setmId((Integer)session.getAttribute("mId"));
+		orderService.addOrderVo((OrderVo) session.getAttribute("orderVoNew"));
 		
 		return "_21_shoppingMall/PurchaseSuccess";
 	}

@@ -80,8 +80,8 @@ public class OrderServiceImpl implements OrderService{
 
 	@Transactional
 	@Override
-	public void addOrder(OrdBean ordBean) {
-		orderDao.addOrder(ordBean);
+	public void addOrderBean(OrdBean ordBean) {
+		orderDao.addOrderBean(ordBean);
 	}
 
 	@Transactional
@@ -142,7 +142,7 @@ public class OrderServiceImpl implements OrderService{
 	// 新增訂單
 	@Transactional
 	@Override
-	public void addOrder(OrderVo orderVo){
+	public void addOrderVo(OrderVo orderVo){
 		
 		//準備一個對應訂單的Bean
 		OrdBean ordBean = new OrdBean();
@@ -186,7 +186,7 @@ public class OrderServiceImpl implements OrderService{
 		
 		
 		//新增訂單
-		orderDao.addOrder(ordBean);
+		orderDao.addOrderBean(ordBean);
 		
 		//清除使用者購物車表格紀錄
 		shoppingCartDao.deleteCartByMemberId(mId);

@@ -26,16 +26,18 @@ CREATE TABLE `activity` (
   `activityHeader` varchar(255) DEFAULT NULL,
   `activity_createTime` date DEFAULT NULL,
   `activity_freeze` int DEFAULT NULL,
+  `activityPic` mediumblob,
+  `activityFileName` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`activityId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `activity` */
 
-insert  into `activity`(`activityId`,`activityContent`,`activityHeader`,`activity_createTime`,`activity_freeze`) values 
-(1,'歡慶牛年，扭轉乾坤，購物好時機','新年特惠，全館免運! 活動到2021-01-03','2021-01-01',0),
-(2,'新春特惠，全館免運! 活動到2021-02-15','新春優惠','2021-02-01',0),
-(3,'快來買喔~~~','周年慶優惠，全館免運','2021-03-10',0),
-(4,'全館巧克力商品結帳85折!','情人節優惠','2021-03-10',0);
+insert  into `activity`(`activityId`,`activityContent`,`activityHeader`,`activity_createTime`,`activity_freeze`,`activityPic`,`activityFileName`) values 
+(1,'歡慶牛年，扭轉乾坤，購物好時機','新年特惠，全館免運! 活動到2021-01-03','2021-01-01',0,NULL,NULL),
+(2,'新春特惠，全館免運! 活動到2021-02-15','新春優惠','2021-02-01',0,NULL,NULL),
+(3,'快來買喔~~~','周年慶優惠，全館免運','2021-03-10',0,NULL,NULL),
+(4,'全館巧克力商品結帳85折!','情人節優惠','2021-03-10',1,NULL,NULL);
 
 /*Table structure for table `city` */
 
@@ -243,34 +245,34 @@ CREATE TABLE `item` (
 /*Data for the table `item` */
 
 insert  into `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`,`itemPic1`,`itemPic2`,`itemPic3`,`item_freeze`,`countryId`) values 
-(1,'MAMA泰國泡麵',10,35,'最常見的泰式泡麵，結合打拋豬肉和豬骨湯，口味偏清淡，三大品牌都有出這口味，但是最推MAMA的！',1,NULL,NULL,NULL,0,6),
-(2,'紫玉酥禮盒(6入)',250,100,'台中大甲裕珍馨人氣商品！以大甲芋頭及優質米為開發概念，酥、鬆、Q多重口感在口中綻放！',1,NULL,NULL,NULL,0,1),
-(3,'Press Butter Sand焦糖奶油餅',264,20,'當前東京最受矚目、最夯排隊伴手禮，焦糖奶油夾心餅，超級無敵有夠好吃！\r\n特製烤模壓製，餅乾酥香硬脆口感創舉大突破，內餡爆漿牽絲的奶油焦糖雙餡更是完美迷人不甜膩。',1,NULL,NULL,NULL,0,2),
-(4,'Panasonic水離子吹風機(EH-NA99)',4750,10,'同樣讓人用過後就回不去的日本神器，吹頭髮同時保濕、護法，實在是很厲害～。從EH-NA97型號到EH-NA99(最新)，使用者高達95%滿意！',4,NULL,NULL,NULL,0,2),
-(5,'Pocky蕃茄百利滋棒9袋入裝-134g',99,20,'★日本原裝進口★日本大廠GLICO格力高品牌★經典蕃茄百利滋口味9袋入獨立小包裝★分享方便，適合辦公室下午茶、點心',1,NULL,NULL,NULL,0,2),
-(6,'白色戀人巧克力餅乾36入 ',1500,10,'北海道限定 白い恋人',1,NULL,NULL,NULL,0,2),
-(7,'日本《金吾堂》芥末米果17枚',99,100,'★日本品牌《金吾堂》原裝進口★熱銷超過 60 年的米果經典老店★嚴選日本國產米，只用新鮮品質好原料',1,NULL,NULL,NULL,0,2),
-(8,'Glico固力果 冰淇淋杯餅乾 (87g)　',155,300,'★日本原裝進口 ★日本大廠Glico 固力果 ★冰淇淋造型餅乾 ★絕對讓您口感滿分',1,NULL,NULL,NULL,0,2),
-(9,'Glico固力果 冰淇淋杯餅乾 (87g)　',155,200,'★日本原裝進口 ★日本大廠Glico 固力果 ★冰淇淋造型餅乾 ★絕對讓您口感滿分',1,NULL,NULL,NULL,0,2),
-(10,'一生懸命的米果 日本《金吾堂》甘口醬油米果7枚',99,300,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料 ',1,NULL,NULL,NULL,0,2),
-(11,'日本《金吾堂》和鹽米果7枚',99,200,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料',1,NULL,NULL,NULL,0,2),
-(12,'龜田手鹽屋鹽味米果9枚',79,100,'★日本原裝進口 ★口感堅脆，原味米果最對味 ★使用日本國產米製作，調味使用沈崎產鰹魚 ★原烤9枚超大片',1,NULL,NULL,NULL,0,1),
-(13,'日本《龜田》茶豆米果70g',79,200,'★日本米果大廠《龜田》製菓原裝進口 ★食鹽合成自日本赤穗天鹽與沖繩天日鹽 ★吃得到豆仁！原料 100％ 使用真實茶豆',1,NULL,NULL,NULL,0,2),
-(14,'Honda製果 玉米濃湯餅 (90g)',59,300,'★日本原裝進口 ★日本超人氣熱銷商品 ★獨特玉米濃湯風味',1,NULL,NULL,NULL,0,2),
-(15,'Mondelez RITZ起士夾心餅乾 (160g)',105,300,'★知名餅乾RITZ ★酥脆餅乾搭配香濃起士 ★讓你欲罷不能的好滋味~',1,NULL,NULL,NULL,0,2),
-(16,'日本TWINBIRD-美型蒸氣掛燙機(白)TB-G006TW',1880,300,'◆ 超輕量設計，隨手熨燙 ◆ 設計美型，放在家中不突兀 ◆ 連續按壓，蒸氣不間斷',4,NULL,NULL,NULL,0,2),
-(17,'日本TWINBIRD-多功能製麵包機PY-E632TW',3980,15,'◆業界最高，40種麵包/麵糰模式 ◆手動模式，不只有傻瓜模式，美味升級 ◆可獨立進行麵糰搓揉、發酵與烘焙',4,NULL,NULL,NULL,0,2),
-(18,'[日本原裝] TIGER虎牌6人份微電腦炊飯電子鍋(JBV-S10R)',2990,10,'☆日本原裝進口 ☆內鍋再升級,黑色遠赤厚釜(1.7mm) ☆炊煮多種米飯，盡享美味',4,NULL,NULL,NULL,0,2),
-(19,'梨膏糖',280,100,'盛行於中國江南一代的梨膏糖可說是有百年的歷史，以梨汁、蜂蜜和各種草藥製成，主要功能為止咳化痰、開胃順氣。',1,NULL,NULL,NULL,0,3),
-(20,'NewYork Perfect Cheese奶油起司脆餅',400,30,'由前白宮甜點師等人聯手研發，餅乾從包裝、造型感皆呈現超高質感，堪稱夢幻逸品無誤～',1,NULL,NULL,NULL,0,2),
-(21,'The Maple mania（楓糖奶油餅乾）',430,100,'選用加拿大楓糖搭配奶油巧克力，厚實大塊夾心非常厲害，濃郁楓糖香滿溢於口，愛不釋手啊。',1,NULL,NULL,NULL,0,2),
-(22,'東京晴空戀巧巧克力',350,220,'餅乾本身超級薄脆，輕碰就裂、清咬即碎，輕盈鬆化的口感，非常少有，波比特愛的～',1,NULL,NULL,NULL,0,2),
-(23,'東京牛奶起司工坊',300,150,'楓糖夾心餅乾是甜香，這款則是海鹽搭上爆濃鹹香起司味，兩者無法抉擇，都太太太好吃了。',1,NULL,NULL,NULL,0,2),
-(24,'R.L Waffle Cake（鬆餅蛋糕、棒狀鬆餅）',100,50,'發跡神戶，鬆餅口味多達20種，全國一天賣出4萬個，累積1千萬銷售量，超級驚人。發跡神戶，鬆餅口味多達20種，全國一天賣出4萬個，累積1千萬銷售量，超級驚人。',1,NULL,NULL,NULL,0,2),
-(25,'caffarel榛果巧克力派',380,250,'表面佈滿糖粒，派皮酥脆層層分明，入口後濃郁榛果巧克力醬半融於嘴，名店出手果然優秀。',1,NULL,NULL,NULL,0,2),
-(26,'《CEZANNE》 血色腮紅',300,200,'這塊血色腮紅一擦上臉，馬上讓你白兩個色號，想要買還要用搶的呢！',3,NULL,NULL,NULL,0,2),
-(27,'山善｜多功能電子烤盤',5680,20,'多功能電子烤盤 (附平盤+章魚燒) YOF-W120 2色 附2枚烤盤 單身 小家庭 電烤盤推薦',4,NULL,NULL,NULL,0,2),
-(28,'美國 BLUE YETI 雪怪 USB麥克風 電容式麥克風 USB麥【迪特軍】',6000,30,'美製USB電容式麥克風',4,NULL,NULL,NULL,0,13);
+(1,'MAMA泰國泡麵',10,35,'最常見的泰式泡麵，結合打拋豬肉和豬骨湯，口味偏清淡，三大品牌都有出這口味，但是最推MAMA的！',1,'itemImages/MAMA1.jpg','itemImages/MAMA2.jpg','itemImages/MAMA3.jpg',0,6),
+(2,'紫玉酥禮盒(6入)',250,100,'台中大甲裕珍馨人氣商品！以大甲芋頭及優質米為開發概念，酥、鬆、Q多重口感在口中綻放！',1,'itemImages/紫玉酥禮盒1.jpg','itemImages/紫玉酥禮盒2.jpg','itemImages/紫玉酥禮盒3.jpg',0,1),
+(3,'Press Butter Sand焦糖奶油餅',264,20,'當前東京最受矚目、最夯排隊伴手禮，焦糖奶油夾心餅，超級無敵有夠好吃！\r\n特製烤模壓製，餅乾酥香硬脆口感創舉大突破，內餡爆漿牽絲的奶油焦糖雙餡更是完美迷人不甜膩。',1,'itemImages/焦糖奶油餅1.jpg','itemImages/焦糖奶油餅2.jpg','itemImages/焦糖奶油餅3.jpg',0,2),
+(4,'Panasonic水離子吹風機(EH-NA99)',4750,10,'同樣讓人用過後就回不去的日本神器，吹頭髮同時保濕、護法，實在是很厲害～。從EH-NA97型號到EH-NA99(最新)，使用者高達95%滿意！',4,'itemImages/水離子吹風機1.jpg','itemImages/水離子吹風機2.jpg','itemImages/水離子吹風機3.jpg',0,2),
+(5,'Pocky蕃茄百利滋棒9袋入裝-134g',99,20,'★日本原裝進口★日本大廠GLICO格力高品牌★經典蕃茄百利滋口味9袋入獨立小包裝★分享方便，適合辦公室下午茶、點心',1,'itemImages/蕃茄百利滋棒1.jpg','itemImages/蕃茄百利滋棒2.jpg','itemImages/蕃茄百利滋棒3.jpg',0,2),
+(6,'白色戀人巧克力餅乾36入 ',1500,10,'北海道限定 白い恋人',1,'itemImages/白色戀人巧克力餅乾1.jpg','itemImages/白色戀人巧克力餅乾2.jpg','itemImages/白色戀人巧克力餅乾3.jpg',0,2),
+(7,'日本《金吾堂》芥末米果17枚',99,100,'★日本品牌《金吾堂》原裝進口★熱銷超過 60 年的米果經典老店★嚴選日本國產米，只用新鮮品質好原料',1,'itemImages/芥末米果1.jpg','itemImages/芥末米果2.jpg','itemImages/芥末米果3.jpg',0,2),
+(8,'Glico固力果 冰淇淋杯餅乾 (87g)　',155,300,'★日本原裝進口 ★日本大廠Glico 固力果 ★冰淇淋造型餅乾 ★絕對讓您口感滿分',1,'itemImages/冰淇淋杯餅乾1.jpg','itemImages/冰淇淋杯餅乾2.jpg','itemImages/冰淇淋杯餅乾3.jpg',0,2),
+(9,'美國 BLUE YETI 雪怪 USB麥克風 電容式麥克風 USB麥',6000,30,'極致專業的USB電容式麥克風 專屬3受音頭技術 可調四種不同收音模式:心型、雙向、全向、立體聲',4,'itemImages/電容式麥克風1.jpg','itemImages/電容式麥克風2.jpg','itemImages/電容式麥克風3.jpg',0,13),
+(10,'一生懸命的米果 日本《金吾堂》甘口醬油米果7枚',99,300,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料 ',1,'itemImages/甘口醬油米果1.jpg','itemImages/甘口醬油米果2.jpg','itemImages/甘口醬油米果3.jpg',0,2),
+(11,'日本《金吾堂》和鹽米果7枚',99,200,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料',1,'itemImages/和鹽米果1.jpg','itemImages/和鹽米果2.jpg','itemImages/和鹽米果3.jpg',0,2),
+(12,'龜田手鹽屋鹽味米果9枚',79,100,'★日本原裝進口 ★口感堅脆，原味米果最對味 ★使用日本國產米製作，調味使用沈崎產鰹魚 ★原烤9枚超大片',1,'itemImages/龜田手鹽屋鹽味米果1.jpg','itemImages/龜田手鹽屋鹽味米果2.jpg','itemImages/龜田手鹽屋鹽味米果3.jpg',0,1),
+(13,'日本《龜田》茶豆米果70g',79,200,'★日本米果大廠《龜田》製菓原裝進口 ★食鹽合成自日本赤穗天鹽與沖繩天日鹽 ★吃得到豆仁！原料 100％ 使用真實茶豆',1,'itemImages/茶豆米果1.jpg','itemImages/茶豆米果2.jpg','itemImages/茶豆米果3.jpg',0,2),
+(14,'Honda製果 玉米濃湯餅 (90g)',59,300,'★日本原裝進口 ★日本超人氣熱銷商品 ★獨特玉米濃湯風味',1,'itemImages/玉米濃湯餅1.jpg','itemImages/玉米濃湯餅2.jpg','itemImages/玉米濃湯餅3.jpg',0,2),
+(15,'Mondelez RITZ起士夾心餅乾 (160g)',105,300,'★知名餅乾RITZ ★酥脆餅乾搭配香濃起士 ★讓你欲罷不能的好滋味~',1,'itemImages/起士夾心餅乾1.jpg','itemImages/起士夾心餅乾2.jpg','itemImages/起士夾心餅乾3.jpg',0,2),
+(16,'日本TWINBIRD-美型蒸氣掛燙機(白)TB-G006TW',1880,300,'◆ 超輕量設計，隨手熨燙 ◆ 設計美型，放在家中不突兀 ◆ 連續按壓，蒸氣不間斷',4,'itemImages/美型蒸氣掛燙機1.jpg','itemImages/美型蒸氣掛燙機2.jpg','itemImages/美型蒸氣掛燙機3.jpg',0,2),
+(17,'日本TWINBIRD-多功能製麵包機PY-E632TW',3980,15,'◆業界最高，40種麵包/麵糰模式 ◆手動模式，不只有傻瓜模式，美味升級 ◆可獨立進行麵糰搓揉、發酵與烘焙',4,'itemImages/多功能製麵包機1.jpg','itemImages/多功能製麵包機2.jpg','itemImages/多功能製麵包機3.jpg',0,2),
+(18,'[日本原裝] TIGER虎牌6人份微電腦炊飯電子鍋(JBV-S10R)',2990,10,'☆日本原裝進口 ☆內鍋再升級,黑色遠赤厚釜(1.7mm) ☆炊煮多種米飯，盡享美味',4,'itemImages/炊飯電子鍋1.jpg','itemImages/炊飯電子鍋2.jpg','itemImages/炊飯電子鍋3.jpg',0,2),
+(19,'梨膏糖',280,100,'盛行於中國江南一代的梨膏糖可說是有百年的歷史，以梨汁、蜂蜜和各種草藥製成，主要功能為止咳化痰、開胃順氣。',1,'itemImages/梨膏糖1.jpg','itemImages/梨膏糖2.jpg','itemImages/梨膏糖3.jpg',0,3),
+(20,'NewYork Perfect Cheese奶油起司脆餅',400,30,'由前白宮甜點師等人聯手研發，餅乾從包裝、造型感皆呈現超高質感，堪稱夢幻逸品無誤～',1,'itemImages/奶油起司脆餅1.jpg','itemImages/奶油起司脆餅2.jpg','itemImages/奶油起司脆餅3.jpg',0,2),
+(21,'The Maple mania（楓糖奶油餅乾）',430,100,'選用加拿大楓糖搭配奶油巧克力，厚實大塊夾心非常厲害，濃郁楓糖香滿溢於口，愛不釋手啊。',1,'itemImages/楓糖奶油餅乾1.jpg','itemImages/楓糖奶油餅乾2.jpg','itemImages/楓糖奶油餅乾3.jpg',0,2),
+(22,'東京晴空戀巧巧克力',350,220,'餅乾本身超級薄脆，輕碰就裂、清咬即碎，輕盈鬆化的口感，非常少有，波比特愛的～',1,'itemImages/東京晴空戀巧巧克力1.jpg','itemImages/東京晴空戀巧巧克力2.jpg','itemImages/東京晴空戀巧巧克力3.jpg',0,2),
+(23,'東京牛奶起司工坊',300,150,'楓糖夾心餅乾是甜香，這款則是海鹽搭上爆濃鹹香起司味，兩者無法抉擇，都太太太好吃了。',1,'itemImages/東京牛奶起司工坊1.jpg','itemImages/東京牛奶起司工坊2.jpg','itemImages/東京牛奶起司工坊3.jpg',0,2),
+(24,'R.L Waffle Cake（鬆餅蛋糕、棒狀鬆餅）',100,50,'發跡神戶，鬆餅口味多達20種，全國一天賣出4萬個，累積1千萬銷售量，超級驚人。發跡神戶，鬆餅口味多達20種，全國一天賣出4萬個，累積1千萬銷售量，超級驚人。',1,'itemImages/棒狀鬆餅1.jpg','itemImages/棒狀鬆餅2.jpg','itemImages/棒狀鬆餅3.jpg',0,2),
+(25,'caffarel榛果巧克力派',380,250,'表面佈滿糖粒，派皮酥脆層層分明，入口後濃郁榛果巧克力醬半融於嘴，名店出手果然優秀。',1,'itemImages/榛果巧克力派1.jpg','itemImages/榛果巧克力派2.jpg','itemImages/榛果巧克力派3.jpg',0,2),
+(26,'《CEZANNE》 血色腮紅',300,200,'這塊血色腮紅一擦上臉，馬上讓你白兩個色號，想要買還要用搶的呢！',3,'itemImages/血色腮紅1.jpg','itemImages/血色腮紅2.jpg','itemImages/血色腮紅3.jpg',0,2),
+(27,'山善 多功能電子烤盤',5680,20,'多功能電子烤盤 (附平盤+章魚燒) YOF-W120 2色 附2枚烤盤 單身 小家庭 電烤盤推薦',4,'itemImages/多功能電子烤盤1.jpg','itemImages/多功能電子烤盤2.jpg','itemImages/多功能電子烤盤3.jpg',0,2);
+
 
 /*Table structure for table `item_type` */
 
@@ -319,8 +321,8 @@ CREATE TABLE `member` (
 /*Data for the table `member` */
 
 insert  into `member`(`mId`,`mAN`,`mPw`,`mGender`,`mName`,`mUid`,`mBDay`,`mEmail`,`mPhone`,`d_mAddress`,`m_createTime`,`mPic`,`m_verify`,`mPid`) values 
-(1,'spotstour','0000','男','諸葛村夫','F123456789','1987-08-07 00:00:00','spotstour@gmail.com','0912345678','台北市天龍區民權西路天橋下','2021-02-25 00:00:00',NULL,1,2),
-(2,'aaaaaa','aaaaaa','男','管理者','A123456789','2021-03-01 12:03:16','spotstour@gamil.com','0912345678','台北市','2021-03-10 12:03:53',NULL,1,1);
+(1,'spotstour','0000','男','諸葛村夫','F123456789','1987-08-07 00:00:00','spotstour@gmail.com','0912345678','台北市大同區民權西路1號','2021-02-25 00:00:00',NULL,1,2),
+(2,'aaaaaa','aaaaaa','男','管理者','A123456789','2021-03-01 12:03:16','spotstour@gamil.com','0912345678','台北市信義區信義路100號','2021-03-10 12:03:53',NULL,1,1);
 
 /*Table structure for table `member_perm` */
 
@@ -370,9 +372,9 @@ CREATE TABLE `ord` (
 /*Data for the table `ord` */
 
 insert  into `ord`(`ord_Id`,`mId`,`oSid`,`s_createTime`,`o_createTime`,`s_mAddress`,`receiptTypeId`,`shipTypeId`) values 
-(1,1,1,'2021-03-19 09:18:31','2021-03-10 09:18:49','台北市天龍區民權西路天橋下',1,1),
-(2,1,2,'2021-02-03 11:58:55','2021-02-19 03:58:59','台北市民權東路1號',2,2),
-(3,1,3,'2021-01-05 12:00:07','2021-01-29 16:00:11','台北市民權東路2號',3,3);
+(1,1,1,'2021-03-19 09:18:31','2021-03-10 09:18:49','台北市大同區民權西路1號',1,1),
+(2,1,2,'2021-02-03 11:58:55','2021-02-19 03:58:59','台北市中山區民權東路100號',2,2),
+(3,1,3,'2021-01-05 12:00:07','2021-01-29 16:00:11','台北市中山區民權東路200號',3,3);
 
 /*Table structure for table `ord_detail` */
 

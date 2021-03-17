@@ -17,7 +17,7 @@ public interface ManagerItemDao {
 	// 依itemId來刪除單筆記錄
 	void freezeItemByItemId(int itemId);
 	
-	void freezeFeedbackByFeedbackId(int itemId, int feedbackId);
+	void freezeFeedbackByFeedbackId(int feedbackId);
 	
 	void editItemByItemId(int itemId);
 	

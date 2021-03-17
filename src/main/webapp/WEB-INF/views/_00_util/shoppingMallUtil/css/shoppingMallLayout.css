@@ -99,13 +99,15 @@
 
  #container_MerchandiseSearchResult{
    text-align: center;
+   max-width:1200px;
  }
 
 /* 商品照片外框 */
-.itemImageBorder{
-   border-radius: 3px;
-   padding: 20px;
-  }
+/* .itemImageBorder{ */
+/*    border-radius: 3px; */
+/*    padding: 20px; */
+/*   } */
+
 
 /* 加入購物車鈕 */
 #container_MerchandiseSearchResult .addButton{
@@ -193,7 +195,7 @@ padding: 1px;
 #container_SelectPayment{
    /* background: #000; */
    margin: 50px auto;
-   width: 550px;
+   width: 600px;
    padding: 20px;
    border-radius: 5px;
  }
@@ -273,6 +275,7 @@ padding: 1px;
    text-align:center;
 }
 
+
 /* ShoppingCart、OrderDetail****************************************************** */
 #container_OrderDetail .fa-search, #container_ShoppingCart .fa-search{
    float:right;
@@ -321,10 +324,11 @@ cursor: pointer;
 
 #container_OrderDetail .row,#container_SubmitOrderInfo .row{
    margin-bottom: 10px;
+   align-items: center; 
 }
 
 #container_OrderDetail .Item, #container_SubmitOrderInfo .Item{
    padding: 0px 0px 10px 0px;
    display: flex;
-   align-items: center 
+   align-items: center; 
 }

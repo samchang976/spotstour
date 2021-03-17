@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import _02_model.entity.ActivityBean;
 import _02_model.entity.ContinentBean;
@@ -27,11 +28,14 @@ import _02_model.entity.Item_typeBean;
 import _02_model.entity.OrdBean;
 import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
+import _02_model.entity.ShoppingCartBean;
 import _21_merchandiseSearch.service.ItemService;
+import _22_shoppingCart.service.ShoppingCartService;
 import _91_managerMart.service.ManagerActivityService;
 import _91_managerMart.service.ManagerItemService;
 
 @Controller
+@SessionAttributes("mId")
 public class MerchandiseController {
 
 	@Autowired
@@ -42,6 +46,9 @@ public class MerchandiseController {
 
 	@Autowired
 	ManagerActivityService managerActivityService;
+	
+	@Autowired
+	ShoppingCartService shoppingCartService;
 
 	@GetMapping("/merchandiseIndex")
 	public String getAllCountry(Model model) {
@@ -58,12 +65,18 @@ public class MerchandiseController {
 //	}
 
 	// 得到所有商品
-	@RequestMapping("/merchandiseSearchResult")
-	public String merchandiseSearchResult(Model model) {
-		List<ItemBean> list = itemService.getAllItems();
-		model.addAttribute("items", list);
-		return "_21_shoppingMall/MerchandiseSearchResult";
-	}
+//	@RequestMapping("/merchandiseSearchResult")
+//	public String merchandiseSearchResult(Model model) {
+//		List<ItemBean> list = itemService.getAllItems();
+//		model.addAttribute("items", list);
+//		
+//		
+//		List<ShoppingCartBean> cartlist = shoppingCartService.getShoppingCart((Integer) model.getAttribute("mId")); // 先從service拿資料
+//		model.addAttribute("membercartlist", cartlist);
+//		System.out.println("cartlist================================="+cartlist);
+//		
+//		return "_21_shoppingMall/MerchandiseSearchResult";
+//	}
 
 	@RequestMapping("/merchandiseSearchResult/Id={countryId}")
 	public String merchandiseSearchResultByCountryId(
@@ -94,8 +107,17 @@ public class MerchandiseController {
 	// 搜尋Bar
 	@GetMapping("/merchandiseSearchResult")
 	public String getItemBySearchBar(Model model, @ModelAttribute("searchWord") String searchWord) {
+		
 		Set<ItemBean> list = itemService.getItemBySearchBar(searchWord);
 		model.addAttribute("items", list);
+		
+		Integer member = (Integer) model.getAttribute("mId");
+		if(member != null) {
+		List<ShoppingCartBean> cartlist = shoppingCartService.getShoppingCart((Integer) model.getAttribute("mId")); // 先從service拿資料
+		model.addAttribute("membercartlist", cartlist);
+		
+		System.out.println("cartlist================================="+cartlist);
+		}
 		return "_21_shoppingMall/MerchandiseSearchResult";
 	}
 

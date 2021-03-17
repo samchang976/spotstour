@@ -1,8 +1,11 @@
 package _91_managerMart.controller;
 
+import java.sql.Blob;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import _02_model.entity.ActivityBean;
 import _02_model.entity.ItemBean;
@@ -30,7 +34,7 @@ public class ActivityController {
 		model.addAttribute("activitys", list);
 		return "_91_manageMart/ActivityList";
 	}
-	
+
 	@RequestMapping("/activityDetail/Id={activityId}")
 	public String getActivityById(@ModelAttribute("activityId") Integer activityId, Model model) {
 		ActivityBean activityBean = managerActivityService.getActivityByActivityId(activityId);
@@ -103,8 +107,29 @@ public class ActivityController {
 
 	// 新增活動
 	@PostMapping("/activityModify")
-	public String addNewActivityForm(@ModelAttribute("activityBean") ActivityBean activityBean, Model model) throws InterruptedException {
+	public String addNewActivityForm(@ModelAttribute("activityBean") ActivityBean activityBean, Model model)
+			throws InterruptedException {
+
+		// 圖片上傳
+		// step1: 從前端取得使用者上傳圖片的路徑
+		MultipartFile activityImage = activityBean.getActivityImage();// 圖片本身
+		String originalFilename = activityImage.getOriginalFilename();
+		activityBean.setActivityFileName(originalFilename);
+
+		// step2: 建立Blob物件，交由 Hibernate寫入資料庫
+		if (activityImage != null && !activityImage.isEmpty()) {
+			try {
+//	    需要先得到byte[]，才能透過SerialBlob(byte[] b) 得到Blob的物件
+				byte[] b = activityImage.getBytes();
+				Blob blob = new SerialBlob(b);
+				activityBean.setActivityPic(blob);
+			} catch (Exception e) {
+				throw new RuntimeException("照片上傳時發生異常: " + e.getMessage());
+			}
+		}
+		
 		managerActivityService.addActivity(activityBean);
+		
 		Thread.sleep(5000);
 		return "redirect:/activityList";
 	}
@@ -131,7 +156,7 @@ public class ActivityController {
 
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
 			sdf.format(sqlDate);
-			
+
 			activityBean.setActivity_createTime(sqlDate);
 			activityBean.setActivity_freeze(0);
 			model.addAttribute("activityBean", activityBean);

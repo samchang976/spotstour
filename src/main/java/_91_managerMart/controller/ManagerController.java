@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import _02_model.entity.CountryBean;
 import _02_model.entity.FeedbackBean;
@@ -54,9 +56,10 @@ public class ManagerController {
 //	@PostMapping("/merchandiseModify/get/Id={itemId}")
 	@PostMapping("/Id={itemId}")
 	public String updateItem(@ModelAttribute(value = "itemId") Integer itemId,
-			@ModelAttribute("itemBean") ItemBean itemBeanN, Model model) {
+			@ModelAttribute("itemBean") ItemBean itemBeanN, Model model,
+			@RequestParam(value ="img", required = false) MultipartFile img) {
 		managerItemService.updateItem(itemBeanN);
-		return "redirect:/merchandiseModify#searchi";
+		return "redirect:/merchandiseModify#{itemId}";
 	}
 
 	// 陳列全部商品留言
@@ -76,13 +79,18 @@ public class ManagerController {
 	}
 
 	// 凍結商品留言(刪除)
-	@GetMapping("/manageFeedback/delete/ItId={itemId}/FbId={feedbackId}")
-	public String freezeFeedback(@ModelAttribute("feedbackId") Integer feedbackId, @ModelAttribute("itemId") @PathVariable("itemId") Integer itemId, Model model) {
-		model.addAttribute("itemId", itemId);
-		managerItemService.freezeFeedbackByFeedbackId(itemId, feedbackId);
-		List<FeedbackBean> list = managerItemService.getAllFeedbacksById(itemId);
-		model.addAttribute("feedbacks", list);
-		return "_91_manageMart/ManageFeedback";
+	@GetMapping({"/manageFeedback/delete/ItId={itemId}/FbId={feedbackId}","/manageFeedback/delete/ItId=/FbId={feedbackId}"})
+	public String freezeFeedback(@ModelAttribute("feedbackId") Integer feedbackId, @ModelAttribute("itemId") @PathVariable(value = "itemId", required = false) Integer itemId, Model model) {
+		List<FeedbackBean> list = null;
+		if(itemId != null) {
+			model.addAttribute("itemId", itemId);
+			managerItemService.freezeFeedbackByFeedbackId(feedbackId);
+			list = managerItemService.getAllFeedbacksById(itemId);
+			model.addAttribute("feedbacks", list);
+			return "_91_manageMart/ManageFeedback";
+		}
+			managerItemService.freezeFeedbackByFeedbackId(feedbackId);
+			return "redirect:/manageFeedback";
 	}
 
 	// =========================================================

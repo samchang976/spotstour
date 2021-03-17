@@ -61,136 +61,207 @@
 			<%-- 						<form class="row g-2 needs-validation" novalidate action="#"> --%>
 
 			<!-- 訂購者資料---------------------------------------------------------------- -->
+			<div class="shadow p-3 mb-5 bg-body rounded">
+				<form:form method='POST' modelAttribute='orderVo'>
+					<div>
+						<h3>訂購人資訊:</h3>
+						<!-- 姓名 -->
+						<br>
+						<div class="form-group row">
+							<div class="input-group mb-3">
+								<div class="row g-3 align-items-center">
+									<div class="col-auto">
+										<label for="Orderer" class="col-form-label">姓名 :</label>
+									</div>
 
-			<form:form method='POST' modelAttribute='orderVo'>
-				<div>
-					<h3>訂購人:</h3>
-					<!-- 姓名 -->
-					<div class="row g-3 align-items-center">
-						<div class="col-auto">
-							<label for="Orderer" class="col-form-label">姓名:</label>
+									<div class="col-auto">
+										<form:input type="text" id="mName" class="form-control"
+											path="mName" name="mName" value="${LoginOK.mName}"
+											placeholder="${LoginOK.mName}"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="input-group mb-3">
+								<div class="row g-3 align-items-center">
+									<div class="col-auto">
+										<label for="Orderer" class="col-form-label">性別 :</label>
+									</div>
+
+									<div class="col-auto">
+										<form:input type="text" id="mGender" class="form-control"
+											path="mGender" name="mGender" value="${LoginOK.mGender}"
+											placeholder="${LoginOK.mGender}"/>
+									</div>
+								</div>
+							</div>
 						</div>
 
-						<div class="col-auto">
-							<form:input type="text" id="mName" class="form-control"
-								path="mName" name="mName" value="${LoginOK.mName}"
-								placeholder="${LoginOK.mName}" />
+						<div class="form-group row">
+							<div class="input-group mb-3">
+								<div class="row g-3 align-items-center">
+									<div class="col-auto">
+										<label for="Orderer" class="col-form-label">身分證 :</label>
+									</div>
+
+									<div class="col-auto">
+										<form:input type="text" id="mUid" class="form-control"
+											path="mUid" name="mUid" value="${LoginOK.mUid}"
+											placeholder="${LoginOK.mUid}"/>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="input-group mb-3">
+								<div class="row g-3 align-items-center">
+									<div class="col-auto">
+										<label for="Orderer" class="col-form-label">手機 :</label>
+									</div>
+
+									<div class="col-auto">
+										<form:input type="text" id="mPhone" class="form-control"
+											path="mPhone" name="mPhone" value="${LoginOK.mPhone}"
+											placeholder="${LoginOK.mPhone}"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<div class="input-group mb-3">
+								<div class="row g-3 align-items-center">
+									<div class="col-auto">
+										<label for="Orderer" class="col-form-label">信箱 :</label>
+									</div>
+
+									<div class="col-auto">
+										<form:input type="text" id="mEmail" class="form-control"
+											path="mEmail" name="mEmail" value="${LoginOK.mEmail}"
+											placeholder="${LoginOK.mEmail}"/>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="input-group mb-3">
+								<div class="row g-3 align-items-center">
+									<div class="col-auto">
+										<label for="Orderer" class="col-form-label">原地址 :</label>
+									</div>
+
+									<div class="col-auto">
+										<form:input type="text" id="d_mAddress" class="form-control"
+											path="d_mAddress" name="d_mAddress"
+											value="${LoginOK.d_mAddress}"
+											placeholder="${LoginOK.d_mAddress}" />
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<div class="input-group mb-3">
+								<div class="row g-3 align-items-center">
+									<div class="col-auto">
+										<label for="Orderer" class="col-form-label">新地址 :</label>
+									</div>
+
+									<div class="col-auto">
+										<form:input type="text" id="s_mAddress" class="form-control"
+											path="s_mAddress" name="s_mAddress"
+											value="${LoginOK.d_mAddress}"
+											placeholder="${LoginOK.d_mAddress}" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 付款方式 ------------------------------------------------------------------->
+					<div class="form-group row">
+						<div class="input-group mb-3">
+							<div class="col-2">
+								<label for="Orderer" class="col-form-label">付款方式:</label>
+							</div>
+							<div class="col-10">
+								<select class="form-select" aria-label="Default select example">
+									<option selected="selected" value="">請選擇付款方式</option>
+									<option value="1">貨到付款</option>
+									<option value="2">超商取貨付款</option>
+									<option value="3">信用卡付款</option>
+								</select>
+							</div>
 						</div>
 					</div>
 
-					<div class="row g-3 align-items-center">
-						<div class="col-auto">
-							<label for="Orderer" class="col-form-label">性別:</label>
-						</div>
-
-						<div class="col-auto">
-							<form:input type="text" id="mGender" class="form-control"
-								path="mGender" name="mGender" value="${LoginOK.mGender}"
-								placeholder="${LoginOK.mGender}" />
-						</div>
-					</div>
-
-					<div class="row g-3 align-items-center">
-						<div class="col-auto">
-							<label for="Orderer" class="col-form-label">身分證:</label>
-						</div>
-
-						<div class="col-auto">
-							<form:input type="text" id="mUid" class="form-control"
-								path="mUid" name="mUid" value="${LoginOK.mUid}"
-								placeholder="${LoginOK.mUid}" />
+					<!-- 發票類型 --------------------------------------------------------------->
+					<div class="form-group row">
+						<div class="input-group mb-3">
+							<div class="col-2">
+								<label for="Orderer" class="col-form-label">發票類型:</label>
+							</div>
+							<div class="col-10">
+								<form:select path="receiptTypeId" class="form-select"
+									aria-label="Default select example">
+									<form:option value="-1" label="請選擇發票型式" />
+									<form:options items="${receipt_TypeMap}" />
+								</form:select>
+							</div>
 						</div>
 					</div>
 
-					<div class="row g-3 align-items-center">
-						<div class="col-auto">
-							<label for="Orderer" class="col-form-label">手機:</label>
-						</div>
-
-						<div class="col-auto">
-							<form:input type="text" id="mPhone" class="form-control"
-								path="mPhone" name="mPhone" value="${LoginOK.mPhone}"
-								placeholder="${LoginOK.mPhone}" />
-						</div>
-					</div>
-
-					<div class="row g-3 align-items-center">
-						<div class="col-auto">
-							<label for="Orderer" class="col-form-label">地址:</label>
-						</div>
-
-						<div class="col-auto">
-							<form:input type="text" id="d_mAddress" class="form-control"
-								path="d_mAddress" name="d_mAddress"
-								value="${LoginOK.d_mAddress}"
-								placeholder="${LoginOK.d_mAddress}" />
+					<!-- 寄送方式 --------------------------------------------------------------->
+					<div class="form-group row">
+						<div class="input-group mb-3">
+							<div class="col-2">
+								<label for="Orderer" class="col-form-label">寄送方式:</label>
+							</div>
+							<div class="col-10">
+								<form:select path="shipTypeId" class="form-select"
+									aria-label="Default select example">
+									<form:option value="-1" label="請選擇寄送方式" />
+									<form:options items="${ship_TypeMap}" />
+								</form:select>
+							</div>
 						</div>
 					</div>
+					
+					<div class="form-group row">
+							<div class="input-group mb-3">
+								<div class="row g-3 align-items-center">
+									<div class="col-auto">
+										<label for="Orderer" class="col-form-label">折扣碼 :</label>
+									</div>
 
+									<div class="col-auto">
+										<input type="text" id="code" name="code" class="form-control"
+											placeholder="請輸入折扣碼" />
+									</div>
+								</div>
+							</div>
+						</div>
+					<br>
+					<!--送出  ----------------------------------------------------------------------->
+					<%-- 				<c:forEach var='order' items='${orders}'> --%>
+					<%-- 				<c:set value="" var="order" /> --%>
 
-				</div>
-				<!-- 付款方式 ------------------------------------------------------------------->
-				<div>
-					<label for="Orderer" class="col-form-label">付款方式:</label>
-					<div class="form-check form-check-inline" id="PayType">
-						<select>
-							<option selected="selected" value="">請選擇付款方式</option>
-							<option value="1">貨到付款</option>
-							<option value="2">超商取貨付款</option>
-							<option value="3">信用卡付款</option>
-						</select>
+					<%-- 				</c:forEach> --%>
+					<div class="col-12" id="SubmitBlock">
+						<div style="text-align: right;">
+							<button type="submit" class="btn btn-primary"
+								onclick="submitOrderInfo()">提交訂單資訊</button>
+						</div>
 					</div>
-				</div>
-
-				<!-- 發票類型 --------------------------------------------------------------->
-				<div>
-					<label for="Orderer" class="col-form-label">發票類型:</label>
-					<form:select path="receiptTypeId" class="custom-select">
-						<form:option value="-1" label="請選擇發票型式" />
-						<form:options items="${receipt_TypeMap}" />
-					</form:select>
-				</div>
-
-				<!-- 寄送方式 --------------------------------------------------------------->
-				<div>
-					<label for="Orderer" class="col-form-label">寄送方式:</label>
-					<form:select path="shipTypeId" class="custom-select">
-						<form:option value="-1" label="請選擇寄送方式" />
-						<form:options items="${ship_TypeMap}" />
-					</form:select>
-				</div>
-
-				<hr>
-
-				<!-- 收貨人資訊 --------------------------------------------------------------->
-				<h3>收件地址:</h3>
-
-				<div class="row g-3 align-items-center">
-					<div class="col-auto">
-						<label for="Orderer" class="col-form-label">地址:</label>
-					</div>
-
-					<div class="col-auto">
-						<form:input type="text" id="s_mAddress" class="form-control"
-							path="s_mAddress" name="s_mAddress" value="${LoginOK.d_mAddress}"
-							placeholder="${LoginOK.d_mAddress}" />
-					</div>
-				</div>
-
-
-				<!--送出  ----------------------------------------------------------------------->
-				<%-- 				<c:forEach var='order' items='${orders}'> --%>
-				<%-- 				<c:set value="" var="order" /> --%>
-
-				<%-- 				</c:forEach> --%>
-				<div class="col-12" id="SubmitBlock">
-					<button type="submit" class="btn btn-primary"
-						onclick="submitOrderInfo()">提交訂單資訊</button>
-				</div>
-			</form:form>
+				</form:form>
+			</div>
 			<div class="col-12" id="SubmitBlock">
-				<button class="btn btn-primary"
-					onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
+				<div style="text-align: center;">
+					<button class="btn btn-primary"
+						onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
+				</div>
 			</div>
 			<%-- 						</form> --%>
 		</div>
@@ -203,8 +274,8 @@
 	<!-- --------------------------------------------------------------------------------------->
 	<script>
 		function submitOrderInfo() {
-// 			document.forms[0].action = "<c:url value='/submitOrderInfo' />";
-			document.forms[0].action = "<c:url value='/purchaseSuccess' />";
+						document.forms[0].action = "<c:url value='/submitOrderInfo' />";
+// 			document.forms[0].action = "<c:url value='/purchaseSuccess' />";
 			document.forms[0].method = "POST";
 			document.forms[0].submit();
 		}

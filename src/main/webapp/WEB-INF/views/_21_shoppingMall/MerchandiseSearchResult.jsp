@@ -22,6 +22,9 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
+<%-- jQuery============================================================================ --%>
+	 <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.min.js'></script>	
+
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
@@ -44,8 +47,69 @@
 
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>商品搜尋結果</title>
+
+<style>
+		body{ 
+/* 		 	background: #000 url("<c:url value='/images/background/ugur-peker-AkX0_cZQ6PI-unsplash.jpg'></c:url>") center fixed no-repeat; */
+		    background-size: cover;
+		}
+		.itemName{
+		height:70px;
+		}
+	
+        .addcart{
+            width: 100%;
+            background-color: rgba(177, 112, 82, 0.3);
+
+        }
+        .addcart:hover{
+            /* background: url(./download.jpg) center; */
+            /* background-size: cover; */
+            background-color: rgba(177, 112, 82, 0.9);
+            color:white;
+        }
+        
+/*購物車側欄======================================================================================= */
+	    #imgBoard{
+		    background: #ddd;
+		    width: 300px;
+		    padding: 20px 40px;
+		
+    		position: fixed; 
+		    left: -260px;
+			z-index: 50;
+			text-align:center;
+			height: 80%;
+		    
+		}
+		
+ 		#imgBoard:hover{
+		    left: 0px;
+			overflow-y:scroll;
+
+		 }
+
+		#imgBoard img{
+		width:100%
+		}
+		
+		#sessionCart{
+		display:none;
+		}
+        
+        #imgBoard .fa-minus-circle{
+        float:right; 
+        }
+        
+        #imgBoard .fa-minus-circle:hover{
+        color:red;
+		cursor:pointer;
+        }
+        
+</style>
 </head>
 <body>
+
 	<!--header--------------------------------------------------------------------------->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
@@ -56,16 +120,65 @@
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 		<!------------------------------------------------------------------------------------------->
+<!-- 側邊購物車--------------------------------------------------------------------------------------- -->
+		<div id="imgBoard">購物車
+				<!--判斷購物車內是否有相同商品:未顯示----------------------------------------------------------->
+				<div id="sessionCart">
+<!-- 					map取值:OO.key/OO.value -->
+					<c:forEach var="sessioncart" items="${sessionShoppingCart}">
+						${sessioncart.key},
+					</c:forEach>
+				</div>
+				<!------------------------------------------------------------------------------------>
+		<c:choose>
+			<c:when test="${mPid==2||mPid==1}">
+				<!--會員--------------------------------------------------------------------------------------- -->
+				<div>
 
-
-		<!--商品  -->
+					<c:forEach var="membercartlist" items="${membercartlist}">
+						<form >
+							<i class="fas fa-minus-circle" onclick="location.href='shoppingCart/delete/Id=${membercartlist.sc_Id}'"></i>
+							<img src="/upload/${membercartlist.itemBean.itemPic1}" alt="商品照片"></img> 
+<%-- 						<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
+							<!--<img src="#" alt="商品照片"></img> -->
+							<div>${membercartlist.itemBean.itemHeader}</div>
+							<div>${membercartlist.itemBean.itemPrice}元</div>
+						</form>
+					</c:forEach>
+				</div>						
+				
+			</c:when>
+			<c:otherwise>
+				<div>
+					<c:forEach var="sessioncartList" items="${sessionShoppingCartList}">
+						<form name="sideform${sessioncartList.itemId}">
+							<i class="fas fa-minus-circle" onclick="deleteItem(${sessioncartList.itemId})"></i>
+							
+							<img src="/upload/${sessioncartList.itemPic1}" alt="商品照片"></img> 
+<%-- 						<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
+							<!--<img src="#" alt="商品照片"></img> -->
+							<div>${sessioncartList.itemHeader}</div>
+							<div>${sessioncartList.itemPrice}元</div>
+							
+						</form>
+					</c:forEach>
+				</div>
+			</c:otherwise>
+		</c:choose>	
+				
+				<button class="btn addcart" type="button"
+					onclick="location.href='<c:url value="/shoppingCart/sessionCartSave"/>'">確定購買</button>
+<!-- 				導向存session的controller -->
+				
+		</div>
+		<!--商品------------------------------------------------------------------------------------------------------------  -->
 		<div class="container" id="container_MerchandiseSearchResult">
-			<div class="row row-cols-1 row-cols-md-4 ">
+			<div class="row row-cols-1 row-cols-md-4 g-3">
 
 				<c:forEach var='item' items='${items}'>
-					<div class="col ">
+					<div class="col">
+						<div class="card">
 						<div class="itemImageBorder">
-
 
 							<%-- 							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>"> <img --%>
 							<!-- 								src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
@@ -80,15 +193,15 @@
 								class="carousel slide" data-bs-ride="carousel">
 								<div class="carousel-inner">
 									<div class="carousel-item active">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+										<img src="/upload/${item.itemPic1}"
 											class="d-block w-100" alt="...">
 									</div>
 									<div class="carousel-item">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+										<img src="/upload/${item.itemPic2}"
 											class="d-block w-100" alt="...">
 									</div>
 									<div class="carousel-item">
-										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+										<img src="/upload/${item.itemPic3}"
 											class="d-block w-100" alt="...">
 									</div>
 								</div>
@@ -108,68 +221,74 @@
 
 
 						</div>
-						<div class="itemName">
+						
+						<div class="itemName ">
 							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>">
 								<img class="w-100"> ${item.itemHeader}
 							</a>
 						</div>
 						<div class="itemPrice">價格 : ${item.itemPrice}元</div>
-						<div class="countryName">產地 :
-							${item.countryBean.countryName}</div>
+						<div class="countryName">產地 :${item.countryBean.countryName}</div>
 						<div class="itemType">商品類別 : ${item.item_typeBean.itemType}</div>
 						<!-- 						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input -->
 						<%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
 						<!-- 						</i> -->
 						<!-- 加入購物車================================================================================================= -->
-					
+<!-- 							@@@判斷會員/管理員才顯示加入購物車按鈕 -->
 <%-- 							<c:if test="${mPid==2||mPid==1}"> --%>
-							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post">
+<%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
 <%-- 								<c:if test="${hasItem==0}"> --%>
-									<button type="button" onclick="this.form.submit()">
-									<i class="fas fa-cart-arrow-down addButton"></i>
-									</button>
+<!-- 									<button type="button" onclick="this.form.submit()"  data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
+<!-- 									<i class="fas fa-cart-arrow-down addButton"></i> -->
+<!-- 									</button> -->
+<%-- 							</form> --%>
 <%-- 								</c:if> --%>
-								
-<!--================================================================================= -->
-<%-- 								<c:if test="${hasItem==1}"> --%>
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
-<!--   <div class="modal-dialog"> -->
-<!--     <div class="modal-content"> -->
-<!--       <div class="modal-header"> -->
-<!--         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
-<!--         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-<!--       </div> -->
-<!--       <div class="modal-body"> -->
-<!--         ... -->
-<!--       </div> -->
-<!--       <div class="modal-footer"> -->
-<!--         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-<!--         <button type="button" class="btn btn-primary">Save changes</button> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--   </div> -->
-<!-- </div> -->
-<%-- 						</c:if> --%>
+		
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+						<c:choose>	
+							<c:when test="${mPid==2||mPid==1}">
+								<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post">
+									<button type="button" onclick="this.form.submit()" class="btn addcart">
+									<i class="fas fa-cart-arrow-down addButton"></i>
+										加入購物車
+									</button>
+								</form>
+							</c:when>	
+							
+							<c:otherwise> 
+								<form 
+								name="form${item.itemId}">
+									<input type="hidden" name="itemQty">
+									<button type="button" onclick="
+									chackcartitem(${item.itemId})"  class="btn addcart">加入購物車
+<!-- 										<i class="fas fa-cart-arrow-down addButton"></i> -->
+									</button>
+								</form>
+							</c:otherwise>
+						</c:choose>		
 <!--================================================================================= -->								
-<%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
-<%-- 								onchange="this.form.submit()" --%>
+<%-- 						onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
+<%-- 						onchange="this.form.submit()" --%>
 <!-- 						顯示:綁識別字串 -->
 <!-- 						數量修改靠js -->
 
-
-
-
-
-
-						</form>
-<%-- 						</c:if> --%>
-							<%-- 						<input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
-
 						
-						<!-- ======================================================================================================= -->
+<%-- 						</c:if> --%>
+							<%-- <input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
+<!-- ========================================================================================================-->
+
+<!-- <div class="card" style="width: 18rem;"> -->
+<!--         <img src="..." class="card-img-top" alt="..."> -->
+<!--         <div class="card-body"> -->
+<!--           <h5 class="card-title">Card title</h5> -->
+<!--           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+<!--           <a href="#" class="btn btn-primary">Go somewhere</a> -->
+<!--         </div> -->
+<!--       </div> -->
+<!-- ======================================================================================================= -->
 
 					</div>
-
+				</div>
 
 					<!-- 				<div class="col"> -->
 					<!-- 					<div class="itemImageBorder"> -->
@@ -220,6 +339,33 @@
 					<!-- 					</i> -->
 					<!-- 				</div> -->
 				</c:forEach>
+<!-- ======================================================================================================= -->	
+<!-- 				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<!-- 				  <div class="modal-dialog"> -->
+<!-- 				    <div class="modal-content"> -->
+<!-- 				      <div class="modal-header"> -->
+<!-- 				        <h5 class="modal-title" id="exampleModalLabel">sopts-tour商城</h5> -->
+<!-- 				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+<!-- 				      </div> -->
+<!-- 				      <div class="modal-body"> -->
+<%-- 							<c:if test="${hasItem==1}"> --%>
+<!-- 								已經有此項商品 -->
+<%-- 							</c:if> --%>
+<%-- 							<c:if test="${hasItem==0}"> --%>
+<!-- 								加入購物車成功 -->
+<%-- 							</c:if> --%>
+<!-- 						已加入購物車 -->
+<!-- 				      </div> -->
+<!-- 				      <div class="modal-footer"> -->
+<!-- 				        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+<!-- 				      </div> -->
+<!-- 				    </div> -->
+<!-- 				  </div> -->
+<!-- 				</div> -->
+<!-- ======================================================================================================= -->	
+				
+				
+				
 			</div>
 		</div>
 
@@ -233,10 +379,74 @@
 	</div>
 	<!------------------------------------------------------------------------------------------->
 
+	<script>
+		function doFirst(){
+		
+		}
+		//檢查session是否有相同商品===========================================================================
+		function chackcartitem(itemId) {
+			// alert(itemId);
+			sessioncart=document.getElementById("sessionCart").innerText;//字串
+// 			alert(sessioncart);
+			list=sessioncart.substr(0, sessioncart.length-1).split(",");
+// 			alert(list.length);
+			for(i=0;i<list.length;i++){
+				// alert(typeof parseInt(list[i])) //string
+// 				alert(typeof itemId);
+// 				alert("session內"+list[i]+"點選的商品id"+itemId);
+				console.log(itemId==parseInt(list[i]));//false
+				if(itemId==parseInt(list[i])){
+					hasTheSame = true;
+					break;
+				}else{
+					hasTheSame = false;
+					}
+			}
+			if(hasTheSame == true){
+				alert("購物車內已有相同的商品!");
+			}else{	
+			alert("已加入購物車");
+			let name="form"+itemId;
+			var thisForm = document.forms[name];
+			thisForm.action="${pageContext.request.contextPath}/shoppingCart/visitor/add?itemId="+itemId;
+			thisForm.method="post";
+			// alert(name);
+// 			console.info(thisForm);
+			thisForm.submit();
+			}
+		// alert(list[0]);
+		}
+		
+		function deleteItem(itemId){
+			alert(itemId);
+			name="sideform"+itemId;
+			var thisForm = document.forms[name];
+			thisForm.action="${pageContext.request.contextPath}/shoppingCart/visitor/del?itemId="+itemId;
+			thisForm.method="post";
+			thisForm.submit();
+// 		var temp = document.createElement("Form");
+// 		temp.action = "${pageContext.request.contextPath}/shoppingCart/visitor/del?itemId="+itemId;
+// 		temp.method = "post";
+// 		temp.style.display = "none";
+// 		temp.submit();
+// 		alert(typeof temp);
+		}
+		
+		
+		window.addEventListener('load',doFirst);
+		
+		
+		
+
+		// ========================================================================================
+	</script>
+
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous">
+	</script>
+	
 </body>
 </html>

@@ -28,10 +28,10 @@
 
 /* MerchandiseSearchResult*********************************************/
 /* 商品照片外框 */
-.itemImageBorder{
-  background-color: rgba(225, 226, 226, 0.378); 
-  border:1px solid rgb(230, 227, 227,0.3) ;
- }
+/* .itemImageBorder{ */
+/*   background-color: rgba(225, 226, 226, 0.378);  */
+/*   border:1px solid rgb(230, 227, 227,0.3) ; */
+/*  } */
 
 /* 加入購物車鈕 */
 #container_MerchandiseSearchResult .addButton{

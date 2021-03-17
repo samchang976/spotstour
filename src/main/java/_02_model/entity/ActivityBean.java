@@ -1,6 +1,7 @@
 package _02_model.entity;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.sql.Date;
 
 import javax.persistence.Entity;
@@ -8,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="activity")
@@ -21,20 +25,39 @@ public class ActivityBean implements Serializable{
 	private String activityContent;
 	private Integer activity_freeze;
 	private Date activity_createTime;	
+	private Blob activityPic;
+	private String activityFileName;
+	
+	@Transient
+	private MultipartFile activityImage;
 	
 	
 	public ActivityBean() {
 		super();
 	}
+	
+	public String getActivityFileName() {
+		return activityFileName;
+	}
 
-	public ActivityBean(Integer activityId, String activityHeader, String activityContent, Integer activity_freeze,
-			Date activity_createTime) {
-		super();
-		this.activityId = activityId;
-		this.activityHeader = activityHeader;
-		this.activityContent = activityContent;
-		this.activity_freeze = activity_freeze;
-		this.activity_createTime = activity_createTime;
+	public void setActivityFileName(String activityFileName) {
+		this.activityFileName = activityFileName;
+	}
+
+	public MultipartFile getActivityImage() {
+		return activityImage;
+	}
+
+	public void setActivityImage(MultipartFile activityImage) {
+		this.activityImage = activityImage;
+	}
+
+	public Blob getActivityPic() {
+		return activityPic;
+	}
+
+	public void setActivityPic(Blob activityPic) {
+		this.activityPic = activityPic;
 	}
 
 	public Integer getActivityId() {
