@@ -28,8 +28,8 @@ public class SessionShoppingCartSaveController {
 	@Autowired
 	ShoppingCartService shoppingCartService;
 
-	@Autowired
-	shoppingCartDao shoppingCartDao;
+//	@Autowired
+//	shoppingCartDao shoppingCartDao;
 
 	// 存session===================================================================================
 	@SuppressWarnings("unchecked")
@@ -45,22 +45,23 @@ public class SessionShoppingCartSaveController {
 		}
 		// 會員
 		if (member == 2) { // 1:管理員 2:會員
-			List<SessionShoppingCartVo> sscList = (List<SessionShoppingCartVo>) model
-					.getAttribute("sessionShoppingCartList");
-			if (sscList != null) {
-				for (int i = 0; i < sscList.size(); i++) {
-					SessionShoppingCartVo vo = sscList.get(i);
-					ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
-					shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(vo.getItemId()));
-					shoppingCartBean.setS_ordQty(vo.getScQty());
-					shoppingCartBean
-							.setMemberBean(shoppingCartDao.getMemberBeanBymId((int) session.getAttribute("mId")));
+//			List<SessionShoppingCartVo> sscList = (List<SessionShoppingCartVo>) model
+//					.getAttribute("sessionShoppingCartList");
+//			if (sscList != null) {
+//				for (int i = 0; i < sscList.size(); i++) {
+//					SessionShoppingCartVo vo = sscList.get(i);
+//					ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
+//					shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(vo.getItemId()));
+//					shoppingCartBean.setS_ordQty(vo.getScQty());
+//					shoppingCartBean
+//							.setMemberBean(shoppingCartDao.getMemberBeanBymId((int) session.getAttribute("mId")));
+					
+//					shoppingCartService.addShoppingCart(shoppingCartBean);
 
-					shoppingCartService.addShoppingCart(shoppingCartBean);
-
-				}
+//				}
 				// 存進資料庫後，把sessionCart清單清空
-			status.setComplete(); 
+//			shoppingCartService.sessionCartSave(sscList, (int) session.getAttribute("mId"));
+//			status.setComplete(); 
 			
 //session跟model控管的session好像不太一樣=========================================================================			
 //			session.removeAttribute("sessionShoppingCartList");
@@ -76,7 +77,6 @@ public class SessionShoppingCartSaveController {
 //			
 //			System.out.println("sscList=============="+sscList+"cartlist================"+cartlist);
 //		}
-		}
 			return "redirect:/shoppingCart";
 		}
 		return null;

@@ -3,6 +3,11 @@ package _22_shoppingCart.service;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.support.SessionStatus;
+
 import _02_model.entity.ShoppingCartBean;
 import _22_shoppingCart.vo.SessionShoppingCartVo;
 
@@ -21,5 +26,7 @@ public interface ShoppingCartService {
 	public String addToCart(Integer memberId, Integer itemId, Integer qty);
 	
 	public List<SessionShoppingCartVo> getShoppingCartVo(Map<Integer, Integer> cartlist);
+
 	
+	public void sessionCartSave(List<SessionShoppingCartVo> sscList,Integer mId);
 }

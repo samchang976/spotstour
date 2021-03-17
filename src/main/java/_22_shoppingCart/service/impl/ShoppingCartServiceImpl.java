@@ -25,6 +25,9 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	@Autowired
 	shoppingCartDao shoppingCartDao;
 
+	@Autowired
+	ShoppingCartService shoppingCartService;
+
 	public ShoppingCartServiceImpl() {
 
 	}
@@ -130,22 +133,22 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 //				cartlist.put(itemId, itemQty);
 //			}
 //		}
-		
-		 Integer key = null;
-		 List<SessionShoppingCartVo> sscList = new LinkedList<>();
-		//讀出Map
-		 Iterator<Integer> iter = cartlist.keySet().iterator();
-		 
-		 //如果有還有下一個就繼續迴圈 
-		 while(iter.hasNext()){
-			  key=iter.next();
-			  Integer value = cartlist.get(key);
-		   System.out.println("keyvalue==========="+key+" : "+value);
+
+		Integer key = null;
+		List<SessionShoppingCartVo> sscList = new LinkedList<>();
+		// 讀出Map
+		Iterator<Integer> iter = cartlist.keySet().iterator();
+
+		// 如果有還有下一個就繼續迴圈
+		while (iter.hasNext()) {
+			key = iter.next();
+			Integer value = cartlist.get(key);
+			System.out.println("keyvalue===========" + key + " : " + value);
 //		int i;
 
 //		for (i = 0; i < (cartlist.size() - 1); i++) {
-		   
-		   //不經過資料庫的串接容器類bean
+
+			// 不經過資料庫的串接容器類bean
 			SessionShoppingCartVo ssc = new SessionShoppingCartVo();
 			ItemBean newItemBean = shoppingCartDao.getItemBeanByItemId(key);
 
@@ -157,14 +160,27 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 			ssc.setItemId(key);
 			sscList.add(ssc);
 //		}
-		  }
-		  
-		System.out.println("cartlistSE===================="+cartlist);
-		System.out.println("sscListSE================="+sscList);
-		
+		}
+
+		System.out.println("cartlistSE====================" + cartlist);
+		System.out.println("sscListSE=================" + sscList);
+
 		return sscList;
 	}
-	
 
+	@Override
+	public void sessionCartSave(List<SessionShoppingCartVo> sscList, Integer mId) {
+		if (sscList != null) {
+			for (int i = 0; i < sscList.size(); i++) {
+				SessionShoppingCartVo vo = sscList.get(i);
+				ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
+				shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(vo.getItemId()));
+				shoppingCartBean.setS_ordQty(vo.getScQty());
+				shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId(mId));
+				shoppingCartService.addShoppingCart(shoppingCartBean);
+			}
 
+		}
+
+	}
 }

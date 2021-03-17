@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Blob;
 import java.util.Base64;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -31,6 +32,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import _02_model.entity.MemberBean;
 import _11_register.service.MemberService;
 import _12_login.validator.LoginValidator;
+import _22_shoppingCart.service.ShoppingCartService;
+import _22_shoppingCart.vo.SessionShoppingCartVo;
 
 import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
@@ -50,6 +53,7 @@ import _02_model.entity.Member_permBean;
 import _12_login.service.LoginService;
 
 @Controller
+@SessionAttributes({ "sessionShoppingCart", "sessionShoppingCartList" })
 //@SessionAttributes({"LoginOK","Login", "FlashMSG_farewell"}) 
 public class LoginController {
 //	
@@ -184,6 +188,9 @@ public class LoginController {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 	@Autowired
 	LoginService loginService;
+	
+	@Autowired
+	ShoppingCartService shoppingCartService;
 
 	@RequestMapping("/login")
 	public String login(Model model) {
@@ -194,7 +201,7 @@ public class LoginController {
 
 //	@RequestMapping("/login.do")
 	@PostMapping("/login")
-	public String doLogin(@ModelAttribute("memberBean") MemberBean memberBean, BindingResult result, HttpSession session,Model model) {
+	public String doLogin(@ModelAttribute("memberBean") MemberBean memberBean, BindingResult result, HttpSession session,Model model,SessionStatus status) {
 		LoginValidator validator = new LoginValidator();
 		validator.validate(memberBean, result);
 		if (result.hasErrors()) {
@@ -212,6 +219,16 @@ public class LoginController {
 				model.addAttribute("Login", "登入成功");
 				System.out.println("User:" + session.getAttribute("mAN") + " 已登入" + ",權限:"
 						+ memberBean.getMemberPermBean().getmPermissions());
+				
+				Integer member = (Integer) session.getAttribute("mPid");
+				if (member == 2) { // 1:管理員 2:會員
+					List<SessionShoppingCartVo> sscList = (List<SessionShoppingCartVo>) model
+							.getAttribute("sessionShoppingCartList");
+					if (sscList != null) {
+//					
+					shoppingCartService.sessionCartSave(sscList, (int) session.getAttribute("mId"));
+					status.setComplete(); 
+					}}
 				return "index";
 			}
 		} catch (NoResultException nre) {
