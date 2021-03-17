@@ -104,8 +104,9 @@
 				<div>${row.continentName}-${row.countryName}-${row.cityName}</div>
 				<div>${row.portfolioName}</div>
 				<!-- 影片-->
-				<video src="/images/a.mp4" controls></video><br>
-
+				<video controls poster="${pageContext.request.contextPath}${row.videoPic}" style="width: 100%; height: auto">
+  				<source src="${pageContext.request.contextPath}${row.videoFile}" type="video/mp4">
+  				</video>
 				<!--按讚次數-->
 				<div id="great">
 					<a href="#"> <i class="far fa-thumbs-up"></i>

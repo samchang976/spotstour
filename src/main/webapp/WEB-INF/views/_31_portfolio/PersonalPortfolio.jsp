@@ -122,7 +122,7 @@ td div, .like-table div {
 							<div style="margin: 4px;">
 								<H4>${mpl.portfolioName}</H4>
 							</div>
-								<video controls poster="${pageContext.request.contextPath}${mpl.videoPic}" style="width: 100%; height: auto">
+								<video controls poster="${pageContext.request.contextPath}${mpl.videoPic}" style="width: 80%; height: auto">
   							    <source src="${pageContext.request.contextPath}${mpl.videoFile}" type="video/mp4">
   							    </video>
 							<br>

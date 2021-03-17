@@ -84,7 +84,7 @@ public class CreatePortfolioServiceImpl implements CreatePortfolioService {
 		//隨機唯一影片檔名
 		UUID fuuid = UUID.randomUUID();
 		String filePath = "/Project/workspace_JSP/SpotsTourHSM/src/main/webapp/videos/";
-		String fileName = fuuid + ".mp4";
+		String fileName = fuuid + ".mp4" ;
 		videoBean.setVideoFile((StreamUtils.writeStream(mff.getBytes(),filePath,fileName)).substring(51));
 		//新增影片
 		videoDao.addVideo(videoBean);
