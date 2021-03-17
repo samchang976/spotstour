@@ -49,8 +49,8 @@
 
 <style>
 .imageFrame {
-	height: 600px; /*can be anything*/
-	width: 600px; /*can be anything*/
+	height: 400px; /*can be anything*/
+	width: 400px; /*can be anything*/
 	position: relative;
 	overflow: hidden;
 }
@@ -82,6 +82,9 @@
 /* 	height: 600px; */
 /* 	overflow: hidden; */
 /* } */
+#container_MerchandiseDetail{
+	max-width:1000px; 
+}
 
 
 </style>
@@ -273,7 +276,7 @@
 							timeStyle="long" value="${now}" /></span>
 				</div>
 				<br>
-				<div class="overflow-scroll"
+				<div class="overflow-auto"
 					style="height: 500px; line-height: 2.5;">
 					<c:forEach var='feedback' items='${feedbacks}'>
 						<div class="container-fluid">
