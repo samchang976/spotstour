@@ -173,8 +173,8 @@
 				<!-- =================================================================================================== -->
 				<div class="row row row-cols-1 row-cols-md-2 ">
 					<div class="col-md-6">
-						上傳影片預覽圖: <input type="file" name="videoPic" /><br> 上傳影片: <input
-							type="file" name="videoFile" /><br>
+						上傳影片預覽圖: <input type="file" name="videoPic" accept=".jpg"/><br> 
+						上傳影片: <input	type="file" name="videoFile" accept=".mp4"/><br>
 					</div>
 					<div class="col-md-3" align="left">
 						<select class="form-select" aria-label="Default select example">
