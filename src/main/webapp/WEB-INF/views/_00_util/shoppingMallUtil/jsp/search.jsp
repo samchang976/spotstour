@@ -26,8 +26,9 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 <style>
-.container_search {
+#container_search {
 /* 	margin-bottom: 20px; */
+font-size: 40px;
 }
 
 #want {
@@ -39,11 +40,11 @@
 </head>
 <body>
 
-	<div class="container container_search">
+	<div class="container" id="container_search">
 		<div class="row">
 			<div class="col">
-				<div style="display: inline-flex;  width:60%; ">
-					<span id="want">想買什麼?</span>
+				<span id="want">想買什麼?</span>
+				<div style="display: inline-flex;  width:25%; ">
 					<form class="input-group mb-3"action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get">
 						<input class="form-control" type="search" name="searchWord"
 							placeholder="Search" aria-label="Search">
