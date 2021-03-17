@@ -1,5 +1,8 @@
 package _23_submitOrder.mail;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -9,6 +12,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import _02_model.entity.OrdBean;
 import _23_submitOrder.vo.OrderVo;
 
 public class SendingOrderSuccessEmail {
@@ -17,24 +21,26 @@ public class SendingOrderSuccessEmail {
 	private String mEmail;
 	private String mName;
 	private Integer mId;
-	private OrderVo orderVo;
+	private OrdBean ordBean;
 
 
-	public SendingOrderSuccessEmail(String mEmail, String mName, Integer mId, OrderVo orderVo) {
+	public SendingOrderSuccessEmail(String mEmail, String mName, Integer mId, OrdBean ordBean) {
 		super();
 		this.mEmail = mEmail;
 		this.mName = mName;
 		this.mId = mId;
-		this.orderVo = orderVo;
+		this.ordBean = ordBean;
 	}
 
 
 	public void sendAcceptMail() {
 		// Enter the email address and password for the account from which verification link will be send
-		String email = "trainme015@gmail.com";
-		String password = "Trainme0!";
-//		String email = "spotstour@gmail.com";
-//		String password = "Spotstour0!";
+//		String email = "trainme015@gmail.com";
+//		String password = "Trainme0!";
+		String email = "spotstour015@gmail.com";
+		String password = "Spotstour0!";
+//		String email = "yachijava015@gmail.com";
+//		String password = "Do!ng123";
 		
 //		int starCourseTime=course.getTime();
 //		int endCourseTime=course.getTime()+1;
@@ -59,6 +65,16 @@ public class SendingOrderSuccessEmail {
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(mEmail));
 			// 設定信件標題
 			message.setSubject("訂購成功! SpotsTour 已經收到您的訂單!");
+			
+			Timestamp ts = ordBean.getS_createTime();
+			Date date = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String shipTime = sdf.format(date);
+			try {
+				date = ts;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 			// 設定信件內容
 //			message.setText("Click this link to confirm your email address and complete setup for your account."
@@ -175,7 +191,7 @@ public class SendingOrderSuccessEmail {
 					+ "	@tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.\r\n"
 					+ "	*/\r\n"
 					+ "		body,#bodyTable{\r\n"
-					+ "			/*@editable*/background-color:#FFFFFF;\r\n"
+					+ "			/*@editable*/background-color:#ffffff;\r\n"
 					+ "			/*@editable*/background-image:none;\r\n"
 					+ "			/*@editable*/background-repeat:no-repeat;\r\n"
 					+ "			/*@editable*/background-position:center;\r\n"
@@ -592,7 +608,7 @@ public class SendingOrderSuccessEmail {
 					+ "                            <td class=\"mcnImageContent\" valign=\"top\" style=\"padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0; text-align:center;\">\r\n"
 					+ "                                \r\n"
 					+ "                                    \r\n"
-					+ "                                        <img align=\"center\" alt=\"\" src=\"https://mcusercontent.com/b4d72ad7d712f64efd8ee9f4f/images/ebaf293e-f396-44bf-bf94-62637f925d0b.png\" width=\"564\" style=\"max-width:1033px; padding-bottom: 0; display: inline !important; vertical-align: bottom;\" class=\"mcnImage\">\r\n"
+					+ "                                        <img align=\"center\" alt=\"\" src=\"https://mcusercontent.com/b4d72ad7d712f64efd8ee9f4f/images/ebaf293e-f396-44bf-bf94-62637f925d0b.png\" width=\"236.88\" style=\"max-width: 1033px; padding-bottom: 0px; vertical-align: bottom; display: inline !important; border-radius: 0%;\" class=\"mcnImage\">\r\n"
 					+ "                                    \r\n"
 					+ "                                \r\n"
 					+ "                            </td>\r\n"
@@ -618,8 +634,9 @@ public class SendingOrderSuccessEmail {
 					+ "                        \r\n"
 					+ "                        <td valign=\"top\" class=\"mcnTextContent\" style=\"padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;\">\r\n"
 					+ "                        \r\n"
-					+ "                            <div style=\"text-align: center;\">親愛的 您好:<br>\r\n"
-					+ "您的訂單已送出成功!</div>\r\n"
+					+ "                            <div style=\"text-align: center;\">親愛的&nbsp;" + mName + "&nbsp;您好:<br>\r\n"
+					+ "<br>\r\n"
+					+ "感謝您的訂購 ! 您已成功完成訂購手續 !&nbsp;</div>\r\n"
 					+ "\r\n"
 					+ "                        </td>\r\n"
 					+ "                    </tr>\r\n"
@@ -632,6 +649,133 @@ public class SendingOrderSuccessEmail {
 					+ "				</tr>\r\n"
 					+ "				</table>\r\n"
 					+ "				<![endif]-->\r\n"
+					+ "            </td>\r\n"
+					+ "        </tr>\r\n"
+					+ "    </tbody>\r\n"
+					+ "</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" class=\"mcnDividerBlock\" style=\"min-width:100%;\">\r\n"
+					+ "    <tbody class=\"mcnDividerBlockOuter\">\r\n"
+					+ "        <tr>\r\n"
+					+ "            <td class=\"mcnDividerBlockInner\" style=\"min-width:100%; padding:18px;\">\r\n"
+					+ "                <table class=\"mcnDividerContent\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"min-width: 100%;border-top: 2px solid #EAEAEA;\">\r\n"
+					+ "                    <tbody><tr>\r\n"
+					+ "                        <td>\r\n"
+					+ "                            <span></span>\r\n"
+					+ "                        </td>\r\n"
+					+ "                    </tr>\r\n"
+					+ "                </tbody></table>\r\n"
+					+ "<!--            \r\n"
+					+ "                <td class=\"mcnDividerBlockInner\" style=\"padding: 18px;\">\r\n"
+					+ "                <hr class=\"mcnDividerContent\" style=\"border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;\" />\r\n"
+					+ "-->\r\n"
+					+ "            </td>\r\n"
+					+ "        </tr>\r\n"
+					+ "    </tbody>\r\n"
+					+ "</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" class=\"mcnTextBlock\" style=\"min-width:100%;\">\r\n"
+					+ "    <tbody class=\"mcnTextBlockOuter\">\r\n"
+					+ "        <tr>\r\n"
+					+ "            <td valign=\"top\" class=\"mcnTextBlockInner\" style=\"padding-top:9px;\">\r\n"
+					+ "              	<!--[if mso]>\r\n"
+					+ "				<table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100%;\">\r\n"
+					+ "				<tr>\r\n"
+					+ "				<![endif]-->\r\n"
+					+ "			    \r\n"
+					+ "				<!--[if mso]>\r\n"
+					+ "				<td valign=\"top\" width=\"600\" style=\"width:600px;\">\r\n"
+					+ "				<![endif]-->\r\n"
+					+ "                <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width:100%; min-width:100%;\" width=\"100%\" class=\"mcnTextContentContainer\">\r\n"
+					+ "                    <tbody><tr>\r\n"
+					+ "                        \r\n"
+					+ "                        <td valign=\"top\" class=\"mcnTextContent\" style=\"padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;\">\r\n"
+					+ "                        \r\n"
+					+ "                            <br>\r\n"
+					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 訂單號碼是 :&nbsp;FSWE1561" + ordBean.getOrd_Id() + "<br>\r\n"
+					+ "<br>\r\n"
+					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 配送地址是 :&nbsp;" + ordBean.getS_mAddress() + "<br>\r\n"
+					+ "<br>\r\n"
+					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 配送方式是 :&nbsp;" + ordBean.getShipTypeBean().getShipType() + "<br>\r\n"
+					+ "<br>\r\n"
+					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 發票領取方式是 :&nbsp;" + ordBean.getReceiptTypeBean().getReceiptType() + "<br>\r\n"
+					+ "<br>\r\n"
+					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 預計到貨時間 :&nbsp;" + shipTime + "\r\n"
+					+ "                        </td>\r\n"
+					+ "                    </tr>\r\n"
+					+ "                </tbody></table>\r\n"
+					+ "				<!--[if mso]>\r\n"
+					+ "				</td>\r\n"
+					+ "				<![endif]-->\r\n"
+					+ "                \r\n"
+					+ "				<!--[if mso]>\r\n"
+					+ "				</tr>\r\n"
+					+ "				</table>\r\n"
+					+ "				<![endif]-->\r\n"
+					+ "            </td>\r\n"
+					+ "        </tr>\r\n"
+					+ "    </tbody>\r\n"
+					+ "</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" class=\"mcnDividerBlock\" style=\"min-width:100%;\">\r\n"
+					+ "    <tbody class=\"mcnDividerBlockOuter\">\r\n"
+					+ "        <tr>\r\n"
+					+ "            <td class=\"mcnDividerBlockInner\" style=\"min-width:100%; padding:18px;\">\r\n"
+					+ "                <table class=\"mcnDividerContent\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"min-width: 100%;border-top: 2px solid #EAEAEA;\">\r\n"
+					+ "                    <tbody><tr>\r\n"
+					+ "                        <td>\r\n"
+					+ "                            <span></span>\r\n"
+					+ "                        </td>\r\n"
+					+ "                    </tr>\r\n"
+					+ "                </tbody></table>\r\n"
+					+ "<!--            \r\n"
+					+ "                <td class=\"mcnDividerBlockInner\" style=\"padding: 18px;\">\r\n"
+					+ "                <hr class=\"mcnDividerContent\" style=\"border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;\" />\r\n"
+					+ "-->\r\n"
+					+ "            </td>\r\n"
+					+ "        </tr>\r\n"
+					+ "    </tbody>\r\n"
+					+ "</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" class=\"mcnButtonBlock\" style=\"min-width:100%;\">\r\n"
+					+ "    <tbody class=\"mcnButtonBlockOuter\">\r\n"
+					+ "        <tr>\r\n"
+					+ "            <td style=\"padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;\" valign=\"top\" align=\"center\" class=\"mcnButtonBlockInner\">\r\n"
+					+ "                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnButtonContentContainer\" style=\"border-collapse: separate !important;border: 1px none;border-radius: 8px;background-color: #216EE2;\">\r\n"
+					+ "                    <tbody>\r\n"
+					+ "                        <tr>\r\n"
+					+ "                            <td align=\"center\" valign=\"middle\" class=\"mcnButtonContent\" style=\"font-family: Arial; font-size: 16px; padding: 16px;\">\r\n"
+					+ "                                <a class=\"mcnButton \" title=\"返回我的訂單\" href=\"http://localhost:8080/SpotsTourHSM/myOrderList\" target=\"_blank\" style=\"font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;\">返回我的訂單</a>\r\n"
+					+ "                            </td>\r\n"
+					+ "                        </tr>\r\n"
+					+ "                    </tbody>\r\n"
+					+ "                </table>\r\n"
+					+ "            </td>\r\n"
+					+ "        </tr>\r\n"
+					+ "    </tbody>\r\n"
+					+ "</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" class=\"mcnButtonBlock\" style=\"min-width:100%;\">\r\n"
+					+ "    <tbody class=\"mcnButtonBlockOuter\">\r\n"
+					+ "        <tr>\r\n"
+					+ "            <td style=\"padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;\" valign=\"top\" align=\"center\" class=\"mcnButtonBlockInner\">\r\n"
+					+ "                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnButtonContentContainer\" style=\"border-collapse: separate !important;border-radius: 8px;background-color: #216EE2;\">\r\n"
+					+ "                    <tbody>\r\n"
+					+ "                        <tr>\r\n"
+					+ "                            <td align=\"center\" valign=\"middle\" class=\"mcnButtonContent\" style=\"font-family: Arial; font-size: 16px; padding: 16px;\">\r\n"
+					+ "                                <a class=\"mcnButton \" title=\"返回Spotstour首頁\" href=\"http://localhost:8080/SpotsTourHSM/merchandiseIndex\" target=\"_blank\" style=\"font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;\">返回Spotstour首頁</a>\r\n"
+					+ "                            </td>\r\n"
+					+ "                        </tr>\r\n"
+					+ "                    </tbody>\r\n"
+					+ "                </table>\r\n"
+					+ "            </td>\r\n"
+					+ "        </tr>\r\n"
+					+ "    </tbody>\r\n"
+					+ "</table><table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" class=\"mcnDividerBlock\" style=\"min-width:100%;\">\r\n"
+					+ "    <tbody class=\"mcnDividerBlockOuter\">\r\n"
+					+ "        <tr>\r\n"
+					+ "            <td class=\"mcnDividerBlockInner\" style=\"min-width:100%; padding:18px;\">\r\n"
+					+ "                <table class=\"mcnDividerContent\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"min-width: 100%;border-top: 2px solid #EAEAEA;\">\r\n"
+					+ "                    <tbody><tr>\r\n"
+					+ "                        <td>\r\n"
+					+ "                            <span></span>\r\n"
+					+ "                        </td>\r\n"
+					+ "                    </tr>\r\n"
+					+ "                </tbody></table>\r\n"
+					+ "<!--            \r\n"
+					+ "                <td class=\"mcnDividerBlockInner\" style=\"padding: 18px;\">\r\n"
+					+ "                <hr class=\"mcnDividerContent\" style=\"border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;\" />\r\n"
+					+ "-->\r\n"
 					+ "            </td>\r\n"
 					+ "        </tr>\r\n"
 					+ "    </tbody>\r\n"
@@ -655,9 +799,15 @@ public class SendingOrderSuccessEmail {
 					+ "                        \r\n"
 					+ "                        <td valign=\"top\" class=\"mcnTextContent\" style=\"padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;\">\r\n"
 					+ "                        \r\n"
-					+ "                            <div style=\"text-align: center;\"><strong>Contact us</strong></div>\r\n"
+					+ "                            <div style=\"text-align: center;\">\r\n"
+					+ "<p style=\"text-align: center;\">SPOTS-TOUR</p>\r\n"
 					+ "\r\n"
-					+ "<div style=\"text-align: center;\">spotstour015@gmail.com</div>\r\n"
+					+ "<p style=\"text-align: center;\">2021 © All Rights Reserved</p>\r\n"
+					+ "\r\n"
+					+ "<p style=\"text-align: center;\">Contacts us</p>\r\n"
+					+ "\r\n"
+					+ "<p style=\"text-align: center;\">spotstour015@gmail.com</p>\r\n"
+					+ "</div>\r\n"
 					+ "\r\n"
 					+ "                        </td>\r\n"
 					+ "                    </tr>\r\n"

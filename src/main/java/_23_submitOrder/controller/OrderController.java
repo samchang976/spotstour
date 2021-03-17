@@ -97,16 +97,16 @@ public class OrderController {
 		model.addAttribute("cart", list);
 		
 		
-		SendingOrderSuccessEmail sendingOrderSuccessEmail = new SendingOrderSuccessEmail(orderVo.getmEmail(), orderVo.getmName(), memberId ,orderVo);
-		sendingOrderSuccessEmail.sendAcceptMail();
-		
-		
+
 		
 		return "_21_shoppingMall/SubmitOrderInfo";
 	}
 
 	@RequestMapping("/purchaseSuccess")
 	public String purchaseSuccess(@ModelAttribute OrderVo orderVoNew, Model model, HttpSession session) {
+		
+		Integer memberId = (Integer)session.getAttribute("mId");
+		MemberBean memberBean = (MemberBean) session.getAttribute("LoginOK");
 		
 //		OrderVo orderVoNew = (OrderVo) model.getAttribute("orderVo");
 //		orderVo.setmId((Integer)session.getAttribute("mId"));
@@ -115,7 +115,12 @@ public class OrderController {
 //		orderService.addOrder(orderVo);
 		
 //		orderVoNew.setmId((Integer)session.getAttribute("mId"));
-		orderService.addOrderVo((OrderVo) session.getAttribute("orderVoNew"));
+		OrdBean ordBean = orderService.addOrderVo((OrderVo) session.getAttribute("orderVoNew"));
+		
+		
+		
+		SendingOrderSuccessEmail sendingOrderSuccessEmail = new SendingOrderSuccessEmail(memberBean.getmEmail(), memberBean.getmName(), memberId ,ordBean);
+		sendingOrderSuccessEmail.sendAcceptMail();
 		
 		return "_21_shoppingMall/PurchaseSuccess";
 	}

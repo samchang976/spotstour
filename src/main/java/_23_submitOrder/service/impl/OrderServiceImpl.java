@@ -1,5 +1,7 @@
 package _23_submitOrder.service.impl;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -142,13 +144,21 @@ public class OrderServiceImpl implements OrderService{
 	// 新增訂單
 	@Transactional
 	@Override
-	public void addOrderVo(OrderVo orderVo){
+	public OrdBean addOrderVo(OrderVo orderVo){
 		
 		//準備一個對應訂單的Bean
 		OrdBean ordBean = new OrdBean();
 		
-		ordBean.setS_createTime(DateTimeUtils.getTimestamps());
+		//設定 訂單時間 與 配送日期
+		Date nowDate = new Date();
+		
 		ordBean.setO_createTime(DateTimeUtils.getTimestamps());
+		
+		long newTime = DateTimeUtils.addDate(nowDate, 5);
+		Timestamp timestamp = new Timestamp(newTime);
+		ordBean.setS_createTime(timestamp);
+		
+//		ordBean.setO_createTime(DateTimeUtils.getTimestamps());
 		ordBean.setS_mAddress(orderVo.getS_mAddress());
 		
 		//關聯會員的row
@@ -191,5 +201,6 @@ public class OrderServiceImpl implements OrderService{
 		//清除使用者購物車表格紀錄
 		shoppingCartDao.deleteCartByMemberId(mId);
 		
+		return ordBean;
 	}
 }

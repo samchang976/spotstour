@@ -20,11 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import _02_model.entity.ActivityBean;
-import _02_model.entity.ContinentBean;
 import _02_model.entity.CountryBean;
 import _02_model.entity.FeedbackBean;
 import _02_model.entity.ItemBean;
-import _02_model.entity.Item_typeBean;
 import _02_model.entity.OrdBean;
 import _02_model.entity.Receipt_TypeBean;
 import _02_model.entity.Ship_TypeBean;
@@ -127,6 +125,9 @@ public class MerchandiseController {
 		managerItemService.addFeedback(feedbackBean);
 		return "redirect:/merchandiseDetail/Id={itemId}#fb";
 	}
+	
+	
+
 
 //	=====================
 
