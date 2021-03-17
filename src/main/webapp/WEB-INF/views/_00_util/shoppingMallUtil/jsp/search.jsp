@@ -27,28 +27,38 @@
 
 <style>
 .container_search {
-	margin-bottom: 20px;
+/* 	margin-bottom: 20px; */
 }
 
 #want {
 	font-size: 25px;
+	width:20%;
 }
+
 </style>
 </head>
 <body>
+
 	<div class="container container_search">
 		<div class="row">
 			<div class="col">
-				<div style="display: inline-flex;">
+				<div style="display: inline-flex;  width:60%; ">
 					<span id="want">想買什麼?</span>
-
-					<form class="d-flex" action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get">
-						<input class="form-control me-2" type="search" name="searchWord"
+					<form class="input-group mb-3"action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get">
+						<input class="form-control" type="search" name="searchWord"
 							placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">
+						<button class="btn btn-outline-secondary" type="submit">
 							<i class="fas fa-search"></i>
 						</button>
 					</form>
+
+<%-- 					<form class="d-flex" action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get"> --%>
+<!-- 						<input class="form-control me-2" type="search" name="searchWord" -->
+<!-- 							placeholder="Search" aria-label="Search"> -->
+<!-- 						<button class="btn btn-outline-success" type="submit"> -->
+<!-- 							<i class="fas fa-search"></i> -->
+<!-- 						</button> -->
+<%-- 					</form> --%>
 
 				</div>
 			</div>
