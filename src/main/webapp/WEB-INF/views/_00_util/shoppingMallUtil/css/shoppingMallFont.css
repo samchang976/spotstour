@@ -6,14 +6,15 @@
 
  #newsTitle{
   font-size: 2.2rem;
-  text-shadow:1px 1px;
-  
+/*   text-shadow:1px 1px; */
+  font-weight:bold;
   
 }
 .FieldDescription{
 	font-size: 1.3rem;
 	color:black;
-	text-shadow:1px 1px;
+/* 	text-shadow:1px 1px; */
+	font-weight:bold;
 
   }
 
