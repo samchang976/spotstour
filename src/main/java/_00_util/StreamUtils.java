@@ -58,6 +58,8 @@ public class StreamUtils {
 		bufferedOutput.flush();
 		bufferedOutput.close();
 
+		path.substring(51);
+		
 		return path;
 	}
 }

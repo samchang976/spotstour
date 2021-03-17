@@ -83,12 +83,7 @@
 			<!-- 標題:影片新增 -------------------------------------------------------------------------------------->
 			<div class="row">
 				<div class="col">
-					<c:if test="${portfolioId==null}">
-						<div id="title">影片新增</div>
-					</c:if>
-					<c:if test="${portfolioId!=null}">
-						<div id="title">影片編輯</div>
-					</c:if>
+					<div id="title"><c:if test="${portfolioEdit.portfolioId==null}">影片新增</c:if><c:if test="${portfolioEdit.portfolioId!=null}">影片編輯</c:if></div>
 				</div>
 			</div>
 			<!-- ==============================================================================================-->
@@ -109,10 +104,8 @@
 				<!-- ==========================================================================================================-->
 				<div class="row row-cols-1 row-cols-md-2">
 					<div class="col SpotName">
-						影片名稱: <input type="text" name="portfolioName"
-							placeholder="請輸入影片名稱">
+						影片名稱: <input type="text" name="portfolioName" <c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioName}"</c:if> placeholder="請輸入影片名稱">
 					</div>
-
 
 					<!---------------------------------------------------------------------------------------------------------- -->
 					<div class="col LocationInformation">
@@ -136,40 +129,34 @@
 							</div>
 							經度<input id="lng" type="textbox"> 緯度<input id="lat"
 								type="textbox">
-						</div>
-						<input id="display_address" name="pAddress" type="text"
-							placeholder="請輸入位置資訊"> <input type="text"
-							name="longitude" placeholder="經度" id="longitude"> <input
-							type="text" name="latitude" placeholder="緯度" id="latitude">
+						</div>		
+							<!-- 位置 -->					
+							<input id="display_address" name="pAddress" <c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.pAddress}"</c:if> type="text" placeholder="請輸入位置資訊"> 							
+							<!-- 經度 -->
+							<input type="text" name="longitude" <c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.longitude}"</c:if> placeholder="經度" id="longitude"> 							
+							<!-- 緯度 -->														
+							<input type="text" name="latitude" <c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.latitude}"</c:if> placeholder="緯度" id="latitude">
 					</div>
 					<div>
 						城市: <select class="form-select" name="cityId"
 							aria-label="Default select example"
 							style="font-size: 15px; width: 35%; margin-top: 2px; margin-bottom: 10px;">
-							<option selected>選擇城市</option>
-							<c:forEach items="${cityList}" var="row">
-								<option value="${row.cityId}">${row.cityName}</option>
-							</c:forEach>
-						</select> 影片類型: <select class="form-select" name="placeTypeId"
+							  <option selected>選擇城市</option>
+							  <c:forEach items="${cityList}" var="row">
+							  	 <option value="${row.cityId}" <c:if test="${portfolioEdit.cityId == row.cityId}">selected="selected"</c:if>>${row.cityName}</option>
+							  </c:forEach>			
+						      </select> 
+						影片類型: <select class="form-select" name="placeTypeId"
 							aria-label="Default select example"
 							style="font-size: 15px; width: 35%; margin-top: 2px; margin-bottom: 10px;">
-							<option selected>選擇影片類型</option>
-							<c:forEach items="${placeTypeList}" var="row">
-								<option value="${row.placeTypeId}">${row.placeType}</option>
-							</c:forEach>
-						</select>
+							  <option selected>選擇影片類型</option>
+							  <c:forEach items="${placeTypeList}" var="row">
+								 <option value="${row.placeTypeId}" <c:if test="${portfolioEdit.placeTypeId == row.placeTypeId}">selected="selected"</c:if>>${row.placeType}</option>
+							  </c:forEach>
+						      </select>
 					</div>
 				</div>
-				<!-- ======================================================================================================= -->
-				<!-- 				<div class="row row-cols-1 row-cols-md-2"> -->
 
-				<!-- 					<div class="col"> -->
-				<!-- 						經度:<input type="text" name="longitude" placeholder="經度" id="longitude">  -->
-				<!-- 						緯度:<input type="text" name="latitude" placeholder="緯度" id="latitude"> -->
-				<!-- 					</div> -->
-
-				<!-- 				</div> -->
-				<!-- =================================================================================================== -->
 				<div class="row row row-cols-1 row-cols-md-2">
 					<div class="col">
 						<video src="/a.mp4" controls class="w-100"></video>
@@ -179,7 +166,7 @@
 					<div class="col ViedoDescription">
 						<div>影片描述:</div>
 						<div>
-							<input type="text" name="portfolioText" placeholder="請輸入影片描述">
+							<input type="text" name="portfolioText" <c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioText}"</c:if> placeholder="請輸入影片描述">					
 						</div>
 					</div>
 				</div>
