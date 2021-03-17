@@ -71,6 +71,13 @@ button { /*按鈕的樣式*/
 	background-color: rgb(245, 241, 242);
 	border-radius: 5px;
 }
+#deleteF{
+	font-size: 16px;
+}
+#deleteF:hover{
+	font-size: 24px;
+	cursor: pointer; 
+}
 </style>
 
 </head>
@@ -85,7 +92,7 @@ button { /*按鈕的樣式*/
 		<div class="container">
 			<!-- 陳列商品留言 -->
 			<div style="text-align: center;">
-				<h3>${item.itemHeader}商品留言</h3>
+				<h3>${item.itemHeader}商品留言(${feedbacks.size()})</h3>
 			</div>
 			<div style="text-align: right;">
 				<c:set var="now" value="<%=new java.util.Date()%>" />
@@ -102,11 +109,13 @@ button { /*按鈕的樣式*/
 								<div class="col col-2-1 C_SpCre">
 									<div>
 										<div class="row">
-											<div class="col-1">
+											<div class="col-1" style="text-align: center; margin: auto;">
 												<i class="fas fa-trash-alt" id="deleteF"
-													value="}/Id=${feedback.feedbackId}"
+													value="/Id=${feedback.feedbackId}"
 													<%-- 								onclick="location.href='/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}'"></i> --%>
-								onclick="location.replace('${pageContext.request.contextPath}/manageFeedback/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}')"></i>
+<%-- 								onclick="location.replace('${pageContext.request.contextPath}/manageFeedback/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}')"></i> --%>
+								 data-bs-toggle="modal"
+													data-bs-target="#exampleModal${feedback.feedbackId}"></i>
 											</div>
 
 											<div class="col-11">
@@ -123,6 +132,27 @@ button { /*按鈕的樣式*/
 							</div>
 						</div>
 
+					</div>
+					<!-- Modal -->
+					<div class="modal fade" id="exampleModal${feedback.feedbackId}"
+						tabindex="-1" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">刪除商品留言</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<div class="modal-body">確定要刪除此商品留言??</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">取消</button>
+									<button type="button" class="btn btn-primary"
+										onclick="location.replace('${pageContext.request.contextPath}/manageFeedback/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}')">確定刪除商品留言</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</c:forEach>
 				<hr>
