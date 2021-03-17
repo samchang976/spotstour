@@ -83,15 +83,16 @@ public class WebAppConfig implements WebMvcConfigurer {
 	//讓前端瀏覽器向後端要求靜態資源之設定
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		//addResourceHandler:新增對應路徑，addResourceLocations:真實路徑
+		//addResourceHandler:request路徑，addResourceLocations:真實路徑
 		registry.addResourceHandler("/_00_util/allUtil/css/**").addResourceLocations("/WEB-INF/views/_00_util/allUtil/css/");
 		registry.addResourceHandler("/_00_util/managerUtil/css/**").addResourceLocations("/WEB-INF/views/_00_util/managerUtil/css/");
 		registry.addResourceHandler("/_00_util/memberUtil/css/**").addResourceLocations("/WEB-INF/views/_00_util/memberUtil/css/");
 		registry.addResourceHandler("/_00_util/portfolioUtil/css/**").addResourceLocations("/WEB-INF/views/_00_util/portfolioUtil/css/");
 		registry.addResourceHandler("/_00_util/shoppingMallUtil/css/**").addResourceLocations("/WEB-INF/views/_00_util/shoppingMallUtil/css/");
 		
-//		registry.addResourceHandler("/image/**").addResourceLocations("\");
-		//registry.addResourceHandler("/javascript/**").addResourceLocations("/javascript/");
+		//作品路徑設定
+		registry.addResourceHandler("/vedioImages/**").addResourceLocations("/images/vedioImages/");
+		registry.addResourceHandler("/videos/**").addResourceLocations("/videos/");
 		
 		registry.addResourceHandler("/_00_util/allUtil/javascript/**").addResourceLocations("/WEB-INF/views/_00_util/allUtil/javascript/");
 		registry.addResourceHandler("/_00_util/managerUtil/javascript/**").addResourceLocations("/WEB-INF/views/_00_util/managerUtil/javascript/");

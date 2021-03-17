@@ -23,10 +23,12 @@ public class QueryPersonalPortfolioDaoImpl implements QueryPersonalPortfolioDao{
 	@Override
 	public List<Map<String, Object>> getMemberPortfolio(Integer imId) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = " SELECT m.mId,v.videoFile,v.videoPic,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude"
+		String sql = " SELECT m.mId,c.cityId,c.cityName,pt.placeTypeId,pt.placeType,v.videoFile,v.videoPic,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude "
 				+ " FROM video v "
 				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
 				+ " LEFT JOIN MEMBER m ON pf.mId = m.mId "
+				+ " LEFT JOIN city c ON pf.cityId = c.cityId "
+				+ " LEFT JOIN place_type pt ON pf.placeTypeId = pt.placeTypeId "
 				+ " WHERE m.mId = :imId ";
 		//設定結果集:設定結果類型為List<Map<String, Object>>
 		Query q =  session.createNativeQuery(sql);

@@ -14,8 +14,10 @@ public class PortfolioBeanVo {
 	private String longitude;
 	private String latitude;
 	private Integer placeTypeId;
+	private String placeType;
 	private Integer mId;
 	private Integer cityId;
+	private String cityName;
 	private MultipartFile videoFile;
 	private MultipartFile videoPic;
 	
@@ -68,6 +70,12 @@ public class PortfolioBeanVo {
 	public void setPlaceTypeId(Integer placeTypeId) {
 		this.placeTypeId = placeTypeId;
 	}
+	public String getPlaceType() {
+		return placeType;
+	}
+	public void setPlaceType(String placeType) {
+		this.placeType = placeType;
+	}
 	public Integer getmId() {
 		return mId;
 	}
@@ -79,6 +87,12 @@ public class PortfolioBeanVo {
 	}
 	public void setCityId(Integer cityId) {
 		this.cityId = cityId;
+	}
+	public String getCityName() {
+		return cityName;
+	}
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
 	}
 	public MultipartFile getVideoFile() {
 		return videoFile;
@@ -92,6 +106,7 @@ public class PortfolioBeanVo {
 	public void setVideoPic(MultipartFile videoPic) {
 		this.videoPic = videoPic;
 	}
+	
 	
 	
 }

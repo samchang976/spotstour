@@ -26,53 +26,76 @@ import _37_portfolioManage.service.ShowPersonalPortfolioService;
 
 @Controller
 public class PortfolioManageController {
-	
+
 	@Autowired
-	private CreatePortfolioService createPortfolioService;	
+	private CreatePortfolioService createPortfolioService;
 	@Autowired
 	private GetCityListService getCityListService;
 	@Autowired
 	private GetPlace_TypeListService getPlace_TypeListService;
 	@Autowired
 	private ShowPersonalPortfolioService showPersonalPortfolioService;
-	
-	
-	//新增影片跳轉
-	@RequestMapping("videoCreate")
-	public String getVideoCreate(Model model) {
-		//獲取城市,景點清單
-		List<CityBean> cList = getCityListService.getCityList();
-		List<Place_TypeBean> ptList = getPlace_TypeListService.getPlace_TypeList();
-		model.addAttribute("cityList", cList);
-		model.addAttribute("placeTypeList", ptList);
-		return "_31_portfolio/VideoCreate";
+
+	// 新增影片跳轉
+	@RequestMapping({ "videoCreate", "videoModify" })
+	public String getVideoCreate(@ModelAttribute PortfolioBeanVo portfolioBeanVo, Model model) {
+			//新增影片
+		if (portfolioBeanVo.getPortfolioId() == null) {
+			// 獲取城市,景點清單
+			List<CityBean> cList = getCityListService.getCityList();
+			List<Place_TypeBean> ptList = getPlace_TypeListService.getPlace_TypeList();
+			model.addAttribute("cityList", cList);
+			model.addAttribute("placeTypeList", ptList);
+			return "_31_portfolio/VideoCreate";
+		} else {
+			//編輯影片
+			// 獲取城市,景點清單
+			List<CityBean> cList = getCityListService.getCityList();
+			List<Place_TypeBean> ptList = getPlace_TypeListService.getPlace_TypeList();
+			model.addAttribute("portfolioEdit", portfolioBeanVo);
+			model.addAttribute("cityList", cList);
+			model.addAttribute("placeTypeList", ptList);			
+			return "_31_portfolio/VideoCreate";
+		}
 	}
-	//個人作品跳轉
+
+	// 個人作品跳轉
 	@RequestMapping("personalPortfolio")
-	public String getPersonalVideo(HttpSession session,Model model) {
+	public String getPersonalVideo(HttpSession session, Model model) {
 		model.addAttribute("mId", session.getAttribute("mId"));
-		model.addAttribute("memberPortfolioList",showPersonalPortfolioService.queryMemberPortfolio(model));
+		model.addAttribute("memberPortfolioList", showPersonalPortfolioService.queryMemberPortfolio(model));
 		return "_31_portfolio/PersonalPortfolio";
 	}
-	//收藏影片跳轉
+
+	// 收藏影片跳轉
 	@RequestMapping("collectVideo")
 	public String getCollectVideo() {
 		return "_31_portfolio/CollectVideo";
 	}
-    //編輯影片跳轉
-	@RequestMapping("videoModify")
-	public String getVideoModify() {
-		return "_31_portfolio/VideoModify";
+	// 編輯影片跳轉
+//	@RequestMapping("videoModify")
+//	public String getVideoModify() {
+//		return "_31_portfolio/VideoModify";
+//	}
+
+	// 新增作品及影片
+	@PostMapping("createPortfolio")
+	public String createPortfolio(@ModelAttribute PortfolioBeanVo portfolioBeanVo, Model model, HttpSession session)
+			throws IOException {
+		portfolioBeanVo.setmId((Integer) session.getAttribute("mId"));
+		createPortfolioService.addPortfolio(portfolioBeanVo);
+
+		return "redirect:/personalPortfolio";
 	}
 
-	//新增作品
-    @PostMapping("createPortfolio")
-	public String createPortfolio(@ModelAttribute PortfolioBeanVo portfolioBeanVo,Model model,HttpSession session) throws IOException {
-    	portfolioBeanVo.setmId((Integer)session.getAttribute("mId"));
-    	createPortfolioService.addPortfolio(portfolioBeanVo);
-			
-		return "redirect:/index";
-		
-	}
-	
+	// 編輯作品及影片
+//    @PostMapping("/Id={portfolioId}")
+//	public String updatePortfolio(@ModelAttribute(value = "portfolioId") PortfolioBeanVo portfolioBeanVo,Model model,HttpSession session) throws IOException {
+//    	portfolioBeanVo.setmId((Integer)session.getAttribute("mId"));
+//    	createPortfolioService.addPortfolio(portfolioBeanVo);
+//			
+//		return "redirect:/index";
+//		
+//	}
+
 }
