@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import _02_model.entity.ItemBean;
 import _02_model.entity.ShoppingCartBean;
@@ -56,6 +57,7 @@ public class ShoppingCartContent {
 	}
 
 //刪除購物車內一項商品
+
 	@PostMapping("/shoppingCart/delete/Id={sc_Id}")
 	public String deleteCartItem(@PathVariable("sc_Id") Integer sc_Id) {
 		System.out.println("Delete===================================================");
@@ -65,6 +67,12 @@ public class ShoppingCartContent {
 		return "redirect:/shoppingCart";
 	}
 
+	@GetMapping("/shoppingCart/delete/Id={sc_Id}")
+	public String memberdeleteCartItemInSideCart(@PathVariable("sc_Id") Integer sc_Id) {
+		System.out.println(sc_Id);
+		shoppingCartService.deleteItem(sc_Id);
+		return "redirect:/merchandiseSearchResult";
+	}
 //修改購物車商品數量
 //	@PostMapping("/shoppingCart/put")
 //	public String updateQty(
@@ -142,11 +150,11 @@ public class ShoppingCartContent {
 //		shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId((Integer) model.getAttribute("mId")));
 //		
 		String hasItem = shoppingCartService.addToCart(member, itemId, 1);
-		model.addAttribute("hasItem", hasItem); // 存入session
+//		model.addAttribute("hasItem", hasItem); // 存入session
 
 //		shoppingCartService.addShoppingCart(shoppingCartBean);
 //		return "redirect:/shoppingCart";
-		Thread.sleep(2000);
+//		Thread.sleep(2000);
 		return "redirect:/merchandiseSearchResult";
 
 	}
@@ -173,7 +181,7 @@ public class ShoppingCartContent {
 
 	}
 
-	
+	//訪客購物車=========================================================================================
 	@SuppressWarnings("unchecked")
 	@PostMapping("/shoppingCart/visitor/{cmd}") /// {cmd}判斷
 	public String VisitorAdd(Model model, @RequestParam("itemId") Integer itemId,
@@ -244,37 +252,4 @@ public class ShoppingCartContent {
 		return "redirect:/merchandiseSearchResult";
 	}
 	
-	//存session
-	@Transactional
-	@GetMapping("/shoppingCart/sessionCartSave") /// {cmd}判斷
-	public String sessionCartSave(Model model,HttpSession session) {
-		//訪客=>導向登入頁面
-		Integer member = (Integer) session.getAttribute("mPid");
-		System.out.println(member);
-		
-		if (member == null) { // 1:管理員 2:會員
-			return "redirect:/login";
-		}
-		//會員
-		if (member == 2) { // 1:管理員 2:會員
-		List<SessionShoppingCartVo> sscList =(List<SessionShoppingCartVo>) model.getAttribute("sessionShoppingCartList");
-		if(sscList != null) {
-			for(int i=0 ; i<sscList.size();i++) {
-				SessionShoppingCartVo vo =sscList.get(i);
-				ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
-				
-				shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(vo.getItemId()));
-				shoppingCartBean.setS_ordQty(vo.getScQty());
-				
-				shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId((int) session.getAttribute("mId")));
-				
-				shoppingCartService.addShoppingCart(shoppingCartBean);
-				
-			}
-			
-		}
-			return "redirect:/shoppingCart";
-		}
-		return null;
-	}
 }

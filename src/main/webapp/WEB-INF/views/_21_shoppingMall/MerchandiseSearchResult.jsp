@@ -50,7 +50,7 @@
 
 <style>
 		body{ 
-		 	background: #000 url("<c:url value='/images/background/ugur-peker-AkX0_cZQ6PI-unsplash.jpg'></c:url>") center fixed no-repeat;
+/* 		 	background: #000 url("<c:url value='/images/background/ugur-peker-AkX0_cZQ6PI-unsplash.jpg'></c:url>") center fixed no-repeat; */
 		    background-size: cover;
 		}
 		.itemName{
@@ -109,6 +109,7 @@
 </style>
 </head>
 <body>
+
 	<!--header--------------------------------------------------------------------------->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
@@ -129,12 +130,32 @@
 					</c:forEach>
 				</div>
 				<!------------------------------------------------------------------------------------>
+		<c:choose>
+			<c:when test="${mPid==2||mPid==1}">
+				<!--會員--------------------------------------------------------------------------------------- -->
+				<div>
+
+					<c:forEach var="membercartlist" items="${membercartlist}">
+						<form >
+							<i class="fas fa-minus-circle" onclick="location.href='shoppingCart/delete/Id=${membercartlist.sc_Id}'"></i>
+							<img src="/upload/${membercartlist.itemBean.itemPic1}" alt="商品照片"></img> 
+<%-- 						<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
+							<!--<img src="#" alt="商品照片"></img> -->
+							<div>${membercartlist.itemBean.itemHeader}</div>
+							<div>${membercartlist.itemBean.itemPrice}元</div>
+						</form>
+					</c:forEach>
+				</div>						
+				
+			</c:when>
+			<c:otherwise>
 				<div>
 					<c:forEach var="sessioncartList" items="${sessionShoppingCartList}">
 						<form name="sideform${sessioncartList.itemId}">
 							<i class="fas fa-minus-circle" onclick="deleteItem(${sessioncartList.itemId})"></i>
-								
-							<img src="<c:url value='/images/background/ugur-peker-AkX0_cZQ6PI-unsplash.jpg'></c:url>" alt="商品照片"></img> 
+							
+							<img src="/upload/${sessioncartList.itemPic1}" alt="商品照片"></img> 
+<%-- 						<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
 							<!--<img src="#" alt="商品照片"></img> -->
 							<div>${sessioncartList.itemHeader}</div>
 							<div>${sessioncartList.itemPrice}元</div>
@@ -142,6 +163,8 @@
 						</form>
 					</c:forEach>
 				</div>
+			</c:otherwise>
+		</c:choose>	
 				
 				<button class="btn addcart" type="button"
 					onclick="location.href='<c:url value="/shoppingCart/sessionCartSave"/>'">確定購買</button>
@@ -225,8 +248,8 @@
 						<c:choose>	
 							<c:when test="${mPid==2||mPid==1}">
 								<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post">
-									<button type="button" onclick="this.form.submit()">
-<!-- 									<i class="fas fa-cart-arrow-down addButton"></i> -->
+									<button type="button" onclick="this.form.submit()" class="btn addcart">
+									<i class="fas fa-cart-arrow-down addButton"></i>
 										加入購物車
 									</button>
 								</form>
