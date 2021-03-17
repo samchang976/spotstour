@@ -119,6 +119,19 @@ button { /*按鈕的樣式*/
 	/* 	padding: 10px; */
 	
 }
+.imageFrame {
+	position: relative;
+	overflow: hidden;
+}
+
+.imageFrame img {
+	transform: scale(1, 1);
+	transition: all 1s ease-out;
+}
+
+.imageFrame img:hover {
+	transform: scale(1.5, 1.5);
+}
 </style>
 
 </head>
@@ -415,7 +428,7 @@ button { /*按鈕的樣式*/
 													
 													<div class="col-2">
 														<br>
-														<div>
+														<div class="imageFrame">
 															<img id="pic1" name="pic1"
 																src="/upload/${item.itemPic1}"
 																class="w-100">
@@ -426,7 +439,7 @@ button { /*按鈕的樣式*/
 													<div class="col-2">
 
 														<br>
-														<div>
+														<div class="imageFrame">
 															<img id="pic2" name="pic2"
 																src="/upload/${item.itemPic2}"
 																class="w-100">
@@ -436,7 +449,7 @@ button { /*按鈕的樣式*/
 													<div class="col-2">
 
 														<br>
-														<div>
+														<div class="imageFrame">
 															<img id="pic3" name="pic3"
 																src="/upload/${item.itemPic3}"
 																class="w-100">

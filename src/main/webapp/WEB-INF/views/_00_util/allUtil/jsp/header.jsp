@@ -172,7 +172,8 @@ ul.nav.nav-tabs {
 					data-bs-toggle="dropdown" href="#" role="button"
 					aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="bottom" title="商城資訊"></a>
 					<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="<c:url value="/merchandiseIndex"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="前往商城首頁查詢全部商品">購物商城首頁</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/merchandiseIndex"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="前往購物商城首頁">購物商城首頁</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/merchandiseSearchResult"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="前往商城查詢全部商品">查看所有商品</a></li>
 							<li><a class="dropdown-item" href="<c:url value="/aboutMerchandise"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢關於商品配送資訊">關於商品資訊</a></li>
 							
 						<c:if test="${ mPid == 2 || mPid == 1}">

@@ -321,8 +321,8 @@ CREATE TABLE `member` (
 /*Data for the table `member` */
 
 insert  into `member`(`mId`,`mAN`,`mPw`,`mGender`,`mName`,`mUid`,`mBDay`,`mEmail`,`mPhone`,`d_mAddress`,`m_createTime`,`mPic`,`m_verify`,`mPid`) values 
-(1,'spotstour','0000','男','諸葛村夫','F123456789','1987-08-07 00:00:00','spotstour@gmail.com','0912345678','台北市天龍區民權西路天橋下','2021-02-25 00:00:00',NULL,1,2),
-(2,'aaaaaa','aaaaaa','男','管理者','A123456789','2021-03-01 12:03:16','spotstour@gamil.com','0912345678','台北市','2021-03-10 12:03:53',NULL,1,1);
+(1,'spotstour','0000','男','諸葛村夫','F123456789','1987-08-07 00:00:00','spotstour@gmail.com','0912345678','台北市大同區民權西路1號','2021-02-25 00:00:00',NULL,1,2),
+(2,'aaaaaa','aaaaaa','男','管理者','A123456789','2021-03-01 12:03:16','spotstour@gamil.com','0912345678','台北市信義區信義路100號','2021-03-10 12:03:53',NULL,1,1);
 
 /*Table structure for table `member_perm` */
 

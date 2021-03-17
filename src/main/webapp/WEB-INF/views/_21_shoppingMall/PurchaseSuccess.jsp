@@ -76,7 +76,7 @@
 			</div>
 			<!--感謝詞  -->
 
-			<div id="thanks">謝謝您!歡迎下次再光臨</div>
+			<div id="thanks"><br>同時Spotstour將會寄出一封電子通知信<br><br>您可以到會員信箱裡查看<br><br>謝謝您!歡迎下次再光臨</div>
 
 			<!-- 我的訂單 -->
 			<button class="btn btn-primary btn-lg"
