@@ -98,7 +98,7 @@ td div, .like-table div {
 				<button class="Bt_blue" onclick="location.href='${pageContext.request.contextPath}/index'" style="margin-right: 35px;">回首頁</button>
 			</div>
 			<div class="col-md-6" style="padding-right: 40px">
-				<form class="d-flex" action="SearchResult" method="get">
+				<form class="d-flex" action="SearchPortfolioDetail" method="get">
 					<input class="form-control me-2" type="text" name="searchWord"
 						placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success" type="submit">

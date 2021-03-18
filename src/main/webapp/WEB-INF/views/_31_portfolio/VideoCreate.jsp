@@ -106,7 +106,6 @@
 					<div class="col SpotName">
 						影片名稱: <input type="text" name="portfolioName" <c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioName}"</c:if> placeholder="請輸入影片名稱">
 					</div>
-
 					<!---------------------------------------------------------------------------------------------------------- -->
 					<div class="col LocationInformation">
 						<!-- 地圖搜尋框 --------------------------------------------------------------------------->
@@ -159,8 +158,9 @@
 
 				<div class="row row row-cols-1 row-cols-md-2">
 					<div class="col">
-						<video src="/a.mp4" controls class="w-100"></video>
-
+						<video controls <c:if test="${portfolioEdit.portfolioId!=null}">poster="${pageContext.request.contextPath}${portfolioEdit.videoPic}"</c:if> style="width: 100%; height: auto">
+  					    <source <c:if test="${portfolioEdit.portfolioId!=null}">src="${pageContext.request.contextPath}${portfolioEdit.videoFile}"</c:if> type="video/mp4">
+  					    </video>
 					</div>
 
 					<div class="col ViedoDescription">
@@ -173,7 +173,7 @@
 				<!-- =================================================================================================== -->
 				<div class="row row row-cols-1 row-cols-md-2 ">
 					<div class="col-md-6">
-						上傳影片預覽圖: <input type="file" name="videoPic" accept=".jpg"/><br> 
+						上傳影片預覽圖: <input type="file" name="videoPic" accept=".jpg" value="${portfolioEdit.videoPic}"/><br> 
 						上傳影片: <input	type="file" name="videoFile" accept=".mp4"/><br>
 					</div>
 					<div class="col-md-3" align="left">

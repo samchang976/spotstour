@@ -34,9 +34,9 @@ public class PortfolioSearchController {
 	
 	//作品詳細查詢
 	@RequestMapping(value = "/SearchPortfolioDetail", method = RequestMethod.GET)
-	public String getPortfolioDetail(Model model) {
-
-		return "index";
+	public String getPortfolioDetail(Model model,@ModelAttribute(name = "searchPortfolioDetail") String searchWord) {
+		model.addAttribute("resultList", psService.queryKeyword(searchWord));
+		return "redirect:/personalPortfolio";
 	}
 
 }
