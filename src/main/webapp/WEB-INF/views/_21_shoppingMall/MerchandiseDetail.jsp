@@ -104,9 +104,23 @@
 
 		<div class="container" id="container_MerchandiseDetail">
 			<!-- 上方 ------------------------------------------------------------------------------------>
-
-			<form:form method='POST' modelAttribute='itemBean'
-				action="${pageContext.request.contextPath}/shoppingCart/addQty/${itemBean.itemId}">
+			
+			<c:choose>
+				<c:when test="${mPid ==1 || mPid == 2}">
+					<c:set var="url"><c:url value='/shoppingCart/addQty/${itemBean.itemId}'></c:url></c:set>
+				</c:when>
+				<c:otherwise>  
+					<c:set var="url"><c:url value='/shoppingCart/visitor/add'></c:url></c:set>
+				</c:otherwise>
+			</c:choose>
+			
+			<form:form method='POST' modelAttribute='itemBean' action="${url}">
+<%-- 		action="${pageContext.request.contextPath}/shoppingCart/addQty/${itemBean.itemId}" --%>
+<!-- 				訪客加入購物車用 -->
+				<c:if test="${empty mPid}">
+					<input type="hidden" value="${itemBean.itemId}" name="itemId"> 
+				</c:if>
+				
 				<!-- 			增加陰影效果 -->
 				<div class="shadow p-3 mb-5 bg-body rounded">
 					<div class="row above">
@@ -120,8 +134,9 @@
 								<h2>${itemBean.itemHeader}</h2>
 								商品描述 : ${itemBean.itemDes}<br> <br> 商品售價
 								:${itemBean.itemPrice}元<br> 庫存數量 : ${itemBean.itemQty}<br>
-								代購國家 : ${itemBean.countryBean.countryName}<br> 請選擇數量 : <select
-									name="qty" class="form-select"
+								代購國家 : ${itemBean.countryBean.countryName}<br> 請選擇數量 : 
+								<select
+									name="itemQty" class="form-select"
 									aria-label="Default select example">
 									<!-- 							<option  selected="selected" value="-1">請選擇數量</option> -->
 									<option value="1">1</option>
@@ -134,12 +149,15 @@
 									<option value="8">8</option>
 									<option value="9">9</option>
 									<option value="10">10</option>
-								</select> <br> <br>
+								</select> 
+								<br> 
+								<br>
 
 								<%-- 						<c:if test="${mPid==2||mPid==1}"> --%>
 								<%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
 								<button type="submit" id="like" class="btn btn-primary btn-lg">
-									加入購物車</button>
+									加入購物車
+								</button>
 								<%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
 								<%-- 								onchange="this.form.submit()" --%>
 								<!-- 						顯示:綁識別字串 -->
