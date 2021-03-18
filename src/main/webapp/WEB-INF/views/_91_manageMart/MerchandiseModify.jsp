@@ -295,7 +295,9 @@ button { /*按鈕的樣式*/
 														<div class="col-3">
 															<!-- 														商品第一張照片 :<br> <img id="photo1" name="photo1" -->
 															<%-- 															src="/upload/${itemBean.itemPic1}" class="w-100"> <br> --%>
-
+<%-- 																<c:set --%>
+<%-- 							value="0" --%>
+<%-- 							var="sum" /> --%>
 															<form:input path="itemImage1" type='file' accept=".jpg"
 																class="form-control" />
 															<br>
@@ -319,8 +321,11 @@ button { /*按鈕的樣式*/
 														</div>
 
 														<div class="col-3">
-															<br> <img id="photo3" name="photo3"
+															<br> 
+<%-- 															<c:if test="${ sum == 1}"> --%>
+															<img id="photo3" name="photo3"
 																src="/upload/${itemBean.itemPic3}" class="w-100">
+<%-- 															</c:if> --%>
 															<br>
 															<%-- 														<form:input path="itemImage3" type='file' accept=".jpg" /> --%>
 														</div>

@@ -44,6 +44,20 @@
 
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>訂購資訊</title>
+<style>
+span.error:first-child() {
+	text-align: left;
+	margin-left: 0;
+}
+
+.error {
+	letter-spacing: 1px;
+	margin-top: 5px;
+	display: inline-block;
+	color: rgb(255, 0, 0);
+	margin-left: 30%;
+}
+</style>
 </head>
 <!-- header -->
 
@@ -59,14 +73,17 @@
 		<!--付款資訊  ---------------------------------------------------------------------------->
 
 		<div class="container" id="container_SelectPayment">
-		<div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
-</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated"
+					role="progressbar" aria-valuenow="50" aria-valuemin="0"
+					aria-valuemax="100" style="width: 50%"></div>
+			</div>
 			<nav
-				style="-bs-breadcrumb-divider: url(&amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;#34;);"
+				style="-bs-breadcrumb-divider: url(&amp; amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;amp;#34;);"
 				aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="<c:url value="/shoppingCart"/>">我的購物車</a></li>
+					<li class="breadcrumb-item"><a
+						href="<c:url value="/shoppingCart"/>">我的購物車</a></li>
 					<li class="breadcrumb-item active" aria-current="page">填寫訂購資訊</li>
 				</ol>
 			</nav>
@@ -92,7 +109,7 @@
 									<div class="col-auto">
 										<form:input type="text" id="mName" class="form-control"
 											path="mName" name="mName" value="${LoginOK.mName}"
-											placeholder="${LoginOK.mName}"/>
+											placeholder="${LoginOK.mName}" />
 									</div>
 								</div>
 							</div>
@@ -107,7 +124,7 @@
 									<div class="col-auto">
 										<form:input type="text" id="mGender" class="form-control"
 											path="mGender" name="mGender" value="${LoginOK.mGender}"
-											placeholder="${LoginOK.mGender}"/>
+											placeholder="${LoginOK.mGender}" />
 									</div>
 								</div>
 							</div>
@@ -123,7 +140,7 @@
 									<div class="col-auto">
 										<form:input type="text" id="mUid" class="form-control"
 											path="mUid" name="mUid" value="${LoginOK.mUid}"
-											placeholder="${LoginOK.mUid}"/>
+											placeholder="${LoginOK.mUid}" />
 									</div>
 								</div>
 							</div>
@@ -139,12 +156,12 @@
 									<div class="col-auto">
 										<form:input type="text" id="mPhone" class="form-control"
 											path="mPhone" name="mPhone" value="${LoginOK.mPhone}"
-											placeholder="${LoginOK.mPhone}"/>
+											placeholder="${LoginOK.mPhone}" />
 									</div>
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="form-group row">
 							<div class="input-group mb-3">
 								<div class="row g-3 align-items-center">
@@ -155,7 +172,7 @@
 									<div class="col-auto">
 										<form:input type="text" id="mEmail" class="form-control"
 											path="mEmail" name="mEmail" value="${LoginOK.mEmail}"
-											placeholder="${LoginOK.mEmail}"/>
+											placeholder="${LoginOK.mEmail}" />
 									</div>
 								</div>
 							</div>
@@ -177,7 +194,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="form-group row">
 							<div class="input-group mb-3">
 								<div class="row g-3 align-items-center">
@@ -191,6 +208,7 @@
 											value="${LoginOK.d_mAddress}"
 											placeholder="${LoginOK.d_mAddress}" />
 									</div>
+									<form:errors path="s_mAddress" cssClass="error" />
 								</div>
 							</div>
 						</div>
@@ -202,12 +220,34 @@
 								<label for="Orderer" class="col-form-label">付款方式:</label>
 							</div>
 							<div class="col-10">
-								<select class="form-select" aria-label="Default select example">
-									<option selected="selected" value="">請選擇付款方式</option>
-									<option value="1">貨到付款</option>
-									<option value="2">超商取貨付款</option>
-<!-- 									<option value="3">信用卡付款</option> -->
-								</select>
+								<form:select path="paymentTypeId" class="form-select" aria-label="Default select example">
+									<form:option selected="selected" value="-1">請選擇付款方式</form:option>
+									<form:option value="1">貨到付款</form:option>
+									<form:option value="2">超商取貨付款</form:option>
+									<!-- 									<option value="3">信用卡付款</option> -->
+								</form:select>
+							</div>
+							<div class="col-8" style="text-align: center;">
+								<form:errors path="paymentTypeId" cssClass="error" />
+							</div>
+						</div>
+					</div>
+					
+					<!-- 寄送方式 --------------------------------------------------------------->
+					<div class="form-group row">
+						<div class="input-group mb-3">
+							<div class="col-2">
+								<label for="Orderer" class="col-form-label">寄送方式:</label>
+							</div>
+							<div class="col-10">
+								<form:select path="shipTypeId" class="form-select"
+									aria-label="Default select example">
+									<form:option value="-1" label="請選擇寄送方式" />
+									<form:options items="${ship_TypeMap}" />
+								</form:select>
+							</div>
+							<div class="col-8" style="text-align: center;">
+								<form:errors path="shipTypeId" cssClass="error" />
 							</div>
 						</div>
 					</div>
@@ -225,39 +265,41 @@
 									<form:options items="${receipt_TypeMap}" />
 								</form:select>
 							</div>
+							<div class="col-8" style="text-align: center;">
+								<form:errors path="receiptTypeId" cssClass="error" />
+							</div>
 						</div>
 					</div>
 
-					<!-- 寄送方式 --------------------------------------------------------------->
 					<div class="form-group row">
 						<div class="input-group mb-3">
-							<div class="col-2">
-								<label for="Orderer" class="col-form-label">寄送方式:</label>
-							</div>
-							<div class="col-10">
-								<form:select path="shipTypeId" class="form-select"
-									aria-label="Default select example">
-									<form:option value="-1" label="請選擇寄送方式" />
-									<form:options items="${ship_TypeMap}" />
-								</form:select>
-							</div>
-						</div>
-					</div>
-					
-					<div class="form-group row">
-							<div class="input-group mb-3">
-								<div class="row g-3 align-items-center">
-									<div class="col-auto">
-										<label for="Orderer" class="col-form-label">折扣碼 :</label>
-									</div>
+							<div class="row g-3 align-items-center">
+								<div class="col-auto">
+									<label for="Orderer" class="col-form-label">統一編號:</label>
+								</div>
 
-									<div class="col-auto">
-										<input type="text" id="code" name="code" class="form-control"
-											placeholder="請輸入折扣碼" />
-									</div>
+								<div class="col-auto">
+									<input type="text" id="Bcode" name="code" class="form-control"
+										placeholder="請輸入統一編號" />
 								</div>
 							</div>
 						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="input-group mb-3">
+							<div class="row g-3 align-items-center">
+								<div class="col-auto">
+									<label for="Orderer" class="col-form-label">折扣碼 :</label>
+								</div>
+
+								<div class="col-auto">
+									<input type="text" id="code" name="code" class="form-control"
+										placeholder="請輸入折扣碼" />
+								</div>
+							</div>
+						</div>
+					</div>
 					<br>
 					<!--送出  ----------------------------------------------------------------------->
 					<%-- 				<c:forEach var='order' items='${orders}'> --%>
@@ -289,8 +331,8 @@
 	<!-- --------------------------------------------------------------------------------------->
 	<script>
 		function submitOrderInfo() {
-						document.forms[0].action = "<c:url value='/submitOrderInfo' />";
-// 			document.forms[0].action = "<c:url value='/purchaseSuccess' />";
+			document.forms[0].action = "<c:url value='/submitOrderInfo' />";
+			// 			document.forms[0].action = "<c:url value='/purchaseSuccess' />";
 			document.forms[0].method = "POST";
 			document.forms[0].submit();
 		}
