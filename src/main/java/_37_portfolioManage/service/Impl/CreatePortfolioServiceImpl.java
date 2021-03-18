@@ -90,4 +90,70 @@ public class CreatePortfolioServiceImpl implements CreatePortfolioService {
 		videoDao.addVideo(videoBean);
 	}
 
+
+	@Transactional
+	@Override
+	public void editPortfolio(PortfolioBeanVo portfolioBeanVo) throws IOException {
+		//準備一個對應資料庫作品的Bean
+		PortfolioBean portfolioBean = new PortfolioBean();
+		portfolioBean.setPortfolioId(portfolioBeanVo.getPortfolioId());
+		portfolioBean.setPortfolioName(portfolioBeanVo.getPortfolioName());
+		portfolioBean.setP_createTime(DateTimeUtils.getTimestamps());
+		portfolioBean.setpAddress(portfolioBeanVo.getpAddress());
+		portfolioBean.setLatitude(portfolioBeanVo.getLatitude());
+		portfolioBean.setLongitude(portfolioBeanVo.getLongitude());
+		portfolioBean.setPortfolioText(portfolioBeanVo.getPortfolioText());
+		//關聯會員的row
+		Integer imId = portfolioBeanVo.getmId();
+		MemberBean mb = MemberDao.getMemberById(imId);
+		portfolioBean.setMemberBean(mb);
+		//關聯地點類型的row
+		Integer iptId = portfolioBeanVo.getPlaceTypeId();
+		Place_TypeBean pt = place_TypeDao.getPlace_TypeById(iptId);
+		portfolioBean.setPlace_TypeBean(pt);
+		//關聯城市的row
+		Integer icId = portfolioBeanVo.getCityId();
+		CityBean cb = cityDao.getCityById(icId);
+		portfolioBean.setCityBeans(cb);
+		//修改作品資訊
+		portfolioDao.updatePortfolio(portfolioBean);
+//		============================================
+		//準備一個對應資料庫影片的Bean
+		VideoBean videoBean = new VideoBean();
+		//設定獲取到的編輯作品ID
+		videoBean.setVideoId(portfolioBeanVo.getVideoId());
+		//凍結預設0 (不凍結)
+		videoBean.setV_freeze(portfolioBeanVo.getV_freeze());
+		//關聯作品的row
+		videoBean.setPortfolioBean(portfolioBean);
+		//處理修改的照片
+		MultipartFile mfp = portfolioBeanVo.getVideoPic();
+		UUID puuid = UUID.randomUUID();
+		String picPath = "/Project/workspace_JSP/SpotsTourHSM/src/main/webapp/images/vedioImages/";
+		String picName = puuid + ".jpg";
+		String newVideoPic = (StreamUtils.writeStream(mfp.getBytes(),picPath,picName)).substring(58);
+		//處理修改的影片
+		MultipartFile mff = portfolioBeanVo.getVideoFile();
+		UUID fuuid = UUID.randomUUID();
+		String filePath = "/Project/workspace_JSP/SpotsTourHSM/src/main/webapp/videos/";
+		String fileName = fuuid + ".mp4" ;
+		String newVideoFile = (StreamUtils.writeStream(mff.getBytes(),filePath,fileName)).substring(51);
+		//如果原始照片大小等於0,塞入上個頁面取得的照片
+		if(portfolioBeanVo.getVideoPic().getSize() == 0 ) {
+			videoBean.setVideoPic(portfolioBeanVo.getStrVideoPic());
+		}else {
+			videoBean.setVideoPic(newVideoPic);
+		}
+		//如果原始影片大小等於0,塞入上個頁面取得的影片
+		if(portfolioBeanVo.getVideoFile().getSize() == 0) {
+			videoBean.setVideoFile(portfolioBeanVo.getStrVideoFile());
+		}else {
+			videoBean.setVideoFile(newVideoFile);
+		}		
+		//新增影片		
+		videoDao.updateVideo(videoBean);
+	}
+	
+	
+	
 }

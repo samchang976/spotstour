@@ -23,7 +23,7 @@ public class QueryPersonalPortfolioDaoImpl implements QueryPersonalPortfolioDao{
 	@Override
 	public List<Map<String, Object>> getMemberPortfolio(Integer imId) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = " SELECT m.mId,c.cityId,c.cityName,pt.placeTypeId,pt.placeType,v.videoFile,v.videoPic,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude "
+		String sql = " SELECT m.mId,c.cityId,c.cityName,pt.placeTypeId,pt.placeType,v.videoId,v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude "
 				+ " FROM video v "
 				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
 				+ " LEFT JOIN MEMBER m ON pf.mId = m.mId "

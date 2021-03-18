@@ -104,8 +104,8 @@
 				<div>${row.continentName}-${row.countryName}-${row.cityName}</div>
 				<div>${row.portfolioName}</div>
 				<!-- 影片-->
-				<video controls poster="${pageContext.request.contextPath}${row.videoPic}" style="width: 100%; height: auto">
-  				<source src="${pageContext.request.contextPath}${row.videoFile}" type="video/mp4">
+				<video controls poster="/upload${row.videoPic}" style="width: 100%; height: auto">
+  				<source src="/uploadv${row.videoFile}" type="video/mp4">
   				</video>
 				<!--按讚次數-->
 				<div id="great">
@@ -115,8 +115,10 @@
 				</div>
 				<!-- 觀看次數 -->
 				<div>觀看次數: 123456次</div>
+				<p></p>
+				<p></p>
 			</div>
-		</c:forEach>		
+		</c:forEach>	
 		</div>
 
 	</div>

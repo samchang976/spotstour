@@ -98,7 +98,7 @@ td div, .like-table div {
 				<button class="Bt_blue" onclick="location.href='${pageContext.request.contextPath}/index'" style="margin-right: 35px;">回首頁</button>
 			</div>
 			<div class="col-md-6" style="padding-right: 40px">
-				<form class="d-flex" action="SearchResult" method="get">
+				<form class="d-flex" action="SearchPortfolioDetail" method="get">
 					<input class="form-control me-2" type="text" name="searchWord"
 						placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success" type="submit">
@@ -122,8 +122,8 @@ td div, .like-table div {
 							<div style="margin: 4px;">
 								<H4>${mpl.portfolioName}</H4>
 							</div>
-								<video controls poster="${pageContext.request.contextPath}${mpl.videoPic}" style="width: 80%; height: auto">
-  							    <source src="${pageContext.request.contextPath}${mpl.videoFile}" type="video/mp4">
+								<video controls poster="/upload${mpl.videoPic}" style="width: 100%; height: auto">
+  							    <source src="/uploadv${mpl.videoFile}" type="video/mp4">
   							    </video>
 							<br>
 							<!--按讚次數-->
@@ -160,8 +160,10 @@ td div, .like-table div {
 											 <input type="hidden" name="placeTypeId" value="${mpl.placeTypeId}">
 											 <input type="hidden" name="placeType" value="${mpl.placeType}">
 											 <input type="hidden" name="mId" value="${mpl.mId}">
-<%-- 											 <input type="hidden" name="videoFile" value="${mpl.videoFile}"> --%>
-<%-- 											 <input type="hidden" name="videoPic" value="${mpl.videoPic}"> --%>
+											 <input type="hidden" name="strVideoFile" value="${mpl.videoFile}">
+											 <input type="hidden" name="strVideoPic" value="${mpl.videoPic}">
+											 <input type="hidden" name="videoId" value="${mpl.videoId}">
+											 <input type="hidden" name="v_freeze" value="${mpl.v_freeze}">
 											 <button class="Bt_blue" type="submit">編輯影片</button>
 											 </form>
 										</div>
