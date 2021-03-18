@@ -20,5 +20,11 @@ public class VideoDaoImpl implements VideoDao {
 		session.save(videoBean);
 		
 	}
+
+	@Override
+	public void updateVideo(VideoBean videoBean) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(videoBean);
+	}
 	
 }
