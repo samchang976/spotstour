@@ -150,6 +150,9 @@ button { /*按鈕的樣式*/
 
 		<!-- 活動快訊 -->
 		<div class="container">
+		<div style="text-align: center;">
+				<h2>管理活動快訊</h2>
+			</div>
 			<div class="row">
 				<div class="shadow p-3 mb-5 bg-body rounded">
 					<div class="col-12">
@@ -160,10 +163,7 @@ button { /*按鈕的樣式*/
 
 							<c:forEach var='activity' items='${activitys}'>
 
-
-
-
-								<div class="block">
+								<div class="block" onclick="location.href='${pageContext.request.contextPath}/activityDetail/Id=${activity.activityId}'">
 									<!-- 								日期 -->
 									<div class="left" style="float: left;">
 										<div class="date">${activity.activity_createTime}</div>
