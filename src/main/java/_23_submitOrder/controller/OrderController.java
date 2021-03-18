@@ -116,7 +116,7 @@ public class OrderController {
 		
 //		orderVoNew.setmId((Integer)session.getAttribute("mId"));
 		OrdBean ordBean = orderService.addOrderVo((OrderVo) session.getAttribute("orderVoNew"));
-		
+		model.addAttribute("ordBean", ordBean);
 		
 		
 		SendingOrderSuccessEmail sendingOrderSuccessEmail = new SendingOrderSuccessEmail(memberBean.getmEmail(), memberBean.getmName(), memberId ,ordBean);
