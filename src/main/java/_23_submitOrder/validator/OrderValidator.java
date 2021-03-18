@@ -35,7 +35,7 @@ public class OrderValidator implements Validator{
 			errors.rejectValue("receiptTypeId","", "請挑選發票型式");
 		}
 		if (orderVo.getPaymentTypeId() == -1) {
-			errors.rejectValue("paymentTypeId","", "請!挑!選!付!款!方!式!");
+			errors.rejectValue("paymentTypeId","", "請挑選付款方式");
 		}
 	}
 

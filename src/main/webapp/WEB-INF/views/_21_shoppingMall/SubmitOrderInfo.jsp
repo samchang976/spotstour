@@ -223,7 +223,15 @@
 								class="form-check-label" for="flexCheckCheckedDisabled">
 								${theST}</label>
 						</div>
+						<br>
+						<div class="PayTitle">付款方式</div>
 
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckCheckedDisabled" checked disabled> <label
+								class="form-check-label" for="flexCheckCheckedDisabled">
+								${orderVoNew.paymentType}</label>
+						</div>
 
 					</form:form>
 

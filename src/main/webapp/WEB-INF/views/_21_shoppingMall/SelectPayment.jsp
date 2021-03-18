@@ -232,6 +232,25 @@ span.error:first-child() {
 							</div>
 						</div>
 					</div>
+					
+					<!-- 寄送方式 --------------------------------------------------------------->
+					<div class="form-group row">
+						<div class="input-group mb-3">
+							<div class="col-2">
+								<label for="Orderer" class="col-form-label">寄送方式:</label>
+							</div>
+							<div class="col-10">
+								<form:select path="shipTypeId" class="form-select"
+									aria-label="Default select example">
+									<form:option value="-1" label="請選擇寄送方式" />
+									<form:options items="${ship_TypeMap}" />
+								</form:select>
+							</div>
+							<div class="col-8" style="text-align: center;">
+								<form:errors path="shipTypeId" cssClass="error" />
+							</div>
+						</div>
+					</div>
 
 					<!-- 發票類型 --------------------------------------------------------------->
 					<div class="form-group row">
@@ -252,21 +271,17 @@ span.error:first-child() {
 						</div>
 					</div>
 
-					<!-- 寄送方式 --------------------------------------------------------------->
 					<div class="form-group row">
 						<div class="input-group mb-3">
-							<div class="col-2">
-								<label for="Orderer" class="col-form-label">寄送方式:</label>
-							</div>
-							<div class="col-10">
-								<form:select path="shipTypeId" class="form-select"
-									aria-label="Default select example">
-									<form:option value="-1" label="請選擇寄送方式" />
-									<form:options items="${ship_TypeMap}" />
-								</form:select>
-							</div>
-							<div class="col-8" style="text-align: center;">
-								<form:errors path="shipTypeId" cssClass="error" />
+							<div class="row g-3 align-items-center">
+								<div class="col-auto">
+									<label for="Orderer" class="col-form-label">統一編號:</label>
+								</div>
+
+								<div class="col-auto">
+									<input type="text" id="Bcode" name="code" class="form-control"
+										placeholder="請輸入統一編號" />
+								</div>
 							</div>
 						</div>
 					</div>
