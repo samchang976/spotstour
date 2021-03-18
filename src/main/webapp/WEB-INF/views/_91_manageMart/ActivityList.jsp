@@ -137,11 +137,11 @@ text-align :center;
 					<!-- 							id="denine" value="刪除全選">刪除全選</button></span> -->
 				</div>
 			</div>
-			<!-- 			----------------------------------------------------------------------------------------------- -->
-			<div  class="text-algin-center" >
+			<!-- ----------------------------------------------------------------------------------------------- -->
+			<div  class="row text-algin-center" >
 				<h2>管理活動快訊</h2>
 			</div>
-
+			<!-- ----------------------------------------------------------------------------------------------- -->
 			<div class="row shadow p-3 mb-5 bg-body rounded">
 						<div id="newsTitle">活動快訊</div>
 						<!--<div class='center' id='somedivS'></div> -->
@@ -171,46 +171,39 @@ text-align :center;
 								<div class="clear-block"></div>
 							</div>	
 						</c:forEach>
-<!-- =================提示視窗============================================================================================================= -->
-								<div class="modal fade"
-									id="deleteActivity${activity.activityId}" tabindex="-1"
-									aria-labelledby="exampleModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h5 class="modal-title" id="exampleModalLabel">刪除編號${activity.activityId}活動</h5>
-												<button type="button" class="btn-close"
-													data-bs-dismiss="modal" aria-label="Close"></button>
-											</div>
-											<div class="modal-body">確定要刪除 "<b>活動編號${activity.activityId}</b>" 活動??</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-secondary"
-													data-bs-dismiss="modal">取消</button>
-												<button class="btn btn-primary" value="/Id=${activityId}"
-													onclick="location.href='activityList/delete/Id=${activity.activityId}'">確定刪除活動</button>
-											</div>
-										</div>
-									</div>
-								</div>
-					
-<!-- ============================================================================================================================================ -->
-				</div>
-			</div>
-
-		<!-- 活動快訊 -->
-		<div class="container">
-
-			
-			<div class="text-algin-center">
-				<div class="row">
+			<!-- ----------------------------------------------------------------------------------------------- -->	
 					<!-- 回商城首頁 -->
-					<div class="col">
+					<div class="text-algin-center my-3">
 						<button type="submit" class="btn btn-primary btn-lg"
 							onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
 					</div>
-				</div>
+				</div>	
 			</div>
-		</div>
+<!-- =================提示視窗============================================================================================================= -->
+				<div class="modal fade"
+					id="deleteActivity${activity.activityId}" tabindex="-1"
+					aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">刪除編號${activity.activityId}活動</h5>
+								<button type="button" class="btn-close"
+									data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">確定要刪除 "<b>活動編號${activity.activityId}</b>" 活動??</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-bs-dismiss="modal">取消</button>
+								<button class="btn btn-primary" value="/Id=${activityId}"
+									onclick="location.href='activityList/delete/Id=${activity.activityId}'">確定刪除活動</button>
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- ============================================================================================================================================ -->
+				
+			
+
 	<!-----------定位----------------------------------------------------------------------------->
 	</div>
 	<!--內嵌footer-------------------------------------------------------------------------------->
