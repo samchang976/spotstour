@@ -81,47 +81,8 @@ public class ShoppingCartContent {
 		shoppingCartService.deleteItem(sc_Id);
 		return "redirect:/merchandiseSearchResult";
 	}
-//修改購物車商品數量
-//	@PostMapping("/shoppingCart/put")
-//	public String updateQty(
-//			@ModelAttribute("sc_Id") Integer sc_Id,
-//			@ModelAttribute("cartBean") ShoppingCartBean cartbean,
-//			Model model
-//			) {
-//		System.out.println("Put===================================================");
-//		System.out.println("sc_Id="+sc_Id);
-//		System.out.println("s_ordQty="+cartbean);
-//		shoppingCartService.UpdateQty(sc_Id, cartbean);
-//		System.out.println("Put===================================================");
-//		return "redirect:/shoppingCart";
-//		
-//	}
-//=======================================================================================	
-//取得購物車單項商品內容
-//	@ModelAttribute
-//	public ShoppingCartBean getShoppingCartBean(
-//			@PathVariable(value = "sc_Id", required = false) Integer sc_Id, 
-//			Model model) {
-//		ShoppingCartBean shoppingCartBean = null;
-//		//有sc_Id
-//		if (sc_Id != null) {
-//			shoppingCartBean = shoppingCartService.getShoppingCartBysc_Id(sc_Id);
-//			model.addAttribute("shoppingCartBean", shoppingCartBean);
-//		} else {
-//		//沒有sc_Id
-//			 shoppingCartBean = new ShoppingCartBean();
-//			model.addAttribute("ShoppingCartBean", shoppingCartBean);
-//		}
-//		return shoppingCartBean;
-//	}
 
-	// 編輯及更新
-//	@PostMapping("/shoppingCart/{sc_Id}/{itemPrice}/{itemQty}/{mId}")
-//	public String updateItem(@ModelAttribute(value = "sc_Id") Integer sc_Id,
-//			@ModelAttribute("shoppingCartBean") ShoppingCartBean shoppingCartBean, Model model) {
-//		shoppingCartService.UpdateQty(shoppingCartBean);
-//		return "redirect:/shoppingCart";
-//	}
+//=======================================================================================	
 	@Transactional
 	@PostMapping("shoppingCart/updateQty")
 	public String updateItem(@RequestParam("sc_Id") Integer sc_Id, @RequestParam("s_ordQty") Integer s_ordQty,
