@@ -148,6 +148,7 @@
 								<%-- 						</c:if> --%>
 
 								<button id="saleType" class="btn btn-secondary btn-lg" disabled>完售</button>
+
 								<br> <br>
 								<!-- 						<select> -->
 								<!-- 							<option selected="selected" value="">請選擇付款方式</option> -->
@@ -171,6 +172,7 @@
 					</div>
 				</div>
 			</form:form>
+			
 			<!-- 下方 ----------------------------------------------------------------------------------->
 			<%-- 購買資訊分頁的按鈕-------------------------------------------------------------------  --%>
 			<div style="height: 50px"></div>

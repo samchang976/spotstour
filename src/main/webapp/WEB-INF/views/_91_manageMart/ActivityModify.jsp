@@ -185,6 +185,7 @@ button { /*確定、送出的按鈕排版*/
 								</div>
 							</div>
 						</div>
+						
 						<button type="submit" class="btn btn-primary"
 							onclick="location.href='${pageContext.request.contextPath}/activityList'">返回前一頁</button>
 					</div>

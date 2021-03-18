@@ -59,7 +59,6 @@
 .imageFrame img:hover {
 	transform: scale(1.5, 1.5);
 }
-
 </style>
 
 </head>
@@ -72,12 +71,19 @@
 	<div class="BodyPosition">
 		<!------------------------------------------------------------------------------------------->
 		<div class="container" id="container_SubmitOrderInfo">
-		<nav
-				style="-bs-breadcrumb-divider: url(&amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;#34;);"
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated"
+					role="progressbar" aria-valuenow="75" aria-valuemin="0"
+					aria-valuemax="100" style="width: 75%"></div>
+			</div>
+			<nav
+				style="-bs-breadcrumb-divider: url(&amp; amp; amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;amp;"
 				aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="<c:url value="/shoppingCart"/>">我的購物車</a></li>
-					<li class="breadcrumb-item"><a href="<c:url value="/selectPayment"/>">填寫訂購資訊</a></li>
+					<li class="breadcrumb-item"><a
+						href="<c:url value="/shoppingCart"/>">我的購物車</a></li>
+					<li class="breadcrumb-item"><a
+						href="<c:url value="/selectPayment"/>">填寫訂購資訊</a></li>
 					<li class="breadcrumb-item active" aria-current="page">確認訂購資訊</li>
 				</ol>
 			</nav>
@@ -99,7 +105,7 @@
 						</div>
 
 						<!-- 欄位敘述 -------------------------------------------------->
-						<div class="row" style="text-align:center;">
+						<div class="row" style="text-align: center;">
 							<div class="col-5 FieldDescription">
 								<div>商品名稱</div>
 							</div>
@@ -111,13 +117,13 @@
 						</div>
 					</c:if>
 					<!-- 商品清單 ------------------------------------------------------------------->
-					<div class="row Item" style="text-align:center;">
+					<div class="row Item" style="text-align: center;">
 						<!-- 商品照片 -->
 						<div class="col-2 ">
-						<div class="imageFrame">
-							<img src="/upload/${cart.itemBean.itemPic1}">
-							<i class="fas fa-search" style="float: right;"></i>
-						</div>
+							<div class="imageFrame">
+								<img src="/upload/${cart.itemBean.itemPic1}"> <i
+									class="fas fa-search" style="float: right;"></i>
+							</div>
 						</div>
 
 						<div class="col-3 ">
@@ -148,17 +154,22 @@
 					<!--付款資訊  -------------------------------------------------------------------------->
 					<div class="PayTitle">付款資訊</div>
 					<form:form method='POST' modelAttribute='orderVoNew'>
-<div class="alert alert-primary" role="alert">
-  A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-</div>
-						姓名&nbsp;:&nbsp;${orderVoNew.mName} <br> 
-						性別&nbsp;:&nbsp;${orderVoNew.mGender} <br> 
-						身分證字號&nbsp;:&nbsp;${orderVoNew.mUid} <br>
-						手機&nbsp;:&nbsp;${orderVoNew.mPhone} <br> 
-						Email&nbsp;:&nbsp;${orderVoNew.mEmail} <br>  
-						收件地址&nbsp;:&nbsp;${orderVoNew.s_mAddress}<br>
-
-					<div class="PayTitle">發票</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">姓名&nbsp;:&nbsp;${orderVoNew.mName}
+							</li>
+							<li class="list-group-item">性別&nbsp;:&nbsp;${orderVoNew.mGender}
+							</li>
+							<li class="list-group-item">身分證字號&nbsp;:&nbsp;${orderVoNew.mUid}
+							</li>
+							<li class="list-group-item">手機&nbsp;:&nbsp;${orderVoNew.mPhone}
+							</li>
+							<li class="list-group-item">信箱&nbsp;:&nbsp;${orderVoNew.mEmail}
+							</li>
+							<li class="list-group-item">收件地址&nbsp;:&nbsp;${orderVoNew.s_mAddress}
+							</li>
+							<li class="list-group-item"></li>
+						</ul>
+						<div class="PayTitle">發票</div>
 						<c:if test="${ orderVoNew.receiptTypeId == 1}">
 							<c:set var="theRT" value="三聯式統一發票" />
 						</c:if>
@@ -182,9 +193,10 @@
 								${theRT}</label>
 						</div>
 
+
 						<!-- 					<div class="PayTitle">發票</div> -->
 						<!-- 				■ 個人電子發票 □ 捐贈發票 □ 公司戶電子發票<br> -->
-
+						<br>
 						<div class="PayTitle">寄送方式</div>
 						<c:if test="${ orderVoNew.shipTypeId == 1}">
 							<c:set var="theST" value="宅配" />
@@ -211,8 +223,9 @@
 								class="form-check-label" for="flexCheckCheckedDisabled">
 								${theST}</label>
 						</div>
-					</form:form>
 
+
+					</form:form>
 
 					<!--送出訂單  ---------------------------------------------------------------------------->
 					<c:forEach var='cart' items='${cart}' varStatus="s">
@@ -242,13 +255,41 @@
 							</div>
 						</div>
 					</c:forEach>
+
 				</div>
 			</div>
+
+			
 			<div style="text-align: center;">
 				<button id="SubmitBlock" type="submit"
 					class="btn btn-primary btn-lg"
-					onclick="location.href='${pageContext.request.contextPath}/purchaseSuccess'">送出訂單</button>
+					onclick="location.href='${pageContext.request.contextPath}/purchaseSuccess'" data-bs-toggle="modal" data-bs-target="#exampleModal">送出訂單</button>
 			</div>
+			
+			<div class="modal fade" id="exampleModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">訂單處理中</h5>
+
+							<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div class="spinner-border text-primary" role="status">
+								<span class="visually-hidden">Loading...</span>
+							</div>
+							訂單處理中 請稍後...
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">關閉視窗</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 		</div>
 		<!-----------定位----------------------------------------------------------------------------->
 	</div>
