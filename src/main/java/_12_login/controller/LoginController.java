@@ -176,19 +176,11 @@ public class LoginController {
 //		return responseEntity;
 //	}
 //	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
 	@Autowired
 	LoginService loginService;
-	
+
 	@Autowired
 	ShoppingCartService shoppingCartService;
 
@@ -201,17 +193,18 @@ public class LoginController {
 
 //	@RequestMapping("/login.do")
 	@PostMapping("/login")
-	public String doLogin(@ModelAttribute("memberBean") MemberBean memberBean, BindingResult result, HttpSession session,Model model,SessionStatus status) {
+	public String doLogin(@ModelAttribute("memberBean") MemberBean memberBean, BindingResult result,
+			HttpSession session, Model model, SessionStatus status) {
 		LoginValidator validator = new LoginValidator();
 		validator.validate(memberBean, result);
 		if (result.hasErrors()) {
 			return "_11_member/Login";
 		}
-		
-		try{
-			boolean loginCheck = loginService.loginCheck(memberBean,model);
+
+		try {
+			boolean loginCheck = loginService.loginCheck(memberBean, model);
 			if (loginCheck == true) {
-				session.setAttribute("LoginOK",model.getAttribute("LoginOK"));
+				session.setAttribute("LoginOK", model.getAttribute("LoginOK"));
 				session.setAttribute("mAN", memberBean.getmAN());
 				session.setAttribute("mId", memberBean.getmId());
 				session.setAttribute("mPid", memberBean.getMemberPermBean().getmPid());
@@ -219,24 +212,26 @@ public class LoginController {
 				model.addAttribute("Login", "登入成功");
 				System.out.println("User:" + session.getAttribute("mAN") + " 已登入" + ",權限:"
 						+ memberBean.getMemberPermBean().getmPermissions());
-				
+//登入後把sessuon的購物清單存入資料庫=====================================================================				
 				Integer member = (Integer) session.getAttribute("mPid");
-				if (member == 2) { // 1:管理員 2:會員
+				if (member == 2 || member ==1) { // 1:管理員 2:會員
+					@SuppressWarnings("unchecked")
 					List<SessionShoppingCartVo> sscList = (List<SessionShoppingCartVo>) model
 							.getAttribute("sessionShoppingCartList");
 					if (sscList != null) {
-//					
-					shoppingCartService.sessionCartSave(sscList, (int) session.getAttribute("mId"));
-					status.setComplete(); 
-					}}
+						shoppingCartService.sessionCartSave(sscList, (int) session.getAttribute("mId"));
+						status.setComplete(); //存完清空session
+					}
+				}
+//=================================================================================================				
 				return "index";
 			}
 		} catch (NoResultException nre) {
 			System.out.println("資料錯誤");
 			model.addAttribute("LoginError", "帳號或密碼錯誤");
-			return "redirect:login";	
+			return "redirect:login";
 		}
-		return "redirect:login";	
+		return "redirect:login";
 
 	}
 
