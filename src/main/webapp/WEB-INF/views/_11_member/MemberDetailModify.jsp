@@ -55,32 +55,11 @@
 	font-family: 'Noto Sans TC';
 }
 .error {
-	color: red;
+	color: blue;
 	display: inline-block;
 	font-size: 10pt;
 }
 
-
-#phto {
-	/* border: solid 1px slategrey; */
-	width: 200px;
-	height: 600px;
-	float: left;
-}
-
-div {
-	margin-bottom: 10px;
-	/* border: solid 1px slategrey; */
-}
-
-select {
-	margin-bottom: 10px;
-}
-
-#genderBlock {
-	float: left;
-	margin-right: 15px;
-}
 </style>
 </head>
 <body>
@@ -112,19 +91,24 @@ select {
 					<form:form method="POST" action="/SpotsTourHSM/memberDetailModify"  modelAttribute="member"
 							enctype='multipart/form-data'>
 							<div class="form-row" >
-							
-									帳號：${LoginOK.mAN}<br>
+															
+									 <form:hidden path="mId" value="${member.mId}" size="40" class="mt-3"/>
+									 <form:hidden path="m_verify" value="${member.m_verify}" size="40" class="mt-3"/>
+										 				
+									 <form:hidden path="m_createTime" value="${member.m_createTime}" size="40" class="mt-3"/>
+
+										 <form:hidden path="mAN" value="${member.mAN}" size="40" class="mt-3"/>
 									
-									姓名： <form:input path="mName" value="${LoginOK.mName}" size="40" class="mt-3"/>
+									姓名： <form:input path="mName" value="${member.mName}" size="40" class="mt-3"/>
 										 <form:errors path="mName" class="error"/><br>
 
-									密碼： <form:input path="mPw" placeholder="${LoginOK.mPw}" size="40" class="mt-3"/>
+									密碼： <form:input path="mPw" value="${member.mPw}" size="40" class="mt-3" type="password"/>
 										 <form:errors path="mPw" class="error"/><br>
 
-									密碼確認： <form:input path="mTPw" placeholder="${LoginOK.mPw}" size="36" class="mt-3"/>
+									密碼確認： <form:input path="mTPw" value="${member.mTPw}" size="36" class="mt-3" type="password"/>
 										 <form:errors path="mTPw" class="error"/><br>
 
-									地址： <form:input path="d_mAddress" placeholder="${LoginOK.d_mAddress}" size="40" class="mt-3"/>
+									地址： <form:input path="d_mAddress" value="${member.d_mAddress}" size="40" class="mt-3"/>
 										 <form:errors path="d_mAddress" class="error"/><br>
 
 									性別： 
@@ -132,16 +116,16 @@ select {
 									<form:options path="mGender" items="${gender}"/>
 									</form:select><br>
 
-									身分證： <form:input path="mUid" value="${LoginOK.mUid}" size="38" class="mt-3"/>
+									身分證： <form:input path="mUid" value="${member.mUid}" size="38" class="mt-3"/>
 										 <form:errors path="mUid" class="error"/><br>
 
-									電子信箱： <form:input path="mEmail" value="${LoginOK.mEmail}" size="36" class="mt-3"/>
+									電子信箱： <form:input path="mEmail" value="${member.mEmail}" size="36" class="mt-3" type="email"/>
 										 <form:errors path="mEmail" class="error"/><br>
 
-									生日： <form:input path="mBDay" value="${LoginOK.mBDay}" type="date" size="40" class="mt-3" required="required"/>
+									生日： <form:input path="mBDay" value="${member.mBDay}" type="date" size="40" class="mt-3" required="required"/>
 										 <form:errors path="mBDay" class="error"/><br>
 
-									地址： <form:input path="mPhone" value="${LoginOK.mPhone}" size="40" class="mt-3"/>
+									手機： <form:input path="mPhone" value="${member.mPhone}" size="40" class="mt-3"/>
 										 <form:errors path="mPhone" class="error"/><br>
 										 
 									會員照片： <form:input path="multipartFile" size="36" class="mt-3" type="file"/>
