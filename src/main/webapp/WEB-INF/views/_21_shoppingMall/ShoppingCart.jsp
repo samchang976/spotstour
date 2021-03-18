@@ -97,7 +97,7 @@
 				<div class="col-1 FieldDescription">小計</div>
 				<div class="col-1 FieldDescription">庫存</div>
 			</div>
-
+<hr>
 			<!-- 商品清單 ，動態新增---------------------------------------------------->
 			<c:forEach varStatus='vs' var='cart' items='${cart}'>
 				<div class="row CartItem">
@@ -124,6 +124,7 @@
 						<div>${cart.itemBean.countryBean.countryName}</div>
 					</div>
 					<!-- 選擇數量 -------------------------------------------------------->
+					
 					<div class="col-1 ItemField">
 						<div>
 						<form action="shoppingCart/${cart.sc_Id}" method="post">
@@ -136,6 +137,7 @@
 						</form>
 						</div>
 					</div>
+					
 					<!-- 單價------------------------------------------------------------>
 					<div class="col-1 ItemField">
 						<span id="uniPrice${vs.index}">${cart.itemBean.itemPrice}</span>元

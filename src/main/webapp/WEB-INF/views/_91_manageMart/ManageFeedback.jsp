@@ -75,8 +75,9 @@ button { /*按鈕的樣式*/
 	font-size: 16px;
 }
 #deleteF:hover{
-	font-size: 24px;
-	cursor: pointer; 
+	font-size: 26px;
+	cursor: pointer;
+	color: red; 
 }
 </style>
 
@@ -92,7 +93,7 @@ button { /*按鈕的樣式*/
 		<div class="container">
 			<!-- 陳列商品留言 -->
 			<div style="text-align: center;">
-				<h3>${item.itemHeader}商品留言(${feedbacks.size()})</h3>
+				<h4>${item.itemHeader}商品留言<span class="">(${feedbacks.size()})</span></h4>
 			</div>
 			<div style="text-align: right;">
 				<c:set var="now" value="<%=new java.util.Date()%>" />
@@ -140,11 +141,11 @@ button { /*按鈕的樣式*/
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">刪除商品留言</h5>
+									<h5 class="modal-title" id="exampleModalLabel">刪除編號${feedback.feedbackId}商品留言</h5>
 									<button type="button" class="btn-close" data-bs-dismiss="modal"
 										aria-label="Close"></button>
 								</div>
-								<div class="modal-body">確定要刪除此商品留言??</div>
+								<div class="modal-body">確定要刪除 "<b>商品留言編號${feedback.feedbackId}</b>" 商品留言??</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"
 										data-bs-dismiss="modal">取消</button>
