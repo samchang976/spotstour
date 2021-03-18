@@ -172,6 +172,7 @@ button { /*按鈕的樣式*/
 									<div class="right " style="float: left;">
 										<div class="discount">${activity.activityContent}</div>
 									</div>
+									</div>
 									<div class="right " style="float: right;">
 										<!-- 									<input type="button" value="刪除"> -->
 										<button id="deleteA" value="/Id=${activityId}"
@@ -212,7 +213,6 @@ button { /*按鈕的樣式*/
 
 									</div>
 									<div class="clear-block"></div>
-								</div>
 							</c:forEach>
 							<br>
 

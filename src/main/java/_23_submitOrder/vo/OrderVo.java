@@ -23,6 +23,8 @@ public class OrderVo {
  	private String receiptType;
  	private Integer shipTypeId;
 	private String shipType;
+	private Integer paymentTypeId;
+	
 	private int countryId;
 	private String countryName;
 	private Integer itemId;
@@ -38,6 +40,12 @@ public class OrderVo {
 	
 	
 	
+	public Integer getPaymentTypeId() {
+		return paymentTypeId;
+	}
+	public void setPaymentTypeId(Integer paymentTypeId) {
+		this.paymentTypeId = paymentTypeId;
+	}
 	public String getmGender() {
 		return mGender;
 	}
