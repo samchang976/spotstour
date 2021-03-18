@@ -54,7 +54,7 @@
 	font-family: 'Noto Sans TC';
 }
 .error {
-	color: red;
+	color: blue;
 	display: inline-block;
 	font-size: 10pt;
 }
@@ -96,7 +96,7 @@
 								<div class="form-group">
 									<form:label path="mAN">帳號：</form:label><form:errors path="mAN" class="error"/>
 									<form:input path="mAN" class="form-control"
-									placeholder="6-10個字元英數混合不含特殊符號"/>
+									placeholder="6-10個英數字"/>
 									
 								</div>
 								<div class="form-group">
@@ -108,12 +108,12 @@
 							<div class="form-row">
 								<div class="form-group">
 									<form:label path="mPw">密碼：</form:label><form:errors path="mPw" class="error"/>
-									<form:input path="mPw" class="form-control" placeholder="6-10個字元英數混合"/>
+									<form:input path="mPw" class="form-control" placeholder="6-10個英數字" type="password"/>
 									
 								</div>
 								<div class="form-group">
 									<form:label path="mTPw">密碼確認：</form:label><form:errors path="mTPw" class="error"/>
-									<form:input path="mTPw" class="form-control" placeholder="6-10個字元英數混合"/>
+									<form:input path="mTPw" class="form-control" placeholder="需與密碼一致" type="password"/>
 									
 								</div>
 							</div>
@@ -138,7 +138,7 @@
 							</div>
 								<div class="form-group">
 									<form:label path="mEmail">電子信箱：</form:label><form:errors path="mEmail" class="error"/>
-									<form:input path="mEmail" class="form-control" placeholder="example@gmail.com"/>
+									<form:input path="mEmail" class="form-control" placeholder="example@gmail.com" type="email"/>
 									
 								</div>
 								<div class="form-group">

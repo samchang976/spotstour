@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import _02_model.entity.MemberBean;
+import _02_model.entity.Member_permBean;
 import _14_modifyMember.dao.ModifyDao;
 
 @Repository
@@ -35,22 +36,19 @@ public class ModifyDaoImpl implements ModifyDao{
 	public MemberBean get(Integer mId) {
 		return factory.getCurrentSession().get(MemberBean.class, mId);
 	}
+	
+	@Override
+	public Member_permBean getperm(Integer mPid) {
+		return factory.getCurrentSession().get(Member_permBean.class, mPid);
+	}
 
-//	@Override
-//	public void update(MemberBean mb) {
-//		if(mb != null && mb.getmId() != null) {
-//			Session session = factory.getCurrentSession();
-//			session.saveOrUpdate(mb);
-//		}
-//		
-//	}
 	
 	@Override
 	public void update(MemberBean mb) {
 		if(mb != null && mb.getmId() != null) {
 			Session session = factory.getCurrentSession();
 //			session.saveOrUpdate(mb);
-			session.update(mb);
+			session.saveOrUpdate(mb);
 		}
 		
 	}

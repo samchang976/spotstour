@@ -87,8 +87,7 @@ ul.nav.nav-tabs {
 			<ul class="nav nav-tabs">
 				<!-- 會員圖片 -->
 				<c:if test="${! empty LoginOK }">
-					<img height='40px' width='30px'
-						src='${pageContext.request.contextPath}/_00_init/getMemberImage?id=${LoginOK.mId}'>
+					<img height='40px' width='30px' src="/upload/${LoginOK.mPic}">					
 				</c:if>
 <!-- ======================測試頁面連結區塊================================================================================== -->
 				

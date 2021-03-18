@@ -2,7 +2,11 @@ package _11_register.controller;
 
 
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -58,28 +62,33 @@ public class MemberController {
 		if(result.hasErrors()) {
 			return inputForm;
 		}
-		MultipartFile mbPicture = bean.getMultipartFile();
-		try {
-			byte[] pic = mbPicture.getBytes();
-			String picstr = Base64.getEncoder().encodeToString(pic);
-			bean.setmPic(picstr);
-		} catch (IOException ex) {
-			ex.printStackTrace();
+
+		MultipartFile picture = bean.getMultipartFile(); // 圖片本人
+		String originalFilename = picture.getOriginalFilename(); // 圖片的檔名
+		if (originalFilename.length() > 0 && originalFilename.lastIndexOf(".") > -1) {
+			bean.setmPic("memberImages/" + originalFilename); // 將檔名存入資料庫
+		}
+		String folderPath = "D:/_JSP/workspace/spotstourHSM/src/main/webapp/images/memberImages";
+		
+		File theDir = new File(folderPath);
+		if (!theDir.exists()) {
+			theDir.mkdirs();
+		}
+
+		try (InputStream in = picture.getInputStream();
+				OutputStream out = new FileOutputStream(folderPath + "/" + originalFilename)) {
+
+			byte[] buffer = new byte[1024];
+			int len = -1;
+			while ((len = in.read(buffer)) != -1) {
+				out.write(buffer, 0, len);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		Timestamp registerTime = new Timestamp(System.currentTimeMillis());
 		bean.setM_createTime(registerTime);
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String mBDay = sdf.format(bean.getmBDay());
-		System.out.println(mBDay);
-		java.util.Date date = null;
-		try {
-			date = sdf.parse(mBDay);
-		} catch (ParseException e) {
-			System.out.println();
-			
-		}
-		Date date1 = new Date(bean.getmBDay().getTime());
 		
 		Member_permBean mpb = memberService.selectdata(2);
 		bean.setM_verify(1);
