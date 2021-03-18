@@ -60,56 +60,45 @@
 
 		<!-- 活動快訊 ---------------------------------------------------------------------------->
 		<div class="container" id="container_news">
+		<!--查看所有商品------------------------------------------------------------------------ -->
 		<div class="row">
 			<div class="col">
 				<button class="btn btn-primary btn-lg"
 					onclick="location.href='${pageContext.request.contextPath}/merchandiseSearchResult'">查看所有商品</button>
 			</div>
 		</div>
-		
-			<br>
-			<div class="shadow p-3 mb-5 bg-body rounded">
-				<div class="row row-cols-1 newsBlock ">
+		<!--活動快訊 ------------------------------------------------------------------------------>
+				<div class="row row-cols-1 newsBlock bg-body overflow-auto rounded my-3 mb-5 p-4 shadow">
 					<div class="col">
-						<div class="overflow-auto" style="height: 350px;">
-							<div id="newsTitle">活動快訊</div>
-
+						<div id="newsTitle">活動快訊</div>
 							<c:forEach var='activity' items='${activitys}'>
 								<div class="block"
 									onclick="location.href='${pageContext.request.contextPath}/activityDetail/Id=${activity.activityId}'">
-									<!-- 											日期 -->
+									<!--日期---------------------------------------------- -->
 									<span class="date">${activity.activity_createTime}</span>
-									<!-- 											優惠標頭 -->
+									<!--優惠標頭-------------------------------------------- -->
 									<span class="discount">${activity.activityHeader}</span>
-									<!-- 											優惠內容 -->
+									<!--優惠內容 ---------------------------------------------->
 									<span class="discount">${activity.activityContent}</span>
 								</div>
 							</c:forEach>
-
-						</div>
 					</div>
 				</div>
-			</div>
 			<!-- 地區搜尋 ----------------------------------------------------------------------------->
 			<div class="row row-cols-1 row-cols-md-4">
 				<c:forEach var='country' items='${countrys}'>
-					<div class="col area_search my-3"
-						onclick="location.href=
-                        'merchandiseSearchResult/Id=${country.countryId}'">
-
-
-
-						<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
-							alt="area">
-
-
-
-
-						<div class="mask">
-							<h2 id="countryName">${country.countryName}</h2>
+					<div class="col"> 
+						<div class="area_search my-1"
+							onclick="location.href=
+	                        'merchandiseSearchResult/Id=${country.countryId}'">
+							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"
+								alt="area">
+	
+							<div class="mask">
+								<h2 id="countryName">${country.countryName}</h2>
+							</div>
 						</div>
 					</div>
-
 
 					<!-- 					<div class="col-12 area_search" -->
 					<!-- 						onclick="location.href= -->
