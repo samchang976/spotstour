@@ -26,29 +26,40 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 <style>
-.container_search {
-	margin-bottom: 20px;
+#container_search {
+/* 	margin-bottom: 20px; */
+font-size: 40px;
 }
 
 #want {
 	font-size: 25px;
+	width:20%;
 }
+
 </style>
 </head>
 <body>
-	<div class="container container_search">
+
+	<div class="container" id="container_search">
 		<div class="row">
 			<div class="col">
-				<div style="display: inline-flex;">
-					<span id="want">想買什麼?</span>
-
-					<form class="d-flex" action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get">
-						<input class="form-control me-2" type="search" name="searchWord"
+				<span id="want">想買什麼?</span>
+				<div style="display: inline-flex;  width:25%; ">
+					<form class="input-group mb-3"action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get">
+						<input class="form-control" type="search" name="searchWord"
 							placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">
+						<button class="btn btn-outline-secondary" type="submit">
 							<i class="fas fa-search"></i>
 						</button>
 					</form>
+
+<%-- 					<form class="d-flex" action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get"> --%>
+<!-- 						<input class="form-control me-2" type="search" name="searchWord" -->
+<!-- 							placeholder="Search" aria-label="Search"> -->
+<!-- 						<button class="btn btn-outline-success" type="submit"> -->
+<!-- 							<i class="fas fa-search"></i> -->
+<!-- 						</button> -->
+<%-- 					</form> --%>
 
 				</div>
 			</div>
