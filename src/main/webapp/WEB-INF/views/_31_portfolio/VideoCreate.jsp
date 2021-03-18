@@ -158,8 +158,8 @@
 
 				<div class="row row row-cols-1 row-cols-md-2">
 					<div class="col">
-						<video controls <c:if test="${portfolioEdit.portfolioId!=null}">poster="${pageContext.request.contextPath}${portfolioEdit.videoPic}"</c:if> style="width: 100%; height: auto">
-  					    <source <c:if test="${portfolioEdit.portfolioId!=null}">src="${pageContext.request.contextPath}${portfolioEdit.videoFile}"</c:if> type="video/mp4">
+						<video controls <c:if test="${portfolioEdit.portfolioId!=null}">poster="/upload${portfolioEdit.videoPic}"</c:if> style="width: 100%; height: auto">
+  					    <source <c:if test="${portfolioEdit.portfolioId!=null}">src="/uploadv${portfolioEdit.videoFile}"</c:if> type="video/mp4">
   					    </video>
 					</div>
 
