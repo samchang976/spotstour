@@ -138,17 +138,17 @@ public class CreatePortfolioServiceImpl implements CreatePortfolioService {
 		String filePath = "/Project/workspace_JSP/SpotsTourHSM/src/main/webapp/videos/";
 		String fileName = fuuid + ".mp4" ;
 		String newVideoFile = (StreamUtils.writeStream(mff.getBytes(),filePath,fileName)).substring(51);
-		//如果原始照片不等於修改照片
-		if(portfolioBeanVo.getStrVideoPic() != newVideoPic) {
-			videoBean.setVideoPic(newVideoPic);
-		}else {
+		//如果原始照片大小等於0,塞入上個頁面取得的照片
+		if(portfolioBeanVo.getVideoPic().getSize() == 0 ) {
 			videoBean.setVideoPic(portfolioBeanVo.getStrVideoPic());
-		}
-		//如果原始影片不等於修改影片
-		if(portfolioBeanVo.getStrVideoFile() != newVideoFile) {
-			videoBean.setVideoPic(newVideoFile);
 		}else {
-			videoBean.setVideoPic(portfolioBeanVo.getStrVideoFile());
+			videoBean.setVideoPic(newVideoPic);
+		}
+		//如果原始影片大小等於0,塞入上個頁面取得的影片
+		if(portfolioBeanVo.getVideoFile().getSize() == 0) {
+			videoBean.setVideoFile(portfolioBeanVo.getStrVideoFile());
+		}else {
+			videoBean.setVideoFile(newVideoFile);
 		}		
 		//新增影片		
 		videoDao.updateVideo(videoBean);

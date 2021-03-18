@@ -200,6 +200,7 @@ public class LoginController {
 	}
 
 //	@RequestMapping("/login.do")
+	@SuppressWarnings("unchecked")
 	@PostMapping("/login")
 	public String doLogin(@ModelAttribute("memberBean") MemberBean memberBean, BindingResult result, HttpSession session,Model model,SessionStatus status) {
 		LoginValidator validator = new LoginValidator();

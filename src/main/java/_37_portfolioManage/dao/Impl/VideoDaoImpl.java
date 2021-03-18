@@ -24,7 +24,8 @@ public class VideoDaoImpl implements VideoDao {
 	@Override
 	public void updateVideo(VideoBean videoBean) {
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(videoBean);
+		//擁有相同的資料庫標識符(代表資料庫中的同一條紀錄),但具有不同的永續標識符
+		session.merge(videoBean);
 	}
 	
 }

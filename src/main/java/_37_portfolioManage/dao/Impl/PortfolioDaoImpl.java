@@ -28,7 +28,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 	@Override
 	public void updatePortfolio(PortfolioBean portfolioBean) {
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(portfolioBean);
+		session.merge(portfolioBean);
 	}
 	
 	
