@@ -206,7 +206,7 @@
 									<option selected="selected" value="">請選擇付款方式</option>
 									<option value="1">貨到付款</option>
 									<option value="2">超商取貨付款</option>
-									<option value="3">信用卡付款</option>
+<!-- 									<option value="3">信用卡付款</option> -->
 								</select>
 							</div>
 						</div>
