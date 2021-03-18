@@ -91,6 +91,10 @@
 }
 
 /* ActivityDetail****************************************************** */
+#container_ActivityDetail{
+	
+	max-width:1200px;
+}
 
 #container_ActivityDetail .title{
    padding: 5px;
