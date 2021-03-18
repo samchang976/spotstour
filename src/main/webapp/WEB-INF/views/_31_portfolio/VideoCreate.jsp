@@ -99,9 +99,7 @@
 				</div>
 			</div>
 			<!-- ==========================================================================================================-->
-<%-- 			<form <c:if test="${portfolioEdit.portfolioId==null}">action="createPortfolio"</c:if><c:if test="${portfolioEdit.portfolioId!=null}">action="editPortfolio"</c:if> method="post" enctype="multipart/form-data"> --%>
 			<form action="createPortfolio" method="post" enctype="multipart/form-data">
-
 				<!-- ==========================================================================================================-->
 				<div class="row row-cols-1 row-cols-md-2">
 					<div class="col SpotName">
@@ -189,7 +187,7 @@
 						</select>
 					</div>
 					<div class="col-md-3" align="right">
-						<button class="Bt_blue" type="submit" id="btnAdd"
+						<button class="Bt_blue" type="submit"
 							style="min-width: 100%; width: 40px">儲存</button>
 					</div>
 				</div>
