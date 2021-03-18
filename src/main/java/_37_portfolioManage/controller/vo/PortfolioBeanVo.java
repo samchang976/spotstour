@@ -18,8 +18,12 @@ public class PortfolioBeanVo {
 	private Integer mId;
 	private Integer cityId;
 	private String cityName;
+	private Integer videoId;
+	private Integer v_freeze;
 	private MultipartFile videoFile;
 	private MultipartFile videoPic;
+	private String strVideoFile;
+	private String strVideoPic;
 	
 	
 	public Integer getPortfolioId() {
@@ -94,6 +98,18 @@ public class PortfolioBeanVo {
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
+	public Integer getVideoId() {
+		return videoId;
+	}
+	public void setVideoId(Integer videoId) {
+		this.videoId = videoId;
+	}
+	public Integer getV_freeze() {
+		return v_freeze;
+	}
+	public void setV_freeze(Integer v_freeze) {
+		this.v_freeze = v_freeze;
+	}
 	public MultipartFile getVideoFile() {
 		return videoFile;
 	}
@@ -106,7 +122,18 @@ public class PortfolioBeanVo {
 	public void setVideoPic(MultipartFile videoPic) {
 		this.videoPic = videoPic;
 	}
+	public String getStrVideoFile() {
+		return strVideoFile;
+	}
+	public void setStrVideoFile(String strVideoFile) {
+		this.strVideoFile = strVideoFile;
+	}
+	public String getStrVideoPic() {
+		return strVideoPic;
+	}
+	public void setStrVideoPic(String strVideoPic) {
+		this.strVideoPic = strVideoPic;
+	}
 	
-	
-	
+
 }

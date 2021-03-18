@@ -15,7 +15,7 @@ public class PortfolioDaoImpl implements PortfolioDao {
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	
+	//新增作品影片
 	@Override
 	public void addPortfolio(PortfolioBean portfolioBean) {
 		Session session = sessionFactory.getCurrentSession();
@@ -23,5 +23,13 @@ public class PortfolioDaoImpl implements PortfolioDao {
 		
 	}
 
+	
+	//編輯作品影片
+	@Override
+	public void updatePortfolio(PortfolioBean portfolioBean) {
+		Session session = sessionFactory.getCurrentSession();
+		session.merge(portfolioBean);
+	}
+	
 	
 }

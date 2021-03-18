@@ -11,13 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import _02_model.entity.CityBean;
-import _02_model.entity.MemberBean;
 import _02_model.entity.Place_TypeBean;
-import _02_model.entity.PortfolioBean;
 import _37_portfolioManage.controller.vo.PortfolioBeanVo;
 import _37_portfolioManage.service.CreatePortfolioService;
 import _37_portfolioManage.service.GetCityListService;
@@ -88,14 +84,13 @@ public class PortfolioManageController {
 		return "redirect:/personalPortfolio";
 	}
 
-	// 編輯作品及影片
-//    @PostMapping("/Id={portfolioId}")
-//	public String updatePortfolio(@ModelAttribute(value = "portfolioId") PortfolioBeanVo portfolioBeanVo,Model model,HttpSession session) throws IOException {
-//    	portfolioBeanVo.setmId((Integer)session.getAttribute("mId"));
-//    	createPortfolioService.addPortfolio(portfolioBeanVo);
-//			
-//		return "redirect:/index";
-//		
-//	}
+//	 編輯作品及影片
+    @PostMapping("editPortfolio")
+	public String updatePortfolio(@ModelAttribute PortfolioBeanVo portfolioBeanVo,Model model,HttpSession session) throws IOException {
+    	createPortfolioService.editPortfolio(portfolioBeanVo);
+			
+		return "redirect:/personalPortfolio";
+		
+	}
 
 }

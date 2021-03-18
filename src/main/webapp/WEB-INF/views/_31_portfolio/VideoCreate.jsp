@@ -99,8 +99,7 @@
 				</div>
 			</div>
 			<!-- ==========================================================================================================-->
-			<form action="createPortfolio" method="post"
-				enctype="multipart/form-data">
+			<form <c:if test="${portfolioEdit.portfolioId==null}">action="createPortfolio"</c:if><c:if test="${portfolioEdit.portfolioId!=null}">action="editPortfolio"</c:if> method="post" enctype="multipart/form-data">
 				<!-- ==========================================================================================================-->
 				<div class="row row-cols-1 row-cols-md-2">
 					<div class="col SpotName">
@@ -158,8 +157,8 @@
 
 				<div class="row row row-cols-1 row-cols-md-2">
 					<div class="col">
-						<video controls <c:if test="${portfolioEdit.portfolioId!=null}">poster="/upload${portfolioEdit.videoPic}"</c:if> style="width: 100%; height: auto">
-  					    <source <c:if test="${portfolioEdit.portfolioId!=null}">src="/uploadv${portfolioEdit.videoFile}"</c:if> type="video/mp4">
+						<video controls <c:if test="${portfolioEdit.portfolioId!=null}">poster="/upload${portfolioEdit.strVideoPic}"</c:if> style="width: 100%; height: auto">
+  					    <source <c:if test="${portfolioEdit.portfolioId!=null}">src="/uploadv${portfolioEdit.strVideoFile}"</c:if> type="video/mp4">
   					    </video>
 					</div>
 
@@ -173,8 +172,14 @@
 				<!-- =================================================================================================== -->
 				<div class="row row row-cols-1 row-cols-md-2 ">
 					<div class="col-md-6">
-						上傳影片預覽圖: <input type="file" name="videoPic" accept=".jpg" value="${portfolioEdit.videoPic}"/><br> 
-						上傳影片: <input	type="file" name="videoFile" accept=".mp4"/><br>
+						上傳影片預覽圖: <input type="file" name="videoPic" accept=".jpg" /><br> 
+						上傳影片: <input	type="file" name="videoFile" accept=".mp4" /><br>
+						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="videoId" value="${portfolioEdit.videoId}"></c:if>
+						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="portfolioId" value="${portfolioEdit.portfolioId}"></c:if>
+						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="v_freeze" value="${portfolioEdit.v_freeze}"></c:if>
+						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="strVideoPic" value="${portfolioEdit.strVideoPic}"></c:if>
+						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="strVideoFile" value="${portfolioEdit.strVideoFile}"></c:if>
+						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="mId" value="${portfolioEdit.mId}"></c:if>
 					</div>
 					<div class="col-md-3" align="left">
 						<select class="form-select" aria-label="Default select example">
