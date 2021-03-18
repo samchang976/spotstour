@@ -29,7 +29,7 @@ public class QueryPersonalPortfolioDaoImpl implements QueryPersonalPortfolioDao{
 				+ " LEFT JOIN MEMBER m ON pf.mId = m.mId "
 				+ " LEFT JOIN city c ON pf.cityId = c.cityId "
 				+ " LEFT JOIN place_type pt ON pf.placeTypeId = pt.placeTypeId "
-				+ " WHERE m.mId = :imId ";
+				+ " WHERE m.mId = :imId AND v.v_freeze = 0";
 		//設定結果集:設定結果類型為List<Map<String, Object>>
 		Query q =  session.createNativeQuery(sql);
 		q.unwrap(NativeQueryImpl.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);

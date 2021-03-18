@@ -7,4 +7,5 @@ public interface PortfolioDao {
 	public void addPortfolio(PortfolioBean portfolioBean);
 	
 	public void updatePortfolio(PortfolioBean portfolioBean);
+	
 }

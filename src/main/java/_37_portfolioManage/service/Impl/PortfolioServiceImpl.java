@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import _00_util.Base64Utils;
 import _00_util.DateTimeUtils;
 import _00_util.StreamUtils;
 import _02_model.entity.CityBean;
@@ -23,10 +22,10 @@ import _37_portfolioManage.dao.VideoDao;
 import _37_portfolioManage.dao.CityDao;
 import _37_portfolioManage.dao.MemberDao;
 import _37_portfolioManage.dao.Place_TypeDao;
-import _37_portfolioManage.service.CreatePortfolioService;
+import _37_portfolioManage.service.PortfolioService;
 
 @Service
-public class CreatePortfolioServiceImpl implements CreatePortfolioService {
+public class PortfolioServiceImpl implements PortfolioService {
 
 	@Autowired
 	private PortfolioDao portfolioDao;
@@ -39,7 +38,6 @@ public class CreatePortfolioServiceImpl implements CreatePortfolioService {
 	@Autowired
 	private VideoDao videoDao;
 
-	
 	
 	@Transactional
 	@Override
@@ -66,6 +64,7 @@ public class CreatePortfolioServiceImpl implements CreatePortfolioService {
 		portfolioBean.setCityBeans(cb);
 		//新增作品
 		portfolioDao.addPortfolio(portfolioBean);
+		//===================================================================
 		//準備一個對應資料庫影片的Bean
 		VideoBean videoBean = new VideoBean();
 		//凍結預設0 (不凍結)
@@ -117,7 +116,7 @@ public class CreatePortfolioServiceImpl implements CreatePortfolioService {
 		portfolioBean.setCityBeans(cb);
 		//修改作品資訊
 		portfolioDao.updatePortfolio(portfolioBean);
-//		============================================
+		//===================================================================
 		//準備一個對應資料庫影片的Bean
 		VideoBean videoBean = new VideoBean();
 		//設定獲取到的編輯作品ID
@@ -150,10 +149,50 @@ public class CreatePortfolioServiceImpl implements CreatePortfolioService {
 		}else {
 			videoBean.setVideoFile(newVideoFile);
 		}		
-		//新增影片		
+		//修改影片		
 		videoDao.updateVideo(videoBean);
 	}
-	
-	
+
+	@Transactional
+	@Override
+	public void deletePortfolio(PortfolioBeanVo portfolioBeanVo) throws IOException {
+		//準備一個對應資料庫作品的Bean
+		PortfolioBean portfolioBean = new PortfolioBean();
+		portfolioBean.setPortfolioId(portfolioBeanVo.getPortfolioId());
+		portfolioBean.setPortfolioName(portfolioBeanVo.getPortfolioName());
+		portfolioBean.setP_createTime(DateTimeUtils.getTimestamps());
+		portfolioBean.setpAddress(portfolioBeanVo.getpAddress());
+		portfolioBean.setLatitude(portfolioBeanVo.getLatitude());
+		portfolioBean.setLongitude(portfolioBeanVo.getLongitude());
+		portfolioBean.setPortfolioText(portfolioBeanVo.getPortfolioText());
+		//關聯會員的row
+		Integer imId = portfolioBeanVo.getmId();
+		MemberBean mb = MemberDao.getMemberById(imId);
+		portfolioBean.setMemberBean(mb);
+		//關聯地點類型的row
+		Integer iptId = portfolioBeanVo.getPlaceTypeId();
+		Place_TypeBean pt = place_TypeDao.getPlace_TypeById(iptId);
+		portfolioBean.setPlace_TypeBean(pt);
+		//關聯城市的row
+		Integer icId = portfolioBeanVo.getCityId();
+		CityBean cb = cityDao.getCityById(icId);
+		portfolioBean.setCityBeans(cb);
+		//修改作品資訊
+		portfolioDao.updatePortfolio(portfolioBean);
+		//===================================================================
+		//準備一個對應資料庫影片的Bean
+		VideoBean videoBean = new VideoBean();
+		//設定獲取到的編輯作品ID
+		videoBean.setVideoId(portfolioBeanVo.getVideoId());
+		//凍結設定1 (表示凍結)
+		videoBean.setV_freeze(1);
+		//關聯作品的row
+		videoBean.setPortfolioBean(portfolioBean);
+		videoBean.setVideoPic(portfolioBeanVo.getStrVideoPic());
+		videoBean.setVideoFile(portfolioBeanVo.getStrVideoFile());
+		//修改影片
+		videoDao.updateVideo(videoBean);
+		
+	}
 	
 }

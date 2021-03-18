@@ -69,6 +69,12 @@ td div, .like-table div {
 	background: #069;
 }
 </style>
+
+<script type="text/javascript">
+	function submitBtnClick(){
+	document.fileForm.submit();
+	}
+</script>
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>個人作品</title>
 </head>
@@ -172,8 +178,8 @@ td div, .like-table div {
 								<tr>
 									<td>
 										<div>
-											<button class="Bt_blue" id="deleteM" value="/Id=${portfolioId}"
-												data-bs-toggle="modal"
+											 <button class="Bt_blue" id="deleteP" 
+												data-bs-toggle="modal" type="button" 
 												data-bs-target="#deletePortfolio${mpl.portfolioId}">刪除影片</button>
 										</div>
 									</td>
@@ -203,8 +209,25 @@ td div, .like-table div {
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
 											data-bs-dismiss="modal">取消</button>
-										<button type="button" class="btn btn-primary"
-											onclick="location.href='merchandiseModify/delete/Id=${mpl.portfolioId}'">確定刪除影片</button>
+										<form action="deletePortfolio" method="post" enctype="multipart/form-data" name="fileForm">
+											 <input type="hidden" name="portfolioId" value="${mpl.portfolioId}">
+											 <input type="hidden" name="portfolioName" value="${mpl.portfolioName}">
+											 <input type="hidden" name="portfolioText" value="${mpl.portfolioText}">
+											 <input type="hidden" name="pAddress" value="${mpl.pAddress}">
+											 <input type="hidden" name="longitude" value="${mpl.longitude}">
+											 <input type="hidden" name="latitude" value="${mpl.latitude}">
+											 <input type="hidden" name="cityId" value="${mpl.cityId}">
+											 <input type="hidden" name="cityName" value="${mpl.cityName}">
+											 <input type="hidden" name="placeTypeId" value="${mpl.placeTypeId}">
+											 <input type="hidden" name="placeType" value="${mpl.placeType}">
+											 <input type="hidden" name="mId" value="${mpl.mId}">
+											 <input type="hidden" name="strVideoFile" value="${mpl.videoFile}">
+											 <input type="hidden" name="strVideoPic" value="${mpl.videoPic}">
+											 <input type="hidden" name="videoId" value="${mpl.videoId}">
+											 <input type="hidden" name="v_freeze" value="${mpl.v_freeze}">	
+										     <button type="submit" class="btn btn-primary"
+											 >確定刪除影片</button>
+										</form>
 									</div>
 								</div>
 							</div>
@@ -216,7 +239,7 @@ td div, .like-table div {
 				</div>
 			</div>
 		</c:forEach>
-
+		
 
 		<hr>
 <!--定位-------------------------------------------------------------------------------------->

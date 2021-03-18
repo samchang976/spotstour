@@ -7,4 +7,5 @@ public interface VideoDao {
 	public void addVideo(VideoBean videoBean);
 
 	public void updateVideo(VideoBean videoBean);
+
 }
