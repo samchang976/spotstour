@@ -85,7 +85,7 @@ body {
 
 #imgBoard:hover {
 	left: 0px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 #imgBoard img {

@@ -223,7 +223,15 @@
 								class="form-check-label" for="flexCheckCheckedDisabled">
 								${theST}</label>
 						</div>
+						<br>
+						<div class="PayTitle">付款方式</div>
 
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckCheckedDisabled" checked disabled> <label
+								class="form-check-label" for="flexCheckCheckedDisabled">
+								${orderVoNew.paymentType}</label>
+						</div>
 
 					</form:form>
 
@@ -271,7 +279,7 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">訂單處理中</h5>
+							<h5 class="modal-title" id="exampleModalLabel">訂單處理中...</h5>
 
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
@@ -280,7 +288,8 @@
 							<div class="spinner-border text-primary" role="status">
 								<span class="visually-hidden">Loading...</span>
 							</div>
-							訂單處理中 請稍後...
+							訂單處理中... 請稍後...
+							(預計5天後到貨)
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"

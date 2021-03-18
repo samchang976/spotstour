@@ -90,8 +90,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		System.out.println("addcart-Service 開始==================");
 		// 判斷購物車某會員是否已經加入某商品至購物車
 		ShoppingCartBean shoppingCartBean = shoppingCartDao.hasCart(memberId, itemId);
+		
 		if (shoppingCartBean == null) {
-
 			shoppingCartBean = new ShoppingCartBean();
 			shoppingCartBean.setS_ordQty(qty);
 			shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(itemId));
@@ -168,16 +168,20 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		return sscList;
 	}
 
+	//存sessioncart=================================================================================
 	@Override
 	public void sessionCartSave(List<SessionShoppingCartVo> sscList, Integer mId) {
 		if (sscList != null) {
 			for (int i = 0; i < sscList.size(); i++) {
 				SessionShoppingCartVo vo = sscList.get(i);
-				ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
-				shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(vo.getItemId()));
-				shoppingCartBean.setS_ordQty(vo.getScQty());
-				shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId(mId));
-				shoppingCartService.addShoppingCart(shoppingCartBean);
+//未判斷購物車是否有重複東西的方法
+//				ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
+//				shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(vo.getItemId()));
+//				shoppingCartBean.setS_ordQty(vo.getScQty());
+//				shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId(mId));
+//				shoppingCartService.addShoppingCart(shoppingCartBean);
+//				
+				shoppingCartService.addToCart(mId, vo.getItemId(), vo.getScQty());
 			}
 
 		}

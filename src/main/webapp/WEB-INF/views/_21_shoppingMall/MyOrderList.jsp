@@ -59,14 +59,13 @@
 		<!-- 欄位敘述 -->
 		<div class="container" id="container_MyOrderList">
 
-
-			<div class="shadow p-3 mb-5 bg-body rounded">
+			<div class="shadow p-5 mb-5 bg-body rounded">
 				<c:forEach var='order' items='${orders}' varStatus="s">
 					<c:if test="${s.first==true}">
-						<div>
-							<h2>我的訂單</h2>
-						</div>
-						<div style="text-align: left;">
+						<h2>我的訂單</h2>
+			<div class="row py-3">
+			<!-- 訂單狀態選擇欄 --------------------------------------------------------------------------->
+						<div class="col" style="text-align: left;">
 							<form:form method='POST' modelAttribute='ordBean'>
 								<form:select path="ordStatBean.oSid" class="custom-select">
 									<form:option value="-1" label="請選擇訂單狀態" />
@@ -74,13 +73,14 @@
 								</form:select>
 							</form:form>
 						</div>
-
-						<div style="text-align: right;">
+			<!-- 現在時間 ----------------------------------------------------------------------------->
+						<div class="col" style="text-align: right;">
 							<c:set var="now" value="<%=new java.util.Date()%>" />
 							<span>現在時間 : <fmt:formatDate type="both" dateStyle="long"
 									timeStyle="long" value="${now}" /></span>
 						</div>
-
+			</div>			
+			<!-- 欄位名稱---------------------------------------------------------------------------- -->
 						<div class="row ">
 							<!-- 訂單編號 -->
 							<div class="col-1 FieldDescription ">
@@ -100,13 +100,11 @@
 							<div class="col-2 FieldDescription">訂單資訊</div>
 						</div>
 					</c:if>
-					<!-- 訂單項目 -->
-					<!-- 第一項 -->
-
+			<!-- 訂單項目------------------------------------------------------------------------------ -->
 					<div class="row Item">
 						<!-- 訂單編號 -->
 						<div class="col-1">
-							<div>FSWE1561${order.ord_Id}</div>
+							<div>FSWE1233${order.ord_Id}</div>
 						</div>
 						<!-- 訂購時間 -->
 						<div class="col-2">
@@ -130,8 +128,6 @@
 					</div>
 				</c:forEach>
 			</div>
-
-
 
 			<div class="row">
 				<div class="col">

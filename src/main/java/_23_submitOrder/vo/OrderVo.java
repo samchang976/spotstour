@@ -23,6 +23,9 @@ public class OrderVo {
  	private String receiptType;
  	private Integer shipTypeId;
 	private String shipType;
+	private Integer paymentTypeId;
+	private String paymentType;
+	
 	private int countryId;
 	private String countryName;
 	private Integer itemId;
@@ -38,6 +41,23 @@ public class OrderVo {
 	
 	
 	
+	public String getPaymentType() {
+		return paymentType;
+	}
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
+	}
+	public Integer getPaymentTypeId() {
+		return paymentTypeId;
+	}
+	public void setPaymentTypeId(Integer paymentTypeId) {
+		if(paymentTypeId == 1) {
+			this.paymentType = "貨到付款";
+		}else if(paymentTypeId == 2) {
+			this.paymentType = "超商取貨付款";
+		}
+		this.paymentTypeId = paymentTypeId;
+	}
 	public String getmGender() {
 		return mGender;
 	}

@@ -5,10 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +29,7 @@ import _21_merchandiseSearch.service.ItemService;
 import _22_shoppingCart.service.ShoppingCartService;
 import _23_submitOrder.mail.SendingOrderSuccessEmail;
 import _23_submitOrder.service.OrderService;
+import _23_submitOrder.validator.OrderValidator;
 import _23_submitOrder.vo.OrderVo;
 
 @Controller
@@ -84,17 +88,28 @@ public class OrderController {
 		return "_21_shoppingMall/SelectPayment";
 	}
 
+	// 提交訂單資訊
 	@RequestMapping("/submitOrderInfo")
-	public String getsubmitOrderInfo(@ModelAttribute OrderVo orderVo, Model model, HttpSession session) {
+	public String getsubmitOrderInfo(@Valid @ModelAttribute OrderVo orderVo, BindingResult result, Model model, HttpSession session) {
 		
 		Integer memberId = (Integer)session.getAttribute("mId");
-		
 		orderVo.setmId(memberId);
 		
 		model.addAttribute("orderVoNew", orderVo);
 		
 		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart(memberId);
 		model.addAttribute("cart", list);
+		
+		//設定表單資料檢查條件
+		OrderValidator validator= new OrderValidator();
+		validator.validate(orderVo, result);
+		if(result.hasErrors()) {
+			List<ObjectError> errorList =  result.getAllErrors();//把所有錯誤裝在list裡面
+			for(ObjectError error : errorList) {
+				System.out.println("====>有錯誤:" + error);
+			}
+			return "_21_shoppingMall/SelectPayment";
+		}
 		
 		
 

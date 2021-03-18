@@ -133,6 +133,10 @@ button { /*確定、送出的按鈕排版*/
 									<div class="image">
 										<img id="image1" />
 									</div>
+									
+									<div class="image">
+										<img id="image1" src="<c:url value='/activityDetail/${activityBean.activityId}'/>" />
+									</div>
 								</div>
 
 								<div class="form-group row  d-flex justify-content-end mt-5">

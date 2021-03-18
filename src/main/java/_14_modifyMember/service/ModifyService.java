@@ -9,6 +9,6 @@ public interface ModifyService {
 	void save(MemberBean mb);
 	void delete(Integer mId);
 	MemberBean get(Integer mId);
-	void update(MemberBean mb);
+	void update(MemberBean mb, Integer mId, Integer mPid);
 	List<MemberBean> getAll();
 }
