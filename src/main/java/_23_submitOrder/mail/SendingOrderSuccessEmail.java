@@ -67,14 +67,14 @@ public class SendingOrderSuccessEmail {
 			message.setSubject("訂購成功! SpotsTour 已經收到您的訂單!");
 			
 			Timestamp ts = ordBean.getS_createTime();
-			Date date = new Date();
+//			Date date = new Date();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			String shipTime = sdf.format(date);
-			try {
-				date = ts;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			String shipTime = sdf.format(ts);
+//			try {
+//				date = ts;
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
 			
 			// 設定信件內容
 //			message.setText("Click this link to confirm your email address and complete setup for your account."

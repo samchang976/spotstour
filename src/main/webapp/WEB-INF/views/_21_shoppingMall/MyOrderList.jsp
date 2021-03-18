@@ -106,7 +106,7 @@
 					<div class="row Item">
 						<!-- 訂單編號 -->
 						<div class="col-1">
-							<div>FSWE1561${order.ord_Id}</div>
+							<div>FSWE1233${order.ord_Id}</div>
 						</div>
 						<!-- 訂購時間 -->
 						<div class="col-2">
