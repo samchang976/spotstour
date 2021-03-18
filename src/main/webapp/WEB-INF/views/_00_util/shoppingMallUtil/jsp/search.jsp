@@ -28,7 +28,10 @@
 <style>
 #container_search {
 /* 	margin-bottom: 20px; */
-font-size: 40px;
+font-size: 25px;
+}
+#container_search ul li{
+list-style-type:none;
 }
 
 #want {
@@ -42,9 +45,9 @@ font-size: 40px;
 
 	<div class="container" id="container_search">
 		<div class="row">
-			<div class="col">
+			<div class="col-5">
 				<span id="want">想買什麼?</span>
-				<div style="display: inline-flex;  width:25%; ">
+				<div style="display: inline-flex;  width:60%; ">
 					<form class="input-group mb-3"action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get">
 						<input class="form-control" type="search" name="searchWord"
 							placeholder="Search" aria-label="Search">
@@ -63,10 +66,20 @@ font-size: 40px;
 
 				</div>
 			</div>
+			<div class="col-7" id="latestNews">
+				<ul>
+					<li>spots-tour全館85折!!</li>
+					<li>快來買喔喔喔喔~</li>
+					<li>很便宜~</li>
+				</ul>
+			</div>
 
 		</div>
 
 	</div>
+
+
+	<script src="<c:url value='/_00_util/shoppingMallUtil/javascript/marquee.js'></c:url>"></script>
 
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

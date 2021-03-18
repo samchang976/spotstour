@@ -67,6 +67,14 @@ public class ShoppingCartContent {
 		return "redirect:/shoppingCart";
 	}
 
+	//多選刪除
+//	@PostMapping("/shoppingCart/delete/Id={sc_Id}")
+//	public String deleteCartMore(@PathVariable("sc_Id") Integer[] sc_Id) {
+//		未完成
+//		return "redirect:/shoppingCart";
+//	}
+//	
+	
 	@GetMapping("/shoppingCart/delete/Id={sc_Id}")
 	public String memberdeleteCartItemInSideCart(@PathVariable("sc_Id") Integer sc_Id) {
 		System.out.println(sc_Id);

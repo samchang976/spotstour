@@ -44,7 +44,7 @@ public class SessionShoppingCartSaveController {
 			return "redirect:/login";
 		}
 		// 會員
-		if (member == 2) { // 1:管理員 2:會員
+		if (member == 2 || member == 1) { // 1:管理員 2:會員
 //			List<SessionShoppingCartVo> sscList = (List<SessionShoppingCartVo>) model
 //					.getAttribute("sessionShoppingCartList");
 //			if (sscList != null) {
