@@ -50,6 +50,15 @@ html, body {
 	font: inherit;
 	vertical-align: baseline;
 }
+	input[type="text"]{
+	 background:rgba(0,0,0,0.1);
+	 width:400px;
+	 position:relative;
+	 margin:auto;
+	}
+	.d-flex{
+	
+	}
 </style>
 </head>
 <body>
