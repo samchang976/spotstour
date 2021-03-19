@@ -55,6 +55,7 @@ ul.nav.nav-tabs {
 	font-size: 24px;
 	font-family: Tahoma;
 	color: #000;
+	text-decoration:none;
 }
 
 .nav-item {
@@ -73,8 +74,8 @@ ul.nav.nav-tabs {
 				class="fas fa-globe-americas fa-spin "></i>
 			</a>
 		</div>
-		<a href="<c:url value='/' />" target="_parent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Spots-tour 首頁">
-			<div id="SPOTTOUR">SPOTS-TOUR</div>
+		<a id="SPOTTOUR" href="<c:url value='/' />" target="_parent" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Spots-tour 首頁">
+			SPOTS-TOUR
 		</a>
 		<div id='option2'>
 			<!-- 內嵌網站把連結導向父層 -->
@@ -225,8 +226,68 @@ ul.nav.nav-tabs {
 		</div>
 	</div>
 
+<!-- jQuery----------------------------------------------------------------------------------->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<script>
+	$(document).ready(function(){
+         var p=0, //現在
+         	t=0;  
 
-	<!-- jQuery -->
+          $(window).scroll(function(){
+            p=$(this).scrollTop();
+             if(t<p){
+// 				 alert("下滾");
+				  $('.menuOuter').css({
+		        	display:'none',
+// 		            opacity:'0', //隱藏
+		            transition:'.2s'
+		            });
+				return;
+             }else{
+// 			  alert("上滾");
+			 $('.menuOuter').css({
+			//  opacity:'1', //隱藏
+				display:'block',
+					        })
+				return;
+            }
+                setTimeout(function(){ t = p ; },0);
+
+           })
+
+})
+
+
+
+	
+// 	$(function(){
+// 		$(window).scroll(function(){
+// 		    //卷軸在頂部時scroll會=0 ，故只要判斷是否為0即可，做出header一捲動就變化的效果
+// 		    let scroll = $(window).scrollTop();
+// //		        console.log(scroll);
+// 		    if(scroll >= 1){
+// 		        $('.menuOuter').css({
+// 		        	display:'none',
+// // 		            opacity:'0', //隱藏
+// 		            transition:'.2s'
+// 		            });
+
+// 		    }else{
+// 		        $('.menuOuter').css({
+// // 		            opacity:'1', //隱藏
+// 		            display:'block',
+// 		            // 元素的 position 屬性默認值為:static，即該元素出現在文檔的常規位置，不會重新定位。
+// 		            //通常此屬性值可以不設置，除非是要覆蓋之前的定義。
+// 		        })
+// 		    }
+// 		});
+// 	});
+	
+	</script>
+	
+	
+	<!-- boostrap jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
