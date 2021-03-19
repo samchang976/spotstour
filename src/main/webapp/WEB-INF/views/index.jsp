@@ -56,9 +56,9 @@ html, body {
 	 position:relative;
 	 margin:auto;
 	}
-	.d-flex{
-	
-	}
+	#video2 {
+	width: 1300px;
+}
 </style>
 </head>
 <body>
