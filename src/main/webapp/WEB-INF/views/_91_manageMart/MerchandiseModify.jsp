@@ -152,6 +152,7 @@ button { /*按鈕的樣式*/
 		<%-- 	<jsp:include page="<c:url value='${pageContext.request.contextPath}/WEB-INF/views/_00_util/allUtil/jsp/header.jsp'/>" /> --%>
 		<div class="container">
 			<div class="row">
+			<div class="animate__animated animate__rotateInDownLeft">
 				<div class="col">
 					<br> <br>
 					<button id="newM" class="btn btn-primary btn-lg"
@@ -387,6 +388,7 @@ button { /*按鈕的樣式*/
 								</div>
 							</div>
 						</div>
+					</div>
 					</div>
 
 					<!-- 					<nav id="navbar-example2" class="navbar navbar-light bg-light px-3"> -->
