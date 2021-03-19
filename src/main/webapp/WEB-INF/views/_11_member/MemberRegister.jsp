@@ -45,6 +45,7 @@
 <!-- --------------------------------------------------------------------------------------------------------->
 	
 <title>註冊會員</title>
+</head>
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Lora&family=Noto+Sans+TC:wght@300&display=swap')
