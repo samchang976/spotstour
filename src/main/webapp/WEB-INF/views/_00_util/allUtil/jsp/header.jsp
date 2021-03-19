@@ -242,14 +242,12 @@ ul.nav.nav-tabs {
 // 		            opacity:'0', //隱藏
 		            transition:'.2s'
 		            });
-				return;
              }else{
 // 			  alert("上滾");
 			 $('.menuOuter').css({
 			//  opacity:'1', //隱藏
 				display:'block',
 					        })
-				return;
             }
                 setTimeout(function(){ t = p ; },0);
 
