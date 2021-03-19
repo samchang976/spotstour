@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!doctype html>
 <html lang="en">
@@ -49,18 +49,63 @@
 <style>
 .imageFrame {
 	position: relative;
-	overflow: hidden;
+	/* 	overflow: hidden;  */
 }
 
 .imageFrame img {
 	transform: scale(1, 1);
-	transition: all 1s ease-out;
+	transition: all 0.5s ease-out;
 }
 
 .imageFrame img:hover {
-	transform: scale(1.5, 1.5);
+	transform: scale(1.6, 1.6);
+	/* box-shadow: 10px 10px 5px rgba(0,0,0,0.8); */
+	-webkit-box-shadow: 0 0 15px #f3d42e;
+	-moz-box-shadow: 0 0 15px #f3d42e;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+	top: -300px;
+
+	/*  	-webkit-box-shadow: 0 0 15px #f3d42e; */
+	/* 	-moz-box-shadow: 0 0 15px #f3d42e; */
+	/* 	box-shadow: 0 0 15px #f3d42e; */
 }
 
+.wei-grid-special1 {
+	position: relative;
+	left: 10%;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 200px;
+	/*     border: 1px solid black; */
+	margin: 0px 10px 0px 10px;
+	/*     overflow: hidden; */
+	transition: all .8s ease;
+	/*     z-index: 1; */
+}
+
+.wei-grid-special1:hover {
+	position: relative;
+	top: -70px;
+	left: 80px;
+}
+
+.wei-image6 {
+	transition: transform 0.5s ease-in;
+	width: 100%;
+	height: 100%;
+}
+
+.wei-grid-special1:hover .wei-image6, .wei-grid-special:focus .wei-image6
+	{
+	transform: scale(2);
+	-ms-transform: scale(2);
+	-webkit-transform: scale(2);
+	-webkit-box-shadow: 0 0 15px #f3d42e;
+	-moz-box-shadow: 0 0 15px #f3d42e;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+	/*  	z-index: auto; */
+}
 </style>
 </head>
 <body>
@@ -76,97 +121,100 @@
 				<h2>訂單詳細資訊</h2>
 			</div>
 			<div class="shadow p-3 mb-5 bg-body rounded">
-			<!-- 訂單編號區塊 ----------------------------------------------->
-			<c:forEach var='ord_detail' items='${ord_details}' varStatus="s">
-				<c:if test="${s.first==true}">
-					<!--訂單編號  -->
-					<div class="row">
-						<div class="col-12">
-							<!-- 訂單編號區塊 -->
-							<div class="OrderNumber">
-								<div style="text-align:right;">
-									<c:set var="now" value="<%=new java.util.Date()%>" />
-									<span>現在時間 : <fmt:formatDate type="both"  dateStyle="long" timeStyle="long" value="${now}" /></span>
+				<!-- 訂單編號區塊 ----------------------------------------------->
+				<c:forEach var='ord_detail' items='${ord_details}' varStatus="s">
+					<c:if test="${s.first==true}">
+						<!--訂單編號  -->
+						<div class="row">
+							<div class="col-12">
+								<!-- 訂單編號區塊 -->
+								<div class="OrderNumber">
+									<div style="text-align: right;">
+										<c:set var="now" value="<%=new java.util.Date()%>" />
+										<span>現在時間 : <fmt:formatDate type="both"
+												dateStyle="long" timeStyle="long" value="${now}" /></span>
+									</div>
+
+									<span>訂單編號 : </span> <span>FSWE1233${ord_detail.ord_dId}</span>
+									<br> <span>訂購時間 : </span>
+									<c:set var="orderTime"
+										value="${ord_detail.ordBean.o_createTime}" />
+									<fmt:formatDate type="date" value="${orderTime}" />
+									<%-- 									<span>${ord_detail.ordBean.o_createTime}</span> --%>
 								</div>
-							
-								<span>訂單編號 : </span>
-								<span>FSWE1233${ord_detail.ord_dId}</span> 
-								<br>
-								<span>訂購時間 : </span>
-									<c:set var="orderTime" value="${ord_detail.ordBean.o_createTime}" />
-									<fmt:formatDate type="date"  value="${orderTime}" />
-<%-- 									<span>${ord_detail.ordBean.o_createTime}</span> --%>
 							</div>
 						</div>
-					</div>
-					
 
-					<!-- 欄位敘述 -------------------------------------------------->
-					<div class="row">
-						<div class="col-5 FieldDescription">
-							<div>商品名稱</div>
-						</div>
-						<div class="col-1 FieldDescription">產地</div>
-						<div class="col-1 FieldDescription">數量</div>
-						<div class="col-1 FieldDescription">單價</div>
-						<div class="col-1 FieldDescription">小計</div>
-					</div>
-				</c:if>
-				<!-- 商品清單 ------------------------------------------------------------------->
-				<!-- 第一列 -->
-				<div class="row Item">
-					<!-- 商品照片 -->
-					<div class="col-2 ">
-					<div class="imageFrame">
-						<img src="/upload/${ord_detail.itemBean.itemPic1}">
-						<i class="fas fa-search"></i>
-					</div>
-					</div>
 
-					<div class="col-3 ">
-						<div>
-							${ord_detail.itemBean.itemHeader}
+						<!-- 欄位敘述 -------------------------------------------------->
+						<div class="row">
+							<div class="col-5 FieldDescription">
+								<div>商品名稱</div>
+							</div>
+							<div class="col-1 FieldDescription">產地</div>
+							<div class="col-1 FieldDescription">數量</div>
+							<div class="col-1 FieldDescription">單價</div>
+							<div class="col-1 FieldDescription">小計</div>
 						</div>
-					</div>
-					<!--產地  -->
-					<div class="col-1 ">
-						<div>
-							<div>${ord_detail.itemBean.countryBean.countryName}</div>
+					</c:if>
+					<!-- 商品清單 ------------------------------------------------------------------->
+					<!-- 第一列 -->
+					<div class="row Item">
+						<!-- 商品照片 -->
+						<div class="col-2 ">
+							<!-- 					<div class="imageFrame"> -->
+							<div class="wei-grid-special1">
+								<img class="wei-image6"
+									src="/upload/${ord_detail.itemBean.itemPic1}"> <i
+									class="fas fa-search"></i>
+							</div>
+<!-- 							</div> -->
 						</div>
-					</div>
-					<!--數量  -->
-					<div class="col-1 ">
-						<div>
-							<div>${ord_detail.ordQty}個</div>
-						</div>
-					</div>
-					<!-- 單價 -->
-					<div class="col-1 ">${ord_detail.itemBean.itemPrice}元</div>
-					<!-- 小計 -->
-					<div class="col-1 ">${ord_detail.ordQty * ord_detail.itemBean.itemPrice}元</div>
-				</div>
-				<!-- 總金額 -->
-				<div class="Total">
-					<div id="SubtotalBlock">
-						<c:set
-							value="${ord_detail.ordQty * ord_detail.itemBean.itemPrice}"
-							var="sum" />
-						<c:set value="${sums + sum}" var="sums" />
-						<c:if test="${s.last==true}">
-							<h5>共<span id="items"> <c:out value="${s.count}" />
-							</span>
-							商品，原價總金額 : <span id="subtotal1"><fmt:formatNumber maxFractionDigits="0" value="${sums}" type="currency"/></span>元
-            				<br><br>
-							<c:set var="formatSums" value="${sums * 0.8}" />
-							
-							使用八折優惠券，折扣後總金額 : <span id="subtotal2"><fmt:formatNumber maxFractionDigits="0" value="${formatSums}" type="currency"/></span>元
-							<br>
-						</h5>
-						</c:if>
 
+						<div class="col-3 ">
+							<div>${ord_detail.itemBean.itemHeader}</div>
+						</div>
+						<!--產地  -->
+						<div class="col-1 ">
+							<div>
+								<div>${ord_detail.itemBean.countryBean.countryName}</div>
+							</div>
+						</div>
+						<!--數量  -->
+						<div class="col-1 ">
+							<div>
+								<div>${ord_detail.ordQty}個</div>
+							</div>
+						</div>
+						<!-- 單價 -->
+						<div class="col-1 ">${ord_detail.itemBean.itemPrice}元</div>
+						<!-- 小計 -->
+						<div class="col-1 ">${ord_detail.ordQty * ord_detail.itemBean.itemPrice}元</div>
 					</div>
-				</div>
-			</c:forEach>
+					<!-- 總金額 -->
+					<div class="Total">
+						<div id="SubtotalBlock">
+							<c:set
+								value="${ord_detail.ordQty * ord_detail.itemBean.itemPrice}"
+								var="sum" />
+							<c:set value="${sums + sum}" var="sums" />
+							<c:if test="${s.last==true}">
+								<h5>
+									共<span id="items"> <c:out value="${s.count}" />
+									</span> 商品，原價總金額 : <span id="subtotal1"><fmt:formatNumber
+											maxFractionDigits="0" value="${sums}" type="currency" /></span>元 <br>
+									<br>
+									<c:set var="formatSums" value="${sums * 0.8}" />
+
+									使用八折優惠券，折扣後總金額 : <span id="subtotal2"><fmt:formatNumber
+											maxFractionDigits="0" value="${formatSums}" type="currency" /></span>元
+									<br>
+								</h5>
+							</c:if>
+
+						</div>
+					</div>
+				</c:forEach>
 			</div>
 			<div class="row">
 				<!-- 返回訂單畫面 -->

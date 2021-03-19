@@ -21,12 +21,17 @@ public interface OrderDao {
 	//陳列個人全部訂單
 	public List<OrdBean> getAllOrdersByMemberId(int mId);
 	
+	
+	public List<OrdBean> getAllOrdersByMemberIdAndOrderStatId(int mId, Integer oSid);
+	
+	
+	public List<OrdBean> getAllOrdersByOrderStatId(Integer oSid);
+	
 	//陳列狀態全部訂單
 	public List<OrdBean> getAllOrdersByShipTypeId(int shipTypeId);
 	
 	
 	public void addOrderBean(OrdBean ordBean);
-	
 	
 	
 	public MemberBean getMemberById(int mId); 

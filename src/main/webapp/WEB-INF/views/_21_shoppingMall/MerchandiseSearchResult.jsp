@@ -21,7 +21,10 @@
 <!-- icon cdn----------------------------------------------------------------------------------------------- -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+<!-- animation --------------------------------------------------------------------------------------------- -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <%-- jQuery============================================================================ --%>
 <script type='text/javascript'
 	src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
@@ -119,12 +122,12 @@ body {
 	overflow: hidden;
 }
 
-.imageFrame .img,.imageFrameSide .img{
+.imageFrame .img, .imageFrameSide .img {
 	transform: scale(1, 1);
 	transition: all 0.5s ease-out;
 }
 
-.imageFrame .img:hover,.imageFrameSide .img:hover {
+.imageFrame .img:hover, .imageFrameSide .img:hover {
 	transform: scale(1.5, 1.5);
 }
 
@@ -175,8 +178,8 @@ body {
 								<i class="fas fa-minus-circle"
 									onclick="location.href='shoppingCart/delete/Id=${membercartlist.sc_Id}'"></i>
 								<div class="imageFrameSide">
-									<img class="img" src="/upload/${membercartlist.itemBean.itemPic1}"
-										alt="商品照片"></img>
+									<img class="img"
+										src="/upload/${membercartlist.itemBean.itemPic1}" alt="商品照片"></img>
 								</div>
 								<%-- 						<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
 								<!--<img src="#" alt="商品照片"></img> -->
@@ -193,11 +196,11 @@ body {
 							items="${sessionShoppingCartList}">
 							<form name="sideform${sessioncartList.itemId}">
 								<i class="fas fa-minus-circle"
-									onclick="deleteItem(${sessioncartList.itemId})"></i> 
-									<div class="imageFrameSide">
-									<img class="img"
-									src="/upload/${sessioncartList.itemPic1}" alt="商品照片"></img>
-									</div>
+									onclick="deleteItem(${sessioncartList.itemId})"></i>
+								<div class="imageFrameSide">
+									<img class="img" src="/upload/${sessioncartList.itemPic1}"
+										alt="商品照片"></img>
+								</div>
 								<%-- 						<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
 								<!--<img src="#" alt="商品照片"></img> -->
 								<div>${sessioncartList.itemHeader}</div>
@@ -220,127 +223,137 @@ body {
 
 				<c:forEach var='item' items='${items}'>
 					<div class="col">
-						<div class="card">
-							<div class="itemImageBorder">
+						<div data-aos="zoom-out-down">
+							
+							<div class="card">
+								<div class="itemImageBorder">
 
-								<%-- 							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>"> <img --%>
-								<!-- 								src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
-								<!-- 								class="w-100"> -->
-								<!-- 							</a> -->
+									<%-- 							<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>"> <img --%>
+									<!-- 								src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+									<!-- 								class="w-100"> -->
+									<!-- 							</a> -->
 
-								<!-- 							圖片輪播 -->
+									<!-- 							圖片輪播 -->
 
 
 
-								<div id="carouselExampleControls${item.itemId}"
-									class="carousel slide" data-bs-ride="carousel">
-									<div class="carousel-inner">
-										<div class="carousel-item active">
-										<div class="imageFrame">
-											<img class="img" src="/upload/${item.itemPic1}" class="d-block w-100"
-												alt="...">
+									<div id="carouselExampleControls${item.itemId}"
+										class="carousel slide" data-bs-ride="carousel">
+										<div class="carousel-inner">
+											<div class="carousel-item active">
+												<div class="imageFrame">
+													<img class="img" src="/upload/${item.itemPic1}"
+														class="d-block w-100" alt="...">
+												</div>
+											</div>
+											<div class="carousel-item">
+												<div class="imageFrame">
+													<img class="img" src="/upload/${item.itemPic2}"
+														class="d-block w-100" alt="...">
+												</div>
+											</div>
+											<div class="carousel-item">
+												<div class="imageFrame">
+													<img class="img" src="/upload/${item.itemPic3}"
+														class="d-block w-100" alt="...">
+												</div>
+											</div>
 										</div>
-										</div>
-										<div class="carousel-item">
-										<div class="imageFrame">
-											<img class="img" src="/upload/${item.itemPic2}" class="d-block w-100"
-												alt="...">
-										</div>
-										</div>
-										<div class="carousel-item">
-										<div class="imageFrame">
-											<img class="img" src="/upload/${item.itemPic3}" class="d-block w-100"
-												alt="...">
-										</div>
-										</div>
+										<button class="carousel-control-prev" type="button"
+											data-bs-target="#carouselExampleControls${item.itemId}"
+											data-bs-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Previous</span>
+										</button>
+										<button class="carousel-control-next" type="button"
+											data-bs-target="#carouselExampleControls${item.itemId}"
+											data-bs-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="visually-hidden">Next</span>
+										</button>
 									</div>
-									<button class="carousel-control-prev" type="button"
-										data-bs-target="#carouselExampleControls${item.itemId}"
-										data-bs-slide="prev">
-										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-										<span class="visually-hidden">Previous</span>
-									</button>
-									<button class="carousel-control-next" type="button"
-										data-bs-target="#carouselExampleControls${item.itemId}"
-										data-bs-slide="next">
-										<span class="carousel-control-next-icon" aria-hidden="true"></span>
-										<span class="visually-hidden">Next</span>
-									</button>
+
+
 								</div>
 
+								<div class="itemName ">
+									<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>">
+										<img class="w-100"> ${item.itemHeader}
+									</a>
+								</div>
+								<div class="itemPrice">價格 : ${item.itemPrice}元</div>
+								<div class="countryName">產地
+									:${item.countryBean.countryName}</div>
+								<div class="itemType">商品類別 :
+									${item.item_typeBean.itemType}</div>
+								<!-- 						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input -->
+								<%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
+								<!-- 						</i> -->
+								<!-- 加入購物車================================================================================================= -->
+								<!-- 							@@@判斷會員/管理員才顯示加入購物車按鈕 -->
+								<%-- 							<c:if test="${mPid==2||mPid==1}"> --%>
+								<%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
+								<%-- 								<c:if test="${hasItem==0}"> --%>
+								<!-- 									<button type="button" onclick="this.form.submit()"  data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
+								<!-- 									<i class="fas fa-cart-arrow-down addButton"></i> -->
+								<!-- 									</button> -->
+								<%-- 							</form> --%>
+								<%-- 								</c:if> --%>
 
-							</div>
+								<!-- ---------------------------------------------------------------------------------------------------------------- -->
+								<c:choose>
+									<c:when test="${mPid==2||mPid==1}">
+										<div class="animate__animated animate__bounce">
 
-							<div class="itemName ">
-								<a href="<c:url value="/merchandiseDetail/Id=${item.itemId}"/>">
-									<img class="w-100"> ${item.itemHeader}
-								</a>
-							</div>
-							<div class="itemPrice">價格 : ${item.itemPrice}元</div>
-							<div class="countryName">產地
-								:${item.countryBean.countryName}</div>
-							<div class="itemType">商品類別 : ${item.item_typeBean.itemType}</div>
-							<!-- 						<i class="fas fa-cart-arrow-down addButton" id="A1001"> <input -->
-							<%-- 							type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
-							<!-- 						</i> -->
-							<!-- 加入購物車================================================================================================= -->
-							<!-- 							@@@判斷會員/管理員才顯示加入購物車按鈕 -->
-							<%-- 							<c:if test="${mPid==2||mPid==1}"> --%>
-							<%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
-							<%-- 								<c:if test="${hasItem==0}"> --%>
-							<!-- 									<button type="button" onclick="this.form.submit()"  data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
-							<!-- 									<i class="fas fa-cart-arrow-down addButton"></i> -->
-							<!-- 									</button> -->
-							<%-- 							</form> --%>
-							<%-- 								</c:if> --%>
 
-							<!-- ---------------------------------------------------------------------------------------------------------------- -->
-							<c:choose>
-								<c:when test="${mPid==2||mPid==1}">
-									<form
-										action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}"
-										method="post">
-										<button type="button" onclick="this.form.submit()"
-											class="btn addcart">
-											<i class="fas fa-cart-arrow-down addButton"></i> 加入購物車
-										</button>
-									</form>
-								</c:when>
+											<form
+												action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}"
+												method="post">
+												<button type="button" onclick="this.form.submit()"
+													class="btn addcart">
+													<i class="fas fa-cart-arrow-down addButton"></i> 加入購物車
+												</button>
+											</form>
+										</div>
+									</c:when>
 
-								<c:otherwise>
-									<form name="form${item.itemId}">
-										<input type="hidden" name="itemQty">
-										<button type="button"
-											onclick="
+									<c:otherwise>
+										<div class="animate__animated animate__bounce">
+											<form name="form${item.itemId}">
+												<input type="hidden" name="itemQty">
+												<button type="button"
+													onclick="
 									chackcartitem(${item.itemId})"
-											class="btn addcart">
-											加入購物車
-											<!-- 										<i class="fas fa-cart-arrow-down addButton"></i> -->
-										</button>
-									</form>
-								</c:otherwise>
-							</c:choose>
-							<!--================================================================================= -->
-							<%-- 						onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
-							<%-- 						onchange="this.form.submit()" --%>
-							<!-- 						顯示:綁識別字串 -->
-							<!-- 						數量修改靠js -->
+													class="btn addcart">
+													加入購物車
+													<!-- 										<i class="fas fa-cart-arrow-down addButton"></i> -->
+												</button>
+											</form>
+										</div>
+									</c:otherwise>
+								</c:choose>
+								<!--================================================================================= -->
+								<%-- 						onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
+								<%-- 						onchange="this.form.submit()" --%>
+								<!-- 						顯示:綁識別字串 -->
+								<!-- 						數量修改靠js -->
 
 
-							<%-- 						</c:if> --%>
-							<%-- <input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
-							<!-- ========================================================================================================-->
+								<%-- 						</c:if> --%>
+								<%-- <input type="hidden" value="${item.itemHeader}|照片名稱|${item.itemPrice}"> --%>
+								<!-- ========================================================================================================-->
 
-							<!-- <div class="card" style="width: 18rem;"> -->
-							<!--         <img src="..." class="card-img-top" alt="..."> -->
-							<!--         <div class="card-body"> -->
-							<!--           <h5 class="card-title">Card title</h5> -->
-							<!--           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-							<!--           <a href="#" class="btn btn-primary">Go somewhere</a> -->
-							<!--         </div> -->
-							<!--       </div> -->
-							<!-- ======================================================================================================= -->
+								<!-- <div class="card" style="width: 18rem;"> -->
+								<!--         <img src="..." class="card-img-top" alt="..."> -->
+								<!--         <div class="card-body"> -->
+								<!--           <h5 class="card-title">Card title</h5> -->
+								<!--           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+								<!--           <a href="#" class="btn btn-primary">Go somewhere</a> -->
+								<!--         </div> -->
+								<!--       </div> -->
+								<!-- ======================================================================================================= -->
 
+							</div>
 						</div>
 					</div>
 
@@ -501,6 +514,9 @@ body {
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 		crossorigin="anonymous">
 	</script>
-
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+  AOS.init();
+</script>
 </body>
 </html>

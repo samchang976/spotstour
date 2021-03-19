@@ -22,6 +22,12 @@
 <!-- icon cdn----------------------------------------------------------------------------------------------- -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<!-- animation --------------------------------------------------------------------------------------------- -->
+ <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
@@ -324,7 +330,8 @@ button { /*按鈕的樣式*/
 															<br> 
 <%-- 															<c:if test="${ sum == 1}"> --%>
 															<img id="photo3" name="photo3"
-																src="/upload/${itemBean.itemPic3}" class="w-100">
+<%-- 																src="/upload/${itemBean.itemPic3}"  --%>
+																class="w-100">
 <%-- 															</c:if> --%>
 															<br>
 															<%-- 														<form:input path="itemImage3" type='file' accept=".jpg" /> --%>
@@ -416,7 +423,10 @@ button { /*按鈕的樣式*/
 
 								<c:forEach var='item' items='${items}'>
 									<div class="container-fluid">
+									
+									
 										<div id="${item.itemId}" style="height: 40px"></div>
+										<div data-aos="zoom-out-down">
 										<!-- 			增加陰影效果 -->
 										<div class="shadow p-3 bg-body rounded">
 											<div id="searchSquare">
@@ -427,7 +437,7 @@ button { /*按鈕的樣式*/
 													<!-- 						</div> -->
 
 													<div style="text-align: right;">
-														<div>商品編號 : ${item.itemId}</div>
+														<div>商品編號 : <b>${item.itemId}</b></div>
 													</div>
 													<div style="text-align: left; font-size: 20px;">商品名稱 : ${item.itemHeader}</div>
 													
@@ -546,6 +556,7 @@ button { /*按鈕的樣式*/
 											</div>
 										</div>
 									</div>
+									</div>
 
 								</c:forEach>
 							</div>
@@ -645,6 +656,9 @@ button { /*按鈕的樣式*/
 			fr3.readAsDataURL(file3);
 		}
 	</script>
-
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+  AOS.init();
+</script>
 </body>
 </html>

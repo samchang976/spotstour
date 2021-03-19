@@ -68,10 +68,25 @@ public class OrderServiceImpl implements OrderService{
 		return orderDao.getAllOrders();
 	}
 
+	//依會員查詢所有訂單
 	@Transactional
 	@Override
 	public List<OrdBean> getAllOrdersByMemberId(int mId) {
 		return orderDao.getAllOrdersByMemberId(mId);
+	}
+	
+	//依會員和訂單狀態查詢訂單
+	@Transactional
+	@Override
+	public List<OrdBean> getAllOrdersByMemberIdAndOrderStatId(int mId, Integer oSid) {
+		return orderDao.getAllOrdersByMemberIdAndOrderStatId(mId, oSid);
+	}
+	
+	//依訂單狀態查詢訂單
+	@Transactional
+	@Override
+	public List<OrdBean> getAllOrdersByOrderStatId(Integer oSid) {
+		return orderDao.getAllOrdersByOrderStatId(oSid);
 	}
 
 	@Transactional
