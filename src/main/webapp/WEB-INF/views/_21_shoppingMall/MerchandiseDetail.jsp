@@ -22,6 +22,10 @@
 <!-- icon cdn----------------------------------------------------------------------------------------------- -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<!-- animation --------------------------------------------------------------------------------------------- -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
@@ -82,11 +86,9 @@
 /* 	height: 600px; */
 /* 	overflow: hidden; */
 /* } */
-#container_MerchandiseDetail{
-	max-width:1000px; 
+#container_MerchandiseDetail {
+	max-width: 1000px;
 }
-
-
 </style>
 
 </head>
@@ -104,23 +106,27 @@
 
 		<div class="container" id="container_MerchandiseDetail">
 			<!-- 上方 ------------------------------------------------------------------------------------>
-			
+
 			<c:choose>
 				<c:when test="${mPid ==1 || mPid == 2}">
-					<c:set var="url"><c:url value='/shoppingCart/addQty/${itemBean.itemId}'></c:url></c:set>
+					<c:set var="url">
+						<c:url value='/shoppingCart/addQty/${itemBean.itemId}'></c:url>
+					</c:set>
 				</c:when>
-				<c:otherwise>  
-					<c:set var="url"><c:url value='/shoppingCart/visitor/add'></c:url></c:set>
+				<c:otherwise>
+					<c:set var="url">
+						<c:url value='/shoppingCart/visitor/add'></c:url>
+					</c:set>
 				</c:otherwise>
 			</c:choose>
-			
+
 			<form:form method='POST' modelAttribute='itemBean' action="${url}">
-<%-- 		action="${pageContext.request.contextPath}/shoppingCart/addQty/${itemBean.itemId}" --%>
-<!-- 				訪客加入購物車用 -->
+				<%-- 		action="${pageContext.request.contextPath}/shoppingCart/addQty/${itemBean.itemId}" --%>
+				<!-- 				訪客加入購物車用 -->
 				<c:if test="${empty mPid}">
-					<input type="hidden" value="${itemBean.itemId}" name="itemId"> 
+					<input type="hidden" value="${itemBean.itemId}" name="itemId">
 				</c:if>
-				
+
 				<!-- 			增加陰影效果 -->
 				<div class="shadow p-3 mb-5 bg-body rounded">
 					<div class="row above">
@@ -134,8 +140,7 @@
 								<h2>${itemBean.itemHeader}</h2>
 								商品描述 : ${itemBean.itemDes}<br> <br> 商品售價
 								:${itemBean.itemPrice}元<br> 庫存數量 : ${itemBean.itemQty}<br>
-								代購國家 : ${itemBean.countryBean.countryName}<br> 請選擇數量 : 
-								<select
+								代購國家 : ${itemBean.countryBean.countryName}<br> 請選擇數量 : <select
 									name="itemQty" class="form-select"
 									aria-label="Default select example">
 									<!-- 							<option  selected="selected" value="-1">請選擇數量</option> -->
@@ -149,15 +154,12 @@
 									<option value="8">8</option>
 									<option value="9">9</option>
 									<option value="10">10</option>
-								</select> 
-								<br> 
-								<br>
+								</select> <br> <br>
 
 								<%-- 						<c:if test="${mPid==2||mPid==1}"> --%>
 								<%-- 							<form action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}" method="post"> --%>
 								<button type="submit" id="like" class="btn btn-primary btn-lg">
-									加入購物車
-								</button>
+									加入購物車</button>
 								<%-- 								onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})"/> --%>
 								<%-- 								onchange="this.form.submit()" --%>
 								<!-- 						顯示:綁識別字串 -->
@@ -190,7 +192,7 @@
 					</div>
 				</div>
 			</form:form>
-			
+
 			<!-- 下方 ----------------------------------------------------------------------------------->
 			<%-- 購買資訊分頁的按鈕-------------------------------------------------------------------  --%>
 			<div style="height: 50px"></div>
@@ -288,7 +290,7 @@
 			<br>
 			<div id="fb" style="height: 30px"></div>
 			<div class="shadow p-3 mb-5 bg-body rounded">
-				<h3>${itemBean.itemHeader}商品留言 : </h3>
+				<h3>${itemBean.itemHeader}商品留言:</h3>
 
 				<div style="text-align: right;">
 					<c:set var="now" value="<%=new java.util.Date()%>" />
@@ -296,17 +298,19 @@
 							timeStyle="long" value="${now}" /></span>
 				</div>
 				<br>
-				<div class="overflow-auto"
-					style="height: 500px; line-height: 2.5;">
+				<div class="overflow-auto" style="height: 500px; line-height: 2.5;">
 					<c:forEach var='feedback' items='${feedbacks}'>
 						<div class="container-fluid">
 							<div class="row R_SpCre">
 								<div class="col col-2-1 C_SpCre">
-									<div class="shadow-sm p-3 mb-5 bg-body rounded">
-										<c:set var="fbCreateTime" value="${feedback.f_createTime}" />
-										<fmt:formatDate type="both" dateStyle="long"
-											timeStyle="medium" value="${fbCreateTime}" />
-										<br> 商品留言 : ${feedback.feedbackText}<br>
+									<div data-aos="fade-up"
+										data-aos-anchor-placement="bottom-bottom">
+										<div class="shadow-sm p-3 mb-5 bg-body rounded">
+											<c:set var="fbCreateTime" value="${feedback.f_createTime}" />
+											<fmt:formatDate type="both" dateStyle="long"
+												timeStyle="medium" value="${fbCreateTime}" />
+											<br> 商品留言 : ${feedback.feedbackText}<br>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -326,7 +330,7 @@
 
 
 				<c:if test="${ mPid == 2 || mPid == 1 }">
-					<h3>${itemBean.itemHeader} 新增商品留言 :</h3>
+					<h3>${itemBean.itemHeader}新增商品留言 :</h3>
 					<form:form method='POST' modelAttribute='feedbackBean'>
 						<div class="form-group row">
 							<label for="feedbackText" class="col-sm-2 col-form-label"></label>
@@ -345,8 +349,7 @@
 					</form:form>
 				</c:if>
 			</div>
-			<br>
-			<br>
+			<br> <br>
 			<div class="col-12" id="SubmitBlock">
 				<div style="text-align: center;">
 					<button class="btn btn-primary btn-lg"
@@ -367,5 +370,9 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 		crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
 </body>
 </html>

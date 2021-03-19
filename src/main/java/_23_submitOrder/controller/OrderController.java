@@ -46,15 +46,23 @@ public class OrderController {
 	ShoppingCartService shoppingCartService;
 
 	// 陳列所有訂單
-	@RequestMapping("/myOrderList")
-	public String myOrderList(Model model, HttpSession session) {
+	@RequestMapping({"/myOrderList","/myOrderList/{oSid}"})
+	public String myOrderList(@PathVariable(value ="oSid", required = false) Integer oSid, Model model, HttpSession session) {
 		Integer mId = (Integer) session.getAttribute("mId");
 		Integer mPid = (Integer) session.getAttribute("mPid");
 		List<OrdBean> list = null;
 		if(mPid == 1) {
-			list = orderService.getAllOrders();
-		}else {
-			list = orderService.getAllOrdersByMemberId(mId);
+			if(oSid == null) {
+				list = orderService.getAllOrders();
+			}else {
+				list = orderService.getAllOrdersByOrderStatId(oSid);
+			}
+		}else if(mPid == 2){
+			if(oSid == null) {
+				list = orderService.getAllOrdersByMemberId(mId);
+			}else {
+				list = orderService.getAllOrdersByMemberIdAndOrderStatId(mId, oSid);
+			}
 		}
 		model.addAttribute("orders", list);
 		return "_21_shoppingMall/MyOrderList";
