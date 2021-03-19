@@ -22,11 +22,9 @@
 <!-- icon cdn----------------------------------------------------------------------------------------------- -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<!-- animation --------------------------------------------------------------------------------------------- -->
- <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+<!-- animation --------------------------------------------------------------------------------------------- -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- css連結------------------------------------------------------------------------------------------------ -->
@@ -125,6 +123,7 @@ button { /*按鈕的樣式*/
 	/* 	padding: 10px; */
 	
 }
+
 .imageFrame {
 	position: relative;
 	overflow: hidden;
@@ -195,7 +194,8 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="itemHeader" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品名稱 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+															style="text-align: right;">商品名稱 :
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<div class="col-sm-10">
 															<form:input type="text" path="itemHeader"
 																class="form-control" id="itemHeader" maxlength="20"
@@ -208,7 +208,8 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="itemPrice" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品價錢 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+															style="text-align: right;">商品價錢 :
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<div class="col-sm-10">
 															<div class="input-group">
 																<span class="input-group-text">$</span>
@@ -222,7 +223,8 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="itemQty" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品數量 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+															style="text-align: right;">商品數量 :
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<div class="col-sm-10">
 															<form:input type="number" path="itemQty" min="0"
 																class="form-control" id="itemQty" />
@@ -233,7 +235,8 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="itemDes" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品描述 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+															style="text-align: right;">商品描述 :
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<div class="col-sm-10">
 															<form:textarea type="text" path="itemDes" min="0"
 																style="padding-bottom: 40px;" class="form-control"
@@ -245,7 +248,8 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="itTId" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品類型 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+															style="text-align: right;">商品類型 :
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<div class="mb-3 col-10">
 															<c:if test="${itemId==null}">
 																<form:select path="itTId" class="form-select"
@@ -268,7 +272,8 @@ button { /*按鈕的樣式*/
 												<div class="form-group row">
 													<div class="input-group mb-3">
 														<label for="countryTId" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品產地 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+															style="text-align: right;">商品產地 :
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 														<c:if test="${itemId==null}">
 															<div class="mb-3 col-10">
 																<form:select path="countryTId" class="form-select"
@@ -291,19 +296,19 @@ button { /*按鈕的樣式*/
 												</div>
 
 												<c:if test="${itemId==null}">
-												
+
 													<div id="addItem">
-													<div class="col-1"></div>
+														<div class="col-1"></div>
 														<div class="col-1">
-														<label style="text-align: right;" >商品照片 :</label>
+															<label style="text-align: right;">商品照片 :</label>
 														</div>
-														
+
 														<div class="col-3">
 															<!-- 														商品第一張照片 :<br> <img id="photo1" name="photo1" -->
 															<%-- 															src="/upload/${itemBean.itemPic1}" class="w-100"> <br> --%>
-<%-- 																<c:set --%>
-<%-- 							value="0" --%>
-<%-- 							var="sum" /> --%>
+															<%-- 																<c:set --%>
+															<%-- 							value="0" --%>
+															<%-- 							var="sum" /> --%>
 															<form:input path="itemImage1" type='file' accept=".jpg"
 																class="form-control" />
 															<br>
@@ -323,16 +328,16 @@ button { /*按鈕的樣式*/
 															<%-- 														<form:input path="itemImage2" type='file' accept=".jpg" /> --%>
 														</div>
 														<div class="col-1">
-														<label style="text-align: right;" >瀏覽照片 :</label>
+															<label style="text-align: right;">瀏覽照片 :</label>
 														</div>
 
 														<div class="col-3">
-															<br> 
-<%-- 															<c:if test="${ sum == 1}"> --%>
+															<br>
+															<%-- 															<c:if test="${ sum == 1}"> --%>
 															<img id="photo3" name="photo3"
-<%-- 																src="/upload/${itemBean.itemPic3}"  --%>
+																<%-- 																src="/upload/${itemBean.itemPic3}"  --%>
 																class="w-100">
-<%-- 															</c:if> --%>
+															<%-- 															</c:if> --%>
 															<br>
 															<%-- 														<form:input path="itemImage3" type='file' accept=".jpg" /> --%>
 														</div>
@@ -344,8 +349,8 @@ button { /*按鈕的樣式*/
 														<!-- 					</div> -->
 													</div>
 												</c:if>
-												
-												
+
+
 
 
 												<div class="form-group row  d-flex justify-content-end mt-5">
@@ -384,15 +389,15 @@ button { /*按鈕的樣式*/
 						</div>
 					</div>
 
-<!-- 					<nav id="navbar-example2" class="navbar navbar-light bg-light px-3"> -->
-<!-- 						<a class="navbar-brand" href="#"></a> -->
-<!-- 						<ul class="nav nav-pills"> -->
-<!-- 							<li class="nav-item"><label for="testInput"> <input -->
-<!-- 									type="text" placeholder="請輸入商品編號" id="testInput" style="height:34px; width:122px;"/> -->
-<!-- 									<button class="submitBtn btn btn-secondary">查詢商品</button> -->
-<!-- 							</label></li> -->
-<!-- 						</ul> -->
-<!-- 					</nav> -->
+					<!-- 					<nav id="navbar-example2" class="navbar navbar-light bg-light px-3"> -->
+					<!-- 						<a class="navbar-brand" href="#"></a> -->
+					<!-- 						<ul class="nav nav-pills"> -->
+					<!-- 							<li class="nav-item"><label for="testInput"> <input -->
+					<!-- 									type="text" placeholder="請輸入商品編號" id="testInput" style="height:34px; width:122px;"/> -->
+					<!-- 									<button class="submitBtn btn btn-secondary">查詢商品</button> -->
+					<!-- 							</label></li> -->
+					<!-- 						</ul> -->
+					<!-- 					</nav> -->
 
 
 
@@ -423,141 +428,142 @@ button { /*按鈕的樣式*/
 
 								<c:forEach var='item' items='${items}'>
 									<div class="container-fluid">
-									
-									
+
 										<div id="${item.itemId}" style="height: 40px"></div>
 										<div data-aos="zoom-out-down">
-										<!-- 			增加陰影效果 -->
-										<div class="shadow p-3 bg-body rounded">
-											<div id="searchSquare">
-												<div class="row R_SpCre">
-													<!-- 						<div class="col-1"> -->
-													<!-- 							<input class="form-check-input" type="checkbox" -->
-													<!-- 								id="checkboxNoLabel" value="" aria-label="..."> -->
-													<!-- 						</div> -->
+											<!-- 			增加陰影效果 -->
+											<div class="shadow p-3 bg-body rounded">
+												<div id="searchSquare">
+													<div class="row R_SpCre">
+														<!-- 						<div class="col-1"> -->
+														<!-- 							<input class="form-check-input" type="checkbox" -->
+														<!-- 								id="checkboxNoLabel" value="" aria-label="..."> -->
+														<!-- 						</div> -->
 
-													<div style="text-align: right;">
-														<div>商品編號 : <b>${item.itemId}</b></div>
-													</div>
-													<div style="text-align: left; font-size: 20px;">商品名稱 : ${item.itemHeader}</div>
-													
-													<div class="col-2">
-														<br>
-														<div class="imageFrame">
-															<img id="pic1" name="pic1"
-																src="/upload/${item.itemPic1}"
-																class="w-100">
-
-														</div>
-													</div>
-
-													<div class="col-2">
-
-														<br>
-														<div class="imageFrame">
-															<img id="pic2" name="pic2"
-																src="/upload/${item.itemPic2}"
-																class="w-100">
-														</div>
-													</div>
-
-													<div class="col-2">
-
-														<br>
-														<div class="imageFrame">
-															<img id="pic3" name="pic3"
-																src="/upload/${item.itemPic3}"
-																class="w-100">
-														</div>
-													</div>
-
-													<div class="col-1">
 														<div style="text-align: right;">
-															<br>
-															<div>商品類別 :</div>
-															<br>
-															<div>商品國家 :</div>
-															<br>
-															<div>商品定價 :</div>
-															<br>
-															<div>商品剩餘 :</div>
-
-														</div>
-													</div>
-
-													<div class="col-1">
-														<div style="text-align: left;">
-															<br>
-															<div>${item.item_typeBean.itemType}</div>
-															<br>
-															<div>${item.countryBean.countryName}</div>
-															<br>
-															<div>${item.itemPrice}</div>
-															<br>
-															<div>${item.itemQty}</div>
-
-														</div>
-													</div>
-
-													<div class="col-2">
-														<br>
-														<div>
-															商品描述 : <br> <br>${item.itemDes}
-														</div>
-													</div>
-
-													<div class="col-2">
-														<br>
-														<div>
-															<button id="editM" value="/Id=${itemId}"
-																class="btn btn-primary"
-																<%-- 							onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">編輯商品</button> --%>
-							onclick="location.href='Id=${item.itemId}'">編輯商品</button>
-														</div>
-														<br>
-														<div>
-															<button id="deleteM" value="/Id=${itemId}"
-																class="btn btn-primary"
-																<%-- 								onclick="location.href='merchandiseModify/delete/Id=${item.itemId}'">刪除商品</button> --%>
-								 data-bs-toggle="modal"
-																data-bs-target="#deleteItem${item.itemId}">刪除商品</button>
-
-
-
-															<div class="modal fade" id="deleteItem${item.itemId}"
-																tabindex="-1" aria-labelledby="exampleModalLabel"
-																aria-hidden="true">
-																<div class="modal-dialog">
-																	<div class="modal-content">
-																		<div class="modal-header">
-																			<h5 class="modal-title" id="exampleModalLabel">刪除編號${item.itemId}商品</h5>
-																			<button type="button" class="btn-close"
-																				data-bs-dismiss="modal" aria-label="Close"></button>
-																		</div>
-																		<div class="modal-body">確定要刪除 "<b>商品編號${item.itemId}</b>" 商品??</div>
-																		<div class="modal-footer">
-																			<button type="button" class="btn btn-secondary"
-																				data-bs-dismiss="modal">取消</button>
-																			<button type="button" class="btn btn-primary"
-																				onclick="location.href='merchandiseModify/delete/Id=${item.itemId}'">確定刪除商品</button>
-																		</div>
-																	</div>
-																</div>
+															<div>
+																商品編號 : <b>${item.itemId}</b>
 															</div>
-
 														</div>
-														<br>
-														<div>
-															<button id="manageFeedback" class="btn btn-primary"
-																onclick="location.href='manageFeedback/Id=${item.itemId}'">管理留言</button>
+														<div style="text-align: left; font-size: 20px;">商品名稱
+															: ${item.itemHeader}</div>
+
+														<div class="col-2">
+															<br>
+															<div class="imageFrame">
+																<img id="pic1" name="pic1"
+																	src="/upload/${item.itemPic1}" class="w-100">
+
+															</div>
+														</div>
+
+														<div class="col-2">
+
+															<br>
+															<div class="imageFrame">
+																<img id="pic2" name="pic2"
+																	src="/upload/${item.itemPic2}" class="w-100">
+															</div>
+														</div>
+
+														<div class="col-2">
+
+															<br>
+															<div class="imageFrame">
+																<img id="pic3" name="pic3"
+																	src="/upload/${item.itemPic3}" class="w-100">
+															</div>
+														</div>
+
+														<div class="col-1">
+															<div style="text-align: right;">
+																<br>
+																<div>商品類別 :</div>
+																<br>
+																<div>商品國家 :</div>
+																<br>
+																<div>商品定價 :</div>
+																<br>
+																<div>商品剩餘 :</div>
+
+															</div>
+														</div>
+
+														<div class="col-1">
+															<div style="text-align: left;">
+																<br>
+																<div>${item.item_typeBean.itemType}</div>
+																<br>
+																<div>${item.countryBean.countryName}</div>
+																<br>
+																<div>${item.itemPrice}</div>
+																<br>
+																<div>${item.itemQty}</div>
+
+															</div>
+														</div>
+
+														<div class="col-2">
+															<br>
+															<div>
+																商品描述 : <br> <br>${item.itemDes}
+															</div>
+														</div>
+
+														<div class="col-2">
+															<br>
+															<div>
+																<button id="editM" value="/Id=${itemId}"
+																	class="btn btn-primary"
+																	<%-- 							onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">編輯商品</button> --%>
+							onclick="location.href='Id=${item.itemId}'">編輯商品</button>
+															</div>
+															<br>
+															<div>
+																<button id="deleteM" value="/Id=${itemId}"
+																	class="btn btn-primary"
+																	<%-- 								onclick="location.href='merchandiseModify/delete/Id=${item.itemId}'">刪除商品</button> --%>
+								 data-bs-toggle="modal"
+																	data-bs-target="#deleteItem${item.itemId}">刪除商品</button>
+
+
+
+															</div>
+															<br>
+															<div>
+																<button id="manageFeedback" class="btn btn-primary"
+																	onclick="location.href='manageFeedback/Id=${item.itemId}'">管理留言</button>
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
+									<!-- =================提示視窗============================================================================================================= -->
+									<div class="modal fade" id="deleteItem${item.itemId}"
+										tabindex="-1" aria-labelledby="exampleModalLabel"
+										aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLabel">刪除編號${item.itemId}商品</h5>
+													<button type="button" class="btn-close"
+														data-bs-dismiss="modal" aria-label="Close"></button>
+												</div>
+												<div class="modal-body">
+													確定要刪除 "<b>商品編號${item.itemId}</b>" 商品??
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-bs-dismiss="modal">取消</button>
+													<button type="button" class="btn btn-primary"
+														onclick="location.href='merchandiseModify/delete/Id=${item.itemId}'">確定刪除商品</button>
+												</div>
+											</div>
+										</div>
 									</div>
-
+									<!-- ============================================================================================================================================ -->
 								</c:forEach>
 							</div>
 						</div>
@@ -658,7 +664,7 @@ button { /*按鈕的樣式*/
 	</script>
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script>
-  AOS.init();
-</script>
+		AOS.init();
+	</script>
 </body>
 </html>
