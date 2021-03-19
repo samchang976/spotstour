@@ -307,8 +307,6 @@ body {
 								<c:choose>
 									<c:when test="${mPid==2||mPid==1}">
 										<div class="animate__animated animate__bounce">
-
-
 											<form
 												action="${pageContext.request.contextPath}/shoppingCart/add/${item.itemId}"
 												method="post">
