@@ -45,6 +45,12 @@ public class ItemServiceImpl implements ItemService {
 	
 	@Transactional
 	@Override
+	public List<ItemBean> getTopSellItems(int i) {
+		return itemdao.getTopSellItems(i);
+	}
+	
+	@Transactional
+	@Override
 	public ItemBean getItemById(int itemId) {
 		return itemdao.getItemById(itemId);
 	}

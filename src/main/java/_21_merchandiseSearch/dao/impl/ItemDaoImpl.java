@@ -55,9 +55,16 @@ public class ItemDaoImpl implements Serializable, ItemDao {
 		return list;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<ItemBean> getTopSellItem(int i) {
-		return null;
+	public List<ItemBean> getTopSellItems(int i) {
+		String hql = "FROM ItemBean ORDER BY itemId ASC";
+		Session session = factory.getCurrentSession();
+		List<ItemBean> list = session.createQuery(hql)
+				.setFirstResult(0)
+				.setMaxResults(i)
+				.getResultList();
+		return list;
 	}
 
 	@Override

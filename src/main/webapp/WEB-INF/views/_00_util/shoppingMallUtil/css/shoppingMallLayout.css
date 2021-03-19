@@ -36,14 +36,14 @@
 
 #container_news .area_search{  
    position: relative;
-   overflow: hidden;/*    隱藏超過的部分 */
+/*    overflow: hidden;   隱藏超過的部分 */
   
-   width: 300px;
-   height: 300px; 
+/*    width: 300px; */
+/*    height: 300px;  */
    /* border: 1px solid tan; */
  
-   margin: 0px auto;
-   padding:0px;
+/*    margin: 0px auto; */
+/*    padding:0px; */
    
    display: block;
    cursor: pointer;

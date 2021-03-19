@@ -17,7 +17,7 @@ public interface ItemDao {
 	
 	List<ItemBean> getAllItems();
 	
-	List<ItemBean> getTopSellItem(int i);
+	List<ItemBean> getTopSellItems(int i);
 	
 	List<ItemBean> getItemByCountry(String countryName);
 	

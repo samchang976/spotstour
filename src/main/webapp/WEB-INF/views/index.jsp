@@ -50,6 +50,10 @@ html, body {
 	font: inherit;
 	vertical-align: baseline;
 }
+
+#video2 {
+	width: 1300px;
+}
 </style>
 </head>
 <body>
@@ -139,15 +143,24 @@ html, body {
 			</button>
 		</form>
 	</div>
+
+	<!-- Background Self-Hosted Video Parallax -->
+	<div class="jarallax" id="video2"
+		data-jarallax-video="mp4:${pageContext.request.contextPath}/videos/Morelia.mp4">
+		Your content here...</div>
+
 	<!-- Background YouTube Parallax -->
-	<div class="jarallax"
+	<div class="jarallax" id="video3"
 		data-jarallax-video="https://www.youtube.com/watch?v=Sm17ps5kXJs">
 		Your content here...</div>
 
 	<!-- Background Vimeo Parallax -->
-	<div class="jarallax" data-jarallax-video="https://vimeo.com/110138539">
-		Your content here...</div>
-	
+	<div class="jarallax" id="video4"
+		data-jarallax-video="https://vimeo.com/110138539">Your content
+		here...</div>
+
+
+
 	<%-- =================下面有佔空間，白色的區塊======================================================================== --%>
 	${registerOK} ${Login} ${FlashMSG_farewell} ${SUCCESS}
 	${param.message}${MsgOK.InsertOK}

@@ -18,6 +18,8 @@ public interface ItemService {
 	
 	List<CountryBean> getAllCountrys();
 	
+	List<ItemBean> getTopSellItems(int i);
+	
 	List<ItemBean> getAllItems();
 	
 	List<ItemBean> getItemByCountryId(int countryId);
