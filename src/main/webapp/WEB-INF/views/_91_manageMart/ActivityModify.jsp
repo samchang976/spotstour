@@ -130,16 +130,25 @@ button { /*確定、送出的按鈕排版*/
 										<form:input type="file" path="activityImage"
 											id="activityImage" />
 									</div>
-									<div class="image">
-										<img id="image1" />
-									</div>
-									
-									<div class="image">
-										<img id="image1" src="<c:url value='/activityDetail/${activityBean.activityId}'/>" />
-									</div>
+									<!-- 									<div class="image"> -->
+									<!-- 										<img id="image1" /> -->
+									<!-- 									</div> -->
+									<c:if test="${activityBean.activityId!=null}">
+										<div class="image">
+											<img id="image1" class="w-100"
+												src="<c:url value='/activityDetail/${activityBean.activityId}'/>" />
+										</div>
+									</c:if>
+									<c:if test="${activityBean.activityId==null}">
+										<div class="image">
+											<img id="image1" class="w-100" <%-- 										src="<c:url value='/activityDetail/${activityBean.activityId}'/>" --%>
+										 />
+										</div>
+
+									</c:if>
 								</div>
 
-								<div class="form-group row  d-flex justify-content-end mt-5">
+								<div class="form-group row d-flex justify-content-end mt-5">
 									<div style="text-align: center;">
 										<div id="confirm" style="background: #fff;">
 											<c:if test="${activityId==null}">
@@ -189,7 +198,7 @@ button { /*確定、送出的按鈕排版*/
 								</div>
 							</div>
 						</div>
-						
+
 						<button type="submit" class="btn btn-primary"
 							onclick="location.href='${pageContext.request.contextPath}/activityList'">返回前一頁</button>
 					</div>
