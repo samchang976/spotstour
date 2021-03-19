@@ -80,6 +80,10 @@ button { /*確定、送出的按鈕排版*/
 #confirm {
 	text-align: center;
 }
+/* .form-label{ */
+/* 	height: 30px; */
+/* 	ma */
+/* } */
 </style>
 </head>
 <body>
@@ -107,23 +111,26 @@ button { /*確定、送出的按鈕排版*/
 								<!-- 						<input type="text" name="Reportdescription" placeholder="請輸入內容" -->
 								<!-- 							style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;"> -->
 								<br>
-								<div class="col-12">
-									<label for="exampleFormControlInput1" class="form-label">活動標頭(字數限30字以內)</label>
+								<div class="col-12" style="text-align: left;">
+									<label for="exampleFormControlInput1" class="form-label">活動標頭
+										: (字數限30字以內)</label>
 									<form:input type="text" path="activityHeader"
 										class="form-control" id="activityHeader" maxlength="30"
 										placeholder="限30字以內" />
 								</div>
-
-								<div class="col-12">
-									<label for="exampleFormControlInput1" class="form-label">活動內容</label>
+								<br>
+								<div class="col-12" style="text-align: left;">
+									<label for="exampleFormControlInput1" class="form-label">活動內容
+										: </label>
 									<form:input type="text" path="activityContent"
 										class="form-control" id="activityContent"
 										style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 200px;"
 										maxlength="1000" placeholder="限1000字以內" />
 								</div>
-
-								<div class="col-12">
-									<label for="exampleFormControlInput1" class="form-label">活動照片</label>
+								<br>
+								<div class="col-12" style="text-align: left;">
+									<label for="exampleFormControlInput1" class="form-label">活動照片
+										: </label>
 									<div>
 										<!-- 										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
 										<!-- 											class="w-100"> <br> -->

@@ -97,10 +97,10 @@ font-size: 20px;
 			</div>
 			<div class="col" id="Marquee">
 				<ul id="news">
-					<li>spots-tour代購商城全館85折!!</li>
-					<li>快來買喔喔喔喔~</li>
-					<li>很便宜~</li>
-					<li>3/18大特價~~~~~~~~~~~</li>
+					<li>代購商城全館8折!!請輸入折扣代碼 : SPOTSTOURJAVA015</li>
+					<li>熱銷商品 : MAMA泰國泡麵，紫玉酥禮盒，焦糖奶油餅 <i class="fas fa-cookie-bite"></i></li>
+					<li><i class="fas fa-bell"></i> 2021年最新版! 推薦十大熱門商品! 促銷優惠!</li>
+					<li><a href="${pageContext.request.contextPath}/merchandiseSearchResult">零食餅乾團購更便宜，食品團購量販買多省多，立即前往 <i class="far fa-hand-pointer"></i></a></li>
 				</ul>
 			</div>
 

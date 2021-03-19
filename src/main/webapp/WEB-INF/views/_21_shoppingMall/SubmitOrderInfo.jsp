@@ -75,7 +75,7 @@
 
 .wei-grid-special1:hover {
     position: relative;
-     top: -70px; 
+     top: -90px; 
     left: 80px;
 
 }
@@ -158,8 +158,8 @@
 						<div class="col-2 ">
 <!-- 							<div class="imageFrame"> -->
 							<div class="wei-grid-special1">
-								<img class="wei-image6" src="/upload/${cart.itemBean.itemPic1}"> <i
-									class="fas fa-search" style="float: right;"></i>
+								<img class="wei-image6" src="/upload/${cart.itemBean.itemPic1}"> 
+<!-- 								<i class="fas fa-search" style="float: right;"></i> -->
 							</div>
 <!-- 							</div> -->
 						</div>
