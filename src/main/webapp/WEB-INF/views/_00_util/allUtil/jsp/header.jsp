@@ -38,9 +38,9 @@ ul.nav.nav-tabs {
 .menuOuter {
 	padding: 5px;
 	width: 100%;
-/* 	border-bottom: 1px solid black;  */
+	/* 	border-bottom: 1px solid black;  */
 	text-align: center;
-	boxShadow:'2px 2px 2px 1px rgba(0, 0, 0, 0.1)', //陰影
+	boxShadow: '2px 2px 2px 1px rgba(0, 0, 0, 0.1)',//陰影
 }
 
 #option1 {
@@ -64,8 +64,6 @@ ul.nav.nav-tabs {
 .nav-item {
 	margin: 5px;
 }
-
-
 </style>
 
 </head>
@@ -250,6 +248,9 @@ ul.nav.nav-tabs {
 								href="<c:url value="/memberDetailModify"/>"
 								data-bs-placement="bottom" title="會員可以 修改會員資料">修改會員資料</a></li>
 							<li><a class="dropdown-item"
+								href="<c:url value="/videoCreate"/>" data-bs-placement="bottom"
+								title="會員新增影片">新增影片</a></li>
+							<li><a class="dropdown-item"
 								href="<c:url value="/personalPortfolio"/>"
 								data-bs-placement="bottom" title="會員個人影片的作品集">個人作品</a></li>
 							<li><a class="dropdown-item"
@@ -288,7 +289,8 @@ ul.nav.nav-tabs {
 	</div>
 
 	<!-- jQuery----------------------------------------------------------------------------------->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 	<script>
 		$(document).ready(function() {
@@ -304,14 +306,14 @@ ul.nav.nav-tabs {
 						// 		            opacity:'0', //隱藏
 						transition : '.2s'
 					});
-// 					return;
+					// 					return;
 				} else {
 					// 			  alert("上滾");
 					$('.menuOuter').css({
 						//  opacity:'1', //隱藏
 						display : 'block',
 					})
-// 					return;
+					// 					return;
 				}
 				setTimeout(function() {
 					t = p;

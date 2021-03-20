@@ -57,7 +57,7 @@ html, body {
 	 margin:auto;
 	}
 	#video2 {
-	width: 1300px;
+/* 	width: 1300px; */
 }
 </style>
 </head>
@@ -152,22 +152,21 @@ html, body {
 	<!-- Background Self-Hosted Video Parallax -->
 	<div class="jarallax" id="video2" data-speed="0.8" data-type="scroll-opacity"
 		data-jarallax-video="mp4:${pageContext.request.contextPath}/videos/taipei.mp4">
-		Your content here...</div>
+		</div>
 
 	<!-- Background Self-Hosted Video Parallax -->
-	<div class="jarallax" id="video3" data-speed="1.2" data-type="scroll-opacity"
+	<div class="jarallax" id="video3" data-speed="1.2" data-type="scroll-opacity" style="text-align:right;"
 		data-jarallax-video="mp4:${pageContext.request.contextPath}/videos/Morelia.mp4">
 		Your content here...</div>
 
 	<!-- Background YouTube Parallax -->
 	<div class="jarallax" id="video4" data-speed="-0.4" data-type="scroll-opacity"
 		data-jarallax-video="https://www.youtube.com/watch?v=Sm17ps5kXJs">
-		Your content here...</div>
+		</div>
 
 	<!-- Background Vimeo Parallax -->
 	<div class="jarallax" id="video5" data-speed="0.2" data-type="scroll-opacity"
-		data-jarallax-video="https://vimeo.com/110138539">Your content
-		here...</div>
+		data-jarallax-video="https://vimeo.com/110138539"></div>
 
 
 
