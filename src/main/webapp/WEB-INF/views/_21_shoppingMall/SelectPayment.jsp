@@ -21,6 +21,10 @@
 <!-- icon cdn----------------------------------------------------------------------------------------------- -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<!-- animation --------------------------------------------------------------------------------------------- -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
@@ -208,7 +212,9 @@ span.error:first-child() {
 											value="${LoginOK.d_mAddress}"
 											placeholder="${LoginOK.d_mAddress}" />
 									</div>
+									<div class="animate__animated animate__shakeX">
 									<form:errors path="s_mAddress" cssClass="error" />
+									</div>
 								</div>
 							</div>
 						</div>
@@ -228,7 +234,9 @@ span.error:first-child() {
 								</form:select>
 							</div>
 							<div class="col-8" style="text-align: center;">
+							<div class="animate__animated animate__shakeX">
 								<form:errors path="paymentTypeId" cssClass="error" />
+							</div>
 							</div>
 						</div>
 					</div>
@@ -247,7 +255,9 @@ span.error:first-child() {
 								</form:select>
 							</div>
 							<div class="col-8" style="text-align: center;">
+							<div class="animate__animated animate__shakeX">
 								<form:errors path="shipTypeId" cssClass="error" />
+							</div>
 							</div>
 						</div>
 					</div>
@@ -266,7 +276,9 @@ span.error:first-child() {
 								</form:select>
 							</div>
 							<div class="col-8" style="text-align: center;">
+							<div class="animate__animated animate__shakeX">
 								<form:errors path="receiptTypeId" cssClass="error" />
+							</div>
 							</div>
 						</div>
 					</div>

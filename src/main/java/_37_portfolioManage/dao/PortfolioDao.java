@@ -5,4 +5,7 @@ import _02_model.entity.PortfolioBean;
 public interface PortfolioDao {
 
 	public void addPortfolio(PortfolioBean portfolioBean);
+	
+	public void updatePortfolio(PortfolioBean portfolioBean);
+	
 }

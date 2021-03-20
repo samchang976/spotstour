@@ -59,6 +59,42 @@
 .imageFrame img:hover {
 	transform: scale(1.5, 1.5);
 }
+.wei-grid-special1 {
+    position: relative;
+    left: 10%;
+    top: 0; 
+    left: 0;
+    width: 200px;
+    height: 200px;
+/*     border: 1px solid black; */
+    margin: 0px 10px 0px 10px;
+/*     overflow: hidden; */
+    transition: all .8s ease;
+/*     z-index: 1; */
+}
+
+.wei-grid-special1:hover {
+    position: relative;
+     top: -90px; 
+    left: 80px;
+
+}
+
+.wei-image6 {
+    transition: transform 0.5s ease-in;
+    width: 100%;
+    height: 100%;
+}
+
+.wei-grid-special1:hover .wei-image6, .wei-grid-special:focus .wei-image6 {
+    transform: scale(2);
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+            -webkit-box-shadow: 0 0 15px #f3d42e;
+	-moz-box-shadow: 0 0 15px #f3d42e;
+ 	box-shadow: 0 0 15px rgba(0,0,0,0.5); 
+/*  	z-index: auto; */
+}
 </style>
 
 </head>
@@ -120,10 +156,12 @@
 					<div class="row Item" style="text-align: center;">
 						<!-- 商品照片 -->
 						<div class="col-2 ">
-							<div class="imageFrame">
-								<img src="/upload/${cart.itemBean.itemPic1}"> <i
-									class="fas fa-search" style="float: right;"></i>
+<!-- 							<div class="imageFrame"> -->
+							<div class="wei-grid-special1">
+								<img class="wei-image6" src="/upload/${cart.itemBean.itemPic1}"> 
+<!-- 								<i class="fas fa-search" style="float: right;"></i> -->
 							</div>
+<!-- 							</div> -->
 						</div>
 
 						<div class="col-3 ">

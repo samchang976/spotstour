@@ -29,13 +29,13 @@ public class OrderValidator implements Validator{
 		
 		
 		if (orderVo.getShipTypeId() == -1) {
-			errors.rejectValue("shipTypeId","", "請挑選取貨方式");
+			errors.rejectValue("shipTypeId","", " 請挑選取貨方式");
 		}
 		if (orderVo.getReceiptTypeId() == -1) {
-			errors.rejectValue("receiptTypeId","", "請挑選發票型式");
+			errors.rejectValue("receiptTypeId","", " 請挑選發票型式");
 		}
 		if (orderVo.getPaymentTypeId() == -1) {
-			errors.rejectValue("paymentTypeId","", "請挑選付款方式");
+			errors.rejectValue("paymentTypeId","", " 請挑選付款方式");
 		}
 	}
 

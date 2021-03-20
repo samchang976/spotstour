@@ -57,6 +57,29 @@ public class OrderDaoImpl implements Serializable, OrderDao {
 				.getResultList();
 		return list;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<OrdBean> getAllOrdersByMemberIdAndOrderStatId(int mId, Integer oSid) {
+		String hql = "FROM OrdBean WHERE memberBean.mId = :id AND ordStatBean.oSid = :oSid ORDER BY o_createTime ASC";
+		Session session = factory.getCurrentSession();
+		List<OrdBean> list = session.createQuery(hql)
+				.setParameter("id", mId)
+				.setParameter("oSid", oSid)
+				.getResultList();
+		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<OrdBean> getAllOrdersByOrderStatId(Integer oSid) {
+		String hql = "FROM OrdBean WHERE ordStatBean.oSid = :oSid ORDER BY o_createTime ASC";
+		Session session = factory.getCurrentSession();
+		List<OrdBean> list = session.createQuery(hql)
+				.setParameter("oSid", oSid)
+				.getResultList();
+		return list;
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override

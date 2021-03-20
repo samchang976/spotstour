@@ -1,55 +1,59 @@
 /* ActivityDetail****************************************************** */
-
-#container_ActivityDetail .title{
-   font-size: 18px;
- }
-
- #newsTitle{
-  font-size: 2.2rem;
-/*   text-shadow:1px 1px; */
-  font-weight:bold;
-  
+#container_ActivityDetail .title {
+	font-size: 18px;
 }
-.FieldDescription{
-	font-size: 1.3rem;
-	color:black;
-/* 	text-shadow:1px 1px; */
-	font-weight:bold;
 
-  }
+#newsTitle {
+	font-size: 2.2rem;
+	/*   text-shadow:1px 1px; */
+	font-weight: bold;
+}
+
+#topItemsTitle {
+	font-size: 2.2rem;
+	/*   text-shadow:1px 1px; */
+	font-weight: bold;
+}
+
+.FieldDescription {
+	font-size: 1.3rem;
+	color: black;
+	/* 	text-shadow:1px 1px; */
+	font-weight: bold;
+}
 
 /* MerchandiseDetail************************************************************ */
-#container_MerchandiseDetail .title{
-    font-size: 18px;
-    }
+#container_MerchandiseDetail .title {
+	font-size: 18px;
+}
 
 /* PurchaseSuccess*************************************************************** */
 /* 勾勾icon--------------------------------------------------------------------- */
-#container_PurchaseSuccess .fas{
-    font-size: 80px;
-  }
+#container_PurchaseSuccess .fas {
+	font-size: 80px;
+}
 
 /* 訂購成功--------------------------------------------------------------------- */
-#successText{
-    font-size: 80px;
-  }  
- /* 感謝詞----------------------------------------------------------------------- */
- #thanks{
-    font-size: 20px;
- }
+#successText {
+	font-size: 80px;
+}
+/* 感謝詞----------------------------------------------------------------------- */
+#thanks {
+	font-size: 20px;
+}
 
-#container_news .block{
-	font-size: 1.5rem;
+#container_news .block {
+	font-size: 1.2rem;
 }
 
 /* PurchaseSuccess、OrderDetail、PurchaseSuccess************************************************* */
- /* 訂單編號 */
-.OrderNumber{
-    font-size: 20px;
-  }
- 
-  /* SubmitOrderInfo**************************************************************  */
-  .PayTitle{
-    font-size: 20px;
-    text-decoration:underline;
- }
+/* 訂單編號 */
+.OrderNumber {
+	font-size: 20px;
+}
+
+/* SubmitOrderInfo**************************************************************  */
+.PayTitle {
+	font-size: 20px;
+	text-decoration: underline;
+}

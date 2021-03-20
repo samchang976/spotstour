@@ -487,13 +487,6 @@ CREATE TABLE `portfolio` (
   CONSTRAINT `portfolio_placeTypeId_fk` FOREIGN KEY (`placeTypeId`) REFERENCES `place_type` (`placeTypeId`)
 ) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
-/*Data for the table `portfolio` */
-
-INSERT  INTO `portfolio`(`portfolioId`,`portfolioName`,`portfolioText`,`p_createTime`,`pAddress`,`longitude`,`latitude`,`cityId`,`mId`,`placeTypeId`) VALUES 
-(1,'台北101','位於臺灣臺北市信義區的摩天大樓，樓高508米（1,667英尺），地上101層、地下5層，總樓地板面積37萬1千平方公尺。','2021-02-25 00:00:00','台北市信義區市府路45號','121.564','25.033',1,1,1),
-(2,'龍虎塔','位於台灣高雄市左營區蓮花湖的一座寺廟。這座寺廟建於1976年。其中一座塔是虎塔，另一座是龍塔。','2021-01-22 00:00:00','高雄市左營區蓮潭路9號','120.292','22.680',3,1,1),
-(3,'武陵農場','位於台灣台中市和平區平等里，是親近雪霸國家公園的重要遊憩據點，海拔1750公尺至2200公尺，為中華民國國軍退除役官兵輔導委員會所經營之公有事業。','2020-11-16 00:00:00','台中市和平區武陵路3-1號','121.308','24.345',2,1,1);
-
 /*Table structure for table `portfoliomsg` */
 
 DROP TABLE IF EXISTS `portfoliomsg`;

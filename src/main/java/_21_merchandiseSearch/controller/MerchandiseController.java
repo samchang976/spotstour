@@ -54,6 +54,8 @@ public class MerchandiseController {
 		model.addAttribute("countrys", list);
 		List<ActivityBean> listA = managerActivityService.getAllActivitys();
 		model.addAttribute("activitys", listA);
+		List<ItemBean> listTopSell = itemService.getTopSellItems(8);
+		model.addAttribute("items", listTopSell);
 		return "_21_shoppingMall/MerchandiseIndex";
 	}
 
