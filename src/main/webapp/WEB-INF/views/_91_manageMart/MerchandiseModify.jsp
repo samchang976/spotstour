@@ -324,15 +324,12 @@ span.error:first-child() {
 																		<form:options items="${countryMap}" />
 																	</form:select>
 																</c:if>
-																<!-- 																</div> -->
 																<c:if test="${itemId!=null}">
-																	<!-- 																<div class="mb-3 col-10" class="col-sm-2 col-form-label"> -->
 																	<form:select path="countryBean.countryId"
 																		class="form-select">
 																		<form:option value="-1" label="請選擇國家" />
 																		<form:options items="${countryMap}" />
 																	</form:select>
-																	<!-- 																</div> -->
 
 																</c:if>
 															</div>
