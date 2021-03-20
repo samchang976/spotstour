@@ -79,133 +79,195 @@
 	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
 		<!------------------------------------------------------------------------------------------->
-		<div class="container " id="container_VideoCreate">
+
+
+		<!-- 		原本樣子 -->
+
+
+
+		<div class="container" id="container_VideoCreate">
 			<!-- 標題:影片新增 -------------------------------------------------------------------------------------->
 			<div class="row">
 				<div class="col">
-					<div id="title"><c:if test="${portfolioEdit.portfolioId==null}">影片新增</c:if><c:if test="${portfolioEdit.portfolioId!=null}">影片編輯</c:if></div>
-				</div>
-			</div>
-			<!-- ==============================================================================================-->
-			<div class="row row-cols-1 row-cols-md-2">
-				<div class="col"></div>
-
-				<div class="col">
-					<i class="fas fa-map-marker-alt"></i> 位置:
-					<button id="slideButton" style="margin-bottom: 5px;">Click
-						Me To Search</button>
-					<button id="sendData">確認位置</button>
-					<button id="cancelData">重選位置</button>
-				</div>
-			</div>
-			<!-- ==========================================================================================================-->
-			<form <c:if test="${portfolioEdit.portfolioId==null}">action="createPortfolio"</c:if><c:if test="${portfolioEdit.portfolioId!=null}">action="editPortfolio"</c:if> method="post" enctype="multipart/form-data">
-				<!-- ==========================================================================================================-->
-				<div class="row row-cols-1 row-cols-md-2">
-					<div class="col SpotName">
-						影片名稱: <input type="text" name="portfolioName" <c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioName}"</c:if> placeholder="請輸入影片名稱">
-					</div>
-					<!---------------------------------------------------------------------------------------------------------- -->
-					<div class="col LocationInformation">
-						<!-- 地圖搜尋框 --------------------------------------------------------------------------->
-						<div id="searchMap">
-							<div class="row row-cols-1 row-cols-md-2">
-								<div class="col google-map">
-									<h5>Search：</h5>
-									<div class="form-group">
-										<input type="text" id="address" class="form-control"
-											ref="site" v-model="site">
-									</div>
-								</div>
-							</div>
-							<!-- 放google map的div ------------------------------------------------------------->
-							<div class="row">
-								<div class="col google-map">
-									<h5>Google Map：</h5>
-									<div id="map" class="embed-responsive embed-responsive-16by9"></div>
-								</div>
-							</div>
-							經度<input id="lng" type="textbox"> 緯度<input id="lat"
-								type="textbox">
-						</div>		
-							<!-- 位置 -->					
-							<input id="display_address" name="pAddress" <c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.pAddress}"</c:if> type="text" placeholder="請輸入位置資訊"> 							
-							<!-- 經度 -->
-							<input type="text" name="longitude" <c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.longitude}"</c:if> placeholder="經度" id="longitude"> 							
-							<!-- 緯度 -->														
-							<input type="text" name="latitude" <c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.latitude}"</c:if> placeholder="緯度" id="latitude">
-					</div>
-					<div>
-						城市: <select class="form-select" name="cityId"
-							aria-label="Default select example"
-							style="font-size: 15px; width: 35%; margin-top: 2px; margin-bottom: 10px;">
-							  <option selected>選擇城市</option>
-							  <c:forEach items="${cityList}" var="row">
-							  	 <option value="${row.cityId}" <c:if test="${portfolioEdit.cityId == row.cityId}">selected="selected"</c:if>>${row.cityName}</option>
-							  </c:forEach>			
-						      </select> 
-						影片類型: <select class="form-select" name="placeTypeId"
-							aria-label="Default select example"
-							style="font-size: 15px; width: 35%; margin-top: 2px; margin-bottom: 10px;">
-							  <option selected>選擇影片類型</option>
-							  <c:forEach items="${placeTypeList}" var="row">
-								 <option value="${row.placeTypeId}" <c:if test="${portfolioEdit.placeTypeId == row.placeTypeId}">selected="selected"</c:if>>${row.placeType}</option>
-							  </c:forEach>
-						      </select>
-					</div>
-				</div>
-
-				<div class="row row row-cols-1 row-cols-md-2">
-					<div class="col">
-						<video controls <c:if test="${portfolioEdit.portfolioId!=null}">poster="/upload${portfolioEdit.strVideoPic}"</c:if> style="width: 100%; height: auto">
-  					    <source <c:if test="${portfolioEdit.portfolioId!=null}">src="/uploadv${portfolioEdit.strVideoFile}"</c:if> type="video/mp4">
-  					    </video>
-					</div>
-
-					<div class="col ViedoDescription">
-						<div>影片描述:</div>
-						<div>
-							<input type="text" name="portfolioText" <c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioText}"</c:if> placeholder="請輸入影片描述">					
+					<div style="text-align: center;">
+						<div id="title">
+							<c:if test="${portfolioEdit.portfolioId==null}">影片新增</c:if>
+							<c:if test="${portfolioEdit.portfolioId!=null}">影片編輯</c:if>
 						</div>
 					</div>
 				</div>
-				<!-- =================================================================================================== -->
-				<div class="row row row-cols-1 row-cols-md-2 ">
-					<div class="col-md-6">
-						上傳影片預覽圖: <input type="file" name="videoPic" accept=".jpg" /><br> 
-						上傳影片: <input	type="file" name="videoFile" accept=".mp4" /><br>
-						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="videoId" value="${portfolioEdit.videoId}"></c:if>
-						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="portfolioId" value="${portfolioEdit.portfolioId}"></c:if>
-						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="v_freeze" value="${portfolioEdit.v_freeze}"></c:if>
-						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="strVideoPic" value="${portfolioEdit.strVideoPic}"></c:if>
-						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="strVideoFile" value="${portfolioEdit.strVideoFile}"></c:if>
-						<c:if test="${portfolioEdit.portfolioId!=null}"><input type="hidden" name="mId" value="${portfolioEdit.mId}"></c:if>
-					</div>
-					<div class="col-md-3" align="left">
-						<select class="form-select" aria-label="Default select example">
-							<option selected>選擇預覽方式</option>
-							<option value="time">預覽</option>
-							<option value="look">播放頁預覽</option>
-							<option value="good">世界地圖資訊預覽</option>
-						</select>
-					</div>
-					<div class="col-md-3" align="right">
-						<button class="Bt_blue" type="submit"
-							style="min-width: 100%; width: 40px">儲存</button>
-					</div>
-				</div>
-			</form>
-			<div class="row row row-cols-1 row-cols-md-2 ">
-				<div class="col-md-6"></div>
-				<div class="col-md-3" align="left"></div>
-				<div class="col-md-3" align="right">
-					<button class="Bt_blue" style="min-width: 100%; width: 40px"
-						onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">取消</button>
-				</div>
 			</div>
-			<!-- =================================================================================================== -->
+			<div class="shadow p-3 mb-5 bg-body rounded">
+				<!-- ==============================================================================================-->
+				<div class="row row-cols-1 row-cols-md-2">
+					<div class="col"></div>
 
+					<div class="col">
+						<i class="fas fa-map-marker-alt"></i> 位置:
+						<button class="btn btn-primary" id="slideButton">Click Me
+							To Search</button>
+						&nbsp;&nbsp;
+						<button class="btn btn-primary" id="sendData">確認位置</button>
+						&nbsp;&nbsp;
+						<button class="btn btn-primary" id="cancelData">重選位置</button>
+						<br>
+					</div>
+				</div>
+				<!-- ==========================================================================================================-->
+				<form
+					<c:if test="${portfolioEdit.portfolioId==null}">action="createPortfolio"</c:if>
+					<c:if test="${portfolioEdit.portfolioId!=null}">action="editPortfolio"</c:if>
+					method="post" enctype="multipart/form-data">
+					<!-- ==========================================================================================================-->
+					<div class="row row-cols-1 row-cols-md-2">
+						<div class="col SpotName">
+							<label for="city" class="col-sm-2 col-form-label"
+								style="text-align: left;">影片名稱: </label> <input type="text"
+								name="portfolioName" class="form-control" style="width: 300px"
+								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioName}"</c:if>
+								placeholder="請輸入影片名稱">
+						</div>
+						<!---------------------------------------------------------------------------------------------------------- -->
+						<div class="col LocationInformation">
+							<!-- 地圖搜尋框 --------------------------------------------------------------------------->
+							<div id="searchMap">
+								<div class="row row-cols-1 row-cols-md-2">
+									<div class="col google-map">
+										<h5>Search：</h5>
+										<div class="form-group">
+											<input type="text" id="address" class="form-control"
+												ref="site" v-model="site">
+										</div>
+									</div>
+								</div>
+								<!-- 放google map的div ------------------------------------------------------------->
+								<div class="row">
+									<div class="col google-map">
+										<h5>Google Map：</h5>
+										<div id="map" class="embed-responsive embed-responsive-16by9"></div>
+									</div>
+								</div>
+								經度<input id="lng" type="textbox" class="form-control">
+								緯度<input id="lat" type="textbox" class="form-control">
+							</div>
+
+							<!-- 位置 -->
+							<input id="display_address" name="pAddress" class="form-control"
+								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.pAddress}"</c:if>
+								type="text" placeholder="請輸入位置資訊">
+							<!-- 經度 -->
+							<input type="text" name="longitude" class="form-control"
+								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.longitude}"</c:if>
+								placeholder="經度" id="longitude">
+							<!-- 緯度 -->
+							<input type="text" name="latitude" class="form-control"
+								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.latitude}"</c:if>
+								placeholder="緯度" id="latitude">
+						</div>
+						<div>
+							<label for="city" class="col-sm-2 col-form-label"
+								style="text-align: left;">城市: </label> <select
+								class="form-select" name="cityId"
+								aria-label="Default select example"
+								style="font-size: 15px; width: 25%; margin-top: 2px; margin-bottom: 10px;">
+								<option selected>選擇城市</option>
+								<c:forEach items="${cityList}" var="row">
+									<option value="${row.cityId}"
+										<c:if test="${portfolioEdit.cityId == row.cityId}">selected="selected"</c:if>>${row.cityName}</option>
+								</c:forEach>
+							</select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="type"
+								class="col-sm-2 col-form-label" style="text-align: left;">影片類型:
+							</label> <select class="form-select" name="placeTypeId"
+								aria-label="Default select example"
+								style="font-size: 15px; width: 25%; margin-top: 2px; margin-bottom: 10px;">
+								<option selected>選擇影片類型</option>
+								<c:forEach items="${placeTypeList}" var="row">
+									<option value="${row.placeTypeId}"
+										<c:if test="${portfolioEdit.placeTypeId == row.placeTypeId}">selected="selected"</c:if>>${row.placeType}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+
+					<div class="row row row-cols-1 row-cols-md-2">
+						<div class="col">
+							<video controls
+								<c:if test="${portfolioEdit.portfolioId!=null}">poster="/upload${portfolioEdit.strVideoPic}"</c:if>
+								style="width: 100%; height: auto">
+								<source
+									<c:if test="${portfolioEdit.portfolioId!=null}">src="/uploadv${portfolioEdit.strVideoFile}"</c:if>
+									type="video/mp4">
+							</video>
+						</div>
+
+						<div class="col ViedoDescription">
+							<div>影片描述:</div>
+							<div>
+								<input type="text" name="portfolioText"
+									<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioText}"</c:if>
+									placeholder="請輸入影片描述">
+							</div>
+						</div>
+					</div>
+					<!-- =================================================================================================== -->
+					<div class="row row row-cols-1 row-cols-md-2 ">
+						<div class="col-md-6">
+							上傳影片預覽圖: <input type="file" name="videoPic" accept=".jpg" /><br>
+							上傳影片: <input type="file" name="videoFile" accept=".mp4" /><br>
+							<c:if test="${portfolioEdit.portfolioId!=null}">
+								<input type="hidden" name="videoId"
+									value="${portfolioEdit.videoId}">
+							</c:if>
+							<c:if test="${portfolioEdit.portfolioId!=null}">
+								<input type="hidden" name="portfolioId"
+									value="${portfolioEdit.portfolioId}">
+							</c:if>
+							<c:if test="${portfolioEdit.portfolioId!=null}">
+								<input type="hidden" name="v_freeze"
+									value="${portfolioEdit.v_freeze}">
+							</c:if>
+							<c:if test="${portfolioEdit.portfolioId!=null}">
+								<input type="hidden" name="strVideoPic"
+									value="${portfolioEdit.strVideoPic}">
+							</c:if>
+							<c:if test="${portfolioEdit.portfolioId!=null}">
+								<input type="hidden" name="strVideoFile"
+									value="${portfolioEdit.strVideoFile}">
+							</c:if>
+							<c:if test="${portfolioEdit.portfolioId!=null}">
+								<input type="hidden" name="mId" value="${portfolioEdit.mId}">
+							</c:if>
+						</div>
+						<div class="col-md-3" align="left">
+							<select class="form-select" aria-label="Default select example">
+								<option selected>選擇預覽方式</option>
+								<option value="time">預覽</option>
+								<option value="look">播放頁預覽</option>
+								<option value="good">世界地圖資訊預覽</option>
+							</select>
+						</div>
+						<div class="col-md-3" align="right">
+							<button class="btn btn-primary btn-lg" type="submit">儲存</button>
+							&nbsp;&nbsp;
+							<button class="btn btn-primary btn-lg"
+								onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">取消</button>
+						</div>
+					</div>
+				</form>
+				<!-- =================================================================================================== -->
+			</div>
 		</div>
+
+
+
+
+
+
+
+
+
+		<!-- 		原本樣子 -->
+
 
 		<!-----------定位----------------------------------------------------------------------------->
 	</div>
@@ -213,12 +275,154 @@
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
+
+	<!-- test -->
+
+
+
+
+<!-- 	<div class="container" id="container_VideoCreate"> -->
+<%-- 		<form --%>
+<%-- 			<c:if test="${portfolioEdit.portfolioId==null}">action="createPortfolio"</c:if> --%>
+<%-- 			<c:if test="${portfolioEdit.portfolioId!=null}">action="editPortfolio"</c:if> --%>
+<%-- 			method="post" enctype="multipart/form-data"> --%>
+<!-- 			<div class="shadow p-3 mb-5 bg-body rounded"> -->
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-1"> -->
+<!-- 						<label for="city" class="col-form-label">影片名稱: </label> <label -->
+<!-- 							for="city" class="col-form-label">城市: </label> <label for="type" -->
+<!-- 							class="col-form-label">影片類型: </label> <label for="city" -->
+<!-- 							class="col-form-label">上傳影片預覽圖: </label> <label for="city" -->
+<!-- 							class="col-form-label">上傳影片: </label> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-5"> -->
+<!-- 						<input type="text" name="portfolioName" class="form-control" -->
+<!-- 							style="width: 300px" -->
+<%-- 							<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioName}"</c:if> --%>
+<!-- 							placeholder="請輸入影片名稱"> <select class="form-select" -->
+<!-- 							name="cityId" aria-label="Default select example"> -->
+<!-- 							<option selected>選擇城市</option> -->
+<%-- 							<c:forEach items="${cityList}" var="row"> --%>
+<%-- 								<option value="${row.cityId}" --%>
+<%-- 									<c:if test="${portfolioEdit.cityId == row.cityId}">selected="selected"</c:if>>${row.cityName}</option> --%>
+<%-- 							</c:forEach> --%>
+<!-- 						</select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select class="form-select" -->
+<!-- 							name="placeTypeId" aria-label="Default select example"> -->
+<!-- 							<option selected>選擇影片類型</option> -->
+<%-- 							<c:forEach items="${placeTypeList}" var="row"> --%>
+<%-- 								<option value="${row.placeTypeId}" --%>
+<%-- 									<c:if test="${portfolioEdit.placeTypeId == row.placeTypeId}">selected="selected"</c:if>>${row.placeType}</option> --%>
+<%-- 							</c:forEach> --%>
+<!-- 						</select> <input type="file" name="videoPic" accept=".jpg" /><br> <input -->
+<!-- 							type="file" name="videoFile" accept=".mp4" /><br> -->
+<%-- 						<c:if test="${portfolioEdit.portfolioId!=null}"> --%>
+<!-- 							<input type="hidden" name="videoId" -->
+<%-- 								value="${portfolioEdit.videoId}"> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${portfolioEdit.portfolioId!=null}"> --%>
+<!-- 							<input type="hidden" name="portfolioId" -->
+<%-- 								value="${portfolioEdit.portfolioId}"> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${portfolioEdit.portfolioId!=null}"> --%>
+<!-- 							<input type="hidden" name="v_freeze" -->
+<%-- 								value="${portfolioEdit.v_freeze}"> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${portfolioEdit.portfolioId!=null}"> --%>
+<!-- 							<input type="hidden" name="strVideoPic" -->
+<%-- 								value="${portfolioEdit.strVideoPic}"> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${portfolioEdit.portfolioId!=null}"> --%>
+<!-- 							<input type="hidden" name="strVideoFile" -->
+<%-- 								value="${portfolioEdit.strVideoFile}"> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${portfolioEdit.portfolioId!=null}"> --%>
+<%-- 							<input type="hidden" name="mId" value="${portfolioEdit.mId}"> --%>
+<%-- 						</c:if> --%>
+<!-- 						<div class="col"> -->
+<!-- 							<video controls -->
+<%-- 								<c:if test="${portfolioEdit.portfolioId!=null}">poster="/upload${portfolioEdit.strVideoPic}"</c:if> --%>
+<!-- 								style="width: 100%; height: auto"> -->
+<!-- 								<source -->
+<%-- 									<c:if test="${portfolioEdit.portfolioId!=null}">src="/uploadv${portfolioEdit.strVideoFile}"</c:if> --%>
+<!-- 									type="video/mp4"> -->
+<!-- 							</video> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+
+<!-- 					<div class="col-1"> -->
+<!-- 						<i class="fas fa-map-marker-alt"></i> 位置:<br> <br> <br> -->
+<!-- 						<label for="city" class="col-form-label">經度: </label><br> <label -->
+<!-- 							for="city" class="col-form-label">緯度: </label><br> <label -->
+<!-- 							for="city" class="col-form-label">影片描述: </label><br> -->
+
+<!-- 					</div> -->
+<!-- 					<div class="col-5"> -->
+
+<!-- 						<button class="btn btn-primary" id="slideButton">Click Me -->
+<!-- 							To Search</button> -->
+<!-- 						&nbsp;&nbsp; -->
+<!-- 						<button class="btn btn-primary" id="sendData">確認位置</button> -->
+<!-- 						&nbsp;&nbsp; -->
+<!-- 						<button class="btn btn-primary" id="cancelData">重選位置</button> -->
+<!-- 						<br> -->
+<!-- 						<div class="LocationInformation"> -->
+<!-- 							地圖搜尋框 ------------------------------------------------------------------------- -->
+<!-- 							<div id="searchMap"> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<input type="text" id="address" class="form-control" ref="site" -->
+<!-- 										v-model="site"> -->
+<!-- 								</div> -->
+<!-- 								放google map的div ----------------------------------------------------------- -->
+<!-- 								<h5>Google Map：</h5> -->
+<!-- 								<div id="map" class="embed-responsive embed-responsive-16by9"></div> -->
+<!-- 								<input id="lng" type="textbox" class="form-control"> <input -->
+<!-- 									id="lat" type="textbox" class="form-control"> -->
+<!-- 							</div> -->
+
+<!-- 							位置 -->
+<!-- 							<input id="display_address" name="pAddress" class="form-control" -->
+<%-- 								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.pAddress}"</c:if> --%>
+<!-- 								type="text" placeholder="請輸入位置資訊"> -->
+<!-- 							經度 -->
+<!-- 							<input type="text" name="longitude" class="form-control" -->
+<%-- 								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.longitude}"</c:if> --%>
+<!-- 								placeholder="經度" id="longitude"> -->
+<!-- 							緯度 -->
+<!-- 							<input type="text" name="latitude" class="form-control" -->
+<%-- 								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.latitude}"</c:if> --%>
+<!-- 								placeholder="緯度" id="latitude"> -->
+<!-- 							<div> -->
+<!-- 								<input type="text" name="portfolioText" style="height: 200px;" -->
+<%-- 									<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioText}"</c:if> --%>
+<!-- 									placeholder="請輸入影片描述"> -->
+<!-- 							</div> -->
+<!-- 							<select class="form-select" aria-label="Default select example" -->
+<!-- 								style="width: 300px;"> -->
+<!-- 								<option selected>選擇預覽方式</option> -->
+<!-- 								<option value="time">預覽</option> -->
+<!-- 								<option value="look">播放頁預覽</option> -->
+<!-- 								<option value="good">世界地圖資訊預覽</option> -->
+<!-- 							</select> -->
+<!-- 							<button class="btn btn-primary" type="submit">儲存</button> -->
+<!-- 							&nbsp;&nbsp; -->
+<!-- 							<button class="btn btn-primary" -->
+<%-- 								onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">取消</button> --%>
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<%-- 		</form> --%>
+<!-- 	</div> -->
+
+
+	<!-- test -->
+
 	<!-- --------------------------------------------------------------------------------------->
-	<!-- Option 1: Bootstrap Bundle with Popper -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-		crossorigin="anonymous"></script>
+	<!-- 	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<!-- 	<script -->
+	<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" -->
+	<!-- 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" -->
+	<!-- 		crossorigin="anonymous"></script> -->
 	<!-- jquery cdn + 兩個檔案能使用 -->
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -407,5 +611,4 @@
         })
       </script>
 </body>
-
 </html>

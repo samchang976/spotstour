@@ -62,27 +62,40 @@
 
 		<!-- 欄位敘述 -->
 		<div class="container" id="container_MyOrderList">
-
+			<div style="text-align: center;">
+				<h2>我的訂單</h2>
+			</div>
 			<div class="shadow p-5 mb-5 bg-body rounded">
 				<c:forEach var='order' items='${orders}' varStatus="s">
 					<div data-aos="flip-right">
 						<c:if test="${s.first==true}">
-							<h2>我的訂單</h2>
+							<!-- 							<h2>我的訂單</h2> -->
 							<div class="row py-3">
-<!-- 								訂單狀態選擇欄 ------------------------------------------------------------------------- -->
-<!-- 								<div class="col" style="text-align: left;"> -->
-<%-- 									<form:form method='POST' modelAttribute='ordBean'> --%>
-<%-- 										<form:select path="ordStatBean.oSid" class="custom-select"> --%>
-<%-- 											<form:option value="-1" label="請選擇訂單狀態" /> --%>
-<%-- 											<form:options items="${ordStatMap}" /> --%>
-<%-- 										</form:select> --%>
-<%-- 									</form:form> --%>
-<!-- 								</div> -->
+								<!-- 								訂單狀態選擇欄 ------------------------------------------------------------------------- -->
+								<!-- 								<div class="col" style="text-align: left;"> -->
+								<%-- 									<form:form method='POST' modelAttribute='ordBean'> --%>
+								<%-- 										<form:select path="ordStatBean.oSid" class="custom-select"> --%>
+								<%-- 											<form:option value="-1" label="請選擇訂單狀態" /> --%>
+								<%-- 											<form:options items="${ordStatMap}" /> --%>
+								<%-- 										</form:select> --%>
+								<%-- 									</form:form> --%>
+								<!-- 								</div> -->
 								<ul class="list-group list-group-horizontal">
-									<li class="list-group-item"><a href="<c:url value="/myOrderList"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢個人歷史訂單及訂單明細">查看所有訂單</a></li>
-									<li class="list-group-item"><a href="<c:url value="/myOrderList/1"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢個人訂單狀態">訂單處理中</a></li>
-									<li class="list-group-item"><a href="<c:url value="/myOrderList/2"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢個人訂單狀態出貨中">出貨中</a></li>
-									<li class="list-group-item"><a href="<c:url value="/myOrderList/3"/>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="查詢個人訂單狀態已送至指定地點">已送達</a></li>
+									<li class="list-group-item"><a
+										href="<c:url value="/myOrderList"/>" data-bs-toggle="tooltip"
+										data-bs-placement="bottom" title="查詢個人歷史訂單及訂單明細">查看所有訂單</a></li>
+									<li class="list-group-item"><a
+										href="<c:url value="/myOrderList/1"/>"
+										data-bs-toggle="tooltip" data-bs-placement="bottom"
+										title="查詢個人訂單狀態">訂單處理中</a></li>
+									<li class="list-group-item"><a
+										href="<c:url value="/myOrderList/2"/>"
+										data-bs-toggle="tooltip" data-bs-placement="bottom"
+										title="查詢個人訂單狀態出貨中">出貨中</a></li>
+									<li class="list-group-item"><a
+										href="<c:url value="/myOrderList/3"/>"
+										data-bs-toggle="tooltip" data-bs-placement="bottom"
+										title="查詢個人訂單狀態已送至指定地點">已送達</a></li>
 								</ul>
 								<!-- 現在時間 ----------------------------------------------------------------------------->
 								<div class="col" style="text-align: right;">
