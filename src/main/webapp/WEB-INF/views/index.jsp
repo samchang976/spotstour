@@ -109,13 +109,13 @@
  		</form> 
 	</div>
 <%-- =================下面有佔空間，白色的區塊======================================================================== --%>
-<%-- 				${registerOK} ${Login} ${FlashMSG_farewell} ${SUCCESS} ${param.message}${MsgOK.InsertOK}<br> <br> --%>
-<%-- 				<% --%>
-<!-- // 				session.removeAttribute("MsgOK"); -->
-<!-- // 				session.removeAttribute("registerOK"); -->
-<!-- // 				session.removeAttribute("Login"); -->
-<!-- // 				session.removeAttribute("SUCCESS"); -->
-<%-- 				%> --%>
+				${registerOK} ${Login} ${FlashMSG_farewell} ${SUCCESS} ${param.message}${MsgOK.InsertOK}<br> <br>
+				<%
+				session.removeAttribute("MsgOK"); 
+				session.removeAttribute("registerOK"); 
+ 				session.removeAttribute("Login"); 
+				session.removeAttribute("SUCCESS"); 
+				%> 
 <!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
