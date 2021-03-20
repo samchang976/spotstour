@@ -29,8 +29,6 @@ import _11_register.service.MemberService;
 import _14_modifyMember.service.ModifyService;
 import _14_modifyMember.validator.ModifyValidator;
 
-
-
 @Controller
 @SessionAttributes({"gender"})
 public class ModifyController {
@@ -49,7 +47,7 @@ public class ModifyController {
 		model.addAttribute("mPid", member.getMemberPermBean().getmPid());		
 		Map<String, String> gender = new LinkedHashMap<>();
 		gender.put("男", "男生");
-		gender.put("secret", "秘密");
+		gender.put("秘密", "秘密");
 		gender.put("女", "女生");
 		model.addAttribute("gender", gender);
 		return "_11_member/MemberDetailModify";
@@ -61,7 +59,7 @@ public class ModifyController {
 			@ModelAttribute("member") MemberBean member, 
 			BindingResult result, 
 			Model model,
-			RedirectAttributes redirectAtt, HttpSession session
+			HttpSession session
 			) {
 		ModifyValidator validator = new ModifyValidator();
 		validator.validate(member, result);
@@ -71,15 +69,13 @@ public class ModifyController {
 		
 		try {
 			modifyService.update(member,(Integer)session.getAttribute("mId"),(Integer)session.getAttribute("mPid"));
-			System.out.println("old======="+member.getmPw());
+			System.out.println("修改成功");
 		} catch (Exception ex) {
 			System.out.println(ex.getClass().getName() + ", ex.getMessage() = " + ex.getMessage());
 			result.rejectValue("mAN", "", "發生異常，請通知系統人員..." + ex.getMessage());
 			model.addAttribute("member",member);
 			return "_11_member/MemberDetailModify";
 		}
-		redirectAtt.addFlashAttribute("SUCCESS", "修改成功!!!");
-		
 		return "redirect:logout";
 		
 	}

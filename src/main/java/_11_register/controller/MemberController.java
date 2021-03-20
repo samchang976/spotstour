@@ -47,10 +47,11 @@ public class MemberController {
 	@GetMapping("/memberRegister")
 	public String sendForm(Model model) {
 		MemberBean memberBean = new MemberBean();
+		memberBean.setmBDay(java.sql.Date.valueOf("1990-3-31"));
 		model.addAttribute("memberBean", memberBean);
 		Map<String, String> gender = new LinkedHashMap<>();
 		gender.put("男", "男生");
-		gender.put("secret", "秘密");
+		gender.put("秘密", "秘密");
 		gender.put("女", "女生");
 		
 		model.addAttribute("gender", gender);
@@ -71,7 +72,7 @@ public class MemberController {
 		if (originalFilename.length() > 0 && originalFilename.lastIndexOf(".") > -1) {
 			bean.setmPic("memberImages/" + originalFilename); // 將檔名存入資料庫
 		}
-		String folderPath = "D:/_JSP/workspace/spotstourHSM/src/main/webapp/images/memberImages";
+		String folderPath = "D:/_JSP/workspace/spotstourHSM05/src/main/webapp/images/memberImages";
 		
 		File theDir = new File(folderPath);
 		if (!theDir.exists()) {
@@ -108,8 +109,6 @@ public class MemberController {
 			return inputForm;
 		}
 		model.addAttribute("registerOK", bean);
-//		return "_11_member/ConfirmEmail";
-//		return "redirect:/";
 		return "redirect:/confirmEmail";
 	}	
 	

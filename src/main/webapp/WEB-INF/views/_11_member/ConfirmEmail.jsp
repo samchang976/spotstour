@@ -48,11 +48,7 @@
 
 </head>
 <style>
-#container_PurchaseSuccess{
-   text-align: center;
-   margin: 50px auto;
-   /* background-color: lawngreen; */
-}
+
 
 </style>
 <body>
@@ -63,80 +59,43 @@
 <!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
-
-<!-- 	<div class="container"> -->
-	
-<!-- 	<div class="main"> -->
-	
-<!-- 	<div class="alert alert-primary" role="alert"> -->
-<!--   <h4 class="alert-heading">Well done!</h4> -->
-<!--   <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p> -->
-<!--   <hr> -->
-<!--   <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
-<!-- </div> -->
-
-<!-- 			<div class="focus container text-dark text-left text-shdow"> -->
-<!-- 				<div class="row text-center"> -->
-<!-- 					<div class="col"> -->
-<!-- 						<i class="fas fa-check-circle"></i><span id="successText"> -->
-<!-- 							註冊成功! </span> -->
-<!-- 					</div> -->
-					
-<!-- 					<div> -->
-<!-- 					<br> -->
-			
-<!-- 		<div id="thanks"> -->
-<!-- 				<br>SpotsTour已寄出一封驗證信至您的信箱<br> -->
-<!-- 				<br>請繼續完成信箱驗證並登入<br> -->
-<!-- 				<br>謝謝您 ! -->
-<!-- 			</div> -->
-<!-- 	</div> -->
-<!-- 	</div> -->
 	
 	
-	
-	
-	<div class="container" id="container_PurchaseSuccess">
-			
-<br>
-			<!--訂購成功  -->
-			<div class="row">
-				<div class="col-12">
-					<div>
-						 <h1><i class="fas fa-check-circle"></i><span id="successText">
-							註冊成功! </span></h1>
-					</div>
-				</div>
-			</div>
-			<br>
-			<!-- 區塊 -->
-			
-			<div class="row">
-				<div class="col-12">
-					<div class="OrderNumber" style="text-align: center;">
-						<h4>
-							<span>會員您好 :</span> 
-						</h4>
-					</div>
-				</div>
-			</div>
+		<div class="container">
 		
-			
-			<!--感謝詞  -->
-			<div id="thanks">
-				<br>SpotsTour已寄出一封驗證信至您的信箱<br>
-				<br>請繼續完成信箱驗證並登入<br>
-				<br>謝謝您 ! <br>
+			<div class="shadow p-3 mb-9 bg-body rounded">
+	
+			<div class="progress">
+	  			<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%">100%</div>
+			</div>
 				
-			</div>
-<hr>
-			
-<br>
-			<!-- 回商城首頁 -->
-			<button class="btn btn-primary"
-				onclick="location.href='${pageContext.request.contextPath}/'">回首頁</button>
-
+				<div class="focus container text-dark text-left text-shdow">
+					<div class="row text-center">
+						<div class="col mt-3">
+							<h1><i class="fas fa-check-circle"></i>註冊成功!</h1>
+							
+						</div>
+					</div>
+				
+				
+					<div class="row text-center">
+						<div class="col-12">
 		
+							<div id="thanks">
+							<h5>
+								<br>親愛的會員您好 :<br>
+								<br>SpotsTour已寄出一封驗證信至您的信箱<br>
+								<br>請至您的信箱查看認證信<br>
+								<br>完成信箱驗證即可登入<br>
+								<br>謝謝您的合作 ! <br><br>		
+							</h5>
+							</div>
+							
+						</div>
+					</div>
+
+				</div>
+			</div>
 		</div>
 <!-----------定位----------------------------------------------------------------------------->
 	</div>

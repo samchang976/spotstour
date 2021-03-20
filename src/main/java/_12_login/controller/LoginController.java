@@ -54,130 +54,8 @@ import _12_login.service.LoginService;
 
 @Controller
 @SessionAttributes({ "sessionShoppingCart", "sessionShoppingCartList" })
-//@SessionAttributes({"LoginOK","Login", "FlashMSG_farewell"}) 
 public class LoginController {
-//	
-//	@Autowired
-//	MemberService memberService;
-//	
-//	@Autowired
-//	ServletContext servletContext;
-//	
-//	@GetMapping("/login")
-//	public String login(Model model) {
-//		MemberBean mb = new MemberBean();
-//		model.addAttribute(mb);
-//		return "_11_member/LoginForm";
-//	}
-//	
-//	@PostMapping("/login")
-//	public String check(@ModelAttribute("memberBean") MemberBean bean, BindingResult result, Model model) {
-//		LoginValidator validator = new LoginValidator();
-//		validator.validate(bean, result);
-//		if (result.hasErrors()) {
-//			return "_11_member/LoginForm";
-//		}
-//		String password = bean.getmPw();
-//		String account = bean.getmAN();
-//		MemberBean mb = null;
-//		try {
-//			mb = memberService.checkmANmPw(account, password);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}			
-//		if(mb != null) {
-//				model.addAttribute("LoginOK", mb);
-//				model.addAttribute("Login", "登入成功");
-//				return "index";
-//			}else {
-//				model.addAttribute("LoginError", "帳號或密碼錯誤");
-//				return "_11_member/LoginForm";
-//			}
-//	}
-//	
-//	
-//	@GetMapping("/logout")
-//	public String logout(HttpSession session,  Model model, 
-//			SessionStatus status,
-//			RedirectAttributes redirectAtt
-//			) {
-//		String name = "";
-//		System.out.println("Logout");
-//		MemberBean memberBean = (MemberBean) model.getAttribute("LoginOK");
-//		if (memberBean != null) {
-//			name = memberBean.getmName();
-//		} else {
-//			name = "訪客";
-//		}
-//		String farewellMessage = name + "您已登出，期待您再次蒞臨本網站";
-//		redirectAtt.addFlashAttribute("FlashMSG_farewell", farewellMessage);
-//		status.setComplete();		
-//		session.invalidate();				
-//		return "redirect:/";		
-//
-//	}
-//	
-//	
-//	@GetMapping("/_00_init/getMemberImage")   
-//	public ResponseEntity<byte[]>  getMemberImage(@RequestParam("id") String id) {
-//		InputStream is = null;
-//		OutputStream os = null;
-//		String fileName = null;
-//		String mimeType = null;
-//		byte[] media = null;
-//		ResponseEntity<byte[]> responseEntity = null;
-//		HttpHeaders headers = new HttpHeaders();
-//		MediaType mediaType = null;
-//		String pic = null;
-//		try {
-//			MemberBean bean = memberService.queryMember(id);
-//			if (bean != null) {
-//				pic = bean.getmPic();
-//				if (pic != null) {
-//					byte[] decodedBytes = Base64.getDecoder().decode(pic);
-////					os.write(decodedBytes);
-//					is.read(decodedBytes);
-//				}
-////				fileName = bean.getFileName();
-//			}	
-//			if (is == null) {
-//				fileName = "kitty.jpg" ; 
-//				is = servletContext.getResourceAsStream(
-//						"/image/memberImages/tinyImg/" + fileName);
-//			}
-//			mimeType = servletContext.getMimeType(fileName);
-//			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//			int len = 0;
-//			byte[] bytes = new byte[8192];
-//			
-//			while ((len = is.read(bytes)) != -1) {
-//				baos.write(bytes, 0, len);
-//			}
-//			media = baos.toByteArray();
-//			mediaType = MediaType.valueOf(mimeType);
-//			headers.setCacheControl(CacheControl.noCache().getHeaderValue());
-//			headers.setContentType(mediaType);
-//			responseEntity =  new ResponseEntity<>(media, headers, HttpStatus.OK);
-//		} catch(Exception ex) {
-//			ex.printStackTrace();
-//			throw new RuntimeException("發生Exception: " + ex.getMessage());
-//		} finally{
-//			try {
-//				if (is != null) is.close();
-//			} catch(IOException e) {
-//				;
-//			}
-//			try {
-//				if (os != null) os.close();
-//			} catch(IOException e) {
-//				;
-//			}
-//		}
-//		return responseEntity;
-//	}
-//	
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
 	@Autowired
 	LoginService loginService;
 
@@ -194,7 +72,7 @@ public class LoginController {
 //	@RequestMapping("/login.do")
 	@PostMapping("/login")
 	public String doLogin(@ModelAttribute("memberBean") MemberBean memberBean, BindingResult result,
-			HttpSession session, Model model, SessionStatus status) {
+			HttpSession session, Model model, SessionStatus status, RedirectAttributes redirectAtt) {
 		LoginValidator validator = new LoginValidator();
 		validator.validate(memberBean, result);
 		if (result.hasErrors()) {
@@ -228,7 +106,7 @@ public class LoginController {
 			}
 		} catch (NoResultException nre) {
 			System.out.println("資料錯誤");
-			model.addAttribute("LoginError", "帳號或密碼錯誤");
+			redirectAtt.addFlashAttribute("LoginError", "帳號或密碼錯誤");
 			return "redirect:login";
 		}
 		return "redirect:login";

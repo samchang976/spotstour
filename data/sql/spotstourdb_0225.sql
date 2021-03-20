@@ -321,22 +321,27 @@ CREATE TABLE `member` (
 /*Data for the table `member` */
 
 INSERT  INTO `member`(`mId`,`mAN`,`mPw`,`mGender`,`mName`,`mUid`,`mBDay`,`mEmail`,`mPhone`,`d_mAddress`,`m_createTime`,`mPic`,`m_verify`,`mPid`) VALUES 
-(1,'spotstour','0000','男','諸葛村夫','F123456789','1987-08-07 00:00:00','spotstour@gmail.com','0912345678','台北市大同區民權西路1號','2021-02-25 00:00:00',NULL,1,2),
-(2,'aaaaaa','aaaaaa','男','管理者','A123456789','2021-03-01 12:03:16','spotstour@gamil.com','0912345678','台北市信義區信義路100號','2021-03-10 12:03:53',NULL,1,1);
+(1,'spotstour','0000aa','男','諸葛村夫','A123456789','1987-05-07 00:00:00','spring@gmail.com','0932000530','台北市大同區民權西路1號','2021-02-25 15:09:07','memberImages/andrea.jpg',1,2),
+(2,'aaaaaa','aaaa22','男','管理者','A123400088','1990-03-01 12:03:16','spotstour@gamil.com','0912345678','台北市信義區信義路100號','2021-03-10 12:03:53','memberImages/mentat.jpg',1,1),
+(3,'sunnyday','world168','女','katie','F223456789','1988-12-31 00:00:00','katie@gmail.com','0966130530','台北市中山區中山北路二段35號','2021-03-11 13:10:08','memberImages/katie.jpg',1,2),
+(4,'linatour','cheese00','女','lina','F233456000','1990-03-06 00:00:00','lina@gmail.com','0988421530','台北市中正區忠孝東路二段27號','2021-03-12 16:15:22','memberImages/lina.jpg',1,2),
+(5,'kittyhi','smile99','秘密','kitty','A123456789','1985-03-03 00:00:00','spring@gmail.com','0911850530','台北市中正區北平東路7號','2021-03-15 17:09:07','memberImages/kitty.jpg',1,2),
+(6,'snoopyya','0000jj','秘密','snoopy','A123456789','1985-02-17 00:00:00','spring@gmail.com','0912653530','台北市中正區八德路一段1號','2021-03-17 14:09:07','memberImages/snoopy.jpg',1,2);
+
 
 /*Table structure for table `member_perm` */
 
 DROP TABLE IF EXISTS `member_perm`;
 
 CREATE TABLE `member_perm` (
-  `mPid` int NOT NULL AUTO_INCREMENT,
-  `mPermissions` varchar(10) NOT NULL,
+  `mPid` INT NOT NULL AUTO_INCREMENT,
+  `mPermissions` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`mPid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `member_perm` */
 
-insert  into `member_perm`(`mPid`,`mPermissions`) values 
+INSERT  INTO `member_perm`(`mPid`,`mPermissions`) VALUES 
 (1,'管理員'),
 (2,'會員'),
 (3,'停權中');
@@ -346,14 +351,14 @@ insert  into `member_perm`(`mPid`,`mPermissions`) values
 DROP TABLE IF EXISTS `ord`;
 
 CREATE TABLE `ord` (
-  `ord_Id` int NOT NULL AUTO_INCREMENT,
-  `mId` int NOT NULL,
-  `oSid` int NOT NULL,
-  `s_createTime` datetime NOT NULL,
-  `o_createTime` datetime NOT NULL,
-  `s_mAddress` varchar(40) NOT NULL,
-  `receiptTypeId` int NOT NULL,
-  `shipTypeId` int NOT NULL,
+  `ord_Id` INT NOT NULL AUTO_INCREMENT,
+  `mId` INT NOT NULL,
+  `oSid` INT NOT NULL,
+  `s_createTime` DATETIME NOT NULL,
+  `o_createTime` DATETIME NOT NULL,
+  `s_mAddress` VARCHAR(40) NOT NULL,
+  `receiptTypeId` INT NOT NULL,
+  `shipTypeId` INT NOT NULL,
   PRIMARY KEY (`ord_Id`),
   KEY `ord_mId_fk` (`mId`),
   KEY `ord_oSid_fk` (`oSid`),
@@ -367,11 +372,11 @@ CREATE TABLE `ord` (
   CONSTRAINT `ord_oSid_fk` FOREIGN KEY (`oSid`) REFERENCES `ord_stat` (`oSid`),
   CONSTRAINT `ord_receiptTypeId_fk` FOREIGN KEY (`receiptTypeId`) REFERENCES `receipt_type` (`receiptTypeId`),
   CONSTRAINT `ord_shipTypeId_fk` FOREIGN KEY (`shipTypeId`) REFERENCES `ship_type` (`shipTypeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord` */
 
-insert  into `ord`(`ord_Id`,`mId`,`oSid`,`s_createTime`,`o_createTime`,`s_mAddress`,`receiptTypeId`,`shipTypeId`) values 
+INSERT  INTO `ord`(`ord_Id`,`mId`,`oSid`,`s_createTime`,`o_createTime`,`s_mAddress`,`receiptTypeId`,`shipTypeId`) VALUES 
 (1,1,1,'2021-03-19 09:18:31','2021-03-10 09:18:49','台北市大同區民權西路1號',1,1),
 (2,1,2,'2021-02-03 11:58:55','2021-02-19 03:58:59','台北市中山區民權東路100號',2,2),
 (3,1,3,'2021-01-05 12:00:07','2021-01-29 16:00:11','台北市中山區民權東路200號',3,3);
@@ -381,10 +386,10 @@ insert  into `ord`(`ord_Id`,`mId`,`oSid`,`s_createTime`,`o_createTime`,`s_mAddre
 DROP TABLE IF EXISTS `ord_detail`;
 
 CREATE TABLE `ord_detail` (
-  `ord_dId` int NOT NULL AUTO_INCREMENT,
-  `ord_Id` int NOT NULL,
-  `ordQty` int NOT NULL,
-  `itemId` int NOT NULL,
+  `ord_dId` INT NOT NULL AUTO_INCREMENT,
+  `ord_Id` INT NOT NULL,
+  `ordQty` INT NOT NULL,
+  `itemId` INT NOT NULL,
   PRIMARY KEY (`ord_dId`),
   KEY `ord_deatail_ord_Id_fk` (`ord_Id`),
   KEY `ord_deatail_itemId_fk` (`itemId`),
@@ -392,11 +397,11 @@ CREATE TABLE `ord_detail` (
   CONSTRAINT `FK7rq4ds1xrookjnyfp0oyvqn4v` FOREIGN KEY (`ord_Id`) REFERENCES `ord` (`ord_Id`),
   CONSTRAINT `ord_deatail_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`),
   CONSTRAINT `ord_deatail_ord_Id_fk` FOREIGN KEY (`ord_Id`) REFERENCES `ord` (`ord_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord_detail` */
 
-insert  into `ord_detail`(`ord_dId`,`ord_Id`,`ordQty`,`itemId`) values 
+INSERT  INTO `ord_detail`(`ord_dId`,`ord_Id`,`ordQty`,`itemId`) VALUES 
 (1,1,2,1),
 (2,1,3,2),
 (3,1,4,3),
@@ -413,14 +418,14 @@ insert  into `ord_detail`(`ord_dId`,`ord_Id`,`ordQty`,`itemId`) values
 DROP TABLE IF EXISTS `ord_stat`;
 
 CREATE TABLE `ord_stat` (
-  `oSid` int NOT NULL AUTO_INCREMENT,
-  `ordStat` varchar(10) NOT NULL,
+  `oSid` INT NOT NULL AUTO_INCREMENT,
+  `ordStat` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`oSid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord_stat` */
 
-insert  into `ord_stat`(`oSid`,`ordStat`) values 
+INSERT  INTO `ord_stat`(`oSid`,`ordStat`) VALUES 
 (1,'訂單處理中'),
 (2,'出貨中'),
 (3,'已送達');
@@ -430,11 +435,11 @@ insert  into `ord_stat`(`oSid`,`ordStat`) values
 DROP TABLE IF EXISTS `params`;
 
 CREATE TABLE `params` (
-  `paramId` int NOT NULL AUTO_INCREMENT,
-  `type` varchar(10) NOT NULL,
-  `typeName` varchar(10) NOT NULL,
+  `paramId` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(10) NOT NULL,
+  `typeName` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`paramId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 /*Data for the table `params` */
 
@@ -443,14 +448,14 @@ CREATE TABLE `params` (
 DROP TABLE IF EXISTS `place_type`;
 
 CREATE TABLE `place_type` (
-  `placeTypeId` int NOT NULL AUTO_INCREMENT,
-  `placeType` varchar(20) NOT NULL,
+  `placeTypeId` INT NOT NULL AUTO_INCREMENT,
+  `placeType` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`placeTypeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `place_type` */
 
-insert  into `place_type`(`placeTypeId`,`placeType`) values 
+INSERT  INTO `place_type`(`placeTypeId`,`placeType`) VALUES 
 (1,'景點'),
 (2,'餐廳'),
 (3,'旅館');
@@ -460,16 +465,16 @@ insert  into `place_type`(`placeTypeId`,`placeType`) values
 DROP TABLE IF EXISTS `portfolio`;
 
 CREATE TABLE `portfolio` (
-  `portfolioId` int NOT NULL AUTO_INCREMENT,
-  `portfolioName` varchar(50) NOT NULL,
-  `portfolioText` varchar(255) NOT NULL,
-  `p_createTime` datetime NOT NULL,
-  `pAddress` varchar(50) NOT NULL,
-  `longitude` varchar(30) NOT NULL,
-  `latitude` varchar(30) NOT NULL,
-  `cityId` int NOT NULL,
-  `mId` int NOT NULL,
-  `placeTypeId` int NOT NULL,
+  `portfolioId` INT NOT NULL AUTO_INCREMENT,
+  `portfolioName` VARCHAR(50) NOT NULL,
+  `portfolioText` VARCHAR(255) NOT NULL,
+  `p_createTime` DATETIME NOT NULL,
+  `pAddress` VARCHAR(50) NOT NULL,
+  `longitude` VARCHAR(30) NOT NULL,
+  `latitude` VARCHAR(30) NOT NULL,
+  `cityId` INT NOT NULL,
+  `mId` INT NOT NULL,
+  `placeTypeId` INT NOT NULL,
   PRIMARY KEY (`portfolioId`),
   KEY `portfolio_cityId_fk` (`cityId`),
   KEY `portfolio_mId_fk` (`mId`),
@@ -480,11 +485,11 @@ CREATE TABLE `portfolio` (
   CONSTRAINT `portfolio_cityId_fk` FOREIGN KEY (`cityId`) REFERENCES `city` (`cityId`),
   CONSTRAINT `portfolio_mId_fk` FOREIGN KEY (`mId`) REFERENCES `member` (`mId`),
   CONSTRAINT `portfolio_placeTypeId_fk` FOREIGN KEY (`placeTypeId`) REFERENCES `place_type` (`placeTypeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `portfolio` */
 
-insert  into `portfolio`(`portfolioId`,`portfolioName`,`portfolioText`,`p_createTime`,`pAddress`,`longitude`,`latitude`,`cityId`,`mId`,`placeTypeId`) values 
+INSERT  INTO `portfolio`(`portfolioId`,`portfolioName`,`portfolioText`,`p_createTime`,`pAddress`,`longitude`,`latitude`,`cityId`,`mId`,`placeTypeId`) VALUES 
 (1,'台北101','位於臺灣臺北市信義區的摩天大樓，樓高508米（1,667英尺），地上101層、地下5層，總樓地板面積37萬1千平方公尺。','2021-02-25 00:00:00','台北市信義區市府路45號','121.564','25.033',1,1,1),
 (2,'龍虎塔','位於台灣高雄市左營區蓮花湖的一座寺廟。這座寺廟建於1976年。其中一座塔是虎塔，另一座是龍塔。','2021-01-22 00:00:00','高雄市左營區蓮潭路9號','120.292','22.680',3,1,1),
 (3,'武陵農場','位於台灣台中市和平區平等里，是親近雪霸國家公園的重要遊憩據點，海拔1750公尺至2200公尺，為中華民國國軍退除役官兵輔導委員會所經營之公有事業。','2020-11-16 00:00:00','台中市和平區武陵路3-1號','121.308','24.345',2,1,1);
@@ -494,16 +499,16 @@ insert  into `portfolio`(`portfolioId`,`portfolioName`,`portfolioText`,`p_create
 DROP TABLE IF EXISTS `portfoliomsg`;
 
 CREATE TABLE `portfoliomsg` (
-  `portfolioMsgId` int NOT NULL AUTO_INCREMENT,
-  `portfolioId` int NOT NULL,
-  `msgText` varchar(200) NOT NULL,
-  `pm_createTime` datetime NOT NULL,
-  `pmsg_freeze` tinyint NOT NULL DEFAULT '0',
+  `portfolioMsgId` INT NOT NULL AUTO_INCREMENT,
+  `portfolioId` INT NOT NULL,
+  `msgText` VARCHAR(200) NOT NULL,
+  `pm_createTime` DATETIME NOT NULL,
+  `pmsg_freeze` TINYINT NOT NULL DEFAULT '0',
   PRIMARY KEY (`portfolioMsgId`),
   KEY `portfolioMsg_portfolioId_fk` (`portfolioId`),
   CONSTRAINT `FK1uut686ofs5t3rlehnn72tuwv` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`),
   CONSTRAINT `portfolioMsg_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 /*Data for the table `portfoliomsg` */
 
@@ -512,14 +517,14 @@ CREATE TABLE `portfoliomsg` (
 DROP TABLE IF EXISTS `receipt_type`;
 
 CREATE TABLE `receipt_type` (
-  `receiptTypeId` int NOT NULL AUTO_INCREMENT,
-  `receiptType` varchar(15) NOT NULL,
+  `receiptTypeId` INT NOT NULL AUTO_INCREMENT,
+  `receiptType` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`receiptTypeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `receipt_type` */
 
-insert  into `receipt_type`(`receiptTypeId`,`receiptType`) values 
+INSERT  INTO `receipt_type`(`receiptTypeId`,`receiptType`) VALUES 
 (1,'三聯式統一發票'),
 (2,'二聯式統一發票'),
 (3,'個人電子發票'),
@@ -531,10 +536,10 @@ insert  into `receipt_type`(`receiptTypeId`,`receiptType`) values
 DROP TABLE IF EXISTS `record`;
 
 CREATE TABLE `record` (
-  `recordId` int NOT NULL AUTO_INCREMENT,
-  `portfolioId` int NOT NULL,
-  `type` varchar(10) NOT NULL,
-  `paramId` int NOT NULL,
+  `recordId` INT NOT NULL AUTO_INCREMENT,
+  `portfolioId` INT NOT NULL,
+  `type` VARCHAR(10) NOT NULL,
+  `paramId` INT NOT NULL,
   PRIMARY KEY (`recordId`),
   KEY `record_portfolioId_fk` (`portfolioId`),
   KEY `record_paramId_fk` (`paramId`),
@@ -542,7 +547,7 @@ CREATE TABLE `record` (
   CONSTRAINT `FKbopblbme50gdwh19qg9qphlw3` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`),
   CONSTRAINT `record_paramId_fk` FOREIGN KEY (`paramId`) REFERENCES `params` (`paramId`),
   CONSTRAINT `record_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 /*Data for the table `record` */
 

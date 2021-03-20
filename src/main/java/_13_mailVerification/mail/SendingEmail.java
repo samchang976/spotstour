@@ -619,7 +619,7 @@ public class SendingEmail {
 					+ "<br>\r\n"
 					+ "歡迎您正式成為SpotsTour會員 ! "
 					+ "<br>\r\n"
-					+ "感謝您協助完成驗證手續 !&nbsp;</div>\r\n"
+					+ "感謝您協助完成信箱驗證手續 !&nbsp;</div>\r\n"
 					+ "\r\n"
 					+ "                        </td>\r\n"
 					+ "                    </tr>\r\n"
@@ -674,17 +674,8 @@ public class SendingEmail {
 					+ "<br>\r\n"
 					+ "即時提供關於當地旅遊勝地的影片 "
 					+ "<br>\r\n"
-					+ "讓你身歷其境，美景盡收眼底！&nbsp;</div>\r\n"
+					+ "讓您身歷其境，美景盡收眼底！&nbsp;</div>\r\n"
 					+ "\r\n"
-//					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 訂單號碼是 :&nbsp;FSWE1233" + ordBean.getOrd_Id() + "<br>\r\n"
-//					+ "<br>\r\n"
-//					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 配送地址是 :&nbsp;" + ordBean.getS_mAddress() + "<br>\r\n"
-//					+ "<br>\r\n"
-//					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 配送方式是 :&nbsp;" + ordBean.getShipTypeBean().getShipType() + "<br>\r\n"
-//					+ "<br>\r\n"
-//					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 發票領取方式是 :&nbsp;" + ordBean.getReceiptTypeBean().getReceiptType() + "<br>\r\n"
-//					+ "<br>\r\n"
-//					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 預計到貨時間 :&nbsp;" + shipTime + "\r\n"
 					+ "                        </td>\r\n"
 					+ "                    </tr>\r\n"
 					+ "                </tbody></table>\r\n"
@@ -725,7 +716,7 @@ public class SendingEmail {
 					+ "                    <tbody>\r\n"
 					+ "                        <tr>\r\n"
 					+ "                            <td align=\"center\" valign=\"middle\" class=\"mcnButtonContent\" style=\"font-family: Arial; font-size: 16px; padding: 16px;\">\r\n"
-					+ "                                <a class=\"mcnButton \" title=\"點我完成信箱驗證並登入\" href=\"http://localhost:8080/SpotsTourHSM/verify\" target=\"_blank\" style=\"font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;\">點我完成信箱驗證</a>\r\n"
+					+ "                                <a class=\"mcnButton \" title=\"點我完成驗證並登入\" href=\"http://localhost:8080/SpotsTourHSM/verify\" target=\"_blank\" style=\"font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;\">點我完成驗證並登入</a>\r\n"
 					+ "                            </td>\r\n"
 					+ "                        </tr>\r\n"
 					+ "                    </tbody>\r\n"
@@ -734,21 +725,6 @@ public class SendingEmail {
 					+ "        </tr>\r\n"
 					+ "    </tbody>\r\n"
 					+ "</table>"
-//					+ "    <tbody class=\"mcnButtonBlockOuter\">\r\n"
-//					+ "        <tr>\r\n"
-//					+ "            <td style=\"padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;\" valign=\"top\" align=\"center\" class=\"mcnButtonBlockInner\">\r\n"
-//					+ "                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"mcnButtonContentContainer\" style=\"border-collapse: separate !important;border-radius: 8px;background-color: #216EE2;\">\r\n"
-//					+ "                    <tbody>\r\n"
-//					+ "                        <tr>\r\n"
-//					+ "                            <td align=\"center\" valign=\"middle\" class=\"mcnButtonContent\" style=\"font-family: Arial; font-size: 16px; padding: 16px;\">\r\n"
-//					+ "                                <a class=\"mcnButton \" title=\"返回Spotstour首頁\" href=\"http://localhost:8080/SpotsTourHSM\" target=\"_blank\" style=\"font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;\">返回Spotstour首頁</a>\r\n"
-//					+ "                            </td>\r\n"
-//					+ "                        </tr>\r\n"
-//					+ "                    </tbody>\r\n"
-//					+ "                </table>\r\n"
-//					+ "            </td>\r\n"
-//					+ "        </tr>\r\n"
-//					+ "    </tbody>\r\n"
 					+ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" class=\"mcnDividerBlock\" style=\"min-width:100%;\">\r\n"
 					+ "    <tbody class=\"mcnDividerBlockOuter\">\r\n"
 					+ "        <tr>\r\n"
@@ -828,7 +804,6 @@ public class SendingEmail {
 					+ "</html>\r\n";
 					
 			message.setContent(messageStr, "text/html; charset=UTF-8");
-//			message.setContent(messageStr, "text/html");
 			Transport.send(message);
 			
 			System.out.println("Successfully sent Verification Link");
@@ -837,10 +812,5 @@ public class SendingEmail {
 			System.out.println("Error at SendingEmail.java: " + e);
 		}
 	}
-	
-	
-	
-	
-	
-	
+
 }

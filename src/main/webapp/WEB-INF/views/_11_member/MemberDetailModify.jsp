@@ -55,9 +55,12 @@
 	font-family: 'Noto Sans TC';
 }
 .error {
-	color: blue;
+	color: red;
 	display: inline-block;
 	font-size: 10pt;
+}
+.form-control{
+	margin-bottom: 10px;
 }
 
 </style>
@@ -75,22 +78,24 @@
 		
 
 		<div class="main">
+			<div class="shadow p-3 mb-9 bg-body rounded">
 
-			<div class="focus container text-dark text-left text-shdow">
-				<div class="row text-center">
-					<div class="col">
-						<h1 class="mt-3">會員資料修改</h1>
+				<div class="focus container text-dark text-left text-shdow">
+					<div class="row text-center">
+						<div class="col">
+							<h1 class="mt-3">會員資料修改</h1>
+						</div>
 					</div>
-				</div>
 
 
 				<!-- 表單 -->
 				<div class="row justify-content-center mt-3">
-					<div class="col-10 col-md-6 col-lg-4">
+					<div class="col-10 col-md-6 col-lg-6">
 
 					<form:form method="POST" action="/SpotsTourHSM/memberDetailModify"  modelAttribute="member"
 							enctype='multipart/form-data'>
 							<div class="form-row" >
+							
 															
 									 <form:hidden path="mId" value="${member.mId}" size="40" class="mt-3"/>
 									 <form:hidden path="m_verify" value="${member.m_verify}" size="40" class="mt-3"/>
@@ -99,55 +104,80 @@
 
 										 <form:hidden path="mAN" value="${member.mAN}" size="40" class="mt-3"/>
 									
-									姓名： <form:input path="mName" value="${member.mName}" size="40" class="mt-3"/>
-										 <form:errors path="mName" class="error"/><br>
+									
+										姓名： <form:errors path="mName" class="error"/><br>
+									 <form:input path="mName" value="${member.mName}" class="form-control"/>
+									
 
-									密碼： <form:input path="mPw" value="${member.mPw}" size="40" class="mt-3" type="password"/>
-										 <form:errors path="mPw" class="error"/><br>
+										密碼： <form:errors path="mPw" class="error"/><br>
+									 <form:input path="mPw" value="${member.mPw}" class="form-control" type="password"/>
 
-									密碼確認： <form:input path="mTPw" value="${member.mTPw}" size="36" class="mt-3" type="password"/>
-										 <form:errors path="mTPw" class="error"/><br>
+										密碼確認： <form:errors path="mTPw" class="error"/><br>
+									 <form:input path="mTPw" value="${member.mTPw}" class="form-control" type="password"/>
 
-									地址： <form:input path="d_mAddress" value="${member.d_mAddress}" size="40" class="mt-3"/>
-										 <form:errors path="d_mAddress" class="error"/><br>
+										地址： <form:errors path="d_mAddress" class="error"/><br>
+									 <form:input path="d_mAddress" value="${member.d_mAddress}" class="form-control"/>
 
 									性別： 
-									<form:select path="mGender" class="mt-3">
+									<form:select path="mGender" class="form-control">
 									<form:options path="mGender" items="${gender}"/>
-									</form:select><br>
+									</form:select>
 
-									身分證： <form:input path="mUid" value="${member.mUid}" size="38" class="mt-3"/>
-										 <form:errors path="mUid" class="error"/><br>
+										身分證：<form:errors path="mUid" class="error"/><br>
+								 <form:input path="mUid" value="${member.mUid}" class="form-control"/>
 
-									電子信箱： <form:input path="mEmail" value="${member.mEmail}" size="36" class="mt-3" type="email"/>
-										 <form:errors path="mEmail" class="error"/><br>
+										電子信箱： <form:errors path="mEmail" class="error"/><br>
+									 <form:input path="mEmail" value="${member.mEmail}" class="form-control" type="email"/>
 
-									生日： <form:input path="mBDay" value="${member.mBDay}" type="date" size="40" class="mt-3" required="required"/>
-										 <form:errors path="mBDay" class="error"/><br>
+										生日： <form:errors path="mBDay" class="error"/><br>
+									 <form:input path="mBDay" value="${member.mBDay}" type="date" class="form-control" required="required"/>
 
-									手機： <form:input path="mPhone" value="${member.mPhone}" size="40" class="mt-3"/>
-										 <form:errors path="mPhone" class="error"/><br>
+										手機： <form:errors path="mPhone" class="error"/><br>
+									 <form:input path="mPhone" value="${member.mPhone}" class="form-control"/>
 										 
-									會員照片： <form:input path="multipartFile" size="36" class="mt-3" type="file"/>
-										 <form:errors path="multipartFile" class="error"/><br>
+									會員照片：	 <form:errors path="multipartFile" class="error"/><br>
+									 <form:input path="multipartFile" class="form-control" type="file"/>
 							
 							
 
-							<button type="submit" class="btn btn-primary w-100 mt-3">修改</button>
+									<button type="submit" class="btn btn-primary w-100 mt-3 mb-5">修改</button>
+
+								<!-- Button trigger modal -->
+<!-- 							<button type="submit" class="btn btn-primary w-100 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
+<!-- 							  修改 -->
+<!-- 							</button> -->
+							
+<!-- 							Modal -->
+<!-- 							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<!-- 							  <div class="modal-dialog"> -->
+<!-- 							    <div class="modal-content"> -->
+<!-- 							      <div class="modal-header"> -->
+<!-- 							        <h5 class="modal-title" id="exampleModalLabel">修改成功</h5> -->
+<!-- 							        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+<!-- 							      </div> -->
+<!-- 							      <div class="modal-body"> -->
+<!-- 							        親愛的會員，您的資料已完成更新。 -->
+<!-- 							      </div> -->
+<!-- 							      <div class="spinner-border text-primary" role="status"> -->
+<!-- 															<span class="visually-hidden">Loading...</span> -->
+<!-- 														</div> -->
+<!-- 							      <div class="modal-footer"> -->
+<!-- 							        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+<%-- 							        <button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/memberDetailModify'" >回首頁</button> --%>
+<!-- 							      </div> -->
+<!-- 							    </div> -->
+<!-- 							  </div> -->
+<!-- 							</div> -->
+						
+
 
 							</div>
 						</form:form>
-
-						
+						</div>
 					</div>
 				</div>
-
-
 			</div>
-
 		</div>
-
-		
 	</div>
 				
 <!-- 		<div style="margin: 150px;"> -->
