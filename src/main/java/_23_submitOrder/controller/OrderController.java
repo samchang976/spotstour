@@ -119,9 +119,6 @@ public class OrderController {
 			return "_21_shoppingMall/SelectPayment";
 		}
 		
-		
-
-		
 		return "_21_shoppingMall/SubmitOrderInfo";
 	}
 

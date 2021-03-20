@@ -4,9 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +23,7 @@ import _02_model.entity.FeedbackBean;
 import _02_model.entity.ItemBean;
 import _02_model.entity.Item_typeBean;
 import _91_managerMart.service.ManagerItemService;
+import _91_managerMart.validator.ManagerValidator;
 
 @Controller
 public class ManagerController {
@@ -40,7 +45,18 @@ public class ManagerController {
 
 	// 新增商品
 	@PostMapping("/merchandiseModify")
-	public String processAddNewMrchandiseForm(@ModelAttribute("itemBean") ItemBean itemBean, Model model) {
+	public String processAddNewMrchandiseForm(@Valid @ModelAttribute("itemBean") ItemBean itemBean, BindingResult result, Model model) {
+		
+		// 設定表單資料檢查條件
+		ManagerValidator validator = new ManagerValidator();
+		validator.validate(itemBean, result);
+		if (result.hasErrors()) {
+			List<ObjectError> errorList = result.getAllErrors();// 把所有錯誤裝在list裡面
+			for (ObjectError error : errorList) {
+				System.out.println("====>有錯誤:" + error);
+			}
+			return "_91_manageMart/MerchandiseModify";
+		}
 		managerItemService.addItem(itemBean);
 		return "redirect:/merchandiseModify#searchi";
 	}
@@ -56,8 +72,19 @@ public class ManagerController {
 //	@PostMapping("/merchandiseModify/get/Id={itemId}")
 	@PostMapping("/Id={itemId}")
 	public String updateItem(@ModelAttribute(value = "itemId") Integer itemId,
-			@ModelAttribute("itemBean") ItemBean itemBeanN, Model model,
+			@Valid @ModelAttribute("itemBean") ItemBean itemBeanN, BindingResult result, Model model,
 			@RequestParam(value ="img", required = false) MultipartFile img) {
+		// 設定表單資料檢查條件
+		ManagerValidator validator = new ManagerValidator();
+		validator.validate(itemBeanN, result);
+		if (result.hasErrors()) {
+			List<ObjectError> errorList = result.getAllErrors();// 把所有錯誤裝在list裡面
+			for (ObjectError error : errorList) {
+				System.out.println("====>有錯誤:" + error);
+			}
+			return "_91_manageMart/MerchandiseModify";
+		}
+		
 		managerItemService.updateItem(itemBeanN);
 		return "redirect:/merchandiseModify#{itemId}";
 	}

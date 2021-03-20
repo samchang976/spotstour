@@ -135,8 +135,8 @@ public class ManagerItemDaoImpl implements Serializable, ManagerItemDao {
 	@Override
 	public void addItem(ItemBean itemBean) {
 		Session session = factory.getCurrentSession();
-		Item_typeBean itb = getItem_TypeById(itemBean.getItTId()); 
-		CountryBean cb = getCountryById(itemBean.getCountryTId());
+		Item_typeBean itb = getItem_TypeById(itemBean.getItem_typeBean().getItId()); 
+		CountryBean cb = getCountryById(itemBean.getCountryBean().getCountryId());
 		itemBean.setItem_typeBean(itb);
 		itemBean.setCountryBean(cb);
 		session.save(itemBean);

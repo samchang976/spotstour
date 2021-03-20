@@ -199,11 +199,11 @@ body {
 				</c:forEach>
 				<!-- ----------------------------------------------------------------------------------------------- -->
 				<!-- 回商城首頁 -->
+			</div>
 				<div class="text-algin-center my-3">
 					<button type="submit" class="btn btn-primary btn-lg"
 						onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
 				</div>
-			</div>
 		</div>
 
 		<!-----------定位----------------------------------------------------------------------------->

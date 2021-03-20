@@ -137,6 +137,19 @@ button { /*按鈕的樣式*/
 .imageFrame img:hover {
 	transform: scale(1.5, 1.5);
 }
+
+span.error:first-child() {
+	text-align: left;
+	margin-left: 0;
+}
+
+.error {
+	letter-spacing: 1px;
+	margin-top: 5px;
+	display: inline-block;
+	color: rgb(255, 0, 0);
+	margin-left: 30%;
+}
 </style>
 
 </head>
@@ -152,7 +165,6 @@ button { /*按鈕的樣式*/
 		<%-- 	<jsp:include page="<c:url value='${pageContext.request.contextPath}/WEB-INF/views/_00_util/allUtil/jsp/header.jsp'/>" /> --%>
 		<div class="container">
 			<div class="row">
-			<div class="animate__animated animate__rotateInDownLeft">
 				<div class="col">
 					<br> <br>
 					<button id="newM" class="btn btn-primary btn-lg"
@@ -166,229 +178,266 @@ button { /*按鈕的樣式*/
 					<br> <br>
 
 
-					<!-- 	新增商品和編輯商品 -->
-					<div class="accordion" id="accordionExample">
-						<div class="accordion-item">
-							<h2 class="accordion-header" id="headingOne">
-								<button class="accordion-button" type="button"
-									data-bs-toggle="collapse" data-bs-target="#collapseOne"
-									aria-expanded="true" aria-controls="collapseOne">
-									<c:if test="${itemId==null}">
-										<h3>新增商品</h3>
-									</c:if>
+					<div class="animate__animated animate__zoomInDown">
+						<!-- 	新增商品和編輯商品 -->
+						<div class="accordion" id="accordionExample">
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingOne">
+									<button class="accordion-button" type="button"
+										data-bs-toggle="collapse" data-bs-target="#collapseOne"
+										aria-expanded="true" aria-controls="collapseOne">
+										<c:if test="${itemId==null}">
+											<h3>新增商品</h3>
+										</c:if>
 
-									<c:if test="${itemId!=null}">
-										<h3>編輯商品 (商品編號 : ${itemId})</h3>
-									</c:if>
-								</button>
-							</h2>
-							<div id="collapseOne" class="accordion-collapse collapse show"
-								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-								<div class="accordion-body">
+										<c:if test="${itemId!=null}">
+											<h3>編輯商品 (商品編號 : ${itemId})</h3>
+										</c:if>
+									</button>
+								</h2>
+								<div id="collapseOne" class="accordion-collapse collapse show"
+									aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
 
-									<!-- 			增加陰影效果 -->
-									<div class="shadow p-3 mb-5 bg-body rounded">
-										<div id="addSquare">
-											<form:form method="POST" modelAttribute="itemBean"
-												enctype="multipart/form-data">
+										<!-- 			增加陰影效果 -->
+										<div class="shadow p-3 mb-5 bg-body rounded">
+											<div id="addSquare">
+												<form:form method="POST" modelAttribute="itemBean"
+													enctype="multipart/form-data">
 
-												<div class="form-group row">
-													<div class="input-group mb-3">
-														<label for="itemHeader" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品名稱 :
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-														<div class="col-sm-10">
-															<form:input type="text" path="itemHeader"
-																class="form-control" id="itemHeader" maxlength="20"
-																placeholder="限20字以內" aria-label="Username"
-																aria-describedby="basic-addon1" />
-														</div>
-													</div>
-												</div>
-
-												<div class="form-group row">
-													<div class="input-group mb-3">
-														<label for="itemPrice" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品價錢 :
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-														<div class="col-sm-10">
-															<div class="input-group">
-																<span class="input-group-text">$</span>
-																<form:input type="text" path="itemPrice"
-																	class="form-control" id="itemPrice" />
+													<div class="form-group row">
+														<div class="input-group mb-3">
+															<label for="itemHeader" class="col-sm-2 col-form-label"
+																style="text-align: right;">商品名稱 :
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+															<div class="col-sm-10">
+																<form:input type="text" path="itemHeader"
+																	class="form-control" id="itemHeader" maxlength="20"
+																	placeholder="限20字以內" aria-label="Username"
+																	aria-describedby="basic-addon1" />
+															</div>
+															<div class="col-sm-10" style="text-align: center;">
+																<div class="animate__animated animate__shakeX">
+																	<form:errors path="itemHeader" cssClass="error" />
+																</div>
 															</div>
 														</div>
 													</div>
-												</div>
 
-												<div class="form-group row">
-													<div class="input-group mb-3">
-														<label for="itemQty" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品數量 :
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-														<div class="col-sm-10">
-															<form:input type="number" path="itemQty" min="0"
-																class="form-control" id="itemQty" />
+													<div class="form-group row">
+														<div class="input-group mb-3">
+															<label for="itemPrice" class="col-sm-2 col-form-label"
+																style="text-align: right;">商品價錢 :
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+															<div class="col-sm-10">
+																<div class="input-group">
+																	<span class="input-group-text">$</span>
+																	<form:input type="text" path="itemPrice"
+																		class="form-control" id="itemPrice" />
+																</div>
+															</div>
+															<div class="col-sm-10" style="text-align: center;">
+																<div class="animate__animated animate__shakeX">
+																	<form:errors path="itemPrice" cssClass="error" />
+																</div>
+															</div>
 														</div>
 													</div>
-												</div>
 
-												<div class="form-group row">
-													<div class="input-group mb-3">
-														<label for="itemDes" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品描述 :
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-														<div class="col-sm-10">
-															<form:textarea type="text" path="itemDes" min="0"
-																style="padding-bottom: 40px;" class="form-control"
-																id="itemDes" aria-label="With textarea" />
+													<div class="form-group row">
+														<div class="input-group mb-3">
+															<label for="itemQty" class="col-sm-2 col-form-label"
+																style="text-align: right;">商品數量 :
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+															<div class="col-sm-10">
+																<form:input type="number" path="itemQty" min="0"
+																	class="form-control" id="itemQty" />
+															</div>
+															<div class="col-sm-10" style="text-align: center;">
+																<div class="animate__animated animate__shakeX">
+																	<form:errors path="itemQty" cssClass="error" />
+																</div>
+															</div>
 														</div>
 													</div>
-												</div>
 
-												<div class="form-group row">
-													<div class="input-group mb-3">
-														<label for="itTId" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品類型 :
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-														<div class="mb-3 col-10">
-															<c:if test="${itemId==null}">
-																<form:select path="itTId" class="form-select"
-																	aria-label="Default select example">
-																	<form:option value="-1" label="請選擇商品類型" />
-																	<form:options items="${item_TypeMap}" />
-																</form:select>
-															</c:if>
-															<c:if test="${itemId!=null}">
-																<form:select path="item_typeBean.itId"
-																	class="custom-select">
-																	<form:option value="-1" label="請選擇商品類型" />
-																	<form:options items="${item_TypeMap}" />
-																</form:select>
-															</c:if>
+													<div class="form-group row">
+														<div class="input-group mb-3">
+															<label for="itemDes" class="col-sm-2 col-form-label"
+																style="text-align: right;">商品描述 :
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+															<div class="col-sm-10">
+																<form:textarea type="text" path="itemDes" min="0"
+																	style="padding-bottom: 40px;" class="form-control"
+																	id="itemDes" aria-label="With textarea" />
+															</div>
+															<div class="col-sm-10" style="text-align: center;">
+																<div class="animate__animated animate__shakeX">
+																	<form:errors path="itemDes" cssClass="error" />
+																</div>
+															</div>
 														</div>
 													</div>
-												</div>
 
-												<div class="form-group row">
-													<div class="input-group mb-3">
-														<label for="countryTId" class="col-sm-2 col-form-label"
-															style="text-align: right;">商品產地 :
-															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-														<c:if test="${itemId==null}">
+													<div class="form-group row">
+														<div class="input-group mb-3">
+															<label for="itTId" class="col-sm-2 col-form-label"
+																style="text-align: right;">商品類型 :
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 															<div class="mb-3 col-10">
-																<form:select path="countryTId" class="form-select"
-																	aria-label="Default select example">
-																	<form:option value="-1" label="請選擇國家" />
-																	<form:options items="${countryMap}" />
-																</form:select>
+																<c:if test="${itemId==null}">
+																	<form:select path="item_typeBean.itId"
+																		class="form-select"
+																		aria-label="Default select example">
+																		<form:option value="-1" label="請選擇商品類型" />
+																		<form:options items="${item_TypeMap}" />
+																	</form:select>
+																</c:if>
+
+																<c:if test="${itemId!=null}">
+																	<form:select path="item_typeBean.itId"
+																		class="form-select">
+																		<form:option value="-1" label="請選擇商品類型" />
+																		<form:options items="${item_TypeMap}" />
+																	</form:select>
+																</c:if>
 															</div>
-														</c:if>
-														<c:if test="${itemId!=null}">
-															<div class="mb-3 col-10">
-																<form:select path="countryBean.countryId"
-																	class="custom-select">
-																	<form:option value="-1" label="請選擇國家" />
-																	<form:options items="${countryMap}" />
-																</form:select>
+															<div class="mb-3 col-10" style="text-align: center;">
+																<div class="animate__animated animate__shakeX">
+																	<form:errors path="item_typeBean" cssClass="error" />
+																</div>
 															</div>
-														</c:if>
+														</div>
 													</div>
-												</div>
 
-												<c:if test="${itemId==null}">
+													<div class="form-group row">
+														<div class="input-group mb-3">
+															<label for="countryTId" class="col-sm-2 col-form-label"
+																style="text-align: right;">商品產地 :
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+															<div class="mb-3 col-10">
+																<c:if test="${itemId==null}">
+																	<form:select path="countryBean.countryId"
+																		class="form-select"
+																		aria-label="Default select example">
+																		<form:option value="-1" label="請選擇國家" />
+																		<form:options items="${countryMap}" />
+																	</form:select>
+																</c:if>
+																<!-- 																</div> -->
+																<c:if test="${itemId!=null}">
+																	<!-- 																<div class="mb-3 col-10" class="col-sm-2 col-form-label"> -->
+																	<form:select path="countryBean.countryId"
+																		class="form-select">
+																		<form:option value="-1" label="請選擇國家" />
+																		<form:options items="${countryMap}" />
+																	</form:select>
+																	<!-- 																</div> -->
 
-													<div id="addItem">
-														<div class="col-1"></div>
-														<div class="col-1">
-															<label style="text-align: right;">商品照片 :</label>
+																</c:if>
+															</div>
+															<div class="mb-3 col-10" style="text-align: center;">
+																<div class="animate__animated animate__shakeX">
+																	<form:errors path="countryBean" cssClass="error" />
+																</div>
+															</div>
 														</div>
+													</div>
 
-														<div class="col-3">
-															<!-- 														商品第一張照片 :<br> <img id="photo1" name="photo1" -->
-															<%-- 															src="/upload/${itemBean.itemPic1}" class="w-100"> <br> --%>
-															<%-- 																<c:set --%>
-															<%-- 							value="0" --%>
-															<%-- 							var="sum" /> --%>
-															<form:input path="itemImage1" type='file' accept=".jpg"
-																class="form-control" />
-															<br>
+													<c:if test="${itemId==null}">
 
-															<form:input path="itemImage2" type='file' accept=".jpg"
-																class="form-control" />
-															<br>
+														<div id="addItem">
+															<div class="col-1"></div>
+															<div class="col-1">
+																<label style="text-align: right;">商品照片 :</label>
+															</div>
 
-															<form:input path="itemImage3" type='file' accept=".jpg"
-																class="form-control" />
-															<br>
-														</div>
+															<div class="col-3">
+																<!-- 														商品第一張照片 :<br> <img id="photo1" name="photo1" -->
+																<%-- 															src="/upload/${itemBean.itemPic1}" class="w-100"> <br> --%>
+																<%-- 																<c:set --%>
+																<%-- 							value="0" --%>
+																<%-- 							var="sum" /> --%>
+																<form:input path="itemImage1" type='file' accept=".jpg"
+																	class="form-control" />
+																<br>
 
-														<div class="col-1">
-															<!-- 														商品第二張照片 :<br> <img id="photo2" name="photo2" -->
-															<%-- 															src="/upload/${itemBean.itemPic2}" class="w-100"> <br> --%>
-															<%-- 														<form:input path="itemImage2" type='file' accept=".jpg" /> --%>
-														</div>
-														<div class="col-1">
-															<label style="text-align: right;">瀏覽照片 :</label>
-														</div>
+																<form:input path="itemImage2" type='file' accept=".jpg"
+																	class="form-control" />
+																<br>
 
-														<div class="col-3">
-															<br>
-															<%-- 															<c:if test="${ sum == 1}"> --%>
-															<img id="photo3" name="photo3"
-																<%-- 																src="/upload/${itemBean.itemPic3}"  --%>
+																<form:input path="itemImage3" type='file' accept=".jpg"
+																	class="form-control" />
+																<br>
+															</div>
+
+															<div class="col-1">
+																<!-- 														商品第二張照片 :<br> <img id="photo2" name="photo2" -->
+																<%-- 															src="/upload/${itemBean.itemPic2}" class="w-100"> <br> --%>
+																<%-- 														<form:input path="itemImage2" type='file' accept=".jpg" /> --%>
+															</div>
+															<div class="col-1">
+																<label style="text-align: right;">瀏覽照片 :</label>
+															</div>
+
+															<div class="col-3">
+																<br>
+																<%-- 															<c:if test="${ sum == 1}"> --%>
+																<img id="photo3" name="photo3"
+																	<%-- 																src="/upload/${itemBean.itemPic3}"  --%>
 																class="w-100">
-															<%-- 															</c:if> --%>
-															<br>
-															<%-- 														<form:input path="itemImage3" type='file' accept=".jpg" /> --%>
+																<%-- 															</c:if> --%>
+																<br>
+																<%-- 														<form:input path="itemImage3" type='file' accept=".jpg" /> --%>
+															</div>
+															<!-- 一次上傳三張照片 -->
+															<!-- 					<div class="mb-3"> -->
+															<!-- 						<label for="formFileMultiple" class="form-label">Multiple -->
+															<!-- 							一次上傳三張照片</label> <input class="form-control" type="file" -->
+															<!-- 							id="formFileMultiple" multiple> -->
+															<!-- 					</div> -->
 														</div>
-														<!-- 一次上傳三張照片 -->
-														<!-- 					<div class="mb-3"> -->
-														<!-- 						<label for="formFileMultiple" class="form-label">Multiple -->
-														<!-- 							一次上傳三張照片</label> <input class="form-control" type="file" -->
-														<!-- 							id="formFileMultiple" multiple> -->
-														<!-- 					</div> -->
-													</div>
-												</c:if>
+													</c:if>
 
 
 
 
-												<div class="form-group row  d-flex justify-content-end mt-5">
-													<div style="text-align: center;">
-														<!-- 				<div> -->
-														<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
-														<!-- 				</div> -->
-														<c:if test="${itemId==null}">
-															<div>
-																<button type="submit" id="btnAdd"
-																	class="btn btn-primary btn-lg">新增</button>
-															</div>
-														</c:if>
+													<div
+														class="form-group row  d-flex justify-content-end mt-5">
+														<div style="text-align: center;">
+															<!-- 				<div> -->
+															<!-- 					<button type="submit" class="btn btn-secondary mr-3">一鍵輸入</button> -->
+															<!-- 				</div> -->
+															<c:if test="${itemId==null}">
+																<div>
+																	<button type="submit" id="btnAdd"
+																		class="btn btn-primary btn-lg">新增</button>
+																</div>
+															</c:if>
 
-														<c:if test="${itemId!=null}">
-															<div>
-																<button type="submit" id="editM"
-																	class="btn btn-primary btn-lg"
-																	<%-- 													onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">儲存變更</button> --%>
+															<c:if test="${itemId!=null}">
+																<div>
+																	<button type="submit" id="editM"
+																		class="btn btn-primary btn-lg"
+																		<%-- 													onclick="location.href='merchandiseModify/get/Id=${item.itemId}'">儲存變更</button> --%>
 													onclick="location.href='merchandiseModify/get/Id=${itemId}'">儲存變更</button>
-															</div>
-														</c:if>
+																</div>
+															</c:if>
+														</div>
 													</div>
-												</div>
 
-												<!-- 			<div> -->
-												<%-- 				<button type="submit" id="editM" value="/Id=${itemId}" --%>
-												<%-- 					onclick="location.href='merchandiseModify/update/Id=${item.itemId}'">儲存變更</button> --%>
-												<!-- 			</div> -->
+													<!-- 			<div> -->
+													<%-- 				<button type="submit" id="editM" value="/Id=${itemId}" --%>
+													<%-- 					onclick="location.href='merchandiseModify/update/Id=${item.itemId}'">儲存變更</button> --%>
+													<!-- 			</div> -->
 
-											</form:form>
+												</form:form>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 					</div>
 
 					<!-- 					<nav id="navbar-example2" class="navbar navbar-light bg-light px-3"> -->
@@ -568,6 +617,11 @@ button { /*按鈕的樣式*/
 									<!-- ============================================================================================================================================ -->
 								</c:forEach>
 							</div>
+						</div>
+						<div style="text-align: right;">
+							<a
+								href="${pageContext.request.contextPath}/merchandiseModify#searchi"><i
+								class="far fa-caret-square-up fa-3x"></i></a>
 						</div>
 					</div>
 				</div>

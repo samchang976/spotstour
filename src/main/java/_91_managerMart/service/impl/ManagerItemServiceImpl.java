@@ -223,8 +223,8 @@ public class ManagerItemServiceImpl implements ManagerItemService {
 		Item_typeBean isb = managetItemDao.getItem_TypeById(itemBeanN.getItem_typeBean().getItId());
 		CountryBean cb = managetItemDao.getCountryById(itemBeanN.getCountryBean().getCountryId());
 		
-		itemBeanO.setCountryTId(itemBeanN.getCountryTId());
-		itemBeanO.setItTId(itemBeanN.getItTId());
+//		itemBeanO.setCountryTId(itemBeanN.getCountryTId());
+//		itemBeanO.setItTId(itemBeanN.getItTId());
 		itemBeanO.setItemDes(itemBeanN.getItemDes());
 		itemBeanO.setItemHeader(itemBeanN.getItemHeader());
 		itemBeanO.setItemPrice(itemBeanN.getItemPrice());

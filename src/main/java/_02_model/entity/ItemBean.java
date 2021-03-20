@@ -168,21 +168,21 @@ public class ItemBean implements Serializable {
 		this.item_freeze = item_freeze;
 	}
 
-	public Integer getItTId() {
-		return itTId;
-	}
+//	public Integer getItTId() {
+//		return itTId;
+//	}
+//
+//	public void setItTId(Integer itTId) {
+//		this.itTId = itTId;
+//	}
 
-	public void setItTId(Integer itTId) {
-		this.itTId = itTId;
-	}
-
-	public Integer getCountryTId() {
-		return countryTId;
-	}
-
-	public void setCountryTId(Integer countryTId) {
-		this.countryTId = countryTId;
-	}
+//	public Integer getCountryTId() {
+//		return countryTId;
+//	}
+//
+//	public void setCountryTId(Integer countryTId) {
+//		this.countryTId = countryTId;
+//	}
 
 	public CountryBean getCountryBean() {
 		return countryBean;
