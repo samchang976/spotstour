@@ -170,7 +170,7 @@ span.error:first-child() {
 					<button id="newM" class="btn btn-primary btn-lg"
 						onclick="location.href='${pageContext.request.contextPath}/merchandiseModify'">
 						<span class="fas fa-plus"></span> 新增商品
-					</button>
+					</button>&nbsp;&nbsp;
 					<!-- 							<button id="selectA">全選</button> -->
 					<!-- 							<button id="save">儲存變更</button> -->
 					<button id="allFeedback" class="btn btn-primary btn-lg"

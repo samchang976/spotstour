@@ -1,6 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+	pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -25,23 +25,23 @@
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilFont.css'></c:url>">
 
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilColor.css'></c:url>">
-	
-	
+
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/memberUtil/css/memberLayout.css'></c:url>">
-	
+
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/memberUtil/css/memberColor.css'></c:url>">	
-	
+	href="<c:url value='/_00_util/memberUtil/css/memberColor.css'></c:url>">
+
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/memberUtil/css/memberFont.css'></c:url>">
-	
+
 <!-- --------------------------------------------------------------------------------------------------------->
 
 <title>登入</title>
@@ -51,109 +51,124 @@
 	;
 
 .container {
-	font-family: 'Noto Sans TC';
+	/* 	font-family: 'Noto Sans TC'; */
+	
 }
+
 .error {
 	color: red;
 	display: inline-block;
 	font-size: 10pt;
 }
- #main { 
- 	position:relative; 
- 	top: 50px; 
-     width:100%; 
-     text-align:center; 
- } 
- #content { 
-   width: 500px ; 
-   margin-left: auto ; 
-   margin-right: auto ; 
- } 
+
+#main {
+	position: relative;
+	top: 50px;
+	width: 100%;
+	text-align: center;
+}
+
+#content {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
 </style>
 </head>
 <body>
 
-<!--header=================================================================================  -->
+	<!--header=================================================================================  -->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!-----------定位----------------------------------------------------------------------------->
+	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!------------------------------------------------------------------------------------------->	
+		<!------------------------------------------------------------------------------------------->
 
-<div class="container">
+		<div class="container">
+<div style="text-align: center;">
+				<h2>登入</h2>
+			</div>
+			<c:set var="funcName" value="LOG" scope="session" />
+			<c:set var="msg" value="登入" />
+			<c:if test="${ ! empty sessionScope.timeOut }">
+				<!-- 表示使用逾時，重新登入 -->
+				<c:set var="msg"
+					value="<font color='red'>${sessionScope.timeOut}</font>" />
+			</c:if>
 
-<c:set var="funcName" value="LOG" scope="session"/>
-<c:set var="msg" value="登入" />
-<c:if test="${ ! empty sessionScope.timeOut }" > <!-- 表示使用逾時，重新登入 -->
-   <c:set var="msg" value="<font color='red'>${sessionScope.timeOut}</font>" />
-</c:if>
+			<form:form method="POST" modelAttribute="memberBean">
 
+				<div id='content'>
+					<div class="shadow p-3 mb-5 bg-body rounded">
+						<Table style="border-width: 2; width: 500px;">
 
-<form:form method="POST" modelAttribute="memberBean">
-                                         
-  <div id='content'>
-    <Table  style="border-width:2; background:#E0E0E0; width: 500px;">
+<!-- 							<TR> -->
+<!-- 								<TD height='50' colspan='2' align="CENTER" -->
+<!-- 									style="font-size: 0.8cm"><Font color="#000000"> -->
+<%-- 										${msg}<br> --%>
 
-         <TR>
-             <TD height='50' colspan='2' align="CENTER" style="font-size:0.8cm"> 
-                <Font color="#000000">
-                    ${msg}<br>
-                    
-                </Font>
-             </TD>
-         </TR>
+<!-- 								</Font></TD> -->
+<!-- 							</TR> -->
 
-         <TR height='20'>
-             <TD align="CENTER" colspan='2'>
-             	&nbsp;
-             </TD>
-         </TR>
-         <TR>
-             <TD width="180" align="right">帳號：　</TD>
-             <TD width="180" colspan='2' align="LEFT">
-	             <form:input  path="mAN" size="16" />
-    	         <form:errors  path="mAN" cssClass="error" /><br>
-             </TD>
-         </TR>
-         <TR>
-             <TD width="180" align="right">密碼：　</TD>
-             <TD width="180" colspan='2' align="LEFT" >
-             	<form:input  type="password" path="mPw" size="16" />
-             	<form:errors  path="mPw" cssClass="error" /><br>
-             </TD>
-             
-         </TR>  
-         <tr>
-         <TD width="180" align="right" >
-				
-			<input type="checkbox">
-						
-         </TD>
-         <TD width="180"  colspan='2' align="left"><small>記住密碼</small></TD>
-         </tr>
-         <TR height='20'>
-             <TD> &nbsp;</TD>   
-             <TD Class="error">${LoginError}</TD>
-         </TR>
+							<TR height='20'>
+								<TD align="CENTER" colspan='2'>&nbsp;</TD>
+							</TR>
+							<TR>
+								<TD width="180" align="right">帳號：</TD>
+								<TD width="180" colspan='2' align="LEFT"><form:input
+										path="mAN" size="16" /> <form:errors path="mAN"
+										cssClass="error" /><br></TD>
+							</TR>
+							<TR>
+								<TD width="180" align="right">密碼：</TD>
+								<TD width="180" colspan='2' align="LEFT"><form:input
+										type="password" path="mPw" size="16" /> <form:errors
+										path="mPw" cssClass="error" /><br></TD>
 
-        <TR>
-            <TD colspan="2" align="center"><input type="submit" value="提交"> </TD>
-         </TR>
-         <TR height='10'>
-             <TD align="CENTER" colspan='2'>&nbsp;</TD>
-         </TR>
-         
-    </Table>
-  </div>
-</form:form>
-</div>
-<!-----------定位----------------------------------------------------------------------------->
+							</TR>
+							<tr>
+								<TD width="180" align="right"><input type="checkbox">
+
+								</TD>
+								<TD width="180" colspan='2' align="left"><small>記住密碼</small></TD>
+							</tr>
+							<TR height='20'>
+								<TD>&nbsp;</TD>
+								<TD Class="error">${LoginError}</TD>
+							</TR>
+
+							<TR>
+								<TD colspan="2" align="center"><input type="submit"
+									class="btn btn-primary" value="提交"></TD>
+							</TR>
+							<TR height='10'>
+								<TD align="CENTER" colspan='2'>&nbsp;</TD>
+							</TR>
+						</Table>
+					</div>
+				</div>
+			</form:form>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+		<!-----------定位----------------------------------------------------------------------------->
 	</div>
-<!--內嵌footer-------------------------------------------------------------------------------->
+	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-<!-- --------------------------------------------------------------------------------------->
+	<!-- --------------------------------------------------------------------------------------->
 </body>
 </html>

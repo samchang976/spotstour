@@ -52,7 +52,7 @@
 	;
 
 .main {
-	font-family: 'Noto Sans TC';
+/* 	font-family: 'Noto Sans TC'; */
 }
 .error {
 	color: red;
@@ -78,7 +78,7 @@
 		
 
 		<div class="main">
-			<div class="shadow p-3 mb-9 bg-body rounded">
+			
 
 				<div class="focus container text-dark text-left text-shdow">
 					<div class="row text-center">
@@ -95,7 +95,7 @@
 					<form:form method="POST" action="/SpotsTourHSM/memberDetailModify"  modelAttribute="member"
 							enctype='multipart/form-data'>
 							<div class="form-row" >
-							
+							<div class="shadow p-3 mb-9 bg-body rounded">
 															
 									 <form:hidden path="mId" value="${member.mId}" size="40" class="mt-3"/>
 									 <form:hidden path="m_verify" value="${member.m_verify}" size="40" class="mt-3"/>
@@ -171,6 +171,7 @@
 						
 
 
+							</div>
 							</div>
 						</form:form>
 						</div>
