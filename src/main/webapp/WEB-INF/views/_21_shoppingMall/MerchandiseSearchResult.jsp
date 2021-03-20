@@ -481,7 +481,7 @@ body {
 		}
 		
 		function deleteItem(itemId){
-			alert(itemId);
+// 			alert(itemId);
 			name="sideform"+itemId;
 			var thisForm = document.forms[name];
 			thisForm.action="${pageContext.request.contextPath}/shoppingCart/visitor/del?itemId="+itemId;
