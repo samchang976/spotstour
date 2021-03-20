@@ -170,7 +170,8 @@ span.error:first-child() {
 					<button id="newM" class="btn btn-primary btn-lg"
 						onclick="location.href='${pageContext.request.contextPath}/merchandiseModify'">
 						<span class="fas fa-plus"></span> 新增商品
-					</button>&nbsp;&nbsp;
+					</button>
+					&nbsp;&nbsp;
 					<!-- 							<button id="selectA">全選</button> -->
 					<!-- 							<button id="save">儲存變更</button> -->
 					<button id="allFeedback" class="btn btn-primary btn-lg"
@@ -187,11 +188,15 @@ span.error:first-child() {
 										data-bs-toggle="collapse" data-bs-target="#collapseOne"
 										aria-expanded="true" aria-controls="collapseOne">
 										<c:if test="${itemId==null}">
-											<h3>新增商品</h3>
+											<div style="text-align: center;">
+												<h3>新增商品</h3>
+											</div>
 										</c:if>
 
 										<c:if test="${itemId!=null}">
-											<h3>編輯商品 (商品編號 : ${itemId})</h3>
+											<div style="text-align: center;">
+												<h3>編輯商品 (商品編號 : ${itemId})</h3>
+											</div>
 										</c:if>
 									</button>
 								</h2>
@@ -452,7 +457,7 @@ span.error:first-child() {
 					<br>
 					<!-- 陳列商品 -->
 					<div class="accordion-item">
-						<h2 class="accordion-header" id="headingTwo">
+						<div class="accordion-header" id="headingTwo">
 							<nav id="navbar-example2"
 								class="navbar navbar-light bg-light px-3">
 								<a class="navbar-brand" href="#"></a>
@@ -467,9 +472,11 @@ span.error:first-child() {
 							<button class="accordion-button" type="button"
 								data-bs-toggle="collapse" data-bs-target="#collapseTwo"
 								aria-expanded="true" aria-controls="collapseTwo">
-								<h3 id="searchi">所有商品</h3>
+								<div style="text-align: center;">
+									<h3 id="searchi">所有商品</h3>
+								</div>
 							</button>
-						</h2>
+						</div>
 						<div id="collapseTwo" class="accordion-collapse collapse show"
 							aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
 							<div class="accordion-body">
