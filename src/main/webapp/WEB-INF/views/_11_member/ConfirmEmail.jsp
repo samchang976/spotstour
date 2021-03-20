@@ -44,9 +44,13 @@
 	
 <!-- --------------------------------------------------------------------------------------------------------->
 	
-<title>ConfirmEmail</title>
+<title>信箱驗證通知</title>
 
 </head>
+<style>
+
+
+</style>
 <body>
 <!--header=================================================================================  -->
 	<div class="HeaderPostition">
@@ -55,17 +59,44 @@
 <!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
+	
+	
+		<div class="container">
+		
+			<div class="shadow p-3 mb-9 bg-body rounded">
+	
+			<div class="progress">
+	  			<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%">100%</div>
+			</div>
+				
+				<div class="focus container text-dark text-left text-shdow">
+					<div class="row text-center">
+						<div class="col mt-3">
+							<h1><i class="fas fa-check-circle"></i>註冊成功!</h1>
+							
+						</div>
+					</div>
+				
+				
+					<div class="row text-center">
+						<div class="col-12">
+		
+							<div id="thanks">
+							<h5>
+								<br>親愛的會員您好 :<br>
+								<br>SpotsTour已寄出一封驗證信至您的信箱<br>
+								<br>請至您的信箱查看認證信<br>
+								<br>完成信箱驗證即可登入<br>
+								<br>謝謝您的合作 ! <br><br>		
+							</h5>
+							</div>
+							
+						</div>
+					</div>
 
-	<div class="container">
-		<h1>
-			<p>
-				<i class="fas fa-check-circle"></i> 註冊成功！！
-			</p>
-		</h1>
-		<p>
-			請至信箱確認並登入<br>
-		</p>
-	</div>
+				</div>
+			</div>
+		</div>
 <!-----------定位----------------------------------------------------------------------------->
 	</div>
 <!--內嵌footer-------------------------------------------------------------------------------->

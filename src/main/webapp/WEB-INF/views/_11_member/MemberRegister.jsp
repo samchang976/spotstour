@@ -45,6 +45,7 @@
 <!-- --------------------------------------------------------------------------------------------------------->
 	
 <title>註冊會員</title>
+</head>
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Lora&family=Noto+Sans+TC:wght@300&display=swap')
@@ -54,9 +55,12 @@
 	font-family: 'Noto Sans TC';
 }
 .error {
-	color: blue;
+	color: red;
 	display: inline-block;
 	font-size: 10pt;
+}
+.form-control{
+	margin-bottom: 10px;
 }
 </style>
 <body>
@@ -71,46 +75,44 @@
 								
 									
 	<div class="container">
-		
-
 		<div class="main">
 
-			<div class="focus container text-dark text-left text-shdow">
-				<div class="row text-center">
-					<div class="col">
-						<h1>註冊會員</h1>
-					</div>
+			<div class="shadow p-3 mb-9 bg-body rounded">
+			
+				<div class="progress">
+				  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</div>
 				</div>
-
+				<div class="focus container text-dark text-left text-shdow">
+					<div class="row text-center">
+						<div class="col mt-3">
+							<h1>註冊會員</h1>
+						</div>
+					</div>
 
 				<!-- 表單 -->
 				<div class="row justify-content-center mt-3">
 					<div class="col-10 col-md-6 col-lg-6">
 
-
 						<form:form method="POST" modelAttribute="memberBean"
 							enctype='multipart/form-data'>
 							<div class="form-row">
-							
-							
+								
 								<div class="form-group">
 									<form:label path="mAN">帳號：</form:label><form:errors path="mAN" class="error"/>
 									<form:input path="mAN" class="form-control"
-									placeholder="6-10個英數字"/>
-									
+									placeholder="請輸入6-10個英數字"/>	
 								</div>
 								<div class="form-group">
 									<form:label path="mName">姓名：</form:label><form:errors path="mName" class="error"/>
 									<form:input path="mName" class="form-control"/>
-									
 								</div>
 							</div>
-							<div class="form-row">
-								<div class="form-group">
-									<form:label path="mPw">密碼：</form:label><form:errors path="mPw" class="error"/>
-									<form:input path="mPw" class="form-control" placeholder="6-10個英數字" type="password"/>
-									
-								</div>
+								<div class="form-row">
+								
+									<div class="form-group">
+										<form:label path="mPw">密碼：</form:label><form:errors path="mPw" class="error"/>
+										<form:input path="mPw" class="form-control" placeholder="請輸入6-10個英數字" type="password"/>
+									</div>
 								<div class="form-group">
 									<form:label path="mTPw">密碼確認：</form:label><form:errors path="mTPw" class="error"/>
 									<form:input path="mTPw" class="form-control" placeholder="需與密碼一致" type="password"/>
@@ -159,20 +161,15 @@
 									<form:input path="multipartFile" class="form-control" type="file"/>
 									
 							</div>
-							<div class="form-group form-check mt-3">
-								<input type="checkbox" class="form-check-input"> <label
-									class="form-check-label" for="exampleCheck1">我已閱讀並同意服務條款及隱私權政策</label>
-							</div>
 
-							<button type="submit" class="btn btn-primary w-100">註冊</button>
-
+							<button type="submit" class="btn btn-primary w-100 mt-3 mb-5">註冊</button>
 
 						</form:form>
 
 						
 					</div>
 				</div>
-
+				</div>
 
 			</div>
 
