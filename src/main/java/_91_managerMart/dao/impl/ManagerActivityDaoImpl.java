@@ -48,7 +48,7 @@ public class ManagerActivityDaoImpl implements Serializable, ManagerActivityDao{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<ActivityBean> getAllActivitys() {
-		String hql = "FROM ActivityBean WHERE activity_freeze = 0 ORDER BY activityId ASC";
+		String hql = "FROM ActivityBean WHERE activity_freeze = 0 ORDER BY activityId DESC";
 		Session session = factory.getCurrentSession();
 		List<ActivityBean> list = session.createQuery(hql).getResultList();
 		return list;

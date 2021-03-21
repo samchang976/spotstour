@@ -59,41 +59,42 @@
 .imageFrame img:hover {
 	transform: scale(1.5, 1.5);
 }
+
 .wei-grid-special1 {
-    position: relative;
-    left: 10%;
-    top: 0; 
-    left: 0;
-    width: 200px;
-    height: 200px;
-/*     border: 1px solid black; */
-    margin: 0px 10px 0px 10px;
-/*     overflow: hidden; */
-    transition: all .8s ease;
-/*     z-index: 1; */
+	position: relative;
+	left: 10%;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 200px;
+	/*     border: 1px solid black; */
+	margin: 0px 10px 0px 10px;
+	/*     overflow: hidden; */
+	transition: all .8s ease;
+	/*     z-index: 1; */
 }
 
 .wei-grid-special1:hover {
-    position: relative;
-     top: -90px; 
-    left: 80px;
-
+	position: relative;
+	top: -90px;
+	left: 80px;
 }
 
 .wei-image6 {
-    transition: transform 0.5s ease-in;
-    width: 100%;
-    height: 100%;
+	transition: transform 0.5s ease-in;
+	width: 100%;
+	height: 100%;
 }
 
-.wei-grid-special1:hover .wei-image6, .wei-grid-special:focus .wei-image6 {
-    transform: scale(2);
-    -ms-transform: scale(2);
-    -webkit-transform: scale(2);
-            -webkit-box-shadow: 0 0 15px #f3d42e;
+.wei-grid-special1:hover .wei-image6, .wei-grid-special:focus .wei-image6
+	{
+	transform: scale(2);
+	-ms-transform: scale(2);
+	-webkit-transform: scale(2);
+	-webkit-box-shadow: 0 0 15px #f3d42e;
 	-moz-box-shadow: 0 0 15px #f3d42e;
- 	box-shadow: 0 0 15px rgba(0,0,0,0.5); 
-/*  	z-index: auto; */
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+	/*  	z-index: auto; */
 }
 </style>
 
@@ -113,7 +114,7 @@
 					aria-valuemax="100" style="width: 75%"></div>
 			</div>
 			<nav
-				style="-bs-breadcrumb-divider: url(&amp; amp; amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;amp;"
+				style="-bs-breadcrumb-divider: url(&amp; amp; amp; amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;amp;"
 				aria-label="breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a
@@ -156,12 +157,12 @@
 					<div class="row Item" style="text-align: center;">
 						<!-- 商品照片 -->
 						<div class="col-2 ">
-<!-- 							<div class="imageFrame"> -->
+							<!-- 							<div class="imageFrame"> -->
 							<div class="wei-grid-special1">
-								<img class="wei-image6" src="/upload/${cart.itemBean.itemPic1}"> 
-<!-- 								<i class="fas fa-search" style="float: right;"></i> -->
+								<img class="wei-image6" src="/upload/${cart.itemBean.itemPic1}">
+								<!-- 								<i class="fas fa-search" style="float: right;"></i> -->
 							</div>
-<!-- 							</div> -->
+							<!-- 							</div> -->
 						</div>
 
 						<div class="col-3 ">
@@ -204,6 +205,8 @@
 							<li class="list-group-item">信箱&nbsp;:&nbsp;${orderVoNew.mEmail}
 							</li>
 							<li class="list-group-item">收件地址&nbsp;:&nbsp;${orderVoNew.s_mAddress}
+							</li>
+							<li class="list-group-item">折扣碼&nbsp;:&nbsp;${orderVoNew.codeNumber}&nbsp;&nbsp;${orderVoNew.codeNummberValue}
 							</li>
 							<li class="list-group-item"></li>
 						</ul>
@@ -305,13 +308,14 @@
 				</div>
 			</div>
 
-			
+
 			<div style="text-align: center;">
 				<button id="SubmitBlock" type="submit"
 					class="btn btn-primary btn-lg"
-					onclick="location.href='${pageContext.request.contextPath}/purchaseSuccess'" data-bs-toggle="modal" data-bs-target="#exampleModal">送出訂單</button>
+					onclick="location.href='${pageContext.request.contextPath}/purchaseSuccess'"
+					data-bs-toggle="modal" data-bs-target="#exampleModal">送出訂單</button>
 			</div>
-			
+
 			<div class="modal fade" id="exampleModal" tabindex="-1"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
@@ -326,8 +330,7 @@
 							<div class="spinner-border text-primary" role="status">
 								<span class="visually-hidden">Loading...</span>
 							</div>
-							訂單處理中... 請稍後...
-							(預計5天後到貨)
+							訂單處理中... 請稍後... (預計5天後到貨)
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
@@ -336,7 +339,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 		<!-----------定位----------------------------------------------------------------------------->
 	</div>

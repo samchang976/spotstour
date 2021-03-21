@@ -21,41 +21,44 @@ USE `spotstourdb`;
 DROP TABLE IF EXISTS `activity`;
 
 CREATE TABLE `activity` (
-  `activityId` INT NOT NULL AUTO_INCREMENT,
-  `activityContent` VARCHAR(255) DEFAULT NULL,
-  `activityHeader` VARCHAR(255) DEFAULT NULL,
-  `activity_createTime` DATE DEFAULT NULL,
-  `activity_freeze` INT DEFAULT NULL,
-  `activityPic` MEDIUMBLOB,
-  `activityFileName` VARCHAR(255) DEFAULT NULL,
+  `activityId` int NOT NULL AUTO_INCREMENT,
+  `activityContent` varchar(255) DEFAULT NULL,
+  `activityHeader` varchar(255) DEFAULT NULL,
+  `activity_createTime` date DEFAULT NULL,
+  `activity_freeze` int DEFAULT NULL,
+  `activityPic` mediumblob,
+  `activityFileName` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`activityId`)
-) ENGINE=INNODB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 /*Data for the table `activity` */
 
-INSERT  INTO `activity`(`activityId`,`activityContent`,`activityHeader`,`activity_createTime`,`activity_freeze`,`activityPic`,`activityFileName`) VALUES 
-(1,'歡慶牛年，扭轉乾坤，購物好時機','新年特惠，全館免運! 活動到2021-01-03','2021-01-01',0,NULL,NULL),
-(2,'新春特惠，全館免運! 活動到2021-02-15','新春優惠','2021-02-01',0,NULL,NULL),
-(3,'快來買喔~~~','周年慶優惠，全館免運','2021-03-10',0,NULL,NULL),
-(4,'全館巧克力商品結帳85折!','情人節優惠','2021-03-10',1,NULL,NULL);
+insert  into `activity`(`activityId`,`activityContent`,`activityHeader`,`activity_createTime`,`activity_freeze`,`activityPic`,`activityFileName`) values 
+(19,'歡慶牛年，扭轉乾坤，購物好時機','新年特惠，全館免運!','2021-01-01',0,NULL,''),
+(20,'新春特惠，全館免運! 輸入折扣碼SPOTSTOURJAVA015','新春優惠，全館免運!','2021-01-15',0,NULL,''),
+(21,'週年慶優惠 輸入折扣碼享八折優惠','週年慶優惠，全館免運','2021-02-02',0,NULL,''),
+(22,'輸入SPOTSTOURJAVA015 優惠八折','新春優惠','2021-02-10',0,NULL,''),
+(23,'活動優惠 立即查看','活動優惠，全館免運!','2021-02-20',0,NULL,''),
+(24,'請輸入折扣碼 SPOTSTOURJAVA015','好康優惠!!','2021-03-01',0,NULL,''),
+(25,'點擊立即查看','活動開跑，全館免運! ','2021-03-15',0,NULL,'');
 
 /*Table structure for table `city` */
 
 DROP TABLE IF EXISTS `city`;
 
 CREATE TABLE `city` (
-  `cityId` INT NOT NULL AUTO_INCREMENT,
-  `cityName` VARCHAR(20) NOT NULL,
-  `countryId` INT NOT NULL,
+  `cityId` int NOT NULL AUTO_INCREMENT,
+  `cityName` varchar(20) NOT NULL,
+  `countryId` int NOT NULL,
   PRIMARY KEY (`cityId`),
   KEY `city_countryId_fk` (`countryId`),
   CONSTRAINT `city_countryId_fk` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`),
   CONSTRAINT `FK78hf6lwr8j8c707wuvur9e0am` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`)
-) ENGINE=INNODB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 
 /*Data for the table `city` */
 
-INSERT  INTO `city`(`cityId`,`cityName`,`countryId`) VALUES 
+insert  into `city`(`cityId`,`cityName`,`countryId`) values 
 (1,'台北',1),
 (2,'台中',1),
 (3,'高雄',1),
@@ -120,14 +123,14 @@ INSERT  INTO `city`(`cityId`,`cityName`,`countryId`) VALUES
 DROP TABLE IF EXISTS `continent`;
 
 CREATE TABLE `continent` (
-  `continentId` INT NOT NULL AUTO_INCREMENT,
-  `continentName` VARCHAR(15) NOT NULL,
+  `continentId` int NOT NULL AUTO_INCREMENT,
+  `continentName` varchar(15) NOT NULL,
   PRIMARY KEY (`continentId`)
-) ENGINE=INNODB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `continent` */
 
-INSERT  INTO `continent`(`continentId`,`continentName`) VALUES 
+insert  into `continent`(`continentId`,`continentName`) values 
 (1,'亞洲'),
 (2,'美洲'),
 (3,'歐洲'),
@@ -140,18 +143,18 @@ INSERT  INTO `continent`(`continentId`,`continentName`) VALUES
 DROP TABLE IF EXISTS `country`;
 
 CREATE TABLE `country` (
-  `countryId` INT NOT NULL AUTO_INCREMENT,
-  `countryName` VARCHAR(20) NOT NULL,
-  `continentId` INT NOT NULL,
+  `countryId` int NOT NULL AUTO_INCREMENT,
+  `countryName` varchar(20) NOT NULL,
+  `continentId` int NOT NULL,
   PRIMARY KEY (`countryId`),
   KEY `country_continentId_fk` (`continentId`),
   CONSTRAINT `country_continentId_fk` FOREIGN KEY (`continentId`) REFERENCES `continent` (`continentId`),
   CONSTRAINT `FKh5vexlgdygaio95pyc9akil7i` FOREIGN KEY (`continentId`) REFERENCES `continent` (`continentId`)
-) ENGINE=INNODB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 /*Data for the table `country` */
 
-INSERT  INTO `country`(`countryId`,`countryName`,`continentId`) VALUES 
+insert  into `country`(`countryId`,`countryName`,`continentId`) values 
 (1,'台灣',1),
 (2,'日本',1),
 (3,'中國',1),
@@ -196,23 +199,23 @@ INSERT  INTO `country`(`countryId`,`countryName`,`continentId`) VALUES
 DROP TABLE IF EXISTS `feedback`;
 
 CREATE TABLE `feedback` (
-  `feedbackId` INT NOT NULL AUTO_INCREMENT,
-  `feedbackText` VARCHAR(100) NOT NULL,
-  `f_createTime` DATETIME NOT NULL,
-  `fb_freeze` TINYINT NOT NULL DEFAULT '0',
-  `itemId` INT NOT NULL,
+  `feedbackId` int NOT NULL AUTO_INCREMENT,
+  `feedbackText` varchar(100) NOT NULL,
+  `f_createTime` datetime NOT NULL,
+  `fb_freeze` tinyint NOT NULL DEFAULT '0',
+  `itemId` int NOT NULL,
   PRIMARY KEY (`feedbackId`),
   KEY `feedback_itemId_fk` (`itemId`),
   CONSTRAINT `feedback_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`),
   CONSTRAINT `FKs9iiqmtehauufulmipc8mu61r` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`)
-) ENGINE=INNODB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `feedback` */
 
-INSERT  INTO `feedback`(`feedbackId`,`feedbackText`,`f_createTime`,`fb_freeze`,`itemId`) VALUES 
-(1,'好吃','2021-02-23 00:00:00',0,1),
-(2,'很好吃','2021-02-24 00:00:00',0,1),
-(3,'非常好吃','2021-02-25 00:00:00',0,1),
+insert  into `feedback`(`feedbackId`,`feedbackText`,`f_createTime`,`fb_freeze`,`itemId`) values 
+(1,'好吃','2021-02-23 02:02:54',0,1),
+(2,'很好吃','2021-02-24 01:57:07',0,1),
+(3,'非常好吃','2021-02-25 00:02:57',0,1),
 (4,'好吃!!','2021-02-23 00:03:00',0,2),
 (5,'很好吃!!','2021-02-24 00:04:00',0,2),
 (6,'非常好吃!!','2021-02-25 00:05:00',0,2);
@@ -222,17 +225,17 @@ INSERT  INTO `feedback`(`feedbackId`,`feedbackText`,`f_createTime`,`fb_freeze`,`
 DROP TABLE IF EXISTS `item`;
 
 CREATE TABLE `item` (
-  `itemId` INT NOT NULL AUTO_INCREMENT,
-  `itemHeader` VARCHAR(40) NOT NULL,
-  `itemPrice` INT NOT NULL,
-  `itemQty` INT NOT NULL,
-  `itemDes` VARCHAR(100) NOT NULL,
-  `itId` INT NOT NULL,
-  `itemPic1` VARCHAR(7000) DEFAULT NULL,
-  `itemPic2` VARCHAR(7000) DEFAULT NULL,
-  `itemPic3` VARCHAR(7000) DEFAULT NULL,
-  `item_freeze` TINYINT NOT NULL DEFAULT '0',
-  `countryId` INT NOT NULL,
+  `itemId` int NOT NULL AUTO_INCREMENT,
+  `itemHeader` varchar(40) NOT NULL,
+  `itemPrice` int NOT NULL,
+  `itemQty` int NOT NULL,
+  `itemDes` varchar(100) NOT NULL,
+  `itId` int NOT NULL,
+  `itemPic1` varchar(7000) DEFAULT NULL,
+  `itemPic2` varchar(7000) DEFAULT NULL,
+  `itemPic3` varchar(7000) DEFAULT NULL,
+  `item_freeze` tinyint NOT NULL DEFAULT '0',
+  `countryId` int NOT NULL,
   PRIMARY KEY (`itemId`),
   KEY `item_itId_fk` (`itId`),
   KEY `item_countryId_fk` (`countryId`),
@@ -240,20 +243,20 @@ CREATE TABLE `item` (
   CONSTRAINT `FKtffcamb09gjp3yigshjgybdvs` FOREIGN KEY (`itId`) REFERENCES `item_type` (`itId`),
   CONSTRAINT `item_countryId_fk` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`),
   CONSTRAINT `item_itId_fk` FOREIGN KEY (`itId`) REFERENCES `item_type` (`itId`)
-) ENGINE=INNODB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 /*Data for the table `item` */
 
-INSERT  INTO `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`,`itemPic1`,`itemPic2`,`itemPic3`,`item_freeze`,`countryId`) VALUES 
-(1,'MAMA泰國泡麵',10,35,'最常見的泰式泡麵，結合打拋豬肉和豬骨湯，口味偏清淡，三大品牌都有出這口味，但是最推MAMA的！',1,'itemImages/MAMA1.jpg','itemImages/MAMA2.jpg','itemImages/MAMA3.jpg',0,6),
+insert  into `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`,`itemPic1`,`itemPic2`,`itemPic3`,`item_freeze`,`countryId`) values 
+(1,'MAMA泰國泡麵',10,350,'最常見的泰式泡麵，結合打拋豬肉和豬骨湯，口味偏清淡，三大品牌都有出這口味，但是最推MAMA的！',1,'itemImages/MAMA1.jpg','itemImages/MAMA2.jpg','itemImages/MAMA3.jpg',0,6),
 (2,'紫玉酥禮盒(6入)',250,100,'台中大甲裕珍馨人氣商品！以大甲芋頭及優質米為開發概念，酥、鬆、Q多重口感在口中綻放！',1,'itemImages/紫玉酥禮盒1.jpg','itemImages/紫玉酥禮盒2.jpg','itemImages/紫玉酥禮盒3.jpg',0,1),
-(3,'Press Butter Sand焦糖奶油餅',264,20,'當前東京最受矚目、最夯排隊伴手禮，焦糖奶油夾心餅，超級無敵有夠好吃！\r\n特製烤模壓製，餅乾酥香硬脆口感創舉大突破，內餡爆漿牽絲的奶油焦糖雙餡更是完美迷人不甜膩。',1,'itemImages/焦糖奶油餅1.jpg','itemImages/焦糖奶油餅2.jpg','itemImages/焦糖奶油餅3.jpg',0,2),
-(4,'Panasonic水離子吹風機(EH-NA99)',4750,10,'同樣讓人用過後就回不去的日本神器，吹頭髮同時保濕、護法，實在是很厲害～。從EH-NA97型號到EH-NA99(最新)，使用者高達95%滿意！',4,'itemImages/水離子吹風機1.jpg','itemImages/水離子吹風機2.jpg','itemImages/水離子吹風機3.jpg',0,2),
-(5,'Pocky蕃茄百利滋棒9袋入裝-134g',99,20,'★日本原裝進口★日本大廠GLICO格力高品牌★經典蕃茄百利滋口味9袋入獨立小包裝★分享方便，適合辦公室下午茶、點心',1,'itemImages/蕃茄百利滋棒1.jpg','itemImages/蕃茄百利滋棒2.jpg','itemImages/蕃茄百利滋棒3.jpg',0,2),
-(6,'白色戀人巧克力餅乾36入 ',1500,10,'北海道限定 白い恋人',1,'itemImages/白色戀人巧克力餅乾1.jpg','itemImages/白色戀人巧克力餅乾2.jpg','itemImages/白色戀人巧克力餅乾3.jpg',0,2),
+(3,'Press Butter Sand焦糖奶油餅',264,220,'當前東京最受矚目、最夯排隊伴手禮，焦糖奶油夾心餅，超級無敵有夠好吃！\r\n特製烤模壓製，餅乾酥香硬脆口感創舉大突破，內餡爆漿牽絲的奶油焦糖雙餡更是完美迷人不甜膩。',1,'itemImages/焦糖奶油餅1.jpg','itemImages/焦糖奶油餅2.jpg','itemImages/焦糖奶油餅3.jpg',0,2),
+(4,'Panasonic水離子吹風機(EH-NA99)',4750,50,'同樣讓人用過後就回不去的日本神器，吹頭髮同時保濕、護法，實在是很厲害～。從EH-NA97型號到EH-NA99(最新)，使用者高達95%滿意！',4,'itemImages/水離子吹風機1.jpg','itemImages/水離子吹風機2.jpg','itemImages/水離子吹風機3.jpg',0,2),
+(5,'Pocky蕃茄百利滋棒9袋入裝-134g',99,280,'★日本原裝進口★日本大廠GLICO格力高品牌★經典蕃茄百利滋口味9袋入獨立小包裝★分享方便，適合辦公室下午茶、點心',1,'itemImages/蕃茄百利滋棒1.jpg','itemImages/蕃茄百利滋棒2.jpg','itemImages/蕃茄百利滋棒3.jpg',0,2),
+(6,'白色戀人巧克力餅乾36入 ',1500,500,'北海道限定 白い恋人',1,'itemImages/白色戀人巧克力餅乾1.jpg','itemImages/白色戀人巧克力餅乾2.jpg','itemImages/白色戀人巧克力餅乾3.jpg',0,2),
 (7,'日本《金吾堂》芥末米果17枚',99,100,'★日本品牌《金吾堂》原裝進口★熱銷超過 60 年的米果經典老店★嚴選日本國產米，只用新鮮品質好原料',1,'itemImages/芥末米果1.jpg','itemImages/芥末米果2.jpg','itemImages/芥末米果3.jpg',0,2),
 (8,'Glico固力果 冰淇淋杯餅乾 (87g)　',155,300,'★日本原裝進口 ★日本大廠Glico 固力果 ★冰淇淋造型餅乾 ★絕對讓您口感滿分',1,'itemImages/冰淇淋杯餅乾1.jpg','itemImages/冰淇淋杯餅乾2.jpg','itemImages/冰淇淋杯餅乾3.jpg',0,2),
-(9,'美國 BLUE YETI 雪怪 USB麥克風 電容式麥克風 USB麥',6000,30,'極致專業的USB電容式麥克風 專屬3受音頭技術 可調四種不同收音模式:心型、雙向、全向、立體聲',4,'itemImages/電容式麥克風1.jpg','itemImages/電容式麥克風2.jpg','itemImages/電容式麥克風3.jpg',0,13),
+(9,'美國 BLUE YETI 雪怪 USB麥克風 電容式麥克風 USB麥',6000,60,'極致專業的USB電容式麥克風 專屬3受音頭技術 可調四種不同收音模式:心型、雙向、全向、立體聲',4,'itemImages/電容式麥克風1.jpg','itemImages/電容式麥克風2.jpg','itemImages/電容式麥克風3.jpg',0,13),
 (10,'一生懸命的米果 日本《金吾堂》甘口醬油米果7枚',99,300,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料 ',1,'itemImages/甘口醬油米果1.jpg','itemImages/甘口醬油米果2.jpg','itemImages/甘口醬油米果3.jpg',0,2),
 (11,'日本《金吾堂》和鹽米果7枚',99,200,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料',1,'itemImages/和鹽米果1.jpg','itemImages/和鹽米果2.jpg','itemImages/和鹽米果3.jpg',0,2),
 (12,'龜田手鹽屋鹽味米果9枚',79,100,'★日本原裝進口 ★口感堅脆，原味米果最對味 ★使用日本國產米製作，調味使用沈崎產鰹魚 ★原烤9枚超大片',1,'itemImages/龜田手鹽屋鹽味米果1.jpg','itemImages/龜田手鹽屋鹽味米果2.jpg','itemImages/龜田手鹽屋鹽味米果3.jpg',0,1),
@@ -261,8 +264,8 @@ INSERT  INTO `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`
 (14,'Honda製果 玉米濃湯餅 (90g)',59,300,'★日本原裝進口 ★日本超人氣熱銷商品 ★獨特玉米濃湯風味',1,'itemImages/玉米濃湯餅1.jpg','itemImages/玉米濃湯餅2.jpg','itemImages/玉米濃湯餅3.jpg',0,2),
 (15,'Mondelez RITZ起士夾心餅乾 (160g)',105,300,'★知名餅乾RITZ ★酥脆餅乾搭配香濃起士 ★讓你欲罷不能的好滋味~',1,'itemImages/起士夾心餅乾1.jpg','itemImages/起士夾心餅乾2.jpg','itemImages/起士夾心餅乾3.jpg',0,2),
 (16,'日本TWINBIRD-美型蒸氣掛燙機(白)TB-G006TW',1880,300,'◆ 超輕量設計，隨手熨燙 ◆ 設計美型，放在家中不突兀 ◆ 連續按壓，蒸氣不間斷',4,'itemImages/美型蒸氣掛燙機1.jpg','itemImages/美型蒸氣掛燙機2.jpg','itemImages/美型蒸氣掛燙機3.jpg',0,2),
-(17,'日本TWINBIRD-多功能製麵包機PY-E632TW',3980,15,'◆業界最高，40種麵包/麵糰模式 ◆手動模式，不只有傻瓜模式，美味升級 ◆可獨立進行麵糰搓揉、發酵與烘焙',4,'itemImages/多功能製麵包機1.jpg','itemImages/多功能製麵包機2.jpg','itemImages/多功能製麵包機3.jpg',0,2),
-(18,'[日本原裝] TIGER虎牌6人份微電腦炊飯電子鍋(JBV-S10R)',2990,10,'☆日本原裝進口 ☆內鍋再升級,黑色遠赤厚釜(1.7mm) ☆炊煮多種米飯，盡享美味',4,'itemImages/炊飯電子鍋1.jpg','itemImages/炊飯電子鍋2.jpg','itemImages/炊飯電子鍋3.jpg',0,2),
+(17,'日本TWINBIRD-多功能製麵包機PY-E632TW',3980,40,'◆業界最高，40種麵包/麵糰模式 ◆手動模式，不只有傻瓜模式，美味升級 ◆可獨立進行麵糰搓揉、發酵與烘焙',4,'itemImages/多功能製麵包機1.jpg','itemImages/多功能製麵包機2.jpg','itemImages/多功能製麵包機3.jpg',0,2),
+(18,'[日本原裝] TIGER虎牌6人份微電腦炊飯電子鍋(JBV-S10R)',2990,30,'☆日本原裝進口 ☆內鍋再升級,黑色遠赤厚釜(1.7mm) ☆炊煮多種米飯，盡享美味',4,'itemImages/炊飯電子鍋1.jpg','itemImages/炊飯電子鍋2.jpg','itemImages/炊飯電子鍋3.jpg',0,2),
 (19,'梨膏糖',280,100,'盛行於中國江南一代的梨膏糖可說是有百年的歷史，以梨汁、蜂蜜和各種草藥製成，主要功能為止咳化痰、開胃順氣。',1,'itemImages/梨膏糖1.jpg','itemImages/梨膏糖2.jpg','itemImages/梨膏糖3.jpg',0,3),
 (20,'NewYork Perfect Cheese奶油起司脆餅',400,30,'由前白宮甜點師等人聯手研發，餅乾從包裝、造型感皆呈現超高質感，堪稱夢幻逸品無誤～',1,'itemImages/奶油起司脆餅1.jpg','itemImages/奶油起司脆餅2.jpg','itemImages/奶油起司脆餅3.jpg',0,2),
 (21,'The Maple mania（楓糖奶油餅乾）',430,100,'選用加拿大楓糖搭配奶油巧克力，厚實大塊夾心非常厲害，濃郁楓糖香滿溢於口，愛不釋手啊。',1,'itemImages/楓糖奶油餅乾1.jpg','itemImages/楓糖奶油餅乾2.jpg','itemImages/楓糖奶油餅乾3.jpg',0,2),
@@ -273,20 +276,19 @@ INSERT  INTO `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`
 (26,'《CEZANNE》 血色腮紅',300,200,'這塊血色腮紅一擦上臉，馬上讓你白兩個色號，想要買還要用搶的呢！',3,'itemImages/血色腮紅1.jpg','itemImages/血色腮紅2.jpg','itemImages/血色腮紅3.jpg',0,2),
 (27,'山善 多功能電子烤盤',5680,20,'多功能電子烤盤 (附平盤+章魚燒) YOF-W120 2色 附2枚烤盤 單身 小家庭 電烤盤推薦',4,'itemImages/多功能電子烤盤1.jpg','itemImages/多功能電子烤盤2.jpg','itemImages/多功能電子烤盤3.jpg',0,2);
 
-
 /*Table structure for table `item_type` */
 
 DROP TABLE IF EXISTS `item_type`;
 
 CREATE TABLE `item_type` (
-  `itId` INT NOT NULL AUTO_INCREMENT,
-  `itemType` VARCHAR(10) NOT NULL,
+  `itId` int NOT NULL AUTO_INCREMENT,
+  `itemType` varchar(10) NOT NULL,
   PRIMARY KEY (`itId`)
-) ENGINE=INNODB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `item_type` */
 
-INSERT  INTO `item_type`(`itId`,`itemType`) VALUES 
+insert  into `item_type`(`itId`,`itemType`) values 
 (1,'食品'),
 (2,'生活家居'),
 (3,'美妝保養'),
@@ -298,50 +300,49 @@ INSERT  INTO `item_type`(`itId`,`itemType`) VALUES
 DROP TABLE IF EXISTS `member`;
 
 CREATE TABLE `member` (
-  `mId` INT NOT NULL AUTO_INCREMENT,
-  `mAN` VARCHAR(15) NOT NULL,
-  `mPw` VARCHAR(15) NOT NULL,
-  `mGender` VARCHAR(10) NOT NULL,
-  `mName` VARCHAR(10) NOT NULL,
-  `mUid` VARCHAR(10) NOT NULL,
-  `mBDay` DATETIME NOT NULL,
-  `mEmail` VARCHAR(30) NOT NULL,
-  `mPhone` VARCHAR(10) NOT NULL,
-  `d_mAddress` VARCHAR(40) NOT NULL,
-  `m_createTime` DATETIME NOT NULL,
-  `mPic` VARCHAR(21000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `m_verify` TINYINT NOT NULL DEFAULT '0',
-  `mPid` INT NOT NULL,
+  `mId` int NOT NULL AUTO_INCREMENT,
+  `mAN` varchar(15) NOT NULL,
+  `mPw` varchar(15) NOT NULL,
+  `mGender` varchar(10) NOT NULL,
+  `mName` varchar(10) NOT NULL,
+  `mUid` varchar(10) NOT NULL,
+  `mBDay` datetime NOT NULL,
+  `mEmail` varchar(30) NOT NULL,
+  `mPhone` varchar(10) NOT NULL,
+  `d_mAddress` varchar(40) NOT NULL,
+  `m_createTime` datetime NOT NULL,
+  `mPic` varchar(21000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `m_verify` tinyint NOT NULL DEFAULT '0',
+  `mPid` int NOT NULL,
   PRIMARY KEY (`mId`),
   KEY `member_mPid_fk` (`mPid`),
   CONSTRAINT `FKm7kkdfwqd0u1h50am44ijl07e` FOREIGN KEY (`mPid`) REFERENCES `member_perm` (`mPid`),
   CONSTRAINT `member_mPid_fk` FOREIGN KEY (`mPid`) REFERENCES `member_perm` (`mPid`)
-) ENGINE=INNODB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `member` */
 
-INSERT  INTO `member`(`mId`,`mAN`,`mPw`,`mGender`,`mName`,`mUid`,`mBDay`,`mEmail`,`mPhone`,`d_mAddress`,`m_createTime`,`mPic`,`m_verify`,`mPid`) VALUES 
-(1,'spotstour','0000aa','男','諸葛村夫','A123456789','1987-05-07 00:00:00','spring@gmail.com','0932000530','台北市大同區民權西路1號','2021-02-25 15:09:07','memberImages/andrea.jpg',1,2),
-(2,'aaaaaa','aaaa22','男','管理者','A123400088','1990-03-01 12:03:16','spotstour@gamil.com','0912345678','台北市信義區信義路100號','2021-03-10 12:03:53','memberImages/mentat.jpg',1,1),
+insert  into `member`(`mId`,`mAN`,`mPw`,`mGender`,`mName`,`mUid`,`mBDay`,`mEmail`,`mPhone`,`d_mAddress`,`m_createTime`,`mPic`,`m_verify`,`mPid`) values 
+(1,'spotstour','0000aa','男','諸葛村夫','A123456789','1987-05-07 00:00:00','spring@gmail.com','0932000530','台北市大同區民權西路1號','2021-02-25 15:09:07','memberImages/mentat.jpg',1,2),
+(2,'aaaaaa','aaaaaa','男','管理者','A123400088','1990-03-01 12:03:16','spotstour@gamil.com','0912345678','台北市信義區信義路100號','2021-03-10 12:03:53','memberImages/andrea.jpg',1,1),
 (3,'sunnyday','world168','女','katie','F223456789','1988-12-31 00:00:00','katie@gmail.com','0966130530','台北市中山區中山北路二段35號','2021-03-11 13:10:08','memberImages/katie.jpg',1,2),
 (4,'linatour','cheese00','女','lina','F233456000','1990-03-06 00:00:00','lina@gmail.com','0988421530','台北市中正區忠孝東路二段27號','2021-03-12 16:15:22','memberImages/lina.jpg',1,2),
 (5,'kittyhi','smile99','秘密','kitty','A123456789','1985-03-03 00:00:00','spring@gmail.com','0911850530','台北市中正區北平東路7號','2021-03-15 17:09:07','memberImages/kitty.jpg',1,2),
 (6,'snoopyya','0000jj','秘密','snoopy','A123456789','1985-02-17 00:00:00','spring@gmail.com','0912653530','台北市中正區八德路一段1號','2021-03-17 14:09:07','memberImages/snoopy.jpg',1,2);
-
 
 /*Table structure for table `member_perm` */
 
 DROP TABLE IF EXISTS `member_perm`;
 
 CREATE TABLE `member_perm` (
-  `mPid` INT NOT NULL AUTO_INCREMENT,
-  `mPermissions` VARCHAR(10) NOT NULL,
+  `mPid` int NOT NULL AUTO_INCREMENT,
+  `mPermissions` varchar(10) NOT NULL,
   PRIMARY KEY (`mPid`)
-) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `member_perm` */
 
-INSERT  INTO `member_perm`(`mPid`,`mPermissions`) VALUES 
+insert  into `member_perm`(`mPid`,`mPermissions`) values 
 (1,'管理員'),
 (2,'會員'),
 (3,'停權中');
@@ -351,14 +352,14 @@ INSERT  INTO `member_perm`(`mPid`,`mPermissions`) VALUES
 DROP TABLE IF EXISTS `ord`;
 
 CREATE TABLE `ord` (
-  `ord_Id` INT NOT NULL AUTO_INCREMENT,
-  `mId` INT NOT NULL,
-  `oSid` INT NOT NULL,
-  `s_createTime` DATETIME NOT NULL,
-  `o_createTime` DATETIME NOT NULL,
-  `s_mAddress` VARCHAR(40) NOT NULL,
-  `receiptTypeId` INT NOT NULL,
-  `shipTypeId` INT NOT NULL,
+  `ord_Id` int NOT NULL AUTO_INCREMENT,
+  `mId` int NOT NULL,
+  `oSid` int NOT NULL,
+  `s_createTime` datetime NOT NULL,
+  `o_createTime` datetime NOT NULL,
+  `s_mAddress` varchar(40) NOT NULL,
+  `receiptTypeId` int NOT NULL,
+  `shipTypeId` int NOT NULL,
   PRIMARY KEY (`ord_Id`),
   KEY `ord_mId_fk` (`mId`),
   KEY `ord_oSid_fk` (`oSid`),
@@ -372,24 +373,25 @@ CREATE TABLE `ord` (
   CONSTRAINT `ord_oSid_fk` FOREIGN KEY (`oSid`) REFERENCES `ord_stat` (`oSid`),
   CONSTRAINT `ord_receiptTypeId_fk` FOREIGN KEY (`receiptTypeId`) REFERENCES `receipt_type` (`receiptTypeId`),
   CONSTRAINT `ord_shipTypeId_fk` FOREIGN KEY (`shipTypeId`) REFERENCES `ship_type` (`shipTypeId`)
-) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord` */
 
-INSERT  INTO `ord`(`ord_Id`,`mId`,`oSid`,`s_createTime`,`o_createTime`,`s_mAddress`,`receiptTypeId`,`shipTypeId`) VALUES 
+insert  into `ord`(`ord_Id`,`mId`,`oSid`,`s_createTime`,`o_createTime`,`s_mAddress`,`receiptTypeId`,`shipTypeId`) values 
 (1,1,1,'2021-03-19 09:18:31','2021-03-10 09:18:49','台北市大同區民權西路1號',1,1),
 (2,1,2,'2021-02-03 11:58:55','2021-02-19 03:58:59','台北市中山區民權東路100號',2,2),
-(3,1,3,'2021-01-05 12:00:07','2021-01-29 16:00:11','台北市中山區民權東路200號',3,3);
+(3,1,3,'2021-01-05 12:00:07','2021-01-29 16:00:11','台北市中山區民權東路200號',3,3),
+(4,2,1,'2021-03-04 15:42:46','2021-03-19 15:42:53','台北市新生南路1號',3,3);
 
 /*Table structure for table `ord_detail` */
 
 DROP TABLE IF EXISTS `ord_detail`;
 
 CREATE TABLE `ord_detail` (
-  `ord_dId` INT NOT NULL AUTO_INCREMENT,
-  `ord_Id` INT NOT NULL,
-  `ordQty` INT NOT NULL,
-  `itemId` INT NOT NULL,
+  `ord_dId` int NOT NULL AUTO_INCREMENT,
+  `ord_Id` int NOT NULL,
+  `ordQty` int NOT NULL,
+  `itemId` int NOT NULL,
   PRIMARY KEY (`ord_dId`),
   KEY `ord_deatail_ord_Id_fk` (`ord_Id`),
   KEY `ord_deatail_itemId_fk` (`itemId`),
@@ -397,11 +399,11 @@ CREATE TABLE `ord_detail` (
   CONSTRAINT `FK7rq4ds1xrookjnyfp0oyvqn4v` FOREIGN KEY (`ord_Id`) REFERENCES `ord` (`ord_Id`),
   CONSTRAINT `ord_deatail_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`),
   CONSTRAINT `ord_deatail_ord_Id_fk` FOREIGN KEY (`ord_Id`) REFERENCES `ord` (`ord_Id`)
-) ENGINE=INNODB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord_detail` */
 
-INSERT  INTO `ord_detail`(`ord_dId`,`ord_Id`,`ordQty`,`itemId`) VALUES 
+insert  into `ord_detail`(`ord_dId`,`ord_Id`,`ordQty`,`itemId`) values 
 (1,1,2,1),
 (2,1,3,2),
 (3,1,4,3),
@@ -411,21 +413,23 @@ INSERT  INTO `ord_detail`(`ord_dId`,`ord_Id`,`ordQty`,`itemId`) VALUES
 (7,3,5,1),
 (8,3,1,2),
 (9,3,2,3),
-(10,3,2,4);
+(10,3,2,4),
+(11,4,10,3),
+(12,4,5,6);
 
 /*Table structure for table `ord_stat` */
 
 DROP TABLE IF EXISTS `ord_stat`;
 
 CREATE TABLE `ord_stat` (
-  `oSid` INT NOT NULL AUTO_INCREMENT,
-  `ordStat` VARCHAR(10) NOT NULL,
+  `oSid` int NOT NULL AUTO_INCREMENT,
+  `ordStat` varchar(10) NOT NULL,
   PRIMARY KEY (`oSid`)
-) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `ord_stat` */
 
-INSERT  INTO `ord_stat`(`oSid`,`ordStat`) VALUES 
+insert  into `ord_stat`(`oSid`,`ordStat`) values 
 (1,'訂單處理中'),
 (2,'出貨中'),
 (3,'已送達');
@@ -435,11 +439,11 @@ INSERT  INTO `ord_stat`(`oSid`,`ordStat`) VALUES
 DROP TABLE IF EXISTS `params`;
 
 CREATE TABLE `params` (
-  `paramId` INT NOT NULL AUTO_INCREMENT,
-  `type` VARCHAR(10) NOT NULL,
-  `typeName` VARCHAR(10) NOT NULL,
+  `paramId` int NOT NULL AUTO_INCREMENT,
+  `type` varchar(10) NOT NULL,
+  `typeName` varchar(10) NOT NULL,
   PRIMARY KEY (`paramId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `params` */
 
@@ -448,14 +452,14 @@ CREATE TABLE `params` (
 DROP TABLE IF EXISTS `place_type`;
 
 CREATE TABLE `place_type` (
-  `placeTypeId` INT NOT NULL AUTO_INCREMENT,
-  `placeType` VARCHAR(20) NOT NULL,
+  `placeTypeId` int NOT NULL AUTO_INCREMENT,
+  `placeType` varchar(20) NOT NULL,
   PRIMARY KEY (`placeTypeId`)
-) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `place_type` */
 
-INSERT  INTO `place_type`(`placeTypeId`,`placeType`) VALUES 
+insert  into `place_type`(`placeTypeId`,`placeType`) values 
 (1,'景點'),
 (2,'餐廳'),
 (3,'旅館');
@@ -465,16 +469,16 @@ INSERT  INTO `place_type`(`placeTypeId`,`placeType`) VALUES
 DROP TABLE IF EXISTS `portfolio`;
 
 CREATE TABLE `portfolio` (
-  `portfolioId` INT NOT NULL AUTO_INCREMENT,
-  `portfolioName` VARCHAR(50) NOT NULL,
-  `portfolioText` VARCHAR(255) NOT NULL,
-  `p_createTime` DATETIME NOT NULL,
-  `pAddress` VARCHAR(50) NOT NULL,
-  `longitude` VARCHAR(30) NOT NULL,
-  `latitude` VARCHAR(30) NOT NULL,
-  `cityId` INT NOT NULL,
-  `mId` INT NOT NULL,
-  `placeTypeId` INT NOT NULL,
+  `portfolioId` int NOT NULL AUTO_INCREMENT,
+  `portfolioName` varchar(50) NOT NULL,
+  `portfolioText` varchar(255) NOT NULL,
+  `p_createTime` datetime NOT NULL,
+  `pAddress` varchar(50) NOT NULL,
+  `longitude` varchar(30) NOT NULL,
+  `latitude` varchar(30) NOT NULL,
+  `cityId` int NOT NULL,
+  `mId` int NOT NULL,
+  `placeTypeId` int NOT NULL,
   PRIMARY KEY (`portfolioId`),
   KEY `portfolio_cityId_fk` (`cityId`),
   KEY `portfolio_mId_fk` (`mId`),
@@ -485,23 +489,25 @@ CREATE TABLE `portfolio` (
   CONSTRAINT `portfolio_cityId_fk` FOREIGN KEY (`cityId`) REFERENCES `city` (`cityId`),
   CONSTRAINT `portfolio_mId_fk` FOREIGN KEY (`mId`) REFERENCES `member` (`mId`),
   CONSTRAINT `portfolio_placeTypeId_fk` FOREIGN KEY (`placeTypeId`) REFERENCES `place_type` (`placeTypeId`)
-) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+/*Data for the table `portfolio` */
 
 /*Table structure for table `portfoliomsg` */
 
 DROP TABLE IF EXISTS `portfoliomsg`;
 
 CREATE TABLE `portfoliomsg` (
-  `portfolioMsgId` INT NOT NULL AUTO_INCREMENT,
-  `portfolioId` INT NOT NULL,
-  `msgText` VARCHAR(200) NOT NULL,
-  `pm_createTime` DATETIME NOT NULL,
-  `pmsg_freeze` TINYINT NOT NULL DEFAULT '0',
+  `portfolioMsgId` int NOT NULL AUTO_INCREMENT,
+  `portfolioId` int NOT NULL,
+  `msgText` varchar(200) NOT NULL,
+  `pm_createTime` datetime NOT NULL,
+  `pmsg_freeze` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`portfolioMsgId`),
   KEY `portfolioMsg_portfolioId_fk` (`portfolioId`),
   CONSTRAINT `FK1uut686ofs5t3rlehnn72tuwv` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`),
   CONSTRAINT `portfolioMsg_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `portfoliomsg` */
 
@@ -510,14 +516,14 @@ CREATE TABLE `portfoliomsg` (
 DROP TABLE IF EXISTS `receipt_type`;
 
 CREATE TABLE `receipt_type` (
-  `receiptTypeId` INT NOT NULL AUTO_INCREMENT,
-  `receiptType` VARCHAR(15) NOT NULL,
+  `receiptTypeId` int NOT NULL AUTO_INCREMENT,
+  `receiptType` varchar(15) NOT NULL,
   PRIMARY KEY (`receiptTypeId`)
-) ENGINE=INNODB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `receipt_type` */
 
-INSERT  INTO `receipt_type`(`receiptTypeId`,`receiptType`) VALUES 
+insert  into `receipt_type`(`receiptTypeId`,`receiptType`) values 
 (1,'三聯式統一發票'),
 (2,'二聯式統一發票'),
 (3,'個人電子發票'),
@@ -529,10 +535,10 @@ INSERT  INTO `receipt_type`(`receiptTypeId`,`receiptType`) VALUES
 DROP TABLE IF EXISTS `record`;
 
 CREATE TABLE `record` (
-  `recordId` INT NOT NULL AUTO_INCREMENT,
-  `portfolioId` INT NOT NULL,
-  `type` VARCHAR(10) NOT NULL,
-  `paramId` INT NOT NULL,
+  `recordId` int NOT NULL AUTO_INCREMENT,
+  `portfolioId` int NOT NULL,
+  `type` varchar(10) NOT NULL,
+  `paramId` int NOT NULL,
   PRIMARY KEY (`recordId`),
   KEY `record_portfolioId_fk` (`portfolioId`),
   KEY `record_paramId_fk` (`paramId`),
@@ -540,7 +546,7 @@ CREATE TABLE `record` (
   CONSTRAINT `FKbopblbme50gdwh19qg9qphlw3` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`),
   CONSTRAINT `record_paramId_fk` FOREIGN KEY (`paramId`) REFERENCES `params` (`paramId`),
   CONSTRAINT `record_portfolioId_fk` FOREIGN KEY (`portfolioId`) REFERENCES `portfolio` (`portfolioId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `record` */
 

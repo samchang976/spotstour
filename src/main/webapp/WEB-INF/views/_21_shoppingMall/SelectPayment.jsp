@@ -21,7 +21,7 @@
 <!-- icon cdn----------------------------------------------------------------------------------------------- -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<!-- animation --------------------------------------------------------------------------------------------- -->
+<!-- animation --------------------------------------------------------------------------------------------- -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -83,7 +83,7 @@ span.error:first-child() {
 					aria-valuemax="100" style="width: 50%"></div>
 			</div>
 			<nav
-				style="-bs-breadcrumb-divider: url(&amp; amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;amp;#34;);"
+				style="-bs-breadcrumb-divider: url(&amp; amp; amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;amp;"
 				aria-label="breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a
@@ -213,7 +213,7 @@ span.error:first-child() {
 											placeholder="${LoginOK.d_mAddress}" />
 									</div>
 									<div class="animate__animated animate__shakeX">
-									<form:errors path="s_mAddress" cssClass="error" />
+										<form:errors path="s_mAddress" cssClass="error" />
 									</div>
 								</div>
 							</div>
@@ -226,7 +226,8 @@ span.error:first-child() {
 								<label for="Orderer" class="col-form-label">付款方式:</label>
 							</div>
 							<div class="col-10">
-								<form:select path="paymentTypeId" class="form-select" aria-label="Default select example">
+								<form:select path="paymentTypeId" class="form-select"
+									aria-label="Default select example">
 									<form:option selected="selected" value="-1">請選擇付款方式</form:option>
 									<form:option value="1">貨到付款</form:option>
 									<form:option value="2">超商取貨付款</form:option>
@@ -234,13 +235,13 @@ span.error:first-child() {
 								</form:select>
 							</div>
 							<div class="col-8" style="text-align: center;">
-							<div class="animate__animated animate__shakeX">
-								<form:errors path="paymentTypeId" cssClass="error" />
-							</div>
+								<div class="animate__animated animate__shakeX">
+									<form:errors path="paymentTypeId" cssClass="error" />
+								</div>
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- 寄送方式 --------------------------------------------------------------->
 					<div class="form-group row">
 						<div class="input-group mb-3">
@@ -255,9 +256,9 @@ span.error:first-child() {
 								</form:select>
 							</div>
 							<div class="col-8" style="text-align: center;">
-							<div class="animate__animated animate__shakeX">
-								<form:errors path="shipTypeId" cssClass="error" />
-							</div>
+								<div class="animate__animated animate__shakeX">
+									<form:errors path="shipTypeId" cssClass="error" />
+								</div>
 							</div>
 						</div>
 					</div>
@@ -276,9 +277,9 @@ span.error:first-child() {
 								</form:select>
 							</div>
 							<div class="col-8" style="text-align: center;">
-							<div class="animate__animated animate__shakeX">
-								<form:errors path="receiptTypeId" cssClass="error" />
-							</div>
+								<div class="animate__animated animate__shakeX">
+									<form:errors path="receiptTypeId" cssClass="error" />
+								</div>
 							</div>
 						</div>
 					</div>
@@ -302,12 +303,15 @@ span.error:first-child() {
 						<div class="input-group mb-3">
 							<div class="row g-3 align-items-center">
 								<div class="col-auto">
-									<label for="Orderer" class="col-form-label">折扣碼 :</label>
+									<label for="Orderer" class="col-form-label">折扣碼:</label>
 								</div>
 
 								<div class="col-auto">
-									<input type="text" id="code" name="code" class="form-control"
-										placeholder="請輸入折扣碼" />
+									<!-- 									<input type="text" id="code" name="code" class="form-control" -->
+									<!-- 										placeholder="請輸入折扣碼" /> -->
+
+									<form:input type="text" class="form-control" value=""
+										path="codeNumber" name="codeNumber" placeholder="請輸入折扣碼" />
 								</div>
 							</div>
 						</div>
