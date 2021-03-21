@@ -38,9 +38,9 @@ ul.nav.nav-tabs {
 .menuOuter {
 	padding: 5px;
 	width: 100%;
-/* 	border-bottom: 1px solid black;  */
+	/* 	border-bottom: 1px solid black;  */
 	text-align: center;
-	boxShadow:'2px 2px 2px 1px rgba(0, 0, 0, 0.1)', //陰影
+	boxShadow: '2px 2px 2px 1px rgba(0, 0, 0, 0.1)',//陰影
 }
 
 #option1 {
@@ -64,7 +64,22 @@ ul.nav.nav-tabs {
 .nav-item {
 	margin: 5px;
 }
+.dropdown-menu{
+width:80px;
+}
 
+#memberPhto{
+width:50px;
+height:50px;
+background:black;
+margin:10px auto;
+border-radius: 50%;
+}
+#memberPhto img{
+width:100%;
+position:relative;
+border-radius: 50%;
+}
 
 </style>
 
@@ -91,10 +106,10 @@ ul.nav.nav-tabs {
         </div> -->
 
 			<ul class="nav nav-tabs">
+			
+			
 				<!-- 會員圖片 -->
-				<c:if test="${! empty LoginOK }">
-					<img height='40px' width='30px' src="/upload/${LoginOK.mPic}">
-				</c:if>
+				
 				<!-- ======================測試頁面連結區塊================================================================================== -->
 
 				<!-- 				<li class="nav-item dropdown"><a class="fas fa-user" style="color:green" -->
@@ -173,10 +188,14 @@ ul.nav.nav-tabs {
 				<!-- 					</ul></li> -->
 				<!-- ======================上方:測試頁面連結區塊================================================================================== -->
 
-				<li class="nav-item dropdown"><a class="fas fa-cart-plus "
-					data-bs-toggle="dropdown" href="#" role="button"
-					aria-expanded="false" data-bs-toggle="tooltip"
-					data-bs-placement="bottom" title="商城資訊"></a>
+				<li class="nav-item dropdown">
+					<c:if test="${ !empty LoginOK }">
+						<span>Hi,${LoginOK.mName}</span>
+					</c:if>
+					<a class="fas fa-cart-plus " data-bs-toggle="dropdown" href="#" role="button"
+						aria-expanded="false" data-bs-toggle="tooltip"
+						data-bs-placement="bottom" title="商城資訊">
+					</a>
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item"
 							href="<c:url value="/merchandiseIndex"/>"
@@ -238,6 +257,7 @@ ul.nav.nav-tabs {
 					data-bs-placement="bottom" title="會員資訊"></a>
 					<ul class="dropdown-menu">
 						<c:if test="${ empty LoginOK }">
+						
 							<li><a class="dropdown-item"
 								href="<c:url value="/memberRegister"/>" data-bs-toggle="tooltip"
 								data-bs-placement="bottom" title="還沒加入會員嗎? 這裡可以註冊會員">註冊會員</a></li>
@@ -246,9 +266,17 @@ ul.nav.nav-tabs {
 								title="管理者及會員登入">登入</a></li>
 						</c:if>
 						<c:if test="${ !empty LoginOK }">
+							<div id="memberPhto">
+								<c:if test="${! empty LoginOK }">
+									<img src="/upload/${LoginOK.mPic}">
+								</c:if>
+							</div>
 							<li><a class="dropdown-item"
 								href="<c:url value="/memberDetailModify"/>"
 								data-bs-placement="bottom" title="會員可以 修改會員資料">修改會員資料</a></li>
+							<li><a class="dropdown-item"
+								href="<c:url value="/videoCreate"/>" data-bs-placement="bottom"
+								title="會員新增影片">新增影片</a></li>
 							<li><a class="dropdown-item"
 								href="<c:url value="/personalPortfolio"/>"
 								data-bs-placement="bottom" title="會員個人影片的作品集">個人作品</a></li>
@@ -304,14 +332,14 @@ ul.nav.nav-tabs {
 						// 		            opacity:'0', //隱藏
 						transition : '.2s'
 					});
-// 					return;
+					// 					return;
 				} else {
 					// 			  alert("上滾");
 					$('.menuOuter').css({
 						//  opacity:'1', //隱藏
 						display : 'block',
 					})
-// 					return;
+					// 					return;
 				}
 				setTimeout(function() {
 					t = p;

@@ -16,6 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,8 @@ import _02_model.entity.MemberBean;
 import _02_model.entity.Member_permBean;
 import _11_register.service.MemberService;
 import _11_register.validator.MemberBeanValidator;
+import _13_mailVerification.mail.SendingEmail;
+
 
 @Controller
 @SessionAttributes({"gender","registerOK"})
@@ -44,10 +47,11 @@ public class MemberController {
 	@GetMapping("/memberRegister")
 	public String sendForm(Model model) {
 		MemberBean memberBean = new MemberBean();
+		memberBean.setmBDay(java.sql.Date.valueOf("1990-3-31"));
 		model.addAttribute("memberBean", memberBean);
 		Map<String, String> gender = new LinkedHashMap<>();
 		gender.put("男", "男生");
-		gender.put("secret", "秘密");
+		gender.put("秘密", "秘密");
 		gender.put("女", "女生");
 		
 		model.addAttribute("gender", gender);
@@ -68,7 +72,7 @@ public class MemberController {
 		if (originalFilename.length() > 0 && originalFilename.lastIndexOf(".") > -1) {
 			bean.setmPic("memberImages/" + originalFilename); // 將檔名存入資料庫
 		}
-		String folderPath = "D:/_JSP/workspace/spotstourHSM/src/main/webapp/images/memberImages";
+		String folderPath = "D:/_JSP/workspace/spotstourHSM05/src/main/webapp/images/memberImages";
 		
 		File theDir = new File(folderPath);
 		if (!theDir.exists()) {
@@ -91,7 +95,7 @@ public class MemberController {
 		bean.setM_createTime(registerTime);
 		
 		Member_permBean mpb = memberService.selectdata(2);
-		bean.setM_verify(1);
+		bean.setM_verify(0);
 		bean.setMemberPermBean(mpb);
 		if(memberService.mANExists(bean.getmAN())) {
 			result.rejectValue("mAN", "", "帳號已存在，請重新輸入");
@@ -104,8 +108,23 @@ public class MemberController {
 			result.rejectValue("mAN", "", "發生異常，請通知系統人員..." + ex.getMessage());
 			return inputForm;
 		}
-		model.addAttribute("registerOK", "註冊成功");
-		return "redirect:/";
+		model.addAttribute("registerOK", bean);
+		return "redirect:/confirmEmail";
 	}	
 	
+	@GetMapping("/confirmEmail")
+	public String confirmEmail(HttpSession session) {
+		
+		MemberBean memberBean = (MemberBean) session.getAttribute("registerOK");
+		SendingEmail sendingEmail = new SendingEmail(memberBean.getmId(), memberBean.getmEmail(), memberBean.getmName(),  memberBean);
+		sendingEmail.sendMail();
+		return "_11_member/ConfirmEmail";
+	}
+	
+	@GetMapping("/verify")
+	public String verify(HttpSession session) {
+		MemberBean memberBean = (MemberBean) session.getAttribute("registerOK");
+		memberService.updateVerify(memberBean.getmId());
+		return "redirect:/login";
+	}
 }

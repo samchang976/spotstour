@@ -37,5 +37,5 @@ public interface ItemDao {
 	
 //	=======================
 	
-	Set<ItemBean> getItemBySearchBar(String searchBar);
+	Set<ItemBean> getItemBySearchBar(String searchBar, Integer time);
 }

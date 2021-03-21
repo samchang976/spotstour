@@ -94,4 +94,11 @@ public class MemberDaoImpl_Hibernate implements MemberDao {
 			
 			return mpb;
 		}
+		
+		@Override
+		public void updateVerify(Integer mId) {
+			String hql = "UPDATE MemberBean m SET m.m_verify = 1 WHERE m.mId = :mId";
+			Session session = factory.getCurrentSession();
+			session.createQuery(hql).setParameter("mId", mId).executeUpdate();
+		}
 }

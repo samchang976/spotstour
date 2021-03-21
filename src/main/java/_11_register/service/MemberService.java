@@ -10,4 +10,5 @@ public interface MemberService {
 	public MemberBean queryMember(String mAN);
 	public MemberBean checkmANmPw(String mAN, String mPw);
 	public Member_permBean selectdata(int mPid);
+	public void updateVerify(Integer mId);
 }

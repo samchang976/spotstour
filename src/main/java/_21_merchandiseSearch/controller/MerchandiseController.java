@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import _02_model.entity.ActivityBean;
@@ -106,17 +105,15 @@ public class MerchandiseController {
 
 	// 搜尋Bar
 	@GetMapping("/merchandiseSearchResult")
-	public String getItemBySearchBar(Model model, @ModelAttribute("searchWord") String searchWord) {
+	public String getItemBySearchBar(Model model, @ModelAttribute("searchWord") String searchWord, @RequestParam(value = "time", required = false, defaultValue="0") Integer time) {
 		
-		Set<ItemBean> list = itemService.getItemBySearchBar(searchWord);
+		Set<ItemBean> list = itemService.getItemBySearchBar(searchWord, time);
 		model.addAttribute("items", list);
 		
 		Integer member = (Integer) model.getAttribute("mId");
 		if(member != null) {
-		List<ShoppingCartBean> cartlist = shoppingCartService.getShoppingCart((Integer) model.getAttribute("mId")); // 先從service拿資料
-		model.addAttribute("membercartlist", cartlist);
-		
-		System.out.println("cartlist================================="+cartlist);
+			List<ShoppingCartBean> cartlist = shoppingCartService.getShoppingCart((Integer) model.getAttribute("mId")); // 先從service拿資料
+			model.addAttribute("membercartlist", cartlist);
 		}
 		return "_21_shoppingMall/MerchandiseSearchResult";
 	}
@@ -194,7 +191,7 @@ public class MerchandiseController {
 		FeedbackBean feedbackBean = null;
 		feedbackBean = new FeedbackBean();
 		feedbackBean.setItemTId(itemId);
-		feedbackBean.setFeedbackText("AAAA");
+		feedbackBean.setFeedbackText("推薦!!");
 		feedbackBean.setFb_freeze(0);
 
 		Date utilDate = new Date();// util.Date

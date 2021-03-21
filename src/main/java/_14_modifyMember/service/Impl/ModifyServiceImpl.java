@@ -1,5 +1,10 @@
 package _14_modifyMember.service.Impl;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -60,6 +65,31 @@ public class ModifyServiceImpl implements ModifyService{
 		memberBean.setM_createTime(mbN.getM_createTime());
 		memberBean.setM_verify(mbN.getM_verify());
 		mpermBean.setmPid(mPid);
+		
+		MultipartFile picture = mbN.getMultipartFile(); // 圖片本人
+		String originalFilename = picture.getOriginalFilename(); // 圖片的檔名
+		if (originalFilename.length() > 0 && originalFilename.lastIndexOf(".") > -1) {
+			memberBean.setmPic("memberImages/" + originalFilename);
+		}
+		String folderPath = "D:/_JSP/workspace/spotstourHSM05/src/main/webapp/images/memberImages";
+		
+		File theDir = new File(folderPath);
+		if (!theDir.exists()) {
+			theDir.mkdirs();
+		}
+
+		try (InputStream in = picture.getInputStream();
+				OutputStream out = new FileOutputStream(folderPath + "/" + originalFilename)) {
+
+			byte[] buffer = new byte[1024];
+			int len = -1;
+			while ((len = in.read(buffer)) != -1) {
+				out.write(buffer, 0, len);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		modifyDao.update(memberBean);
 		

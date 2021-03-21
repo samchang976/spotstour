@@ -69,8 +69,8 @@ public class ItemServiceImpl implements ItemService {
 
 	@Transactional
 	@Override
-	public Set<ItemBean> getItemBySearchBar(String searchBar) {
-		return itemdao.getItemBySearchBar(searchBar);
+	public Set<ItemBean> getItemBySearchBar(String searchBar, Integer time) {
+		return itemdao.getItemBySearchBar(searchBar, time);
 	}
 
 	@Transactional

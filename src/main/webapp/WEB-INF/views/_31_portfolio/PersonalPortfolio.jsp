@@ -68,187 +68,209 @@ td div, .like-table div {
 .like-table div {
 	background: #069;
 }
+
+.container {
+	max-width: 1200px;
+}
 </style>
 
 <script type="text/javascript">
-	function submitBtnClick(){
-	document.fileForm.submit();
+	function submitBtnClick() {
+		document.fileForm.submit();
 	}
 </script>
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>個人作品</title>
 </head>
 <body>
-<!--header=================================================================================  -->
+	<!--header=================================================================================  -->
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-<!--定位-------------------------------------------------------------------------------------->
+	<!--定位-------------------------------------------------------------------------------------->
 	<div class="BodyPosition">
-<!--控制盤----------------------------------------------------------------------------------------->
-							
-		<!-- 標題 -->
-		<div class="row" style="margin:15px">
-			<h3>個人作品</h3>
-		</div>
-		<!-- 控制盤 -->
-		<div class="row row row-cols-1 row-cols-md-2" style="margin-top:10px">
-			<div class="col-md-6" style="padding-left: 40px;">
-				<button class="Bt_blue" style="margin-right: 10px;"
-					onclick="location.href='${pageContext.request.contextPath}/videoCreate'">新增影片</button>
-				<button class="Bt_blue" style="margin-right: 10px;"
-					onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">依時間排序</button>
-				<button class="Bt_blue" style="margin-right: 10px;"
-					onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">依點閱率排序</button>
-<!-- 				<button class="Bt_blue" onclick="history.back()" style="margin-right: 5px;">回上一頁</button> -->
-				<button class="Bt_blue" onclick="location.href='${pageContext.request.contextPath}/index'" style="margin-right: 35px;">回首頁</button>
+		<!--控制盤----------------------------------------------------------------------------------------->
+		<div class="container" id="container_PersonalPortfolio">
+			<!-- 標題 -->
+			<div style="text-align: center;">
+				<h2>個人作品</h2>
 			</div>
-			<div class="col-md-6" style="padding-right: 40px">
-				<form class="d-flex" action="SearchPortfolioDetail" method="get">
-					<input class="form-control me-2" type="text" name="searchWord"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">
-						<i class="fas fa-search"></i>
-					</button>
-				</form>
+			<!-- 控制盤 -->
+			<div class="row row row-cols-1 row-cols-md-2"
+				style="margin-top: 10px">
+				<div class="col-md-6" style="padding-left: 40px;">
+					<button class="btn btn-primary" style="margin-right: 10px;"
+						onclick="location.href='${pageContext.request.contextPath}/videoCreate'">新增影片</button>
+					<button class="btn btn-primary" style="margin-right: 10px;"
+						onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">依時間排序</button>
+					<button class="btn btn-primary" style="margin-right: 10px;"
+						onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">依點閱率排序</button>
+					<!-- 				<button class="Bt_blue" onclick="history.back()" style="margin-right: 5px;">回上一頁</button> -->
+					<button class="btn btn-primary"
+						onclick="location.href='${pageContext.request.contextPath}/index'"
+						style="margin-right: 35px;">回首頁</button>
+				</div>
+				<div class="col-md-6" style="padding-right: 40px">
+					<form class="d-flex" action="SearchPortfolioDetail" method="get">
+						<input class="form-control me-2" type="text" name="searchWord"
+							placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">
+							<i class="fas fa-search"></i>
+						</button>
+					</form>
+				</div>
 			</div>
-		</div>
-		<br>
-<!--個人作品--------------------------------------------------------------------------------------------------------->
-		<c:forEach items="${memberPortfolioList}" var="mpl">
-			<div class="container-fluid">
-				<div class="shadow p-3 mb-5 bg-body rounded" style="margin: 10px;">
-					<div class="row R_SpCre">
-<!-- 						<div class="col col-1"> -->
-<!-- 							<input class="form-check-input" type="checkbox" -->
-<!-- 								id="checkboxNoLabel" value="" aria-label="..."> -->
-<!-- 						</div> -->
+			<br>
+			<!--個人作品--------------------------------------------------------------------------------------------------------->
+			<c:forEach items="${memberPortfolioList}" var="mpl">
+				<div class="container-fluid">
+					<div class="shadow p-3 mb-5 bg-body rounded" style="margin: 10px;">
+						<div class="row R_SpCre">
+							<!-- 						<div class="col col-1"> -->
+							<!-- 							<input class="form-check-input" type="checkbox" -->
+							<!-- 								id="checkboxNoLabel" value="" aria-label="..."> -->
+							<!-- 						</div> -->
 
-						<div class="col col-4" style="margin-left: 20px">
-							<div style="margin: 4px;">
-								<H4>${mpl.portfolioName}</H4>
+							<div class="col-5" style="margin-left: 20px">
+								<div style="margin: 4px;">
+									<H4>${mpl.portfolioName}</H4>
+								</div>
+								<video controls poster="/upload${mpl.videoPic}"
+									style="width: 100%; height: auto">
+									<source src="/uploadv${mpl.videoFile}" type="video/mp4">
+								</video>
+								<br>
+								<!--按讚次數-->
+								<div id="great">
+									<a href="#"> <i class="far fa-thumbs-up fa-2x"></i></a> <span>103</span>
+									<a href="#"> <i class="far fa-thumbs-down fa-2x"></i></a> <span>1</span>
+									<!-- 觀看次數 -->
+									<span style="float: right;">觀看次數: 123456次</span>
+								</div>
 							</div>
-								<video controls poster="/upload${mpl.videoPic}" style="width: 100%; height: auto">
-  							    <source src="/uploadv${mpl.videoFile}" type="video/mp4">
-  							    </video>
+<!-- 							<div class="col-1"></div> -->
+							<div class="col-4" style="padding: 20px; margin-top: 20px">
+								<div style="margin: 5px;">
+									<i class="fas fa-map-marker-alt"></i> 位置: ${mpl.pAddress}
+								</div>
+								影片描述: <i>${mpl.portfolioText}</i>
+							</div>
 							<br>
-							<!--按讚次數-->
-							<div id="great">
-								<a href="#"> <i class="far fa-thumbs-up"></i></a> <span>103</span> 
-								<a href="#"> <i class="far fa-thumbs-down"></i></a> <span>1</span>
-								<!-- 觀看次數 -->
-								<span style="float:right;">觀看次數: 123456次</span>
-							</div>
-						</div>
 
-						<div class=" col col-5" style="padding:20px;margin-top: 20px">
-							<div style="margin: 5px;">
-								<i class="fas fa-map-marker-alt"></i> 位置: ${mpl.pAddress}
+							<!--影片選項--------------------------------------------------------------------------------------------------------->
+							<div class="col-2" style="margin-left: 80px; margin-top: 20px">
+								<table>
+									<tr>
+										<td>
+											<div>
+												<form action="videoModify" method="post"
+													enctype="multipart/form-data">
+													<input type="hidden" name="portfolioId"
+														value="${mpl.portfolioId}"> <input type="hidden"
+														name="portfolioName" value="${mpl.portfolioName}">
+													<input type="hidden" name="portfolioText"
+														value="${mpl.portfolioText}"> <input type="hidden"
+														name="pAddress" value="${mpl.pAddress}"> <input
+														type="hidden" name="longitude" value="${mpl.longitude}">
+													<input type="hidden" name="latitude"
+														value="${mpl.latitude}"> <input type="hidden"
+														name="cityId" value="${mpl.cityId}"> <input
+														type="hidden" name="cityName" value="${mpl.cityName}">
+													<input type="hidden" name="placeTypeId"
+														value="${mpl.placeTypeId}"> <input type="hidden"
+														name="placeType" value="${mpl.placeType}"> <input
+														type="hidden" name="mId" value="${mpl.mId}"> <input
+														type="hidden" name="strVideoFile" value="${mpl.videoFile}">
+													<input type="hidden" name="strVideoPic"
+														value="${mpl.videoPic}"> <input type="hidden"
+														name="videoId" value="${mpl.videoId}"> <input
+														type="hidden" name="v_freeze" value="${mpl.v_freeze}">
+														<br>
+													<button class="btn btn-primary" type="submit">編輯影片</button>
+												</form>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div>
+											<br>
+												<button class="btn btn-primary" id="deleteP"
+													data-bs-toggle="modal" type="button"
+													data-bs-target="#deletePortfolio${mpl.portfolioId}">刪除影片</button>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div>
+											<br>
+												<button class="btn btn-primary" id="manageFeedback"
+													onclick="location.href='manageFeedback/Id=${mpl.portfolioId}'">管理留言</button>
+											</div>
+										</td>
+									</tr>
+								</table>
 							</div>
-							影片描述: <i>${mpl.portfolioText}</i>
-						</div>
-
-<!--影片選項--------------------------------------------------------------------------------------------------------->
-						<div class="col col-2" style="margin-left: 80px;margin-top: 20px">
-							<table>
-								<tr>
-									<td>
-										<div>
-											 <form action="videoModify" method="post" enctype="multipart/form-data">
-											 <input type="hidden" name="portfolioId" value="${mpl.portfolioId}">
-											 <input type="hidden" name="portfolioName" value="${mpl.portfolioName}">
-											 <input type="hidden" name="portfolioText" value="${mpl.portfolioText}">
-											 <input type="hidden" name="pAddress" value="${mpl.pAddress}">
-											 <input type="hidden" name="longitude" value="${mpl.longitude}">
-											 <input type="hidden" name="latitude" value="${mpl.latitude}">
-											 <input type="hidden" name="cityId" value="${mpl.cityId}">
-											 <input type="hidden" name="cityName" value="${mpl.cityName}">
-											 <input type="hidden" name="placeTypeId" value="${mpl.placeTypeId}">
-											 <input type="hidden" name="placeType" value="${mpl.placeType}">
-											 <input type="hidden" name="mId" value="${mpl.mId}">
-											 <input type="hidden" name="strVideoFile" value="${mpl.videoFile}">
-											 <input type="hidden" name="strVideoPic" value="${mpl.videoPic}">
-											 <input type="hidden" name="videoId" value="${mpl.videoId}">
-											 <input type="hidden" name="v_freeze" value="${mpl.v_freeze}">
-											 <button class="Bt_blue" type="submit">編輯影片</button>
-											 </form>
+							<!--設定刪除按鈕動作 -->
+							<div class="modal fade" id="deletePortfolio${mpl.portfolioId}"
+								tabindex="-1" aria-labelledby="exampleModalLabel"
+								aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">刪除影片</h5>
+											<button type="button" class="btn-close"
+												data-bs-dismiss="modal" aria-label="Close"></button>
 										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div>
-											 <button class="Bt_blue" id="deleteP" 
-												data-bs-toggle="modal" type="button" 
-												data-bs-target="#deletePortfolio${mpl.portfolioId}">刪除影片</button>
+										<div class="modal-body">確定要刪除此影片?</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+												data-bs-dismiss="modal">取消</button>
+											<form action="deletePortfolio" method="post"
+												enctype="multipart/form-data" name="fileForm">
+												<input type="hidden" name="portfolioId"
+													value="${mpl.portfolioId}"> <input type="hidden"
+													name="portfolioName" value="${mpl.portfolioName}">
+												<input type="hidden" name="portfolioText"
+													value="${mpl.portfolioText}"> <input type="hidden"
+													name="pAddress" value="${mpl.pAddress}"> <input
+													type="hidden" name="longitude" value="${mpl.longitude}">
+												<input type="hidden" name="latitude" value="${mpl.latitude}">
+												<input type="hidden" name="cityId" value="${mpl.cityId}">
+												<input type="hidden" name="cityName" value="${mpl.cityName}">
+												<input type="hidden" name="placeTypeId"
+													value="${mpl.placeTypeId}"> <input type="hidden"
+													name="placeType" value="${mpl.placeType}"> <input
+													type="hidden" name="mId" value="${mpl.mId}"> <input
+													type="hidden" name="strVideoFile" value="${mpl.videoFile}">
+												<input type="hidden" name="strVideoPic"
+													value="${mpl.videoPic}"> <input type="hidden"
+													name="videoId" value="${mpl.videoId}"> <input
+													type="hidden" name="v_freeze" value="${mpl.v_freeze}">
+												<button type="submit" class="btn btn-primary">確定刪除影片</button>
+											</form>
 										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div>
-											<button class="Bt_blue" id="manageFeedback"
-												onclick="location.href='manageFeedback/Id=${mpl.portfolioId}'">管理留言</button>
-										</div>
-									</td>
-								</tr>
-							</table>
-						</div>
-						<!--設定刪除按鈕動作 -->
-						<div class="modal fade" id="deletePortfolio${mpl.portfolioId}"
-							tabindex="-1" aria-labelledby="exampleModalLabel"
-							aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">刪除影片</h5>
-										<button type="button" class="btn-close"
-											data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<div class="modal-body">確定要刪除此影片?</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-bs-dismiss="modal">取消</button>
-										<form action="deletePortfolio" method="post" enctype="multipart/form-data" name="fileForm">
-											 <input type="hidden" name="portfolioId" value="${mpl.portfolioId}">
-											 <input type="hidden" name="portfolioName" value="${mpl.portfolioName}">
-											 <input type="hidden" name="portfolioText" value="${mpl.portfolioText}">
-											 <input type="hidden" name="pAddress" value="${mpl.pAddress}">
-											 <input type="hidden" name="longitude" value="${mpl.longitude}">
-											 <input type="hidden" name="latitude" value="${mpl.latitude}">
-											 <input type="hidden" name="cityId" value="${mpl.cityId}">
-											 <input type="hidden" name="cityName" value="${mpl.cityName}">
-											 <input type="hidden" name="placeTypeId" value="${mpl.placeTypeId}">
-											 <input type="hidden" name="placeType" value="${mpl.placeType}">
-											 <input type="hidden" name="mId" value="${mpl.mId}">
-											 <input type="hidden" name="strVideoFile" value="${mpl.videoFile}">
-											 <input type="hidden" name="strVideoPic" value="${mpl.videoPic}">
-											 <input type="hidden" name="videoId" value="${mpl.videoId}">
-											 <input type="hidden" name="v_freeze" value="${mpl.v_freeze}">	
-										     <button type="submit" class="btn btn-primary"
-											 >確定刪除影片</button>
-										</form>
 									</div>
 								</div>
 							</div>
-						</div>
-						<!--設定刪除按鈕動作 -->
+							<!--設定刪除按鈕動作 -->
 
-<!----------------------------------------------------------------------------------------------------------->
+							<!----------------------------------------------------------------------------------------------------------->
+						</div>
 					</div>
 				</div>
-			</div>
-		</c:forEach>
-		
+			</c:forEach>
 
-		<hr>
-<!--定位-------------------------------------------------------------------------------------->
+			<hr>
+		</div>
+		<!--定位-------------------------------------------------------------------------------------->
 	</div>
-<!--內嵌footer-------------------------------------------------------------------------------->
+	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
-<!--------------------------------------------------------------------------------------------->
+	<!--------------------------------------------------------------------------------------------->
 
 </body>
 </html>

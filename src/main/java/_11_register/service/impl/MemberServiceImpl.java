@@ -58,4 +58,9 @@ public class MemberServiceImpl implements MemberService {
 		mpb = dao.selectdata(mPid);
 		return mpb;
 	}
+	
+	@Override
+	public void updateVerify(Integer mId) {
+		dao.updateVerify(mId);
+	}
 }
