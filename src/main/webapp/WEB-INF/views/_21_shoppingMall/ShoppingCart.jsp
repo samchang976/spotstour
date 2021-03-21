@@ -114,8 +114,8 @@
 			<!-- 上方按鈕區------------------------------------------------------------ -->
 			<div class="row ButtonsBlock">
 				<div class="col-12 ">
-					<button class="Bt_blue" id='checkedALL'>全選</button>
-					<button class="Bt_blue">多項刪除</button>
+					<button class="btn btn-primary" id='checkedALL'>全選</button>
+					<button class="btn btn-primary">多項刪除</button>
 				</div>
 
 			</div>

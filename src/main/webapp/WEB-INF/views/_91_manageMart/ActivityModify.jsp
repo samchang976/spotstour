@@ -23,6 +23,11 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
+<!-- animation --------------------------------------------------------------------------------------------- -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
 	href="<c:url value='/_00_util/allUtil/css/utilLayout.css'></c:url>">
@@ -105,6 +110,7 @@ button { /*確定、送出的按鈕排版*/
 						<c:if test="${activityId!=null}">
 							<h2>編輯活動</h2>
 						</c:if>
+						<div data-aos="zoom-out-down">
 						<div class="shadow p-3 mb-5 bg-body rounded">
 							<form:form method="POST" modelAttribute="activityBean"
 								enctype="multipart/form-data">
@@ -174,6 +180,7 @@ button { /*確定、送出的按鈕排版*/
 								</div>
 							</form:form>
 						</div>
+						</div>
 
 						<div class="modal fade" id="exampleModal" tabindex="-1"
 							aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -235,6 +242,10 @@ button { /*確定、送出的按鈕排版*/
 				}
 			}
 		});
+	</script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
 	</script>
 
 </body>

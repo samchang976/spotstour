@@ -9,7 +9,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>footer</title>
 <style>
- 
 .footer {
 	height: 200px;
 	background-color: rgb(92, 91, 91);
@@ -35,8 +34,9 @@ p {
 			<p>SPOTS-TOUR</p>
 			<p>2021 &copy; All Rights Reserved</p>
 			<p>Contacts us</p>
-			<p>spotstour@gmail.com</p>
+			<p>spotstour015@gmail.com</p>
 		</div>
+	</div>
 
 
 </body>
