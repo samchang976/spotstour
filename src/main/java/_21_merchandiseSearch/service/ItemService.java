@@ -32,6 +32,6 @@ public interface ItemService {
 	
 //	=======================
 	
-	Set<ItemBean> getItemBySearchBar(String searchBar);
+	Set<ItemBean> getItemBySearchBar(String searchBar, Integer time);
 	
 }

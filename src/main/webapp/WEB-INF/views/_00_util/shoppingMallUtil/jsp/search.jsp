@@ -41,7 +41,7 @@ font-size: 20px;
 #Marquee{
   /* border: 1px solid red; */
   display: flex;
-  padding-left: 160px;
+  padding-left: 30px;
   align-items: center;   
 }
 #Marquee h3{
@@ -74,7 +74,7 @@ font-size: 20px;
 
 	<div class="container" id="container_search">
 		<div class="row">
-			<div class="col-5">
+			<div class="col-4">
 				<span id="want">想買什麼?</span>
 				<div style="display: inline-flex;  width:60%; ">
 					<form class="input-group mb-3"action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get">
@@ -83,6 +83,7 @@ font-size: 20px;
 						<button class="btn btn-outline-secondary" type="submit">
 							<i class="fas fa-search"></i>
 						</button>
+						<c:set var="searchWord" value="${searchWord}"/>
 					</form>
 
 <%-- 					<form class="d-flex" action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get"> --%>
@@ -95,17 +96,22 @@ font-size: 20px;
 
 				</div>
 			</div>
-			<div class="col" id="Marquee">
-				<ul id="news">
-					<li>代購商城全館8折!!請輸入折扣代碼 : SPOTSTOURJAVA015</li>
-					<li>熱銷商品 : MAMA泰國泡麵，紫玉酥禮盒，焦糖奶油餅 <i class="fas fa-cookie-bite"></i></li>
+
+			<div class="col-2">
+				<button id="searchTime" class="btn btn-primary"
+					onclick="location.href='${pageContext.request.contextPath}/merchandiseSearchResult?searchWord=${searchWord}&time=1'">
+					依時間排序</button>
+			</div>
+
+			<div class="col-6" id="Marquee">
+				<ul id="news" style="text-align: left">
+					<li>商城全館8折!!請輸入折扣代碼 : SPOTSTOURJAVA015</li>
+					<li>熱銷商品:MAMA泰國泡麵，紫玉酥禮盒，焦糖奶油餅 <i class="fas fa-cookie-bite"></i></li>
 					<li><i class="fas fa-bell"></i> 2021年最新版! 推薦十大熱門商品! 促銷優惠!</li>
 					<li><a href="${pageContext.request.contextPath}/merchandiseSearchResult">零食餅乾團購更便宜，食品團購量販買多省多，立即前往 <i class="far fa-hand-pointer"></i></a></li>
 				</ul>
 			</div>
-
 		</div>
-
 	</div>
 
 

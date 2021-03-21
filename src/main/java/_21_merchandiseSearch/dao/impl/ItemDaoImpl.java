@@ -2,6 +2,7 @@ package _21_merchandiseSearch.dao.impl;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -133,7 +134,7 @@ public class ItemDaoImpl implements Serializable, ItemDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Set<ItemBean> getItemBySearchBar(String searchBar) {
+	public Set<ItemBean> getItemBySearchBar(String searchBar, Integer time) {
 		String hql1 = "FROM ItemBean WHERE item_freeze = 0 AND itemHeader like :searchBar";
 		Session session = factory.getCurrentSession();
 		List<ItemBean> list1 = session.createQuery(hql1)
@@ -155,7 +156,14 @@ public class ItemDaoImpl implements Serializable, ItemDao {
 				.setParameter("searchBar", "%" + searchBar + "%")
 				.getResultList();
 		
-		Set<ItemBean> set = new HashSet<>();
+		Set<ItemBean> set = null;
+		if (time == 0) {
+			set = new HashSet<>();
+		} else {
+
+			set = new LinkedHashSet<>();
+		}
+		
 		set.addAll(list1);
 		set.addAll(list2);
 		set.addAll(list3);
