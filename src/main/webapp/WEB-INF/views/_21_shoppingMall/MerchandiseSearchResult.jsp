@@ -80,14 +80,10 @@ body {
 	width: 300px;
 	padding: 20px 40px;
 	position: fixed;
-	left: -260px;
+	left: -300px;
 	z-index: 50;
 	text-align: center;
 	height: 80%;
-}
-
-#imgBoard:hover {
-	left: 0px;
 	overflow-y: auto;
 }
 
@@ -108,6 +104,43 @@ body {
 	cursor: pointer;
 }
 
+#inCart {
+	font-size: 3rem;
+	left: 10px;
+	/* border:1px solid black; */
+	position: fixed;
+	z-index: 50;
+}
+
+#inCart div {
+	/*   	display: inline-flex;  */
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 20px;
+	left: 10px;
+	display: block;
+	text-align: center;
+}
+
+#inCart #number {
+	font-size: 1rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	color: white;
+	font-weight: bold;
+	position: relative;
+	left: 25px;
+	border: 1px solid red;
+	border-radius: 50%;
+	text-align: center;
+	display: table-cell;
+	vertical-align: bottom;
+	background: red;
+	transform: scale(0.9);
+}
+
+/* ===================================================================== */
 .imageFrame {
 	height: 300px; /*can be anything*/
 	width: 300px; /*can be anything*/
@@ -143,9 +176,6 @@ body {
 	right: 0;
 	margin: auto;
 }
-
-
-
 </style>
 </head>
 <body>
@@ -161,6 +191,14 @@ body {
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 		<!------------------------------------------------------------------------------------------->
 		<!-- 側邊購物車--------------------------------------------------------------------------------------- -->
+		<div id="inCart">
+			<i class="fas fa-shopping-bag"></i>
+
+			<div>
+				<div id="number"></div>
+			</div>
+		</div>
+
 		<div id="imgBoard">
 			購物車
 			<!--判斷購物車內是否有相同商品:未顯示----------------------------------------------------------->
@@ -175,7 +213,6 @@ body {
 				<c:when test="${mPid==2||mPid==1}">
 					<!--會員--------------------------------------------------------------------------------------- -->
 					<div>
-
 						<c:forEach var="membercartlist" items="${membercartlist}">
 							<form>
 								<i class="fas fa-minus-circle"
@@ -224,10 +261,11 @@ body {
 		<div class="container" id="container_MerchandiseSearchResult">
 			<div class="row row-cols-1 row-cols-md-4 g-3">
 
+
 				<c:forEach var='item' items='${items}'>
 					<div class="col">
 						<div data-aos="zoom-out-down">
-							
+
 							<div class="card">
 								<div class="itemImageBorder">
 
@@ -444,7 +482,12 @@ body {
 
 	<script>
 		function doFirst(){
-		
+			//購物車數量
+			sessioncart=document.getElementById("sessionCart").innerText;
+			list=sessioncart.substr(0, sessioncart.length-1).split(",");
+				if(list != null){
+				document.getElementById("number").innerText = list.length-1;
+				}
 		}
 		//檢查session是否有相同商品===========================================================================
 		function chackcartitem(itemId) {
@@ -500,6 +543,36 @@ body {
 		
 		// ========================================================================================
 	</script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+$(document).ready(function() {
+	//購物車伸縮==========================================
+	$('#inCart , #imgBoard').mouseover(function() {
+			$('#imgBoard').css({
+				left: '0px',
+				transition : '1s'
+			});
+			
+			$('#inCart').css({
+				cursor: pointer,
+			});
+		
+	})
+	
+	$('#inCart, #imgBoard').mouseout(function() {
+			$('#imgBoard').css({
+				left: '-300px',
+				transition : '.3s'
+			});
+		
+	})
+	
+
+})
+
+</script>
+
 
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
