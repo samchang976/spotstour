@@ -150,6 +150,8 @@ body {
 							onclick="location.href='${pageContext.request.contextPath}/activityDetail/Id=${activity.activityId}'">
 							<!--日期--------------------------------------------------------------------->
 							<span class="date">${activity.activity_createTime}</span>
+							<!--優惠標頭-------------------------------------------- -->
+							<span class="discount">${activity.activityHeader}</span>
 							<!--優惠內容------------------------------------------------------------------>
 							<span class="discount">${activity.activityContent}</span>
 						</div>

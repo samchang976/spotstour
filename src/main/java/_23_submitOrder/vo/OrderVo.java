@@ -39,8 +39,26 @@ public class OrderVo {
 //	private Integer receiptTypeTId;
 //	private Integer oSTid;
 	
-	
-	
+	private String codeNumber;
+	private String codeNummberValue;
+
+	public String getCodeNummberValue() {
+		return codeNummberValue;
+	}
+	public void setCodeNummberValue(String codeNummberValue) {
+		this.codeNummberValue = codeNummberValue;
+	}
+	public String getCodeNumber() {
+		return codeNumber;
+	}
+	public void setCodeNumber(String codeNumber) {
+		if(codeNumber == "153") {
+			this.codeNummberValue = "折扣碼錯誤";
+		}else {
+			this.codeNummberValue = "折扣碼正確";
+		}
+		this.codeNumber = codeNumber;
+	}
 	public String getPaymentType() {
 		return paymentType;
 	}
