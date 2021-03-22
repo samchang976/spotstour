@@ -93,18 +93,15 @@ border-top-right-radius: 50px;
 opacity: 0.9;
 /* box-shadow:0em 0.1em 0.2em rgb(0, 0, 0,0.3); */
 }
-body{
-background: #000 url("<c:url value='/images/background/ross-parmly-rf6ywHVkrlY-unsplash.jpg'></c:url>") center fixed no-repeat; 
-background-size: cover;
-text-shadow: 0.1em 0.1em 0.2em rgb(136, 133, 133,0.ˋ);
-}
 
 .row{
 display: flex;
 text-align: center;
 align-items: center;
 }
-
+.colleft{
+text-align: left;
+}
 
 </style>
 </head>
@@ -118,7 +115,7 @@ align-items: center;
 <!------------------------------------------------------------------------------------------->	
 	<div class="container" id="AboutUs">
 		<div class="row" style="margin:3rem 0px;">
-			<div class="col">
+			<div class="col-7 colleft">
 				在疫情影響下，你是否也被突如奇來的疫情打亂原本的旅遊計畫呢？<br>
 				許多想朝聖或一訪再訪參觀的景點卻只能看著過去的照片懷念，感嘆沒有好好保握可以說走就走逃離壓力生活的時光?<br>
 				讓SPOTS-TOUR帶大家一起環遊世界！<br>
@@ -132,13 +129,13 @@ align-items: center;
 				<img alt=""  class="w-100" 
 				src="<c:url value='/images/aboutus\leon-seibert-ijXcrwcQACc-unsplash.jpg'></c:url>">
 			</div>
-			<div class="col-4">
+			<div class="col-4 colleft">
 <!-- 				<div class="circle">會員</div> -->
 				<div> spots-tourer們可以即時分享各個景點資訊，記錄自己的拍攝影作品，也可以評論或收藏別人的分享的景點資訊。</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-6">
+			<div class="col-6 colleft">
 				<div>方便的搜尋方式讓tourer們可以快速找到想瀏覽的景點影片、資訊以及景點瀏覽紀錄。</div>
 			</div>
 			<div class="col-4">
@@ -148,13 +145,12 @@ align-items: center;
 			</div>
 		</div>	
 		<div class="row">
-			<div class="col-1"></div>
 			<div class="col-4">
 <!-- 				<div class="circle">代購商城</div> -->
 				<img alt=""  class="w-100"
 				src="<c:url value='/images/aboutus/tamanna-rumee-eD1RNYzzUxc-unsplash.jpg'></c:url>">
 			</div>
-			<div class="col-4">
+			<div class="col-4 colleft">
 				<div>想買購買國內買不到的特色商品嗎?
 					我們提供代購的服務，來滿足大家旺盛的購物需求!</div>
 			</div>
