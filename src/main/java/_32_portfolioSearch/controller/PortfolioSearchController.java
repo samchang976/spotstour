@@ -1,14 +1,20 @@
 package _32_portfolioSearch.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import _02_model.entity.ContinentBean;
+import _32_portfolioSearch.controller.vo.Portfolio_MsgBeanVo;
+import _32_portfolioSearch.service.PortfolioMsgService;
+import _32_portfolioSearch.service.PortfolioPlayService;
 import _32_portfolioSearch.service.PortfolioSearchService;
 
 @Controller
@@ -17,6 +23,10 @@ public class PortfolioSearchController {
 	// 注入Service第一種寫法
 	@Autowired
 	PortfolioSearchService psService;
+	@Autowired
+	PortfolioPlayService portfolioPlayService;
+	@Autowired
+	PortfolioMsgService portfolioMsgService;
 
 	// 注入Service第二種寫法
 //	PortfolioSearchService psService;
@@ -43,9 +53,38 @@ public class PortfolioSearchController {
 	
 	//影片播放
 	@RequestMapping(value = "/PortfolioPlay", method = RequestMethod.GET)
-	public String portfolioPlay() {
-		return "_31_portfolio/PortfolioPlay";
-		        
+	public String portfolioPlay(Model model, @ModelAttribute(name = "portfolioId") Integer portfolioId) {
+		model.addAttribute("detailList", portfolioPlayService.queryPortfolioId(portfolioId));
+		model.addAttribute("pMsgList", portfolioMsgService.queryPortfolioMsg(portfolioId));
+		return "_31_portfolio/PortfolioPlay";        
+	}
+	
+	
+	//新增影片留言
+	@PostMapping("createPortfolioMsg")
+	public String updatePortfolioMsg(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo, Model model, HttpSession session)
+			throws IOException {
+		portfolio_MsgBeanVo.setmId((Integer) session.getAttribute("mId"));
+		portfolioMsgService.addPortfolioMsg(portfolio_MsgBeanVo);
+		return "redirect:/PortfolioPlay";
+	}
+	
+	//編輯影片留言(取消編輯功能)
+//	@PostMapping("editPortfolioMsg")
+//	public String createPortfolio(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo, Model model, HttpSession session)
+//			throws IOException {
+//		portfolio_MsgBeanVo.setmId((Integer) session.getAttribute("mId"));
+//
+//		return "redirect:/PortfolioPlay";
+//	}
+	
+	//凍結影片留言(由影片作者/管理者凍結)
+	@PostMapping("editPortfolioMsg")
+	public String deletePortfolioMsg(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo, Model model, HttpSession session)
+			throws IOException {
+		portfolio_MsgBeanVo.setmId((Integer) session.getAttribute("mId"));
+		portfolioMsgService.deletePortfolioMsg(portfolio_MsgBeanVo);
+		return "redirect:/PortfolioPlay";
 	}
 
 }
