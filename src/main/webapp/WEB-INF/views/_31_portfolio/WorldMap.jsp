@@ -145,6 +145,62 @@
      <!-- 側邊選單控制 -->
     <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
     <script>
+//     ============================================================================================
+// 	         $(document).ready(function(){
+//               $('#resturant').click(function(){
+//                 var currentInfowindow;
+            //////////////////////////////////////////////////////////////
+                
+//             var currentMarker;
+            
+//             const uluru = { lat: 2, lng: 121.539639 };
+	
+//             const map = new google.maps.Map(document.getElementById("map"), {
+//                 zoom: 3,
+//                 center: uluru,
+//               });
+			
+//             const contentString =
+//                 '<div id="content">' +
+//                 '<div id="siteNotice">' +
+//                 "</div>" ;
+	
+//                 const infowindow = new google.maps.InfoWindow({
+//                     content: contentString,
+//                     maxWidth: 520,
+//                   });
+             
+//                 const marker = new google.maps.Marker({
+//                     position: uluru,
+//                     map,
+//                     title: "Uluru (Ayers Rock)",
+//                   });
+                
+//                 marker.addListener("click", () => {
+//                     map.setCenter(uluru, 3); //點擊此marker 世界地圖以此為中心
+//                     infowindow.open(map, marker);
+//                     currentInfowindow=infowindow;
+//                     currentMarker=marker;
+//                     infowindow1.close();
+                    
+//                   });
+//                 google.maps.event.addListener(map, 'click', function(){ 
+//                   currentInfowindow.close(map,currentMarker);
+                	
+//                    });
+//               });
+// 	            });
+	
+	
+	
+	
+//     ============================================================================================
+    
+    
+    
+    
+    
+    
       // 餐廳Ｍap
          $(document).ready(function(){
               $('#resturant').click(function(){

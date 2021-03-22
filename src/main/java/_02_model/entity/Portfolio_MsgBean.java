@@ -23,7 +23,7 @@ public class Portfolio_MsgBean implements Serializable {
 	private Integer portfolioMsgId;
 	private String msgText;
 	private Timestamp pm_createTime;     
-	private String pMsg_freeze;
+	private Integer pmsg_freeze;
 	
 	@ManyToOne 
 	@JoinColumn(name="portfolioId", nullable=false)  
@@ -53,12 +53,12 @@ public class Portfolio_MsgBean implements Serializable {
 		this.pm_createTime = pm_createTime;
 	}
 
-	public String getpMsg_freeze() {
-		return pMsg_freeze;
+	public Integer getPmsg_freeze() {
+		return pmsg_freeze;
 	}
 
-	public void setpMsg_freeze(String pMsg_freeze) {
-		this.pMsg_freeze = pMsg_freeze;
+	public void setPmsg_freeze(Integer pmsg_freeze) {
+		this.pmsg_freeze = pmsg_freeze;
 	}
 
 	public PortfolioBean getPortfolioBean() {
