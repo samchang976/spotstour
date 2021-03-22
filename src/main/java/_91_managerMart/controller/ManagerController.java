@@ -169,10 +169,10 @@ public class ManagerController {
 		} else {
 			//沒有itemid
 			itemBean = new ItemBean();
-			itemBean.setItemHeader("AA");
-			itemBean.setItemPrice(20);
-			itemBean.setItemQty(10);
-			itemBean.setItemDes("AAAA");
+//			itemBean.setItemHeader("AA");
+//			itemBean.setItemPrice(20);
+//			itemBean.setItemQty(10);
+//			itemBean.setItemDes("AAAA");
 			itemBean.setItem_freeze(0);
 			model.addAttribute("itemBean", itemBean);
 		}

@@ -176,6 +176,12 @@ span.error:first-child() {
 					<!-- 							<button id="save">儲存變更</button> -->
 					<button id="allFeedback" class="btn btn-primary btn-lg"
 						onclick="location.href='${pageContext.request.contextPath}/manageFeedback'">查看全部商品留言</button>
+
+					&nbsp;&nbsp;
+					<button id="inputAllBtn" type="button"
+						class="btn btn-primary btn-lg">一鍵輸入</button>
+
+
 					<br> <br>
 
 
@@ -218,7 +224,7 @@ span.error:first-child() {
 															<div class="col-sm-10">
 																<form:input type="text" path="itemHeader"
 																	class="form-control" id="itemHeader" maxlength="20"
-																	placeholder="限20字以內" aria-label="Username"
+																	placeholder="限填20字以內" aria-label="Username"
 																	aria-describedby="basic-addon1" />
 															</div>
 															<div class="col-sm-10" style="text-align: center;">
@@ -640,6 +646,8 @@ span.error:first-child() {
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
+
+
 	<script>
 		var testInput = document.getElementById("testInput");
 		var submitBtn = document.querySelector(".submitBtn");
@@ -725,6 +733,29 @@ span.error:first-child() {
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script>
 		AOS.init();
+	</script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+	<script>
+		$(document)
+				.ready(
+						function() {
+							//一鍵輸入功能
+							//存取input標籤的值必須使用.val()方法
+							$('#inputAllBtn')
+									.click(
+											function() {
+												$('#itemHeader')
+														.val(
+																"SONY WH-1000XM4無線降噪耳機");
+												$('#itemPrice').val("8590");
+												$('#itemQty').val("40");
+												$('#itemDes')
+														.val(
+																"SONY WH-1000XM4無線降噪頭戴式耳機提供超越以往的降噪性能，阻擋更多的高頻和中頻噪音；無論您是搭乘長途航班，或是在喜愛的咖啡廳放鬆，它都是您最佳的夥伴！");
+											})
+						});
 	</script>
 </body>
 </html>

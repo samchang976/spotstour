@@ -229,11 +229,11 @@ CREATE TABLE `item` (
   `itemHeader` varchar(40) NOT NULL,
   `itemPrice` int NOT NULL,
   `itemQty` int NOT NULL,
-  `itemDes` varchar(100) NOT NULL,
+  `itemDes` varchar(500) NOT NULL,
   `itId` int NOT NULL,
-  `itemPic1` varchar(7000) DEFAULT NULL,
-  `itemPic2` varchar(7000) DEFAULT NULL,
-  `itemPic3` varchar(7000) DEFAULT NULL,
+  `itemPic1` varchar(6000) DEFAULT NULL,
+  `itemPic2` varchar(6000) DEFAULT NULL,
+  `itemPic3` varchar(6000) DEFAULT NULL,
   `item_freeze` tinyint NOT NULL DEFAULT '0',
   `countryId` int NOT NULL,
   PRIMARY KEY (`itemId`),
@@ -385,7 +385,12 @@ insert  into `ord`(`ord_Id`,`mId`,`oSid`,`s_createTime`,`o_createTime`,`s_mAddre
 (6,1,2,'2021-03-26 22:46:16','2021-03-21 22:46:16','台北市新生北路1號',3,1),
 (7,1,1,'2021-03-26 22:49:19','2021-03-21 22:49:19','台北市大同區民權西路1號',3,1),
 (8,1,2,'2021-03-26 22:52:32','2021-03-21 22:52:32','台北市大同區民權西路1號',5,1),
-(9,1,1,'2021-03-26 22:58:54','2021-03-21 22:58:54','台北市新生北路1號8樓',4,1);
+(9,1,1,'2021-03-26 22:58:54','2021-03-21 22:58:54','台北市新生北路1號8樓',4,1),
+(10,2,1,'2021-03-26 23:57:07','2021-03-21 23:57:07','台北市信義區信義路100號',2,2),
+(11,2,1,'2021-03-27 11:30:44','2021-03-22 11:30:44','台北市信義區信義路100號8F',2,1),
+(12,1,1,'2021-03-27 11:34:48','2021-03-22 11:34:48','台北市大同區民權西路1號',2,2),
+(13,1,1,'2021-03-27 12:23:37','2021-03-22 12:23:37','台北市大同區民權西路1號',1,1),
+(14,1,1,'2021-03-27 12:28:03','2021-03-22 12:28:03','台北市大同區民權西路1號10F',2,1);
 
 /*Table structure for table `ord_detail` */
 
@@ -426,7 +431,20 @@ insert  into `ord_detail`(`ord_dId`,`ord_Id`,`ordQty`,`itemId`) values
 (16,7,1,17),
 (17,8,2,4),
 (18,9,1,15),
-(19,9,10,1);
+(19,9,10,1),
+(20,10,1,7),
+(21,10,1,1),
+(22,11,1,1),
+(23,11,1,23),
+(24,12,1,19),
+(25,12,1,16),
+(26,12,7,1),
+(27,13,1,20),
+(28,13,1,4),
+(29,13,1,11),
+(30,13,1,17),
+(31,14,2,8),
+(32,14,4,3);
 
 /*Table structure for table `ord_stat` */
 

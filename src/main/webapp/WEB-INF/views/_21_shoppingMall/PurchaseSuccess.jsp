@@ -59,9 +59,9 @@
 			<div class="row">
 				<div class="col-4"></div>
 				<div class="col-8">
-				
+
 					<nav
-						style="-bs-breadcrumb-divider: url(&amp; amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;amp;#34;);"
+						style="-bs-breadcrumb-divider: url(&amp; amp; amp; #34; data: image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&amp;amp;"
 						aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a
@@ -87,28 +87,27 @@
 			</div>
 			<!-- 訂單編號區塊 -->
 			<form:form method='POST' modelAttribute='ordBean'>
-			<div class="row">
-				<div class="col-12">
-					<div class="OrderNumber" style="text-align: center;">
-						<h4>
-							<span>訂單編號 : </span> <span><b>FSWE1233${ordBean.ord_Id}</b></span>
-						</h4>
+				<div class="row">
+					<div class="col-12">
+						<div class="OrderNumber" style="text-align: center;">
+							<h4>
+								<span>訂單編號 : </span> <span><b>FSWE1233${ordBean.ord_Id}</b></span>
+							</h4>
+						</div>
 					</div>
 				</div>
-			</div>
 			</form:form>
-			
+
 			<!--感謝詞  -->
 			<div id="thanks">
-				<br>同時Spotstour將會寄出一封電子通知信<br>
-				<br>您可以至會員信箱裡查看<br>
+				<br>同時Spotstour將會寄出一封電子通知信<br> <br>您可以至會員信箱裡查看<br>
 				<br>謝謝您 ! 歡迎下次再光臨
 			</div>
 
 			<!-- 我的訂單 -->
 			<button class="btn btn-primary btn-lg"
 				onclick="location.href='${pageContext.request.contextPath}/myOrderList'">返回我的訂單</button>
-
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<!-- 回商城首頁 -->
 			<button class="btn btn-primary btn-lg"
 				onclick="location.href='${pageContext.request.contextPath}/merchandiseIndex'">回商城首頁</button>
