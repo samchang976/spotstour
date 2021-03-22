@@ -118,7 +118,7 @@
 							<div>
 <!-- 								地區 -->
 								<div>${row.continentName}-${row.countryName}-${row.cityName}</div>
-								<form class="d-flex rightStyle" action="PortfolioPlay" method="get">
+								<form class="d-flex rightStyle" action="portfolioPlay" method="get">
 									<div class="">
 										<input class="form-control me-2" type="hidden" name="portfolioId"
 										value="${row.portfolioId}">

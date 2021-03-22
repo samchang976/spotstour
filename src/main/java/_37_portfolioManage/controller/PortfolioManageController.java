@@ -34,7 +34,7 @@ public class PortfolioManageController {
 	@Autowired
 	private ShowPersonalPortfolioService showPersonalPortfolioService;
 	@Autowired
-	PortfolioMsgService portfolioMsgService;
+	private PortfolioMsgService portfolioMsgService;
 
 	//新增影片跳轉
 	@RequestMapping({ "videoCreate", "videoModify" })
@@ -107,16 +107,11 @@ public class PortfolioManageController {
 	//個人作品留言跳轉
 	@RequestMapping("personalPortfolioMsg")
 	public String getpersonalPortfolioMsg(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo,HttpSession session, Model model) {
-//		model.addAttribute("portfolioMsgId", portfolio_MsgBeanVo.getPortfolioId());
 		if(session.getAttribute("portfolioId") == null) {
 			model.addAttribute("msgList", portfolioMsgService.queryPortfolioMsg(portfolio_MsgBeanVo.getPortfolioId()));
-
 		}else {
 			model.addAttribute("msgList", portfolioMsgService.queryPortfolioMsg((Integer) session.getAttribute("portfolioId")));
-
 		}
-		
-//		model.addAttribute("msgList", portfolioMsgService.queryPortfolioMsg(portfolio_MsgBeanVo.getPortfolioId()));
 		model.addAttribute("portfolioName", portfolio_MsgBeanVo.getPortfolioName());
 		return "_31_portfolio/ManageVideoFeedback";
 	}
@@ -130,5 +125,6 @@ public class PortfolioManageController {
 		session.setAttribute("portfolioId", portfolio_MsgBeanVo.getPortfolioId());
 		return "redirect:/personalPortfolioMsg";
 	}
+
 
 }
