@@ -100,6 +100,25 @@
 	right: 0;
 	margin: auto;
 }
+
+#hot{
+	display:inline-block;
+	padding: 0px 5px; 
+	border-radius: 15px;
+	background: Orange;
+	color: white;
+}
+
+.area{
+font-size: 1.5rem;
+padding: 5px;
+}
+
+.area:hover {
+	color: Orange;
+	cursor: pointer;
+}
+
 </style>
 </head>
 
@@ -118,10 +137,15 @@
 		<!-- 活動快訊 ---------------------------------------------------------------------------->
 		<div class="container" id="container_news">
 			<!--查看所有商品------------------------------------------------------------------------ -->
-			<div class="row">
-				<div class="col">
+			<div class="row" >
+				<div class="col" style="display:flex; align-items: center;">
 					<button class="btn btn-primary btn-lg"
-						onclick="location.href='${pageContext.request.contextPath}/merchandiseSearchResult'">查看所有商品</button>
+						onclick="location.href='${pageContext.request.contextPath}/merchandiseSearchResult'">來去逛逛</button>
+					<div class="d-inline-block area">美國</div>
+					<div class="d-inline-block area">日本</div>
+					<div class="d-inline-block area">泰國</div>
+					<div class="d-inline-block area">韓國</div>
+					<div class="d-inline-block area">香港</div>
 				</div>
 			</div>
 			<!--活動快訊 ------------------------------------------------------------------------------>
@@ -165,9 +189,12 @@
 				</c:forEach>
 			</div>
 			<!-- 商品搜尋 ----------------------------------------------------------------------------->
-			<div id="topItemsTitle" style="text-align: left;">
-				<h2>熱賣商品</h2>
+			<div id="topItemsTitle" style="text-align: left;" class="my-4">
+				
+				<div id="hot" >Hot</div>
+				<h2 style="display:inline-block;" >熱賣商品</h2>
 			</div>
+			
 			<div class="row row-cols-1 row-cols-md-4 g-3">
 				<c:forEach var='item' items='${items}'>
 					<div class="col">
