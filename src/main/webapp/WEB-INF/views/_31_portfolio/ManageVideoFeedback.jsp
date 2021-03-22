@@ -4,7 +4,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!doctype html>
 <html lang="en">
@@ -22,10 +21,6 @@
 <!-- icon cdn----------------------------------------------------------------------------------------------- -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-<!-- animation --------------------------------------------------------------------------------------------- -->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- css連結------------------------------------------------------------------------------------------------ -->
 <link rel="stylesheet"
@@ -39,55 +34,18 @@
 
 
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/managerUtil/css/managerLayout.css'></c:url>">
+	href="<c:url value='/_00_util/portfolioUtil/css/portfolioLayout.css'></c:url>">
 
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/managerUtil/css/managerFont.css'></c:url>">
+	href="<c:url value='/_00_util/portfolioUtil/css/portfolioFont.css'></c:url>">
 
 <link rel="stylesheet"
-	href="<c:url value='/_00_util/managerUtil/css/managerColor.css'></c:url>">
+	href="<c:url value='/_00_util/portfolioUtil/css/portfolioColor.css'></c:url>">
 
 <!-- --------------------------------------------------------------------------------------------------------->
-<title>管理所有商品留言</title>
-
-<style>
-body {
-	font-size: 20ox;
-	text-align: center;
-}
-
-.container {
-	text-align: left;
-	width: 700px;
-}
-
-.container-fluid {
-	text-align: left;
-	/* 	border: 1px solid black; */
-	margin: 10px 100px;
-	padding-top: 10px;
-}
-
-button { /*按鈕的樣式*/
-	padding: 10px;
-	color: rgb(24, 24, 168);
-	border: 1px rgb(24, 24, 168) solid;
-	background-color: rgb(245, 241, 242);
-	border-radius: 5px;
-}
-
-#deleteF {
-	font-size: 16px;
-}
-
-#deleteF:hover {
-	font-size: 26px;
-	cursor: pointer;
-	color: red;
-}
-</style>
-
+<title>收藏的影片</title>
 </head>
+<body>
 <body>
 	<!--header=================================================================================  -->
 	<div class="HeaderPostition">
@@ -99,45 +57,34 @@ button { /*按鈕的樣式*/
 		<div class="container">
 			<!-- 陳列商品留言 -->
 			<div style="text-align: center;">
-				<h4>${item.itemHeader}商品留言<span class="">(${feedbacks.size()})</span>
+				<h4>${item.itemHeader}影片留言
 				</h4>
-			</div>
-			<div style="text-align: right;">
-				<c:set var="now" value="<%=new java.util.Date()%>" />
-				<span>現在時間 : <fmt:formatDate type="both" dateStyle="long"
-						timeStyle="long" value="${now}" /></span>
 			</div>
 
 			<div style="line-height: 2.5;">
 				<c:forEach var='feedback' items='${feedbacks}'>
 					<div class="container-fluid">
 						<div class="row R_SpCre">
-							<div data-aos="flip-right">
-								<div class="shadow p-3 bg-body rounded">
-								
-
-									<div class="col col-2-1 C_SpCre">
-										<div>
-											<div class="row">
-												<div class="col-1" style="text-align: center; margin: auto;">
-													<i class="fas fa-trash-alt" id="deleteF"
-														value="/Id=${feedback.feedbackId}"
-														<%-- 								onclick="location.href='/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}'"></i> --%>
+							<div class="shadow p-3 bg-body rounded">
+								<div class="col col-2-1 C_SpCre">
+									<div>
+										<div class="row">
+											<div class="col-1" style="text-align: center; margin: auto;">
+												<i class="fas fa-trash-alt" id="deleteVideo"
+													value="/Id=${feedback.feedbackId}"
+													<%-- 								onclick="location.href='/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}'"></i> --%>
 <%-- 								onclick="location.replace('${pageContext.request.contextPath}/manageFeedback/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}')"></i> --%>
 								 data-bs-toggle="modal"
-														data-bs-target="#exampleModal${feedback.feedbackId}"></i>
-												</div>
-												<div class="col-11">
-													<c:set var="fbCreateTime" value="${feedback.f_createTime}" />
-													<fmt:formatDate type="both" dateStyle="long"
-														timeStyle="medium" value="${fbCreateTime}" />
+													data-bs-target="#exampleModal${feedback.feedbackId}"></i>
+											</div>
+											<div class="col-11">
+												<c:set var="fbCreateTime" value="${feedback.f_createTime}" />
 
-													<br>商品留言:${feedback.feedbackText}
-												</div>
+
+												<br>影片留言:${feedback.feedbackText}
 											</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div>
@@ -150,13 +97,11 @@ button { /*按鈕的樣式*/
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">刪除編號${feedback.feedbackId}商品留言</h5>
+									<h5 class="modal-title" id="exampleModalLabel">刪除影片留言</h5>
 									<button type="button" class="btn-close" data-bs-dismiss="modal"
 										aria-label="Close"></button>
 								</div>
-								<div class="modal-body">
-									確定要刪除 "<b>商品留言編號${feedback.feedbackId}</b>" 商品留言??
-								</div>
+								<div class="modal-body">確定要刪除影片留言??</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"
 										data-bs-dismiss="modal">取消</button>
@@ -177,9 +122,5 @@ button { /*按鈕的樣式*/
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<script>
-		AOS.init();
-	</script>
 </body>
 </html>
