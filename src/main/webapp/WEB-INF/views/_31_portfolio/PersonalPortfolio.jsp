@@ -205,8 +205,7 @@ td div, .like-table div {
 										<td>
 											<div>
 											<br>
-											<form action="personalPortfolioMsg" method="post"
-													enctype="multipart/form-data">
+											<form action="personalPortfolioMsg" method="post">
 													<input type="hidden" name="portfolioId" value="${mpl.portfolioId}">
 													<input type="hidden" name="portfolioName" value="${mpl.portfolioName}">
 													<button class="btn btn-primary" id="manageFeedback"

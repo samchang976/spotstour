@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!doctype html>
 <html lang="en">
 
@@ -60,6 +60,11 @@
 				<h4>${portfolioName}影片留言
 				</h4>
 			</div>
+						<div style="text-align: right;">
+				<c:set var="now" value="<%=new java.util.Date()%>" />
+				<span>現在時間 : <fmt:formatDate type="both" dateStyle="long"
+						timeStyle="long" value="${now}" /></span>
+			</div>
 
 			<div style="line-height: 2.5;">
 				<c:forEach var='feedback' items='${msgList}'>
@@ -78,9 +83,9 @@
 													data-bs-target="#exampleModal${feedback.portfolioMsgId}"></i>
 											</div>
 											<div class="col-11">
-												<c:set var="fbCreateTime" value="${feedback.pm_createTime}" />
-
-
+													<c:set var="fbCreateTime" value="${feedback.pm_createTime}" />
+													<fmt:formatDate type="both" dateStyle="long"
+														timeStyle="medium" value="${fbCreateTime}" />
 												<br>影片留言:${feedback.msgText}
 											</div>
 										</div>
@@ -117,6 +122,9 @@
 					</div>
 				</c:forEach>
 				<hr>
+				<div style="text-align: center; margin: auto;">
+				<button class="btn btn-primary btn-lg" type="button" onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">上一頁</button>
+				</div>
 			</div>
 		</div>
 		<!-----------定位----------------------------------------------------------------------------->
