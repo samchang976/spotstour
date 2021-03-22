@@ -88,6 +88,12 @@ public class MerchandiseController {
 			@PathVariable(value = "countryId", required = false) Integer countryId, Model model) {
 		List<ItemBean> list = itemService.getItemByCountryId(countryId);
 		model.addAttribute("items", list);
+		
+		Integer member = (Integer) model.getAttribute("mId");
+		if(member != null) {
+			List<ShoppingCartBean> cartlist = shoppingCartService.getShoppingCart((Integer) model.getAttribute("mId")); // 先從service拿資料
+			model.addAttribute("membercartlist", cartlist);
+		}
 		return "_21_shoppingMall/MerchandiseSearchResult";
 	}
 
