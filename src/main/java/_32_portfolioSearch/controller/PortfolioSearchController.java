@@ -51,7 +51,7 @@ public class PortfolioSearchController {
 	}
 	
 	
-	//影片播放
+	//影片播放頁面
 	@RequestMapping(value = "/PortfolioPlay", method = RequestMethod.GET)
 	public String portfolioPlay(Model model, @ModelAttribute(name = "portfolioId") Integer portfolioId) {
 		model.addAttribute("detailList", portfolioPlayService.queryPortfolioId(portfolioId));
@@ -59,8 +59,9 @@ public class PortfolioSearchController {
 		return "_31_portfolio/PortfolioPlay";        
 	}
 	
+
 	
-	//新增影片留言
+	//新增影片留言(由影片播放頁面新增)
 	@PostMapping("createPortfolioMsg")
 	public String updatePortfolioMsg(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo, Model model, HttpSession session)
 			throws IOException {
@@ -78,13 +79,5 @@ public class PortfolioSearchController {
 //		return "redirect:/PortfolioPlay";
 //	}
 	
-	//凍結影片留言(由影片作者/管理者凍結)
-	@PostMapping("editPortfolioMsg")
-	public String deletePortfolioMsg(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo, Model model, HttpSession session)
-			throws IOException {
-		portfolio_MsgBeanVo.setmId((Integer) session.getAttribute("mId"));
-		portfolioMsgService.deletePortfolioMsg(portfolio_MsgBeanVo);
-		return "redirect:/PortfolioPlay";
-	}
 
 }

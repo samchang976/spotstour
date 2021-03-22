@@ -9,7 +9,7 @@ public class Portfolio_MsgBeanVo {
 	private String pMsg_freeze;
  	private Integer portfolioId;
 	private Integer mId;
- 	
+	private String portfolioName;
  	
 	public Integer getPortfolioMsgId() {
 		return portfolioMsgId;
@@ -46,6 +46,12 @@ public class Portfolio_MsgBeanVo {
 	}
 	public void setmId(Integer mId) {
 		this.mId = mId;
+	}
+	public String getPortfolioName() {
+		return portfolioName;
+	}
+	public void setPortfolioName(String portfolioName) {
+		this.portfolioName = portfolioName;
 	}
  	
  	

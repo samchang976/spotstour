@@ -74,71 +74,6 @@ body {
 	color: white;
 }
 
-/*購物車側欄======================================================================================= */
-#imgBoard {
-	background: #ddd;
-	width: 300px;
-	padding: 20px 40px;
-	position: fixed;
-	left: -300px;
-	z-index: 50;
-	text-align: center;
-	height: 80%;
-	overflow-y: auto;
-}
-
-#imgBoard img {
-	width: 100%
-}
-
-#sessionCart {
-	display: none;
-}
-
-#imgBoard .fa-minus-circle {
-	float: right;
-}
-
-#imgBoard .fa-minus-circle:hover {
-	color: red;
-	cursor: pointer;
-}
-
-#inCart {
-	font-size: 3rem;
-	left: 10px;
-	/* border:1px solid black; */
-	position: fixed;
-	z-index: 50;
-}
-
-#inCart div {
-	/*   	display: inline-flex;  */
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	top: 20px;
-	left: 10px;
-	display: block;
-	text-align: center;
-}
-
-#inCart #number {
-	font-size: 1rem;
-	width: 1.5rem;
-	height: 1.5rem;
-	color: white;
-	font-weight: bold;
-	position: relative;
-	left: 25px;
-	border: 1px solid red;
-	border-radius: 50%;
-	text-align: center;
-	display: table-cell;
-	vertical-align: bottom;
-	background: red;
-	transform: scale(0.9);
-}
 
 /* ===================================================================== */
 .imageFrame {
@@ -191,72 +126,79 @@ body {
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 		<!------------------------------------------------------------------------------------------->
 		<!-- 側邊購物車--------------------------------------------------------------------------------------- -->
-		<div id="inCart">
-			<i class="fas fa-shopping-bag"></i>
+		<jsp:include page="/WEB-INF/views/_21_shoppingMall/SideShoppingCart.jsp"></jsp:include>
+<!-- 		<div id="inCart"> -->
+<!-- 			<i class="fas fa-shopping-bag"></i> -->
+<!-- 			<div> -->
+<%-- 				<c:choose> --%>
+<%-- 					<c:when test="${mPid==2||mPid==1}"> --%>
+<%-- 						<div id="number2">${membercartlist.size()}</div> --%>
+<%-- 					</c:when> --%>
+<%-- 					<c:otherwise> --%>
+<!-- 						<div id="number"></div> -->
+<%-- 					</c:otherwise> --%>
+<%-- 				</c:choose> --%>
+<!-- 			</div> -->
+<!-- 		</div> -->
 
-			<div>
-				<div id="number"></div>
-			</div>
-		</div>
+<!-- 		<div id="imgBoard"> -->
+<!-- 			購物車 -->
+<!-- 			<!--判斷購物車內是否有相同商品:未顯示-----------------------------------------------------------> 
+<!-- 			<div id="sessionCart"> -->
+<!-- 									map取值:OO.key/OO.value -->
+<%-- 				<c:forEach var="sessioncart" items="${sessionShoppingCart}"> --%>
+<%-- 						${sessioncart.key}, --%>
+<%-- 					</c:forEach> --%>
+<!-- 			</div> -->
+<!-- 			<!------------------------------------------------------------------------------------> 
+<%-- 			<c:choose> --%>
+<%-- 				<c:when test="${mPid==2||mPid==1}"> --%>
+<!-- 					會員--------------------------------------------------------------------------------------- -->
+<!-- 					<div> -->
+<%-- 						<c:forEach var="membercartlist" items="${membercartlist}"> --%>
+<%-- 							<form> --%>
+<!-- 								<i class="fas fa-minus-circle" -->
+<%-- 									onclick="location.href='shoppingCart/delete/Id=${membercartlist.sc_Id}'"></i> --%>
+<!-- 								<div class="imageFrameSide"> -->
+<!-- 									<img class="img" -->
+<%-- 										src="/upload/${membercartlist.itemBean.itemPic1}" alt="商品照片"></img> --%>
+<!-- 								</div> -->
+<%-- 														<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
+<!-- 								<img src="#" alt="商品照片"></img> -->
+<%-- 								<div>${membercartlist.itemBean.itemHeader}</div> --%>
+<%-- 								<div>${membercartlist.itemBean.itemPrice}元</div> --%>
+<%-- 							</form> --%>
+<%-- 						</c:forEach> --%>
+<!-- 					</div> -->
 
-		<div id="imgBoard">
-			購物車
-			<!--判斷購物車內是否有相同商品:未顯示----------------------------------------------------------->
-			<div id="sessionCart">
-				<!-- 					map取值:OO.key/OO.value -->
-				<c:forEach var="sessioncart" items="${sessionShoppingCart}">
-						${sessioncart.key},
-					</c:forEach>
-			</div>
-			<!------------------------------------------------------------------------------------>
-			<c:choose>
-				<c:when test="${mPid==2||mPid==1}">
-					<!--會員--------------------------------------------------------------------------------------- -->
-					<div>
-						<c:forEach var="membercartlist" items="${membercartlist}">
-							<form>
-								<i class="fas fa-minus-circle"
-									onclick="location.href='shoppingCart/delete/Id=${membercartlist.sc_Id}'"></i>
-								<div class="imageFrameSide">
-									<img class="img"
-										src="/upload/${membercartlist.itemBean.itemPic1}" alt="商品照片"></img>
-								</div>
-								<%-- 						<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
-								<!--<img src="#" alt="商品照片"></img> -->
-								<div>${membercartlist.itemBean.itemHeader}</div>
-								<div>${membercartlist.itemBean.itemPrice}元</div>
-							</form>
-						</c:forEach>
-					</div>
+<%-- 				</c:when> --%>
+<%-- 				<c:otherwise> --%>
+<!-- 					<div> -->
+<%-- 						<c:forEach var="sessioncartList" --%>
+<%-- 							items="${sessionShoppingCartList}"> --%>
+<%-- 							<form name="sideform${sessioncartList.itemId}"> --%>
+<!-- 								<i class="fas fa-minus-circle" -->
+<%-- 									onclick="deleteItem(${sessioncartList.itemId})"></i> --%>
+<!-- 								<div class="imageFrameSide"> -->
+<%-- 									<img class="img" src="/upload/${sessioncartList.itemPic1}" --%>
+<!-- 										alt="商品照片"></img> -->
+<!-- 								</div> -->
+<%-- 														<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
+<!-- 								<img src="#" alt="商品照片"></img> -->
+<%-- 								<div>${sessioncartList.itemHeader}</div> --%>
+<%-- 								<div>${sessioncartList.itemPrice}元</div> --%>
 
-				</c:when>
-				<c:otherwise>
-					<div>
-						<c:forEach var="sessioncartList"
-							items="${sessionShoppingCartList}">
-							<form name="sideform${sessioncartList.itemId}">
-								<i class="fas fa-minus-circle"
-									onclick="deleteItem(${sessioncartList.itemId})"></i>
-								<div class="imageFrameSide">
-									<img class="img" src="/upload/${sessioncartList.itemPic1}"
-										alt="商品照片"></img>
-								</div>
-								<%-- 						<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
-								<!--<img src="#" alt="商品照片"></img> -->
-								<div>${sessioncartList.itemHeader}</div>
-								<div>${sessioncartList.itemPrice}元</div>
+<%-- 							</form> --%>
+<%-- 						</c:forEach> --%>
+<!-- 					</div> -->
+<%-- 				</c:otherwise> --%>
+<%-- 			</c:choose> --%>
 
-							</form>
-						</c:forEach>
-					</div>
-				</c:otherwise>
-			</c:choose>
+<!-- 			<button class="btn addcart" type="button" -->
+<%-- 				onclick="location.href='<c:url value="/shoppingCart/sessionCartSave"/>'">確定購買</button> --%>
+<!-- 			<!-- 				導向存session的controller --> 
 
-			<button class="btn addcart" type="button"
-				onclick="location.href='<c:url value="/shoppingCart/sessionCartSave"/>'">確定購買</button>
-			<!-- 				導向存session的controller -->
-
-		</div>
+<!-- 		</div> -->
 		<!--商品------------------------------------------------------------------------------------------------------------  -->
 		<div class="container" id="container_MerchandiseSearchResult">
 			<div class="row row-cols-1 row-cols-md-4 g-3">
@@ -479,101 +421,6 @@ body {
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 	<!------------------------------------------------------------------------------------------->
-
-	<script>
-		function doFirst(){
-			//購物車數量
-			sessioncart=document.getElementById("sessionCart").innerText;
-			list=sessioncart.substr(0, sessioncart.length-1).split(",");
-				if(list != null){
-				document.getElementById("number").innerText = list.length-1;
-				}
-		}
-		//檢查session是否有相同商品===========================================================================
-		function chackcartitem(itemId) {
-			// alert(itemId);
-			sessioncart=document.getElementById("sessionCart").innerText;//字串
-// 			alert(sessioncart);
-			list=sessioncart.substr(0, sessioncart.length-1).split(",");
-// 			alert(list.length);
-			for(i=0;i<list.length;i++){
-				// alert(typeof parseInt(list[i])) //string
-// 				alert(typeof itemId);
-// 				alert("session內"+list[i]+"點選的商品id"+itemId);
-				console.log(itemId==parseInt(list[i]));//false
-				if(itemId==parseInt(list[i])){
-					hasTheSame = true;
-					break;
-				}else{
-					hasTheSame = false;
-					}
-			}
-			if(hasTheSame == true){
-				alert("購物車內已有相同的商品!");
-			}else{	
-			alert("已加入購物車");
-			let name="form"+itemId;
-			var thisForm = document.forms[name];
-			thisForm.action="${pageContext.request.contextPath}/shoppingCart/visitor/add?itemId="+itemId;
-			thisForm.method="post";
-			// alert(name);
-// 			console.info(thisForm);
-			thisForm.submit();
-			}
-		// alert(list[0]);
-		}
-		
-		function deleteItem(itemId){
-// 			alert(itemId);
-			name="sideform"+itemId;
-			var thisForm = document.forms[name];
-			thisForm.action="${pageContext.request.contextPath}/shoppingCart/visitor/del?itemId="+itemId;
-			thisForm.method="post";
-			thisForm.submit();
-// 		var temp = document.createElement("Form");
-// 		temp.action = "${pageContext.request.contextPath}/shoppingCart/visitor/del?itemId="+itemId;
-// 		temp.method = "post";
-// 		temp.style.display = "none";
-// 		temp.submit();
-// 		alert(typeof temp);
-		}
-		
-		
-		window.addEventListener('load',doFirst);
-		
-		// ========================================================================================
-	</script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
-$(document).ready(function() {
-	//購物車伸縮==========================================
-	$('#inCart , #imgBoard').mouseover(function() {
-			$('#imgBoard').css({
-				left: '0px',
-				transition : '1s'
-			});
-			
-			$('#inCart').css({
-				cursor: pointer,
-			});
-		
-	})
-	
-	$('#inCart, #imgBoard').mouseout(function() {
-			$('#imgBoard').css({
-				left: '-300px',
-				transition : '.3s'
-			});
-		
-	})
-	
-
-})
-
-</script>
-
-
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

@@ -51,9 +51,9 @@ html, body {
 	vertical-align: baseline;
 }
 	
-	#video2 {
-	width: 1300px;
-}
+/* 	#video2 { */
+/* 	width: 1300px; */
+/* } */
 /* 搜尋框=============================== */
 	input[type="text"]{
 	 background:rgba(0,0,0,0.1);
@@ -170,7 +170,7 @@ html, body {
 	</div>
 
 	<!-- Background Self-Hosted Video Parallax -->
-	<div class="jarallax" id="video2" data-speed="0.8" data-type="scroll-opacity"
+	<div class="jarallax w-75" id="video2" data-speed="0.8" data-type="scroll-opacity"
 		data-jarallax-video="mp4:${pageContext.request.contextPath}/videos/taipei.mp4">
 		</div>
 

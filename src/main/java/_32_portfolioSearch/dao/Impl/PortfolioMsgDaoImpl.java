@@ -29,7 +29,7 @@ public class PortfolioMsgDaoImpl implements PortfolioMsgDao {
 		String sql = 
 				  " SELECT ps.portfolioId,ps.portfolioMsgId,ps.msgText,ps.pm_createTime,ps.pmsg_freeze,pf.mId "
 				+ " FROM portfoliomsg ps "
-				+ " LEFT JOIN portfolio pf  ON ps.portfolioId = pf.portfolioId "
+				+ " LEFT JOIN portfolio pf ON ps.portfolioId = pf.portfolioId "
 				+ " WHERE ps.portfolioId = :portfolioId AND ps.pmsg_freeze = 0 " ;
 
 		// 設定結果集:設定結果類型為List<Map<String, Object>>

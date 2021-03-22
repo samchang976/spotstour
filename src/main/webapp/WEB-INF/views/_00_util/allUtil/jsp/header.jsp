@@ -245,10 +245,10 @@ border-radius: 50%;
 								href="<c:url value="/manageMerchandiseReport"/>"
 								data-bs-toggle="tooltip" data-bs-placement="bottom"
 								title="管理者可以編輯關於退貨商品資訊">編輯關於退貨商品</a></li>
-							<li><a class="dropdown-item"
-								href="<c:url value="/manageVideoReport"/>"
-								data-bs-toggle="tooltip" data-bs-placement="bottom"
-								title="管理者可以新增 刪除 修改 查詢所有影片不當的內容">管理檢舉影片</a></li>
+<!-- 							<li><a class="dropdown-item" -->
+<%-- 								href="<c:url value="/manageVideoReport"/>" --%>
+<!-- 								data-bs-toggle="tooltip" data-bs-placement="bottom" -->
+<!-- 								title="管理者可以新增 刪除 修改 查詢所有影片不當的內容">管理檢舉影片</a></li> -->
 						</c:if>
 					</ul></li>
 
@@ -267,11 +267,11 @@ border-radius: 50%;
 								title="管理者及會員登入">登入</a></li>
 						</c:if>
 						<c:if test="${ !empty LoginOK }">
-							<div id="memberPhto">
-								<c:if test="${! empty LoginOK }">
-									<img src="/upload/${LoginOK.mPic}">
-								</c:if>
-							</div>
+<!-- 							<div id="memberPhto"> -->
+<%-- 								<c:if test="${! empty LoginOK }"> --%>
+<%-- 									<img src="/upload/${LoginOK.mPic}"> --%>
+<%-- 								</c:if> --%>
+<!-- 							</div> -->
 							<li><a class="dropdown-item"
 								href="<c:url value="/memberDetailModify"/>"
 								data-bs-placement="bottom" title="會員可以 修改會員資料">修改會員資料</a></li>
@@ -281,9 +281,9 @@ border-radius: 50%;
 							<li><a class="dropdown-item"
 								href="<c:url value="/personalPortfolio"/>"
 								data-bs-placement="bottom" title="會員個人影片的作品集">個人作品</a></li>
-							<li><a class="dropdown-item"
-								href="<c:url value="/collectVideo"/>" data-bs-placement="bottom"
-								title="會員個人收藏所有的影片">收藏的影片</a></li>
+<!-- 							<li><a class="dropdown-item" -->
+<%-- 								href="<c:url value="/collectVideo"/>" data-bs-placement="bottom" --%>
+<!-- 								title="會員個人收藏所有的影片">收藏的影片</a></li> -->
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="<c:url value="/logout"/>"
 								data-bs-toggle="tooltip" data-bs-placement="bottom"

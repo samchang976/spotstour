@@ -100,6 +100,25 @@
 	right: 0;
 	margin: auto;
 }
+
+#hot{
+	display:inline-block;
+	padding: 0px 5px; 
+	border-radius: 15px;
+	background: Orange;
+	color: white;
+}
+
+.area{
+font-size: 1.5rem;
+padding: 5px;
+}
+
+.area:hover {
+	color: Orange;
+	cursor: pointer;
+}
+
 </style>
 </head>
 
@@ -113,15 +132,26 @@
 		<!-- 搜尋 ----------------------------------------------------------------------------->
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
-		<!------------------------------------------------------------------------------------------->
+		<!-- 側邊購物車--------------------------------------------------------------------------------------- -->
+		<jsp:include page="/WEB-INF/views/_21_shoppingMall/SideShoppingCart.jsp"></jsp:include>
 
 		<!-- 活動快訊 ---------------------------------------------------------------------------->
 		<div class="container" id="container_news">
 			<!--查看所有商品------------------------------------------------------------------------ -->
-			<div class="row">
-				<div class="col">
+			<div class="row" >
+				<div class="col" style="display:flex; align-items: center;">
 					<button class="btn btn-primary btn-lg"
-						onclick="location.href='${pageContext.request.contextPath}/merchandiseSearchResult'">查看所有商品</button>
+						onclick="location.href='${pageContext.request.contextPath}/merchandiseSearchResult'">來去逛逛</button>
+					<div class="d-inline-block area" onclick="location.href=
+			 	                        'merchandiseSearchResult/Id=13'">美國</div>
+					<div class="d-inline-block area" 							onclick="location.href=
+			 	                        'merchandiseSearchResult/Id=2'">日本</div>
+					<div class="d-inline-block area" 							onclick="location.href=
+			 	                        'merchandiseSearchResult/Id=6'">泰國</div>
+					<div class="d-inline-block area" 							onclick="location.href=
+			 	                        'merchandiseSearchResult/Id=4'">韓國</div>
+					<div class="d-inline-block area" 							onclick="location.href=
+			 	                        'merchandiseSearchResult/Id=24'">法國</div>
 				</div>
 			</div>
 			<!--活動快訊 ------------------------------------------------------------------------------>
@@ -145,29 +175,32 @@
 
 			<!-- 地區搜尋 ----------------------------------------------------------------------------->
 <!-- 			<div class="row row-cols-1 row-cols-md-4"> -->
-			<div class="row row-cols-auto">
-				<c:forEach var='country' items='${countrys}'>
-<!-- 					<div class="col"> -->
-						<div class="area_search my-1"
-							onclick="location.href=
-			 	                        'merchandiseSearchResult/Id=${country.countryId}'">
+<!-- 			<div class="row row-cols-auto"> -->
+<%-- 				<c:forEach var='country' items='${countrys}'> --%>
+<!-- <!-- 					<div class="col"> --> 
+<!-- 						<div class="area_search my-1" -->
+<%-- 							onclick="location.href= --%>
+<%-- 			 	                        'merchandiseSearchResult/Id=${country.countryId}'"> --%>
 
-							<!-- 			 							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"  -->
-							<!-- 											alt="area"> -->
+<!-- 										 							<img src="https://fakeimg.pl/350x350/?text=World&font=lobster"  -->
+<!-- 																		alt="area"> -->
 
-<!-- 							<div class="mask"> -->
-<!-- 								<h2 id="countryName"> -->
-								${country.countryName}
-<!-- 								</h2> -->
-<!-- 							</div> -->
-						</div>
-<!-- 					</div> -->
-				</c:forEach>
-			</div>
+<!-- <!-- 							<div class="mask"> --> 
+<!-- <!-- 								<h2 id="countryName"> --> 
+<%-- 								${country.countryName} --%>
+<!-- <!-- 								</h2> --> 
+<!-- <!-- 							</div> --> 
+<!-- 						</div> -->
+<!-- <!-- 					</div> --> 
+<%-- 				</c:forEach> --%>
+<!-- 			</div> -->
 			<!-- 商品搜尋 ----------------------------------------------------------------------------->
-			<div id="topItemsTitle" style="text-align: left;">
-				<h2>熱賣商品</h2>
+			<div id="topItemsTitle" style="text-align: left;" class="my-4">
+				
+				<div id="hot" >Hot</div>
+				<h2 style="display:inline-block;" >熱賣商品</h2>
 			</div>
+			
 			<div class="row row-cols-1 row-cols-md-4 g-3">
 				<c:forEach var='item' items='${items}'>
 					<div class="col">
