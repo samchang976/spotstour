@@ -347,6 +347,15 @@
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+	<script>
+		$(document).ready(function() {
 
+// 			$('#SubmitBlock').click(function() {
+// 				$(this).attr('value', 'Please wait...');
+// 			});
+		});
+	</script>
 </body>
 </html>

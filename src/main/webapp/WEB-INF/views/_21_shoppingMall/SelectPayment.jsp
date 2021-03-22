@@ -324,7 +324,7 @@ span.error:first-child() {
 					<%-- 				</c:forEach> --%>
 					<div class="col-12" id="SubmitBlock">
 						<div style="text-align: right;">
-							<button type="submit" class="btn btn-primary"
+							<button type="submit" class="btn btn-primary" id="submitOrder"
 								onclick="submitOrderInfo()">提交訂單資訊</button>
 						</div>
 					</div>
@@ -345,6 +345,7 @@ span.error:first-child() {
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
+	
 	<script>
 		function submitOrderInfo() {
 			document.forms[0].action = "<c:url value='/submitOrderInfo' />";
@@ -352,6 +353,17 @@ span.error:first-child() {
 			document.forms[0].method = "POST";
 			document.forms[0].submit();
 		}
+	</script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+
+// 			$('#submitOrder').click(function() {
+// 				$(this).attr('value', 'Please wait...');
+// 			});
+		});
 	</script>
 </body>
 </html>
