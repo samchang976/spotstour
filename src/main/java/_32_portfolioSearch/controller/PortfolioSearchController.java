@@ -3,6 +3,7 @@ package _32_portfolioSearch.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,6 +38,14 @@ public class PortfolioSearchController {
 	public String getPortfolioDetail(Model model,@ModelAttribute(name = "searchPortfolioDetail") String searchWord) {
 		model.addAttribute("resultList", psService.queryKeyword(searchWord));
 		return "redirect:/personalPortfolio";
+	}
+	
+	
+	//影片播放
+	@RequestMapping(value = "/PortfolioPlay", method = RequestMethod.GET)
+	public String portfolioPlay() {
+		return "_31_portfolio/PortfolioPlay";
+		        
 	}
 
 }
