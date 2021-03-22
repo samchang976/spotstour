@@ -106,6 +106,12 @@ public class MerchandiseController {
 		model.addAttribute("itemBean", itemBean);
 		List<FeedbackBean> list = managerItemService.getAllFeedbacksById(itemId);
 		model.addAttribute("feedbacks", list);
+		
+		Integer member = (Integer) model.getAttribute("mId");
+		if(member != null) {
+			List<ShoppingCartBean> cartlist = shoppingCartService.getShoppingCart((Integer) model.getAttribute("mId")); // 先從service拿資料
+			model.addAttribute("membercartlist", cartlist);
+		}
 		return "_21_shoppingMall/MerchandiseDetail";
 	}
 
