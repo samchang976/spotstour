@@ -662,7 +662,7 @@ console.log(map.center)
           <div class="search"> 
             <input  class="search-bar" type="text" name="search"  id="search"  placeholder="搜尋地點">
             <button class="search-btn"><i class="fas fa-search"></i></button>
-      </div>
+      	 </div>
       
         </div>
         <a href="<c:url value='/' />" target="_parent">

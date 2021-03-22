@@ -59,6 +59,7 @@ ul.nav.nav-tabs {
 	font-family: Tahoma;
 	color: #000;
 	text-decoration: none;
+	
 }
 
 .nav-item {

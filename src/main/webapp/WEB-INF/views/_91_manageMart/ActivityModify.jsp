@@ -111,75 +111,80 @@ button { /*確定、送出的按鈕排版*/
 							<h2>編輯活動</h2>
 						</c:if>
 						<div data-aos="zoom-out-down">
-						<div class="shadow p-3 mb-5 bg-body rounded">
-							<form:form method="POST" modelAttribute="activityBean"
-								enctype="multipart/form-data">
-								<!-- 						<input type="text" name="Reportdescription" placeholder="請輸入內容" -->
-								<!-- 							style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;"> -->
-								<br>
-								<div class="col-12" style="text-align: left;">
-									<label for="exampleFormControlInput1" class="form-label">活動標頭
-										: (字數限30字以內)</label>
-									<form:input type="text" path="activityHeader"
-										class="form-control" id="activityHeader" maxlength="30"
-										placeholder="限30字以內" />
-								</div>
-								<br>
-								<div class="col-12" style="text-align: left;">
-									<label for="exampleFormControlInput1" class="form-label">活動內容
-										: </label>
-									<form:input type="text" path="activityContent"
-										class="form-control" id="activityContent"
-										style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 200px;"
-										maxlength="1000" placeholder="限1000字以內" />
-								</div>
-								<br>
-								<div class="col-12" style="text-align: left;">
-									<label for="exampleFormControlInput1" class="form-label">活動照片
-										: </label>
-									<div>
-										<!-- 										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
-										<!-- 											class="w-100"> <br> -->
-										<form:input type="file" path="activityImage"
-											id="activityImage" />
+							<div class="shadow p-3 mb-5 bg-body rounded">
+								<form:form method="POST" modelAttribute="activityBean"
+									enctype="multipart/form-data">
+									<!-- 						<input type="text" name="Reportdescription" placeholder="請輸入內容" -->
+									<!-- 							style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;"> -->
+									<br>
+									<div class="col-12" style="text-align: left;">
+										<label for="exampleFormControlInput1" class="form-label">活動標頭
+											: (字數限30字以內)</label>
+										<form:input type="text" path="activityHeader"
+											class="form-control" id="activityHeader" maxlength="30"
+											placeholder="字數限制30字以內" />
 									</div>
-									<!-- 									<div class="image"> -->
-									<!-- 										<img id="image1" /> -->
-									<!-- 									</div> -->
-									<c:if test="${activityBean.activityId!=null}">
-										<div class="image">
-											<img id="image1" class="w-100"
-												src="<c:url value='/activityDetail/${activityBean.activityId}'/>" />
+									<br>
+									<div class="col-12" style="text-align: left;">
+										<label for="exampleFormControlInput1" class="form-label">活動內容
+											: </label>
+										<form:input type="text" path="activityContent"
+											class="form-control" id="activityContent"
+											style="padding: 6px; width: 100%; padding-bottom: 200px;"
+											maxlength="200" placeholder="字數限制200字以內" />
+									</div>
+									<br>
+									<div class="col-12" style="text-align: left;">
+										<label for="exampleFormControlInput1" class="form-label">活動照片
+											: </label>
+										<div>
+											<!-- 										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
+											<!-- 											class="w-100"> <br> -->
+											<form:input type="file" path="activityImage"
+												id="activityImage" />
 										</div>
-									</c:if>
-									<c:if test="${activityBean.activityId==null}">
-										<div class="image">
-											<img id="image1" class="w-100" <%-- 										src="<c:url value='/activityDetail/${activityBean.activityId}'/>" --%>
+										<!-- 									<div class="image"> -->
+										<!-- 										<img id="image1" /> -->
+										<!-- 									</div> -->
+										<c:if test="${activityBean.activityId!=null}">
+											<div class="image">
+												<img id="image1" class="w-100"
+													src="<c:url value='/activityDetail/${activityBean.activityId}'/>" />
+											</div>
+										</c:if>
+										<c:if test="${activityBean.activityId==null}">
+											<div class="image">
+												<img id="image1" class="w-100" <%-- 										src="<c:url value='/activityDetail/${activityBean.activityId}'/>" --%>
 										 />
-										</div>
+											</div>
 
-									</c:if>
-								</div>
+										</c:if>
+									</div>
 
-								<div class="form-group row d-flex justify-content-end mt-5">
-									<div style="text-align: center;">
-										<div id="confirm" style="background: #fff;">
-											<c:if test="${activityId==null}">
-												<button type="submit" id="newM" class="btn btn-primary"
-													onclick="location.href='activityModify/get/Id=${activity.activityId}'"
-													data-bs-toggle="modal" data-bs-target="#exampleModal">新增活動</button>
-											</c:if>
+									<div class="form-group row d-flex justify-content-end mt-5">
+										<div style="text-align: center;">
+											<div id="confirm" style="background: #fff;">
+												<c:if test="${activityId==null}">
+												<button id="inputAllBtn" type="button"
+														class="btn btn-primary">一鍵輸入</button>
+														&nbsp;&nbsp;
+													<button type="submit" id="newM" class="btn btn-primary"
+														onclick="location.href='activityModify/get/Id=${activity.activityId}'"
+														data-bs-toggle="modal" data-bs-target="#exampleModal">新增活動</button>
+													
 
-											<c:if test="${activityId!=null}">
-												<button type="submit" id="editM" class="btn btn-primary"
-													onclick="location.href='activityModify/Id=${activity.activityId}'"
-													data-bs-toggle="modal" data-bs-target="#exampleModal">儲存變更</button>
-											</c:if>
+												</c:if>
+
+												<c:if test="${activityId!=null}">
+													<button type="submit" id="editM" class="btn btn-primary"
+														onclick="location.href='activityModify/Id=${activity.activityId}'"
+														data-bs-toggle="modal" data-bs-target="#exampleModal">儲存變更</button>
+												</c:if>
+											</div>
 										</div>
 									</div>
-								</div>
-							</form:form>
-						</div>
+								</form:form>
+							</div>
 						</div>
 
 						<div class="modal fade" id="exampleModal" tabindex="-1"
@@ -246,6 +251,18 @@ button { /*確定、送出的按鈕排版*/
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script>
 		AOS.init();
+	</script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+	<script>
+		$(document).ready(function() {
+			//一鍵輸入功能
+			//存取input標籤的值必須使用.val()方法
+			$('#inputAllBtn').click(function() {
+				$('#activityHeader').val("期末活動");
+				$('#activityContent').val("輸入折扣碼SPOTSTOURJAVA015");
+			})
+		});
 	</script>
 
 </body>

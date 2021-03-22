@@ -217,8 +217,8 @@ public class ActivityController {
 			activityBean = managerActivityService.getActivityByActivityId(activityId);
 		} else {
 			activityBean = new ActivityBean();
-			activityBean.setActivityHeader("活動三");
-			activityBean.setActivityContent("測試活動");
+//			activityBean.setActivityHeader("活動三");
+//			activityBean.setActivityContent("測試活動");
 
 			Date utilDate = new Date();// util.Date
 //			System.out.println("utilDate : " + utilDate);
