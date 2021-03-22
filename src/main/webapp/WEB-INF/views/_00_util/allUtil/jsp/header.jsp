@@ -267,11 +267,11 @@ border-radius: 50%;
 								title="管理者及會員登入">登入</a></li>
 						</c:if>
 						<c:if test="${ !empty LoginOK }">
-							<div id="memberPhto">
-								<c:if test="${! empty LoginOK }">
-									<img src="/upload/${LoginOK.mPic}">
-								</c:if>
-							</div>
+<!-- 							<div id="memberPhto"> -->
+<%-- 								<c:if test="${! empty LoginOK }"> --%>
+<%-- 									<img src="/upload/${LoginOK.mPic}"> --%>
+<%-- 								</c:if> --%>
+<!-- 							</div> -->
 							<li><a class="dropdown-item"
 								href="<c:url value="/memberDetailModify"/>"
 								data-bs-placement="bottom" title="會員可以 修改會員資料">修改會員資料</a></li>

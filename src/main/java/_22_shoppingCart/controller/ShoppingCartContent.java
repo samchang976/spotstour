@@ -49,9 +49,9 @@ public class ShoppingCartContent {
 		List<ShoppingCartBean> list = shoppingCartService.getShoppingCart((Integer) model.getAttribute("mId")); // 先從service拿資料
 		model.addAttribute("cart", list); // 放到model內
 		model.addAttribute("cartSize", list.size()); // 放到model內
-		System.out.println("controller================================================");
-		System.out.println(list);
-		System.out.println("controller================================================");
+//		System.out.println("controller================================================");
+//		System.out.println(list);
+//		System.out.println("controller================================================");
 
 		return "_21_shoppingMall/ShoppingCart";
 	}
@@ -60,10 +60,10 @@ public class ShoppingCartContent {
 
 	@PostMapping("/shoppingCart/delete/Id={sc_Id}")
 	public String deleteCartItem(@PathVariable("sc_Id") Integer sc_Id) {
-		System.out.println("Delete===================================================");
+//		System.out.println("Delete===================================================");
 		System.out.println(sc_Id);
 		shoppingCartService.deleteItem(sc_Id);
-		System.out.println("Delete===================================================");
+//		System.out.println("Delete===================================================");
 		return "redirect:/shoppingCart";
 	}
 
@@ -77,7 +77,7 @@ public class ShoppingCartContent {
 	//側邊購物車刪除========================================================================
 	@GetMapping("/shoppingCart/delete/Id={sc_Id}")
 	public String memberdeleteCartItemInSideCart(@PathVariable("sc_Id") Integer sc_Id) {
-		System.out.println(sc_Id);
+//		System.out.println(sc_Id);
 		shoppingCartService.deleteItem(sc_Id);
 		return "redirect:/merchandiseSearchResult";
 	}
@@ -87,7 +87,7 @@ public class ShoppingCartContent {
 	@PostMapping("shoppingCart/updateQty")
 	public String updateItem(@RequestParam("sc_Id") Integer sc_Id, @RequestParam("s_ordQty") Integer s_ordQty,
 			@RequestParam("mId") Integer mId, @RequestParam("itemId") Integer itemId, Model model) {
-		System.out.println("更新controller============================");
+//		System.out.println("更新controller============================");
 		ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
 //		sc_Id=(String) model.getAttribute(sc_Id);
 //		s_ordQty=(String) model.getAttribute(s_ordQty);
@@ -97,7 +97,7 @@ public class ShoppingCartContent {
 		shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId(mId));
 		shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(itemId));
 		shoppingCartService.UpdateQty(shoppingCartBean);
-		System.out.println("更新controller============================");
+//		System.out.println("更新controller============================");
 		return "redirect:/shoppingCart";
 	}
 
@@ -144,8 +144,8 @@ public class ShoppingCartContent {
 		// 2.創建購物車(傳入會員編號, 產品編號, 數量)
 		String hasItem = shoppingCartService.addToCart(member, itemId, itemQty);
 		model.addAttribute("hasItem", hasItem);
-		System.out.println(member);
-		System.out.println("addcart============================");
+//		System.out.println(member);
+//		System.out.println("addcart============================");
 		return "redirect:/shoppingCart";
 
 	}

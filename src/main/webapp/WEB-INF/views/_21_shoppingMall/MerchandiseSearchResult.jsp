@@ -140,6 +140,22 @@ body {
 	transform: scale(0.9);
 }
 
+#inCart #number2{
+	font-size: 1rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	color: white;
+	font-weight: bold;
+	position: relative;
+	left: 25px;
+	border: 1px solid red;
+	border-radius: 50%;
+	text-align: center;
+	display: table-cell;
+	vertical-align: bottom;
+	background: red;
+	transform: scale(0.9);
+}
 /* ===================================================================== */
 .imageFrame {
 	height: 300px; /*can be anything*/
@@ -195,7 +211,14 @@ body {
 			<i class="fas fa-shopping-bag"></i>
 
 			<div>
-				<div id="number"></div>
+				<c:choose>
+					<c:when test="${mPid==2||mPid==1}">
+						<div id="number2">${membercartlist.size()}</div>
+					</c:when>
+					<c:otherwise>
+						<div id="number"></div>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 
