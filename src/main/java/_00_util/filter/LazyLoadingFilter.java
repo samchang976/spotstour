@@ -14,7 +14,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import _00_util.HibernateUtils;
+import _00_utilH.HibernateUtils;
 
 
 /**
