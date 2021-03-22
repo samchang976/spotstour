@@ -68,9 +68,9 @@
 	<div class="BodyPosition">
 <!------------------------------------------------------------------------------------------->	
 	<div class="container-flud">
-        <div class="row">
-            <div class="col">
-                <video src="/a.mp4" controls class="w-100"></video>
+        <div class="row" style="text-align: center;" >
+            <div class="col-12">
+                <video src="/a.mp4" controls class="w-75"></video>
             </div>
         </div>
     </div>
