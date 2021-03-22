@@ -43,7 +43,7 @@
 	href="<c:url value='/_00_util/portfolioUtil/css/portfolioColor.css'></c:url>">
 
 <!-- --------------------------------------------------------------------------------------------------------->
-<title>收藏的影片</title>
+<title>管理留言影片</title>
 </head>
 <body>
 <body>
