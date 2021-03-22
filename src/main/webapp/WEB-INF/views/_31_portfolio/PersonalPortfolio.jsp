@@ -205,8 +205,13 @@ td div, .like-table div {
 										<td>
 											<div>
 											<br>
-												<button class="btn btn-primary" id="manageFeedback"
-													onclick="location.href='manageFeedback/Id=${mpl.portfolioId}'">管理留言</button>
+											<form action="personalPortfolioMsg" method="post"
+													enctype="multipart/form-data">
+													<input type="hidden" name="portfolioId" value="${mpl.portfolioId}">
+													<input type="hidden" name="portfolioName" value="${mpl.portfolioName}">
+													<button class="btn btn-primary" id="manageFeedback"
+													type="submit">管理留言</button>
+											</form>
 											</div>
 										</td>
 									</tr>

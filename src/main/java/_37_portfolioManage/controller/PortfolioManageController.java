@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import _02_model.entity.CityBean;
 import _02_model.entity.Place_TypeBean;
+import _32_portfolioSearch.controller.vo.Portfolio_MsgBeanVo;
+import _32_portfolioSearch.service.PortfolioMsgService;
 import _37_portfolioManage.controller.vo.PortfolioBeanVo;
 import _37_portfolioManage.service.PortfolioService;
 import _37_portfolioManage.service.GetCityListService;
@@ -31,6 +33,8 @@ public class PortfolioManageController {
 	private GetPlace_TypeListService getPlace_TypeListService;
 	@Autowired
 	private ShowPersonalPortfolioService showPersonalPortfolioService;
+	@Autowired
+	PortfolioMsgService portfolioMsgService;
 
 	//新增影片跳轉
 	@RequestMapping({ "videoCreate", "videoModify" })
@@ -96,5 +100,23 @@ public class PortfolioManageController {
 		return "redirect:/personalPortfolio";	
 	}
     
+    
+    
+	//個人作品留言跳轉
+	@RequestMapping("personalPortfolioMsg")
+	public String getpersonalPortfolioMsg(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo,HttpSession session, Model model) {
+		model.addAttribute("msgList", portfolioMsgService.queryPortfolioMsg(portfolio_MsgBeanVo.getPortfolioId()));
+		model.addAttribute("portfolioName", portfolio_MsgBeanVo.getPortfolioName());
+		return "_31_portfolio/ManageVideoFeedback";
+	}
+    
+	//凍結影片留言(由影片作者/管理者凍結)
+	@PostMapping("deletePortfolioMsg")
+	public String deletePortfolioMsg(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo, Model model, HttpSession session)
+			throws IOException {
+		portfolio_MsgBeanVo.setmId((Integer) session.getAttribute("mId"));
+		portfolioMsgService.deletePortfolioMsg(portfolio_MsgBeanVo);
+		return "redirect:/personalPortfolioMsg";
+	}
 
 }

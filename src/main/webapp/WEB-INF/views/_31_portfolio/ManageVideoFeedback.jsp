@@ -43,7 +43,7 @@
 	href="<c:url value='/_00_util/portfolioUtil/css/portfolioColor.css'></c:url>">
 
 <!-- --------------------------------------------------------------------------------------------------------->
-<title>收藏的影片</title>
+<title>管理留言</title>
 </head>
 <body>
 <body>
@@ -55,14 +55,14 @@
 	<div class="BodyPosition">
 		<!------------------------------------------------------------------------------------------->
 		<div class="container">
-			<!-- 陳列商品留言 -->
+			<!-- 陳列作品留言 -->
 			<div style="text-align: center;">
-				<h4>${item.itemHeader}影片留言
+				<h4>${portfolioName}影片留言
 				</h4>
 			</div>
 
 			<div style="line-height: 2.5;">
-				<c:forEach var='feedback' items='${feedbacks}'>
+				<c:forEach var='feedback' items='${msgList}'>
 					<div class="container-fluid">
 						<div class="row R_SpCre">
 							<div class="shadow p-3 bg-body rounded">
@@ -71,17 +71,17 @@
 										<div class="row">
 											<div class="col-1" style="text-align: center; margin: auto;">
 												<i class="fas fa-trash-alt" id="deleteVideo"
-													value="/Id=${feedback.feedbackId}"
+													value="/Id=${feedback.portfolioMsgId}"
 													<%-- 								onclick="location.href='/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}'"></i> --%>
 <%-- 								onclick="location.replace('${pageContext.request.contextPath}/manageFeedback/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}')"></i> --%>
 								 data-bs-toggle="modal"
-													data-bs-target="#exampleModal${feedback.feedbackId}"></i>
+													data-bs-target="#exampleModal${feedback.portfolioMsgId}"></i>
 											</div>
 											<div class="col-11">
-												<c:set var="fbCreateTime" value="${feedback.f_createTime}" />
+												<c:set var="fbCreateTime" value="${feedback.pm_createTime}" />
 
 
-												<br>影片留言:${feedback.feedbackText}
+												<br>影片留言:${feedback.msgText}
 											</div>
 										</div>
 									</div>
@@ -91,7 +91,7 @@
 
 					</div>
 					<!-- Modal -->
-					<div class="modal fade" id="exampleModal${feedback.feedbackId}"
+					<div class="modal fade" id="exampleModal${feedback.portfolioMsgId}"
 						tabindex="-1" aria-labelledby="exampleModalLabel"
 						aria-hidden="true">
 						<div class="modal-dialog">
@@ -105,8 +105,12 @@
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"
 										data-bs-dismiss="modal">取消</button>
-									<button type="button" class="btn btn-primary"
-										onclick="location.replace('${pageContext.request.contextPath}/manageFeedback/delete/ItId=${itemBean.itemId}/FbId=${feedback.feedbackId}')">確定刪除商品留言</button>
+									<form action="deletePortfolioMsg" method="post">
+										<input type="hidden" name="portfolioMsgId" value="${feedback.portfolioMsgId}">
+										<input type="hidden" name="msgText" value="${feedback.msgText}">										
+										<input type="hidden" name="portfolioId" value="${feedback.portfolioId}">																				
+										<button type="submit" class="btn btn-primary">確定刪除影片</button>
+									</form>
 								</div>
 							</div>
 						</div>
