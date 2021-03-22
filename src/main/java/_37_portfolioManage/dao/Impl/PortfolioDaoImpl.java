@@ -32,5 +32,16 @@ public class PortfolioDaoImpl implements PortfolioDao {
 		session.merge(portfolioBean);
 	}
 
+	//查詢作品
+	@Override
+	public PortfolioBean queryPortfolioById(Integer portfolioId) {
+		Session session = sessionFactory.getCurrentSession();		
+		String hql = "FROM PortfolioBean pf WHERE pf.portfolioId = :qportfolioId ";
+		PortfolioBean pf = (PortfolioBean) session.createQuery(hql).setParameter("qportfolioId", portfolioId).getSingleResult();
+		return pf;
+	}
+
+	
+	
 	
 }
