@@ -102,6 +102,8 @@
 		<!-- 搜尋 ----------------------------------------------------------------------------->
 		<jsp:include
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
+		<!-- 側邊購物車--------------------------------------------------------------------------------------- -->
+		<jsp:include page="/WEB-INF/views/_21_shoppingMall/SideShoppingCart.jsp"></jsp:include>
 		<!------------------------------------------------------------------------------------------->
 
 		<div class="container" id="container_MerchandiseDetail">
