@@ -56,11 +56,16 @@
   </style> -->
   <style type="text/css">
   .rightStyle{
-  float: right;
-  margin-top: 0px;
-  position: absolute;
-  text-align: right;
+   float: right; 
+/*   margin-top: 0px; */
+/*   position: absolute; */
+/*    text-align: right;    */
+/*  border: 1px solid grey;  */
+/* width:100%; */
   }
+  
+
+  
   
   </style> 
 </head>
@@ -86,7 +91,7 @@
 						<option value="good">依按讚數</option>
 					</select>
 				</div>
-				<!-- 搜尋 -->
+				<!-- 搜尋--------------------------------------------------------------- -->
 				<div class="col">
 					<form class="d-flex" action="SearchResult" method="get">
 						<input class="form-control me-2" type="text" name="searchWord"
@@ -96,30 +101,35 @@
 						</button>
 					</form>
 				</div>
+				
 			</div>
 		</div>
 		<p></p>
 		
 		<div class="container">
 
-			<!--顯示影片清單  -->
+			<!--顯示影片清單 ---------------------------------------------------------------- -->
 			<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
 				<!--第一個-->
 				<div class="shadow p-3 mb-5 bg-body rounded">
 					<c:forEach items="${resultList}" var="row">
 						<div class="col">
 							<!-- 發布時間 -->
-							<div><span>${row.continentName}-${row.countryName}-${row.cityName}</span>
-								<form class="d-flex" action="PortfolioPlay" method="get">
-								<span class="rightStyle">
-								<input class="form-control me-2" type="hidden" name="portfolioId"
-								value="${row.portfolioId}">
-								<button class="btn btn-outline-secondary" id="search" type="submit">
-								<i class="fas fa-search"></i>
-								</button></span>
-								</form>		
+							<div>
+<!-- 								地區 -->
+								<div>${row.continentName}-${row.countryName}-${row.cityName}</div>
+								<form class="d-flex rightStyle" action="PortfolioPlay" method="get">
+									<div class="">
+										<input class="form-control me-2" type="hidden" name="portfolioId"
+										value="${row.portfolioId}">
+										<button class="btn btn-outline-secondary" id="search" type="submit">
+											<i class="fas fa-search"></i>
+										</button>
+									</div>
+								</form>	
+<!-- 								<div class="clearfix"></div>	 -->
 							</div>
-						
+<!-- 							名稱 -->
 							<div>${row.portfolioName}</div>
 							<!-- 影片-->
 							<video controls poster="/upload${row.videoPic}"
