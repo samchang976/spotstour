@@ -9,8 +9,8 @@ import _31_worldMap.service.WorldMapService;
 @Controller
 public class worldMapController {
 	
-	@Autowired
-	private WorldMapService worldMapService;
+//	@Autowired
+//	private WorldMapService worldMapService;
 	
 	@RequestMapping("/worldMap")
 	public String worldMap() {

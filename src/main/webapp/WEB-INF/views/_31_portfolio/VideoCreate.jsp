@@ -249,9 +249,8 @@
 						<div class="col-md-3" align="right">
 							<button class="btn btn-primary btn-lg" type="submit">儲存</button>
 							&nbsp;&nbsp;
-							<button class="btn btn-primary btn-lg"
-								onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">取消</button>
-						</div>
+							<button class="btn btn-primary btn-lg" type="button" onclick=<c:if test="${portfolioEdit.portfolioId==null}">"history.back()"</c:if><c:if test="${portfolioEdit.portfolioId!=null}">"location.href='${pageContext.request.contextPath}/personalPortfolio'"</c:if>>取消</button><!-- 						<button class="btn btn-primary btn-lg" type="button" onclick="history.back()">UPPPP</button> -->
+						</div>																					
 					</div>
 				</form>
 				<!-- =================================================================================================== -->

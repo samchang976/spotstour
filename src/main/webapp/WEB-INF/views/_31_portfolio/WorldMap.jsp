@@ -261,7 +261,14 @@
 
         //點擊地圖關閉目前infowindow
         google.maps.event.addListener(map, 'click', function(){ 
+        	debugger
+        	
+console.log(map.center)
+        	
+        	console.log(map.center.lat())
+        	console.log(map.center.lng())
           currentInfowindow.close(map,currentMarker);
+        	
 
            });
 
