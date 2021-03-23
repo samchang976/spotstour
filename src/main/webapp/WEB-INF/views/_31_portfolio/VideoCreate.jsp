@@ -92,6 +92,38 @@ margin: 5px 0px;
 	justify-content:space-between;
     align-items: center;
 }
+
+
+       select{
+            width: 75%;
+            height: 46px;
+            display: inline-block;
+        }
+        
+        #container_VideoCreate input[type="text"]{
+            margin-bottom: 3px ;
+            border-radius: 5px;
+            width: 100%;
+/*             height: 46px; */
+
+        }
+        #container_VideoCreate #latitude,#container_VideoCreate #longitude{
+            width: 49.8%;
+            border-radius: 5px;
+            margin: 5px 0px;
+            height: 46px;
+        	
+            
+        }
+        #longitudelatitudefather{
+        display:flex;
+        justify-content:space-between;
+        align-items: center;
+        }
+        
+     	#container_VideoCreate #portfolioText{
+            padding-bottom: 260px;
+        } 
 </style>
 <!-- --------------------------------------------------------------------------------------------------------->
 <title>影片新增與編輯</title>
