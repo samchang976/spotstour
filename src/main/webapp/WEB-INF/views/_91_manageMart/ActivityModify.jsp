@@ -118,16 +118,18 @@ button { /*確定、送出的按鈕排版*/
 									<!-- 							style="font-size: 20px; font-family: 'Tahoma'; padding: 6px; width: 100%; padding-bottom: 300px;"> -->
 									<br>
 									<div class="col-12" style="text-align: left;">
-										<label for="exampleFormControlInput1" class="form-label">活動標頭
-											: (字數限30字以內)</label>
+										<label for="exampleFormControlInput1" class="form-label">活動標頭(30字以內)
+											:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+											<span id="activityHeaderFeedback"></span>
 										<form:input type="text" path="activityHeader"
 											class="form-control" id="activityHeader" maxlength="30"
 											placeholder="字數限制30字以內" />
 									</div>
 									<br>
 									<div class="col-12" style="text-align: left;">
-										<label for="exampleFormControlInput1" class="form-label">活動內容
-											: </label>
+										<label for="exampleFormControlInput1" class="form-label">活動內容(200字以內)
+											:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+											<span id="activityContentFeedback"></span>
 										<form:input type="text" path="activityContent"
 											class="form-control" id="activityContent"
 											style="padding: 6px; width: 100%; padding-bottom: 200px;"
@@ -231,8 +233,38 @@ button { /*確定、送出的按鈕排版*/
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+	
 	<script>
 		$(document).ready(function() {
+			
+			let headerTextMax = 30;
+			let contentTextMax = 200;
+			$('#activityHeaderFeedback').html(`剩餘<span style="color:red;">${'${'}headerTextMax}</span>個字`);
+			$('#activityContentFeedback').html(`剩餘<span style="color:red;">${'${'}contentTextMax}</span>個字`);
+			typeChange();
+			
+			//一鍵輸入功能
+			//存取input標籤的值必須使用.val()方法
+			$('#inputAllBtn').click(function() {
+				$('#activityHeader').val("期末活動");
+				$('#activityContent').val("輸入折扣碼SPOTSTOURJAVA015");
+				typeChange();
+			})
+			
+			$('#activityHeader').on('input propertychange',typeChange)
+			$('#activityContent').on('input propertychange',typeChange)
+			
+			
+			function typeChange(){
+				let headerTextLength = $('#activityHeader').val().length;
+				$('#activityHeaderFeedback').html(`剩餘<span style="color:red;">${'${'}headerTextMax-headerTextLength}</span>個字`);
+				let contentTextLength = $('#activityContent').val().length;
+				$('#activityContentFeedback').html(`剩餘<span style="color:red;">${'${'}contentTextMax-contentTextLength}</span>個字`);
+			
+			}
+			
 			$('#activityImage').change(function() {
 				readURL(this);
 			})
@@ -254,16 +286,6 @@ button { /*確定、送出的按鈕排版*/
 	</script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-	<script>
-		$(document).ready(function() {
-			//一鍵輸入功能
-			//存取input標籤的值必須使用.val()方法
-			$('#inputAllBtn').click(function() {
-				$('#activityHeader').val("期末活動");
-				$('#activityContent').val("輸入折扣碼SPOTSTOURJAVA015");
-			})
-		});
-	</script>
 
 </body>
 </html>
