@@ -106,8 +106,11 @@ input[type="text"]::Placeholder {
 	background: #333333;
 	line-height: 50px;
 	border-radius: 50%;
-	transition: all 0.5s;
+	cursor: pointer;
 	text-align: center;
+	transition: all 0.5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
 	/* 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 */
 	/* 		rgba(0, 0, 0, 0.12); */
 }
@@ -115,7 +118,7 @@ input[type="text"]::Placeholder {
 #gotop :hover {
 	opacity: 1; /* 透明度 */
 	/* 	background: #3641C1; */
-	cursor: pointer;
+/* 	background: #888888; */
 }
 </style>
 </head>

@@ -150,6 +150,7 @@ span.error:first-child() {
 	color: rgb(255, 0, 0);
 	margin-left: 30%;
 }
+
 #gotop {
 	position: fixed;
 	z-index: 90;
@@ -163,8 +164,11 @@ span.error:first-child() {
 	background: #333333;
 	line-height: 50px;
 	border-radius: 50%;
-	transition: all 0.5s;
+	cursor: pointer;
 	text-align: center;
+	transition: all 0.5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
 	/* 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 */
 	/* 		rgba(0, 0, 0, 0.12); */
 }
@@ -172,7 +176,7 @@ span.error:first-child() {
 #gotop :hover {
 	opacity: 1; /* 透明度 */
 	/* 	background: #3641C1; */
-	cursor: pointer;
+/* 	background: #888888; */
 }
 </style>
 
@@ -652,19 +656,19 @@ span.error:first-child() {
 								</c:forEach>
 							</div>
 						</div>
-<!-- 						<div style="text-align: right;"> -->
-<!-- 							<a -->
-<%-- 								href="${pageContext.request.contextPath}/merchandiseModify#searchi"><i --%>
-<!-- 								class="far fa-caret-square-up fa-3x"></i></a> -->
-<!-- 						</div> -->
+						<!-- 						<div style="text-align: right;"> -->
+						<!-- 							<a -->
+						<%-- 								href="${pageContext.request.contextPath}/merchandiseModify#searchi"><i --%>
+						<!-- 								class="far fa-caret-square-up fa-3x"></i></a> -->
+						<!-- 						</div> -->
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<hr>
-		
-		
+
+
 		<!-----------定位----------------------------------------------------------------------------->
 	</div>
 	<div id="gotop">
