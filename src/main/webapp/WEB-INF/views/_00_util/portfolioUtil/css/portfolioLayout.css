@@ -1,10 +1,5 @@
 /* VideoCreate*************************************************************** */
-
-       .ViedoDescription input[type="text"]{
-            padding-bottom: 220px;
-        } 
-           
-         select.form-select{
+         select{
             width: 75%;
             height: 46px;
             display: inline-block;
@@ -14,20 +9,24 @@
             margin-bottom: 3px ;
             border-radius: 5px;
             width: 100%;
-            
+/*             height: 46px; */
 
         }
         #container_VideoCreate #latitude,#container_VideoCreate #longitude{
-            width: 50%;
+            width: 49.8%;
             border-radius: 5px;
+            margin: 5px 0px;
+            height: 46px;
         	
             
         }
         #longitudelatitudefather{
         display:flex;
-            justify-content:space-between;
+        justify-content:space-between;
+        align-items: center;
         }
-        #google-map{
-        overflow: auto;
-        }
+        
+     	#container_VideoCreate #portfolioText{
+            padding-bottom: 260px;
+        } 
     

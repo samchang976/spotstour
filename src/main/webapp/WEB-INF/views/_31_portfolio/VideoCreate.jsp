@@ -63,8 +63,34 @@
 	position: fixed;
 	z-index: 5;
 	width: 600px;
-	height: 550px;
+/* 	height: 550px; */
 	background-color: rgb(248, 243, 236);
+	overflow: auto;
+	padding: 10px;
+}
+
+#container_VideoCreate #lng,#container_VideoCreate #lat{
+	width: 40%;
+	margin: 10px 0px;
+}
+#placeTypeId,#cityId{
+margin:5px 0px;
+display: inline-block;
+width: 200px;
+}
+
+#portfolioName ,#display_address{
+height: 46px;
+}
+
+input[type="file"]{
+margin: 5px 0px;
+}
+
+.flex{
+	display: flex;
+	justify-content:space-between;
+    align-items: center;
 }
 </style>
 <!-- --------------------------------------------------------------------------------------------------------->
@@ -79,14 +105,9 @@
 	<!-----------定位----------------------------------------------------------------------------->
 	<div class="BodyPosition">
 		<!------------------------------------------------------------------------------------------->
-
-
 		<!-- 		原本樣子 -->
-
-
-
 		<div class="container" id="container_VideoCreate">
-			<!-- 標題:影片新增 -------------------------------------------------------------------------------------->
+<!-- 標題:影片新增 -------------------------------------------------------------------------------------->
 			<div class="row">
 				<div class="col">
 					<div style="text-align: center;">
@@ -97,35 +118,64 @@
 					</div>
 				</div>
 			</div>
+			
+<!-- ==============================================================================================-->
 			<div class="shadow p-3 mb-5 bg-body rounded">
-				<!-- ==============================================================================================-->
+			
 				<div class="row row-cols-1 row-cols-md-2">
-					<div class="col"></div>
-
+					<div class="col">
+						<h3>影片名稱: </h3>
+					</div>
+					
 					<div class="col">
 						<i class="fas fa-map-marker-alt"></i> 位置:
-						<button class="btn btn-primary" id="slideButton">Click Me
-							To Search</button>
-						&nbsp;&nbsp;
-						<button class="btn btn-primary" id="sendData">確認位置</button>
-						&nbsp;&nbsp;
-						<button class="btn btn-primary" id="cancelData">重選位置</button>
+						<button class="btn btn-primary mx-1" id="slideButton">Click Me To Search</button>
+						
+						<button class="btn btn-primary mx-1" id="sendData">確認位置</button>
+						
+						<button class="btn btn-primary mx-1" id="cancelData">重選位置</button>
 						<br>
 					</div>
 				</div>
-				<!-- ==========================================================================================================-->
+				
+<!-- ==========================================================================================================-->
 				<form
 					<c:if test="${portfolioEdit.portfolioId==null}">action="createPortfolio"</c:if>
 					<c:if test="${portfolioEdit.portfolioId!=null}">action="editPortfolio"</c:if>
 					method="post" enctype="multipart/form-data">
-					<!-- ==========================================================================================================-->
+<!-- ==========================================================================================================-->
 					<div class="row row-cols-1 row-cols-md-2">
 						<div class="col SpotName">
-							<label for="city" class="col-sm-2 col-form-label"
-								style="text-align: left;">影片名稱: </label> <input type="text"
-								name="portfolioName" class="form-control" style="width: 300px"
+<!-- 							<label for="city" class="col-sm-2 col-form-label" -->
+<!-- 								style="text-align: left;">影片名稱: </label> -->
+								 <input type="text" name="portfolioName" class="form-control" id="portfolioName"
 								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioName}"</c:if>
 								placeholder="請輸入影片名稱">
+								
+							<div class="flex">
+								<label for="cityId" class="col-sm-2 col-form-label">城市: </label> 
+								<select
+									class="form-select" name="cityId" id="cityId"
+									aria-label="Default select example">
+									<option selected>選擇城市</option>
+									<c:forEach items="${cityList}" var="row">
+										<option value="${row.cityId}"
+											<c:if test="${portfolioEdit.cityId == row.cityId}">selected="selected"</c:if>>${row.cityName}</option>
+									</c:forEach>
+								</select> 
+								
+								 <label for="placeTypeId" class="col-sm-2 col-form-label" >影片類型:
+								</label> 
+								
+								<select class="form-select" name="placeTypeId" id="placeTypeId"
+									aria-label="Default select example">
+									<option selected>選擇影片類型</option>
+									<c:forEach items="${placeTypeList}" var="row">
+										<option value="${row.placeTypeId}"
+											<c:if test="${portfolioEdit.placeTypeId == row.placeTypeId}">selected="selected"</c:if>>${row.placeType}</option>
+									</c:forEach>
+								</select>
+							</div>
 						</div>
 						<!---------------------------------------------------------------------------------------------------------- -->
 						<div class="col LocationInformation">
@@ -147,12 +197,14 @@
 										<div id="map" class="embed-responsive embed-responsive-16by9"></div>
 									</div>
 								</div>
-								經度<input id="lng" type="textbox" class="form-control">
-								緯度<input id="lat" type="textbox" class="form-control">
+								<div id="longitudelatitudefather">
+									經度<input id="lng" type="text" class="form-control">
+									緯度<input id="lat" type="text" class="form-control">
+								</div>
 							</div>
 
 							<!-- 位置 -->
-							<input id="display_address" name="pAddress" class="form-control"
+							<input id="display_address" name="pAddress" class="form-control" 
 								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.pAddress}"</c:if>
 								type="text" placeholder="請輸入位置資訊">
 							<div id="longitudelatitudefather">
@@ -166,31 +218,31 @@
 									placeholder="緯度" id="latitude">
 							</div>
 						</div>
-						<div>
-							<label for="city" class="col-sm-2 col-form-label"
-								style="text-align: left;">城市: </label> <select
-								class="form-select" name="cityId"
-								aria-label="Default select example"
-								style="font-size: 15px; width: 25%; margin-top: 2px; margin-bottom: 10px;">
-								<option selected>選擇城市</option>
-								<c:forEach items="${cityList}" var="row">
-									<option value="${row.cityId}"
-										<c:if test="${portfolioEdit.cityId == row.cityId}">selected="selected"</c:if>>${row.cityName}</option>
-								</c:forEach>
-							</select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="type"
-								class="col-sm-2 col-form-label" style="text-align: left;">影片類型:
-							</label> <select class="form-select" name="placeTypeId"
-								aria-label="Default select example"
-								style="font-size: 15px; width: 25%; margin-top: 2px; margin-bottom: 10px;">
-								<option selected>選擇影片類型</option>
-								<c:forEach items="${placeTypeList}" var="row">
-									<option value="${row.placeTypeId}"
-										<c:if test="${portfolioEdit.placeTypeId == row.placeTypeId}">selected="selected"</c:if>>${row.placeType}</option>
-								</c:forEach>
-							</select>
-						</div>
+<!-- 						<div> -->
+<!-- 							<label for="city" class="col-sm-2 col-form-label" -->
+<!-- 								style="text-align: left;">城市: </label> <select -->
+<!-- 								class="form-select" name="cityId" -->
+<!-- 								aria-label="Default select example" -->
+<!-- 								style="font-size: 15px; width: 25%; margin-top: 2px; margin-bottom: 10px;"> -->
+<!-- 								<option selected>選擇城市</option> -->
+<%-- 								<c:forEach items="${cityList}" var="row"> --%>
+<%-- 									<option value="${row.cityId}" --%>
+<%-- 										<c:if test="${portfolioEdit.cityId == row.cityId}">selected="selected"</c:if>>${row.cityName}</option> --%>
+<%-- 								</c:forEach> --%>
+<!-- 							</select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="type" -->
+<!-- 								class="col-sm-2 col-form-label" style="text-align: left;">影片類型: -->
+<!-- 							</label> <select class="form-select" name="placeTypeId" -->
+<!-- 								aria-label="Default select example" -->
+<!-- 								style="font-size: 15px; width: 25%; margin-top: 2px; margin-bottom: 10px;"> -->
+<!-- 								<option selected>選擇影片類型</option> -->
+<%-- 								<c:forEach items="${placeTypeList}" var="row"> --%>
+<%-- 									<option value="${row.placeTypeId}" --%>
+<%-- 										<c:if test="${portfolioEdit.placeTypeId == row.placeTypeId}">selected="selected"</c:if>>${row.placeType}</option> --%>
+<%-- 								</c:forEach> --%>
+<!-- 							</select> -->
+<!-- 						</div> -->
 					</div>
-
+<!-- ==================================================================================== -->
 					<div class="row row row-cols-1 row-cols-md-2">
 						<div class="col">
 							<video controls
@@ -205,7 +257,7 @@
 						<div class="col ViedoDescription">
 							<div>影片描述:</div>
 							<div>
-								<input type="text" name="portfolioText"
+								<input type="text" name="portfolioText" id="portfolioText"
 									<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioText}"</c:if>
 									placeholder="請輸入影片描述">
 							</div>
@@ -240,19 +292,21 @@
 								<input type="hidden" name="mId" value="${portfolioEdit.mId}">
 							</c:if>
 						</div>
-						<div class="col-md-3" align="left">
-							<select class="form-select" aria-label="Default select example">
-								<option selected>選擇預覽方式</option>
-								<option value="time">預覽</option>
-								<option value="look">播放頁預覽</option>
-								<option value="good">世界地圖資訊預覽</option>
-							</select>
-						</div>
-						<div class="col-md-3" align="right">
-							<button class="btn btn-primary btn-lg" type="submit">儲存</button>
-							&nbsp;&nbsp;
-							<button class="btn btn-primary btn-lg" type="button" onclick=<c:if test="${portfolioEdit.portfolioId==null}">"history.back()"</c:if><c:if test="${portfolioEdit.portfolioId!=null}">"location.href='${pageContext.request.contextPath}/personalPortfolio'"</c:if>>取消</button><!-- 						<button class="btn btn-primary btn-lg" type="button" onclick="history.back()">UPPPP</button> -->
-						</div>																					
+						<div class="row flex">
+							<div class="col-8">
+								<select class="form-select" aria-label="Default select example">
+									<option selected>選擇預覽方式</option>
+									<option value="time">預覽</option>
+									<option value="look">播放頁預覽</option>
+									<option value="good">世界地圖資訊預覽</option>
+								</select>
+							</div>
+							<div class="col-4 text-end" >
+								<button class="btn btn-primary btn-lg" type="submit">儲存</button>
+								
+								<button class="btn btn-primary btn-lg" type="button" onclick=<c:if test="${portfolioEdit.portfolioId==null}">"history.back()"</c:if><c:if test="${portfolioEdit.portfolioId!=null}">"location.href='${pageContext.request.contextPath}/personalPortfolio'"</c:if>>取消</button><!-- 						<button class="btn btn-primary btn-lg" type="button" onclick="history.back()">UPPPP</button> -->
+							</div>		
+						</div>																			
 					</div>
 				</form>
 				<!-- =================================================================================================== -->
