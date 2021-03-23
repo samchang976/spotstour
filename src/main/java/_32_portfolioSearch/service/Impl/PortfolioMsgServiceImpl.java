@@ -40,6 +40,7 @@ public class PortfolioMsgServiceImpl implements PortfolioMsgService{
 		Portfolio_MsgBean portfolio_MsgBean = new Portfolio_MsgBean();
 		portfolio_MsgBean.setPortfolioBean(portfolioDao.queryPortfolioById(portfolio_MsgBeanVo.getPortfolioId()));
 		portfolio_MsgBean.setMsgText(portfolio_MsgBeanVo.getMsgText());
+		portfolio_MsgBean.setmId(portfolio_MsgBeanVo.getmId());
 		portfolio_MsgBean.setPmsg_freeze(0);
 		portfolio_MsgBean.setPm_createTime(DateTimeUtils.getTimestamps());
 		portfolioMsgDao.addPortfolioMsg(portfolio_MsgBean);
@@ -54,6 +55,7 @@ public class PortfolioMsgServiceImpl implements PortfolioMsgService{
 		portfolio_MsgBean.setPortfolioMsgId(portfolio_MsgBeanVo.getPortfolioMsgId());
 		portfolio_MsgBean.setPortfolioBean(portfolioDao.queryPortfolioById(portfolio_MsgBeanVo.getPortfolioId()));
 		portfolio_MsgBean.setMsgText(portfolio_MsgBeanVo.getMsgText());
+		portfolio_MsgBean.setmId(portfolio_MsgBeanVo.getmId());
 		portfolio_MsgBean.setPmsg_freeze(1);
 		portfolio_MsgBean.setPm_createTime(DateTimeUtils.getTimestamps());
 		portfolioMsgDao.updatePortfolioMsg(portfolio_MsgBean);

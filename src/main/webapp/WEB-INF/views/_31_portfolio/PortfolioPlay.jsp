@@ -117,7 +117,7 @@
         	<div class="col-12 title  my-3"> 留言板</div>
         	<c:forEach items="${pMsgList}" var="msg">
             <div class="col-3 message my-4">
-                   <span style="font-size:1.3rem;" class="fw-bold">#${msg.portfolioMsgId}</span>
+                   <span style="font-size:1.3rem;" class="fw-bold">#${msg.mName}</span>
 					<div class="col-11">
 						<c:set var="fbCreateTime" value="${msg.pm_createTime}" />
 						<fmt:formatDate type="both" dateStyle="long"
