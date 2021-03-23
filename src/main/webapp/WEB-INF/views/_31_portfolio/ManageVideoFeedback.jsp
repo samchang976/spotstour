@@ -83,6 +83,7 @@
 													data-bs-target="#exampleModal${feedback.portfolioMsgId}"></i>
 											</div>
 											<div class="col-11">
+													${feedback.mName}
 													<c:set var="fbCreateTime" value="${feedback.pm_createTime}" />
 													<fmt:formatDate type="both" dateStyle="long"
 														timeStyle="medium" value="${fbCreateTime}" />
@@ -114,6 +115,7 @@
 										<input type="hidden" name="portfolioMsgId" value="${feedback.portfolioMsgId}">
 										<input type="hidden" name="msgText" value="${feedback.msgText}">										
 										<input type="hidden" name="portfolioId" value="${feedback.portfolioId}">																				
+										<input type="hidden" name="mId" value="${feedback.mId}">																				
 										<button type="submit" class="btn btn-primary">確定刪除影片</button>
 									</form>
 								</div>

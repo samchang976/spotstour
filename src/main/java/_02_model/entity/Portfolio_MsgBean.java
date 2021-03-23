@@ -24,11 +24,12 @@ public class Portfolio_MsgBean implements Serializable {
 	private String msgText;
 	private Timestamp pm_createTime;     
 	private Integer pmsg_freeze;
+	private Integer mId;
 	
 	@ManyToOne 
 	@JoinColumn(name="portfolioId", nullable=false)  
 	private PortfolioBean portfolioBean;
-
+	
 	public Integer getPortfolioMsgId() {
 		return portfolioMsgId;
 	}
@@ -67,6 +68,14 @@ public class Portfolio_MsgBean implements Serializable {
 
 	public void setPortfolioBean(PortfolioBean portfolioBean) {
 		this.portfolioBean = portfolioBean;
+	}
+
+	public Integer getmId() {
+		return mId;
+	}
+
+	public void setmId(Integer mId) {
+		this.mId = mId;
 	}
 
 

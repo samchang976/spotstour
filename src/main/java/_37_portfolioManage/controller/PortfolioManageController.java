@@ -120,7 +120,6 @@ public class PortfolioManageController {
 	@PostMapping("deletePortfolioMsg")
 	public String deletePortfolioMsg(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo, Model model, HttpSession session)
 			throws IOException {
-		portfolio_MsgBeanVo.setmId((Integer) session.getAttribute("mId"));
 		portfolioMsgService.deletePortfolioMsg(portfolio_MsgBeanVo);
 		session.setAttribute("portfolioId", portfolio_MsgBeanVo.getPortfolioId());
 		return "redirect:/personalPortfolioMsg";
