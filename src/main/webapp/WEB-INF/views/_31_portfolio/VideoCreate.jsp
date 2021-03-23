@@ -155,14 +155,16 @@
 							<input id="display_address" name="pAddress" class="form-control"
 								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.pAddress}"</c:if>
 								type="text" placeholder="請輸入位置資訊">
-							<!-- 經度 -->
-							<input type="text" name="longitude" class="form-control"
-								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.longitude}"</c:if>
-								placeholder="經度" id="longitude">
-							<!-- 緯度 -->
-							<input type="text" name="latitude" class="form-control"
-								<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.latitude}"</c:if>
-								placeholder="緯度" id="latitude">
+							<div id="longitudelatitudefather">
+								<!-- 經度 -->
+								<input type="text" name="longitude" class="form-control"
+									<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.longitude}"</c:if>
+									placeholder="經度" id="longitude">
+								<!-- 緯度 -->
+								<input type="text" name="latitude" class="form-control"
+									<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.latitude}"</c:if>
+									placeholder="緯度" id="latitude">
+							</div>
 						</div>
 						<div>
 							<label for="city" class="col-sm-2 col-form-label"

@@ -19,7 +19,16 @@
         }
         #container_VideoCreate #latitude,#container_VideoCreate #longitude{
             width: 49%;
-            border-radius: 5px;
             
+            border-radius: 5px;
+        	
+            
+        }
+        #longitudelatitudefather{
+        display:flex;
+            justify-content:space-between;
+        }
+        #google-map{
+        overflow: auto;
         }
     

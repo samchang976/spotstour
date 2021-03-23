@@ -25,17 +25,18 @@ ul.nav.nav-tabs {
 	border-bottom: none;
 }
 
-.menuOuter .fas {
+.menuOuter .fas{
 	text-decoration: none;
 	color: #000;
 	font-size: 30px;
+	
 }
 
-.menuOuter .fas:hover {
+.menuOuter .fas:hover{
 	color: #ddd;
 }
 
-.menuOuter {
+.menuOuter{
 	padding: 5px;
 	width: 100%;
 	/* 	border-bottom: 1px solid black;  */
@@ -92,8 +93,11 @@ border-radius: 50%;
 		<div id='option1'>
 			<a href="<c:url value='worldMap' />" target="_parent"
 				data-bs-toggle="tooltip" data-bs-placement="bottom"
-				title="worldMap 世界地圖"> <i class="fas fa-globe-americas fa-spin "></i>
+				title="worldMap 世界地圖"> 
+				<i class="fas fa-globe-americas fa-spin"></i>
 			</a>
+		 <i class="fas fa-globe-americas fa-spin invisible"></i>
+		  <i class="fas fa-globe-americas fa-spin invisible"></i>	
 		</div>
 		<a id="SPOTTOUR" href="<c:url value='/' />" target="_parent"
 			data-bs-toggle="tooltip" data-bs-placement="bottom"
