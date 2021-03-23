@@ -27,46 +27,46 @@
 
 <style>
 #container_search {
-/* 	margin-bottom: 20px; */
-font-size: 20px;
-}
+	/* 	margin-bottom: 20px; */
+	font-size: 20px;
 }
 
+}
 #want {
 	font-size: 25px;
-	width:20%;
+	width: 20%;
 }
 
 /* 跑馬燈開始 */
-#Marquee{
-  /* border: 1px solid red; */
-  display: flex;
-  padding-left: 30px;
-  align-items: center;   
+#Marquee {
+/* 	 border: 1px solid red;  */
+	display: flex;
+	padding-left: 30px;
+	align-items: center;
 }
-#Marquee h3{
-  /* border: 1px solid red; */
-  font-size: 1rem;
-  padding: 5px;
-}
-#Marquee ul{
-  /* border: 1px solid red; */
-  list-style:none;
-  height:30px;
-  overflow:hidden;
-  /* display: flex; */
-  /* flex-direction: column;*/
-  
-}
-#Marquee ul li:first-child{
-  /* border: 1px solid red; */
-  margin: 7px 0;
-  width:100%;
 
+#Marquee h3 {
+	/* border: 1px solid red; */
+	font-size: 1rem;
+	padding: 5px;
+}
+
+#Marquee ul {
+	/* border: 1px solid red; */
+	list-style: none;
+	height: 30px;
+	overflow: hidden;
+	/* display: flex; */
+	/* flex-direction: column;*/
+}
+
+#Marquee ul li:first-child {
+	/* border: 1px solid red; */
+	margin: 7px 0;
+	width: 100%;
 }
 
 /* 跑馬燈結束 */
-
 </style>
 
 </head>
@@ -76,23 +76,25 @@ font-size: 20px;
 		<div class="row">
 			<div class="col-4">
 				<span id="want">想買什麼?</span>
-				<div style="display: inline-flex;  width:60%; ">
-					<form class="input-group mb-3"action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get">
+				<div style="display: inline-flex; width: 60%;">
+					<form class="input-group mb-3"
+						action="${pageContext.request.contextPath}/merchandiseSearchResult"
+						method="get">
 						<input class="form-control" type="search" name="searchWord"
 							placeholder="Search" aria-label="Search">
 						<button class="btn btn-outline-secondary" type="submit">
 							<i class="fas fa-search"></i>
 						</button>
-						<c:set var="searchWord" value="${searchWord}"/>
+						<c:set var="searchWord" value="${searchWord}" />
 					</form>
 
-<%-- 					<form class="d-flex" action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get"> --%>
-<!-- 						<input class="form-control me-2" type="search" name="searchWord" -->
-<!-- 							placeholder="Search" aria-label="Search"> -->
-<!-- 						<button class="btn btn-outline-success" type="submit"> -->
-<!-- 							<i class="fas fa-search"></i> -->
-<!-- 						</button> -->
-<%-- 					</form> --%>
+					<%-- 					<form class="d-flex" action="${pageContext.request.contextPath}/merchandiseSearchResult" method="get"> --%>
+					<!-- 						<input class="form-control me-2" type="search" name="searchWord" -->
+					<!-- 							placeholder="Search" aria-label="Search"> -->
+					<!-- 						<button class="btn btn-outline-success" type="submit"> -->
+					<!-- 							<i class="fas fa-search"></i> -->
+					<!-- 						</button> -->
+					<%-- 					</form> --%>
 
 				</div>
 			</div>
@@ -103,22 +105,26 @@ font-size: 20px;
 					依時間排序</button>
 			</div>
 
-			<div class="col-6" id="Marquee">
+			<div class="col-5" id="Marquee">
 				<ul id="news" style="text-align: left">
 					<li>商城全館8折!!請輸入折扣代碼 : SPOTSTOURJAVA015</li>
 					<li>熱銷商品:MAMA泰國泡麵，紫玉酥禮盒，焦糖奶油餅 <i class="fas fa-cookie-bite"></i></li>
 					<li><i class="fas fa-bell"></i> 2021年最新版! 推薦十大熱門商品! 促銷優惠!</li>
-					<li><a href="${pageContext.request.contextPath}/merchandiseSearchResult">零食餅乾團購更便宜，食品團購量販買多省多，立即前往 <i class="far fa-hand-pointer"></i></a></li>
+					<li><a
+						href="${pageContext.request.contextPath}/merchandiseSearchResult">零食餅乾團購更便宜，食品團購量販買多省多，立即前往
+							<i class="far fa-hand-pointer"></i>
+					</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 
 
-<%-- 	<script src="<c:url value='/_00_util/shoppingMallUtil/javascript/marquee.js'></c:url>"></script> --%>
+	<%-- 	<script src="<c:url value='/_00_util/shoppingMallUtil/javascript/marquee.js'></c:url>"></script> --%>
 
 	<!-- jQuery ----------------------------------------------------------------------------------->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 	<!-- Option 1: Bootstrap Bundle with Popper -->
@@ -127,17 +133,17 @@ font-size: 20px;
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 		crossorigin="anonymous"></script>
 	<script>
-	$(function () {
-// 		alert()
-	    setInterval(function(){
-	    $('#news li:first-child').slideUp(function(){
-// 	    	alert()
-	        $(this).appendTo($('#news')).slideDown();
-	    });
-	    
-	    },4000);
-	    
-	});
+		$(function() {
+			// 		alert()
+			setInterval(function() {
+				$('#news li:first-child').slideUp(function() {
+					// 	    	alert()
+					$(this).appendTo($('#news')).slideDown();
+				});
+
+			}, 4000);
+
+		});
 	</script>
 </body>
 </html>

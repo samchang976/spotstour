@@ -119,7 +119,7 @@ button { /*確定、送出的按鈕排版*/
 									<br>
 									<div class="col-12" style="text-align: left;">
 										<label for="exampleFormControlInput1" class="form-label">活動標頭(30字以內)
-											:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+											:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 											<span id="activityHeaderFeedback"></span>
 										<form:input type="text" path="activityHeader"
 											class="form-control" id="activityHeader" maxlength="30"
@@ -143,7 +143,7 @@ button { /*確定、送出的按鈕排版*/
 											<!-- 										<img src="https://fakeimg.pl/350x350/?text=World&font=lobster" -->
 											<!-- 											class="w-100"> <br> -->
 											<form:input type="file" path="activityImage"
-												id="activityImage" />
+												id="activityImage" class="form-control"/>
 										</div>
 										<!-- 									<div class="image"> -->
 										<!-- 										<img id="image1" /> -->

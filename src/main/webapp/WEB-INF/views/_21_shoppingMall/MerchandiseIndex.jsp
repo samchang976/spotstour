@@ -140,21 +140,22 @@ padding: 5px;
 			<!--查看所有商品------------------------------------------------------------------------ -->
 			<div class="row" >
 				<div class="col" style="display:flex; align-items: center;">
-					<button class="btn btn-primary btn-lg"
+					<button class="btn btn-primary"
 						onclick="location.href='${pageContext.request.contextPath}/merchandiseSearchResult'">來去逛逛</button>
 					<div class="d-inline-block area" onclick="location.href=
-			 	                        'merchandiseSearchResult/Id=13'">美國</div>
+			 	                        'merchandiseSearchResult?searchWord=美國'">美國</div>
 					<div class="d-inline-block area" 							onclick="location.href=
-			 	                        'merchandiseSearchResult/Id=2'">日本</div>
+			 	                        'merchandiseSearchResult?searchWord=日本'">日本</div>
 					<div class="d-inline-block area" 							onclick="location.href=
-			 	                        'merchandiseSearchResult/Id=6'">泰國</div>
+			 	                        'merchandiseSearchResult?searchWord=泰國'">泰國</div>
 					<div class="d-inline-block area" 							onclick="location.href=
-			 	                        'merchandiseSearchResult/Id=4'">韓國</div>
-					<div class="d-inline-block area" 							onclick="location.href=
-			 	                        'merchandiseSearchResult/Id=24'">法國</div>
+			 	                        'merchandiseSearchResult?searchWord=台灣'">台灣</div>
+<!-- 					<div class="d-inline-block area" 							onclick="location.href= -->
+<!-- 			 	                        'merchandiseSearchResult/Id=24'">法國</div> -->
 				</div>
 			</div>
 			<!--活動快訊 ------------------------------------------------------------------------------>
+			<div data-aos="zoom-in">
 			<div
 				class="row row-cols-1 newsBlock bg-body overflow-auto rounded my-3 mb-5 p-4 shadow">
 				<div class="col">
@@ -171,6 +172,7 @@ padding: 5px;
 						</div>
 					</c:forEach>
 				</div>
+			</div>
 			</div>
 
 			<!-- 地區搜尋 ----------------------------------------------------------------------------->
