@@ -120,6 +120,55 @@ input[type="text"]::Placeholder {
 	/* 	background: #3641C1; */
 /* 	background: #888888; */
 }
+
+#Top{
+	padding: 0px 5px;
+	background: grey;
+	color: white;
+	border-radius: 10%;
+	box-sizing: content-box;
+
+}
+h4{
+color: white;
+}
+
+.IntroductionLink {
+display:flex;
+flex-direction:column;
+justify-content: space-around;
+}
+
+.IntroductionLink .cta-btn{
+display: block;
+text-align: center;
+text-decoration:none;
+
+
+}
+
+#underline{ 
+ width: 200px;  
+/* height: 50px;  */
+/* background: #ddd;  */
+/* margin: 20px;  */
+position: relative; 
+cursor: crosshair;
+}
+ #underline:after{ 
+ content: "";
+  width: 0; 
+  height: 3px; 
+  background: orange; 
+  position: absolute; 
+  top: 100%; 
+  left: 50%; 
+  transition: all .8s; 
+  } 
+ #underline:hover:after{ 
+ left: 0%; 
+ width: 100%; }
+
 </style>
 </head>
 <body>
@@ -211,8 +260,9 @@ input[type="text"]::Placeholder {
 	<!-- ======= Why Us Section ======= -->
 	<section id="why-us" class="why-us">
 		<div class="container">
-<div>
-				<h2>熱門影片</h2>
+			<div>
+				<h2 id="Top" class="d-inline-block fw-bold">TOP</h2>
+				<h2 class="d-inline-block">熱門影片</h2>
 			</div>
 			<div class="row">
 
@@ -261,16 +311,35 @@ input[type="text"]::Placeholder {
     <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
 
-        <div class="text-center">
-          <h3>關於我們</h3>
-				<p>觀賞影片<br> spots-tourer們可以即時分享各個景點資訊， 記錄自己的拍攝影作品，也可以評論或收藏
-					別人的分享的景點資訊。 方便的搜尋方式讓tourer們可以快速 找到想瀏覽的景點影片、 資訊以及景點瀏覽紀錄。</p>
-
-				<p>代購商城<br> 想買購買國內買不到其他國家的特色商品嗎? 我們提供代購的服務， 收集來自世界各地的食品、生活家居、
-					美妝保養、家電3C以及服飾配件等商品 來滿足大家旺盛的購物需求!</p>
+		<div class="row">
+			<div class="col-12 ">
+	            <h3 class="text-center" >關於我們</h3>
+			</div>
+		</div>
+        <div class="row">
+        	<div class="col-10">
+	            <div>
+	            	<h4 id="underline">
+		            	<i class="fab fa-youtube mx-3"></i>
+		            	觀賞影片
+	            	</h4>
+					<p>spots-tourer們可以即時分享各個景點資訊， 記錄自己的拍攝影作品，也可以評論或收藏
+						別人的分享的景點資訊。 方便的搜尋方式讓tourer們可以快速 找到想瀏覽的景點影片、 資訊以及景點瀏覽紀錄。</p>
+	            	<h4 id="underline">
+		            	<i class="fas fa-shopping-cart mx-3"></i>
+		            	代購商城
+	            	</h4>
+					<p> 想買購買國內買不到其他國家的特色商品嗎? 我們提供代購的服務， 收集來自世界各地的食品、生活家居、
+						美妝保養、家電3C以及服飾配件等商品 來滿足大家旺盛的購物需求!</p>
+	            </div>
+	
+        	</div>
+<!--         	onclick="location.href='merchandiseSearchResult/Id=2'" -->
+        	<div class="col-2 IntroductionLink">
 				<a class="cta-btn" href="<c:url value="/"/>">觀賞影片</a>
 				<a class="cta-btn" href="<c:url value="/merchandiseIndex"/>">購物商城</a>
 				<a class="cta-btn" href="<c:url value="/aboutUs"/>">關於我們</a>
+        	</div>
         </div>
 
       </div>
