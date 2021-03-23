@@ -109,9 +109,8 @@
 		<div class="container">
 
 			<!--顯示影片清單 ---------------------------------------------------------------- -->
-			<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
-				<!--第一個-->
 				<div class="shadow p-3 mb-5 bg-body rounded">
+			<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
 					<c:forEach items="${resultList}" var="row">
 						<div class="col">
 							<!-- 發布時間 -->
