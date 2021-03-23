@@ -254,8 +254,8 @@ button { /*確定、送出的按鈕排版*/
 			})
 			
 			$('#activityHeader').on('input propertychange',typeChange)
+			$('#activityContent').on('input propertychange',typeChange)
 			
-// 			$('#activityHeader').on('change',typeChange)
 			
 			function typeChange(){
 				let headerTextLength = $('#activityHeader').val().length;
