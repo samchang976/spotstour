@@ -150,6 +150,30 @@ span.error:first-child() {
 	color: rgb(255, 0, 0);
 	margin-left: 30%;
 }
+#gotop {
+	position: fixed;
+	z-index: 90;
+	right: 30px;
+	bottom: 31px;
+	display: none;
+	width: 50px;
+	height: 50px;
+	color: #fff;
+	opacity: 0.4;
+	background: #333333;
+	line-height: 50px;
+	border-radius: 50%;
+	transition: all 0.5s;
+	text-align: center;
+	/* 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 */
+	/* 		rgba(0, 0, 0, 0.12); */
+}
+
+#gotop :hover {
+	opacity: 1; /* 透明度 */
+	/* 	background: #3641C1; */
+	cursor: pointer;
+}
 </style>
 
 </head>
@@ -628,25 +652,59 @@ span.error:first-child() {
 								</c:forEach>
 							</div>
 						</div>
-						<div style="text-align: right;">
-							<a
-								href="${pageContext.request.contextPath}/merchandiseModify#searchi"><i
-								class="far fa-caret-square-up fa-3x"></i></a>
-						</div>
+<!-- 						<div style="text-align: right;"> -->
+<!-- 							<a -->
+<%-- 								href="${pageContext.request.contextPath}/merchandiseModify#searchi"><i --%>
+<!-- 								class="far fa-caret-square-up fa-3x"></i></a> -->
+<!-- 						</div> -->
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<hr>
+		
+		
 		<!-----------定位----------------------------------------------------------------------------->
+	</div>
+	<div id="gotop">
+		<i class="fa fa-angle-up"></i>
 	</div>
 	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$.extend($.easing, {
+				easeOutExpo : function(x, t, b, c, d) {
+					return (t == d) ? b + c : c
+							* (-Math.pow(2, -10 * t / d) + 1) + b;
+				}
+			});
+			/* 按下GoTop按鈕時的事件 */
+			$('#gotop').click(function() {
+				$('html,body').animate({
+					scrollTop : 0
+				}, 'easeOutExpo'); /* 返回到最頂上 */
+				return false;
+			});
 
+			/* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > 400) {
+					$('#gotop').fadeIn();
+				} else {
+					$('#gotop').fadeOut();
+				}
+			});
+		});
+	</script>
 
 	<script>
 		var testInput = document.getElementById("testInput");
