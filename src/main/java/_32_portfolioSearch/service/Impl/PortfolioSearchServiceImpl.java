@@ -24,6 +24,12 @@ public class PortfolioSearchServiceImpl implements PortfolioSearchService {
 		
 		return portfolioSearchDao.queryKeyword(keyword);
 	}
+
+	@Override
+	@Transactional
+	public List<Map<String, Object>> queryPersonalKeyword(String keyword, Integer mId) {
+		return portfolioSearchDao.queryPersonalKeyword(keyword, mId);
+	}
 	
 
 }

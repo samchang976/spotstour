@@ -566,7 +566,6 @@ DROP TABLE IF EXISTS `record`;
 CREATE TABLE `record` (
   `recordId` int NOT NULL AUTO_INCREMENT,
   `portfolioId` int NOT NULL,
-  `type` varchar(10) NOT NULL,
   `paramId` int NOT NULL,
   PRIMARY KEY (`recordId`),
   KEY `record_portfolioId_fk` (`portfolioId`),

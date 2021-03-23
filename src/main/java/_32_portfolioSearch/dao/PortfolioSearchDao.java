@@ -10,4 +10,7 @@ public interface PortfolioSearchDao {
 	public ContinentBean queryContinentName(String continentName);
 	
 	public List<Map<String, Object>> queryKeyword(String keyword);
+	
+	public List<Map<String, Object>> queryPersonalKeyword(String keyword,Integer mId);
+	
 }

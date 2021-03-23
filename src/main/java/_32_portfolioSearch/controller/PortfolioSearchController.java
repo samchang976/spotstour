@@ -46,14 +46,15 @@ public class PortfolioSearchController {
 
 	}
 	
+	
 	//作品詳細查詢
 	@RequestMapping(value = "/SearchPortfolioDetail", method = RequestMethod.GET)
-	public String getPortfolioDetail(Model model,@ModelAttribute(name = "searchPortfolioDetail") String searchWord) {
-		model.addAttribute("resultList", psService.queryKeyword(searchWord));
-		return "redirect:/personalPortfolio";
+	public String getPortfolioDetail(@ModelAttribute(name = "searchWord") String searchWord,Model model, HttpSession session) {
+		model.addAttribute("memberPortfolioList", psService.queryPersonalKeyword(searchWord, (Integer) session.getAttribute("mId")));
+		return "_31_portfolio/PersonalPortfolio";
 	}
 	
-	
+		
 	//影片播放頁面
 	@GetMapping("portfolioPlay")
 	public String portfolioPlay(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo, Model model, HttpSession session) {
