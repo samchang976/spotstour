@@ -131,7 +131,7 @@
                  <div class="col">
                     <div class="title">新增公開留言:</div>
                     <form action="createPortfolioMsg" method="post">
-                        <textarea id="feedback" rows="4" maxlength="100" name="msgText"></textarea>
+                        <textarea style="resize:none;" id="feedback" rows="4" maxlength="100" name="msgText"></textarea>
                         <input type="hidden" name="portfolioId" value="${portfolioId}">
                         <button class="btn btn-primary float-end" type="submit">送出</button>
                     </form>

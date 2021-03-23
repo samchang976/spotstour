@@ -288,10 +288,8 @@ margin: 5px 0px;
 
 						<div class="col ViedoDescription">
 							<div>影片描述:</div>
-							<div>
-								<input type="text" name="portfolioText" id="portfolioText"
-									<c:if test="${portfolioEdit.portfolioId!=null}">value="${portfolioEdit.portfolioText}"</c:if>
-									placeholder="請輸入影片描述">
+							<div>                 
+                        		<textarea style="width:620px;height:auto;resize:none;" id="portfolioText" maxlength="250" name="portfolioText" placeholder="請輸入影片描述"><c:if test="${portfolioEdit.portfolioId!=null}">${portfolioEdit.portfolioText}</c:if></textarea>
 							</div>
 						</div>
 					</div>

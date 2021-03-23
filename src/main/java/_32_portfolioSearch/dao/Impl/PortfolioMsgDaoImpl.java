@@ -46,10 +46,11 @@ public class PortfolioMsgDaoImpl implements PortfolioMsgDao {
 		q.unwrap(NativeQueryImpl.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
 
 		List<Map<String, Object>> ans = q.setParameter("portfolioId", portfolioId).list();
-		for(Map<String, Object> map:ans) {
-			System.out.println(map.get("mId"));
-			System.out.println(map.get("msgText"));
-		}
+		//檢查查詢結果
+//		for(Map<String, Object> map:ans) {
+//			System.out.println(map.get("mId"));
+//			System.out.println(map.get("msgText"));
+//		}
 		return ans;
 	}
 
