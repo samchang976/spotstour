@@ -296,11 +296,10 @@ h4 {
 <!-- 							<i class="fas fa-search"></i> -->
 <!-- 							</button> -->
 <%-- 						</form>	 --%>
-						<video controls poster="/upload${row.videoPic}"
-								style="width: 100%; height: auto">
+						<video controls poster="/upload${row.videoPic}" class="w-100">
 								<source src="/uploadv${row.videoFile}" type="video/mp4">
 						</video>
-						<div style="text-align: right;">觀看次數:${row.iccount}次</div>
+<%-- 						<div style="text-align: right;">觀看次數:${row.iccount}次</div> --%>
 					</div>
 				</div>
 			</c:forEach>
