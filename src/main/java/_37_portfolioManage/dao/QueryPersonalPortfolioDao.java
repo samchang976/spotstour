@@ -12,4 +12,8 @@ public interface QueryPersonalPortfolioDao {
 	
 	public List<Map<String, Object>> getMemberPortfolioDESC(Integer mId);
 	
+	public List<Map<String, Object>> getMemberPortfolioByV(Integer mId);
+	
+	public List<Map<String, Object>> getMemberPortfolioByG(Integer mId);
+	
 }

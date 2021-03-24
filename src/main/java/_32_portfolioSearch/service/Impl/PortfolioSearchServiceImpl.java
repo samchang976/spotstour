@@ -27,6 +27,10 @@ public class PortfolioSearchServiceImpl implements PortfolioSearchService {
 			return portfolioSearchDao.queryKeywordDESC(keyword);
 		}else if(param.equals("2")) {
 			return portfolioSearchDao.queryKeywordASC(keyword);
+		}else if(param.equals("3")) {
+			return portfolioSearchDao.queryKeywordByV(keyword);
+		}else if(param.equals("4")) {
+			return portfolioSearchDao.queryKeywordByG(keyword);
 		}
 		return portfolioSearchDao.queryKeyword(keyword);
 	}

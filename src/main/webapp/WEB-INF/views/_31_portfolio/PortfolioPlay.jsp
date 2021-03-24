@@ -92,14 +92,14 @@
 <!-- ------------------------------------------------------------------- -->
         <div class="row row-cols-1 row-cols-md-2">
             <div class="col">
-                <div>觀看次數: <span>123456</span>次</div>
+                <div>觀看次數: <span><c:if test="${row.vcount==null}">0</c:if><c:if test="${row.vcount!=null}">${row.vcount}</c:if></span>次</div>
                 <div>上傳日期: <span><c:set var="pCreateTime" value="${row.p_createTime}" />
 						<fmt:formatDate type="both" dateStyle="long"
 						timeStyle="medium" value="${pCreateTime}" /></span></div>
                  	<!--按讚次數-->
 				<div id="great">
-					<a href="#"> <i class="far fa-thumbs-up"></i></a> <span>103</span>
-					<a href="#"> <i class="far fa-thumbs-down"></i></a> <span>1</span>
+					<a href="#"> <i class="far fa-thumbs-up"></i></a> <span><c:if test="${row.gcount==null}">0</c:if><c:if test="${row.gcount!=null}">${row.gcount}</c:if></span>
+					<a href="#"> <i class="far fa-thumbs-down"></i></a> <span><c:if test="${row.bcount==null}">0</c:if><c:if test="${row.bcount!=null}">${row.bcount}</c:if></span>
 				</div>		
             </div>
          <div class="col">
