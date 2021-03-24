@@ -16,7 +16,6 @@ public class WorldMapServiceImpl implements WorldMapService {
 	@Autowired
 	WorldMapDao worldMapDao;
 	
-	
 	@Override
 	@Transactional
 	public List<Map<String, Object>> getAllPortfolioList() {
