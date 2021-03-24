@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -35,13 +36,16 @@ public class MemberBean implements Serializable {
 	private String mTPw; //確認密碼
 	private String mGender;		
 	private String mName;	
-	private String mUid;	
+	private String mUid;		
 	private Date mBDay;	
 	private String mEmail;	
 	private String mPhone;	
 	private String d_mAddress;	
 	private Timestamp m_createTime;	
 	private String mPic;
+	//判斷觀看次數的紀錄
+	@Transient
+	private Map<Integer,Timestamp> watchtimes;
 	//信箱是否驗證
 	private Integer m_verify;
 

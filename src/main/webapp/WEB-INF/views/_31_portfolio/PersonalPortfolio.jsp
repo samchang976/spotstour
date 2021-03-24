@@ -101,6 +101,7 @@ td div, .like-table div {
 			<!-- 標題 -->
 			<div style="text-align: center;">
 				<h2>個人作品</h2>
+				<p></p>
 			</div>
 			<!-- 控制盤 -->
 			<div class="row row row-cols-1 row-cols-md-2 my-2">
