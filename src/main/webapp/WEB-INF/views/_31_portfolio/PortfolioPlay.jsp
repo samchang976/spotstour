@@ -122,11 +122,12 @@
 						<c:set var="fbCreateTime" value="${msg.pm_createTime}" />
 						<fmt:formatDate type="both" dateStyle="long"
 						timeStyle="medium" value="${fbCreateTime}" />
-						<br>影片留言:${msg.msgText}
+						<br>${msg.msgText}
 					</div>
             </div>     
             </c:forEach> 
         </div>
+         <c:if test="${mId!=null}">
             <div class="row my-3">
                  <div class="col">
                     <div class="title">新增公開留言:</div>
@@ -136,7 +137,8 @@
                         <button class="btn btn-primary float-end" type="submit">送出</button>
                     </form>
                 </div>
-            </div>           
+            </div>  
+         </c:if>            
        </div>
 <!-----------定位----------------------------------------------------------------------------->       
         </div>
