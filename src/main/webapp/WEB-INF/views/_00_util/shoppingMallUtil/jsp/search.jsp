@@ -41,7 +41,7 @@
 #Marquee {
 /* 	 border: 1px solid red;  */
 	display: flex;
-	padding-left: 30px;
+	padding-left: 10px;
 	align-items: center;
 }
 
