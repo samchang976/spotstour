@@ -73,6 +73,12 @@ td div, .like-table div {
 .container {
 	max-width: 1200px;
 }
+
+.flex{
+	display: flex;
+    align-items: center;
+}
+
 </style>
 
 <script type="text/javascript">
@@ -97,27 +103,36 @@ td div, .like-table div {
 				<h2>個人作品</h2>
 			</div>
 			<!-- 控制盤 -->
-			<div class="row row row-cols-1 row-cols-md-2"
-				style="margin-top: 10px">
-				<div class="col-md-8" style="padding-left: 40px;">
-					<button class="btn btn-primary" style="margin-right: 10px;"
+			<div class="row row row-cols-1 row-cols-md-2 my-2">
+				<div class="col-md-8 flex" >
+					<button class="btn btn-primary mx-1" 
 						onclick="location.href='${pageContext.request.contextPath}/videoCreate'">新增影片</button>
+					
+					
 					<form action="personalPortfolio" method="post">
 						<input type="hidden" name="param" value="1">
-						<button class="btn btn-primary" style="margin-right: 10px;" type="submit">依新到舊時間排序</button>
+						<button class="btn btn-primary mx-1"  type="submit">依新到舊時間排序</button>
 					</form>	
+					
+					
 					<form action="personalPortfolio" method="post">
 						<input type="hidden" name="param" value="2">
-						<button class="btn btn-primary" style="margin-right: 10px;" type="submit">依舊到新時間排序</button>	
+						<button class="btn btn-primary mx-1" type="submit">依舊到新時間排序</button>	
 					</form>	
-					<button class="btn btn-primary" style="margin-right: 10px;"
+					
+					
+					<button class="btn btn-primary mx-1" 
 						onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">依點閱率排序</button>
 					<!-- 				<button class="Bt_blue" onclick="history.back()" style="margin-right: 5px;">回上一頁</button> -->
-					<button class="btn btn-primary"
+					<button class="btn btn-primary mx-1"
 						onclick="location.href='${pageContext.request.contextPath}/index'"
-						style="margin-right: 35px;">回首頁</button>
+						>回首頁</button>
+				
+				
 				</div>
-				<div class="col-md-4" style="padding-right: 40px">
+				
+<!-- 搜尋--------------------------------------------------------------------------------------------------------- -->
+				<div class="col-md-4" >
 					<form class="d-flex" action="SearchPortfolioDetail" method="get">
 						<input class="form-control me-2" type="text" name="searchWord"
 							placeholder="Search" aria-label="Search">
@@ -127,40 +142,42 @@ td div, .like-table div {
 					</form>
 				</div>
 			</div>
-			<br>
 			<!--個人作品--------------------------------------------------------------------------------------------------------->
 			<c:forEach items="${memberPortfolioList}" var="mpl">
-				<div class="container-fluid">
+<!-- 				<div class="container-fluid"> -->
 					<div class="shadow p-3 mb-5 bg-body rounded" style="margin: 10px;">
-						<div class="row R_SpCre">
+						<div class="row">
 							<!-- 						<div class="col col-1"> -->
 							<!-- 							<input class="form-check-input" type="checkbox" -->
 							<!-- 								id="checkboxNoLabel" value="" aria-label="..."> -->
 							<!-- 						</div> -->
 
-							<div class="col-5" style="margin-left: 20px">
-								<div style="margin: 4px;">
-									<H4>${mpl.portfolioName}</H4>
-									<c:set var="fbCreateTime" value="${mpl.p_createTime}" />
-									<fmt:formatDate type="both" dateStyle="long"
-									timeStyle="medium" value="${fbCreateTime}" />
-								</div>
+							<div class="col-5">
+								
 								<video controls poster="/upload${mpl.videoPic}"
-									style="width: 100%; height: auto">
+									class="w-100">
 									<source src="/uploadv${mpl.videoFile}" type="video/mp4">
 								</video>
-								<br>
-								<!--按讚次數-->
+								<!--按讚次數------------------------------------------------->
 								<div id="great">
 									<a href="#"> <i class="far fa-thumbs-up fa-2x"></i></a> <span>103</span>
 									<a href="#"> <i class="far fa-thumbs-down fa-2x"></i></a> <span>1</span>
-									<!-- 觀看次數 -->
+									<!-- 觀看次數 -------------------------------------------->
 									<span style="float: right;">觀看次數: 123456次</span>
 								</div>
 							</div>
 <!-- 							<div class="col-1"></div> -->
 							<div class="col-4" style="padding: 20px; margin-top: 20px">
-								<div style="margin: 5px;">
+								<div >
+									<!--名稱 ----------------------------------------------->
+									<H4>影片名稱:${mpl.portfolioName}</H4>
+									<!--時間 ----------------------------------------------->
+									上傳時間:<c:set var="fbCreateTime" value="${mpl.p_createTime}" />
+									<fmt:formatDate type="both" dateStyle="long"
+									timeStyle="medium" value="${fbCreateTime}" />
+								</div>
+								
+								<div >
 									<i class="fas fa-map-marker-alt"></i> 位置: ${mpl.pAddress}
 								</div>
 								影片描述: <i>${mpl.portfolioText}</i>
@@ -273,10 +290,9 @@ td div, .like-table div {
 							<!----------------------------------------------------------------------------------------------------------->
 						</div>
 					</div>
-				</div>
+<!-- 				</div> -->
 			</c:forEach>
 
-			<hr>
 		</div>
 		<!--定位-------------------------------------------------------------------------------------->
 	</div>
