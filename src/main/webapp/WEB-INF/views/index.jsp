@@ -27,15 +27,26 @@
 
 
 <!-- Vendor CSS Files -->
-  <link href="${pageContext.request.contextPath}/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/assets/vendor/aos/aos.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/assets/vendor/boxicons/css/boxicons.min.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/assets/vendor/glightbox/css/glightbox.min.css"
+	rel="stylesheet">
 <%--   <link href="${pageContext.request.contextPath}/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> --%>
 
-  <!-- Template Main CSS File -->
-  <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet">
+<!-- Template Main CSS File -->
+<link href="${pageContext.request.contextPath}/assets/css/style.css"
+	rel="stylesheet">
 
 <!-- -------------------------------------------------------------------------------------- -->
 <style>
@@ -118,57 +129,57 @@ input[type="text"]::Placeholder {
 #gotop :hover {
 	opacity: 1; /* 透明度 */
 	/* 	background: #3641C1; */
-/* 	background: #888888; */
+	/* 	background: #888888; */
 }
 
-#Top{
+#Top {
 	padding: 0px 5px;
 	background: grey;
 	color: white;
 	border-radius: 10%;
 	box-sizing: content-box;
-
 }
-h4{
-color: white;
+
+h4 {
+	color: white;
 }
 
 .IntroductionLink {
-display:flex;
-flex-direction:column;
-justify-content: space-around;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
-.IntroductionLink .cta-btn{
-display: block;
-text-align: center;
-text-decoration:none;
-
-
+.IntroductionLink .cta-btn {
+	display: block;
+	text-align: center;
+	text-decoration: none;
 }
 
-#underline{ 
- width: 200px;  
-/* height: 50px;  */
-/* background: #ddd;  */
-/* margin: 20px;  */
-position: relative; 
-cursor: crosshair;
+#underline {
+	width: 200px;
+	/* height: 50px;  */
+	/* background: #ddd;  */
+	/* margin: 20px;  */
+	position: relative;
+	cursor: crosshair;
 }
- #underline:after{ 
- content: "";
-  width: 0; 
-  height: 3px; 
-  background: orange; 
-  position: absolute; 
-  top: 100%; 
-  left: 50%; 
-  transition: all .8s; 
-  } 
- #underline:hover:after{ 
- left: 0%; 
- width: 100%; }
 
+#underline:after {
+	content: "";
+	width: 0;
+	height: 3px;
+	background: orange;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transition: all .8s;
+}
+
+#underline:hover:after {
+	left: 0%;
+	width: 100%;
+}
 </style>
 </head>
 <body>
@@ -300,69 +311,68 @@ cursor: crosshair;
 		</div>
 	</section>
 	<!-- End Why Us Section -->
-	
+
 	<!-- Background Self-Hosted Video Parallax -->
 	<div class="jarallax" id="video3" data-speed="1.2"
 		data-type="scroll-opacity" style="text-align: right;"
 		data-jarallax-video="mp4:${pageContext.request.contextPath}/videos/Morelia.mp4">
-		</div>
+	</div>
 
-	    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
-      <div class="container" data-aos="zoom-in">
+	<!-- ======= Cta Section ======= -->
+	<section id="cta" class="cta">
+		<div class="container" data-aos="zoom-in">
 
-		<div class="row">
-			<div class="col-12 ">
-	            <h3 class="text-center" >關於我們</h3>
+			<div class="row">
+				<div class="col-12 ">
+					<h3 class="text-center">關於我們</h3>
+				</div>
 			</div>
-		</div>
-        <div class="row">
-        	<div class="col-10">
-	            <div>
-	            	<h4 id="underline">
-		            	<i class="fab fa-youtube mx-3"></i>
-		            	觀賞影片
-	            	</h4>
-					<p>spots-tourer們可以即時分享各個景點資訊， 記錄自己的拍攝影作品，也可以評論或收藏
-						別人的分享的景點資訊。 方便的搜尋方式讓tourer們可以快速 找到想瀏覽的景點影片、 資訊以及景點瀏覽紀錄。</p>
-	            	<h4 id="underline">
-		            	<i class="fas fa-shopping-cart mx-3"></i>
-		            	代購商城
-	            	</h4>
-					<p> 想買購買國內買不到其他國家的特色商品嗎? 我們提供代購的服務， 收集來自世界各地的食品、生活家居、
-						美妝保養、家電3C以及服飾配件等商品 來滿足大家旺盛的購物需求!</p>
-	            </div>
-	
-        	</div>
-<!--         	onclick="location.href='merchandiseSearchResult/Id=2'" -->
-        	<div class="col-2 IntroductionLink">
-				<a class="cta-btn" href="<c:url value="/"/>">觀賞影片</a>
-				<a class="cta-btn" href="<c:url value="/merchandiseIndex"/>">購物商城</a>
-				<a class="cta-btn" href="<c:url value="/aboutUs"/>">關於我們</a>
-        	</div>
-        </div>
+			<div class="row">
+				<div class="col-10">
+					<div>
+						<h4 id="underline">
+							<i class="fab fa-youtube mx-3"></i> 觀賞影片
+						</h4>
+						<p>spots-tourer們可以即時分享各個景點資訊， 記錄自己的拍攝影作品，也可以評論或收藏 別人的分享的景點資訊。
+							方便的搜尋方式讓tourer們可以快速 找到想瀏覽的景點影片、 資訊以及景點瀏覽紀錄。</p>
+						<h4 id="underline">
+							<i class="fas fa-shopping-cart mx-3"></i> 代購商城
+						</h4>
+						<p>想買購買國內買不到其他國家的特色商品嗎? 我們提供代購的服務， 收集來自世界各地的食品、生活家居、
+							美妝保養、家電3C以及服飾配件等商品 來滿足大家旺盛的購物需求!</p>
+					</div>
 
-      </div>
-    </section><!-- End Cta Section -->
+				</div>
+				<!--         	onclick="location.href='merchandiseSearchResult/Id=2'" -->
+				<div class="col-2 IntroductionLink">
+					<a class="cta-btn" href="<c:url value="/"/>">觀賞影片</a> <a
+						class="cta-btn" href="<c:url value="/merchandiseIndex"/>">購物商城</a>
+					<a class="cta-btn" href="<c:url value="/aboutUs"/>">關於我們</a>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- End Cta Section -->
 
 	<!-- Background YouTube Parallax -->
 	<div class="jarallax" id="video4" data-speed="1.2"
 		data-type="scroll-opacity"
 		data-jarallax-video="https://www.youtube.com/watch?v=Sm17ps5kXJs">
 	</div>
-	
 
-<!-- 	<!-- Background Vimeo Parallax --> 
-<!-- 	<div class="jarallax" id="video5" data-speed="0.2" -->
-<!-- 		data-type="scroll-opacity" -->
-<!-- 		data-jarallax-video="https://vimeo.com/110138539"></div> -->
+
+	<!-- 	<!-- Background Vimeo Parallax -->
+	<!-- 	<div class="jarallax" id="video5" data-speed="0.2" -->
+	<!-- 		data-type="scroll-opacity" -->
+	<!-- 		data-jarallax-video="https://vimeo.com/110138539"></div> -->
 
 
 
 	<%-- =================下面有佔空間，白色的區塊======================================================================== --%>
 	${registerOK} ${Login} ${FlashMSG_farewell} ${SUCCESS}
 	${param.message}${MsgOK.InsertOK}
-	
+
 	<%
 		session.removeAttribute("MsgOK");
 	session.removeAttribute("registerOK");
@@ -370,15 +380,40 @@ cursor: crosshair;
 	session.removeAttribute("SUCCESS");
 	%>
 
-	
-	
+	<!-- ======= About Section ======= -->
+	<section id="about" class="about">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+					<img src="assets/img/about.jpg" class="img-fluid" alt="">
+				</div>
+				<div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content"
+					data-aos="fade-right">
+					<h3>參考的網站及資料來源</h3>
+					<p class="font-italic"></p>
+					<ul>
+						<li><i class="bi bi-check-circle"></i> Bootstrap</li>
+						<li><i class="bi bi-check-circle"></i> Unsplash</li>
+						<li><i class="bi bi-check-circle"></i> Font Awesome</li>
+						<li><i class="bi bi-check-circle"></i> PowerDirector</li>
+<!-- 						<li><i class="bi bi-check-circle"></i> Font Awesome</li> -->
+					</ul>
+					<p></p>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- End About Section -->
+
 	<div id="gotop">
 		<i class="fa fa-angle-up"></i>
 	</div>
 
 
-<!--   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
-<!--   <div id="preloader"></div> -->
+	<!--   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
+	<!--   <div id="preloader"></div> -->
 
 
 
@@ -426,16 +461,21 @@ cursor: crosshair;
 		});
 	</script>
 
-  <!-- Vendor JS Files -->
-  <script src="${pageContext.request.contextPath}/assets/vendor/aos/aos.js"></script>
-<%--   <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --%>
-  <script src="${pageContext.request.contextPath}/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="${pageContext.request.contextPath}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="${pageContext.request.contextPath}/assets/vendor/php-email-form/validate.js"></script>
-  <script src="${pageContext.request.contextPath}/assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<!-- Vendor JS Files -->
+	<script
+		src="${pageContext.request.contextPath}/assets/vendor/aos/aos.js"></script>
+	<%--   <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --%>
+	<script
+		src="${pageContext.request.contextPath}/assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/vendor/php-email-form/validate.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+	<!-- Template Main JS File -->
+	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 
 
 </body>
