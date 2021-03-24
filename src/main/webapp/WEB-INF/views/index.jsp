@@ -180,6 +180,11 @@ h4 {
 	left: 0%;
 	width: 100%;
 }
+.seeVedio{
+z-index: 50;
+border:none;
+}
+
 </style>
 </head>
 <body>
@@ -271,24 +276,23 @@ h4 {
 	<!-- ======= Why Us Section ======= -->
 	<section id="why-us" class="why-us">
 		<div class="container">
-			<div>
+			<div class="my-3">
 				<h2 id="Top" class="d-inline-block fw-bold">TOP</h2>
 				<h2 class="d-inline-block">熱門影片</h2>
 			</div>
 			<div class="row">
 			<c:forEach items="${hotList}" var="row">
-				<div class="col-lg-4" data-aos="fade-up">
+				<div class="col-lg-4 my-3" data-aos="fade-up">
 					<div class="box">
-						<div>				
-							<form class="d-flex rightStyle" action="portfolioPlay" method="get">
-							<input class="form-control me-2" type="hidden" name="portfolioId"
-							value="${row.portfolioId}">
-							<span>${row.portfolioName}</span>	
-							<button class="btn btn-outline-secondary" id="search" type="submit">
-							<i class="fas fa-search"></i>
-							</button>
+							<form class=" position-absolute start-1 seeVedio" action="portfolioPlay" method="get">
+								<input class="form-control me-2" type="hidden" name="portfolioId"
+									value="${row.portfolioId}">
+								<button class="btn" id="search" type="submit" style="border: none;box-shadow:none;
+								">
+<!-- 									<i class="fas fa-search"></i> -->
+									<span>${row.portfolioName}</span>	
+								</button>
 							</form>	
-						</div>
 <%-- 						<form class="d-flex rightStyle" action="portfolioPlay" method="get"> --%>
 <!-- 							<input class="form-control me-2" type="hidden" name="portfolioId" -->
 <%-- 							value="${row.portfolioId}"> --%>
@@ -296,11 +300,10 @@ h4 {
 <!-- 							<i class="fas fa-search"></i> -->
 <!-- 							</button> -->
 <%-- 						</form>	 --%>
-						<video controls poster="/upload${row.videoPic}"
-								style="width: 100%; height: auto">
+						<video poster="/upload${row.videoPic}" class="w-100" autoplay>
 								<source src="/uploadv${row.videoFile}" type="video/mp4">
 						</video>
-						<div style="text-align: right;">觀看次數:${row.iccount}次</div>
+<%-- 						<div style="text-align: right;">觀看次數:${row.iccount}次</div> --%>
 					</div>
 				</div>
 			</c:forEach>
