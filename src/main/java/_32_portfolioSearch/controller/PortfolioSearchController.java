@@ -48,7 +48,7 @@ public class PortfolioSearchController {
 	}
 	
 	
-	//作品詳細查詢
+	//個人作品詳細查詢
 	@RequestMapping(value = "/SearchPortfolioDetail", method = RequestMethod.GET)
 	public String getPortfolioDetail(@ModelAttribute(name = "searchWord") String searchWord,Model model, HttpSession session) {
 		model.addAttribute("memberPortfolioList", psService.queryPersonalKeyword(searchWord, (Integer) session.getAttribute("mId")));
