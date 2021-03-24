@@ -286,9 +286,9 @@ border-radius: 50%;
 							<li><a class="dropdown-item"
 								href="<c:url value="/memberDetailModify"/>"
 								data-bs-placement="bottom" title="會員可以 修改會員資料">修改會員資料</a></li>
-							<li><a class="dropdown-item"
-								href="<c:url value="/videoCreate"/>" data-bs-placement="bottom"
-								title="會員新增影片">新增影片</a></li>
+<!-- 							<li><a class="dropdown-item" -->
+<%-- 								href="<c:url value="/videoCreate"/>" data-bs-placement="bottom" --%>
+<!-- 								title="會員新增影片">新增影片</a></li> -->
 							<li><a class="dropdown-item"
 								href="<c:url value="/personalPortfolio"/>"
 								data-bs-placement="bottom" title="會員個人影片的作品集">個人作品</a></li>
