@@ -225,9 +225,17 @@ border: 2px solid red;
 				<div class="row-12" id="SubtotalBlock">
 					共<span id="items">${cartSize}</span>商品，總金額 : <span id="TotalMoney"></span>元
 					<div style="text-align: center;">
-						<button id="BtcheckNow" class="btn btn-primary btn-lg"
-							type="submit"
-							onclick="location.href='${pageContext.request.contextPath}/selectPayment'">立即結帳</button>
+						<c:choose>
+							<c:when test="${empty cartSize || cartSize==0}">
+								<button  class="btn btn-secondary btn-lg"
+									type="submit" disabled>購物車是空的喔</button>
+							</c:when>
+							<c:otherwise>
+								<button id="BtcheckNow" class="btn btn-primary btn-lg"
+										type="submit"
+										onclick="location.href='${pageContext.request.contextPath}/selectPayment'">立即結帳</button>
+							</c:otherwise>
+						</c:choose>
 
 
 					</div>
