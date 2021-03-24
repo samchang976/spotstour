@@ -157,7 +157,7 @@
 					<div class="col-6">
 						<!-- 				<div class="circle">影片</div> -->
 						<img alt="" class="w-100"
-							src="<c:url value='/images/aboutus\chris-lawton-LarvHiXifpA-unsplash.jpg'></c:url>">
+							src="<c:url value='/images/aboutus/chris-lawton-LarvHiXifpA-unsplash.jpg'></c:url>">
 					</div>
 				</div>
 

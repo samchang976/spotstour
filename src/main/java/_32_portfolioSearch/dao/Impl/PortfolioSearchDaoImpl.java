@@ -24,6 +24,34 @@ public class PortfolioSearchDaoImpl implements PortfolioSearchDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
+	public List<Map<String, Object>> queryHotPortfolio() {
+		Session session = sessionFactory.getCurrentSession();
+		String sql =
+				  " SELECT v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,rp.iccount,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
+				+ " FROM video v "
+				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
+				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "
+				+ " LEFT JOIN country cn ON ct.countryId = cn.countryId "
+				+ " LEFT JOIN continent cnt ON cn.continentId = cnt.continentId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) iccount,r.portfolioId "
+				+ " FROM record r "
+				+ " WHERE r.paramId = 3 "
+				+ " GROUP BY r.portfolioId ) rp ON pf.portfolioId = rp.portfolioId "
+				+ " WHERE v.v_freeze = 0 "
+				+ " ORDER BY rp.iccount DESC "
+				+ " LIMIT 6 ";
+		
+		//設定結果集:設定結果類型為List<Map<String, Object>>
+		Query q =  session.createNativeQuery(sql);
+		q.unwrap(NativeQueryImpl.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+		
+		List<Map<String, Object>> ans = q.list();	
+		
+		return ans;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
 	public List<Map<String, Object>> queryKeyword(String keyword) {
 		Session session = sessionFactory.getCurrentSession();
 		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "

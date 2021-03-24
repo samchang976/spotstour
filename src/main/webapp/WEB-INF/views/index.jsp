@@ -276,38 +276,55 @@ h4 {
 				<h2 class="d-inline-block">熱門影片</h2>
 			</div>
 			<div class="row">
-
+			<c:forEach items="${hotList}" var="row">
 				<div class="col-lg-4" data-aos="fade-up">
 					<div class="box">
-						<span>01</span>
-						<h4>Lorem Ipsum</h4>
-						<p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et
-							consectetur ducimus vero placeat</p>
+						<div>				
+							<form class="d-flex rightStyle" action="portfolioPlay" method="get">
+							<input class="form-control me-2" type="hidden" name="portfolioId"
+							value="${row.portfolioId}">
+							<span>${row.portfolioName}</span>	
+							<button class="btn btn-outline-secondary" id="search" type="submit">
+							<i class="fas fa-search"></i>
+							</button>
+							</form>	
+						</div>
+<%-- 						<form class="d-flex rightStyle" action="portfolioPlay" method="get"> --%>
+<!-- 							<input class="form-control me-2" type="hidden" name="portfolioId" -->
+<%-- 							value="${row.portfolioId}"> --%>
+<!-- 							<button class="btn btn-outline-secondary" id="search" type="submit"> -->
+<!-- 							<i class="fas fa-search"></i> -->
+<!-- 							</button> -->
+<%-- 						</form>	 --%>
+						<video controls poster="/upload${row.videoPic}"
+								style="width: 100%; height: auto">
+								<source src="/uploadv${row.videoFile}" type="video/mp4">
+						</video>
+						<div style="text-align: right;">觀看次數:${row.iccount}次</div>
 					</div>
 				</div>
+			</c:forEach>
+<!-- 				<div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" -->
+<!-- 					data-aos-delay="150"> -->
+<!-- 					<div class="box"> -->
+<!-- 						<span>02</span> -->
+<!-- 						<h4>Repellat Nihil</h4> -->
+<!-- 						<p>Dolorem est fugiat occaecati voluptate velit esse. Dicta -->
+<!-- 							veritatis dolor quod et vel dire leno para dest</p> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
-				<div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up"
-					data-aos-delay="150">
-					<div class="box">
-						<span>02</span>
-						<h4>Repellat Nihil</h4>
-						<p>Dolorem est fugiat occaecati voluptate velit esse. Dicta
-							veritatis dolor quod et vel dire leno para dest</p>
-					</div>
-				</div>
-
-				<div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up"
-					data-aos-delay="300">
-					<div class="box">
-						<span>03</span>
-						<h4>Ad ad velit qui</h4>
-						<p>Molestiae officiis omnis illo asperiores. Aut doloribus
-							vitae sunt debitis quo vel nam quis</p>
-					</div>
-				</div>
+<!-- 				<div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" -->
+<!-- 					data-aos-delay="300"> -->
+<!-- 					<div class="box"> -->
+<!-- 						<span>03</span> -->
+<!-- 						<h4>Ad ad velit qui</h4> -->
+<!-- 						<p>Molestiae officiis omnis illo asperiores. Aut doloribus -->
+<!-- 							vitae sunt debitis quo vel nam quis</p> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
 			</div>
-
 		</div>
 	</section>
 	<!-- End Why Us Section -->
