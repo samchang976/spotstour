@@ -8,6 +8,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.protobuf.Empty;
+
 import _32_portfolioSearch.dao.PortfolioSearchDao;
 import _32_portfolioSearch.service.PortfolioSearchService;
 
@@ -20,8 +22,18 @@ public class PortfolioSearchServiceImpl implements PortfolioSearchService {
 
 	@Override
 	@Transactional
-	public List<Map<String, Object>> queryKeyword(String keyword) {
-		
+	public List<Map<String, Object>> queryKeyword(String keyword,String param) {
+		if(param == null) {
+			System.out.println("000");
+			return portfolioSearchDao.queryKeyword(keyword);
+		}else if(param.equals("1")) {
+			System.out.println("111");
+			return portfolioSearchDao.queryKeywordDESC(keyword);
+		}else if(param.equals("2")) {
+			System.out.println("222");
+			return portfolioSearchDao.queryKeywordASC(keyword);
+		}
+		System.out.println("444");
 		return portfolioSearchDao.queryKeyword(keyword);
 	}
 

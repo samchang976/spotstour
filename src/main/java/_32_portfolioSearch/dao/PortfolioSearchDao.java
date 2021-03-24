@@ -11,6 +11,10 @@ public interface PortfolioSearchDao {
 	
 	public List<Map<String, Object>> queryKeyword(String keyword);
 	
+	public List<Map<String, Object>> queryKeywordASC(String keyword);
+	
+	public List<Map<String, Object>> queryKeywordDESC(String keyword);
+	
 	public List<Map<String, Object>> queryPersonalKeyword(String keyword,Integer mId);
 	
 }
