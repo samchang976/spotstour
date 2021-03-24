@@ -40,4 +40,50 @@ public class QueryPersonalPortfolioDaoImpl implements QueryPersonalPortfolioDao{
 		return ans;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Map<String, Object>> getMemberPortfolioASC(Integer imId) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = " SELECT m.mId,c.cityId,c.cityName,pt.placeTypeId,pt.placeType,v.videoId,v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude "
+				+ " FROM video v "
+				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
+				+ " LEFT JOIN MEMBER m ON pf.mId = m.mId "
+				+ " LEFT JOIN city c ON pf.cityId = c.cityId "
+				+ " LEFT JOIN place_type pt ON pf.placeTypeId = pt.placeTypeId "
+				+ " WHERE m.mId = :imId AND v.v_freeze = 0 "
+				+ " ORDER BY pf.p_createTime ASC ";
+		//設定結果集:設定結果類型為List<Map<String, Object>>
+		Query q =  session.createNativeQuery(sql);
+		q.unwrap(NativeQueryImpl.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+		
+		List<Map<String, Object>> ans = q.
+				setParameter("imId",imId).list();	
+	
+		return ans;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Map<String, Object>> getMemberPortfolioDESC(Integer imId) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = " SELECT m.mId,c.cityId,c.cityName,pt.placeTypeId,pt.placeType,v.videoId,v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude "
+				+ " FROM video v "
+				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
+				+ " LEFT JOIN MEMBER m ON pf.mId = m.mId "
+				+ " LEFT JOIN city c ON pf.cityId = c.cityId "
+				+ " LEFT JOIN place_type pt ON pf.placeTypeId = pt.placeTypeId "
+				+ " WHERE m.mId = :imId AND v.v_freeze = 0 "
+				+ " ORDER BY pf.p_createTime DESC ";
+		//設定結果集:設定結果類型為List<Map<String, Object>>
+		Query q =  session.createNativeQuery(sql);
+		q.unwrap(NativeQueryImpl.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+		
+		List<Map<String, Object>> ans = q.
+				setParameter("imId",imId).list();	
+	
+		return ans;
+	}
+	
+	
+
 }
