@@ -296,7 +296,6 @@ cursor: crosshair;
 				</div>
 
 			</div>
-
 		</div>
 	</section>
 	<!-- End Why Us Section -->
