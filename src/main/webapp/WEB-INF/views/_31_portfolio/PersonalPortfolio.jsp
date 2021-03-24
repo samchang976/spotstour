@@ -122,8 +122,15 @@ td div, .like-table div {
 					</form>	
 					
 					
-					<button class="btn btn-primary mx-1" 
-						onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">依點閱率排序</button>
+					<form action="personalPortfolio" method="post">
+						<input type="hidden" name="param" value="3">
+						<button class="btn btn-primary mx-1" type="submit">依觀看次數排序</button>	
+					</form>	
+					
+					<form action="personalPortfolio" method="post">
+						<input type="hidden" name="param" value="4">
+						<button class="btn btn-primary mx-1" type="submit">依按讚數排序</button>	
+					</form>	
 					<!-- 				<button class="Bt_blue" onclick="history.back()" style="margin-right: 5px;">回上一頁</button> -->
 					<button class="btn btn-primary mx-1"
 						onclick="location.href='${pageContext.request.contextPath}/index'"
@@ -161,10 +168,10 @@ td div, .like-table div {
 								</video>
 								<!--按讚次數------------------------------------------------->
 								<div id="great">
-									<a href="#"> <i class="far fa-thumbs-up fa-2x"></i></a> <span>103</span>
-									<a href="#"> <i class="far fa-thumbs-down fa-2x"></i></a> <span>1</span>
+									<a href="#"> <i class="far fa-thumbs-up fa-2x"></i></a> <span><c:if test="${mpl.gcount==null}">0</c:if><c:if test="${mpl.gcount!=null}">${mpl.gcount}</c:if></span>
+									<a href="#"> <i class="far fa-thumbs-down fa-2x"></i></a> <span><c:if test="${mpl.bcount==null}">0</c:if><c:if test="${mpl.bcount!=null}">${mpl.bcount}</c:if></span>
 									<!-- 觀看次數 -------------------------------------------->
-									<span style="float: right;">觀看次數: 123456次</span>
+									<span style="float: right;">觀看次數: <c:if test="${mpl.vcount==null}">0</c:if><c:if test="${mpl.vcount!=null}">${mpl.vcount}</c:if>次</span>
 								</div>
 							</div>
 <!-- 							<div class="col-1"></div> -->

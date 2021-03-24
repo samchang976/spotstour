@@ -54,12 +54,34 @@ public class PortfolioSearchDaoImpl implements PortfolioSearchDao {
 	@Override
 	public List<Map<String, Object>> queryKeyword(String keyword) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
+//		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
+//				+ " FROM video v "
+//				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
+//				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "
+//				+ " LEFT JOIN country cn ON ct.countryId = cn.countryId "
+//				+ " LEFT JOIN continent cnt ON cn.continentId = cnt.continentId "
+//				+ " WHERE ( pf.portfolioName LIKE :keyword "
+//				+ " OR ct.cityName  LIKE :keyword "
+//				+ " OR cn.countryName LIKE :keyword "
+//				+ " OR cnt.continentName LIKE :keyword ) AND v.v_freeze = 0 " ;
+		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,rpv.vcount,rpb.bcount,rpg.gcount,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
 				+ " FROM video v "
 				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
 				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "
 				+ " LEFT JOIN country cn ON ct.countryId = cn.countryId "
 				+ " LEFT JOIN continent cnt ON cn.continentId = cnt.continentId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) vcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 3 "
+				+ " GROUP BY r.portfolioId ) rpv ON pf.portfolioId = rpv.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) bcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 2 "
+				+ " GROUP BY r.portfolioId ) rpb ON pf.portfolioId = rpb.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) gcount,r.portfolioId "
+			    + " FROM record r "
+			    + " WHERE r.paramId = 1 "
+			    + " GROUP BY r.portfolioId ) rpg ON pf.portfolioId = rpg.portfolioId "
 				+ " WHERE ( pf.portfolioName LIKE :keyword "
 				+ " OR ct.cityName  LIKE :keyword "
 				+ " OR cn.countryName LIKE :keyword "
@@ -81,12 +103,24 @@ public class PortfolioSearchDaoImpl implements PortfolioSearchDao {
 	@Override
 	public List<Map<String, Object>> queryKeywordASC(String keyword) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
+		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,rpv.vcount,rpb.bcount,rpg.gcount,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
 				+ " FROM video v "
 				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
 				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "
 				+ " LEFT JOIN country cn ON ct.countryId = cn.countryId "
 				+ " LEFT JOIN continent cnt ON cn.continentId = cnt.continentId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) vcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 3 "
+				+ " GROUP BY r.portfolioId ) rpv ON pf.portfolioId = rpv.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) bcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 2 "
+				+ " GROUP BY r.portfolioId ) rpb ON pf.portfolioId = rpb.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) gcount,r.portfolioId "
+			    + " FROM record r "
+			    + " WHERE r.paramId = 1 "
+			    + " GROUP BY r.portfolioId ) rpg ON pf.portfolioId = rpg.portfolioId "
 				+ " WHERE ( pf.portfolioName LIKE :keyword "
 				+ " OR ct.cityName  LIKE :keyword "
 				+ " OR cn.countryName LIKE :keyword "
@@ -109,12 +143,24 @@ public class PortfolioSearchDaoImpl implements PortfolioSearchDao {
 	@Override
 	public List<Map<String, Object>> queryKeywordDESC(String keyword) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
+		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,rpv.vcount,rpb.bcount,rpg.gcount,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
 				+ " FROM video v "
 				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
 				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "
 				+ " LEFT JOIN country cn ON ct.countryId = cn.countryId "
 				+ " LEFT JOIN continent cnt ON cn.continentId = cnt.continentId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) vcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 3 "
+				+ " GROUP BY r.portfolioId ) rpv ON pf.portfolioId = rpv.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) bcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 2 "
+				+ " GROUP BY r.portfolioId ) rpb ON pf.portfolioId = rpb.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) gcount,r.portfolioId "
+			    + " FROM record r "
+			    + " WHERE r.paramId = 1 "
+			    + " GROUP BY r.portfolioId ) rpg ON pf.portfolioId = rpg.portfolioId "
 				+ " WHERE ( pf.portfolioName LIKE :keyword "
 				+ " OR ct.cityName  LIKE :keyword "
 				+ " OR cn.countryName LIKE :keyword "
@@ -131,7 +177,85 @@ public class PortfolioSearchDaoImpl implements PortfolioSearchDao {
 		return ans;
 	}
 
+	
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Map<String, Object>> queryKeywordByV(String keyword) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,rpv.vcount,rpb.bcount,rpg.gcount,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
+				+ " FROM video v "
+				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
+				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "
+				+ " LEFT JOIN country cn ON ct.countryId = cn.countryId "
+				+ " LEFT JOIN continent cnt ON cn.continentId = cnt.continentId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) vcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 3 "
+				+ " GROUP BY r.portfolioId ) rpv ON pf.portfolioId = rpv.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) bcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 2 "
+				+ " GROUP BY r.portfolioId ) rpb ON pf.portfolioId = rpb.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) gcount,r.portfolioId "
+			    + " FROM record r "
+			    + " WHERE r.paramId = 1 "
+			    + " GROUP BY r.portfolioId ) rpg ON pf.portfolioId = rpg.portfolioId "
+				+ " WHERE ( pf.portfolioName LIKE :keyword "
+				+ " OR ct.cityName  LIKE :keyword "
+				+ " OR cn.countryName LIKE :keyword "
+				+ " OR cnt.continentName LIKE :keyword ) AND v.v_freeze = 0 "
+				+ " ORDER BY rpv.vcount DESC ";
+		
+		//設定結果集:設定結果類型為List<Map<String, Object>>
+		Query q =  session.createNativeQuery(sql);
+		q.unwrap(NativeQueryImpl.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+		
+		List<Map<String, Object>> ans = q.
+					setParameter("keyword","%" + keyword  +"%").list();	
+		
+		return ans;
+	}
+
+	
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Map<String, Object>> queryKeywordByG(String keyword) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,rpv.vcount,rpb.bcount,rpg.gcount,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
+				+ " FROM video v "
+				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
+				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "
+				+ " LEFT JOIN country cn ON ct.countryId = cn.countryId "
+				+ " LEFT JOIN continent cnt ON cn.continentId = cnt.continentId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) vcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 3 "
+				+ " GROUP BY r.portfolioId ) rpv ON pf.portfolioId = rpv.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) bcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 2 "
+				+ " GROUP BY r.portfolioId ) rpb ON pf.portfolioId = rpb.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) gcount,r.portfolioId "
+			    + " FROM record r "
+			    + " WHERE r.paramId = 1 "
+			    + " GROUP BY r.portfolioId ) rpg ON pf.portfolioId = rpg.portfolioId "
+				+ " WHERE ( pf.portfolioName LIKE :keyword "
+				+ " OR ct.cityName  LIKE :keyword "
+				+ " OR cn.countryName LIKE :keyword "
+				+ " OR cnt.continentName LIKE :keyword ) AND v.v_freeze = 0 "
+				+ " ORDER BY rpg.gcount DESC ";
+		
+		//設定結果集:設定結果類型為List<Map<String, Object>>
+		Query q =  session.createNativeQuery(sql);
+		q.unwrap(NativeQueryImpl.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+		
+		List<Map<String, Object>> ans = q.
+					setParameter("keyword","%" + keyword  +"%").list();	
+		
+		return ans;
+	}
 
 	@Override
 	public ContinentBean queryContinentName(String continentName) {		
@@ -154,15 +278,27 @@ public class PortfolioSearchDaoImpl implements PortfolioSearchDao {
 	@Override
 	public List<Map<String, Object>> queryPersonalKeyword(String keyword, Integer mId) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
+		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,rpv.vcount,rpb.bcount,rpg.gcount,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
 				+ " FROM video v "
 				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
 				+ " LEFT JOIN member mb ON mb.mId = pf.mId "
 				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "
 				+ " LEFT JOIN country cn ON ct.countryId = cn.countryId "
 				+ " LEFT JOIN continent cnt ON cn.continentId = cnt.continentId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) vcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 3 "
+				+ " GROUP BY r.portfolioId ) rpv ON pf.portfolioId = rpv.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) bcount,r.portfolioId "
+			    + " FROM record r "
+				+ " WHERE r.paramId = 2 "
+				+ " GROUP BY r.portfolioId ) rpb ON pf.portfolioId = rpb.portfolioId "
+				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) gcount,r.portfolioId "
+			    + " FROM record r "
+			    + " WHERE r.paramId = 1 "
+			    + " GROUP BY r.portfolioId ) rpg ON pf.portfolioId = rpg.portfolioId "
 				+ " WHERE ( pf.portfolioName LIKE :keyword "
-				+ " OR ct.cityName  LIKE :keyword "
+				+ " OR ct.cityName LIKE :keyword "
 				+ " OR cn.countryName LIKE :keyword "
 				+ " OR cnt.continentName LIKE :keyword ) AND mb.mId = :mId AND v.v_freeze = 0 " ;
 		

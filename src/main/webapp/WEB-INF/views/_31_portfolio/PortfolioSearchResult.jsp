@@ -86,10 +86,10 @@
 				<div class="col">
 					<select class="form-select" aria-label="Default select example" onChange="location = this.options[this.selectedIndex].value;" >
 						<option selected>選擇排序方式</option>
-						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=1" >依新到舊時間排序</option>
-						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=2" >依舊到新時間排序</option>
-						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=3">依觀看數次數</option>
-						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=4">依按讚數</option>
+						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=1">依新到舊時間排序</option>
+						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=2">依舊到新時間排序</option>
+						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=3">依觀看數次數排序</option>
+						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=4">依按讚數排序</option>
 					</select>
 				</div>
 				<!-- 搜尋--------------------------------------------------------------- -->
@@ -139,11 +139,12 @@
 							<!--按讚次數-->
 							<div id="great">
 								<a href="#"> <i class="far fa-thumbs-up"></i>
-								</a> <span>103</span> <a href="#"> <i class="far fa-thumbs-down"></i>
-								</a> <span>1</span>
+								</a> <span><c:if test="${row.gcount==null}">0</c:if><c:if test="${row.gcount!=null}">${row.gcount}</c:if></span> 
+								<a href="#"> <i class="far fa-thumbs-down"></i>
+								</a> <span><c:if test="${row.bcount==null}">0</c:if><c:if test="${row.bcount!=null}">${row.bcount}</c:if></span>
 							</div>
 							<!-- 觀看次數 -->
-							<div>觀看次數: 123456次</div>
+							<div>觀看次數: <c:if test="${row.vcount==null}">0</c:if><c:if test="${row.vcount!=null}">${row.vcount}</c:if>次</div>
 							<p></p>
 						</div>
 					</c:forEach>

@@ -27,6 +27,10 @@ public class ShowPersonalPortfolioServiceImpl implements ShowPersonalPortfolioSe
 			return queryPersonalPortfolioDao.getMemberPortfolioDESC((Integer) model.getAttribute("mId"));
 		} else if (paramsBeanVo.getParam() == 2) {
 			return queryPersonalPortfolioDao.getMemberPortfolioASC((Integer) model.getAttribute("mId"));
+		} else if (paramsBeanVo.getParam() == 3) {
+			return queryPersonalPortfolioDao.getMemberPortfolioByV((Integer) model.getAttribute("mId"));
+		} else if (paramsBeanVo.getParam() == 4) {
+			return queryPersonalPortfolioDao.getMemberPortfolioByG((Integer) model.getAttribute("mId"));
 		}
 
 		return queryPersonalPortfolioDao.getMemberPortfolio((Integer) model.getAttribute("mId"));
