@@ -21,19 +21,19 @@ USE `spotstourdb`;
 DROP TABLE IF EXISTS `activity`;
 
 CREATE TABLE `activity` (
-  `activityId` int NOT NULL AUTO_INCREMENT,
-  `activityContent` varchar(255) DEFAULT NULL,
-  `activityHeader` varchar(255) DEFAULT NULL,
-  `activity_createTime` date DEFAULT NULL,
-  `activity_freeze` int DEFAULT NULL,
-  `activityPic` mediumblob,
-  `activityFileName` varchar(255) DEFAULT NULL,
+  `activityId` INT NOT NULL AUTO_INCREMENT,
+  `activityContent` VARCHAR(255) DEFAULT NULL,
+  `activityHeader` VARCHAR(255) DEFAULT NULL,
+  `activity_createTime` DATE DEFAULT NULL,
+  `activity_freeze` INT DEFAULT NULL,
+  `activityPic` MEDIUMBLOB,
+  `activityFileName` VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (`activityId`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 /*Data for the table `activity` */
 
-insert  into `activity`(`activityId`,`activityContent`,`activityHeader`,`activity_createTime`,`activity_freeze`,`activityPic`,`activityFileName`) values 
+INSERT  INTO `activity`(`activityId`,`activityContent`,`activityHeader`,`activity_createTime`,`activity_freeze`,`activityPic`,`activityFileName`) VALUES 
 (1,'歡慶牛年，扭轉乾坤，購物好時機','新年特惠，全館免運!','2021-01-01',0,NULL,''),
 (2,'新春特惠，全館免運! 輸入折扣碼SPOTSTOURJAVA015','新春優惠，全館免運!','2021-01-15',0,NULL,''),
 (3,'週年慶優惠 輸入折扣碼享八折優惠','週年慶優惠，全館免運','2021-02-02',0,NULL,''),
@@ -47,18 +47,18 @@ insert  into `activity`(`activityId`,`activityContent`,`activityHeader`,`activit
 DROP TABLE IF EXISTS `city`;
 
 CREATE TABLE `city` (
-  `cityId` int NOT NULL AUTO_INCREMENT,
-  `cityName` varchar(20) NOT NULL,
-  `countryId` int NOT NULL,
+  `cityId` INT NOT NULL AUTO_INCREMENT,
+  `cityName` VARCHAR(20) NOT NULL,
+  `countryId` INT NOT NULL,
   PRIMARY KEY (`cityId`),
   KEY `city_countryId_fk` (`countryId`),
   CONSTRAINT `city_countryId_fk` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`),
   CONSTRAINT `FK78hf6lwr8j8c707wuvur9e0am` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 
 /*Data for the table `city` */
 
-insert  into `city`(`cityId`,`cityName`,`countryId`) values 
+INSERT  INTO `city`(`cityId`,`cityName`,`countryId`) VALUES 
 (1,'台北',1),
 (2,'台中',1),
 (3,'高雄',1),
@@ -123,14 +123,14 @@ insert  into `city`(`cityId`,`cityName`,`countryId`) values
 DROP TABLE IF EXISTS `continent`;
 
 CREATE TABLE `continent` (
-  `continentId` int NOT NULL AUTO_INCREMENT,
-  `continentName` varchar(15) NOT NULL,
+  `continentId` INT NOT NULL AUTO_INCREMENT,
+  `continentName` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`continentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `continent` */
 
-insert  into `continent`(`continentId`,`continentName`) values 
+INSERT  INTO `continent`(`continentId`,`continentName`) VALUES 
 (1,'亞洲'),
 (2,'美洲'),
 (3,'歐洲'),
@@ -143,18 +143,18 @@ insert  into `continent`(`continentId`,`continentName`) values
 DROP TABLE IF EXISTS `country`;
 
 CREATE TABLE `country` (
-  `countryId` int NOT NULL AUTO_INCREMENT,
-  `countryName` varchar(20) NOT NULL,
-  `continentId` int NOT NULL,
+  `countryId` INT NOT NULL AUTO_INCREMENT,
+  `countryName` VARCHAR(20) NOT NULL,
+  `continentId` INT NOT NULL,
   PRIMARY KEY (`countryId`),
   KEY `country_continentId_fk` (`continentId`),
   CONSTRAINT `country_continentId_fk` FOREIGN KEY (`continentId`) REFERENCES `continent` (`continentId`),
   CONSTRAINT `FKh5vexlgdygaio95pyc9akil7i` FOREIGN KEY (`continentId`) REFERENCES `continent` (`continentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 /*Data for the table `country` */
 
-insert  into `country`(`countryId`,`countryName`,`continentId`) values 
+INSERT  INTO `country`(`countryId`,`countryName`,`continentId`) VALUES 
 (1,'台灣',1),
 (2,'日本',1),
 (3,'中國',1),
@@ -199,43 +199,118 @@ insert  into `country`(`countryId`,`countryName`,`continentId`) values
 DROP TABLE IF EXISTS `feedback`;
 
 CREATE TABLE `feedback` (
-  `feedbackId` int NOT NULL AUTO_INCREMENT,
-  `feedbackText` varchar(100) NOT NULL,
-  `f_createTime` datetime NOT NULL,
-  `fb_freeze` tinyint NOT NULL DEFAULT '0',
-  `itemId` int NOT NULL,
+  `feedbackId` INT NOT NULL AUTO_INCREMENT,
+  `feedbackText` VARCHAR(100) NOT NULL,
+  `f_createTime` DATETIME NOT NULL,
+  `fb_freeze` TINYINT NOT NULL DEFAULT '0',
+  `itemId` INT NOT NULL,
   PRIMARY KEY (`feedbackId`),
   KEY `feedback_itemId_fk` (`itemId`),
   CONSTRAINT `feedback_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`),
   CONSTRAINT `FKs9iiqmtehauufulmipc8mu61r` FOREIGN KEY (`itemId`) REFERENCES `item` (`itemId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `feedback` */
 
-insert  into `feedback`(`feedbackId`,`feedbackText`,`f_createTime`,`fb_freeze`,`itemId`) values 
+INSERT  INTO `feedback`(`feedbackId`,`feedbackText`,`f_createTime`,`fb_freeze`,`itemId`) VALUES 
 (1,'好吃','2021-02-23 02:02:54',0,1),
 (2,'很好吃','2021-02-24 01:57:07',0,1),
 (3,'非常好吃','2021-02-25 00:02:57',0,1),
 (4,'好吃!!','2021-02-23 00:03:00',0,2),
 (5,'很好吃!!','2021-02-24 00:04:00',0,2),
-(6,'非常好吃!!','2021-02-25 00:05:00',0,2);
+(6,'非常好吃!!','2021-02-25 00:05:00',0,2),
+(7,'真的超級無敵好吃的!!','2021-02-23 00:03:00',0,3),
+(8,'物超所值!!','2021-02-24 00:04:00',0,3),
+(9,'很適合當伴手禮!!','2021-02-25 00:05:00',0,3),
+(10,'真的很好用耶!!','2021-02-23 00:03:00',0,4),
+(11,'物超所值!!','2021-02-24 00:04:00',0,4),
+(12,'實在是有夠厲害!!','2021-02-25 00:05:00',0,4),
+(13,'很適合當點心!!','2021-02-23 00:03:00',0,5),
+(14,'物超所值!!','2021-02-24 00:04:00',0,5),
+(15,'同事都說好吃!!','2021-02-25 00:05:00',0,5),
+(16,'很適合當點心!!','2021-02-23 00:03:00',0,6),
+(17,'北海道限定就是不一樣，就是好吃!!','2021-02-24 00:04:00',0,6),
+(18,'朋友們都說好吃!!','2021-02-25 00:05:00',0,6),
+(19,'很適合當點心!!','2021-02-23 00:03:00',0,7),
+(20,'這個口味很讚!!','2021-02-24 00:04:00',0,7),
+(21,'同事都說好吃!!','2021-02-25 00:05:00',0,7),
+(22,'很適合當點心!!','2021-02-23 00:03:00',0,8),
+(23,'這個口感滿分!!','2021-02-24 00:04:00',0,8),
+(24,'同事都說好吃!!','2021-02-25 00:05:00',0,8),
+(25,'實在是有夠好用!!','2021-02-23 00:03:00',0,9),
+(26,'專業品質沒話說!!','2021-02-24 00:04:00',0,9),
+(27,'朋友們都推薦!!','2021-02-25 00:05:00',0,9),
+(28,'這個口感很讚!!','2021-02-23 00:03:00',0,10),
+(29,'真心推薦!!','2021-02-24 00:04:00',0,10),
+(30,'朋友們都推薦!!','2021-02-25 00:05:00',0,10),
+(31,'這個口感很讚!!','2021-02-23 00:03:00',0,11),
+(32,'真心推薦!!','2021-02-24 00:04:00',0,11),
+(33,'朋友們都推薦!!','2021-02-25 00:05:00',0,11),
+(34,'這個口感很讚!!','2021-02-23 00:03:00',0,12),
+(35,'真心覺得值得推薦!!','2021-02-24 00:04:00',0,12),
+(36,'連身邊的朋友們都很推薦!!','2021-02-25 00:05:00',0,12),
+(37,'這個口感很讚!!','2021-02-23 00:03:00',0,13),
+(38,'真心覺得值得推薦!!','2021-02-24 00:04:00',0,13),
+(39,'連身邊的朋友們都很推薦!!','2021-02-25 00:05:00',0,13),
+(40,'這個口味真的很讚!!','2021-02-23 00:03:00',0,14),
+(41,'真心覺得值得推薦!!','2021-02-24 00:04:00',0,14),
+(42,'連身邊的朋友們都很推薦!!','2021-02-25 00:05:00',0,14),
+(43,'這個口味真的很讚!!','2021-02-23 00:03:00',0,15),
+(44,'真心覺得值得推薦!!','2021-02-24 00:04:00',0,15),
+(45,'真的是欲罷不能的好滋味!!','2021-02-25 00:05:00',0,15),
+(46,'真的很好用耶!!','2021-02-23 00:03:00',0,16),
+(47,'物超所值!!','2021-02-24 00:04:00',0,16),
+(48,'很有設計感!!','2021-02-25 00:05:00',0,16),
+(49,'真的很好用耶!!','2021-02-23 00:03:00',0,17),
+(50,'物超所值!!','2021-02-24 00:04:00',0,17),
+(51,'有它在，製作麵包不再麻煩!!','2021-02-25 00:05:00',0,17),
+(52,'真的很好用耶!!','2021-02-23 00:03:00',0,18),
+(53,'物超所值!!','2021-02-24 00:04:00',0,18),
+(54,'超級推薦!!','2021-02-25 00:05:00',0,18),
+(55,'真的很有效耶!!','2021-02-23 00:03:00',0,19),
+(56,'止咳化痰非常有效!!','2021-02-24 00:04:00',0,19),
+(57,'真心覺得值得推薦!!','2021-02-25 00:05:00',0,19),
+(58,'這個口味真的很讚!!','2021-02-23 00:03:00',0,20),
+(59,'真心覺得值得推薦!!','2021-02-24 00:04:00',0,20),
+(60,'真的是欲罷不能的好滋味!!','2021-02-25 00:05:00',0,20),
+(61,'這真的很好吃!!','2021-02-23 00:03:00',0,21),
+(62,'真心覺得值得推薦!!','2021-02-24 00:04:00',0,21),
+(63,'真的是欲罷不能的好滋味!!','2021-02-25 00:05:00',0,21),
+(64,'這真的很好吃!!','2021-02-23 00:03:00',0,22),
+(65,'真心覺得值得推薦!!','2021-02-24 00:04:00',0,22),
+(66,'真的是欲罷不能的好滋味!!','2021-02-25 00:05:00',0,22),
+(67,'這真的是太好吃!!','2021-02-23 00:03:00',0,23),
+(68,'真心覺得值得推薦!!','2021-02-24 00:04:00',0,23),
+(69,'欲罷不能的好滋味!!','2021-02-25 00:05:00',0,23),
+(70,'這真的是太好吃!!','2021-02-23 00:03:00',0,24),
+(71,'真心覺得值得推薦!!','2021-02-24 00:04:00',0,24),
+(72,'欲罷不能的好滋味!!','2021-02-25 00:05:00',0,24),
+(73,'這真的是太好吃!!','2021-02-23 00:03:00',0,25),
+(74,'真心覺得值得推薦!!','2021-02-24 00:04:00',0,25),
+(75,'欲罷不能的好滋味!!','2021-02-25 00:05:00',0,25),
+(76,'這真的是很好用!!','2021-02-23 00:03:00',0,26),
+(77,'很值得推薦的好物!!','2021-02-24 00:04:00',0,26),
+(78,'效果超好一定要買!!','2021-02-25 00:05:00',0,26),
+(79,'這真的是很好用!!','2021-02-23 00:03:00',0,27),
+(80,'很值得推薦的好物!!','2021-02-24 00:04:00',0,27),
+(81,'一定要買!!','2021-02-25 00:05:00',0,27);
 
 /*Table structure for table `item` */
 
 DROP TABLE IF EXISTS `item`;
 
 CREATE TABLE `item` (
-  `itemId` int NOT NULL AUTO_INCREMENT,
-  `itemHeader` varchar(40) NOT NULL,
-  `itemPrice` int NOT NULL,
-  `itemQty` int NOT NULL,
-  `itemDes` varchar(500) NOT NULL,
-  `itId` int NOT NULL,
-  `itemPic1` varchar(6000) DEFAULT NULL,
-  `itemPic2` varchar(6000) DEFAULT NULL,
-  `itemPic3` varchar(6000) DEFAULT NULL,
-  `item_freeze` tinyint NOT NULL DEFAULT '0',
-  `countryId` int NOT NULL,
+  `itemId` INT NOT NULL AUTO_INCREMENT,
+  `itemHeader` VARCHAR(40) NOT NULL,
+  `itemPrice` INT NOT NULL,
+  `itemQty` INT NOT NULL,
+  `itemDes` VARCHAR(500) NOT NULL,
+  `itId` INT NOT NULL,
+  `itemPic1` VARCHAR(6000) DEFAULT NULL,
+  `itemPic2` VARCHAR(6000) DEFAULT NULL,
+  `itemPic3` VARCHAR(6000) DEFAULT NULL,
+  `item_freeze` TINYINT NOT NULL DEFAULT '0',
+  `countryId` INT NOT NULL,
   PRIMARY KEY (`itemId`),
   KEY `item_itId_fk` (`itId`),
   KEY `item_countryId_fk` (`countryId`),
@@ -243,11 +318,11 @@ CREATE TABLE `item` (
   CONSTRAINT `FKtffcamb09gjp3yigshjgybdvs` FOREIGN KEY (`itId`) REFERENCES `item_type` (`itId`),
   CONSTRAINT `item_countryId_fk` FOREIGN KEY (`countryId`) REFERENCES `country` (`countryId`),
   CONSTRAINT `item_itId_fk` FOREIGN KEY (`itId`) REFERENCES `item_type` (`itId`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 /*Data for the table `item` */
 
-insert  into `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`,`itemPic1`,`itemPic2`,`itemPic3`,`item_freeze`,`countryId`) values 
+INSERT  INTO `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`,`itemPic1`,`itemPic2`,`itemPic3`,`item_freeze`,`countryId`) VALUES 
 (1,'MAMA泰國泡麵',10,350,'最常見的泰式泡麵，結合打拋豬肉和豬骨湯，口味偏清淡，三大品牌都有出這口味，但是最推MAMA的！',1,'itemImages/MAMA1.jpg','itemImages/MAMA2.jpg','itemImages/MAMA3.jpg',0,6),
 (2,'紫玉酥禮盒(6入)',250,100,'台中大甲裕珍馨人氣商品！以大甲芋頭及優質米為開發概念，酥、鬆、Q多重口感在口中綻放！',1,'itemImages/紫玉酥禮盒1.jpg','itemImages/紫玉酥禮盒2.jpg','itemImages/紫玉酥禮盒3.jpg',0,1),
 (3,'Press Butter Sand焦糖奶油餅',264,220,'當前東京最受矚目、最夯排隊伴手禮，焦糖奶油夾心餅，超級無敵有夠好吃！\r\n特製烤模壓製，餅乾酥香硬脆口感創舉大突破，內餡爆漿牽絲的奶油焦糖雙餡更是完美迷人不甜膩。',1,'itemImages/焦糖奶油餅1.jpg','itemImages/焦糖奶油餅2.jpg','itemImages/焦糖奶油餅3.jpg',0,2),
@@ -281,14 +356,14 @@ insert  into `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`
 DROP TABLE IF EXISTS `item_type`;
 
 CREATE TABLE `item_type` (
-  `itId` int NOT NULL AUTO_INCREMENT,
-  `itemType` varchar(10) NOT NULL,
+  `itId` INT NOT NULL AUTO_INCREMENT,
+  `itemType` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`itId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `item_type` */
 
-insert  into `item_type`(`itId`,`itemType`) values 
+INSERT  INTO `item_type`(`itId`,`itemType`) VALUES 
 (1,'食品'),
 (2,'生活家居'),
 (3,'美妝保養'),
@@ -300,20 +375,20 @@ insert  into `item_type`(`itId`,`itemType`) values
 DROP TABLE IF EXISTS `member`;
 
 CREATE TABLE `member` (
-  `mId` int NOT NULL AUTO_INCREMENT,
-  `mAN` varchar(15) NOT NULL,
-  `mPw` varchar(15) NOT NULL,
-  `mGender` varchar(10) NOT NULL,
-  `mName` varchar(10) NOT NULL,
-  `mUid` varchar(10) NOT NULL,
-  `mBDay` datetime NOT NULL,
-  `mEmail` varchar(30) NOT NULL,
-  `mPhone` varchar(10) NOT NULL,
-  `d_mAddress` varchar(40) NOT NULL,
-  `m_createTime` datetime NOT NULL,
-  `mPic` varchar(21000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `m_verify` tinyint NOT NULL DEFAULT '0',
-  `mPid` int NOT NULL,
+  `mId` INT NOT NULL AUTO_INCREMENT,
+  `mAN` VARCHAR(15) NOT NULL,
+  `mPw` VARCHAR(15) NOT NULL,
+  `mGender` VARCHAR(10) NOT NULL,
+  `mName` VARCHAR(10) NOT NULL,
+  `mUid` VARCHAR(10) NOT NULL,
+  `mBDay` DATETIME NOT NULL,
+  `mEmail` VARCHAR(30) NOT NULL,
+  `mPhone` VARCHAR(10) NOT NULL,
+  `d_mAddress` VARCHAR(40) NOT NULL,
+  `m_createTime` DATETIME NOT NULL,
+  `mPic` VARCHAR(21000) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `m_verify` TINYINT NOT NULL DEFAULT '0',
+  `mPid` INT NOT NULL,
   PRIMARY KEY (`mId`),
   KEY `member_mPid_fk` (`mPid`),
   CONSTRAINT `FKm7kkdfwqd0u1h50am44ijl07e` FOREIGN KEY (`mPid`) REFERENCES `member_perm` (`mPid`),
