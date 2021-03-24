@@ -38,9 +38,10 @@ public class PortfolioSearchController {
 //	}
 
 	// 關鍵字查詢
-	@RequestMapping(value = "/SearchResult", method = RequestMethod.GET)
-	public String getSearchWordForm(Model model, @ModelAttribute(name = "searchWord") String searchWord, HttpSession session) {
-		model.addAttribute("resultList", psService.queryKeyword(searchWord));
+	@GetMapping(value = "/SearchResult")
+	public String getSearchWordForm(@ModelAttribute(name = "searchWord") String searchWord,@ModelAttribute(name = "param") String param, HttpSession session,Model model) {
+		model.addAttribute("searchWord", searchWord);
+		model.addAttribute("resultList", psService.queryKeyword(searchWord,param));
 		session.setAttribute("portfolioId", null);
 		return "_31_portfolio/PortfolioSearchResult";
 

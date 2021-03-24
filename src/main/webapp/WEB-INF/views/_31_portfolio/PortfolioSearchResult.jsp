@@ -81,14 +81,15 @@
 			<!--上方-->
 			<div class="row">
 				<!--搜尋結果-->
-				<div class="col-2"></div>
+				<div class="col-3"></div>
 				<!--按鈕  -->
 				<div class="col">
-					<select class="form-select" aria-label="Default select example">
+					<select class="form-select" aria-label="Default select example" onChange="location = this.options[this.selectedIndex].value;" >
 						<option selected>選擇排序方式</option>
-						<option value="time">依時間</option>
-						<option value="look">依觀看數次數</option>
-						<option value="good">依按讚數</option>
+						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=1" >依新到舊時間排序</option>
+						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=2" >依舊到新時間排序</option>
+						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=3">依觀看數次數</option>
+						<option value="${pageContext.request.contextPath}/SearchResult?searchWord=${searchWord}&param=4">依按讚數</option>
 					</select>
 				</div>
 				<!-- 搜尋--------------------------------------------------------------- -->
@@ -143,6 +144,7 @@
 							</div>
 							<!-- 觀看次數 -->
 							<div>觀看次數: 123456次</div>
+							<p></p>
 						</div>
 					</c:forEach>
 				</div>
