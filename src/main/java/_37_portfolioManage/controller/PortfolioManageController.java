@@ -16,6 +16,7 @@ import _02_model.entity.CityBean;
 import _02_model.entity.Place_TypeBean;
 import _32_portfolioSearch.controller.vo.Portfolio_MsgBeanVo;
 import _32_portfolioSearch.service.PortfolioMsgService;
+import _37_portfolioManage.controller.vo.ParamsBeanVo;
 import _37_portfolioManage.controller.vo.PortfolioBeanVo;
 import _37_portfolioManage.service.PortfolioService;
 import _37_portfolioManage.service.GetCityListService;
@@ -61,9 +62,9 @@ public class PortfolioManageController {
 
 	//個人作品跳轉
 	@RequestMapping("personalPortfolio")
-	public String getPersonalVideo(HttpSession session, Model model) {
+	public String getPersonalVideo(@ModelAttribute ParamsBeanVo paramsBeanVo,Model model,HttpSession session) {
 		model.addAttribute("mId", session.getAttribute("mId"));
-		model.addAttribute("memberPortfolioList", showPersonalPortfolioService.queryMemberPortfolio(model));
+		model.addAttribute("memberPortfolioList", showPersonalPortfolioService.queryMemberPortfolio(model,paramsBeanVo));
 		//清空portfolioId
 		session.setAttribute("portfolioId", null);
 		return "_31_portfolio/PersonalPortfolio";

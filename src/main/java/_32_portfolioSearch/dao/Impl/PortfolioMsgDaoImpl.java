@@ -32,7 +32,8 @@ public class PortfolioMsgDaoImpl implements PortfolioMsgDao {
 				+ " FROM portfoliomsg ps "
 				+ " LEFT JOIN portfolio pf ON ps.portfolioId = pf.portfolioId "
 				+ " LEFT JOIN member mb ON ps.mId = mb.mId "
-				+ " WHERE ps.portfolioId = :portfolioId AND ps.pmsg_freeze = 0 " ;
+				+ " WHERE ps.portfolioId = :portfolioId AND ps.pmsg_freeze = 0 " 
+				+ " ORDER BY ps.pm_createTime ASC ";
 //		String sql = " SELECT n.portfolioId,n.portfolioMsgId,n.pmsg_freeze,n.msgText,n.pm_createTime,n.pmsg_freeze,mb.mId,mb.mName,mb.mPic "
 //				+ " FROM "
 //				+ " ( SELECT ps.portfolioId,ps.portfolioMsgId,ps.msgText,ps.pm_createTime,ps.pmsg_freeze,ps.mId "

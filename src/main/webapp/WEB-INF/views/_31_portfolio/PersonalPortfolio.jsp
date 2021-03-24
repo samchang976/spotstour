@@ -98,11 +98,17 @@ td div, .like-table div {
 			<!-- 控制盤 -->
 			<div class="row row row-cols-1 row-cols-md-2"
 				style="margin-top: 10px">
-				<div class="col-md-6" style="padding-left: 40px;">
+				<div class="col-md-8" style="padding-left: 40px;">
 					<button class="btn btn-primary" style="margin-right: 10px;"
 						onclick="location.href='${pageContext.request.contextPath}/videoCreate'">新增影片</button>
-					<button class="btn btn-primary" style="margin-right: 10px;"
-						onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">依時間排序</button>
+					<form action="personalPortfolio" method="post">
+						<input type="hidden" name="param" value="1">
+						<button class="btn btn-primary" style="margin-right: 10px;" type="submit">依新到舊時間排序</button>
+					</form>	
+					<form action="personalPortfolio" method="post">
+						<input type="hidden" name="param" value="2">
+						<button class="btn btn-primary" style="margin-right: 10px;" type="submit">依舊到新時間排序</button>	
+					</form>	
 					<button class="btn btn-primary" style="margin-right: 10px;"
 						onclick="location.href='${pageContext.request.contextPath}/personalPortfolio'">依點閱率排序</button>
 					<!-- 				<button class="Bt_blue" onclick="history.back()" style="margin-right: 5px;">回上一頁</button> -->
@@ -110,7 +116,7 @@ td div, .like-table div {
 						onclick="location.href='${pageContext.request.contextPath}/index'"
 						style="margin-right: 35px;">回首頁</button>
 				</div>
-				<div class="col-md-6" style="padding-right: 40px">
+				<div class="col-md-4" style="padding-right: 40px">
 					<form class="d-flex" action="SearchPortfolioDetail" method="get">
 						<input class="form-control me-2" type="text" name="searchWord"
 							placeholder="Search" aria-label="Search">
