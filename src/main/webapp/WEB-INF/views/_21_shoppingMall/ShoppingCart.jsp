@@ -136,7 +136,7 @@
 				<hr>
 				<!-- 商品清單 ，動態新增---------------------------------------------------->
 				<c:forEach varStatus='vs' var='cart' items='${cart}'>
-					<div class="row CartItem">
+					<div class="row CartItem" id="CartItem${vs.index}">
 						<!-- 選擇欄 ------------------------------------------------------- -->
 						<div class="col-1 ItemField">
 							<div>
@@ -191,7 +191,8 @@
 
 						<!-- 庫存----------------------------------------------------------->
 						<div class="col-1 ItemField">
-							<span id="Stock${vs.index}">${cart.itemBean.itemQty}</span>個
+<%-- 							<span id="Stock${vs.index}">${cart.itemBean.itemQty}</span> --%>
+							<span id="Stock${vs.index}">${cart.itemBean.itemQty}</span>
 						</div>
 
 						<!-- 刪除----- ----------------------------------------------------->
@@ -225,8 +226,36 @@
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
 	<script
-		src="<c:url value='/_00_util/shoppingMallUtil/javascript/shoppingCart.js'></c:url>"></script>
+		src="<c:url value='/_00_util/shoppingMallUtil/javascript/shoppingCart.js'></c:url>">
+	</script>
 
+	<script>
+		function doFirst() {
+		var items = document.querySelectorAll(".CartItem");
+		for(i=0;i<items.length;i++){
+			Qty = parseInt(document.getElementById("Qty"+i).value); //商品選擇數量
+			Stock=parseInt(document.getElementById("Stock"+i).innerText);//庫存數量
+			// alert(Stock);
+
+			if(Qty > Stock){ //庫存數量不足
+				document.getElementById("Stock"+i).innerText = "庫存數量不足";
+				var i = document.createElement("i");
+					i.setAttribute("class", "fas");
+					i.setAttribute("class", "fa-check");
+			// 　　　　	i.innerHTML = "js 動態新增div";
+			　　　	parent.appendChild(span);
+				
+			}
+			if(Qty <= Stock){ //庫存足夠
+				document.getElementById("Stock"+i).innerText = "ok";
+			}
+		}	
+
+		}
+		window.addEventListener('load',doFirst);
+	
+	
+	</script>
 
 </body>
 </html>

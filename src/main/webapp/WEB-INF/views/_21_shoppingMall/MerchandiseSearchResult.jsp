@@ -74,7 +74,6 @@ body {
 	color: white;
 }
 
-
 /* ===================================================================== */
 .imageFrame {
 	height: 300px; /*can be anything*/
@@ -111,6 +110,33 @@ body {
 	right: 0;
 	margin: auto;
 }
+#gotop {
+	position: fixed;
+	z-index: 90;
+	right: 30px;
+	bottom: 31px;
+	display: none;
+	width: 50px;
+	height: 50px;
+	color: #fff;
+	opacity: 0.4;
+	background: #333333;
+	line-height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+	text-align: center;
+	transition: all 0.5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	/* 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 */
+	/* 		rgba(0, 0, 0, 0.12); */
+}
+
+#gotop :hover {
+	opacity: 1; /* 透明度 */
+	/* 	background: #3641C1; */
+/* 	background: #888888; */
+}
 </style>
 </head>
 <body>
@@ -126,79 +152,80 @@ body {
 			page="/WEB-INF/views/_00_util/shoppingMallUtil/jsp/search.jsp" />
 		<!------------------------------------------------------------------------------------------->
 		<!-- 側邊購物車--------------------------------------------------------------------------------------- -->
-		<jsp:include page="/WEB-INF/views/_21_shoppingMall/SideShoppingCart.jsp"></jsp:include>
-<!-- 		<div id="inCart"> -->
-<!-- 			<i class="fas fa-shopping-bag"></i> -->
-<!-- 			<div> -->
-<%-- 				<c:choose> --%>
-<%-- 					<c:when test="${mPid==2||mPid==1}"> --%>
-<%-- 						<div id="number2">${membercartlist.size()}</div> --%>
-<%-- 					</c:when> --%>
-<%-- 					<c:otherwise> --%>
-<!-- 						<div id="number"></div> -->
-<%-- 					</c:otherwise> --%>
-<%-- 				</c:choose> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
+		<jsp:include
+			page="/WEB-INF/views/_21_shoppingMall/SideShoppingCart.jsp"></jsp:include>
+		<!-- 		<div id="inCart"> -->
+		<!-- 			<i class="fas fa-shopping-bag"></i> -->
+		<!-- 			<div> -->
+		<%-- 				<c:choose> --%>
+		<%-- 					<c:when test="${mPid==2||mPid==1}"> --%>
+		<%-- 						<div id="number2">${membercartlist.size()}</div> --%>
+		<%-- 					</c:when> --%>
+		<%-- 					<c:otherwise> --%>
+		<!-- 						<div id="number"></div> -->
+		<%-- 					</c:otherwise> --%>
+		<%-- 				</c:choose> --%>
+		<!-- 			</div> -->
+		<!-- 		</div> -->
 
-<!-- 		<div id="imgBoard"> -->
-<!-- 			購物車 -->
-<!-- 			<!--判斷購物車內是否有相同商品:未顯示-----------------------------------------------------------> 
-<!-- 			<div id="sessionCart"> -->
-<!-- 									map取值:OO.key/OO.value -->
-<%-- 				<c:forEach var="sessioncart" items="${sessionShoppingCart}"> --%>
-<%-- 						${sessioncart.key}, --%>
-<%-- 					</c:forEach> --%>
-<!-- 			</div> -->
-<!-- 			<!------------------------------------------------------------------------------------> 
-<%-- 			<c:choose> --%>
-<%-- 				<c:when test="${mPid==2||mPid==1}"> --%>
-<!-- 					會員--------------------------------------------------------------------------------------- -->
-<!-- 					<div> -->
-<%-- 						<c:forEach var="membercartlist" items="${membercartlist}"> --%>
-<%-- 							<form> --%>
-<!-- 								<i class="fas fa-minus-circle" -->
-<%-- 									onclick="location.href='shoppingCart/delete/Id=${membercartlist.sc_Id}'"></i> --%>
-<!-- 								<div class="imageFrameSide"> -->
-<!-- 									<img class="img" -->
-<%-- 										src="/upload/${membercartlist.itemBean.itemPic1}" alt="商品照片"></img> --%>
-<!-- 								</div> -->
-<%-- 														<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
-<!-- 								<img src="#" alt="商品照片"></img> -->
-<%-- 								<div>${membercartlist.itemBean.itemHeader}</div> --%>
-<%-- 								<div>${membercartlist.itemBean.itemPrice}元</div> --%>
-<%-- 							</form> --%>
-<%-- 						</c:forEach> --%>
-<!-- 					</div> -->
+		<!-- 		<div id="imgBoard"> -->
+		<!-- 			購物車 -->
+		<!-- 			<!--判斷購物車內是否有相同商品:未顯示----------------------------------------------------------->
+		<!-- 			<div id="sessionCart"> -->
+		<!-- 									map取值:OO.key/OO.value -->
+		<%-- 				<c:forEach var="sessioncart" items="${sessionShoppingCart}"> --%>
+		<%-- 						${sessioncart.key}, --%>
+		<%-- 					</c:forEach> --%>
+		<!-- 			</div> -->
+		<!-- 			<!------------------------------------------------------------------------------------>
+		<%-- 			<c:choose> --%>
+		<%-- 				<c:when test="${mPid==2||mPid==1}"> --%>
+		<!-- 					會員--------------------------------------------------------------------------------------- -->
+		<!-- 					<div> -->
+		<%-- 						<c:forEach var="membercartlist" items="${membercartlist}"> --%>
+		<%-- 							<form> --%>
+		<!-- 								<i class="fas fa-minus-circle" -->
+		<%-- 									onclick="location.href='shoppingCart/delete/Id=${membercartlist.sc_Id}'"></i> --%>
+		<!-- 								<div class="imageFrameSide"> -->
+		<!-- 									<img class="img" -->
+		<%-- 										src="/upload/${membercartlist.itemBean.itemPic1}" alt="商品照片"></img> --%>
+		<!-- 								</div> -->
+		<%-- 														<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
+		<!-- 								<img src="#" alt="商品照片"></img> -->
+		<%-- 								<div>${membercartlist.itemBean.itemHeader}</div> --%>
+		<%-- 								<div>${membercartlist.itemBean.itemPrice}元</div> --%>
+		<%-- 							</form> --%>
+		<%-- 						</c:forEach> --%>
+		<!-- 					</div> -->
 
-<%-- 				</c:when> --%>
-<%-- 				<c:otherwise> --%>
-<!-- 					<div> -->
-<%-- 						<c:forEach var="sessioncartList" --%>
-<%-- 							items="${sessionShoppingCartList}"> --%>
-<%-- 							<form name="sideform${sessioncartList.itemId}"> --%>
-<!-- 								<i class="fas fa-minus-circle" -->
-<%-- 									onclick="deleteItem(${sessioncartList.itemId})"></i> --%>
-<!-- 								<div class="imageFrameSide"> -->
-<%-- 									<img class="img" src="/upload/${sessioncartList.itemPic1}" --%>
-<!-- 										alt="商品照片"></img> -->
-<!-- 								</div> -->
-<%-- 														<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
-<!-- 								<img src="#" alt="商品照片"></img> -->
-<%-- 								<div>${sessioncartList.itemHeader}</div> --%>
-<%-- 								<div>${sessioncartList.itemPrice}元</div> --%>
+		<%-- 				</c:when> --%>
+		<%-- 				<c:otherwise> --%>
+		<!-- 					<div> -->
+		<%-- 						<c:forEach var="sessioncartList" --%>
+		<%-- 							items="${sessionShoppingCartList}"> --%>
+		<%-- 							<form name="sideform${sessioncartList.itemId}"> --%>
+		<!-- 								<i class="fas fa-minus-circle" -->
+		<%-- 									onclick="deleteItem(${sessioncartList.itemId})"></i> --%>
+		<!-- 								<div class="imageFrameSide"> -->
+		<%-- 									<img class="img" src="/upload/${sessioncartList.itemPic1}" --%>
+		<!-- 										alt="商品照片"></img> -->
+		<!-- 								</div> -->
+		<%-- 														<img src="<c:url value='upload/${sessioncartList.itemPic1}'></c:url>" alt="商品照片"></img>  --%>
+		<!-- 								<img src="#" alt="商品照片"></img> -->
+		<%-- 								<div>${sessioncartList.itemHeader}</div> --%>
+		<%-- 								<div>${sessioncartList.itemPrice}元</div> --%>
 
-<%-- 							</form> --%>
-<%-- 						</c:forEach> --%>
-<!-- 					</div> -->
-<%-- 				</c:otherwise> --%>
-<%-- 			</c:choose> --%>
+		<%-- 							</form> --%>
+		<%-- 						</c:forEach> --%>
+		<!-- 					</div> -->
+		<%-- 				</c:otherwise> --%>
+		<%-- 			</c:choose> --%>
 
-<!-- 			<button class="btn addcart" type="button" -->
-<%-- 				onclick="location.href='<c:url value="/shoppingCart/sessionCartSave"/>'">確定購買</button> --%>
-<!-- 			<!-- 				導向存session的controller --> 
+		<!-- 			<button class="btn addcart" type="button" -->
+		<%-- 				onclick="location.href='<c:url value="/shoppingCart/sessionCartSave"/>'">確定購買</button> --%>
+		<!-- 			<!-- 				導向存session的controller -->
 
-<!-- 		</div> -->
+		<!-- 		</div> -->
 		<!--商品------------------------------------------------------------------------------------------------------------  -->
 		<div class="container" id="container_MerchandiseSearchResult">
 			<div class="row row-cols-1 row-cols-md-4 g-3">
@@ -416,6 +443,9 @@ body {
 
 		<!-----------定位----------------------------------------------------------------------------->
 	</div>
+	<div id="gotop">
+		<i class="fa fa-angle-up"></i>
+	</div>
 	<!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
@@ -427,6 +457,41 @@ body {
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
 		crossorigin="anonymous">
 	</script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$.extend($.easing, {
+				easeOutExpo : function(x, t, b, c, d) {
+					return (t == d) ? b + c : c
+							* (-Math.pow(2, -10 * t / d) + 1) + b;
+				}
+			});
+			/* 按下GoTop按鈕時的事件 */
+			$('#gotop').click(function() {
+				$('html,body').animate({
+					scrollTop : 0
+				}, 'easeOutExpo'); /* 返回到最頂上 */
+				return false;
+			});
+			
+			
+
+			/* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > 400) {
+					$('#gotop').fadeIn();
+				} else {
+					$('#gotop').fadeOut();
+				}
+			});
+		});
+	</script>
+	
+	
+	
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script>
   AOS.init();

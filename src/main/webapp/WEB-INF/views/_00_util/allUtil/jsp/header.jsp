@@ -194,9 +194,16 @@ border-radius: 50%;
 				<!-- ======================上方:測試頁面連結區塊================================================================================== -->
 
 				<li class="nav-item dropdown">
-					<c:if test="${ !empty LoginOK }">
-						<span>Hi,${LoginOK.mName}</span>
-					</c:if>
+					<c:choose>
+						<c:when test="${ !empty LoginOK }">
+							<span>Hi,${LoginOK.mName}</span>
+						</c:when>
+						<c:otherwise>
+							<span>Hi,訪客</span>
+						</c:otherwise>
+					</c:choose>
+					
+					
 					<a class="fas fa-cart-plus " data-bs-toggle="dropdown" href="#" role="button"
 						aria-expanded="false" data-bs-toggle="tooltip"
 						data-bs-placement="bottom" title="商城資訊">
