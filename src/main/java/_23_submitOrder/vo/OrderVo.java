@@ -52,8 +52,8 @@ public class OrderVo {
 		return codeNumber;
 	}
 	public void setCodeNumber(String codeNumber) {
-		if(codeNumber == "153") {
-			this.codeNummberValue = "折扣碼錯誤";
+		if(codeNumber.equalsIgnoreCase("SPOTSTOURJAVA015")) {
+			this.codeNummberValue = "折扣碼正確";
 		}else {
 			this.codeNummberValue = "折扣碼正確";
 		}

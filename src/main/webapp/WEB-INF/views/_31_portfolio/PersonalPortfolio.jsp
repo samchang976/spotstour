@@ -4,6 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!doctype html>
 <html lang="en">
@@ -140,6 +141,9 @@ td div, .like-table div {
 							<div class="col-5" style="margin-left: 20px">
 								<div style="margin: 4px;">
 									<H4>${mpl.portfolioName}</H4>
+									<c:set var="fbCreateTime" value="${mpl.p_createTime}" />
+									<fmt:formatDate type="both" dateStyle="long"
+									timeStyle="medium" value="${fbCreateTime}" />
 								</div>
 								<video controls poster="/upload${mpl.videoPic}"
 									style="width: 100%; height: auto">
