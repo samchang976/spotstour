@@ -85,7 +85,7 @@ function anountMethod() {
     for (i = 0; i < items.length; i++) {
         Qty = parseInt(document.getElementById("Qty"+i).value); //商品選擇數量
         // alert(Qty);
-        price = parseInt(document.getElementById("uniPrice" + i).innerText); //商品選擇數量
+        price = parseInt(document.getElementById("uniPrice" + i).innerText); //商品小計
         anount = price * Qty;
         // alert(anount);
         document.getElementById("Total" + i).innerText = anount;
