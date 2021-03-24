@@ -96,6 +96,21 @@
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 	/*  	z-index: auto; */
 }
+
+.fa-times{
+color:red;
+font-size: 1.5rem;
+}
+
+.fa-check{
+color:green;
+font-size: 1.5rem;
+}
+
+.check{
+border: 2px solid red;
+}
+
 </style>
 </head>
 <body>
@@ -135,6 +150,7 @@
 				</div>
 				<hr>
 				<!-- 商品清單 ，動態新增---------------------------------------------------->
+				<div>
 				<c:forEach varStatus='vs' var='cart' items='${cart}'>
 					<div class="row CartItem" id="CartItem${vs.index}">
 						<!-- 選擇欄 ------------------------------------------------------- -->
@@ -201,9 +217,10 @@
 								<input class='btn btn-primary' value="刪除" type="submit">
 							</form>
 						</div>
-						<hr>
 					</div>
+						<hr>
 				</c:forEach>
+				</div>
 				<!--結帳 ------------------------------------------------------------------------ -->
 				<div class="row-12" id="SubtotalBlock">
 					共<span id="items">${cartSize}</span>商品，總金額 : <span id="TotalMoney"></span>元
@@ -232,22 +249,35 @@
 	<script>
 		function doFirst() {
 		var items = document.querySelectorAll(".CartItem");
+		
 		for(i=0;i<items.length;i++){
 			Qty = parseInt(document.getElementById("Qty"+i).value); //商品選擇數量
 			Stock=parseInt(document.getElementById("Stock"+i).innerText);//庫存數量
 			// alert(Stock);
 
 			if(Qty > Stock){ //庫存數量不足
-				document.getElementById("Stock"+i).innerText = "庫存數量不足";
-				var i = document.createElement("i");
-					i.setAttribute("class", "fas");
-					i.setAttribute("class", "fa-check");
-			// 　　　　	i.innerHTML = "js 動態新增div";
-			　　　	parent.appendChild(span);
+				document.getElementById("Stock"+i).innerText = "";
+				stock = document.getElementById("Stock"+i);
+				var a = document.createElement("i");
+					a.setAttribute("class", "fas fa-times");
+					
+			　　　	stock.appendChild(a);
+			　　　
+			　　　sub = document.getElementById("BtcheckNow");
+				sub.setAttribute("disabled","true");
+				sub.setAttribute("class","btn btn-secondary btn-lg")
 				
+				alert("庫存數量不足，請修改數量!");
+				
+				item = document.getElementById('CartItem'+i);
+				item.setAttribute("class","row check");
 			}
 			if(Qty <= Stock){ //庫存足夠
-				document.getElementById("Stock"+i).innerText = "ok";
+				document.getElementById("Stock"+i).innerText = "";
+				stock = document.getElementById("Stock"+i);
+				var a = document.createElement("i");
+					a.setAttribute("class", "fas fa-check");
+			　　　	stock.appendChild(a);
 			}
 		}	
 
