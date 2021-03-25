@@ -140,7 +140,7 @@
 
 							<TR>
 								<TD colspan="2" align="center"><input type="submit"
-									class="btn btn-primary" value="提交"></TD>
+									class="btn btn-primary" value="登入"></TD>
 							</TR>
 							<TR height='10'>
 								<TD align="CENTER" colspan='2'>&nbsp;</TD>
