@@ -72,7 +72,8 @@ public class MemberController {
 		if (originalFilename.length() > 0 && originalFilename.lastIndexOf(".") > -1) {
 			bean.setmPic("memberImages/" + originalFilename); // 將檔名存入資料庫
 		}
-		String folderPath = "D:/_JSP/workspace/spotstourHSM05/src/main/webapp/images/memberImages";
+//		String folderPath = "D:/_JSP/workspace/spotstourHSM05/src/main/webapp/images/memberImages";
+		String folderPath = "C:/_Hibernate/workspace/SpotsTourHSM/src/main/webapp/images/memberImages";
 		
 		File theDir = new File(folderPath);
 		if (!theDir.exists()) {

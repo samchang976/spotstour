@@ -71,7 +71,8 @@ public class ModifyServiceImpl implements ModifyService{
 		if (originalFilename.length() > 0 && originalFilename.lastIndexOf(".") > -1) {
 			memberBean.setmPic("memberImages/" + originalFilename);
 		}
-		String folderPath = "D:/_JSP/workspace/spotstourHSM05/src/main/webapp/images/memberImages";
+//		String folderPath = "D:/_JSP/workspace/spotstourHSM05/src/main/webapp/images/memberImages";
+		String folderPath = "C:/_Hibernate/workspace/SpotsTourHSM/src/main/webapp/images/memberImages";
 		
 		File theDir = new File(folderPath);
 		if (!theDir.exists()) {
