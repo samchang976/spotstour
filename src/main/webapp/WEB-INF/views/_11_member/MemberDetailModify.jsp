@@ -104,6 +104,13 @@
 
 										 <form:hidden path="mAN" value="${member.mAN}" size="40" class="mt-3"/>
 									
+							<div>
+							<c:if test="${! empty LoginOK }">
+					<img height='80px' width='60px' src="/upload/${LoginOK.mPic}" class="rounded mx-auto d-block mb-3">					
+							</c:if>
+							</div>
+								
+									
 									
 										姓名： <form:errors path="mName" class="error"/><br>
 									 <form:input path="mName" value="${member.mName}" class="form-control"/>
