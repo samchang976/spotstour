@@ -551,6 +551,11 @@ CREATE TABLE `params` (
 
 /*Data for the table `params` */
 
+INSERT  INTO `params`(`paramId`,`type`,`typeName`) VALUES 
+(1,'A','good'),
+(2,'B','bad'),
+(3,'C','times');
+
 /*Table structure for table `place_type` */
 
 DROP TABLE IF EXISTS `place_type`;
