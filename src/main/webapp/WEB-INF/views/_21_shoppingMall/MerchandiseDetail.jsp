@@ -305,15 +305,15 @@
 						<div class="container-fluid">
 							<div class="row R_SpCre">
 								<div class="col col-2-1 C_SpCre">
-									<div data-aos="fade-up"
-										data-aos-anchor-placement="bottom-bottom">
+<!-- 									<div data-aos="fade-up" -->
+<!-- 										data-aos-anchor-placement="bottom-bottom"> -->
 										<div class="shadow-sm p-3 mb-5 bg-body rounded">
 											<c:set var="fbCreateTime" value="${feedback.f_createTime}" />
 											<fmt:formatDate type="both" dateStyle="long"
 												timeStyle="medium" value="${fbCreateTime}" />
 											<br> 商品留言 : ${feedback.feedbackText}<br>
 										</div>
-									</div>
+<!-- 									</div> -->
 								</div>
 							</div>
 						</div>

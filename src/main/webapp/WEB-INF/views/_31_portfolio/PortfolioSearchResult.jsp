@@ -65,7 +65,9 @@
   }
   
 
-  
+  #search:hover{
+  color: orange;
+  }
   
   </style> 
 </head>
@@ -116,29 +118,29 @@
 							<!-- 發布時間 -->
 							<div>
 							<!-- 地區 -->
-								<div class="float-end p-2">${row.continentName}-${row.countryName}-${row.cityName}</div>
-								<div >
-									<form class="float-start" action="portfolioPlay" method="get">
+								<div class="float-start">
+									<form  action="portfolioPlay" method="get">
 											<input class="form-control me-2" type="hidden" name="portfolioId"
 												value="${row.portfolioId}">
-											<button class="btn" id="search" type="submit">
+											<button class="btn fs-3" id="search" type="submit" style="box-shadow:none;">
 <!-- 												<i class="fas fa-search"></i> -->
 													<!-- 名稱 -->${row.portfolioName}
 											</button>
 									</form>	
 								</div>
+								<div class="float-end p-3">${row.continentName}-${row.countryName}-${row.cityName}</div>
+								<div class="float-none"></div>
 <!-- 								<div class="clearfix"></div>	 -->
 							</div>
 							
 							
 							<!-- 影片-->
-							<video controls poster="/upload${row.videoPic}"
-								style="width: 100%; height: auto">
+							<video controls poster="/upload${row.videoPic}" class="w-100">
 								<source src="/uploadv${row.videoFile}" type="video/mp4">
 							</video>
 							
 							<!--按讚次數-->
-							<div id="great">
+							<div id="great" class="float-start">
 								<a href="#"> <i class="far fa-thumbs-up"></i></a> 
 								<span><c:if test="${row.gcount==null}">0</c:if><c:if test="${row.gcount!=null}">${row.gcount}</c:if></span> 
 								
@@ -147,8 +149,8 @@
 							</div>
 							
 							<!-- 觀看次數 -->
-							<div>觀看次數: <c:if test="${row.vcount==null}">0</c:if><c:if test="${row.vcount!=null}">${row.vcount}</c:if>次</div>
-							<p></p>
+							<div class="float-end">觀看次數: <c:if test="${row.vcount==null}">0</c:if><c:if test="${row.vcount!=null}">${row.vcount}</c:if>次</div>
+							<div class="float-none"></div>
 						</div>
 					</c:forEach>
 				</div>
