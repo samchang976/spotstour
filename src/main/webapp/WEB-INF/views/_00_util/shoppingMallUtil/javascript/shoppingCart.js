@@ -2,7 +2,7 @@ function doFirst() {
     //先跟畫面產生關聯，再建事件聆聽功能
     //全選======================================================================
     document.getElementById('checkedALL').onclick = function checkAll() {
-        checkedALL = document.getElementsByName('checkboxs');
+        checkedALL = document.getElementsByName('deleteItems');
         // alert(checkedALL);
         for (var i = 0; i < checkedALL.length; i++) {
             var checkElement = checkedALL[i];
@@ -59,14 +59,17 @@ function doFirst() {
     }
 
 
+
+
 //多項刪除鈕，取得多項cartId
+function delitems(){
 
-//放大鏡會有商品詳細資訊頁面
 
-//庫存數量<商品選擇數量 ==>x
-//庫存數量>=於商品選擇數量 ==>v
+}
+
+
+
 //更新商品小計
-
 function newQtyChange(id,index,itemId,mId) {
     // alert(index);
     var x = "Qty"+index; //index=迴圈執行次數
