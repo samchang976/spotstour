@@ -103,7 +103,7 @@ public class LoginController {
 					}
 				}
 //=================================================================================================				
-				return "index";
+				return "redirect:index";
 			}
 		} catch (NoResultException nre) {
 			System.out.println("資料錯誤");
@@ -123,10 +123,10 @@ public class LoginController {
 //		session.removeAttribute("mAN"); 只能移除sessoin屬性
 			session.invalidate(); // 銷毀session
 			System.out.println("User:" + user + " 已登出" + ",權限:" + mPidName);
-			return "index";
+			return "redirect:index";
 		}
 
-		return "index";
+		return "redirect:index";
 	}
 
 }
