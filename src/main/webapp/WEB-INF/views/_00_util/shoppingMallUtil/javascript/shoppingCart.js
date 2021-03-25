@@ -1,8 +1,9 @@
 function doFirst() {
     //先跟畫面產生關聯，再建事件聆聽功能
     //全選======================================================================
+    checkedALL = document.getElementsByName('deleteItems');
+    
     document.getElementById('checkedALL').onclick = function checkAll() {
-        checkedALL = document.getElementsByName('deleteItems');
         // alert(checkedALL);
         for (var i = 0; i < checkedALL.length; i++) {
             var checkElement = checkedALL[i];
@@ -10,9 +11,17 @@ function doFirst() {
             // checkElement.setAttribute('checked',' checked');
             // 方法二
             checkElement.checked = "checked";
+       
+       
         }
     }
     //========================================================================
+    dels = document.getElementById('delitems');
+    dels.addEventListener('click',de);
+    
+    //========================================================================
+
+    
         // 修改
        /* let Quantity = document.querySelectorAll(`input[type="number"]`); //取得所有input數量(商品數量)
         // alert(Quantity.length);
@@ -58,16 +67,33 @@ function doFirst() {
         totalAmount();
     }
 
+//多選刪除
+function de(){
+    // alert("aaa");
+    WereBeDelitems = "";
+    for(let d=0; d<checkedALL.length; d++ ){
+        WereBeDel =  document.getElementById("de"+d);
+        if(WereBeDel.checked === true){
+            WereBeDelitems += (WereBeDel.value)+",";
+            // alert(WereBeDelitems);
+        }
+    }
+    if(WereBeDelitems==""){
+        alert("請選擇要刪除的項目");
+    }else{         
+        url= "/SpotsTourHSM/shoppingCart/MultipleDelete?items=";
+        document.location.href=url+WereBeDelitems ;
+                               
+        // var xhr = new XMLHttpRequest();
+        // xhr.open("GET", "<c:url value='/shoppingCart/MultipleDelete/'/>"+WereBeDelitems, false);
 
+        // xhr.send();
 
+    }
 
-//多項刪除鈕，取得多項cartId
-function delitems(){
-
-
+    
+    
 }
-
-
 
 //更新商品小計
 function newQtyChange(id,index,itemId,mId) {
