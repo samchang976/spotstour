@@ -7,7 +7,7 @@ import org.springframework.validation.Validator;
 import _02_model.entity.MemberBean;
 
 public class ModifyValidator implements Validator{
-	public static final String MEMAIL_CHECK = "[a-zA-Z0-9]{1,}[@][a-zA-Z]{1,}[\\.][a-zA-Z]{1,}";
+	public static final String MEMAIL_CHECK = "[a-zA-Z0-9\\.]{1,}[@][a-zA-Z]{1,}[\\.][a-zA-Z]{1,}";
 	public static final String MAN_AND_MPW_CHECK = "[a-zA-Z0-9]{6,10}";
 	public static final String MPHONE_CHECK = "[0-9]{10,10}";
 	public static final String MUID_CHECK = "[A-Z]{1}[0-9]{9}";

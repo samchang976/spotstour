@@ -122,7 +122,7 @@
 									<form  action="portfolioPlay" method="get">
 											<input class="form-control me-2" type="hidden" name="portfolioId"
 												value="${row.portfolioId}">
-											<button class="btn fs-3" id="search" type="submit" style="box-shadow:none;">
+											<button class="btn fs-6" id="search" type="submit" style="box-shadow:none;">
 <!-- 												<i class="fas fa-search"></i> -->
 													<!-- 名稱 -->${row.portfolioName}
 											</button>
