@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -222,4 +223,25 @@ public class ShoppingCartContent {
 		return "redirect:/merchandiseSearchResult";
 	}
 	
+	//多選刪除
+	@GetMapping("/shoppingCart/MultipleDelete") 
+		public String MultipleDelete(
+//			@RequestParam("deleteItems") Integer[] deleteItems,
+			@RequestParam("items") String items){
+		System.out.println("items==============="+items);
+		String[] item = items.split(",");
+		
+		for (int x = 0; x < item.length; x++) {
+//			System.out.println(item[x]);
+			
+			
+			shoppingCartService.deleteItem(Integer.valueOf(item[x]));
+		}
+		
+//		for(int i=0;i<deleteItems.length;i++) {
+//			shoppingCartService.deleteItem(i);
+//		}
+		return "redirect:/shoppingCart";
+		
+	}
 }

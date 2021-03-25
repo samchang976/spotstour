@@ -91,11 +91,11 @@ border-radius: 50%;
 
 	<div class='menuOuter'>
 		<div id='option1'>
-<%-- 			<a href="<c:url value='worldMap' />" target="_parent" --%>
-<!-- 				data-bs-toggle="tooltip" data-bs-placement="bottom" -->
-<!-- 				title="worldMap 世界地圖">  -->
-<!-- 				<i class="fas fa-globe-americas fa-spin invisible"></i> -->
-<!-- 			</a> -->
+			<a href="<c:url value='worldMap' />" target="_parent"
+				data-bs-toggle="tooltip" data-bs-placement="bottom"
+				title="worldMap 世界地圖"> 
+				<i class="fas fa-globe-americas fa-spin"></i>
+			</a>
 		 <i class="fas fa-globe-americas fa-spin invisible"></i>
 		  <i class="fas fa-globe-americas fa-spin invisible"></i>	
 		  <i class="fas fa-globe-americas fa-spin invisible"></i>	

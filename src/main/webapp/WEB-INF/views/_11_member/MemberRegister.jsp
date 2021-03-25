@@ -82,7 +82,7 @@
 				<div class="focus container text-dark text-left text-shdow">
 					<div class="row text-center">
 						<div class="col">
-							<h1 class="mt-3">註冊會員</h1>
+							<h1 class="mt-3" id="inputRegister">註冊會員</h1>
 						</div>
 					</div>
 
@@ -179,6 +179,7 @@
 									</div>
 
 									<button type="submit" class="btn btn-primary w-100 mt-3 mb-5">註冊</button>
+<!-- 									<button id="inputAllBtn" type="button" class="btn btn-primary btn-lg">一鍵輸入</button> -->
 
 								</form:form>
 
@@ -203,6 +204,28 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
 		crossorigin="anonymous"></script>
+		
+		<script>
+		$(document)
+				.ready(
+						function() {
+							//一鍵輸入功能
+							//存取input標籤的值必須使用.val()方法
+							$('#inputRegister')
+									.click(
+											function() {
+												$('#mAN').val("spring0330");
+												$('#mName').val("spring");
+												$('#mPw').val("style3300");
+												$('#mTPw').val("style3300");
+												$('#d_mAddress').val("台北市中山區南京西路14號");
+												$('#mUid').val("F235548186");
+												$('#mEmail').val("sam.chang8585@gmail.com");
+												$('#mPhone').val("0922615823");
+												
+											})
+						});
+	</script>
 
 
 </body>
