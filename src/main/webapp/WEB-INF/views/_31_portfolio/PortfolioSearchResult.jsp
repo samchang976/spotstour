@@ -122,6 +122,8 @@
 									<form  action="portfolioPlay" method="get">
 											<input class="form-control me-2" type="hidden" name="portfolioId"
 												value="${row.portfolioId}">
+											<input class="form-control me-2" type="hidden" name="countryId"
+												value="${row.countryId}">
 											<button class="btn fs-6" id="search" type="submit" style="box-shadow:none;">
 <!-- 												<i class="fas fa-search"></i> -->
 													<!-- 名稱 -->${row.portfolioName}

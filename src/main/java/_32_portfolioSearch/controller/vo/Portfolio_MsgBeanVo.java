@@ -9,6 +9,7 @@ public class Portfolio_MsgBeanVo {
 	private String pMsg_freeze;
  	private Integer portfolioId;
 	private Integer mId;
+	private Integer countryId;
 	private String portfolioName;
  	
 	public Integer getPortfolioMsgId() {
@@ -53,6 +54,11 @@ public class Portfolio_MsgBeanVo {
 	public void setPortfolioName(String portfolioName) {
 		this.portfolioName = portfolioName;
 	}
- 	
- 	
+	public Integer getCountryId() {
+		return countryId;
+	}
+	public void setCountryId(Integer countryId) {
+		this.countryId = countryId;
+	}	
+	
 }

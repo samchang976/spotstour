@@ -160,7 +160,7 @@ margin: 5px 0px;
 					</div>
 					
 					<div class="col">
-						<i class="fas fa-map-marker-alt"></i> 位置: &nbsp;
+						<i class="fas fa-map-marker-alt red mx-2"></i> 位置: &nbsp;
 						<button class="btn btn-primary mx-1" id="slideButton">Click Me To Search</button>
 						
 						<button class="btn btn-primary mx-1" id="sendData">確認位置</button>

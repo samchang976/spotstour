@@ -104,7 +104,7 @@
             </div>
          <div class="col">
                 <div id="tag">#${row.continentName}#${row.countryName}#${row.cityName}#${row.portfolioName}</div>
-                <div>位置 : <span>${row.pAddress}</span></div>
+                <div><i class="fas fa-map-marker-alt red mx-2"></i>位置 : <span>${row.pAddress}</span></div>
 <!--                 <div>相關連結</div> -->
 <!--                 <div><span>台灣</span>(地區一覽表)</div> -->
             </div>
@@ -134,6 +134,7 @@
                     <form action="createPortfolioMsg" method="post">
                         <textarea style="resize:none;" id="feedback" rows="4" maxlength="100" name="msgText"></textarea>
                         <input type="hidden" name="portfolioId" value="${portfolioId}">
+                        <input type="hidden" name="countryId" value="${countryId}">
                         <button class="btn btn-primary float-end" type="submit">送出</button>
                     </form>
                 </div>
@@ -142,6 +143,18 @@
        </div>
 <!-----------定位----------------------------------------------------------------------------->       
         </div>
+<!-----------商品/廣告----------------------------------------------------------------------------->       
+        <c:forEach items="${itemList}" var="it">
+              <form  action="merchandiseDetail/Id=${it.itemId}" method="get">
+<%-- 					<input class="form-control me-2" type="hidden" name="Id" value="${it.itemId}"> --%>
+					<button class="btn fs-6" id="search" type="submit" style="box-shadow:none;">
+							${it.itemHeader}</button>
+			  </form>	
+              <div class="col-3 message my-4">
+                   <span style="font-size:1.3rem;" class="fw-bold">#${it.itemDes}</span>
+				   <br>
+              </div>  
+        </c:forEach> 
 <!--內嵌footer-------------------------------------------------------------------------------->
 	<div>
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
