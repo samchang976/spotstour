@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import _32_portfolioSearch.controller.vo.Portfolio_MsgBeanVo;
+import _32_portfolioSearch.service.AddRecordService;
 import _32_portfolioSearch.service.PortfolioMsgService;
 import _32_portfolioSearch.service.PortfolioPlayService;
 import _32_portfolioSearch.service.PortfolioSearchService;
@@ -24,11 +25,13 @@ public class PortfolioSearchController {
 
 	// 注入Service第一種寫法
 	@Autowired
-	PortfolioSearchService psService;
+	private PortfolioSearchService psService;
 	@Autowired
-	PortfolioPlayService portfolioPlayService;
+	private PortfolioPlayService portfolioPlayService;
 	@Autowired
-	PortfolioMsgService portfolioMsgService;
+	private PortfolioMsgService portfolioMsgService;
+	@Autowired
+	private AddRecordService addRecordService;
 
 	// 注入Service第二種寫法
 //	PortfolioSearchService psService;
@@ -63,6 +66,7 @@ public class PortfolioSearchController {
 			model.addAttribute("portfolioId",portfolio_MsgBeanVo.getPortfolioId());
 			model.addAttribute("detailList", portfolioPlayService.queryPortfolioId(portfolio_MsgBeanVo.getPortfolioId()));
 			model.addAttribute("pMsgList", portfolioMsgService.queryPortfolioMsg(portfolio_MsgBeanVo.getPortfolioId()));
+			addRecordService.addRecord(portfolio_MsgBeanVo.getPortfolioId(), 3);
 		}else {
 			model.addAttribute("portfolioId",(Integer) session.getAttribute("portfolioId"));
 			model.addAttribute("detailList", portfolioPlayService.queryPortfolioId((Integer) session.getAttribute("portfolioId")));
