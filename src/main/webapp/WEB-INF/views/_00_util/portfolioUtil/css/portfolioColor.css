@@ -2,3 +2,7 @@
         #container_VideoCreate input[type="text"]{
             border: 1px darkgray solid;
         }
+        
+        .red{
+        color:red;
+        }

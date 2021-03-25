@@ -79,6 +79,9 @@ td div, .like-table div {
     align-items: center;
 }
 
+label{
+width: 70px;
+}
 </style>
 
 <script type="text/javascript">
@@ -153,13 +156,12 @@ td div, .like-table div {
 			<!--個人作品--------------------------------------------------------------------------------------------------------->
 			<c:forEach items="${memberPortfolioList}" var="mpl">
 <!-- 				<div class="container-fluid"> -->
-					<div class="shadow p-3 mb-5 bg-body rounded" style="margin: 10px;">
+					<div class="shadow p-3 mb-5 bg-body rounded my-3" >
 						<div class="row">
 							<!-- 						<div class="col col-1"> -->
 							<!-- 							<input class="form-check-input" type="checkbox" -->
 							<!-- 								id="checkboxNoLabel" value="" aria-label="..."> -->
 							<!-- 						</div> -->
-
 							<div class="col-5">
 								
 								<video controls poster="/upload${mpl.videoPic}"
@@ -175,20 +177,31 @@ td div, .like-table div {
 								</div>
 							</div>
 <!-- 							<div class="col-1"></div> -->
-							<div class="col-4" style="padding: 20px; margin-top: 20px">
+							<div class="col-4">
 								<div >
 									<!--名稱 ----------------------------------------------->
-									<H4>影片名稱:${mpl.portfolioName}</H4>
+									<H4>${mpl.portfolioName}</H4>
 									<!--時間 ----------------------------------------------->
-									上傳時間:<c:set var="fbCreateTime" value="${mpl.p_createTime}" />
+									<label>
+										上傳時間:
+									</label>
+									<c:set var="fbCreateTime" value="${mpl.p_createTime}" />
 									<fmt:formatDate type="both" dateStyle="long"
 									timeStyle="medium" value="${fbCreateTime}" />
 								</div>
 								
 								<div >
-									<i class="fas fa-map-marker-alt"></i> 位置: ${mpl.pAddress}
+									<label>
+										<i class="fas fa-map-marker-alt red mx-2"></i>位置&nbsp;:
+									</label>
+									${mpl.pAddress}
 								</div>
-								影片描述: <i>${mpl.portfolioText}</i>
+								<div class="mt-3">
+									<label>
+										影片描述: 
+									</label>
+									<span>${mpl.portfolioText}</span>
+								</div>
 							</div>
 							<br>
 
