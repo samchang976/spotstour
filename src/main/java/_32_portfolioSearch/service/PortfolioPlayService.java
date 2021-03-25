@@ -6,4 +6,7 @@ import java.util.Map;
 public interface PortfolioPlayService {
 
 	public List<Map<String, Object>> queryPortfolioId(Integer portfolioId);
+
+	public List<Map<String, Object>> queryHotItems(Integer countryId);
+	
 }

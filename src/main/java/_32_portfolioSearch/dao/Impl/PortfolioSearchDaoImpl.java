@@ -64,7 +64,7 @@ public class PortfolioSearchDaoImpl implements PortfolioSearchDao {
 //				+ " OR ct.cityName  LIKE :keyword "
 //				+ " OR cn.countryName LIKE :keyword "
 //				+ " OR cnt.continentName LIKE :keyword ) AND v.v_freeze = 0 " ;
-		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,rpv.vcount,rpb.bcount,rpg.gcount,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
+		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,rpv.vcount,rpb.bcount,rpg.gcount,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cn.countryId,cnt.continentName "
 				+ " FROM video v "
 				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
 				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "
