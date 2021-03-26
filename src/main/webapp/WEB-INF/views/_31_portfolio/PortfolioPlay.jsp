@@ -98,8 +98,17 @@
 						timeStyle="medium" value="${pCreateTime}" /></span></div>
                  	<!--按讚次數-->
 				<div id="great">
-					<a href="#"> <i class="far fa-thumbs-up"></i></a> <span><c:if test="${row.gcount==null}">0</c:if><c:if test="${row.gcount!=null}">${row.gcount}</c:if></span>
-					<a href="#"> <i class="far fa-thumbs-down"></i></a> <span><c:if test="${row.bcount==null}">0</c:if><c:if test="${row.bcount!=null}">${row.bcount}</c:if></span>
+<%-- 					<a href="#"> <i class="far fa-thumbs-up"></i></a> <span><c:if test="${row.gcount==null}">0</c:if><c:if test="${row.gcount!=null}">${row.gcount}</c:if></span> --%>
+<%-- 					<a href="#"> <i class="far fa-thumbs-down"></i></a> <span><c:if test="${row.bcount==null}">0</c:if><c:if test="${row.bcount!=null}">${row.bcount}</c:if></span> --%>
+				    <button  type="button" name="like" value="${userLike}">
+				    	<i id="like" class="far fa-thumbs-up">&nbsp;&nbsp;</i>
+<!--         				<span id="like" class="far fa-thumbs-up">&nbsp;&nbsp;</span> -->
+       				    <span id="sumLike">${likes}</span>
+    				</button>
+<%-- 				    <button class="far fa-thumbs-down" type="button" name="unlike" value="${userLike}"> --%>
+<!--         				<span id="like">&#10084;&nbsp;&nbsp;</span> -->
+<%--        				    <span id="sumLike">${likes}</span> --%>
+<!--     				</button> -->
 				</div>		
             </div>
          <div class="col">
@@ -161,6 +170,67 @@
 	</div>
 <!-- --------------------------------------------------------------------------------------->
 
+<script type="text/javascript">
+$(function (){
+// 	判斷狀態:點讚紅色,未點黑色
+    var userLike = $("button[name='like']").val();
+    if (userLike == 1) {
+        $("span[id='like']").css("color","red");
+
+    }else {
+        $("span[id='like']").css("color","black");
+
+    }
+// 	點擊觸發判斷:1=讚,0=未點
+    $("button[name='like']").click(function() {
+        userl =$(this).val();
+        if (userl == 1) {
+            selected()
+        }else {
+            selecting()
+        }
+    })
+
+})
+// <!已点赞事件，取消点赞，改变颜色，post传递数据修改用户点赞状态，和返回点赞总数>
+// 點讚事件 取消點讚 改變顏色時 POST修改點讚狀態
+function selected() {
+    $("span[id='like']").css("color","black");
+    $.ajax({
+        url:"like",
+        data:{"ulike":0},
+        type:"post",
+        dataType:"JSON",
+        success:function (rs){
+            var s = rs.sumLike
+            $("button[name='like']").val(0);
+            $("#sumLike").html(s);
+        },
+        error:function (rs) {
+            alert(rs.sumLike);
+        }
+    })
+}
+// <!未点赞事件，点赞，改变颜色，post传递数据修改用户点赞状态，和返回点赞总数>
+function selecting() {
+    $("span[id='like']").css("color","red");
+    $.ajax({
+        url:"like",
+        data:{"ulike":1},
+        type:"post",
+        dataType:"JSON",
+        success:function (rs){
+            var s = rs.sumLike
+            $("button[name='like']").val(1);
+            $("#sumLike").html(s);
+        },
+        error:function (rs) {
+            alert(rs.sumLike);
+        }
+    })
+}
+
+</script>
 </body>
 </html>
 <!--------------------------------------------------------------------------->
