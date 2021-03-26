@@ -25,13 +25,15 @@ public class AddRecordServiceImpl implements AddRecordService {
 	
 	@Override
 	@Transactional
-	public void addRecord(Integer portfolioId, Integer params) {
+	public void addVRecord(Integer portfolioId, Integer params) {
 		RecordBean recordBean = new RecordBean();
 		PortfolioBean pfb = portfolioDao.queryPortfolioById(portfolioId);
+		//觀看次數(無論身份:參數=>3,mId=>0)
+		recordBean.setmId(0);
 		recordBean.setPortfolioBean(pfb);
 		ParamsBean pb = paramsDao.queryParamsById(params);
 		recordBean.setParamsBean(pb);
-		recordDao.addRecord(recordBean);
+		recordDao.addVRecord(recordBean);
 	}
 
 }

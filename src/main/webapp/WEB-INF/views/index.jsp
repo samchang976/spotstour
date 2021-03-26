@@ -287,6 +287,8 @@ border:none;
 							<form class=" position-absolute start-1 seeVedio" action="portfolioPlay" method="get">
 								<input class="form-control me-2" type="hidden" name="portfolioId"
 									value="${row.portfolioId}">
+								<input class="form-control me-2" type="hidden" name="countryId"
+									value="${row.countryId}">
 								<button class="btn" id="search" type="submit" style="border: none;box-shadow:none;
 								">
 <!-- 									<i class="fas fa-search"></i> -->
@@ -365,7 +367,7 @@ border:none;
 				</div>
 				<!--         	onclick="location.href='merchandiseSearchResult/Id=2'" -->
 				<div class="col-2 IntroductionLink">
-					<a class="cta-btn" href="<c:url value="/"/>">觀賞影片</a> <a
+					<a class="cta-btn" href="<c:url value="/SearchResult?searchWord="/>">觀賞影片</a> <a
 						class="cta-btn" href="<c:url value="/merchandiseIndex"/>">購物商城</a>
 					<a class="cta-btn" href="<c:url value="/aboutUs"/>">關於我們</a>
 				</div>

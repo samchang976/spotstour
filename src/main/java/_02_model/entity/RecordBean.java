@@ -19,6 +19,7 @@ public class RecordBean implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer recordId;
+	private Integer mId;
 
 	
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -28,6 +29,16 @@ public class RecordBean implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "portfolioId")
 	private PortfolioBean portfolioBean;
+
+	
+	
+	public Integer getmId() {
+		return mId;
+	}
+
+	public void setmId(Integer mId) {
+		this.mId = mId;
+	}
 
 	public Integer getRecordId() {
 		return recordId;

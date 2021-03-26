@@ -71,7 +71,8 @@ public class PortfolioSearchController {
 			model.addAttribute("detailList", portfolioPlayService.queryPortfolioId(portfolio_MsgBeanVo.getPortfolioId()));
 			model.addAttribute("pMsgList", portfolioMsgService.queryPortfolioMsg(portfolio_MsgBeanVo.getPortfolioId()));
 			model.addAttribute("itemList", portfolioPlayService.queryHotItems(portfolio_MsgBeanVo.getCountryId()));
-			addRecordService.addRecord(portfolio_MsgBeanVo.getPortfolioId(), 3);
+			//觀看次數(無論身份:參數=>3,mId=>0)
+			addRecordService.addVRecord(portfolio_MsgBeanVo.getPortfolioId(), 3);
 		}else {
 			model.addAttribute("portfolioId",(Integer) session.getAttribute("portfolioId"));
 			model.addAttribute("countryId",(Integer) session.getAttribute("countryId"));
