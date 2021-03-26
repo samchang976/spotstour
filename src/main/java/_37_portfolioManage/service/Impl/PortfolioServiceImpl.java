@@ -76,19 +76,25 @@ public class PortfolioServiceImpl implements PortfolioService {
 		//隨機唯一圖片檔名
 		UUID puuid = UUID.randomUUID();
 //		String picPath = "/Project/workspace_JSP/SpotsTourHSM/src/main/webapp/images/vedioImages/";
-		String picPath = "/_Hibernate/workspace/SpotsTourHSM/src/main/webapp/images/vedioImages/";
+//		String picPath = "/_Hibernate/workspace/SpotsTourHSM/src/main/webapp/images/vedioImages/";
+		String picPath = "/_JSP/workspace/SpotsTourHSM/src/main/webapp/images/vedioImages/";
+		
 		String picName = puuid + ".jpg";
 //		videoBean.setVideoPic((StreamUtils.writeStream(mfp.getBytes(),picPath,picName)).substring(58));	
-		videoBean.setVideoPic((StreamUtils.writeStream(mfp.getBytes(),picPath,picName)).substring(57));	
+//		videoBean.setVideoPic((StreamUtils.writeStream(mfp.getBytes(),picPath,picName)).substring(57));	
+		videoBean.setVideoPic((StreamUtils.writeStream(mfp.getBytes(),picPath,picName)).substring(51));	
 		//將接取的影片檔案儲存到本地,拿取路徑字串,放入要送到對應資料庫Video的Bean
 		MultipartFile mff = portfolioBeanVo.getVideoFile();
 		//隨機唯一影片檔名
 		UUID fuuid = UUID.randomUUID();
 //		String filePath = "/Project/workspace_JSP/SpotsTourHSM/src/main/webapp/videos/";
-		String filePath = "/_Hibernate/workspace/SpotsTourHSM/src/main/webapp/videos/";
+//		String filePath = "/_Hibernate/workspace/SpotsTourHSM/src/main/webapp/videos/";
+		String filePath = "/_JSP/workspace/SpotsTourHSM/src/main/webapp/videos/";
+		
 		String fileName = fuuid + ".mp4" ;
 //		videoBean.setVideoFile((StreamUtils.writeStream(mff.getBytes(),filePath,fileName)).substring(51));
-		videoBean.setVideoFile((StreamUtils.writeStream(mff.getBytes(),filePath,fileName)).substring(50));
+//		videoBean.setVideoFile((StreamUtils.writeStream(mff.getBytes(),filePath,fileName)).substring(50));
+		videoBean.setVideoFile((StreamUtils.writeStream(mff.getBytes(),filePath,fileName)).substring(46));
 		//新增影片
 		videoDao.addVideo(videoBean);
 	}
