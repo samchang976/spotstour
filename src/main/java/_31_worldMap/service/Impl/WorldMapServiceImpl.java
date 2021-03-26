@@ -23,5 +23,24 @@ public class WorldMapServiceImpl implements WorldMapService {
 		return worldMapDao.queryAllPortfolioList();
 	}
 
+	@Override
+	@Transactional
+	public List<Map<String, Object>> queryRtPortfolioList() {
+		return worldMapDao.queryRtPortfolioList();
+	}
+
+	@Override
+	@Transactional
+	public List<Map<String, Object>> queryAtPortfolioList() {
+		return worldMapDao.queryAtPortfolioList();
+	}
+
+	@Override
+	@Transactional
+	public List<Map<String, Object>> queryHtPortfolioList() {
+		return worldMapDao.queryHtPortfolioList();
+	}
+
+	
 	
 }

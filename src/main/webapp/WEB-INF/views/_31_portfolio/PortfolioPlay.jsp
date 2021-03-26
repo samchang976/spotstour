@@ -137,6 +137,10 @@ textarea {
 				<div class="row row-cols-1 row-cols-md-2">
 					<div class="col">
 						<div>
+							<div>
+								<img height='80px' width='60px' src="/upload/${row.mPic}" class="rounded mx-auto d-block mb-3">					
+							</div>
+							作者:${row.mName}
 							觀看次數: <span><c:if test="${row.vcount==null}">0</c:if>
 								<c:if test="${row.vcount!=null}">${row.vcount}</c:if></span>次
 						</div>

@@ -108,22 +108,22 @@
 	margin-top: 60px;
 }
 
-#hotel, #spots, #resturant {
-	border-radius: 10px;
-	box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px;
-	width: 150px;
-	height: 72px;
-	margin-top: 30px;
-	color: #555;
-	background-color: #fff;
-	font: bold 25px Verdana, Tahoma, sans-serif;
-	cursor: pointer;
-}
+#hotel, #attractions, #resturant { 
+ 	border-radius: 10px; 
+ 	box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px; 
+ 	width: 150px; 
+ 	height: 72px; 
+ 	margin-top: 30px; 
+ 	color: #555; 
+ 	background-color: #fff; 
+ 	font: bold 25px Verdana, Tahoma, sans-serif; 
+ 	cursor: pointer; 
+ } 
 
-#hotel:hover, #spots:hover, #resturant:hover {
-	background-color: dodgerblue;
-	color: #fff;
-}
+#hotel:hover, #attractions:hover, #resturant:hover { 
+ 	background-color: dodgerblue; 
+ 	color: #fff; 
+ } 
 </style>
 
 <!-- 嵌入世界地圖 -->
@@ -147,18 +147,33 @@ html, body {
 	<div class="HeaderPostition">
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/header.jsp" />
 	</div>
-	<!-----------定位----------------------------------------------------------------------------->
+<!-----------定位----------------------------------------------------------------------------->
 <!-- 	<div class="BodyPosition"> -->
 <!------------------------------------------------------------------------------------------->	
 	<div id="map"></div>
-
+<!---測試取值---------------------------------------------------------------------------------------->	
+<%-- <c:forEach var="row" items="${atPortfolioList}"> --%>
+<!-- 	<div>#at#${row.mName}#${row.portfolioName}#${row.countryName}</div> -->
+<!-- <br> -->
+<%-- </c:forEach> --%>
+<!-- <br> -->
+<%-- <c:forEach var="row" items="${rtPortfolioList}"> --%>
+<%-- 	<div>#rt#${row.mName}#${row.portfolioName}#${row.countryName}</div> --%>
+<!-- <br> -->
+<%-- </c:forEach> --%>
+<!-- <br> -->
+<%-- <c:forEach var="row" items="${htPortfolioList}"> --%>
+<%-- 	<div>#ht#${row.mName}#${row.portfolioName}#${row.countryName}</div> --%>
+<!-- <br> -->
+<%-- </c:forEach> --%>
+<!------------------------------------------------------------------------------------------->	
 	<!-- 嵌入側邊選單 -->
 	<div id="mwt_mwt_slider_scroll">
 		<div id="mwt_fb_tab">
 			<i class="fas fa-caret-right fa-3x"></i>
 		</div>
 		<div id="mwt_slider_content">
-			<button type="button" id="spots">
+			<button type="button" id="attractions">
 				<i class="fas fa-archway fa-2x"></i> <span>景點</span>
 			</button>
 			<br>
@@ -200,24 +215,27 @@ html, body {
 <!-- 側邊選單控制 -->
 <script>
 
-		//餐廳
+		//景點
          $(document).ready(function(){
-             $('#resturant').click(function(){
+             $('#attractions').click(function(){
             	  
          		var markList = [
-  					 <c:forEach var="row" items="${allPortfolioList}">
-  			  	     [<c:out value="${row.portfolioId}" />, 
-  			          '<c:out value="${row.portfolioName}" />', 
-  			          <c:out value="${row.latitude}" />,
-  			          <c:out value="${row.longitude}" />,
-  			          '<c:out value="${row.portfolioText}" />',
-  			          '<c:out value="${row.pAddress}" />',
-  			          '<c:out value="${row.videoPic}" />',
-  			          '<c:out value="${row.videoFile}" />',
-  			          '<c:out value="${row.cityName}" />',
-  			          '<c:out value="${row.countryName}" />',
-  			          '<c:out value="${row.continentName}" />',
-  			          <c:out value="${row.vcount}" />,
+  					 <c:forEach var="at" items="${atPortfolioList}">
+  			  	     [<c:out value="${at.portfolioId}" />, 
+  			          '<c:out value="${at.portfolioName}" />', 
+  			          <c:out value="${at.latitude}" />,
+  			          <c:out value="${at.longitude}" />,
+  			          '<c:out value="${at.portfolioText}" />',
+  			          '<c:out value="${at.pAddress}" />',
+  			          '<c:out value="${at.videoPic}" />',
+  			          '<c:out value="${at.videoFile}" />',
+  			          '<c:out value="${at.cityName}" />',
+  			          '<c:out value="${at.countryName}" />',
+  			          '<c:out value="${at.continentName}" />',
+  			          <c:out value="${at.vcount}" />,
+  			          <c:out value="${at.gcount}" />,
+  			          <c:out value="${at.bcount}" />,
+  			        	'<c:out value="${at.mName}" />',
   			         ],
   			         </c:forEach>   ]; 
       	 
@@ -284,8 +302,196 @@ html, body {
        });
      
          
+ 		//餐廳
+         $(document).ready(function(){
+             $('#resturant').click(function(){
+            	  
+            	 var markList = [
+  					 <c:forEach var="rt" items="${rtPortfolioList}">
+  			  	     [<c:out value="${rt.portfolioId}" />, 
+  			          '<c:out value="${rt.portfolioName}" />', 
+  			          <c:out value="${rt.latitude}" />,
+  			          <c:out value="${rt.longitude}" />,
+  			          '<c:out value="${rt.portfolioText}" />',
+  			          '<c:out value="${rt.pAddress}" />',
+  			          '<c:out value="${rt.videoPic}" />',
+  			          '<c:out value="${rt.videoFile}" />',
+  			          '<c:out value="${rt.cityName}" />',
+  			          '<c:out value="${rt.countryName}" />',
+  			          '<c:out value="${rt.continentName}" />',
+  			          <c:out value="${rt.vcount}" />,
+  			          <c:out value="${rt.gcount}" />,
+  			          <c:out value="${rt.bcount}" />,
+  			        	'<c:out value="${rt.mName}" />',
+  			         ],
+  			         </c:forEach>   ]; 
+      	 
+               var currentInfowindow;
+               var currentMarker;
 
+		   
+		   	   // const uluru = { lat: 25.064127, lng: 121.539639 };	
+		       const uluru = { lat: 22.064127, lng: 120.539639 };
+		       const map = new google.maps.Map(document.getElementById("map"), {
+			      zoom: 3,
+			      center: uluru,
+			   });
+	
+		   
+		       for (i = 0; i < markList.length; i++) {
+		     	   {    
+			       const uluru1 = { lat: markList[i][2], lng:  markList[i][3] };  
+		           const contentString1 =
+		    	   '<div id="content">' +
+		           '<div id="siteNotice">' +
+		           "</div>" +
+		           '<hr color="black" size="4px" align="center" width="98%">'+
+		           ' <div id="Time" style="font-size: 18px;">幾秒前發佈</div>' +
+		           '<video width="450" height="300" style="margin-left: 20px" controls  >' +
+		          '<source src="'+markList[i][7]+'" type="video/mp4" />'+
+		          '</video>'  +
+		          '<h1 id="firstHeading" class="firstHeading" style="margin-left: 20px">'+markList[i][1]+'</h1> <i class="fas fa-star fa-2x"></i>' +
+		          '<i class="fas fa-star fa-2x"></i>'+
+		           '<div id="bodyContent">' +
+		           "<p style=\"color:red; font-size:22px\">" +
+		           markList[i][4]+
+		           " </p>" +
+		           '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
+		           "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+		           "(last visited June 22, 2009).</p>" +
+
+		           "</div>" +
+		           "</div>";
+		           const infowindow1 = new google.maps.InfoWindow({
+		             content: contentString1,
+		             maxWidth: 1000,
+		           });
+		           const marker1 = new google.maps.Marker({
+		             position: uluru1,
+		             map,
+		             title: "Uluruaa (Ayers Rock)",
+		           });
+		           marker1.addListener("click", () => {
+		             map.setCenter(uluru1);  //點擊此marker 世界地圖以此為中心
+		             map.setZoom(8);
+		             infowindow1.open(map, marker1);
+		             currentInfowindow=infowindow1;
+		             currentMarker=marker1;     
+		           });
+		           }	   
+	             }
+
+       		  //點擊地圖關閉目前infowindow
+		      google.maps.event.addListener(map, 'click', function(){ 
+		      currentInfowindow.close(map,currentMarker);
+		      });
+           });
+       });
+ 		
+ 		
+ 		//旅館
+         $(document).ready(function(){
+             $('#hotel').click(function(){
+            	  
+            	 var markList = [
+  					 <c:forEach var="ht" items="${htPortfolioList}">
+  			  	     [<c:out value="${ht.portfolioId}" />, 
+  			          '<c:out value="${ht.portfolioName}" />', 
+  			          <c:out value="${ht.latitude}" />,
+  			          <c:out value="${ht.longitude}" />,
+  			          '<c:out value="${ht.portfolioText}" />',
+  			          '<c:out value="${ht.pAddress}" />',
+  			          '<c:out value="${ht.videoPic}" />',
+  			          '<c:out value="${ht.videoFile}" />',
+  			          '<c:out value="${ht.cityName}" />',
+  			          '<c:out value="${ht.countryName}" />',
+  			          '<c:out value="${ht.continentName}" />',
+  			          <c:out value="${ht.vcount}" />,
+  			          <c:out value="${ht.gcount}" />,
+  			          <c:out value="${ht.bcount}" />,
+  			        	'<c:out value="${ht.mName}" />',
+  			         ],
+  			         </c:forEach>   ]; 
+      	 
+               var currentInfowindow;
+               var currentMarker;
+
+		   
+		   	   // const uluru = { lat: 25.064127, lng: 121.539639 };	
+		       const uluru = { lat: 22.064127, lng: 120.539639 };
+		       const map = new google.maps.Map(document.getElementById("map"), {
+			      zoom: 3,
+			      center: uluru,
+			   });
+	
+		   
+		       for (i = 0; i < markList.length; i++) {
+		     	   {    
+			       const uluru1 = { lat: markList[i][2], lng:  markList[i][3] };  
+		           const contentString1 =
+		    	   '<div id="content">' +
+		           '<div id="siteNotice">' +
+		           "</div>" +
+		           '<hr color="black" size="4px" align="center" width="98%">'+
+		           ' <div id="Time" style="font-size: 18px;">幾秒前發佈</div>' +
+		           '<video width="450" height="300" style="margin-left: 20px" controls  >' +
+		          '<source src="'+markList[i][7]+'" type="video/mp4" />'+
+		          '</video>'  +
+		          '<h1 id="firstHeading" class="firstHeading" style="margin-left: 20px">'+markList[i][1]+'</h1> <i class="fas fa-star fa-2x"></i>' +
+		          '<i class="fas fa-star fa-2x"></i>'+
+		           '<div id="bodyContent">' +
+		           "<p style=\"color:red; font-size:22px\">" +
+		           markList[i][4]+
+		           " </p>" +
+		           '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
+		           "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+		           "(last visited June 22, 2009).</p>" +
+
+		           "</div>" +
+		           "</div>";
+		           const infowindow1 = new google.maps.InfoWindow({
+		             content: contentString1,
+		             maxWidth: 1000,
+		           });
+		           const marker1 = new google.maps.Marker({
+		             position: uluru1,
+		             map,
+		             title: "Uluruaa (Ayers Rock)",
+		           });
+		           marker1.addListener("click", () => {
+		             map.setCenter(uluru1);  //點擊此marker 世界地圖以此為中心
+		             map.setZoom(8);
+		             infowindow1.open(map, marker1);
+		             currentInfowindow=infowindow1;
+		             currentMarker=marker1;     
+		           });
+		           }	   
+	             }
+
+//        		  點擊地圖關閉目前infowindow
+		      google.maps.event.addListener(map, 'click', function(){ 
+		      currentInfowindow.close(map,currentMarker);
+		      });
+           });
+       }); 		
      
+      $(function(){
+      var w = $("#mwt_slider_content").width();
+      $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); 
+      
+      $("#mwt_fb_tab").mouseover(function(){
+          if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
+          {
+              $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
+          }
+      });
+          
+      $("#mwt_slider_content").mouseleave(function(){
+          $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');	
+      });	
+  });
+	
+		
 //     // 景點Ｍap
 //     $(document).ready(function(){
 //                   $('#spots').click(function(){
@@ -555,17 +761,17 @@ html, body {
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 	<!-- Vendor JS Files -->
-<!-- 	<script -->
-<%-- 		src="${pageContext.request.contextPath}/assets/vendor/aos/aos.js"></script> --%>
-	<%--   <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --%>
-<!-- 	<script -->
-<%-- 		src="${pageContext.request.contextPath}/assets/vendor/glightbox/js/glightbox.min.js"></script> --%>
-<!-- 	<script -->
-<%-- 		src="${pageContext.request.contextPath}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script> --%>
-<!-- 	<script -->
-<%-- 		src="${pageContext.request.contextPath}/assets/vendor/php-email-form/validate.js"></script> --%>
-<!-- 	<script -->
-<%-- 		src="${pageContext.request.contextPath}/assets/vendor/swiper/swiper-bundle.min.js"></script> --%>
+	<script
+		src="${pageContext.request.contextPath}/assets/vendor/aos/aos.js"></script>
+	  <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/vendor/php-email-form/validate.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/vendor/swiper/swiper-bundle.min.js"></script>
 
 	<!-- Template Main JS File -->
 	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
