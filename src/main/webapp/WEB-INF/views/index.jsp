@@ -421,6 +421,7 @@ border:none;
 						<li><i class="bi bi-check-circle"></i> Unsplash</li>
 						<li><i class="bi bi-check-circle"></i> Font Awesome</li>
 						<li><i class="bi bi-check-circle"></i> PowerDirector</li>
+						<li><i class="bi bi-check-circle"></i> Splide</li>
 <!-- 						<li><i class="bi bi-check-circle"></i> Font Awesome</li> -->
 					</ul>
 					<p></p>
