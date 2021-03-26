@@ -63,15 +63,7 @@ textarea {
 	transition: color 2s;
 }
 
-/* svg{ */
-/* width: 200px  !important; */
-/* border:1px solid grey; */
-
-/* } */
-/* .splide__track{ */
-/* padding: 0px 100px !important; */
-/* width: 1700px !important; */
-/* } */
+/*===============================================*/
 .imageFrame {
 	height: 300px; /*can be anything*/
 	width: 300px; /*can be anything*/
@@ -107,6 +99,7 @@ textarea {
 	right: 0;
 	margin: auto;
 }
+
 </style>
 
 
@@ -144,8 +137,6 @@ textarea {
 				<div class="row row-cols-1 row-cols-md-2">
 					<div class="col">
 						<div>
-							
-							作者:${row.mName}諸葛村夫
 							觀看次數: <span><c:if test="${row.vcount==null}">0</c:if>
 								<c:if test="${row.vcount!=null}">${row.vcount}</c:if></span>次
 						</div>
@@ -177,6 +168,7 @@ textarea {
 		</c:forEach>
 		<!-- ------------------------------------------------------------------- -->
 		<div class="container">
+		
 			<div class="row row-cols-4">
 				<div class="col-12 title  my-3">留言板</div>
 				<c:forEach items="${pMsgList}" var="msg">
@@ -191,6 +183,7 @@ textarea {
 					</div>
 				</c:forEach>
 			</div>
+			
 			<c:if test="${mId!=null}">
 				<div class="row my-3">
 					<div class="col">
@@ -205,10 +198,19 @@ textarea {
 					</div>
 				</div>
 			</c:if>
-		</div>
-
-		<!-----------定位----------------------------------------------------------------------------->
-	</div>
+		</div></div>
+	<!-----------商品/廣告----------------------------------------------------------------------------->
+<%-- 	<c:forEach items="${itemList}" var="it"> --%>
+<%-- 		<form action="merchandiseDetail/Id=${it.itemId}" method="get"> --%>
+<%-- 			<%-- 					<input class="form-control me-2" type="hidden" name="Id" value="${it.itemId}"> --%> --%>
+<!-- 			<button class="btn fs-6" id="search" type="submit" -->
+<%-- 				style="box-shadow: none;">${it.itemHeader}</button> --%>
+<%-- 		</form> --%>
+<!-- 		<div class="col-3 message my-4"> -->
+<!-- 			<span style="font-size: 1.3rem;" class="fw-bold">#${it.itemDes}</span> -->
+<!-- 			<br> -->
+<!-- 		</div> -->
+<%-- 	</c:forEach> --%>
 	<!-----------商品/廣告----------------------------------------------------------------------------->
 	<!-- 最外層----------------------------------------------------------------- -->
 	<div class="container" >
@@ -219,8 +221,7 @@ textarea {
 				<ul class="splide__list" >
 					<c:forEach items="${itemList}" var="it">
 						<li class="splide__slide">
-							
-<!-- 							======================= -->
+
 						<div class="card">
 								<div class="itemImageBorder" style="margin:auto">
 									<div id="carouselExampleControls${it.itemId}"
@@ -268,32 +269,81 @@ textarea {
 									</a>
 								</div>
 							</div>
-								<!-- ---------------------------------------------------------------------------------------------------------------- -->
-<!-- 							======================= -->
-<%-- 							<form action="merchandiseDetail/Id=${it.itemId}" method="get"> --%>
-<%-- 													<input class="form-control me-2" type="hidden" name="Id" value="${it.itemId}"> --%>
-<!-- 								<button class="btn" id="search" type="submit" -->
-<%-- 									style="box-shadow: none ;font-size: 1.5rem;">${it.itemHeader}</button> --%>
-<%-- 							</form> --%>
-							
-							
-<!-- 							<div class=" my-1"> -->
-<%-- 								<span style="font-size: 1.3rem;" class="fw-bold">${it.itemDes}</span> --%>
-<!-- 							</div> -->
-						</li>
+
 					</c:forEach>
 
 				</ul>
 			</div>
 		</div>
 	</div>
+	<!--內嵌footer-------------------------------------------------------------------------------->
+	<div>
+		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
+	</div>
+	<!-- --------------------------------------------------------------------------------------->
 
+<script type="text/javascript">
+$(function (){
+// 	判斷狀態:點讚紅色,未點黑色
+    var userLike = $("button[name='like']").val();
+    if (userLike == 1) {
+        $("span[id='like']").css("color","red");
 
+    }else {
+        $("span[id='like']").css("color","black");
 
+    }
+// 	點擊觸發判斷:1=讚,0=未點
+    $("button[name='like']").click(function() {
+        userl =$(this).val();
+        if (userl == 1) {
+            selected()
+        }else {
+            selecting()
+        }
+    })
 
+})
+// <!已点赞事件，取消点赞，改变颜色，post传递数据修改用户点赞状态，和返回点赞总数>
+// 點讚事件 取消點讚 改變顏色時 POST修改點讚狀態
+function selected() {
+    $("span[id='like']").css("color","black");
+    $.ajax({
+        url:"like",
+        data:{"ulike":0},
+        type:"post",
+        dataType:"JSON",
+        success:function (rs){
+            var s = rs.sumLike
+            $("button[name='like']").val(0);
+            $("#sumLike").html(s);
+        },
+        error:function (rs) {
+            alert(rs.sumLike);
+        }
+    })
+}
+// <!未点赞事件，点赞，改变颜色，post传递数据修改用户点赞状态，和返回点赞总数>
+function selecting() {
+    $("span[id='like']").css("color","red");
+    $.ajax({
+        url:"like",
+        data:{"ulike":1},
+        type:"post",
+        dataType:"JSON",
+        success:function (rs){
+            var s = rs.sumLike
+            $("button[name='like']").val(1);
+            $("#sumLike").html(s);
+        },
+        error:function (rs) {
+            alert(rs.sumLike);
+        }
+    })
+}
 
-
-	<script
+</script>
+<script
 		src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
 
 	<script>
@@ -318,15 +368,7 @@ textarea {
 			}).mount();
 		});
 	</script>
-
-	<!--內嵌footer-------------------------------------------------------------------------------->
-	<div>
-		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
-	</div>
-	<!-- --------------------------------------------------------------------------------------->
-
 </body>
 </html>
-
 
 
