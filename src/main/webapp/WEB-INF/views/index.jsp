@@ -365,7 +365,7 @@ border:none;
 				</div>
 				<!--         	onclick="location.href='merchandiseSearchResult/Id=2'" -->
 				<div class="col-2 IntroductionLink">
-					<a class="cta-btn" href="<c:url value="/"/>">觀賞影片</a> <a
+					<a class="cta-btn" href="<c:url value="/SearchResult?searchWord="/>">觀賞影片</a> <a
 						class="cta-btn" href="<c:url value="/merchandiseIndex"/>">購物商城</a>
 					<a class="cta-btn" href="<c:url value="/aboutUs"/>">關於我們</a>
 				</div>
