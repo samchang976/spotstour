@@ -23,12 +23,13 @@ public class PortfolioPlayDaoImpl implements PortfolioPlayDao {
 	@Override
 	public List<Map<String, Object>> queryPortfolioId(Integer portfolioId) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = " SELECT v.videoFile,v.videoPic,v.v_freeze,rpv.vcount,rpb.bcount,rpg.gcount,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
+		String sql = " SELECT mb.mId,mb.mName,mb.mPic,v.videoFile,v.videoPic,v.v_freeze,rpv.vcount,rpb.bcount,rpg.gcount,pf.portfolioId,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
 				+ " FROM video v " 
 				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
 				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "
 				+ " LEFT JOIN country cn ON ct.countryId = cn.countryId "
 				+ " LEFT JOIN continent cnt ON cn.continentId = cnt.continentId "
+				+ " LEFT JOIN member mb ON pf.mId = mb.mId "
 				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) vcount,r.portfolioId "
 			    + " FROM record r "
 				+ " WHERE r.paramId = 3 "

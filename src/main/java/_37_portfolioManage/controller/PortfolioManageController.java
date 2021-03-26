@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import _02_model.entity.CityBean;
 import _02_model.entity.Place_TypeBean;
 import _32_portfolioSearch.controller.vo.Portfolio_MsgBeanVo;
+import _32_portfolioSearch.service.AddRecordService;
 import _32_portfolioSearch.service.PortfolioMsgService;
 import _37_portfolioManage.controller.vo.ParamsBeanVo;
 import _37_portfolioManage.controller.vo.PortfolioBeanVo;
@@ -36,6 +37,8 @@ public class PortfolioManageController {
 	private ShowPersonalPortfolioService showPersonalPortfolioService;
 	@Autowired
 	private PortfolioMsgService portfolioMsgService;
+	@Autowired
+	private AddRecordService addRecordService;
 
 	//新增影片跳轉
 	@RequestMapping({ "videoCreate", "videoModify" })
@@ -74,6 +77,15 @@ public class PortfolioManageController {
 	@RequestMapping("collectVideo")
 	public String getCollectVideo() {
 		return "_31_portfolio/CollectVideo";
+	}
+	
+	
+	//點擊讚事件處理
+    @PostMapping("like")
+	public void doLike(@ModelAttribute(name ="Like")String like,Model model,HttpSession session) throws IOException {
+    	
+			
+		
 	}
 
 

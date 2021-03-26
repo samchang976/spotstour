@@ -287,6 +287,8 @@ border:none;
 							<form class=" position-absolute start-1 seeVedio" action="portfolioPlay" method="get">
 								<input class="form-control me-2" type="hidden" name="portfolioId"
 									value="${row.portfolioId}">
+								<input class="form-control me-2" type="hidden" name="countryId"
+									value="${row.countryId}">
 								<button class="btn" id="search" type="submit" style="border: none;box-shadow:none;
 								">
 <!-- 									<i class="fas fa-search"></i> -->
@@ -300,7 +302,7 @@ border:none;
 <!-- 							<i class="fas fa-search"></i> -->
 <!-- 							</button> -->
 <%-- 						</form>	 --%>
-						<video poster="/upload${row.videoPic}" class="w-100" autoplay>
+						<video poster="/upload${row.videoPic}" class="w-100" autoplay loop muted>
 								<source src="/uploadv${row.videoFile}" type="video/mp4">
 						</video>
 <%-- 						<div style="text-align: right;">觀看次數:${row.iccount}次</div> --%>
@@ -365,7 +367,7 @@ border:none;
 				</div>
 				<!--         	onclick="location.href='merchandiseSearchResult/Id=2'" -->
 				<div class="col-2 IntroductionLink">
-					<a class="cta-btn" href="<c:url value="/"/>">觀賞影片</a> <a
+					<a class="cta-btn" href="<c:url value="/SearchResult?searchWord="/>">觀賞影片</a> <a
 						class="cta-btn" href="<c:url value="/merchandiseIndex"/>">購物商城</a>
 					<a class="cta-btn" href="<c:url value="/aboutUs"/>">關於我們</a>
 				</div>
@@ -406,7 +408,9 @@ border:none;
 
 			<div class="row">
 				<div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
-					<img src="assets/img/about.jpg" class="img-fluid" alt="">
+<!-- 					<img src="assets/img/about.jpg" class="img-fluid" alt=""> -->
+					<img src="images/index/hanny-naibaho-0YbeoQOX89k-unsplash.jpg" class="img-fluid" alt="">
+					
 				</div>
 				<div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content"
 					data-aos="fade-right">
@@ -417,6 +421,7 @@ border:none;
 						<li><i class="bi bi-check-circle"></i> Unsplash</li>
 						<li><i class="bi bi-check-circle"></i> Font Awesome</li>
 						<li><i class="bi bi-check-circle"></i> PowerDirector</li>
+						<li><i class="bi bi-check-circle"></i> Splide</li>
 <!-- 						<li><i class="bi bi-check-circle"></i> Font Awesome</li> -->
 					</ul>
 					<p></p>

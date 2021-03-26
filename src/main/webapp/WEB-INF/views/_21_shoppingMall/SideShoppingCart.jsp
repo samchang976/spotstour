@@ -186,7 +186,8 @@ font-size: 1.5rem;
 							<c:forEach var="membercartlist" items="${membercartlist}">
 								<form>
 									<i class="fas fa-minus-circle"
-										onclick="location.href='shoppingCart/delete/Id=${membercartlist.sc_Id}'"></i>
+									
+										onclick="location.href='<c:url value="/shoppingCart/delete/Id=${membercartlist.sc_Id}"/>'"></i>
 									<div class="imageFrameSide">
 										<img class="img"
 											src="/upload/${membercartlist.itemBean.itemPic1}" alt="商品照片"></img>
@@ -227,11 +228,11 @@ font-size: 1.5rem;
 							</form>
 						</c:forEach>
 					</div>
-					<c:if test="${empty sessionShoppingCart || empty sessioncartList}">
+					<c:if test="${empty sessionShoppingCart ||  sessioncartList ==0}">
 						購物車是空的喔~
 					</c:if>
 					
-					<c:if test="${!empty sessionShoppingCart || !empty sessioncartList}">
+					<c:if test="${!empty sessionShoppingCart}">
 						<button class="btn addcart" type="button"
 							onclick="location.href='<c:url value="/shoppingCart/sessionCartSave"/>'">確定購買</button>
 						<!-- 				導向存session的controller -->
