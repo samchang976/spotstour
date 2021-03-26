@@ -87,7 +87,7 @@
 
 		<div class="container">
 <div style="text-align: center;">
-				<h2>登入</h2>
+				<h2 id="inputLogin">登入</h2>
 			</div>
 			<c:set var="funcName" value="LOG" scope="session" />
 			<c:set var="msg" value="登入" />
@@ -170,5 +170,19 @@
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 	<!-- --------------------------------------------------------------------------------------->
+			<script>
+		$(document)
+				.ready(
+						function() {
+							//一鍵輸入功能
+							//存取input標籤的值必須使用.val()方法
+							$('#inputLogin')
+									.click(
+											function() {
+												$('#mAN').val("spring0330");
+												$('#mPw').val("yayaya");
+											})
+						});
+	</script>
 </body>
 </html>

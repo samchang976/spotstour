@@ -361,7 +361,7 @@ INSERT  INTO `item`(`itemId`,`itemHeader`,`itemPrice`,`itemQty`,`itemDes`,`itId`
 (9,'美國 BLUE YETI 雪怪 USB麥克風 電容式麥克風 USB麥',6000,60,'極致專業的USB電容式麥克風 專屬3受音頭技術 可調四種不同收音模式:心型、雙向、全向、立體聲',4,'itemImages/電容式麥克風1.jpg','itemImages/電容式麥克風2.jpg','itemImages/電容式麥克風3.jpg',0,13),
 (10,'一生懸命的米果 日本《金吾堂》甘口醬油米果7枚',99,300,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料 ',1,'itemImages/甘口醬油米果1.jpg','itemImages/甘口醬油米果2.jpg','itemImages/甘口醬油米果3.jpg',0,2),
 (11,'日本《金吾堂》和鹽米果7枚',99,200,'★日本品牌《金吾堂》原裝進口 ★熱銷超過 60 年的米果經典老店 ★嚴選日本國產米，只用新鮮品質好原料',1,'itemImages/和鹽米果1.jpg','itemImages/和鹽米果2.jpg','itemImages/和鹽米果3.jpg',0,2),
-(12,'龜田手鹽屋鹽味米果9枚',79,100,'★日本原裝進口 ★口感堅脆，原味米果最對味 ★使用日本國產米製作，調味使用沈崎產鰹魚 ★原烤9枚超大片',1,'itemImages/龜田手鹽屋鹽味米果1.jpg','itemImages/龜田手鹽屋鹽味米果2.jpg','itemImages/龜田手鹽屋鹽味米果3.jpg',0,1),
+(12,'龜田手鹽屋鹽味米果9枚',79,100,'★日本原裝進口 ★口感堅脆，原味米果最對味 ★使用日本國產米製作，調味使用沈崎產鰹魚 ★原烤9枚超大片',1,'itemImages/龜田手鹽屋鹽味米果1.jpg','itemImages/龜田手鹽屋鹽味米果2.jpg','itemImages/龜田手鹽屋鹽味米果3.jpg',0,2),
 (13,'日本《龜田》茶豆米果70g',79,200,'★日本米果大廠《龜田》製菓原裝進口 ★食鹽合成自日本赤穗天鹽與沖繩天日鹽 ★吃得到豆仁！原料 100％ 使用真實茶豆',1,'itemImages/茶豆米果1.jpg','itemImages/茶豆米果2.jpg','itemImages/茶豆米果3.jpg',0,2),
 (14,'Honda製果 玉米濃湯餅 (90g)',59,300,'★日本原裝進口 ★日本超人氣熱銷商品 ★獨特玉米濃湯風味',1,'itemImages/玉米濃湯餅1.jpg','itemImages/玉米濃湯餅2.jpg','itemImages/玉米濃湯餅3.jpg',0,2),
 (15,'Mondelez RITZ起士夾心餅乾 (160g)',105,300,'★知名餅乾RITZ ★酥脆餅乾搭配香濃起士 ★讓你欲罷不能的好滋味~',1,'itemImages/起士夾心餅乾1.jpg','itemImages/起士夾心餅乾2.jpg','itemImages/起士夾心餅乾3.jpg',0,2),
@@ -425,12 +425,12 @@ CREATE TABLE `member` (
 /*Data for the table `member` */
 
 insert  into `member`(`mId`,`mAN`,`mPw`,`mGender`,`mName`,`mUid`,`mBDay`,`mEmail`,`mPhone`,`d_mAddress`,`m_createTime`,`mPic`,`m_verify`,`mPid`) values 
-(1,'spotstour','0000aa','男','諸葛村夫','A123456789','1987-05-07 00:00:00','spring@gmail.com','0932000530','台北市大同區民權西路1號','2021-02-25 15:09:07','memberImages/mentat.jpg',1,2),
-(2,'aaaaaa','aaaaaa','男','管理者','A123400088','1990-03-01 12:03:16','spotstour@gamil.com','0912345678','台北市信義區信義路100號','2021-03-10 12:03:53','memberImages/andrea.jpg',1,1),
-(3,'sunnyday','world168','女','katie','F223456789','1988-12-31 00:00:00','katie@gmail.com','0966130530','台北市中山區中山北路二段35號','2021-03-11 13:10:08','memberImages/katie.jpg',1,2),
-(4,'linatour','cheese00','女','lina','F233456000','1990-03-06 00:00:00','lina@gmail.com','0988421530','台北市中正區忠孝東路二段27號','2021-03-12 16:15:22','memberImages/lina.jpg',1,2),
-(5,'kittyhi','smile99','秘密','kitty','A123456789','1985-03-03 00:00:00','spring@gmail.com','0911850530','台北市中正區北平東路7號','2021-03-15 17:09:07','memberImages/kitty.jpg',1,2),
-(6,'snoopyya','0000jj','秘密','snoopy','A123456789','1985-02-17 00:00:00','spring@gmail.com','0912653530','台北市中正區八德路一段1號','2021-03-17 14:09:07','memberImages/snoopy.jpg',1,2);
+(1,'spotstour','0000aa','男','諸葛村夫','A123456789','1987-05-07 00:00:00','sam.chang8585@gmail.com','0932000530','台北市大同區民權西路1號','2021-02-25 15:09:07','memberImages/mentat.jpg',1,2),
+(2,'aaaaaa','aaaaaa','男','管理者','A123400088','1990-03-01 12:03:16','sam.chang8585@gamil.com','0912345678','台北市信義區信義路100號','2021-03-10 12:03:53','memberImages/andrea.jpg',1,1),
+(3,'sunnyday','world168','女','katie','F223456789','1988-12-31 00:00:00','sam.chang8585@gmail.com','0966130530','台北市中山區中山北路二段35號','2021-03-11 13:10:08','memberImages/katie.jpg',1,2),
+(4,'linatour','cheese00','女','lina','F233456000','1990-03-06 00:00:00','sam.chang8585@gmail.com','0988421530','台北市中正區忠孝東路二段27號','2021-03-12 16:15:22','memberImages/lina.jpg',1,2),
+(5,'kittyhi','smile99','秘密','kitty','A123456789','1985-03-03 00:00:00','sam.chang8585@gmail.com','0911850530','台北市中正區北平東路7號','2021-03-15 17:09:07','memberImages/kitty.jpg',1,2),
+(6,'snoopyya','0000jj','秘密','snoopy','A123456789','1985-02-17 00:00:00','sam.chang8585@gmail.com','0912653530','台北市中正區八德路一段1號','2021-03-17 14:09:07','memberImages/snoopy.jpg',1,2);
 
 /*Table structure for table `member_perm` */
 

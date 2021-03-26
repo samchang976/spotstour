@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 
-import _02_model.entity.ItemBean;
 import _02_model.entity.ShoppingCartBean;
 import _21_merchandiseSearch.dao.ItemDao;
 import _22_shoppingCart.dao.shoppingCartDao;
@@ -61,7 +58,7 @@ public class ShoppingCartContent {
 	@PostMapping("/shoppingCart/delete/Id={sc_Id}")
 	public String deleteCartItem(@PathVariable("sc_Id") Integer sc_Id) {
 //		System.out.println("Delete===================================================");
-		System.out.println(sc_Id);
+//		System.out.println(sc_Id);
 		shoppingCartService.deleteItem(sc_Id);
 //		System.out.println("Delete===================================================");
 		return "redirect:/shoppingCart";
@@ -77,7 +74,7 @@ public class ShoppingCartContent {
 	//側邊購物車刪除========================================================================
 	@GetMapping("/shoppingCart/delete/Id={sc_Id}")
 	public String memberdeleteCartItemInSideCart(@PathVariable("sc_Id") Integer sc_Id) {
-//		System.out.println(sc_Id);
+		System.out.println(sc_Id);
 		shoppingCartService.deleteItem(sc_Id);
 		return "redirect:/merchandiseSearchResult";
 	}
@@ -132,7 +129,7 @@ public class ShoppingCartContent {
 	@PostMapping("/shoppingCart/addQty/{itemId}")
 	public String addShoppingCartHaveQty(Model model, @PathVariable("itemId") Integer itemId,
 			@RequestParam("itemQty") Integer itemQty) throws ServletException, IOException {
-		System.out.println("addcart============================");
+//		System.out.println("addcart============================");
 		// 1.判斷用戶是否存在
 		Integer member = (Integer) model.getAttribute("mId");
 		System.out.println(member);
@@ -158,7 +155,7 @@ public class ShoppingCartContent {
 			@RequestParam(value="itemQty" ,required=false) Integer itemQty,
 			@PathVariable("cmd") String cmd
 	) {
-		System.out.println("訪客加入購物車開始===================================");
+//		System.out.println("訪客加入購物車開始===================================");
 		// Session內的購物車商品id清單
 		Map<Integer, Integer> cartlist = (Map<Integer, Integer>) model.getAttribute("sessionShoppingCart");
 		
@@ -218,8 +215,29 @@ public class ShoppingCartContent {
 		model.addAttribute("sessionShoppingCartList", sscList);
 //		System.out.println("sscList================="+sscList);
 		
-		System.out.println("訪客加入購物車結束===================================");
+//		System.out.println("訪客加入購物車結束===================================");
 		return "redirect:/merchandiseSearchResult";
 	}
 	
+	//多選刪除
+	@GetMapping("/shoppingCart/MultipleDelete") 
+		public String MultipleDelete(
+//			@RequestParam("deleteItems") Integer[] deleteItems,
+			@RequestParam("items") String items){
+		System.out.println("items==============="+items);
+		String[] item = items.split(",");
+		
+		for (int x = 0; x < item.length; x++) {
+//			System.out.println(item[x]);
+			
+			
+			shoppingCartService.deleteItem(Integer.valueOf(item[x]));
+		}
+		
+//		for(int i=0;i<deleteItems.length;i++) {
+//			shoppingCartService.deleteItem(i);
+//		}
+		return "redirect:/shoppingCart";
+		
+	}
 }

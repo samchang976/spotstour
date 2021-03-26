@@ -130,7 +130,7 @@ border: 2px solid red;
 			<div class="row ButtonsBlock">
 				<div class="col-12 ">
 					<button class="btn btn-primary" id='checkedALL'>全選</button>
-					<button class="btn btn-primary">多項刪除</button>
+					<button class="btn btn-primary" id="delitems">多項刪除</button>
 				</div>
 
 			</div>
@@ -157,7 +157,7 @@ border: 2px solid red;
 						<div class="col-1 ItemField">
 							<div>
 								<input class="form-check-input" type="checkbox"
-									id="checkboxNoLabel" value="" aria-label="..." name="checkboxs">
+									id="de${vs.index}" value="${cart.sc_Id}" aria-label="..." name="deleteItems">
 							</div>
 						</div>
 						<!-- 商品照片 -------------------------------------------------------->

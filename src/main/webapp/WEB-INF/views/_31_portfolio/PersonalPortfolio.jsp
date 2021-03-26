@@ -147,7 +147,7 @@ width: 70px;
 					<form class="d-flex" action="SearchPortfolioDetail" method="get">
 						<input class="form-control me-2" type="text" name="searchWord"
 							placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">
+						<button class="btn btn-outline-secondary" type="submit">
 							<i class="fas fa-search"></i>
 						</button>
 					</form>

@@ -83,7 +83,7 @@
 				<div class="focus container text-dark text-left text-shdow">
 					<div class="row text-center">
 						<div class="col">
-							<h1 class="mt-3">會員資料修改</h1>
+							<h1 class="mt-3" id="inputModify">會員資料修改</h1>
 						</div>
 					</div>
 
@@ -187,6 +187,7 @@
 			</div>
 		</div>
 	</div>
+	
 				
 <!-- 		<div style="margin: 150px;"> -->
 			<!-- 文字表單區塊 --> 
@@ -267,6 +268,23 @@
 		<jsp:include page="/WEB-INF/views/_00_util/allUtil/jsp/footer.jsp" />
 	</div>
 <!-- --------------------------------------------------------------------------------------->
-
+<script>
+		$(document)
+				.ready(
+						function() {
+							//一鍵輸入功能
+							//存取input標籤的值必須使用.val()方法
+							$('#inputModify')
+									.click(
+											function() {
+												$('#mName').val("springya");
+												$('#mPw').val("yayaya");
+												$('#mTPw').val("yayaya");
+												$('#d_mAddress').val("台北市大安區新生南路三段98號");
+												$('#mBDay').val("1991-01-01");
+												$('#mPhone').val("0986522435");
+											})
+						});
+	</script>
 </body>
 </html>

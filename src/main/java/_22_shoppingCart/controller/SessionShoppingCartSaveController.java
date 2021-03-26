@@ -1,7 +1,5 @@
 package _22_shoppingCart.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import _02_model.entity.ShoppingCartBean;
-import _22_shoppingCart.dao.shoppingCartDao;
 import _22_shoppingCart.service.ShoppingCartService;
-import _22_shoppingCart.vo.SessionShoppingCartVo;
 
 @Controller
 @SessionAttributes({ "sessionShoppingCart", "sessionShoppingCartList" })
@@ -32,7 +27,6 @@ public class SessionShoppingCartSaveController {
 //	shoppingCartDao shoppingCartDao;
 
 	// 存session===================================================================================
-	@SuppressWarnings("unchecked")
 	@Transactional
 	@GetMapping("/shoppingCart/sessionCartSave")
 	public String sessionCartSave(Model model, HttpSession session, SessionStatus status) {
