@@ -300,7 +300,7 @@ border:none;
 <!-- 							<i class="fas fa-search"></i> -->
 <!-- 							</button> -->
 <%-- 						</form>	 --%>
-						<video poster="/upload${row.videoPic}" class="w-100" autoplay>
+						<video poster="/upload${row.videoPic}" class="w-100" autoplay loop>
 								<source src="/uploadv${row.videoFile}" type="video/mp4">
 						</video>
 <%-- 						<div style="text-align: right;">觀看次數:${row.iccount}次</div> --%>
