@@ -16,8 +16,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
 	integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
 	crossorigin="anonymous" />
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
 <!-- Required meta tags------------------------------------------------------------------------------------- -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -133,7 +131,7 @@
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 #map {
-	height: 100%;
+	height: 90%;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
@@ -152,37 +150,6 @@ html, body {
 	<!-----------定位----------------------------------------------------------------------------->
 <!-- 	<div class="BodyPosition"> -->
 <!------------------------------------------------------------------------------------------->	
-	<!-- Header遷入 -->
-<!-- 	<div class='menuOuter' -->
-<!-- 		style="border-bottom: 1px solid black; text-align: center;"> -->
-		<!-- Serch bar -->
-<!-- 		<div id='option1'> -->
-<!-- 			<div class="search"> -->
-<!-- 				<input class="search-bar" type="text" name="search" id="search" -->
-<!-- 					placeholder="搜尋地點"> -->
-<!-- 				<button class="search-btn"> -->
-<!-- 					<i class="fas fa-search"></i> -->
-<!-- 				</button> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<%-- 		<a href="<c:url value='/' />" target="_parent"> --%>
-<!-- 			<div id="SPOTTOUR">SPOTS-TOUR</div> -->
-<!-- 		</a> -->
-<!-- 		<div id='option2'> -->
-			<!-- 內嵌網站把連結導向父層 -->
-<!-- 			<a href="01_MerchandiseIndex.html" target="_parent"> <i -->
-<!-- 				class="fas fa-cart-plus fa-3x"></i> -->
-<!-- 			</a> -->
-
-			<!-- <a href='04_MerchandiseDetail.html'>
-                <i class="fas fa-cart-plus fa-3x"></i>
-            </a> -->
-<!-- 			<a href="#"> <i class="fas fa-user-alt fa-3x"></i> -->
-<!-- 			</a> <a href="#"> <i class="fas fa-align-justify fa-3x"></i> -->
-<!-- 			</a> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-
 	<div id="map"></div>
 
 	<!-- 嵌入側邊選單 -->
@@ -191,12 +158,12 @@ html, body {
 			<i class="fas fa-caret-right fa-3x"></i>
 		</div>
 		<div id="mwt_slider_content">
-			<button type="button" id="resturant">
-				<i class="fas fa-utensils fa-2x"></i> <span>餐廳</span>
-			</button>
-			<br>
 			<button type="button" id="spots">
 				<i class="fas fa-archway fa-2x"></i> <span>景點</span>
+			</button>
+			<br>
+			<button type="button" id="resturant">
+				<i class="fas fa-utensils fa-2x"></i> <span>餐廳</span>
 			</button>
 			<br>
 			<button type="button" id="hotel">
@@ -213,19 +180,9 @@ html, body {
 	</div>
 	<!-- Jarallax -->
 	<script src="https://unpkg.com/jarallax@1/dist/jarallax.min.js"></script>
-
 	<!-- Include it if you want to use Video parallax -->
 	<script src="https://unpkg.com/jarallax@1/dist/jarallax-video.min.js"></script>
 	<!-- --------------------------------------------------------------------------------------->
-	<!-- footer 嵌入 -->
-<!-- 	<div class="footer"> -->
-<!-- 		<div class="content"> -->
-<!-- 			<p>SPOTS-TOUR</p> -->
-<!-- 			<p>2021 &copy; All Rights Reserved</p> -->
-<!-- 			<p>Contacts us</p> -->
-<!-- 			<p>spotstour@gmail.com</p> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
 
 <script>
       // This example displays a marker at the center of Australia.
@@ -325,267 +282,267 @@ html, body {
 		      });
            });
        });
-         
+     
          
 
      
-    // 景點Ｍap
-    $(document).ready(function(){
-                  $('#spots').click(function(){
-                    var currentInfowindow;
-                var currentMarker;
+//     // 景點Ｍap
+//     $(document).ready(function(){
+//                   $('#spots').click(function(){
+//                     var currentInfowindow;
+//                 var currentMarker;
     
         
-        // const uluru = { lat: 25.064127, lng: 121.539639 };
+//         // const uluru = { lat: 25.064127, lng: 121.539639 };
 
-        const uluru = { lat: 25.064127, lng: 121.539639 };
-        const uluru1 = { lat: 26.220549, lng: 127.720900 };
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 3,
-          center: uluru,
-        });
+//         const uluru = { lat: 25.064127, lng: 121.539639 };
+//         const uluru1 = { lat: 26.220549, lng: 127.720900 };
+//         const map = new google.maps.Map(document.getElementById("map"), {
+//           zoom: 3,
+//           center: uluru,
+//         });
 
-        const contentString =
-          '<div id="content">' +
-          '<div id="siteNotice">' +
-          "</div>" +
-          '<a href="https://www.fooish.com/" target="_blank" style="margin-left: 70%; font-size:20px;">查看全部影片</a>'+
-          '<hr color="black" size="4px" align="center" width="98%">'+
-          ' <div id="Time" style="font-size: 18px;">幾秒前發佈</div>' +
-          '<video width="450" height="300" style="margin-left: 20px" controls  >' +
-         '<source src="/videoplayback.mp4" type="video/mp4" />'+
-         '</video>'  +
-         '<h1 id="firstHeading" class="firstHeading" style="margin-left: 20px">榮星花園</h1> <i class="fas fa-star fa-2x"></i>' +
-         '<i class="fas fa-star fa-2x"></i>'+
-          '<div id="bodyContent">' +
-          "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
-          "sandstone rock formation in the southern part of the " +
-          "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-          "south west of the nearest large town, Alice Springs; 450&#160;km " +
-          "(280&#160;mi) by road. （我聽你在扯）"  +
-          "Heritage Site.</p>" +
-          '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
-          "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-          "(last visited June 22, 2009).</p>" +
+//         const contentString =
+//           '<div id="content">' +
+//           '<div id="siteNotice">' +
+//           "</div>" +
+//           '<a href="https://www.fooish.com/" target="_blank" style="margin-left: 70%; font-size:20px;">查看全部影片</a>'+
+//           '<hr color="black" size="4px" align="center" width="98%">'+
+//           ' <div id="Time" style="font-size: 18px;">幾秒前發佈</div>' +
+//           '<video width="450" height="300" style="margin-left: 20px" controls  >' +
+//          '<source src="/videoplayback.mp4" type="video/mp4" />'+
+//          '</video>'  +
+//          '<h1 id="firstHeading" class="firstHeading" style="margin-left: 20px">榮星花園</h1> <i class="fas fa-star fa-2x"></i>' +
+//          '<i class="fas fa-star fa-2x"></i>'+
+//           '<div id="bodyContent">' +
+//           "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
+//           "sandstone rock formation in the southern part of the " +
+//           "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
+//           "south west of the nearest large town, Alice Springs; 450&#160;km " +
+//           "(280&#160;mi) by road. （我聽你在扯）"  +
+//           "Heritage Site.</p>" +
+//           '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
+//           "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+//           "(last visited June 22, 2009).</p>" +
 
-          '<h1 id="firstHeading" class="firstHeading">榮星花園</h1>' +
-          '<video controls>' +
-         '<source src="/videoplayback1.mp4" type="video/mp4" />'+
-         '</video>'  +
-          '<div id="bodyContent">' +
-          "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
-          "sandstone rock formation in the southern part of the " +
-          "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-          "south west of the nearest large town, Alice Springs; 450&#160;km " +
-          "(280&#160;mi) by road. （我聽你在扯）"  +
-          "Heritage Site.</p>" +
-          '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
-          "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-          "(last visited June 22, 2009).</p>" +
+//           '<h1 id="firstHeading" class="firstHeading">榮星花園</h1>' +
+//           '<video controls>' +
+//          '<source src="/videoplayback1.mp4" type="video/mp4" />'+
+//          '</video>'  +
+//           '<div id="bodyContent">' +
+//           "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
+//           "sandstone rock formation in the southern part of the " +
+//           "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
+//           "south west of the nearest large town, Alice Springs; 450&#160;km " +
+//           "(280&#160;mi) by road. （我聽你在扯）"  +
+//           "Heritage Site.</p>" +
+//           '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
+//           "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+//           "(last visited June 22, 2009).</p>" +
 
           
 
-          "</div>" +
-          "</div>";
+//           "</div>" +
+//           "</div>";
 
-          const contentString1 =
-          '<div id="content">' +
-          '<div id="siteNotice">' +
-          "</div>" +
-          '<h1 id="firstHeading" class="firstHeading" style="font-size:40px">榮星花園1234567</h1>' +
-          '<div id="bodyContent">' +
-          "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
-          "sandstone rock formation in the southern part of the " +
-          "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-          "south west of the nearest large town, Alice Springs; 450&#160;km " +
-          "(280&#160;mi) by road. （我聽你在扯）"  +
-          "Heritage Site.</p>" +
-          '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
-          "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-          "(last visited June 22, 2009).</p>" +
-          "</div>" +
-          "</div>";
-        const infowindow = new google.maps.InfoWindow({
-          content: contentString,
-          maxWidth: 520,
-        });
-        const infowindow1 = new google.maps.InfoWindow({
-          content: contentString1,
-          maxWidth: 1000,
-        });
-        const marker = new google.maps.Marker({
-          position: uluru,
-          map,
-          title: "Uluru (Ayers Rock)",
-        });
-        const marker1 = new google.maps.Marker({
-          position: uluru1,
-          map,
-          title: "Uluruaa (Ayers Rock)",
-        });
-        marker.addListener("click", () => {
-          map.setCenter(uluru, 3); //點擊此marker 世界地圖以此為中心
-          infowindow.open(map, marker);
-          currentInfowindow=infowindow;
-          currentMarker=marker;
-          infowindow1.close();
+//           const contentString1 =
+//           '<div id="content">' +
+//           '<div id="siteNotice">' +
+//           "</div>" +
+//           '<h1 id="firstHeading" class="firstHeading" style="font-size:40px">榮星花園1234567</h1>' +
+//           '<div id="bodyContent">' +
+//           "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
+//           "sandstone rock formation in the southern part of the " +
+//           "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
+//           "south west of the nearest large town, Alice Springs; 450&#160;km " +
+//           "(280&#160;mi) by road. （我聽你在扯）"  +
+//           "Heritage Site.</p>" +
+//           '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
+//           "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+//           "(last visited June 22, 2009).</p>" +
+//           "</div>" +
+//           "</div>";
+//         const infowindow = new google.maps.InfoWindow({
+//           content: contentString,
+//           maxWidth: 520,
+//         });
+//         const infowindow1 = new google.maps.InfoWindow({
+//           content: contentString1,
+//           maxWidth: 1000,
+//         });
+//         const marker = new google.maps.Marker({
+//           position: uluru,
+//           map,
+//           title: "Uluru (Ayers Rock)",
+//         });
+//         const marker1 = new google.maps.Marker({
+//           position: uluru1,
+//           map,
+//           title: "Uluruaa (Ayers Rock)",
+//         });
+//         marker.addListener("click", () => {
+//           map.setCenter(uluru, 3); //點擊此marker 世界地圖以此為中心
+//           infowindow.open(map, marker);
+//           currentInfowindow=infowindow;
+//           currentMarker=marker;
+//           infowindow1.close();
           
-        });
-        marker1.addListener("click", () => {
-          map.setCenter(uluru1, 3);  //點擊此marker 世界地圖以此為中心
-          infowindow1.open(map, marker1);
-          currentInfowindow=infowindow1;
-          currentMarker=marker1;
-          infowindow.close();
+//         });
+//         marker1.addListener("click", () => {
+//           map.setCenter(uluru1, 3);  //點擊此marker 世界地圖以此為中心
+//           infowindow1.open(map, marker1);
+//           currentInfowindow=infowindow1;
+//           currentMarker=marker1;
+//           infowindow.close();
           
-        });
+//         });
 
-        //點擊地圖關閉目前infowindow
-        google.maps.event.addListener(map, 'click', function(){ 
-          currentInfowindow.close(map,currentMarker);
+//         //點擊地圖關閉目前infowindow
+//         google.maps.event.addListener(map, 'click', function(){ 
+//           currentInfowindow.close(map,currentMarker);
 
-           });
-               });
-            });
+//            });
+//                });
+//             });
     
     
             
-       // 住宿Ｍap
-                $(document).ready(function(){
-                    $('#hotel').click(function(){
-                      var currentInfowindow;
-                  var currentMarker;
+//        // 住宿Ｍap
+//                 $(document).ready(function(){
+//                     $('#hotel').click(function(){
+//                       var currentInfowindow;
+//                   var currentMarker;
       
           
-          // const uluru = { lat: 25.064127, lng: 121.539639 };
+//           // const uluru = { lat: 25.064127, lng: 121.539639 };
 
 
-        const uluru = { lat: 26.064127, lng: 110.539639 };
-        const uluru1 = { lat: 28.220549, lng: 110.720900 };
-          const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 3,
-            center: uluru,
-          });
+//         const uluru = { lat: 26.064127, lng: 110.539639 };
+//         const uluru1 = { lat: 28.220549, lng: 110.720900 };
+//           const map = new google.maps.Map(document.getElementById("map"), {
+//             zoom: 3,
+//             center: uluru,
+//           });
 
-          const contentString =
-            '<div id="content">' +
-            '<div id="siteNotice">' +
-            "</div>" +
-            '<a href="https://www.fooish.com/" target="_blank" style="margin-left: 70%; font-size:20px;">查看全部影片</a>'+
-            '<hr color="black" size="4px" align="center" width="98%">'+
-            ' <div id="Time" style="font-size: 18px;">幾秒前發佈</div>' +
-            '<video width="450" height="300" style="margin-left: 20px" controls  >' +
-           '<source src="/videoplayback.mp4" type="video/mp4" />'+
-           '</video>'  +
-           '<h1 id="firstHeading" class="firstHeading" style="margin-left: 20px">榮星花園</h1> <i class="fas fa-star fa-2x"></i>' +
-           '<i class="fas fa-star fa-2x"></i>'+
-            '<div id="bodyContent">' +
-            "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
-            "sandstone rock formation in the southern part of the " +
-            "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-            "south west of the nearest large town, Alice Springs; 450&#160;km " +
-            "(280&#160;mi) by road. （我聽你在扯）"  +
-            "Heritage Site.</p>" +
-            '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
-            "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-            "(last visited June 22, 2009).</p>" +
+//           const contentString =
+//             '<div id="content">' +
+//             '<div id="siteNotice">' +
+//             "</div>" +
+//             '<a href="https://www.fooish.com/" target="_blank" style="margin-left: 70%; font-size:20px;">查看全部影片</a>'+
+//             '<hr color="black" size="4px" align="center" width="98%">'+
+//             ' <div id="Time" style="font-size: 18px;">幾秒前發佈</div>' +
+//             '<video width="450" height="300" style="margin-left: 20px" controls  >' +
+//            '<source src="/videoplayback.mp4" type="video/mp4" />'+
+//            '</video>'  +
+//            '<h1 id="firstHeading" class="firstHeading" style="margin-left: 20px">榮星花園</h1> <i class="fas fa-star fa-2x"></i>' +
+//            '<i class="fas fa-star fa-2x"></i>'+
+//             '<div id="bodyContent">' +
+//             "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
+//             "sandstone rock formation in the southern part of the " +
+//             "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
+//             "south west of the nearest large town, Alice Springs; 450&#160;km " +
+//             "(280&#160;mi) by road. （我聽你在扯）"  +
+//             "Heritage Site.</p>" +
+//             '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
+//             "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+//             "(last visited June 22, 2009).</p>" +
 
-            '<h1 id="firstHeading" class="firstHeading">榮星花園</h1>' +
-            '<video controls>' +
-           '<source src="/videoplayback1.mp4" type="video/mp4" />'+
-           '</video>'  +
-            '<div id="bodyContent">' +
-            "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
-            "sandstone rock formation in the southern part of the " +
-            "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-            "south west of the nearest large town, Alice Springs; 450&#160;km " +
-            "(280&#160;mi) by road. （我聽你在扯）"  +
-            "Heritage Site.</p>" +
-            '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
-            "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-            "(last visited June 22, 2009).</p>" +
+//             '<h1 id="firstHeading" class="firstHeading">榮星花園</h1>' +
+//             '<video controls>' +
+//            '<source src="/videoplayback1.mp4" type="video/mp4" />'+
+//            '</video>'  +
+//             '<div id="bodyContent">' +
+//             "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
+//             "sandstone rock formation in the southern part of the " +
+//             "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
+//             "south west of the nearest large town, Alice Springs; 450&#160;km " +
+//             "(280&#160;mi) by road. （我聽你在扯）"  +
+//             "Heritage Site.</p>" +
+//             '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
+//             "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+//             "(last visited June 22, 2009).</p>" +
 
             
 
-            "</div>" +
-            "</div>";
+//             "</div>" +
+//             "</div>";
 
-            const contentString1 =
-            '<div id="content">' +
-            '<div id="siteNotice">' +
-            "</div>" +
-            '<h1 id="firstHeading" class="firstHeading" style="font-size:40px">榮星花園1234567</h1>' +
-            '<div id="bodyContent">' +
-            "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
-            "sandstone rock formation in the southern part of the " +
-            "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-            "south west of the nearest large town, Alice Springs; 450&#160;km " +
-            "(280&#160;mi) by road. （我聽你在扯）"  +
-            "Heritage Site.</p>" +
-            '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
-            "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-            "(last visited June 22, 2009).</p>" +
-            "</div>" +
-            "</div>";
-          const infowindow = new google.maps.InfoWindow({
-            content: contentString,
-            maxWidth: 520,
-          });
-          const infowindow1 = new google.maps.InfoWindow({
-            content: contentString1,
-            maxWidth: 1000,
-          });
-          const marker = new google.maps.Marker({
-            position: uluru,
-            map,
-            title: "Uluru (Ayers Rock)",
-          });
-          const marker1 = new google.maps.Marker({
-            position: uluru1,
-            map,
-            title: "Uluruaa (Ayers Rock)",
-          });
-          marker.addListener("click", () => {
-            map.setCenter(uluru, 3); //點擊此marker 世界地圖以此為中心
-            infowindow.open(map, marker);
-            currentInfowindow=infowindow;
-            currentMarker=marker;
-            infowindow1.close();
+//             const contentString1 =
+//             '<div id="content">' +
+//             '<div id="siteNotice">' +
+//             "</div>" +
+//             '<h1 id="firstHeading" class="firstHeading" style="font-size:40px">榮星花園1234567</h1>' +
+//             '<div id="bodyContent">' +
+//             "<p style=\"color:red; font-size:22px\"><b>我家</b>, also referred to as <b>什麼都不是</b>, is a large " +
+//             "sandstone rock formation in the southern part of the " +
+//             "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
+//             "south west of the nearest large town, Alice Springs; 450&#160;km " +
+//             "(280&#160;mi) by road. （我聽你在扯）"  +
+//             "Heritage Site.</p>" +
+//             '<p>Attribution: UlurAAAAu, <a href="h.mm-cg.com">' +
+//             "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+//             "(last visited June 22, 2009).</p>" +
+//             "</div>" +
+//             "</div>";
+//           const infowindow = new google.maps.InfoWindow({
+//             content: contentString,
+//             maxWidth: 520,
+//           });
+//           const infowindow1 = new google.maps.InfoWindow({
+//             content: contentString1,
+//             maxWidth: 1000,
+//           });
+//           const marker = new google.maps.Marker({
+//             position: uluru,
+//             map,
+//             title: "Uluru (Ayers Rock)",
+//           });
+//           const marker1 = new google.maps.Marker({
+//             position: uluru1,
+//             map,
+//             title: "Uluruaa (Ayers Rock)",
+//           });
+//           marker.addListener("click", () => {
+//             map.setCenter(uluru, 3); //點擊此marker 世界地圖以此為中心
+//             infowindow.open(map, marker);
+//             currentInfowindow=infowindow;
+//             currentMarker=marker;
+//             infowindow1.close();
             
-          });
-          marker1.addListener("click", () => {
-            map.setCenter(uluru1, 3);  //點擊此marker 世界地圖以此為中心
-            infowindow1.open(map, marker1);
-            currentInfowindow=infowindow1;
-            currentMarker=marker1;
-            infowindow.close();
+//           });
+//           marker1.addListener("click", () => {
+//             map.setCenter(uluru1, 3);  //點擊此marker 世界地圖以此為中心
+//             infowindow1.open(map, marker1);
+//             currentInfowindow=infowindow1;
+//             currentMarker=marker1;
+//             infowindow.close();
             
-          });
+//           });
 
-          //點擊地圖關閉目前infowindow
-          google.maps.event.addListener(map, 'click', function(){ 
-            currentInfowindow.close(map,currentMarker);
+//           //點擊地圖關閉目前infowindow
+//           google.maps.event.addListener(map, 'click', function(){ 
+//             currentInfowindow.close(map,currentMarker);
 
-             });
-                 });
-              });
+//              });
+//                  });
+//               });
 
-    $(function(){
-        var w = $("#mwt_slider_content").width();
-        $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); 
+//     $(function(){
+//         var w = $("#mwt_slider_content").width();
+//         $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); 
         
-        $("#mwt_fb_tab").mouseover(function(){
-            if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
-            {
-                $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
-            }
-        });
+//         $("#mwt_fb_tab").mouseover(function(){
+//             if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
+//             {
+//                 $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
+//             }
+//         });
         
         
-        $("#mwt_slider_content").mouseleave(function(){
-            $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');	
-        });	
-    });
+//         $("#mwt_slider_content").mouseleave(function(){
+//             $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');	
+//         });	
+//     });
 
 </script>
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
@@ -596,18 +553,19 @@ html, body {
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 	<!-- Vendor JS Files -->
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/aos/aos.js"></script>
+<!-- 	<script -->
+<%-- 		src="${pageContext.request.contextPath}/assets/vendor/aos/aos.js"></script> --%>
 	<%--   <script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --%>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/glightbox/js/glightbox.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/php-email-form/validate.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<!-- 	<script -->
+<%-- 		src="${pageContext.request.contextPath}/assets/vendor/glightbox/js/glightbox.min.js"></script> --%>
+<!-- 	<script -->
+<%-- 		src="${pageContext.request.contextPath}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script> --%>
+<!-- 	<script -->
+<%-- 		src="${pageContext.request.contextPath}/assets/vendor/php-email-form/validate.js"></script> --%>
+<!-- 	<script -->
+<%-- 		src="${pageContext.request.contextPath}/assets/vendor/swiper/swiper-bundle.min.js"></script> --%>
 
 	<!-- Template Main JS File -->
 	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
