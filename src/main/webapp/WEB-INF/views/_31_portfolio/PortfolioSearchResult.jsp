@@ -127,9 +127,9 @@
 				<div class="shadow p-3 mb-5 bg-body rounded">
 			<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
 					<c:forEach items="${resultList}" var="row">
-						<div class="col" >
+						<div class="col border-bottom my-2 p-3" >
 							<!-- 發布時間 -->
-							<div style="height: 50px;">
+							<div >
 							<!-- 地區 -->
 								<div class="float-start">
 									<form  action="portfolioPlay" method="get">
@@ -137,13 +137,13 @@
 												value="${row.portfolioId}">
 											<input class="form-control me-2" type="hidden" name="countryId"
 												value="${row.countryId}">
-											<button class="btn fs-2" id="search" type="submit" style="box-shadow:none;">
+											<button class="btn" id="search" type="submit" style="box-shadow:none;">
 <!-- 												<i class="fas fa-search"></i> -->
 													<!-- 名稱 -->${row.portfolioName}
 											</button>
 									</form>	
 								</div>
-								<div class="float-end p-4 grey">${row.continentName}-${row.countryName}-${row.cityName}</div>
+								<div class="float-end grey">${row.continentName}-${row.countryName}-${row.cityName}</div>
 								<div class="float-none"></div>
 <!-- 								<div class="clearfix"></div>	 -->
 							</div>
@@ -167,6 +167,7 @@
 							<div class="float-end darkgrey">觀看次數: <c:if test="${row.vcount==null}">0</c:if><c:if test="${row.vcount!=null}">${row.vcount}</c:if>次</div>
 							<div class="float-none"></div>
 						</div>
+						
 					</c:forEach>
 				</div>
 			</div>
