@@ -27,7 +27,7 @@ public class PortfolioSearchDaoImpl implements PortfolioSearchDao {
 	public List<Map<String, Object>> queryHotPortfolio() {
 		Session session = sessionFactory.getCurrentSession();
 		String sql =
-				  " SELECT v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,rp.iccount,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryName,cnt.continentName "
+				  " SELECT v.videoFile,v.videoPic,v.v_freeze,pf.portfolioId,rp.iccount,pf.portfolioName,pf.portfolioText,pf.p_createTime,pf.pAddress,pf.longitude,pf.latitude,ct.cityName,cn.countryId,cn.countryName,cnt.continentName "
 				+ " FROM video v "
 				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
 				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "

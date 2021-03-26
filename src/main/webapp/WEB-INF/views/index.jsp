@@ -287,6 +287,8 @@ border:none;
 							<form class=" position-absolute start-1 seeVedio" action="portfolioPlay" method="get">
 								<input class="form-control me-2" type="hidden" name="portfolioId"
 									value="${row.portfolioId}">
+								<input class="form-control me-2" type="hidden" name="countryId"
+									value="${row.countryId}">
 								<button class="btn" id="search" type="submit" style="border: none;box-shadow:none;
 								">
 <!-- 									<i class="fas fa-search"></i> -->
