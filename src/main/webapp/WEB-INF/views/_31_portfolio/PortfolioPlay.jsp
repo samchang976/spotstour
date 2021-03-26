@@ -202,7 +202,7 @@ textarea {
 	<!-----------商品/廣告----------------------------------------------------------------------------->
 <%-- 	<c:forEach items="${itemList}" var="it"> --%>
 <%-- 		<form action="merchandiseDetail/Id=${it.itemId}" method="get"> --%>
-<%-- 			<%-- 					<input class="form-control me-2" type="hidden" name="Id" value="${it.itemId}"> --%> --%>
+<%-- 			<%-- 					<input class="form-control me-2" type="hidden" name="Id" value="${it.itemId}"> --%> 
 <!-- 			<button class="btn fs-6" id="search" type="submit" -->
 <%-- 				style="box-shadow: none;">${it.itemHeader}</button> --%>
 <%-- 		</form> --%>
