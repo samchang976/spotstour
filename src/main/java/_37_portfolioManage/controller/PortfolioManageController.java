@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,7 +43,7 @@ public class PortfolioManageController {
 
 	//新增影片跳轉
 	@RequestMapping({ "videoCreate", "videoModify" })
-	public String getVideoCreate(@ModelAttribute PortfolioBeanVo portfolioBeanVo, Model model) {
+	public String getVideoCreate(@ModelAttribute PortfolioBeanVo portfolioBeanVo, BindingResult result, Model model) {
 			//新增影片
 		if (portfolioBeanVo.getPortfolioId() == null) {
 			// 獲取城市,景點清單
