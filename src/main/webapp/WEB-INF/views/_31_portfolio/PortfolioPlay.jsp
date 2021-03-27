@@ -100,6 +100,19 @@ textarea {
 	margin: auto;
 }
 
+.AuthorImg{
+width: 80px;
+height: 80px;
+overflow: hidden;
+border-radius: 50%;
+}
+
+
+/* 留言title */
+.CommentsTitle{
+font-size: 25px;
+
+}
 </style>
 
 
@@ -117,7 +130,7 @@ textarea {
 				<div class="row" style="text-align: center;">
 					<div class="col-12">
 						<video controls class="w-75" poster="/upload${row.videoPic}"
-							style="width: 100%; height: auto">
+							style="width: 100%;">
 							<source src="/uploadv${row.videoFile}" type="video/mp4">
 						</video>
 					</div>
@@ -125,32 +138,17 @@ textarea {
 			</div>
 
 			<div class="container">
-				<div class="row row-cols-1 row-cols-md-2">
-					<div class="col-12">
+				<div class="row border-bottom">
+						<div id="tag">#${row.continentName}#${row.countryName}#${row.cityName}#${row.portfolioName}</div>
 						<div class="title">${row.portfolioName}</div>
-					</div>
-
-
-				</div>
-
-				<!-- ------------------------------------------------------------------- -->
-				<div class="row row-cols-1 row-cols-md-2">
-					<div class="col">
-						<div>
-							<div>
-								<img height='80px' width='60px' src="/upload/${row.mPic}" class="rounded mx-auto d-block mb-3">					
-							</div>
-							作者:${row.mName}
-							觀看次數: <span><c:if test="${row.vcount==null}">0</c:if>
-								<c:if test="${row.vcount!=null}">${row.vcount}</c:if></span>次
+						<div class="col">
+							觀看次數: 
+							<span><c:if test="${row.vcount==null}">0</c:if>
+							<c:if test="${row.vcount!=null}">${row.vcount}</c:if>次</span>
 						</div>
-						<div>
-							上傳日期: <span><c:set var="pCreateTime"
-									value="${row.p_createTime}" /> <fmt:formatDate type="both"
-									dateStyle="long" timeStyle="medium" value="${pCreateTime}" /></span>
-						</div>
+					
 						<!--按讚次數-->
-						<div id="great">
+						<div id="great col">
 							<a href="#"> <i class="far fa-thumbs-up"></i></a> <span><c:if
 									test="${row.gcount==null}">0</c:if>
 								<c:if test="${row.gcount!=null}">${row.gcount}</c:if></span> <a
@@ -158,9 +156,33 @@ textarea {
 									test="${row.bcount==null}">0</c:if>
 								<c:if test="${row.bcount!=null}">${row.bcount}</c:if></span>
 						</div>
-					</div>
+
+
+				</div>
+
+				<!-- ------------------------------------------------------------------- -->
+				<div class="row row-cols-1 row-cols-md-2">
 					<div class="col">
-						<div id="tag">#${row.continentName}#${row.countryName}#${row.cityName}#${row.portfolioName}</div>
+						<div class="my-3">
+							<div class="AuthorImg " style="float:left;">
+								<img src="/upload/${row.mPic}" class="rounded mx-auto d-block mb-3 w-100">					
+							</div>
+							<div style="float:left;" class="fs-4 p-3" >${row.mName}</div>
+							<div style="clear: both;"></div>
+						
+						</div>
+<!-- 						=========================================================================== -->
+						<div>
+							上傳日期: <span><c:set var="pCreateTime"
+									value="${row.p_createTime}" /> <fmt:formatDate type="both"
+									dateStyle="long" timeStyle="medium" value="${pCreateTime}" /></span>
+						</div>
+						
+					
+					</div>
+					
+					<div class="col">
+						
 						<div>
 							<i class="fas fa-map-marker-alt red mx-2"></i>位置 : <span>${row.pAddress}</span>
 						</div>
@@ -174,7 +196,7 @@ textarea {
 		<div class="container">
 		
 			<div class="row row-cols-4">
-				<div class="col-12 title  my-3">留言板</div>
+				<div class="col-12 CommentsTitle my-3">${pMsgList.size()}則留言</div>
 				<c:forEach items="${pMsgList}" var="msg">
 					<div class="col-3 message my-4">
 						<span style="font-size: 1.3rem;" class="fw-bold">#${msg.mName}</span>
@@ -203,21 +225,10 @@ textarea {
 				</div>
 			</c:if>
 		</div></div>
-	<!-----------商品/廣告----------------------------------------------------------------------------->
-<%-- 	<c:forEach items="${itemList}" var="it"> --%>
-<%-- 		<form action="merchandiseDetail/Id=${it.itemId}" method="get"> --%>
-<%-- 			<%-- 					<input class="form-control me-2" type="hidden" name="Id" value="${it.itemId}"> --%> 
-<!-- 			<button class="btn fs-6" id="search" type="submit" -->
-<%-- 				style="box-shadow: none;">${it.itemHeader}</button> --%>
-<%-- 		</form> --%>
-<!-- 		<div class="col-3 message my-4"> -->
-<!-- 			<span style="font-size: 1.3rem;" class="fw-bold">#${it.itemDes}</span> -->
-<!-- 			<br> -->
-<!-- 		</div> -->
-<%-- 	</c:forEach> --%>
-	<!-----------商品/廣告----------------------------------------------------------------------------->
+
 	<!-- 最外層----------------------------------------------------------------- -->
 	<div class="container" >
+		<div class="fs-2">也許你會喜歡...</div>
 		<div class="splide row" >
 			<!-- 放拉動調的區塊------------------------------------------------------ -->
 			<div class="splide__track">
