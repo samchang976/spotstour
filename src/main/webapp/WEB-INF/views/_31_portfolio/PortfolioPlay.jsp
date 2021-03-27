@@ -126,29 +126,33 @@ font-size: 25px;
 	<div class="BodyPosition">
 		<!------------------------------------------------------------------------------------------->
 		<c:forEach items="${detailList}" var="row">
-			<div class="container-flud">
-				<div class="row" style="text-align: center;">
+			<div class="container">
+				<div class="row">
 					<div class="col-12">
-						<video controls class="w-75" poster="/upload${row.videoPic}"
-							style="width: 100%;">
+						<video controls class="w-100" poster="/upload${row.videoPic}">
 							<source src="/uploadv${row.videoFile}" type="video/mp4">
 						</video>
 					</div>
 				</div>
-			</div>
-
-			<div class="container">
-				<div class="row border-bottom">
+				<div class="border-bottom">
 						<div id="tag">#${row.continentName}#${row.countryName}#${row.cityName}#${row.portfolioName}</div>
-						<div class="title">${row.portfolioName}</div>
-						<div class="col">
+						
+						<div class="title mb-3">${row.portfolioName}</div>
+						<div >
+							<i class="fas fa-map-marker-alt red "></i> <span>${row.pAddress}</span>
+						</div>
+						<div class="d-inline-block">
 							觀看次數: 
 							<span><c:if test="${row.vcount==null}">0</c:if>
 							<c:if test="${row.vcount!=null}">${row.vcount}</c:if>次</span>
 						</div>
-					
+						<div class="d-inline-block me-5">
+							 •<span><c:set var="pCreateTime"
+									value="${row.p_createTime}" /> <fmt:formatDate type="both"
+									dateStyle="long" timeStyle="medium" value="${pCreateTime}" /></span>
+						</div>
 						<!--按讚次數-->
-						<div id="great col">
+						<div id="great" class="d-inline-block">
 							<a href="#"> <i class="far fa-thumbs-up"></i></a> <span><c:if
 									test="${row.gcount==null}">0</c:if>
 								<c:if test="${row.gcount!=null}">${row.gcount}</c:if></span> <a
@@ -156,38 +160,24 @@ font-size: 25px;
 									test="${row.bcount==null}">0</c:if>
 								<c:if test="${row.bcount!=null}">${row.bcount}</c:if></span>
 						</div>
-
-
 				</div>
 
 				<!-- ------------------------------------------------------------------- -->
-				<div class="row row-cols-1 row-cols-md-2">
-					<div class="col">
-						<div class="my-3">
+				<div class="row  border-bottom">
+					<div class="col-4">
+						<div class="my-3 ">
 							<div class="AuthorImg " style="float:left;">
 								<img src="/upload/${row.mPic}" class="rounded mx-auto d-block mb-3 w-100">					
 							</div>
 							<div style="float:left;" class="fs-4 p-3" >${row.mName}</div>
 							<div style="clear: both;"></div>
-						
+							
 						</div>
 <!-- 						=========================================================================== -->
-						<div>
-							上傳日期: <span><c:set var="pCreateTime"
-									value="${row.p_createTime}" /> <fmt:formatDate type="both"
-									dateStyle="long" timeStyle="medium" value="${pCreateTime}" /></span>
-						</div>
-						
-					
 					</div>
-					
-					<div class="col">
+					<div class="col-8">
 						
-						<div>
-							<i class="fas fa-map-marker-alt red mx-2"></i>位置 : <span>${row.pAddress}</span>
-						</div>
-						<!--                 <div>相關連結</div> -->
-						<!--                 <div><span>台灣</span>(地區一覽表)</div> -->
+						${row.portfolioText}
 					</div>
 				</div>
 			</div>
@@ -195,10 +185,10 @@ font-size: 25px;
 		<!-- ------------------------------------------------------------------- -->
 		<div class="container">
 		
-			<div class="row row-cols-4">
+			<div class="row ">
 				<div class="col-12 CommentsTitle my-3">${pMsgList.size()}則留言</div>
 				<c:forEach items="${pMsgList}" var="msg">
-					<div class="col-3 message my-4">
+					<div class="col-12 my-4">
 						<span style="font-size: 1.3rem;" class="fw-bold">#${msg.mName}</span>
 						<div class="col-11">
 							<c:set var="fbCreateTime" value="${msg.pm_createTime}" />
@@ -209,6 +199,9 @@ font-size: 25px;
 					</div>
 				</c:forEach>
 			</div>
+			
+			
+			
 			
 			<c:if test="${mId!=null}">
 				<div class="row my-3">
