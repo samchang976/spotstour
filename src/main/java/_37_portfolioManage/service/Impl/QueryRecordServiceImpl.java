@@ -19,7 +19,6 @@ public class QueryRecordServiceImpl implements QueryRecordService {
 	@Override
 	@Transactional
 	public List<Map<String, Object>> queryGBRecord(Integer portfolioId) {
-//		recordDao.addRecord(recordBean);
 		
 		return recordDao.queryRecord(portfolioId);
 	}

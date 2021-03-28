@@ -9,6 +9,8 @@ public interface RecordDao {
 
 	public void addVRecord(RecordBean recordBean);
 
+	public void updateGBRecord(RecordBean recordBean);
+
 	public List<Map<String, Object>>  queryRecord(Integer portfolioId);
 		
 }

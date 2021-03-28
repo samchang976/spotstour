@@ -11,6 +11,7 @@ public class Portfolio_MsgBeanVo {
 	private Integer mId;
 	private Integer countryId;
 	private String portfolioName;
+	private Integer param;
  	
 	public Integer getPortfolioMsgId() {
 		return portfolioMsgId;
@@ -59,6 +60,13 @@ public class Portfolio_MsgBeanVo {
 	}
 	public void setCountryId(Integer countryId) {
 		this.countryId = countryId;
+	}
+	public Integer getParam() {
+		return param;
+	}
+	public void setParam(Integer param) {
+		this.param = param;
 	}	
+	
 	
 }

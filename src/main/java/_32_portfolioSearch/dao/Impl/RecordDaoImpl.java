@@ -17,6 +17,7 @@ import _32_portfolioSearch.dao.RecordDao;
 @Repository
 public class RecordDaoImpl implements RecordDao {
 
+	
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -26,8 +27,17 @@ public class RecordDaoImpl implements RecordDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(recordBean);
 	}
-
 	
+	
+	
+	@Override
+	public void updateGBRecord(RecordBean recordBean) {
+		Session session = sessionFactory.getCurrentSession();
+		session.merge(recordBean);
+	}
+
+
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Map<String, Object>> queryRecord(Integer portfolioId) {

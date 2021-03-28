@@ -83,9 +83,12 @@ public class PortfolioManageController {
 	
 	//點擊讚事件處理
     @PostMapping("like")
-	public void doLike(@ModelAttribute(name ="Like")String like,Model model,HttpSession session) throws IOException {
-    	
-			
+	public String doLike(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo,Model model,HttpSession session) throws IOException {
+    	addRecordService.addGBRecord(portfolio_MsgBeanVo.getPortfolioId(), (Integer) session.getAttribute("mId"), portfolio_MsgBeanVo.getParam());
+		//為了新增影片留言後跳轉能保留
+		session.setAttribute("portfolioId", portfolio_MsgBeanVo.getPortfolioId());
+		session.setAttribute("countryId", portfolio_MsgBeanVo.getCountryId());
+		return "redirect:/portfolioPlay";
 		
 	}
 
