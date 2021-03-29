@@ -11,6 +11,9 @@ public interface RecordDao {
 
 	public void updateGBRecord(RecordBean recordBean);
 
-	public List<Map<String, Object>>  queryRecord(Integer portfolioId);
+	public void deleteGBRecord(Integer portfolioId,Integer mId,Integer param);
+	
+//	public List<Map<String, Object>>  queryRecord(Integer portfolioId);
+	public RecordBean queryRecordBymId(Integer portfolioId,Integer mId,Integer param);
 		
 }

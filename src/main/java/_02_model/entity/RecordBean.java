@@ -22,11 +22,11 @@ public class RecordBean implements Serializable {
 	private Integer mId;
 
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
 	@JoinColumn(name = "paramId")
 	private ParamsBean paramsBean;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
 	@JoinColumn(name = "portfolioId")
 	private PortfolioBean portfolioBean;
 
