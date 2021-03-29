@@ -115,7 +115,7 @@
 								<TD align="CENTER" colspan='2'>&nbsp;</TD>
 							</TR>
 							<TR>
-								<TD width="180" align="right">帳號：</TD>
+								<TD width="180" align="right" id="inputLoginPro">帳號：</TD>
 								<TD width="180" colspan='2' align="LEFT"><form:input
 										path="mAN" size="16" /> <form:errors path="mAN"
 										cssClass="error" /><br></TD>
@@ -181,6 +181,20 @@
 											function() {
 												$('#mAN').val("spring0330");
 												$('#mPw').val("yayaya");
+											})
+						});
+	</script>
+	<script>
+		$(document)
+				.ready(
+						function() {
+							//一鍵輸入功能
+							//存取input標籤的值必須使用.val()方法
+							$('#inputLoginPro')
+									.click(
+											function() {
+												$('#mAN').val("spring0330");
+												$('#mPw').val("style3300");
 											})
 						});
 	</script>

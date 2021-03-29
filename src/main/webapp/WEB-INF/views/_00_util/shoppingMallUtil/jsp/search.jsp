@@ -111,7 +111,7 @@
 					<li>熱銷商品:MAMA泰國泡麵，紫玉酥禮盒，焦糖奶油餅 <i class="fas fa-cookie-bite"></i></li>
 					<li><i class="fas fa-bell"></i> 2021年最新版! 推薦十大熱門商品! 促銷優惠!</li>
 					<li><a
-						href="${pageContext.request.contextPath}/merchandiseSearchResult">零食餅乾團購更便宜，食品團購量販買多省多，立即前往
+						href="${pageContext.request.contextPath}/merchandiseSearchResult">零食餅乾團購更便宜，團購量販買多省多，立即前往
 							<i class="far fa-hand-pointer"></i>
 					</a></li>
 				</ul>

@@ -422,6 +422,14 @@ border:none;
 						<li><i class="bi bi-check-circle"></i> Font Awesome</li>
 						<li><i class="bi bi-check-circle"></i> PowerDirector</li>
 						<li><i class="bi bi-check-circle"></i> Splide</li>
+						<li><i class="bi bi-check-circle"></i> yahoo!旅遊</li>
+						<li><i class="bi bi-check-circle"></i> 東京走者瞧</li>
+						<li><i class="bi bi-check-circle"></i> 交通部觀光局</li>
+						<li><i class="bi bi-check-circle"></i> S行者</li>
+						<li><i class="bi bi-check-circle"></i> KKday Taiwan</li>
+						<li><i class="bi bi-check-circle"></i> Connie 人情地<li>
+						<li><i class="bi bi-check-circle"></i> 台北101官方頻道<li>
+						<li><i class="bi bi-check-circle"></i> 高雄市立美術館 KMFA<li>
 <!-- 						<li><i class="bi bi-check-circle"></i> Font Awesome</li> -->
 					</ul>
 					<p></p>
