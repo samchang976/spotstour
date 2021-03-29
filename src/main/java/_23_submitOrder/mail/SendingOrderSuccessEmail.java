@@ -32,6 +32,7 @@ public class SendingOrderSuccessEmail {
 		this.ordBean = ordBean;
 	}
 
+	
 
 	public void sendAcceptMail() {
 		// Enter the email address and password for the account from which verification link will be send
