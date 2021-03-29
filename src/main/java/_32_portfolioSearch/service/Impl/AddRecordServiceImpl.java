@@ -39,14 +39,41 @@ public class AddRecordServiceImpl implements AddRecordService {
 	@Override
 	@Transactional
 	public void addGBRecord(Integer portfolioId, Integer mId, Integer params) {
-		RecordBean recordBean = new RecordBean();
-		PortfolioBean pfb = portfolioDao.queryPortfolioById(portfolioId);
-		//按讚收讚倒讚,需要登入操作
-		recordBean.setmId(mId);
-		recordBean.setPortfolioBean(pfb);
-		ParamsBean pb = paramsDao.queryParamsById(params);
-		recordBean.setParamsBean(pb);
-		recordDao.addVRecord(recordBean);
+		boolean test = true;
+		
+		if(params == 1) {
+			//檢查反
+			xxx
+			test = 
+		}else if(params == 2){
+			//檢查正
+		}
+		
+		if(test) {
+			throw new Exception("xxxxx");
+			
+		}
+		
+		
+		if(recordDao.queryRecordBymId(portfolioId, mId, params) == null) {
+			RecordBean recordBean = new RecordBean();
+			PortfolioBean pfb = portfolioDao.queryPortfolioById(portfolioId);
+			recordBean.setmId(mId);
+			recordBean.setPortfolioBean(pfb);
+			ParamsBean pb = paramsDao.queryParamsById(params);
+			recordBean.setParamsBean(pb);
+			recordDao.addVRecord(recordBean);
+		}else {
+			//刪除正讚
+//			RecordBean recordBean = new RecordBean();
+//			PortfolioBean pfb = portfolioDao.queryPortfolioById(portfolioId);
+//			recordBean.setmId(mId);
+//			recordBean.setPortfolioBean(pfb);
+//			ParamsBean pb = paramsDao.queryParamsById(params);
+//			recordBean.setParamsBean(pb);
+			recordDao.deleteGBRecord(portfolioId, mId, params);
+		}	
+		
 		
 	}
 

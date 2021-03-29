@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,7 +43,7 @@ public class PortfolioManageController {
 
 	//新增影片跳轉
 	@RequestMapping({ "videoCreate", "videoModify" })
-	public String getVideoCreate(@ModelAttribute PortfolioBeanVo portfolioBeanVo, Model model) {
+	public String getVideoCreate(@ModelAttribute PortfolioBeanVo portfolioBeanVo, BindingResult result, Model model) {
 			//新增影片
 		if (portfolioBeanVo.getPortfolioId() == null) {
 			// 獲取城市,景點清單
@@ -82,9 +83,12 @@ public class PortfolioManageController {
 	
 	//點擊讚事件處理
     @PostMapping("like")
-	public void doLike(@ModelAttribute(name ="Like")String like,Model model,HttpSession session) throws IOException {
-    	
-			
+	public String doLike(@ModelAttribute Portfolio_MsgBeanVo portfolio_MsgBeanVo,Model model,HttpSession session) throws IOException {
+    	addRecordService.addGBRecord(portfolio_MsgBeanVo.getPortfolioId(), (Integer) session.getAttribute("mId"), portfolio_MsgBeanVo.getParam());
+		//為了新增影片留言後跳轉能保留
+		session.setAttribute("portfolioId", portfolio_MsgBeanVo.getPortfolioId());
+		session.setAttribute("countryId", portfolio_MsgBeanVo.getCountryId());
+		return "redirect:/portfolioPlay";
 		
 	}
 

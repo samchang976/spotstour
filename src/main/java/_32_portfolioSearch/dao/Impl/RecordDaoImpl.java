@@ -3,6 +3,8 @@ package _32_portfolioSearch.dao.Impl;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -17,6 +19,7 @@ import _32_portfolioSearch.dao.RecordDao;
 @Repository
 public class RecordDaoImpl implements RecordDao {
 
+	
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -26,41 +29,61 @@ public class RecordDaoImpl implements RecordDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(recordBean);
 	}
+	
+	
+	
+	@Override
+	public void updateGBRecord(RecordBean recordBean) {
+		Session session = sessionFactory.getCurrentSession();
+		session.merge(recordBean);
+	}
 
 	
+
+	@Override
+	public void deleteGBRecord(Integer portfolioId,Integer mId,Integer param) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = " DELETE "
+				   + " FROM RecordBean r "
+				   + " WHERE r.mId = :mId AND portfolioId = :portfolioId AND paramId = :paramId ";
+//		session.createNativeQuery(sql)
+		session.createQuery(hql).setParameter("mId", mId).setParameter("portfolioId", portfolioId).setParameter("paramId", param).executeUpdate();
+	}
+	
+	
+
+
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Map<String, Object>> queryRecord(Integer portfolioId) {
+//	public List<Map<String, Object>> queryRecord(Integer portfolioId) {
+	public RecordBean queryRecordBymId(Integer portfolioId,Integer mId,Integer param) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = " SELECT pf.portfolioId,rpb.bcount,rpg.gcount "
-				+ " FROM video v "
-				+ " LEFT JOIN portfolio pf ON v.portfolioId = pf.portfolioId "
-				+ " LEFT JOIN city ct ON pf.cityId = ct.cityId "
-				+ " LEFT JOIN country cn ON ct.countryId = cn.countryId "
-				+ " LEFT JOIN continent cnt ON cn.continentId = cnt.continentId "
-				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) vcount,r.portfolioId "
-				+ " FROM record r "
-				+ " WHERE r.paramId = 3 "
-				+ " GROUP BY r.portfolioId ) rpv ON pf.portfolioId = rpv.portfolioId "
-				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) bcount,r.portfolioId "
-				+ " FROM record r "
-				+ " WHERE r.paramId = 2 "
-				+ " GROUP BY r.portfolioId ) rpb ON pf.portfolioId = rpb.portfolioId "
-				+ " LEFT JOIN (SELECT COUNT(r.portfolioId) gcount,r.portfolioId "
-				+ " FROM record r "
-				+ " WHERE r.paramId = 1 "
-				+ " GROUP BY r.portfolioId ) rpg ON pf.portfolioId = rpg.portfolioId "
-				+ " WHERE pf.portfolioId = :portfolioId AND v.v_freeze = 0 ";
+		RecordBean recordBean = null;
+//		String sql = " SELECT r.mId "
+//				+ " FROM record r "
+//				+ " LEFT JOIN portfolio pf ON r.portfolioId = pf.portfolioId "
+//				+ " LEFT JOIN params pas ON r.paramId = pas.paramId "
+//				+ " LEFT JOIN MEMBER m ON r.mId = m.mId "
+//				+ " WHERE r.mId = :mId AND pf.portfolioId = :portfolioId AND r.paramId = :paramId ";
+		String hql =  " FROM RecordBean r "
+				+ " WHERE r.mId = :mId AND portfolioId = :portfolioId AND paramId = :paramId ";
 		
-				
+		
 		//設定結果集:設定結果類型為List<Map<String, Object>>
-		Query q =  session.createNativeQuery(sql);
-		q.unwrap(NativeQueryImpl.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
-		
-		List<Map<String, Object>> ans = q.
-				setParameter("portfolioId",portfolioId).list();	
+//		Query q =  session.createNativeQuery(sql);
+//		q.unwrap(NativeQueryImpl.class).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+		try {
+		recordBean = (RecordBean) session.createQuery(hql).
+				setParameter("mId",mId).
+				setParameter("portfolioId",portfolioId).
+				setParameter("paramId",param).getSingleResult();
+		}catch(NoResultException nre){
+			
+			return null;
+		}
 	
-		return ans;
+		return recordBean;
 	}
 
 

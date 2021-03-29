@@ -91,7 +91,7 @@ public class PortfolioSearchController {
 			throws IOException {
 		portfolio_MsgBeanVo.setmId((Integer) session.getAttribute("mId"));
 		portfolioMsgService.addPortfolioMsg(portfolio_MsgBeanVo);
-		//為了新增影片後跳轉能保留
+		//為了新增影片留言後跳轉能保留
 		session.setAttribute("portfolioId", portfolio_MsgBeanVo.getPortfolioId());
 		session.setAttribute("countryId", portfolio_MsgBeanVo.getCountryId());
 		return "redirect:/portfolioPlay";

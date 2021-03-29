@@ -323,13 +323,13 @@ margin: 5px 0px;
 							</c:if>
 						</div>
 						<div class="row flex">
-							<div class="col-8">
-								<select class="form-select" aria-label="Default select example">
-									<option selected>選擇預覽方式</option>
-									<option value="time">預覽</option>
-									<option value="look">播放頁預覽</option>
-									<option value="good">世界地圖資訊預覽</option>
-								</select>
+							<div class="col-8" >
+<!-- 								<select class="form-select" aria-label="Default select example"> -->
+<!-- 									<option selected>選擇預覽方式</option> -->
+<!-- 									<option value="time">預覽</option> -->
+<!-- 									<option value="look">播放頁預覽</option> -->
+<!-- 									<option value="good">世界地圖資訊預覽</option> -->
+<!-- 								</select> -->
 							</div>
 							<div class="col-4 text-end" >
 								<button class="btn btn-primary btn-lg" type="submit">儲存</button>
