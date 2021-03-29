@@ -63,8 +63,8 @@ public class SendingOrderSuccessEmail {
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(email));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(mEmail));
-			// 設定信件標題
-			message.setSubject("訂購成功! SpotsTour 已經收到您的訂單!");
+			// 閮剖�縑隞嗆���
+			message.setSubject("閮頃����! SpotsTour 撌脩������!");
 			
 			Timestamp ts = ordBean.getS_createTime();
 //			Date date = new Date();
@@ -76,7 +76,7 @@ public class SendingOrderSuccessEmail {
 //				e.printStackTrace();
 //			}
 			
-			// 設定信件內容
+			// 閮剖�縑隞嗅摰�
 //			message.setText("Click this link to confirm your email address and complete setup for your account."
 //					+ "\n\nVerification Link: " + "http://localhost:8082/TrainMe/ActivateAccount?key=" + type + "&key1=" + userEmail + "&key2=" + myHash);
 			String messageStr ="\r\n"
@@ -580,7 +580,7 @@ public class SendingOrderSuccessEmail {
 					+ "                        \r\n"
 					+ "                        <td valign=\"top\" class=\"mcnTextContent\" style=\"padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;\">\r\n"
 					+ "                        \r\n"
-					+ "                            <h1 style=\"text-align: center;\">訂購成功!</h1>\r\n"
+					+ "                            <h1 style=\"text-align: center;\">閮頃����!</h1>\r\n"
 					+ "\r\n"
 					+ "                        </td>\r\n"
 					+ "                    </tr>\r\n"
@@ -634,9 +634,9 @@ public class SendingOrderSuccessEmail {
 					+ "                        \r\n"
 					+ "                        <td valign=\"top\" class=\"mcnTextContent\" style=\"padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;\">\r\n"
 					+ "                        \r\n"
-					+ "                            <div style=\"text-align: center;\">親愛的&nbsp;" + mName + "&nbsp;您好:<br>\r\n"
+					+ "                            <div style=\"text-align: center;\">閬芣���&nbsp;" + mName + "&nbsp;�憟�:<br>\r\n"
 					+ "<br>\r\n"
-					+ "感謝您的訂購 ! 您已成功完成訂購手續 !&nbsp;</div>\r\n"
+					+ "������頃 ! �撌脫�����頃���� !&nbsp;</div>\r\n"
 					+ "\r\n"
 					+ "                        </td>\r\n"
 					+ "                    </tr>\r\n"
@@ -688,15 +688,15 @@ public class SendingOrderSuccessEmail {
 					+ "                        <td valign=\"top\" class=\"mcnTextContent\" style=\"padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;\">\r\n"
 					+ "                        \r\n"
 					+ "                            <br>\r\n"
-					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 訂單號碼 :&nbsp;FSWE1233" + ordBean.getOrd_Id() + "<br>\r\n"
+					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 閮��Ⅳ :&nbsp;FSWE1233" + ordBean.getOrd_Id() + "<br>\r\n"
 					+ "<br>\r\n"
-					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 配送地址 :&nbsp;" + ordBean.getS_mAddress() + "<br>\r\n"
+					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ����� :&nbsp;" + ordBean.getS_mAddress() + "<br>\r\n"
 					+ "<br>\r\n"
-					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 配送方式 :&nbsp;" + ordBean.getShipTypeBean().getShipType() + "<br>\r\n"
+					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ���撘� :&nbsp;" + ordBean.getShipTypeBean().getShipType() + "<br>\r\n"
 					+ "<br>\r\n"
-					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 發票領取方式 :&nbsp;" + ordBean.getReceiptTypeBean().getReceiptType() + "<br>\r\n"
+					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; �蟡券��撘� :&nbsp;" + ordBean.getReceiptTypeBean().getReceiptType() + "<br>\r\n"
 					+ "<br>\r\n"
-					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 預計到貨時間 :&nbsp;" + shipTime + "\r\n"
+					+ "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ���鞎冽��� :&nbsp;" + shipTime + "\r\n"
 					+ "                        </td>\r\n"
 					+ "                    </tr>\r\n"
 					+ "                </tbody></table>\r\n"
@@ -737,7 +737,7 @@ public class SendingOrderSuccessEmail {
 					+ "                    <tbody>\r\n"
 					+ "                        <tr>\r\n"
 					+ "                            <td align=\"center\" valign=\"middle\" class=\"mcnButtonContent\" style=\"font-family: Arial; font-size: 16px; padding: 16px;\">\r\n"
-					+ "                                <a class=\"mcnButton \" title=\"返回我的訂單\" href=\"http://localhost:8080/SpotsTourHSM/myOrderList\" target=\"_blank\" style=\"font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;\">返回我的訂單</a>\r\n"
+					+ "                                <a class=\"mcnButton \" title=\"餈����\" href=\"http://localhost:8080/SpotsTourHSM/myOrderList\" target=\"_blank\" style=\"font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;\">餈����</a>\r\n"
 					+ "                            </td>\r\n"
 					+ "                        </tr>\r\n"
 					+ "                    </tbody>\r\n"
@@ -753,7 +753,7 @@ public class SendingOrderSuccessEmail {
 					+ "                    <tbody>\r\n"
 					+ "                        <tr>\r\n"
 					+ "                            <td align=\"center\" valign=\"middle\" class=\"mcnButtonContent\" style=\"font-family: Arial; font-size: 16px; padding: 16px;\">\r\n"
-					+ "                                <a class=\"mcnButton \" title=\"返回Spotstour首頁\" href=\"http://localhost:8080/SpotsTourHSM/merchandiseIndex\" target=\"_blank\" style=\"font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;\">返回Spotstour首頁</a>\r\n"
+					+ "                                <a class=\"mcnButton \" title=\"餈�potstour擐�" href=\"http://localhost:8080/SpotsTourHSM/merchandiseIndex\" target=\"_blank\" style=\"font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;\">餈�potstour擐��</a>\r\n"
 					+ "                            </td>\r\n"
 					+ "                        </tr>\r\n"
 					+ "                    </tbody>\r\n"
@@ -802,7 +802,7 @@ public class SendingOrderSuccessEmail {
 					+ "                            <div style=\"text-align: center;\">\r\n"
 					+ "<p style=\"text-align: center;\">SPOTS-TOUR</p>\r\n"
 					+ "\r\n"
-					+ "<p style=\"text-align: center;\">2021 © All Rights Reserved</p>\r\n"
+					+ "<p style=\"text-align: center;\">2021 穢 All Rights Reserved</p>\r\n"
 					+ "\r\n"
 					+ "<p style=\"text-align: center;\">Contacts us</p>\r\n"
 					+ "\r\n"
