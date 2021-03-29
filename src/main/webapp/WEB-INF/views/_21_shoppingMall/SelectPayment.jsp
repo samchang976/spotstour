@@ -303,7 +303,7 @@ span.error:first-child() {
 						<div class="input-group mb-3">
 							<div class="row g-3 align-items-center">
 								<div class="col-auto">
-									<label for="Orderer" class="col-form-label">折扣碼:</label>
+									<label for="Orderer" class="col-form-label" id="discountNumber">折扣碼:</label>
 								</div>
 
 								<div class="col-auto">
@@ -311,7 +311,7 @@ span.error:first-child() {
 									<!-- 										placeholder="請輸入折扣碼" /> -->
 
 									<form:input type="text" class="form-control" value=""
-										path="codeNumber" name="codeNumber" placeholder="請輸入折扣碼" />
+										path="codeNumber" name="codeNumber" id="codeNumber" placeholder="請輸入折扣碼" />
 								</div>
 							</div>
 						</div>
@@ -358,12 +358,17 @@ span.error:first-child() {
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 	
 	<script>
-		$(document).ready(function() {
-
-// 			$('#submitOrder').click(function() {
-// 				$(this).attr('value', 'Please wait...');
-// 			});
-		});
+	$(document)
+	.ready(
+			function() {
+				//一鍵輸入功能
+				//存取input標籤的值必須使用.val()方法
+				$('#discountNumber')
+						.click(
+								function() {
+									$('#codeNumber').val("SPOTSTOURJAVA015");
+								})
+			});
 	</script>
 </body>
 </html>
