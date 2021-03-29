@@ -117,13 +117,13 @@
 							<TR>
 								<TD width="180" align="right" id="inputLoginPro">帳號：</TD>
 								<TD width="180" colspan='2' align="LEFT"><form:input
-										path="mAN" size="16" /> <form:errors path="mAN"
+										path="mAN" size="16" id="mAN"/> <form:errors path="mAN"
 										cssClass="error" /><br></TD>
 							</TR>
 							<TR>
-								<TD width="180" align="right">密碼：</TD>
+								<TD width="180" align="right" id="meg">密碼：</TD>
 								<TD width="180" colspan='2' align="LEFT"><form:input
-										type="password" path="mPw" size="16" /> <form:errors
+										type="password" path="mPw" size="16" id="mPw"/> <form:errors
 										path="mPw" cssClass="error" /><br></TD>
 
 							</TR>
@@ -195,6 +195,21 @@
 											function() {
 												$('#mAN').val("spring0330");
 												$('#mPw').val("style3300");
+											})
+						});
+	</script>
+	
+	<script>
+		$(document)
+				.ready(
+						function() {
+							//一鍵輸入功能
+							//存取input標籤的值必須使用.val()方法
+							$('#meg')
+									.click(
+											function() {
+												$('#mAN').val("spotstour");
+												$('#mPw').val("0000aa");
 											})
 						});
 	</script>
