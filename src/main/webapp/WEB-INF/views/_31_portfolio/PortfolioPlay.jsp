@@ -152,19 +152,20 @@ font-size: 25px;
 									dateStyle="long" timeStyle="medium" value="${pCreateTime}" /></span>
 						</div>
 						<!--按讚次數-->
-						<div id="great col">
+						<div id="great  " class="col d-inline-block">
 <!-- 							<a href="#"> <i class="far fa-thumbs-up"></i></a>  -->
-							<form action="like" method="post">
+							<form action="like" method="post" class="d-inline-block ">
 							<input type="hidden" name="portfolioId" value="${portfolioId}">
 							<input type="hidden" name="countryId" value="${countryId}">
-							<button type="submit" name="param" value="1"><i class="far fa-thumbs-up"></i></button>
+							<button type="submit" name="param" value="1" class="btn"><i class="far fa-thumbs-up"></i></button>
 							</form>
+							
 							<span><c:if	test="${row.gcount==null}">0</c:if><c:if test="${row.gcount!=null}">${row.gcount}</c:if></span> 
 <!-- 							<a href="#"> <i class="far fa-thumbs-down"></i></a>  -->
-							<form action="like" method="post">
+							<form action="like" method="post" class="d-inline-block ">
 							<input type="hidden" name="portfolioId" value="${portfolioId}">
 							<input type="hidden" name="countryId" value="${countryId}">
-							<button type="submit" name="param" value="2"><i class="far fa-thumbs-down"></i></button>
+							<button type="submit" name="param" value="2" class="btn"><i class="far fa-thumbs-down"></i></button>
 							</form>
 							<span><c:if	test="${row.bcount==null}">0</c:if><c:if test="${row.bcount!=null}">${row.bcount}</c:if></span>
 						</div>

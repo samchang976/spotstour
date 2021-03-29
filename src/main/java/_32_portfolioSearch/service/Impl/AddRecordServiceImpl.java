@@ -39,40 +39,82 @@ public class AddRecordServiceImpl implements AddRecordService {
 	@Override
 	@Transactional
 	public void addGBRecord(Integer portfolioId, Integer mId, Integer params) {
-		boolean test = true;
+//		boolean test = true;
 		
+//		if(params == 1) {
+//			//檢查反
+//			xxx
+//			test = 
+//		}else if(params == 2){
+//			//檢查正
+//		}
+//		
+//		if(test) {
+//			throw new Exception("xxxxx");
+//			
+//		}
 		if(params == 1) {
-			//檢查反
-			xxx
-			test = 
+			if(recordDao.queryRecordBymId(portfolioId, mId, params) == null) {
+				RecordBean recordBean = new RecordBean();
+				PortfolioBean pfb = portfolioDao.queryPortfolioById(portfolioId);
+				recordBean.setmId(mId);
+				recordBean.setPortfolioBean(pfb);
+				ParamsBean pb = paramsDao.queryParamsById(params);
+				recordBean.setParamsBean(pb);
+				recordDao.addVRecord(recordBean);
+			}else {
+				//刪除正讚
+//				RecordBean recordBean = new RecordBean();
+//				PortfolioBean pfb = portfolioDao.queryPortfolioById(portfolioId);
+//				recordBean.setmId(mId);
+//				recordBean.setPortfolioBean(pfb);
+//				ParamsBean pb = paramsDao.queryParamsById(params);
+//				recordBean.setParamsBean(pb);
+				recordDao.deleteGBRecord(portfolioId, mId, params);
+			}	
+			
 		}else if(params == 2){
-			//檢查正
-		}
-		
-		if(test) {
-			throw new Exception("xxxxx");
+			if(recordDao.queryRecordBymId(portfolioId, mId, params) == null) {
+				RecordBean recordBean = new RecordBean();
+				PortfolioBean pfb = portfolioDao.queryPortfolioById(portfolioId);
+				recordBean.setmId(mId);
+				recordBean.setPortfolioBean(pfb);
+				ParamsBean pb = paramsDao.queryParamsById(params);
+				recordBean.setParamsBean(pb);
+				recordDao.addVRecord(recordBean);
+			}else {
+				//刪除正讚
+//				RecordBean recordBean = new RecordBean();
+//				PortfolioBean pfb = portfolioDao.queryPortfolioById(portfolioId);
+//				recordBean.setmId(mId);
+//				recordBean.setPortfolioBean(pfb);
+//				ParamsBean pb = paramsDao.queryParamsById(params);
+//				recordBean.setParamsBean(pb);
+				recordDao.deleteGBRecord(portfolioId, mId, params);
+			}	
 			
 		}
 		
 		
-		if(recordDao.queryRecordBymId(portfolioId, mId, params) == null) {
-			RecordBean recordBean = new RecordBean();
-			PortfolioBean pfb = portfolioDao.queryPortfolioById(portfolioId);
-			recordBean.setmId(mId);
-			recordBean.setPortfolioBean(pfb);
-			ParamsBean pb = paramsDao.queryParamsById(params);
-			recordBean.setParamsBean(pb);
-			recordDao.addVRecord(recordBean);
-		}else {
-			//刪除正讚
+//		
+//		if(recordDao.queryRecordBymId(portfolioId, mId, params) == null) {
 //			RecordBean recordBean = new RecordBean();
 //			PortfolioBean pfb = portfolioDao.queryPortfolioById(portfolioId);
 //			recordBean.setmId(mId);
 //			recordBean.setPortfolioBean(pfb);
 //			ParamsBean pb = paramsDao.queryParamsById(params);
 //			recordBean.setParamsBean(pb);
-			recordDao.deleteGBRecord(portfolioId, mId, params);
-		}	
+//			recordDao.addVRecord(recordBean);
+//		}else {
+//			//刪除正讚
+////			RecordBean recordBean = new RecordBean();
+////			PortfolioBean pfb = portfolioDao.queryPortfolioById(portfolioId);
+////			recordBean.setmId(mId);
+////			recordBean.setPortfolioBean(pfb);
+////			ParamsBean pb = paramsDao.queryParamsById(params);
+////			recordBean.setParamsBean(pb);
+//			recordDao.deleteGBRecord(portfolioId, mId, params);
+//		}	
 		
 		
 	}
