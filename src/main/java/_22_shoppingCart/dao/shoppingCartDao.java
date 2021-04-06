@@ -16,6 +16,7 @@ public interface shoppingCartDao {
 
 	//=======================================================================================
 	public void updateItem(ShoppingCartBean cartbean);//修改購物車一筆商品數量
+	public void updateItem2(int s_ordQty ,int sc_Id);
 	
 	public ShoppingCartBean getShoppingCartBysc_Id(int sc_Id);
 	

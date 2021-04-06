@@ -56,6 +56,7 @@ public class MerchandiseController {
 		List<ItemBean> listTopSell = itemService.getTopSellItems(8);
 		model.addAttribute("items", listTopSell);
 		
+		//shoppingcart
 		Integer member = (Integer) model.getAttribute("mId");
 		if(member != null) {
 			List<ShoppingCartBean> cartlist = shoppingCartService.getShoppingCart((Integer) model.getAttribute("mId")); // 先從service拿資料
@@ -89,6 +90,7 @@ public class MerchandiseController {
 		List<ItemBean> list = itemService.getItemByCountryId(countryId);
 		model.addAttribute("items", list);
 		
+		//shoppingcart
 		Integer member = (Integer) model.getAttribute("mId");
 		if(member != null) {
 			List<ShoppingCartBean> cartlist = shoppingCartService.getShoppingCart((Integer) model.getAttribute("mId")); // 先從service拿資料

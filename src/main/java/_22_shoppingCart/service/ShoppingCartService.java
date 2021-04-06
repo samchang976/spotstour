@@ -16,6 +16,7 @@ public interface ShoppingCartService {
 	public void deleteItem(int sc_Id);//刪除購物車中的一筆商品
 	
 	public  void UpdateQty(ShoppingCartBean cartbean);//修改購物車一筆商品數量
+	public void UpdateQty2(int s_ordQty ,int sc_Id);
 	
 	public List<ShoppingCartBean> getShoppingCart(int memberId); //由memberId取得購物車清單:有順序性，先加的要在上面
 

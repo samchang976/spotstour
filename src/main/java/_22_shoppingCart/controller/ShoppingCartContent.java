@@ -49,12 +49,10 @@ public class ShoppingCartContent {
 //		System.out.println("controller================================================");
 //		System.out.println(list);
 //		System.out.println("controller================================================");
-
 		return "_21_shoppingMall/ShoppingCart";
 	}
 
 //刪除購物車內一項商品
-
 	@PostMapping("/shoppingCart/delete/Id={sc_Id}")
 	public String deleteCartItem(@PathVariable("sc_Id") Integer sc_Id) {
 //		System.out.println("Delete===================================================");
@@ -63,14 +61,7 @@ public class ShoppingCartContent {
 //		System.out.println("Delete===================================================");
 		return "redirect:/shoppingCart";
 	}
-
-	//多選刪除
-//	@PostMapping("/shoppingCart/delete/Id={sc_Id}")
-//	public String deleteCartMore(@PathVariable("sc_Id") Integer[] sc_Id) {
-//		未完成
-//		return "redirect:/shoppingCart";
-//	}
-//	
+	
 	//側邊購物車刪除========================================================================
 	@GetMapping("/shoppingCart/delete/Id={sc_Id}")
 	public String memberdeleteCartItemInSideCart(@PathVariable("sc_Id") Integer sc_Id) {
@@ -80,28 +71,44 @@ public class ShoppingCartContent {
 	}
 
 //=======================================================================================	
-	@Transactional
+//	@Transactional
+//	@PostMapping("shoppingCart/updateQty")
+//	public String updateItem(
+//			@RequestParam("sc_Id") Integer sc_Id,
+//			@RequestParam("s_ordQty") Integer s_ordQty,
+//			@RequestParam("mId") Integer mId,
+//			@RequestParam("itemId") Integer itemId, Model model) {
+////		System.out.println("更新controller============================");
+//		ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
+//		shoppingCartBean.setSc_Id(sc_Id);
+////		System.out.println(sc_Id);
+//		shoppingCartBean.setS_ordQty(s_ordQty);
+//		shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId(mId));
+//		shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(itemId));
+//		shoppingCartService.UpdateQty(shoppingCartBean);
+////		System.out.println("更新controller============================");
+//		return "redirect:/shoppingCart";
+//	}
+	
 	@PostMapping("shoppingCart/updateQty")
-	public String updateItem(@RequestParam("sc_Id") Integer sc_Id, @RequestParam("s_ordQty") Integer s_ordQty,
-			@RequestParam("mId") Integer mId, @RequestParam("itemId") Integer itemId, Model model) {
+	public String updateItem(
+			@RequestParam("sc_Id") Integer sc_Id,
+			@RequestParam("s_ordQty") Integer s_ordQty,
+			@RequestParam("mId") Integer mId,
+			@RequestParam("itemId") Integer itemId, Model model) {
 //		System.out.println("更新controller============================");
-		ShoppingCartBean shoppingCartBean = new ShoppingCartBean();
-//		sc_Id=(String) model.getAttribute(sc_Id);
-//		s_ordQty=(String) model.getAttribute(s_ordQty);
-		shoppingCartBean.setSc_Id(sc_Id);
-//		System.out.println(sc_Id);
-		shoppingCartBean.setS_ordQty(s_ordQty);
-		shoppingCartBean.setMemberBean(shoppingCartDao.getMemberBeanBymId(mId));
-		shoppingCartBean.setItemBean(shoppingCartDao.getItemBeanByItemId(itemId));
-		shoppingCartService.UpdateQty(shoppingCartBean);
+		shoppingCartService.UpdateQty2(s_ordQty, sc_Id);
 //		System.out.println("更新controller============================");
 		return "redirect:/shoppingCart";
 	}
+	
 
 	// 加入購物車:加入會員才能購物
 	@Transactional
 	@PostMapping({ "shoppingCart/add/{itemId}", "/merchandiseSearchResult/shoppingCart/add/{itemId}" })
-	public String addShoppingCart(@PathVariable("itemId") Integer itemId, Model model) throws InterruptedException {
+	public String addShoppingCart(
+			@PathVariable("itemId") Integer itemId, 
+			Model model) throws InterruptedException {
 		// 1.判斷用戶是否存在
 		Integer member = (Integer) model.getAttribute("mId");
 		System.out.println(member);
@@ -194,24 +201,8 @@ public class ShoppingCartContent {
 			}
 		}
 		}
-//		int i;
-//		List<SessionShoppingCartVo> sscList = null;
-//		SessionShoppingCartVo ssc = null;
-//		
-//		for(i= 0;i<(cartlist.size()-1);i++) {
-//		ItemBean newItemBean = shoppingCartDao.getItemBeanByItemId(itemId);
-//		
-//		ssc.setItemHeader(newItemBean.getItemHeader());
-//		ssc.setItemPrice(newItemBean.getItemPrice());
-//		ssc.setItemPic1(newItemBean.getItemPic1());
-//		ssc.setScQty(itemQty);
-//		
-//		sscList.add(ssc);
-//		}
 
 		List<SessionShoppingCartVo> sscList = shoppingCartService.getShoppingCartVo(cartlist);
-//		model.addAttribute("sessionShoppingCart", cartlist);
-//		System.out.println("cartlist===================="+cartlist);
 		model.addAttribute("sessionShoppingCartList", sscList);
 //		System.out.println("sscList================="+sscList);
 		
@@ -229,14 +220,8 @@ public class ShoppingCartContent {
 		
 		for (int x = 0; x < item.length; x++) {
 //			System.out.println(item[x]);
-			
-			
 			shoppingCartService.deleteItem(Integer.valueOf(item[x]));
 		}
-		
-//		for(int i=0;i<deleteItems.length;i++) {
-//			shoppingCartService.deleteItem(i);
-//		}
 		return "redirect:/shoppingCart";
 		
 	}

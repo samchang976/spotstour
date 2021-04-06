@@ -40,18 +40,18 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
 	@Override
 	public List<ShoppingCartBean> getShoppingCart(int memberId) {
-		System.out.println("service=================================");
-		System.out.println(memberId);
-		System.out.println("service=================================");
+//		System.out.println("service=================================");
+//		System.out.println(memberId);
+//		System.out.println("service=================================");
 
 		return shoppingCartDao.getShoppingCart(memberId);
 	}
 
 	@Override
 	public ShoppingCartBean getShoppingCartBysc_Id(int sc_Id) {
-		System.out.println("service=================================");
+//		System.out.println("service=================================");
 		System.out.println(sc_Id);
-		System.out.println("service=================================");
+//		System.out.println("service=================================");
 
 		return shoppingCartDao.getShoppingCartBysc_Id(sc_Id);
 	}
@@ -60,7 +60,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	@Transactional
 	@Override
 	public void UpdateQty(ShoppingCartBean shoppingCartBean) {
-		System.out.println("更新的service============================");
+//		System.out.println("更新的service============================");
 		ShoppingCartBean cart0 = shoppingCartDao.getShoppingCartBysc_Id(shoppingCartBean.getSc_Id());
 		MemberBean member0 = shoppingCartDao.getMemberBeanBymId(shoppingCartBean.getMemberBean().getmId());
 		ItemBean item0 = shoppingCartDao.getItemBeanByItemId(shoppingCartBean.getItemBean().getItemId());
@@ -72,10 +72,14 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		cart0.setItemBean(item0);
 
 		shoppingCartDao.updateItem(cart0);
-		System.out.println("更新的service============================");
+//		System.out.println("更新的service============================");
 
 	}
 
+	public void UpdateQty2(int s_ordQty ,int sc_Id) {
+		shoppingCartDao.updateItem2(s_ordQty,sc_Id);
+	}
+	
 //加入購物車=========================================================================
 	@Override
 	public void addShoppingCart(ShoppingCartBean cart) {
@@ -114,7 +118,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	}
 
 	@Transactional
-	@SuppressWarnings("null")
 	@Override
 	public List<SessionShoppingCartVo> getShoppingCartVo(Map<Integer, Integer> cartlist) {
 

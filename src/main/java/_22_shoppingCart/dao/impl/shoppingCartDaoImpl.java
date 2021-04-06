@@ -42,17 +42,14 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 	        		.setParameter("memberId", memberId)//設定參數名稱，參數值
 	        		.getResultList();//查詢0或多筆物件
 	         
-	         System.out.println("Dao================================");
-	         System.out.println(cart);
-	         System.out.println("Dao================================");
-
+//	         System.out.println("Dao================================");
+//	         System.out.println(cart);
+//	         System.out.println("Dao================================");
 			return cart;
 			
 	}
 	
-//=============================================================================================
-	
-//以sc_Id取的shoppingBean======================================================================
+//以sc_Id取shoppingBean======================================================================
 	@Override
 	public ShoppingCartBean getShoppingCartBysc_Id(int sc_Id) {
 		String	hql = "FROM ShoppingCartBean WHERE sc_Id = :sc_Id";
@@ -62,8 +59,8 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 	        		.getSingleResult();
 		return cart;
 	}
-//以mId取得MemberBean
-
+	
+//以mId取得MemberBean========================================================================
 	@Override
 	public MemberBean getMemberBeanBymId(int memberId) {
 		 Session session = factory.getCurrentSession();
@@ -71,8 +68,7 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 		return memberBean;
 	}
 
-//itemId取得itemBean
-	
+//itemId取得itemBean========================================================================
 	@Override
 	public ItemBean getItemBeanByItemId(int itemId) {
 		 Session session = factory.getCurrentSession();
@@ -83,14 +79,28 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 
 	@Override
 	public void updateItem(ShoppingCartBean shoppingCartBean) {
-		System.out.println("更新的dao=========================================");
+//		System.out.println("更新的dao=========================================");
 		Session session = factory.getCurrentSession();
 		session.saveOrUpdate(shoppingCartBean);
-		System.out.println("更新的dao=========================================");
+//		System.out.println("更新的dao=========================================");
 		
 	}
 	
-
+	@Override
+	public void updateItem2(int s_ordQty ,int sc_Id) {
+		Session session = factory.getCurrentSession();
+		String hql = "UPDATE ShoppingCartBean s "
+				+ "SET s.s_ordQty = :s_ordQty"
+				+ " WHERE s.sc_Id = :sc_Id";
+		
+		  session.createQuery(hql)
+				 .setParameter("s_ordQty", s_ordQty)
+				 .setParameter("sc_Id", sc_Id)
+				 .executeUpdate();
+	}
+	
+	
+	
 	// 儲存ShoppingCartBean物件，將參數saveCart新增到ShoppingCartBean表格內。=============================
 		public void addShoppingCart(ShoppingCartBean cart) {
 			Session session = factory.getCurrentSession();
@@ -101,21 +111,18 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 		@Override
 		//判斷某會員是某要加入同樣商品到購物車
 		public ShoppingCartBean hasCart(Integer mId, Integer itemId) {
-			System.out.println("addcart-dao判斷 開始==================");
+//			System.out.println("addcart-dao判斷 開始==================");
 			Session session = factory.getCurrentSession();
 			String hql =  " FROM ShoppingCartBean c "
 //						+ " JOIN ProductBean p "
 //						+ " ON c.productBean.product_id = p.product_id "
 						+ " WHERE c.memberBean.mId = :mId  "
 						+ " AND c.itemBean.itemId = :itemId " ;
-			
 //			可能得到0或1筆，故不能使用getSingleResult()，否則會丟出例外
-			
 			List<ShoppingCartBean> result = session.createQuery(hql)
 										 .setParameter("mId", mId)
 										 .setParameter("itemId", itemId)
 										 .getResultList();
-			
 //			System.out.println("================");
 //			System.out.println(result.get(0).getCart_id());
 //			System.out.println("================");
@@ -123,8 +130,7 @@ public class shoppingCartDaoImpl implements shoppingCartDao {
 			if(result == null || result.isEmpty()) {
 				return null;
 			}
-			
-			System.out.println("addcart-dao判斷 完成==================");
+//			System.out.println("addcart-dao判斷 完成==================");
 			return result.get(0); //0==>取得list的index=1的值
 		}
 		
