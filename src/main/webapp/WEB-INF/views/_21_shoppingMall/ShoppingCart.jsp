@@ -112,6 +112,35 @@ border: 2px solid red;
 }
 
 </style>
+
+
+<script>
+window.onload=function(){
+		var btntest = document.getElementById("test");
+		var testArea = document.getElementById("testArea");
+		let newQtyValue = document.getElementById("testArea");
+		
+		btntest.onclick = function() {
+			// ajax的非同步請求
+			// 步驟一: 新建XMLHttpRequest物件
+			var xhr = new XMLHttpRequest();
+			// 步驟二: 經由AJAX提出HTTP請求
+			if (xhr != null) {
+				xhr.onreadystatechange=function(){
+					if (xhr.readyState == 4 && xhr.status == 200){
+						testArea.innerHTML = "<h3>" +  xhr.responseText + "</h3>";		
+					}
+				}
+				xhr.open('GET', "<c:url value='/test' />", true);
+				xhr.send();
+				
+				// 步驟三: 處理伺服器送回的回應資料
+			} else {
+				div1.innerHTML = "<h3>您的瀏覽器不支援Ajax</h3>";
+			}
+		}
+}		
+	</script>
 </head>
 <body>
 	<!--header=================================================================================  -->
@@ -134,6 +163,7 @@ border: 2px solid red;
 				</div>
 
 			</div>
+			<div id="testArea"></div>
 			<!-- 欄位敘述------------------------------------------------------------ -->
 			<div class="shadow p-3 mb-5 bg-body rounded">
 				<div class="row">
@@ -186,7 +216,8 @@ border: 2px solid red;
 								<form action="shoppingCart/${cart.sc_Id}" method="post">
 									<input type="number" value="${cart.s_ordQty}" min="1"
 										id="Qty${vs.index}" name="s_ordQty"
-										onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})" />
+										onchange="newQtyChange2(${cart.sc_Id},${vs.index})" />
+<%-- 									onchange="newQtyChange(${cart.sc_Id},${vs.index},${cart.itemBean.itemId},${cart.memberBean.mId})" --%>
 									<%-- 								onchange="this.form.submit()" --%>
 									<!-- 						顯示:綁識別字串 -->
 									<!-- 						數量修改靠js -->

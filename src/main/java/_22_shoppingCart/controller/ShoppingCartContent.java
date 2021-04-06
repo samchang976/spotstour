@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import _02_model.entity.ShoppingCartBean;
 import _21_merchandiseSearch.dao.ItemDao;
-import _22_shoppingCart.dao.shoppingCartDao;
 import _22_shoppingCart.service.ShoppingCartService;
 import _22_shoppingCart.vo.SessionShoppingCartVo;
 
 @Controller
-@SessionAttributes({ "LoginOK", "Login", "mId", "hasItem", "sessionShoppingCart","sessionShoppingCartList" })
+@SessionAttributes({ "LoginOK", "Login", "mId", "hasItem", "sessionShoppingCart", "sessionShoppingCartList" })
 public class ShoppingCartContent {
 
 	public ShoppingCartContent() {
@@ -34,8 +34,8 @@ public class ShoppingCartContent {
 	@Autowired
 	ShoppingCartService shoppingCartService;
 
-	@Autowired
-	shoppingCartDao shoppingCartDao;
+//	@Autowired
+//	shoppingCartDao shoppingCartDao;
 
 	@Autowired
 	ItemDao itemDao;
@@ -61,8 +61,8 @@ public class ShoppingCartContent {
 //		System.out.println("Delete===================================================");
 		return "redirect:/shoppingCart";
 	}
-	
-	//側邊購物車刪除========================================================================
+
+	// 側邊購物車刪除========================================================================
 	@GetMapping("/shoppingCart/delete/Id={sc_Id}")
 	public String memberdeleteCartItemInSideCart(@PathVariable("sc_Id") Integer sc_Id) {
 		System.out.println(sc_Id);
@@ -89,26 +89,34 @@ public class ShoppingCartContent {
 ////		System.out.println("更新controller============================");
 //		return "redirect:/shoppingCart";
 //	}
-	
+
 	@PostMapping("shoppingCart/updateQty")
-	public String updateItem(
-			@RequestParam("sc_Id") Integer sc_Id,
-			@RequestParam("s_ordQty") Integer s_ordQty,
-			@RequestParam("mId") Integer mId,
-			@RequestParam("itemId") Integer itemId, Model model) {
+	public String updateItem(@RequestParam("sc_Id") Integer sc_Id, @RequestParam("s_ordQty") Integer s_ordQty,
+			Model model) {
 //		System.out.println("更新controller============================");
 		shoppingCartService.UpdateQty2(s_ordQty, sc_Id);
 //		System.out.println("更新controller============================");
 		return "redirect:/shoppingCart";
 	}
-	
 
+	
+	@GetMapping(value = "/shoppingCart/updateQty2")
+	public @ResponseBody String test2( //直接傳回物件，不使用model來暫存物件
+			@RequestParam("sc_Id") Integer sc_Id, 
+			@RequestParam("s_ordQty") Integer s_ordQty) {
+		
+		shoppingCartService.UpdateQty2(s_ordQty, sc_Id);
+		System.out.println("hi~");
+		
+		return null;
+	}
+	
+	
+	
 	// 加入購物車:加入會員才能購物
 	@Transactional
 	@PostMapping({ "shoppingCart/add/{itemId}", "/merchandiseSearchResult/shoppingCart/add/{itemId}" })
-	public String addShoppingCart(
-			@PathVariable("itemId") Integer itemId, 
-			Model model) throws InterruptedException {
+	public String addShoppingCart(@PathVariable("itemId") Integer itemId, Model model) throws InterruptedException {
 		// 1.判斷用戶是否存在
 		Integer member = (Integer) model.getAttribute("mId");
 		System.out.println(member);
@@ -154,75 +162,72 @@ public class ShoppingCartContent {
 
 	}
 
-	//訪客購物車=========================================================================================
+	// 訪客購物車=========================================================================================
 	@SuppressWarnings("unchecked")
 	@PostMapping("/shoppingCart/visitor/{cmd}") /// {cmd}判斷
-	public String VisitorAdd(Model model, 
-			@RequestParam("itemId") Integer itemId,
-			@RequestParam(value="itemQty" ,required=false) Integer itemQty,
-			@PathVariable("cmd") String cmd
-	) {
+	public String VisitorAdd(Model model, @RequestParam("itemId") Integer itemId,
+			@RequestParam(value = "itemQty", required = false) Integer itemQty, @PathVariable("cmd") String cmd) {
 //		System.out.println("訪客加入購物車開始===================================");
 		// Session內的購物車商品id清單
 		Map<Integer, Integer> cartlist = (Map<Integer, Integer>) model.getAttribute("sessionShoppingCart");
-		
-		//刪除
-		if(cmd.equalsIgnoreCase("del")) {
+
+		// 刪除
+		if (cmd.equalsIgnoreCase("del")) {
 //			System.out.println("這是刪除的=========");
-			if ( cartlist.get(itemId) != null ) {
-				cartlist.remove(itemId);  // Map介面的remove()方法}
+			if (cartlist.get(itemId) != null) {
+				cartlist.remove(itemId); // Map介面的remove()方法}
 			}
-			
+
 			model.addAttribute("sessionShoppingCart", cartlist);
 //			System.out.println("移除後的cartlist===================================="+cartlist);
 		}
-		//========================================================================================
-		//新增
-		if(cmd.equalsIgnoreCase("add")) {
-		// 如果找不到ShoppingCart清單
-		if (cartlist == null) {
-			cartlist = new LinkedHashMap<>();
-			System.out.println(itemQty);
-			if (itemQty == null) {
-				cartlist.put(itemId, 1);
-			} else {
-				cartlist.put(itemId, itemQty);
-			}
-			model.addAttribute("sessionShoppingCart", cartlist);
-			System.out.println(cartlist);
-			System.out.println(itemQty);
-		//有:加上商品
-		} else {
-			if (itemQty == null) {
-				cartlist.put(itemId, 1);
-			} else {
-				cartlist.put(itemId, itemQty);
+		// ========================================================================================
+		// 新增
+		if (cmd.equalsIgnoreCase("add")) {
+			// 如果找不到ShoppingCart清單
+			if (cartlist == null) {
+				cartlist = new LinkedHashMap<>();
+				System.out.println(itemQty);
+				if (itemQty == null) {
+					cartlist.put(itemId, 1);
+				} else {
+					cartlist.put(itemId, itemQty);
+				}
 				model.addAttribute("sessionShoppingCart", cartlist);
+				System.out.println(cartlist);
+				System.out.println(itemQty);
+				// 有:加上商品
+			} else {
+				if (itemQty == null) {
+					cartlist.put(itemId, 1);
+				} else {
+					cartlist.put(itemId, itemQty);
+					model.addAttribute("sessionShoppingCart", cartlist);
+				}
 			}
-		}
 		}
 
 		List<SessionShoppingCartVo> sscList = shoppingCartService.getShoppingCartVo(cartlist);
 		model.addAttribute("sessionShoppingCartList", sscList);
 //		System.out.println("sscList================="+sscList);
-		
+
 //		System.out.println("訪客加入購物車結束===================================");
 		return "redirect:/merchandiseSearchResult";
 	}
-	
-	//多選刪除
-	@GetMapping("/shoppingCart/MultipleDelete") 
-		public String MultipleDelete(
+
+	// 多選刪除
+	@GetMapping("/shoppingCart/MultipleDelete")
+	public String MultipleDelete(
 //			@RequestParam("deleteItems") Integer[] deleteItems,
-			@RequestParam("items") String items){
-		System.out.println("items==============="+items);
+			@RequestParam("items") String items) {
+		System.out.println("items===============" + items);
 		String[] item = items.split(",");
-		
+
 		for (int x = 0; x < item.length; x++) {
 //			System.out.println(item[x]);
 			shoppingCartService.deleteItem(Integer.valueOf(item[x]));
 		}
 		return "redirect:/shoppingCart";
-		
+
 	}
 }

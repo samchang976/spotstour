@@ -101,11 +101,56 @@ function newQtyChange(id,index,itemId,mId) {
     var x = "Qty"+index; //index=迴圈執行次數
     var newQty = document.getElementById(x).value; //取得數量
     // alert(newQty);
-    document.forms[0].action="shoppingCart/updateQty?sc_Id=" + id + "&s_ordQty=" + newQty +"&mId="+mId+"&itemId="+itemId;
+    // document.forms[0].action="shoppingCart/updateQty?sc_Id=" + id + "&s_ordQty=" + newQty +"&mId="+mId+"&itemId="+itemId;
+    document.forms[0].action="shoppingCart/updateQty?sc_Id=" + id + "&s_ordQty=" + newQty ;
+
     document.forms[0].method="POST";
     document.forms[0].submit();
+}
+
+function newQtyChange2(sc_Id,index) {
+    // alert(index);
+    var x = "Qty"+index; //index=迴圈執行次數
+    var newQty = document.getElementById(x).value; //取得數量
+
+    // ajax的非同步請求
+    // 步驟一: 新建XMLHttpRequest物件
+    var xhr = new XMLHttpRequest();
+    // 步驟二: 經由AJAX提出HTTP請求
+    if (xhr != null) {
+        xhr.onreadystatechange=function(){
+            // if(xhr.readyState==2){
+            //     alert("有偵測到送出send()~")	;
+            // }
+            // if(xhr.readyState==3){
+            //     alert("回應資料下載中");
+            // }
+            if (xhr.readyState == 4 && xhr.status == 200){
+                // newQty.value = xhr.responseText;	
+                alert(`商品數量已修改為${newQty}`)	;
+                anountMethod();
+                totalAmount();
+            }
+        }
+        // alert(` <c:url value='shoppingCart/updateQty2?sc_Id=  ${id}  &s_ordQty=  ${newQty} '/>`);
+        let url =`shoppingCart/updateQty2?sc_Id=${sc_Id}&s_ordQty=${newQty}`;
+        // alert(url);
+        xhr.open('GET',url , true);
+        // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");//post方法一定要設
+        // let newQtyindex=`${id}+${index}`;
+        // xhr.send("sc_Id="+sc_Id+"&s_ordQty"+newQty);
+        xhr.send();
+        
+
+        
+        // 步驟三: 處理伺服器送回的回應資料
+    } else {
+       alert("您的瀏覽器不支援Ajax");
+    }
+
 
 }
+
 
 //商品小計計算==========================================================================
 function anountMethod() {
